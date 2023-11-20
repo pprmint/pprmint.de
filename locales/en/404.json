@@ -1,0 +1,9 @@
+{
+    "Content": {
+        "info": "Either the URL you entered contains typos, or the page doesn't exist anymore.",
+        "returnHome": "Go to home page"
+    },
+    "Head": {
+        "title": "Page not found"
+    }
+}

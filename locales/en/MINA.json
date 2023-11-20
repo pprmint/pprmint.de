@@ -1,0 +1,58 @@
+{
+	"Head": {
+		"description": "My mascot, or something.",
+		"title": "Mina"
+	},
+	"Content": {
+        "About": {
+            "heading": "About Mina",
+            "text1": "Born {{birthyear}} years ago on the 11th of June with green hair and emerald-like eyes, she's a laid-back girl who is content with what she has. Having moved from Japan to Germany a long time ago, she has had a lot of time to accumulate some fine German insults. Used sparingly, they manage to make people never attempt to talk to her again.",
+            "text2": "She likes to eat mint-flavored treats, especially chocolate chip mint ice cream. Mina also always keeps a pack of gum in her pocket, though her chewing gum bubbles are rarely larger than a centimeter.",
+            "text3": "Mina is fascinated by architecture and interior design, finding joy in conceptualizing modern living spaces. There are plans for how every room in her dream house should look, not to mention the design of the house itself.",
+            "text4": "Mina was drawn with a height of 160 cm by the talented <Link>@wxsonz</Link>. Please take a look at his profile."
+        },
+        "Design": {
+            "heading": "Design",
+            "HairBand": {
+                "heading": "Hair band & ponytail",
+                "text": "Shaped like a leaf, used for her ponytail. It might make her look like a certain Vocaloid character."
+            },
+            "Ahoge": {
+                "heading": "Ahoge",
+                "text": "Her hair antenna shoots up when you aim for pats."
+            },
+            "Accessories": {
+                "heading": "Accessories",
+                "text": "She often wears a ring and can sometimes be seen with badges of icons for tools and programs."
+            },
+            "LeafDesign": {
+                "heading": "Leaf design",
+                "text": "Her clothes often have a green line with a two-toned leaf embedded into it."
+            }
+        },
+        "Colors": {
+            "heading": "Colors",
+            "text1": "These colors are part of my custom palette, but are only guidelines. If you plan to draw Mina, just note that she has green hair and light blue eyes with a gradient to green. Otherwise, feel free to experiment.",
+            "text2": "Click on a color to copy its HEX code to your clipboard."
+        },
+		"Fanart": {
+			"heading": "Fanart rules",
+			"text1": "I don't really have any rules for you if you plan on drawing SFW art with Mina. Knock yourself out.",
+			"text2": "If you want to draw unholy things, I'm fine with it as long as it depicts Mina solo. Just try to keep it tasteful, and don't create anything controversial.",
+			"text3": "Regardless of how you end up drawing her, I would love to see your work and maybe put it up on my website. Please feel free to <Link>message me</Link> to show me what you've made."
+		},
+		"Artworks": {
+			"artworkBy": "Made by "
+		},
+        "NSFW": {
+            "switch": "Neuron activation",
+            "Dialog": {
+                "title": "So you found that switch.",
+                "text1": "Works which probably shouldn't be seen at your workplace are hidden by default. A click on that pretty button will change that though.",
+                "text2": "If you aren't 18 years of age yet, please close this window.",
+                "admitSins": "I've got nothing to lose",
+                "nevermind": "Maybe not"
+            }
+		}
+	}
+}

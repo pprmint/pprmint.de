@@ -1,0 +1,23 @@
+{
+	"Content": {
+        "AllGlyphs": {
+            "showAll": "Show all characters"
+        },
+		"Download": {
+			"heading": "Make your modem screech,",
+			"text": "and your hard drive click."
+		},
+		"Tester": {
+			"heading": "Write something, or let that pangram enchant you.",
+			"pangram": "The five boxing wizards jump quickly.",
+            "alignment": "Alignment",
+            "size": "Size",
+			"spacing": "Letter spacing",
+			"reset": "Reset"
+		}
+	},
+	"Head": {
+		"description": "A pixel font.",
+		"title": "Mintbit"
+	}
+}

@@ -1,0 +1,27 @@
+{
+    "Head": {
+        "description": "I make things with vector points, polygons and code.",
+        "title": "Hiya"
+    },
+    "Content": {
+        "RecentWork": {
+            "title": "Recent work",
+            "OpenSUSE": {
+                "name": "Logos for openSUSE and its distros.",
+                "description": "Here's another contest I'm participating in. This time it's about logos for openSUSE's distributions as well as for the project itself. Their design is inspired by the logos used for their more recent distros such as MicroOS and Aeon."
+            },
+            "Stairway": {
+                "name": "Stairway - A wallpaper for KDE Plasma 6.",
+                "description": "There's a wallpaper contest going on in the KDE Community right now for the next version of Plasma. This right here is my first submission. I'll probably render a couple more soon. Click on this sweet button to find out more."
+            },
+            "Mintcraft": {
+				"name": "Mintcraft now available for 1.20.",
+				"description": "Many textures like those for the creative menu and the new world creation screen have been updated so you can now play the latest version of Minecraft with my pack. My pixel font has also been improved a bit."
+			},
+            "Tentative": {
+                "name": "Website and branding for Tentative.",
+                "description": "I created the branding and this (work in progress) website for Tentative, a young group of artists that I'm a part of. The main design elements include, a violet main accent color, abstract monochrome imagery and 21.5° angles."
+            }
+        }
+    }
+}

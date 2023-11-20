@@ -1,0 +1,43 @@
+{
+	"title": "Ask me a question.",
+	"Messages": {
+		"Hello": {
+			"answer": "Hiya. How can I help?"
+		},
+        "NoTalky": {
+			"answer": "I'm useless anyways, so get lost."
+		},
+		"UseSelf": {
+			"message": "May I use the graphics and animations in my own works?",
+			"answer": "No, everything you see on the <gallery>gallery page</gallery> is just for looking at. You could use the 3D renders as desktop wallpapers for instance, but that's it."
+		},
+		"ProjectTerms": {
+			"message": "Under which conditions may projects such as fonts and icons be used?",
+			"answer": "Fonts are licensed under the <sil>SIL Open Font License</sil>. You may freely use those even commercially. A copy of the license is included with the ZIP.<br />It's a different story with projects like Mintcraft or the app icons. You may use them for free and modify them to your needs. However, you may not sell or otherwise redistribute them. Please link back to the respective project page if you want to share stuff."
+		},
+		"WhatSoftware": {
+			"message": "What software is typically used to create stuff around here?",
+			"answer": "Anything 2D is done using Affinity Designer. Motion graphics compositions are also usually prepared in Affinity Designer and then animated in Adobe After Effects, with the help of Mt. Mograph's Motion plugin. Fonts are created using FontForge."
+		},
+		"OfferCommissions": {
+			"message": "Can I request a commission?",
+			"answer": "Maybe, provided you have an idea (and money). Take a look at the <comms>Commissions page</comms> for more details."
+		},
+		"OwnQuestion": {
+			"message": "Can I ask my own question?",
+			"answer": "Nah."
+		},
+		"Ending": {
+			"message": "Thank you, that's all.",
+			"answer": "Was I a good chatbot?"
+		},
+		"EndingYes": {
+			"message": "Yep, you're very helpful.",
+			"answer": "yayy~"
+		},
+		"EndingNo": {
+			"message": "No, you're useless.",
+			"answer": "Arsch."
+		}
+	}
+}

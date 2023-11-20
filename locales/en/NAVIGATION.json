@@ -1,0 +1,55 @@
+{
+	"Path": {
+		"General": {
+			"title": "General",
+			"Home": {
+				"description": "The page that you most likely saw when you first landed here.",
+				"title": "Home page"
+			},
+			"Mina": {
+                "description": "The greenest page on this entire website.",
+				"title": "Mina"
+			},
+			"Contact": {
+                "description": "Send me a message and pray I remember to check my mail.",
+				"title": "Contact"
+			}
+		},
+		"Projects": {
+            "title": "Projects",
+            "Gallery": {
+                "description": "Something for your eyes.",
+                "title": "Gallery"
+            },
+			"Mintcraft": {
+				"description": "A Minecraft resource pack.",
+				"title": "Mintcraft"
+			},
+			"Mintsans": {
+				"description": "A sans-serif font.",
+				"title": "Mintsans"
+			},
+			"Mintbit": {
+				"description": "A pixel font.",
+				"title": "Mintbit"
+			},
+			"AppIcons": {
+				"description": "Windows-11-style app icons.",
+				"title": "App icons"
+			}
+		},
+		"Other": {
+			"title": "Other",
+			"Privacy": {
+				"description": "Do I have your credit card information? You tell me.",
+				"title": "Privacy policy"
+			},
+			"SwitchLocale": {
+				"description": "Du verstehst nicht mal Bahnhof? Klick hier.",
+				"title": "Deutsch, bitte!"
+			}
+		}
+	},
+	"and": " and ",
+	"madeWith": "Made with "
+}

@@ -1,0 +1,27 @@
+{
+	"Head": {
+		"description": "Ich mache Dinge mit Vektorpunkten, Polygonen und Code.",
+		"title": "Heya"
+	},
+	"Content": {
+		"RecentWork": {
+			"title": "Aktuelle Werke",
+            "OpenSUSE": {
+                "name": "Logos für openSUSE und deren Distros.",
+                "description": "Ein weiterer Contest, in welchem ich teilnehme. Diesmal geht es um neue Logos für openSUSE-Distributionen, sowie für das Projekt selbst. Das grobe Design dafür leitet sich von den Logos neuerer Distros ab, wie MicroOS und Aeon."
+            },
+            "Stairway": {
+                "name": "Stairway - Ein Hintergrundbild für KDE Plasma 6.",
+                "description": "In der KDE Community findet aktuell ein Wallpaper-Contest für die nächste Version von Plasma statt. Das hier ist mein erster Beitrag dazu. Wahrscheinlich werde ich irgendwann noch ein paar weitere Bilder rendern. Klicke auf diesen schicken Knopf um mehr zu erfahren."
+            },
+			"Mintcraft": {
+				"name": "Mintcraft nun für Version 1.20 verfügbar.",
+				"description": "Viele Texturen wie für das Kreativ-Menü oder der Welt-Erstellungs-Bildschirm mit den Tabs wurden angepasst, sodass du nun die neuste Version von Minecraft mit diesem Pack spielen kannst. Auch meine Pixel-Schriftart hat einige Verbesserungen erhalten."
+			},
+			"Tentative": {
+				"name": "Website und Branding für Tentative.",
+				"description": "Ich habe das Branding und diese (in Entwicklung befindliche) Website für Tentative entworfen, eine junge Gruppe von Künstlern, in der ich Mitglied bin. Zu den wichtigsten Designelementen gehören eine violette Hauptakzentfarbe, abstrakte monochrome Abbildungen und 21,5°-Winkel."
+			}
+		}
+	}
+}

@@ -1,0 +1,46 @@
+{
+	"Content": {
+        "Changes": {
+			"heading": "Changes in Mintcraft {{version}}.",
+			"Mintcraft": {
+				"fixMinceraft": "Fix texture for Minceraft easter egg,",
+				"deleteDuplicate": "Removed basic Mintcraft pack ZIP from Complete pack. Don't ask."
+			}
+		},
+        "DosAndDonts": {
+            "heading": "Do's and don'ts.",
+            "disclaimer": "In the following, 'Mintcraft' refers to both the main UI pack itself and its add-ons.",
+            "Do": {
+                "heading": "Do:",
+                "modifyPersonal": "Use and modify Mintcraft to fit your own needs and tastes.",
+                "mix": "Mix Mintcraft with other resource packs.",
+                "useOnline": "Use Mintcraft in online content, like videos or livestreams.",
+                "sharePrivately": "Share Mintcraft and/or your modification of it with friends privately.",
+                "useServer": "Use Mintcraft as a server resource pack."
+            },
+            "Dont": {
+                "heading": "Don't you dare:",
+                "claim": "Be a cunt and claim you made all this.",
+                "redistribute": "Provide mirrors for Mintcraft or your modification, or otherwise redistribute it publicly.",
+                "sell": "Sell or offer Mintcraft or a modification of it behind a paywall."
+            }
+        },
+        "Credits": {
+            "heading": "Special thanks.",
+            "blizzy": "For his custom song in the Sounds add-on. More to follow. Hopefully.",
+            "vanillaTweaks": "For fixing the text color on dark backgrounds."
+        },
+        "MayContainMistakes": {
+            "heading": "May contain mistakes and bad decisions.",
+            "text": "If you have some feedback or found something that looks to be an error, feel free to <Link>send me a message</Link>."
+        },
+		"Download": {
+			"commonTitle": "Downloads for Minecraft {{version}}.",
+			"fullSauceInfo": "This pack contains Mintcraft with all add-ons."
+		}
+	},
+	"Head": {
+		"description": "A dark and modern Minecraft UI resource pack.",
+		"title": "Mintcraft"
+	}
+}

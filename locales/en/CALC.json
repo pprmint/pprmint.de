@@ -1,0 +1,12 @@
+{
+    "Head": {
+        "description": "Because you can never have enough useless easter eggs.",
+        "title": "Calculator"
+    },
+    "Content": {
+        "Settings": {
+            "lcdFont": "LCD font",
+            "lightTheme": "Light theme"
+        }
+    }
+}

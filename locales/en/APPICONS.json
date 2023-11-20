@@ -1,0 +1,24 @@
+{
+	"Content": {
+		"Intro": {
+			"title": "About these icons.",
+			"text1": "Many applications out there follow their own design language, from the design of the app itself to its icon. For the latter, I want to create a more uniform look (and also make sure that not every video editor from Adobe looks like Media Encoder). Controversial to hear this from a Windows user, I know. <i>Consistency? In Windows? Hilarious.</i>",
+			"text2": "These icons loosely follow the <a>guidelines for Windows app icons</a>. Click on a few icons to select them and then download them below.",
+			"text3": "More symbols will be added over time if I feel like it."
+		},
+		"Dialog": {
+			"title": "Caffeine addiction.",
+			"text1": "Hiya. Making all of these icons was a lot of work. I'm releasing them for free, but if you're feeling generous and want to support me and my work, a coffee would be really appreciated.",
+			"text2": "Click the button below to visit my Ko-fi page.",
+			"openKofi": "Fuel my addiction",
+			"noThanks": "Nah"
+		},
+        "search": "Search for an app icon by its name",
+        "iconsSelected_one": "icon selected.",
+        "iconsSelected_other": "icons selected."
+	},
+	"Head": {
+		"description": "Windows-11-style app icons.",
+		"title": "App icons"
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"Head": {
+		"description": "Get in touch via email or Twitter DMs.",
+		"title": "Contact"
+	},
+	"Content": {
+        "Mina": {
+            "heading": "You just have a short question?",
+            "text": "Save yourself (and most importantly me) some time and:",
+            "askMina": "Ask Mina!"
+        },
+		"Email": {
+			"title": "Email",
+            "preferMailto": "Prefer to use your own email client? Send your email to ",
+			"Form": {
+                "name": "Name",
+				"emailAddress": "Email address",
+				"message": "Message",
+				"Subject": {
+                    "title": "Subject",
+                    "general": "General question",
+                    "terms": "Terms of use",
+                    "commission": "Commission",
+                    "privacy": "Privacy"
+                },
+                "send": "Send",
+                "sending": "Sending...",
+                "sent": "Sent",
+                "sentText": "You might even get a reply one day.",
+                "retry": "Retry",
+                "noCommissions": "Sorry, I don't accept commissions at the time."
+			}
+		},
+		"twitter": "Twitter DM",
+		"Message": {
+			"body": "By deliberately replacing the subject and body text of this email with advertising, sponsorship offers or the like, you agree that I may put your email address into my spam filter to have future emails from you take the shortest route straight to the trash.",
+			"subject": "This is absolutely not an ad or a scam. Wink wink."
+		}
+	}
+}

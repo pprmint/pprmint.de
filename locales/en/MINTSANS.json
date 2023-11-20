@@ -1,0 +1,23 @@
+{
+	"Content": {
+		"Download": {
+			"heading": "Make your disk cry,",
+			"text": "and your eyes bleed."
+		},
+		"Tester": {
+			"alignment": "Alignment",
+			"bold": "Bold",
+			"extralight": "Extra Light",
+			"heading": "Try it out. Or else.",
+			"pangram": "The quick brown fox jumps over the lazy dog.",
+			"regular": "Regular",
+			"size": "Size",
+			"spacing": "Letter spacing",
+			"weight": "Weight"
+		}
+	},
+	"Head": {
+		"description": "A sans-serif and (soon) grotesque font.",
+		"title": "Mintsans"
+	}
+}

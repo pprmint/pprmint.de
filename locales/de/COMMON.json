@@ -1,0 +1,27 @@
+{
+    "learnMore": "Weitere Infos",
+    "download": "Herunterladen",
+    "downloading": "Wird heruntergeladen",
+    "downloadAll": "Alle herunterladen",
+    "downloadSelected": "Ausgewählte herunterladen",
+    "deselectAll": "Auswahl zurücksetzen",
+    "noResults": "Keine Ergebnisse",
+    "settings": "Einstellungen",
+    "visitPage": "Seite besuchen",
+    "visitWebsite": "Website besuchen",
+    "visitProfile": "Profil besuchen",
+    "viewOriginal": "Original ansehen",
+    "copied": "In Zwischenablage kopiert.",
+    "VideoPlayer": {
+        "loop": "Wiederholen",
+        "copyVideoUrl": "Video-URL kopieren",
+        "playbackSpeed": "Geschwindigkeit"
+    },
+    "Mina": {
+        "lovePats": "hehe, ich liebe streicheln ♥",
+        "forgive": "Ich verzeihe dir, wenn du mich weiter streichelst.",
+        "tooMany1": "Du musst aber auch nicht übertreiben und meine Haare ruinieren.",
+        "tooMany2": "HÖR AUF",
+        "tooMany3": "AAAAAAAAAAAAAAAAAAAAAA"
+    }
+}

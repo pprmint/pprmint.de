@@ -1,0 +1,63 @@
+{
+    "Head": {
+        "description": "Finde heraus, ob und unter welchen Bedingungen ich für Auftragsarbeiten zu haben bin.",
+		"title": "Auftragsarbeit"
+	},
+    "Content": {
+		"Status": {
+			"heading": "Status",
+			"red": "Derzeit akzeptiere ich keine Auftragsarbeiten, aber lies gerne weiter.",
+			"yellow": "Ich akzeptiere Auftragsarbeiten, jedoch nur begrenzt.",
+			"green": "Ich akzeptiere Auftragsarbeiten. Scroll runter für mehr Infos."
+		},
+		"Offers": {
+			"heading": "Verfügbare Arbeiten",
+            "priceInfo": "Die hier gezeigten Preise sind Schätzungen. Sie können vom Endbetrag durch Faktoren wie der Komplexität des Projektes abweichen.",
+			"2DDesign": {
+				"heading": "2D-Design",
+				"subheading": "Logo-Design, Assets für Social-Media-Profile"
+			},
+			"2DAnimation": {
+				"heading": "2D-Animation",
+				"subheading": "Kurze Logo-Animation, Motion Graphics"
+			},
+			"2D3DGraphic": {
+				"heading": "2D/3D-Grafik",
+				"subheading": "Vektor-Illustration, abstrakte 3D-Szene"
+			},
+			"Website": {
+				"heading": "Website",
+				"subheading": "Einfache HTML/CSS oder komplexere Next.js website"
+			}
+		},
+		"Terms": {
+			"heading": "Auftragsbedingungen",
+			"Disclaimer": {
+				"heading": "Disclaimer",
+				"termsAgree": "Du musst den folgenden Bedingunen zustimmen, bevor du mir eine Anfrage senden darfst.",
+                "acknowledgement": "Mit dem Absenden einer Anfrage stimmst du zu, dass du diese Bedingunen gelesen hast und sie akzeptierst.",
+                "rightToWithdraw": "Ich behalte mir das Recht vor, jederzeit und aus beliegigem Grund abzulehnen oder davon zurückzutreten.",
+                "noRefund": "Rückerstattungen werden nur unter bestimmten Bedingungen gewährt, nicht jedoch nach Beginn der Arbeit. Weitere Details dazu findest du weiter unten."
+			},
+            "ClientRights": {
+                "heading": "Deine Rechte als Klient",
+                "allowPublicDisplay": "You may display my work "
+            },
+            "ArtistRights": {
+                "heading": "Meine Rechte als Künstler",
+                "allowPublicDisplay": "You may display my work "
+            },
+            "Payment": {
+                "heading": "Zahlung",
+                "preferredMethod": "Die bevorzugte Zahlungsmethode ist PayPal. Beträge müssen in Euro gesendet werden. Etwaige Transaktionskosten werden von mir übernommen."
+            },
+            "Refunds": {
+                "heading": "Rückerstattungen",
+                "preamble": "Uns beiden ist es gestattet, von einem Kommissionsauftrag jederzeit zurückzutreten. Erstattungen werden jedoch nur unter bestimmten Bedingunen gewährt.",
+                "notStarted": "Wird der Auftrag storniert, noch bevor ich mit der Arbeit am Projekt begonnen habe, und die erste Zahlung bereits eingegangen ist, überweise ich die erste Zahlung in voller Höhe zurück.",
+                "anotStarted": "Es werden keine Rückerstattungen gewährt, wenn die Arbeit an einem Projekt bereits begonnen hat. Auf Wunsch werde ich die ",
+                "hasStarted": "Es gibt keine Rückerstattung, wenn die Arbeit an einem Auftrag bereits begonnen hat. Bei Bedarf stelle ich die (evtl. unfertigen) Dateien, wie ich sie bis dahin bearbeitet habe, gegen eine Gebühr im Verhältnis zum Gesamtpreis zur Verfügung."
+            }
+		}
+	}
+}

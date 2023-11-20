@@ -1,0 +1,62 @@
+{
+	"Head": {
+		"description": "Find out if I'm open for commissions and what my conditions are.",
+		"title": "Commissions"
+	},
+	"Content": {
+		"Status": {
+			"heading": "Status",
+			"red": "I'm currently not accepting commissions, but feel free to read on.",
+			"yellow": "I'm accepting commissions, but slots are very limited.",
+			"green": "I'm accepting commissions. Find out more by scrolling down."
+		},
+		"Offers": {
+			"heading": "Available works",
+            "priceInfo": "The prices shown here are estimates. They may differ from the final amount depending on the complexity of the project and other factors.",
+			"2DDesign": {
+				"heading": "2D design",
+				"subheading": "Logo design, social media profile assets"
+			},
+			"2DAnimation": {
+				"heading": "2D animation",
+				"subheading": "Short logo animation, motion graphics"
+			},
+			"2D3DGraphic": {
+				"heading": "2D/3D graphic",
+				"subheading": "Vector illustration, abstract 3D scene"
+			},
+			"Website": {
+				"heading": "Website",
+				"subheading": "Basic HTML/CSS or more complex Next.js website"
+			}
+		},
+		"Terms": {
+			"heading": "Commission terms",
+			"Disclaimer": {
+				"heading": "Disclaimer",
+				"termsAgree": "You have to agree to the following conditions before you may submit a commission request.",
+                "acknowledgement": "By submitting a commission request you acknowledge to have read and accepted the following terms and conditions.",
+                "rightToWithdraw": "I reserve the right to decline or withdraw from a commission at any time and for any reason.",
+                "noRefund": "Refunds are only granted under certain conditions, not however after work on a project has begun. More on that below."
+			},
+            "ClientRights": {
+                "heading": "Your rights as a client",
+                "allowPublicDisplay": "You may display my work "
+            },
+            "ArtistRights": {
+                "heading": "My rights as an artist",
+                "allowPublicDisplay": "You may display my work "
+            },
+            "Payment": {
+                "heading": "Payment",
+                "preferredMethod": "The preferred payment method is PayPal. Payments must be sent in EUR. Any transfer fees will be handled by me."
+            },
+            "Refunds": {
+                "heading": "Refunds",
+                "preamble": "Either party is allowed to withdraw from a commission at any time and for any reason. However, refunds will only be granted under certain circumstances.",
+                "notStarted": "If the order is cancelled before I have started working on it and the initial payment has already been made, I will refund the initial payment in full.",
+                "hasStarted": "There are no refunds once work on a commission has already begun. Upon request, I'll provide the (possibly unfinished) files I've worked on up to that point for a fee relative to the total price."
+            }
+		}
+	}
+}

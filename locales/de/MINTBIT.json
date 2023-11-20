@@ -1,0 +1,23 @@
+{
+	"Content": {
+        "AllGlyphs": {
+            "showAll": "Alle Zeichen anzeigen"
+        },
+		"Download": {
+			"heading": "Lass das Modem schrillen,",
+			"text": "und deine Festplatte klicken."
+		},
+		"Tester": {
+			"heading": "Schreib etwas, oder lass dich von diesem Pangramm verzaubern.",
+			"pangram": "Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich.",
+            "alignment": "Ausrichtung",
+            "size": "Größe",
+			"spacing": "Zeichenabstand",
+			"reset": "Zurücksetzen"
+		}
+	},
+	"Head": {
+		"description": "Eine Pixelschriftart.",
+		"title": "Mintbit"
+	}
+}

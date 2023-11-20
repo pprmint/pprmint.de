@@ -1,0 +1,58 @@
+{
+	"Head": {
+		"description": "Mein Maskottchen, oder so.",
+		"title": "Mina"
+	},
+	"Content": {
+		"About": {
+			"heading": "Über Mina",
+			"text1": "Mit grünem Haar und smaragdfarbenen Augen wurde sie vor {{birthyear}} Jahren am 11. Juni geboren. Sie ist ein ruhiges Mädchen, das zufrieden ist, mit dem, was sie hat. Sie zog vor langer Zeit von Japan nach Deutschland und hatte daher viel Zeit, sich ein paar schöne deutsche Beleidigungen anzueignen. Sparsam eingesetzt sorgen sie dafür, dass Leute nie wieder mit ihr reden wollen.",
+			"text2": "Sie mag Leckereien mit Minzgeschmack, besonders Schokoladen-Minz-Eiscreme. Ebenso hat sie immer eine Packung Kaugummis parat. Ihre Kaugummiblasen sind jedoch selten größer als ein Zentimeter.",
+			"text3": "Mina ist fasziniert von Architektur und Innenraumgestaltung und hat Freude daran, moderne Wohnräume zu konzipieren. Sie hat schon Pläne, wie jeder Raum in ihrem Traumhaus auszusehen hat, von der Gestaltung des Hauses an sich ganz zu schweigen.",
+			"text4": "Mina wurde mit 160 cm Körpergröße von <Link>@wxsonz</Link> gezeichnet. Schau dir gerne sein Profil an."
+		},
+		"Design": {
+            "heading": "Design",
+			"HairBand": {
+				"heading": "Haartuch & Pferdeschwanz",
+				"text": "In Form eines Blattes für ihren Pferdeschwanz. Es erinnert etwas an einen gewissen Vocaloid-Charakter."
+			},
+			"Ahoge": {
+				"heading": "Ahoge",
+				"text": "Ihre Haar-Antenne schießt in die Höhe, wenn man sie streicheln will."
+			},
+			"Accessories": {
+				"heading": "Schmuck",
+				"text": "Sie trägt oftmals einen Ring und gegentlich Anstecker mit Logos diverser Tools und Programme."
+			},
+			"LeafDesign": {
+				"heading": "Blatt-Design",
+				"text": "Ihre Kleidung hat oftmals einen Strich, welcher durch ein zweifarbiges Blatt unterbrochen wird."
+			}
+		},
+		"Colors": {
+			"heading": "Farben",
+			"text1": "Diese Farben sind Teil meiner eigenen Farbpalette, aber nur Richtwerte. Wenn du Mina zeichnen willst, beachte nur, dass sie grüne Haare und hellblaue Augen mit einem Verlauf zu grün hat. Sonst kannst du gerne experimentieren.",
+			"text2": "Klicke auf eine Farbe, um den HEX-Code in die Zwischenablage zu kopieren."
+		},
+		"Fanart": {
+			"heading": "Fanart-Regeln",
+			"text1": "Wenn es SFW-Artwork ist, habe ich grundsätzlich keine wirklichen Regeln für dich. Tob dich aus.",
+            "text2": "Möchtest du unheilige Dinge zeichnen, habe ich kein Problem damit, solange es Mina solo darstellt. Lass es nur nicht geschmacklos oder anderweitig kontrovers sein.",
+            "text3": "Egal wie du sie letztendlich zeichnest, ich würde es sehr gerne sehen wollen und vielleicht auch auf dieser Seite zeigen. Sende mir dazu gerne eine <Link>Nachricht</Link>, um mir zu zeigen, was du gemacht hast."
+		},
+		"Artworks": {
+			"artworkBy": "Von "
+		},
+        "NSFW": {
+            "switch": "Neuronen-Aktivierung",
+            "Dialog": {
+                "title": "Du hast also den Schalter gefunden.",
+                "text1": "Werke, welche lieber nicht am Arbeitsplatz angesehen werden sollen, sind standardmäßig ausgeblendet. Ein Klick auf den schicken Knopf ändert dies jedoch.",
+                "text2": "Solltest du noch nicht 18 Jahre alt sein, schließe bitte dieses Fenster.",
+                "admitSins": "Ich hab nichts zu verlieren",
+                "nevermind": "Lieber nicht"
+            }
+		}
+	}
+}

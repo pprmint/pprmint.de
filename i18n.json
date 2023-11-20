@@ -1,0 +1,21 @@
+{
+	"locales": ["en", "de"],
+	"defaultLocale": "en",
+	"pages": {
+		"*": ["COMMON", "NAVIGATION", "404"],
+		"/": ["HOME"],
+		"/gallery": ["GALLERY"],
+		"/commissions": ["COMMISSIONS"],
+		"/contact": ["CONTACT", "CHAT"],
+		"/projects": ["PROJECTS"],
+		"/projects/appicons": ["APPICONS"],
+		"/projects/mintcraft": ["MINTCRAFT"],
+		"/projects/new/mintcraft": ["MINTCRAFT"],
+		"/projects/mintsans": ["MINTSANS"],
+		"/projects/mintbit": ["MINTBIT"],
+		"/stuff": ["STUFF"],
+		"/mina": ["MINA"],
+		"/calc": ["CALC"],
+		"/privacy": ["PRIVACY"]
+	}
+}

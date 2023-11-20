@@ -1,0 +1,9 @@
+{
+    "Content": {
+        "info": "Entweder enthält die eingegebene URL Tippfehler, oder die Seite existiert nicht mehr.",
+        "returnHome": "Zur Startseite"
+    },
+    "Head": {
+        "title": "Seite nicht gefunden"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "Head": {
+        "description": "Weil du nie genug nutzlose Easter-Eggs haben kannst.",
+        "title": "Taschenrechner"
+    },
+    "Content": {
+        "Settings": {
+            "lcdFont": "LCD-Schrift",
+            "lightTheme": "Helles Design"
+        }
+    }
+}

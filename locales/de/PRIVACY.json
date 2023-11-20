@@ -1,0 +1,44 @@
+{
+	"Content": {
+		"Contact": {
+			"heading": "Kontakt.",
+			"text1": "Bei Fragen zum Thema Datenschutz kannst du mir gerne eine Email an <strong>privacy[at]pprmint.art</strong> schicken.",
+			"text2": "Verwende diese Adresse nur für den obigen Zweck, nicht für allgemeine Fragen, Werbung, Spam oder Ähnliches.",
+			"text3": "Emails, die du mir schicken könntest, werden von meinem Email-Provider <strong>Fastmail</strong> verarbeitet. Ich werde deinen Namen, deine Email-Adresse oder die Inhalte deiner Nachrichten nie verbreiten."
+		},
+		"General": {
+			"example": "Darstellungsbeispiel für externen Link",
+			"heading": "Allgemein.",
+			"text1": "Diese Website allein sammelt keine persönlichen Daten, sei es durch Analysen, Werbung, Tracker, Cookies, Fingerprinting oder ähnlichem.",
+			"text2": "Seiten können Links zu Websites Dritter enthalten. Auf dortige Inhalte und Datenschutzpraktiken habe ich keinerlei Einfluss und ich übernehme keine Verantwortung für diese."
+		},
+		"Hosting": {
+			"Log": {
+				"accessTime": "<0>Zugriffszeit: </0>Die Zeit zu welcher der Client (also dein Browser) eine Datei vom Server erhielt. Falls es dich interessiert: Das Format ist DD/MMMM/YYYY: HH:MM:SS +GMT.",
+				"domain": "<0>Domain: </0>pprmint.art. Ich weiß, ich kann's selbst kaum glauben.",
+				"httpCode": "<0>HTTP-Antwort-Code: </0>Meist ist das \"200 OK\" denn ♪ hier ist alles super ♪. Möchtest du mehr über die verschiedenen Codes der HTTP-Welt erfahren:",
+				"ipAddress": "<0>IP-Adresse: </0>Das Ding, mit welchem du dich im Internet identifizierst. Hetzner anonymisiert IP-Adressen, indem sie das letzte Oktett mit einer zufälligen Zahl ersetzen.",
+				"receivedFile": "<0>Erhaltene Datei: </0>Na rate mal.",
+				"userAgent": "<0>User-Agent: </0>Damit erfährt der Server beispielsweise, welcher Browser, welches Betriebssystem und welche Rendering-Engine für den Zugriff auf etwas verwendet wurde. Außerdem kann ich dir sagen, dass Windows 11 dort immer noch als \"Windows NT 10.0; Win64; x64\" bezeichnet wird. Weitere Informationen über den User-Agent-Header findest du hier:"
+			},
+			"heading": "Hosting.",
+			"text1": "Zur Bereitstellung der Website werden mehrere Webhosting-Anbieter verwendet, um auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO mit modernen Webtechnologien arbeiten zu können, sowie Medien und Downloads in Originalqualität und ohne Bandbreiteneinschränkungen anzubieten.",
+			"text2": "Für die eigentliche Website verwende ich <strong>Vercel</strong>, eine Cloud-Deployment-Plattform, bereitgestellt von Vercel Inc. (340 S Lemon Ave #4133, Walnut, CA 91789, USA).",
+			"text3": "Medien wie Bilder und Videos sowie zum Download angebotene Dateien werden auf Server der <strong>Hetzner Online GmbH</strong> (Industriestraße 25, 91710 Gunzenhausen, Deutschland) gespeichert.",
+			"text4": "Die Website selbst sammelt keine personenbezogenen Daten und verzichtet auf Analyse-Tools. Jedoch werden von den Hosting-Anbietern beim Besuch automatisch Informationen erfasst und in Log-Dateien gespeichert. Diese Logs enthalten u. a. Folgendes:",
+			"text5": "Log-Einträge werden von Hetzner für 7 Tage gespeichert. Vercel behält Daten so lange, wie es nötig ist, um ihre Dienste bereitzustellen. Daten werden, wenn möglich, regelmäßig gelöscht. Sollte eine Löschung nicht möglich sein, werden Daten sicher und isoliert gespeichert, bis eine Löschung möglich ist.",
+			"text6": "Weitere Informationen findest du in den Datenschutzerklärungen von Hetzner und Vercel, sowie dem Data Processing Addendum von Vercel."
+		},
+		"Tldr": {
+			"heading": "Die Kurzfassung:",
+			"text": "Server-Logs sind die einzigen Dinger, die Informationen über dich speichern, oder genauer über den Browser und das Gerät, welches du gerade verwendest. Die eigentliche Website wird von Vercel gehostet, während einige Bilder, Videos und Downloads von meinem Webspace bei Hetzner stammen."
+		},
+		"dpaOf": "Data Processing Addendum von {{provider}}",
+		"lastUpdated": "Zuletzt aktualisiert: {revisionDate, date, ::yyyyMMMMd}",
+		"privacyPolicyOf": "Datenschutzerklärung von {{provider}}"
+	},
+	"Head": {
+		"description": "Erfahre, welche Daten bei deinem Besuch verarbeitet werden.",
+		"title": "Datenschutzerklärung"
+	}
+}
