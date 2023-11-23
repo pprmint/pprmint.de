@@ -43,6 +43,18 @@ export default function Mina() {
 	});
 
 	const Artworks = [
+        {
+			src: "https://static.pprmint.art/mina/aikoyori_3.webp",
+			width: 1920,
+			height: 1080,
+			position: "object-center",
+			caption: `${t("MINA:Content.Artworks.artworkBy")} Aikoyori`,
+			link: "https://aikoyori.xyz",
+			linkExternal: true,
+			linkText: t("COMMON:visitWebsite"),
+			linkIcon: "ri-global-line",
+			noDownload: true,
+		},
 		{
 			src: "https://static.pprmint.art/mina/layer_3.webp",
 			width: 1500,
@@ -102,10 +114,10 @@ export default function Mina() {
 			height: 902,
 			position: "object-right",
 			caption: `${t("MINA:Content.Artworks.artworkBy")} Aikoyori`,
-			link: "https://twitter.com/Aikoyori",
+			link: "https://aikoyori.xyz",
 			linkExternal: true,
-			linkText: t("COMMON:visitProfile"),
-			linkIcon: "ri-user-line",
+			linkText: t("COMMON:visitWebsite"),
+			linkIcon: "ri-global-line",
 			noDownload: true,
 		},
 		{
@@ -159,10 +171,10 @@ export default function Mina() {
 			height: 970,
 			position: "object-right",
 			caption: `${t("MINA:Content.Artworks.artworkBy")} Aikoyori`,
-			link: "https://twitter.com/Aikoyori",
+			link: "https://aikoyori.xyz",
 			linkExternal: true,
-			linkText: t("COMMON:visitProfile"),
-			linkIcon: "ri-user-line",
+			linkText: t("COMMON:visitWebsite"),
+			linkIcon: "ri-global-line",
 			noDownload: true,
 		},
 		{
