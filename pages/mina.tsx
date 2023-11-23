@@ -750,7 +750,7 @@ export default function Mina() {
 						<Portal.Root className="fixed z-50">
 							<a.div style={styles}>
 								<Lightbox
-									images={Artworks}
+									images={filteredArtworks}
 									aspectRatio="square"
 									selectedImage={selectedImage}
 									onClose={() => handleLightboxClose()}
