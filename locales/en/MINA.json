@@ -47,11 +47,14 @@
         "NSFW": {
             "switch": "Neuron activation",
             "Dialog": {
-                "title": "So you found that switch.",
-                "text1": "Works which probably shouldn't be seen at your workplace are hidden by default. A click on that pretty button will change that though.",
-                "text2": "If you aren't 18 years of age yet, please close this window.",
-                "admitSins": "I've got nothing to lose",
-                "nevermind": "Maybe not"
+                "title": "Looks like that switch made you a bit curious.",
+                "text1": "Some things are better left unseen. Especially if you're in public or otherwise at risk of someone peeking over your shoulder.",
+                "text2": "Flicking this switch will reveal suggestive or lewd (NSFW) artwork on the page. If you're fine with that, give that green button a click.",
+                "text3": "<b>If you're under the age of 18, you should close this pop-up.</b> I won't tell your mom.",
+                "hint": "Hint: If there's a keyboard in front of you, you only have one hand free and suddenly need to abort your mission, press the space bar to hide the smut again.",
+                "credit": "The art of Mina judging you up there was drawn by <Link>@wxsonz</Link>.",
+                "admitSins": "I'm a lost cause.",
+                "nevermind": "Nah, I think I'm good."
             }
 		}
 	}

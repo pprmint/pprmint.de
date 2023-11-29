@@ -19,6 +19,7 @@ import Lightbox from "components/Lightbox";
 
 import HeroMina from "public/assets/mina/hero.webp";
 import TransparentMina from "public/assets/mina/mina.webp";
+import HehMina from "public/assets/mina/heh-upscaled.png";
 
 export default function Mina() {
 	const { t } = useTranslation();
@@ -43,7 +44,7 @@ export default function Mina() {
 	});
 
 	const Artworks = [
-        {
+		{
 			src: "https://static.pprmint.art/mina/aikoyori_3.webp",
 			width: 1920,
 			height: 1080,
@@ -163,7 +164,7 @@ export default function Mina() {
 			secondaryLinkExternal: true,
 			secondaryLinkText: t("COMMON:viewOriginal"),
 			secondaryLinkIcon: "ri-external-link-line",
-            nsfw: true,
+			nsfw: true,
 		},
 		{
 			src: "https://static.pprmint.art/mina/aikoyori_1.webp",
@@ -265,44 +266,32 @@ export default function Mina() {
 			<div className="absolute w-full h-full z-10">
 				<div
 					className={`absolute border-4 border-green drop-shadow-md w-[40%] aspect-square rounded-full top-[3%] right-[7%] ${
-						highlighted === "band"
-							? "backdrop-brightness-[140%] scale-100 sopacity-100"
-							: "scale-50 opacity-0"
+						highlighted === "band" ? "backdrop-brightness-[140%] scale-100 sopacity-100" : "scale-50 opacity-0"
 					} duration-250 ease-out origin-center`}
 				/>
 				<div
 					className={`absolute border-4 border-green drop-shadow-md w-[20%] aspect-square rounded-full top-[7%] left-[32%] ${
-						highlighted === "ahoge"
-							? "backdrop-brightness-[140%] scale-100 sopacity-100"
-							: "scale-50 opacity-0"
+						highlighted === "ahoge" ? "backdrop-brightness-[140%] scale-100 sopacity-100" : "scale-50 opacity-0"
 					} duration-250 ease-out origin-center`}
 				/>
 				<div
 					className={`absolute border-4 border-green drop-shadow-md w-[19%] aspect-square rounded-full top-[44%] left-[14%] ${
-						highlighted === "accessories"
-							? "backdrop-brightness-[140%] scale-100 sopacity-100"
-							: "scale-50 opacity-0"
+						highlighted === "accessories" ? "backdrop-brightness-[140%] scale-100 sopacity-100" : "scale-50 opacity-0"
 					} duration-250 ease-out origin-center`}
 				/>
 				<div
 					className={`absolute border-4 border-green drop-shadow-md w-[19%] aspect-square rounded-full top-[43.5%] right-[29%] ${
-						highlighted === "accessories"
-							? "backdrop-brightness-[140%] scale-100 sopacity-100"
-							: "scale-50 opacity-0"
+						highlighted === "accessories" ? "backdrop-brightness-[140%] scale-100 sopacity-100" : "scale-50 opacity-0"
 					} duration-250 ease-out origin-center`}
 				/>
 				<div
 					className={`absolute border-4 border-green drop-shadow-md w-[8%] aspect-square rounded-full top-[33.6%] right-[24.5%] ${
-						highlighted === "accessories"
-							? "backdrop-brightness-[140%] scale-100 sopacity-100"
-							: "scale-50 opacity-0"
+						highlighted === "accessories" ? "backdrop-brightness-[140%] scale-100 sopacity-100" : "scale-50 opacity-0"
 					} duration-250 ease-out origin-center`}
 				/>
 				<div
 					className={`absolute border-4 border-green drop-shadow-md w-[15%] aspect-square rounded-full top-[59.7%] right-[33%] ${
-						highlighted === "leaf"
-							? "backdrop-brightness-[140%] scale-100 sopacity-100"
-							: "scale-50 opacity-0"
+						highlighted === "leaf" ? "backdrop-brightness-[140%] scale-100 sopacity-100" : "scale-50 opacity-0"
 					} duration-250 ease-out origin-center`}
 				/>
 			</div>
@@ -322,18 +311,17 @@ export default function Mina() {
 	// NSFW switch
 	const [showNsfw, setShowNsfw] = useState(false);
 	useEffect(() => {
-        let horny = localStorage.getItem("horny");
+		let horny = localStorage.getItem("horny");
 		if (horny) {
 			setShowNsfw(true);
 		}
 	}, []);
 	const [dialogOpen, setDialogOpen] = useState(false);
 	const dialogTransitions = useTransition(dialogOpen, {
-		from: { opacity: 0, x: "-50%", y: "-40%" },
+		from: { opacity: 0, y: 40 },
 		enter: {
 			opacity: 1,
-			x: "-50%",
-			y: "-50%",
+			y: 0,
 			config: {
 				easing: easings.easeOutExpo,
 				duration: 500,
@@ -341,8 +329,7 @@ export default function Mina() {
 		},
 		leave: {
 			opacity: 0,
-			x: "-50%",
-			y: "-40%",
+			y: 40,
 			config: {
 				easing: easings.easeInQuint,
 				duration: 400,
@@ -362,29 +349,42 @@ export default function Mina() {
 									style={{
 										opacity: styles.opacity,
 									}}
-								>
-									<div className="fixed inset-0 z-50 bg-neutral-950 opacity-75" />
-								</a.div>
+									className="bg-neutral-950/80 backdrop-blur-xl"
+								/>
 							</Dialog.Overlay>
 							<Dialog.Content
 								forceMount
 								asChild
-								className="fixed z-50 top-1/2 left-1/2 py-6 bg-neutral-900 text-neutral rounded-xl border border-neutral-800 w-full md:max-w-xl shadow-xl"
+								className="fixed z-50 inset-0 flex flex-col items-center md:justify-center px-6 py-9 max-h-screen overflow-auto"
 							>
 								<a.div style={styles}>
-									<div className="flex flex-row items-start pb-3 pl-6 pr-3">
-										<h1 className="text-neutral-50 font-display text-2xl font-medium flex-grow">
+									<Dialog.Close className="group fixed z-50 top-3 md:top-5 right-3 md:right-5 text-neutral-50 w-10 h-10 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
+										<i className="ri-close-line text-xl text-neutral-50" />
+									</Dialog.Close>
+									<div className="flex flex-col lg:flex-row items-center pb-6 gap-6 lg:gap-12 max-w-4xl">
+										<Image
+											src={HehMina}
+											alt="A smirking Mina."
+											className="h-32 lg:h-36 w-auto rounded-full border-neutral-50"
+										/>
+										<h1 className="text-neutral-50 font-display text-2xl md:text-3xl lg:text-5xl font-medium flex-grow">
 											{t("MINA:Content.NSFW.Dialog.title")}
 										</h1>
-										<Dialog.Close className=" rounded-full w-9 h-9 mx-1 hover:bg-neutral-800 duration-100">
-											<i className="ri-close-line text-xl text-neutral-50" />
-										</Dialog.Close>
 									</div>
-									<div className="px-6">
+									<div className="text-center text-neutral-50 max-w-3xl">
 										<p>{t("MINA:Content.NSFW.Dialog.text1")}</p>
 										<p>{t("MINA:Content.NSFW.Dialog.text2")}</p>
+										<p>
+											<Trans
+												i18nKey="MINA:Content.NSFW.Dialog.text3"
+												components={{
+													b: <b />,
+												}}
+											/>
+										</p>
+										<p className="text-neutral text-xs italic">{t("MINA:Content.NSFW.Dialog.hint")}</p>
 									</div>
-									<div className="flex flex-row flex-wrap gap-3 pt-6 px-6">
+									<div className="flex flex-col md:flex-row items-center gap-3 pt-6 px-6">
 										<Button
 											color="green"
 											onClick={() => {
@@ -395,13 +395,17 @@ export default function Mina() {
 											}}
 										>
 											{t("MINA:Content.NSFW.Dialog.admitSins")}
-											<i className="ri-pulse-line" />
 										</Button>
-										<Button outlined color="green" onClick={() => setDialogOpen(false)}>
-											{t("MINA:Content.NSFW.Dialog.nevermind")}
-											<i className="ri-zzz-line" />
-										</Button>
+										<Button onClick={() => setDialogOpen(false)}>{t("MINA:Content.NSFW.Dialog.nevermind")}</Button>
 									</div>
+									<p className="md:absolute pt-6 bottom-3 md:bottom-5 left-3 md:left-5 text-sm">
+										<Trans
+											i18nKey="MINA:Content.NSFW.Dialog.credit"
+											components={{
+												Link: <Link href="https://twitter.com/wxsonz" target="_blank" className="font-medium text-blue underline decoration-2 decoration-dotted hover:decoration-solid decoration-blue-800 hover:decoration-blue duration-100" />,
+											}}
+										/>
+									</p>
 								</a.div>
 							</Dialog.Content>
 						</>
@@ -412,7 +416,7 @@ export default function Mina() {
 	}
 
 	const toggleNsfw = () => {
-        const seenHornyDialog = localStorage.getItem("confirmedHornyDialog");
+		const seenHornyDialog = localStorage.getItem("confirmedHornyDialog");
 		if (!showNsfw) {
 			if (!seenHornyDialog) {
 				setDialogOpen(true);
@@ -426,7 +430,24 @@ export default function Mina() {
 		}
 	};
 
-    const filteredArtworks = showNsfw ? Artworks : Artworks.filter(artwork => !artwork.nsfw);
+	// Abort mission.
+	useEffect(() => {
+		const handleKeyPress = (event: KeyboardEvent) => {
+			if (event.key === " ") {
+				setShowNsfw(false);
+				localStorage.removeItem("horny");
+				handleLightboxClose;
+			}
+		};
+
+		document.addEventListener("keydown", handleKeyPress);
+
+		return () => {
+			document.removeEventListener("keydown", handleKeyPress);
+		};
+	}, []);
+
+	const filteredArtworks = showNsfw ? Artworks : Artworks.filter((artwork) => !artwork.nsfw);
 
 	return (
 		<>
@@ -436,13 +457,7 @@ export default function Mina() {
 				image="https://pprmint.art/assets/mina/embed_gold.png"
 			/>
 			<Title title={t("MINA:Head.title")} description={t("MINA:Head.description")}>
-				<Image
-					src={HeroMina}
-					alt="Original Mina artwork by wxsonz."
-					fill
-					className="object-cover"
-					quality={90}
-				/>
+				<Image src={HeroMina} alt="Original Mina artwork by wxsonz." fill className="object-cover" quality={90} />
 			</Title>
 			<main>
 				<Toast.Provider swipeDirection="right">
@@ -455,9 +470,7 @@ export default function Mina() {
 										{t("MINA:Content.About.heading")}
 									</Accordion.Trigger>
 									<Accordion.Content className="data-[state=closed]:animate-accordion-slide-up data-[state=open]:animate-accordion-slide-down overflow-hidden">
-										<p>
-											{t("MINA:Content.About.text1", { birthyear: `${new Date().getFullYear() - 2004}` })}
-										</p>
+										<p>{t("MINA:Content.About.text1", { birthyear: `${new Date().getFullYear() - 2004}` })}</p>
 										<p>{t("MINA:Content.About.text2")}</p>
 										<p>{t("MINA:Content.About.text3")}</p>
 										<Trans

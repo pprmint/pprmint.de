@@ -47,11 +47,14 @@
         "NSFW": {
             "switch": "Neuronen-Aktivierung",
             "Dialog": {
-                "title": "Du hast also den Schalter gefunden.",
-                "text1": "Werke, welche lieber nicht am Arbeitsplatz angesehen werden sollen, sind standardmäßig ausgeblendet. Ein Klick auf den schicken Knopf ändert dies jedoch.",
-                "text2": "Solltest du noch nicht 18 Jahre alt sein, schließe bitte dieses Fenster.",
-                "admitSins": "Ich hab nichts zu verlieren",
-                "nevermind": "Lieber nicht"
+                "title": "Der Schalter hat dich wohl neugierig gemacht.",
+                "text1": "Manche Dinge sollte man lieber ungesehen lassen. Besonders wenn du dich in der Öffentlichkeit befindest, oder dir jemand aus anderen Gründen über die Schulter linsen könnte.",
+                "text2": "Wenn du diesen Schalter anklickst werden anzügliche bzw. anstößige (NSFW) Illustrationen auf der Seite angezeigt. Wenn das für dich kein Problem ist, klick auf den grünen Knopf.",
+                "text3": "<b>Wenn du noch keine 18 Jahre alt bist, solltest du dieses Pop-up schließen.</b> Ich sag's auch nicht Mama.",
+                "hint": "Tipp: Wenn eine Tastatur vor dir liegt, du nur eine Hand frei hast und plötzlich deine Mission abbrechen musst, kannst du die Leertaste drücken, um die Schweinereien wieder zu verstecken.",
+                "credit": "Die Zeichnung von Mina da oben stammt von <Link>@wxsonz</Link>.",
+                "admitSins": "Ich bin ein hoffnungsloser Fall.",
+                "nevermind": "Nee, lass mal."
             }
 		}
 	}
