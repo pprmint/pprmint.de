@@ -10,10 +10,11 @@ import * as Progress from "@radix-ui/react-progress";
 
 function VideoPlayer(props: {
 	src: string;
-	title: string;
+	title?: string;
 	poster?: string;
 	noSound?: boolean;
 	noDownload?: boolean;
+	loopDefault?: boolean;
 }) {
 	const { t } = useTranslation();
 
@@ -259,7 +260,7 @@ function VideoPlayer(props: {
 			}
 
 			const videoBlob = new Blob(chunks);
-			saveAs(videoBlob, `${props.title}.mp4`);
+			saveAs(videoBlob, `${props.title ? props.title : "video"}.mp4`);
 		} catch (error) {
 			console.error("Error downloading video:", error);
 		}
@@ -279,7 +280,7 @@ function VideoPlayer(props: {
 			},
 		},
 	});
-	const [loopEnabled, setLoopEnabled] = useState(false);
+	const [loopEnabled, setLoopEnabled] = useState(props.loopDefault ? true : false);
 
 	return (
 		<div
@@ -338,7 +339,7 @@ function VideoPlayer(props: {
 							</a.div>
 						)
 				)}
-				{topTransition(
+				{props.title && topTransition(
 					(style, item) =>
 						item && (
 							<a.div
@@ -437,11 +438,7 @@ function VideoPlayer(props: {
 											onClick={handleFullscreen}
 											aria-label="enter/exit fullscreen"
 										>
-											{fullscreen ? (
-												<i className="ri-fullscreen-exit-line" />
-											) : (
-												<i className="ri-fullscreen-line" />
-											)}
+											{fullscreen ? <i className="ri-fullscreen-exit-line" /> : <i className="ri-fullscreen-line" />}
 										</button>
 									</div>
 								</div>
