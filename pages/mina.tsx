@@ -44,6 +44,19 @@ export default function Mina() {
 	});
 
 	const Artworks = [
+        {
+			src: "https://static.pprmint.art/mina/nekomimi_3.webp",
+			width: 1414,
+			height: 2000,
+			position: "object-top",
+			caption: `${t("MINA:Content.Artworks.artworkBy")} Nekomimi`,
+			link: "https://twitter.com/nekomimiwubs",
+			linkExternal: true,
+			linkText: t("COMMON:visitProfile"),
+			linkIcon: "ri-user-line",
+			noDownload: true,
+            nsfw: true,
+		},
 		{
 			src: "https://static.pprmint.art/mina/aikoyori_3.webp",
 			width: 1920,
