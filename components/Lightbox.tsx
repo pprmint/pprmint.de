@@ -201,7 +201,7 @@ export default function Lightbox(props: LightboxProps) {
 					))}
 
 					<div className="fixed w-screen max-w-max z-50 bottom-2.5 overflow-x-auto">
-						<div className="flex flex-nowrap items-center justify-center gap-2 h-14 my-0.5 w-max px-2.5 border border-neutral-50/10 ring-1 ring-neutral-950/75 bg-neutral-50/10 rounded-xl mx-3">
+						<div className="flex flex-nowrap items-center justify-center gap-2 h-14 my-0.5 w-max px-2.5 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 bg-neutral-50/10 rounded-xl mx-3">
 							{props.images.map((image, index) => (
 								<div
 									key={index}

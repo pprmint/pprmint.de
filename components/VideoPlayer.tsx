@@ -446,7 +446,7 @@ function VideoPlayer(props: {
 						)
 				)}
 				<ContextMenu.Portal>
-					<ContextMenu.Content className="z-50 text-neutral text-sm w-60 p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-50/10 ring-1 ring-neutral-950/75 shadow-lg rounded-lg overflow-hidden origin-[var(--radix-context-menu-content-transform-origin)] data-[state='open']:animate-scale-up data-[state='closed']:animate-scale-down">
+					<ContextMenu.Content className="z-50 text-neutral text-sm w-60 p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-lg rounded-lg overflow-hidden origin-[var(--radix-context-menu-content-transform-origin)] data-[state='open']:animate-scale-up data-[state='closed']:animate-scale-down">
 						<ContextMenu.CheckboxItem
 							className="group relative flex items-center gap-3 pr-2 pl-2 data-[highlighted]:pl-3 h-7 rounded-sm leading-none select-none outline-none data-[disabled]:text-neutral data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-50 data-[highlighted]:bg-neutral-50/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-none"
 							checked={loopEnabled}
@@ -477,7 +477,7 @@ function VideoPlayer(props: {
 							</ContextMenu.SubTrigger>
 							<ContextMenu.Portal>
 								<ContextMenu.SubContent
-									className="z-50 text-neutral text-sm w-28 p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-50/10 ring-1 ring-neutral-950/75 shadow-lg rounded-lg overflow-hidden origin-left data-[state='open']:animate-scale-up data-[state='closed']:animate-scale-down"
+									className="z-50 text-neutral text-sm w-28 p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-lg rounded-lg overflow-hidden origin-left data-[state='open']:animate-scale-up data-[state='closed']:animate-scale-down"
 									sideOffset={6}
 									alignOffset={-89}
 								>
