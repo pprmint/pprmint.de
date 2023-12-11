@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import { AppProps } from "next/app";
+import { useRouter } from "next/router";
 import Head from "next/head";
-import React from "react";
 
 import "styles/globals.css";
 import "fonts/Silka/silka.css";
@@ -17,6 +18,10 @@ import Navigation from "components/Navigation";
 import Footer from "components/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
+	const router = useRouter();
+	useEffect(() => {
+		router.events.on("routeChangeComplete", () => document.body.classList.remove("overflow-hidden"));
+	}, []);
 	return (
 		<>
 			<Head>
