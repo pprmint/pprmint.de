@@ -1,44 +1,34 @@
 {
-	"Content": {
+    "Head": {
+        "description": "Erfahre, welche Daten bei deinem Besuch verarbeitet werden.",
+        "title": "Datenschutzerklärung"
+    },
+    "Content": {
+        "Tldr": {
+            "heading": "Die Kurzfassung:",
+            "text1": "Ich setze auf <b>Contabo</b> für das Hosting der eigentlichen Website, <b>Fastmail</b> für den Email-Versand und -Empfang, und <b>Cloudflare</b> als DNS-Proxy.",
+            "text2": "Die einzigen personenbezogene Daten die ich erhalte und Zugriff drauf habe, sind die, die du über das Kontaktformular oder per Email direkt an mich sendest, wie Name, Email-Adresse und was immer du ins Nachrichtenfeld schreibst. Sofern nicht anders vereinbart, werden diese Nachrichten nach 60 Tagen automatisch gelöscht.",
+            "text3": "Der Webserver erfasst zwar keine IP-Adressen, dafür jedoch Cloudflare, die Anfragen durchleiten und ggf. filtern. Das dient zum einen dafür, dass du nicht so leicht auf den Ursprungsserver kommst, und zum anderen, um mich gegen DDoS-Angriffe zu schützen."
+        },
+        "General": {
+            "heading": "Allgemein.",
+            "text1": "Diese Website sammelt keine persönlichen Daten, sei es durch Analysen, Werbung, Tracker, Cookies, Fingerprinting oder ähnlichem. IP-Adressen dienen nur der Kommunikation zwischen deinem Browser und der Website und werden vom Webserver nicht erfasst oder gespeichert.",
+            "text2": "Die einzigen personenbezogenen Daten, auf die ich direkt Zugriff habe, sind jene, die du mir über das Kontaktformular oder direkt per Email zukommen lässt, wie ggf. Name, Email-Adresse und Inhalt der Nachricht. Mein Email-Postfach befindet sich bei Fastmail (Fastmail Pty. Ltd., PO Box 234, Collins St West, Victoria 8007, Australien) und Emails werden, sofern in Antworten nicht anders vereinbart, nach 60 Tagen automatisch gelöscht.",
+            "text3": "Teile dieser Website können Links zu externen Websites enthalten, wie z.B. Profile auf sozialen Medien oder Websites von Künstlern und anderen Projekten. Für die Inhalte solcher Seiten übernehme ich keine Haftung. Es gelten dann auch die dortigen Datenschutzbestimmungen und nicht weiter die von pprmint.art."
+        },
+        "Hosting": {
+            "heading": "Hosting.",
+            "text1": "pprmint.art wird auf einem Cloud-Server von Contabo (Contabo GmbH, Aschauer Straße 32a, 81549 München, Deutschland) gehostet, welcher sich in einem EU-Rechenzentrum befindet. Es werden keine IP-Adressen zur Verarbeitung der Anfragen gespeichert und auch keine Server-Logs mit weiteren Details angelegt.",
+            "text2": "Zum Schutz vor DDoS-Angriffen und zum Optimieren von Ladezeiten verwende ich Cloudflare (Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA), welche einen Proxy für DNS-Anfragen bereitstellen. Sämtliche Anfragen an meine Website gehen zuerst durch Cloudflare, die in diesem Zuge auch die IP-Adresse von Besuchern zu Analyse- und Sicherheitszwecken erheben.",
+            "text3": "Der Einsatz von Diensten dieser Anbieter zum jeweiligen Zweck beruht auf meinem berechtigten Interesse, diese Website möglichst fehlerfrei, schnell und sicher bereitstellen zu können. (Art. 6 Abs. 1 lit. f DSGVO)"
+        },
 		"Contact": {
 			"heading": "Kontakt.",
 			"text1": "Bei Fragen zum Thema Datenschutz kannst du mir gerne eine Email an <strong>privacy[at]pprmint.art</strong> schicken.",
-			"text2": "Verwende diese Adresse nur für den obigen Zweck, nicht für allgemeine Fragen, Werbung, Spam oder Ähnliches.",
-			"text3": "Emails, die du mir schicken könntest, werden von meinem Email-Provider <strong>Fastmail</strong> verarbeitet. Ich werde deinen Namen, deine Email-Adresse oder die Inhalte deiner Nachrichten nie verbreiten."
-		},
-		"General": {
-			"example": "Darstellungsbeispiel für externen Link",
-			"heading": "Allgemein.",
-			"text1": "Diese Website allein sammelt keine persönlichen Daten, sei es durch Analysen, Werbung, Tracker, Cookies, Fingerprinting oder ähnlichem.",
-			"text2": "Seiten können Links zu Websites Dritter enthalten. Auf dortige Inhalte und Datenschutzpraktiken habe ich keinerlei Einfluss und ich übernehme keine Verantwortung für diese."
-		},
-		"Hosting": {
-			"Log": {
-				"accessTime": "<0>Zugriffszeit: </0>Die Zeit zu welcher der Client (also dein Browser) eine Datei vom Server erhielt. Falls es dich interessiert: Das Format ist DD/MMMM/YYYY: HH:MM:SS +GMT.",
-				"domain": "<0>Domain: </0>pprmint.art. Ich weiß, ich kann's selbst kaum glauben.",
-				"httpCode": "<0>HTTP-Antwort-Code: </0>Meist ist das \"200 OK\" denn ♪ hier ist alles super ♪. Möchtest du mehr über die verschiedenen Codes der HTTP-Welt erfahren:",
-				"ipAddress": "<0>IP-Adresse: </0>Das Ding, mit welchem du dich im Internet identifizierst. Hetzner anonymisiert IP-Adressen, indem sie das letzte Oktett mit einer zufälligen Zahl ersetzen.",
-				"receivedFile": "<0>Erhaltene Datei: </0>Na rate mal.",
-				"userAgent": "<0>User-Agent: </0>Damit erfährt der Server beispielsweise, welcher Browser, welches Betriebssystem und welche Rendering-Engine für den Zugriff auf etwas verwendet wurde. Außerdem kann ich dir sagen, dass Windows 11 dort immer noch als \"Windows NT 10.0; Win64; x64\" bezeichnet wird. Weitere Informationen über den User-Agent-Header findest du hier:"
-			},
-			"heading": "Hosting.",
-			"text1": "Zur Bereitstellung der Website werden mehrere Webhosting-Anbieter verwendet, um auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO mit modernen Webtechnologien arbeiten zu können, sowie Medien und Downloads in Originalqualität und ohne Bandbreiteneinschränkungen anzubieten.",
-			"text2": "Für die eigentliche Website verwende ich <strong>Vercel</strong>, eine Cloud-Deployment-Plattform, bereitgestellt von Vercel Inc. (340 S Lemon Ave #4133, Walnut, CA 91789, USA).",
-			"text3": "Medien wie Bilder und Videos sowie zum Download angebotene Dateien werden auf Server der <strong>Hetzner Online GmbH</strong> (Industriestraße 25, 91710 Gunzenhausen, Deutschland) gespeichert.",
-			"text4": "Die Website selbst sammelt keine personenbezogenen Daten und verzichtet auf Analyse-Tools. Jedoch werden von den Hosting-Anbietern beim Besuch automatisch Informationen erfasst und in Log-Dateien gespeichert. Diese Logs enthalten u. a. Folgendes:",
-			"text5": "Log-Einträge werden von Hetzner für 7 Tage gespeichert. Vercel behält Daten so lange, wie es nötig ist, um ihre Dienste bereitzustellen. Daten werden, wenn möglich, regelmäßig gelöscht. Sollte eine Löschung nicht möglich sein, werden Daten sicher und isoliert gespeichert, bis eine Löschung möglich ist.",
-			"text6": "Weitere Informationen findest du in den Datenschutzerklärungen von Hetzner und Vercel, sowie dem Data Processing Addendum von Vercel."
-		},
-		"Tldr": {
-			"heading": "Die Kurzfassung:",
-			"text": "Server-Logs sind die einzigen Dinger, die Informationen über dich speichern, oder genauer über den Browser und das Gerät, welches du gerade verwendest. Die eigentliche Website wird von Vercel gehostet, während einige Bilder, Videos und Downloads von meinem Webspace bei Hetzner stammen."
+			"text2": "Verwende diese Adresse nur für den obigen Zweck, nicht für allgemeine Fragen, Werbung, Spam oder Ähnliches."
 		},
 		"dpaOf": "Data Processing Addendum von {{provider}}",
-		"lastUpdated": "Zuletzt aktualisiert: {revisionDate, date, ::yyyyMMMMd}",
-		"privacyPolicyOf": "Datenschutzerklärung von {{provider}}"
-	},
-	"Head": {
-		"description": "Erfahre, welche Daten bei deinem Besuch verarbeitet werden.",
-		"title": "Datenschutzerklärung"
+		"privacyPolicyOf": "Datenschutzerklärung von {{provider}}",
+		"lastUpdated": "Zuletzt aktualisiert: {revisionDate, date, ::yyyyMMMMd}"
 	}
 }
