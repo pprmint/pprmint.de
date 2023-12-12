@@ -131,13 +131,7 @@ export default function PrivacyPolicy() {
 						/>
 					</p>
 					<p>
-						{t("PRIVACY:Content.Contact.text2")}{" "}
-						<Trans
-							i18nKey="PRIVACY:Content.Contact.text3"
-							components={{
-								strong: <strong />,
-							}}
-						/>
+						{t("PRIVACY:Content.Contact.text2")}
 					</p>
 				</section>
 			</main>
