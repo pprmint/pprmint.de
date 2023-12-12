@@ -478,7 +478,7 @@ function VideoPlayer(props: {
 							<ContextMenu.Portal>
 								<ContextMenu.SubContent
 									className="z-50 text-neutral text-sm w-28 p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-lg rounded-lg overflow-hidden origin-left data-[state='open']:animate-scale-up data-[state='closed']:animate-scale-down"
-									sideOffset={6}
+									sideOffset={4}
 									alignOffset={-89}
 								>
 									<ContextMenu.RadioGroup value={playbackSpeed} onValueChange={handlePlaybackSpeedChange}>
