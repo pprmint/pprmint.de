@@ -123,7 +123,7 @@ export default function NotFound() {
 				<div
 					className="absolute w-full h-full top-0 left-0"
 					style={{
-						backgroundImage: "url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoyIj48cGF0aCBkPSJNMTYgMHYxNkgwVjBoMTZaTTggNmEyIDIgMCAxIDAgLjAwMSA0LjAwMUEyIDIgMCAwIDAgOCA2WiIgc3R5bGU9ImZpbGw6IzExMSIvPjwvc3ZnPg==)",
+						backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24" height="24" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23111"/></svg>')`,
 						backgroundRepeat: "repeat",
 					}}
 				/>
