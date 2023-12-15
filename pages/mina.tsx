@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import useTranslation from "next-translate/useTranslation";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import Trans from "next-translate/Trans";
 import FocusTrap from "focus-trap-react";
 import * as Portal from "@radix-ui/react-portal";
@@ -44,7 +43,7 @@ export default function Mina() {
 	});
 
 	const Artworks = [
-        {
+		{
 			src: "https://static.pprmint.art/mina/nekomimi_3.webp",
 			width: 1414,
 			height: 2000,
@@ -55,7 +54,7 @@ export default function Mina() {
 			linkText: t("COMMON:visitProfile"),
 			linkIcon: "ri-user-line",
 			noDownload: true,
-            nsfw: true,
+			nsfw: true,
 		},
 		{
 			src: "https://static.pprmint.art/mina/aikoyori_3.webp",
@@ -415,7 +414,13 @@ export default function Mina() {
 										<Trans
 											i18nKey="MINA:Content.NSFW.Dialog.credit"
 											components={{
-												Link: <Link href="https://twitter.com/wxsonz" target="_blank" className="font-medium text-blue underline decoration-2 decoration-dotted hover:decoration-solid decoration-blue-800 hover:decoration-blue duration-100" />,
+												Link: (
+													<Link
+														href="https://twitter.com/wxsonz"
+														target="_blank"
+														className="font-medium text-blue underline decoration-2 decoration-dotted hover:decoration-solid decoration-blue-800 hover:decoration-blue duration-100"
+													/>
+												),
 											}}
 										/>
 									</p>
@@ -477,41 +482,52 @@ export default function Mina() {
 					<section className="my-12 max-w-7xl mx-auto px-6 md:px-9">
 						<div className="lg:grid grid-cols-2 lg:grid-cols-3 gap-6">
 							{MinaDesignPoints}
-							<Accordion.Root type="single" defaultValue="lore" className="lg:col-span-2">
+							<Accordion.Root
+								type="single"
+								defaultValue="lore"
+								className="lg:col-span-2 divide-y-2 divide-neutral-900 border-b-2 border-neutral-900 h-max"
+							>
 								<Accordion.Item value="lore">
-									<Accordion.Trigger className="text-left font-display w-full data-[state=closed]:pt-6 data-[state=open]:py-6 font-semibold text-neutral-50 text-2xl data-[state=open]:text-3xl md:text-3xl data-[state=open]:md:text-4xl duration-400 in-out-custom">
+									<Accordion.Trigger className="group/trigger flex gap-3 text-left font-display w-full data-[state=closed]:py-3 data-[state=open]:py-6 font-semibold data-[state=closed]:hover:bg-neutral-900 data-[state=closed]:active:bg-transparent text-neutral-50 text-2xl data-[state=open]:text-3xl md:text-3xl data-[state=open]:md:text-4xl duration-400 data-[state=closed]:active:duration-200 ease-in-out-custom data-[state=open]:pointer-events-none">
+										<i className="ri-arrow-down-s-line group-data-[state=open]/trigger:rotate-180 duration-400 ease-in-out-custom" />
 										{t("MINA:Content.About.heading")}
 									</Accordion.Trigger>
-									<Accordion.Content className="data-[state=closed]:animate-accordion-slide-up data-[state=open]:animate-accordion-slide-down overflow-hidden">
+									<Accordion.Content className="data-[state=closed]:animate-accordion-slide-up data-[state=open]:animate-accordion-slide-down duration-400 ease-in-out-custom overflow-hidden">
 										<p>{t("MINA:Content.About.text1", { birthyear: `${new Date().getFullYear() - 2004}` })}</p>
 										<p>{t("MINA:Content.About.text2")}</p>
 										<p>{t("MINA:Content.About.text3")}</p>
-										<Trans
-											i18nKey="MINA:Content.About.text4"
-											components={{
-												Link: (
-													<Link
-														href="https://twitter.com/wxsonz"
-														target="_blank"
-														rel="noopener noreferrer"
-														className="text-blue decoration-2 decoration-dotted hover:decoration-solid underline decoration-blue-800 hover:decoration-blue duration-100"
-													/>
-												),
-											}}
-										/>
+										<p>{t("MINA:Content.About.text4")}</p>
+										<p>{t("MINA:Content.About.text5")}</p>
+										<p>
+											<Trans
+												i18nKey="MINA:Content.About.text6"
+												components={{
+													Link: (
+														<Link
+															href="https://twitter.com/wxsonz"
+															target="_blank"
+															rel="noopener noreferrer"
+															className="text-blue decoration-2 decoration-dotted hover:decoration-solid underline decoration-blue-800 hover:decoration-blue duration-100"
+														/>
+													),
+												}}
+											/>
+										</p>
+										<div className="h-9" />
 									</Accordion.Content>
 								</Accordion.Item>
 								<Accordion.Item value="design">
-									<Accordion.Trigger className="text-left font-display w-full data-[state=closed]:pt-6 data-[state=open]:py-6 font-semibold text-neutral-50 text-2xl data-[state=open]:text-3xl md:text-3xl data-[state=open]:md:text-4xl duration-400 in-out-custom">
+									<Accordion.Trigger className="group/trigger flex gap-3 text-left font-display w-full data-[state=closed]:py-3 data-[state=open]:py-6 font-semibold data-[state=closed]:hover:bg-neutral-900 data-[state=closed]:active:bg-transparent text-neutral-50 text-2xl data-[state=open]:text-3xl md:text-3xl data-[state=open]:md:text-4xl duration-400 data-[state=closed]:active:duration-200 ease-in-out-custom data-[state=open]:pointer-events-none">
+										<i className="ri-arrow-down-s-line group-data-[state=open]/trigger:rotate-180 duration-400 ease-in-out-custom" />
 										{t("MINA:Content.Design.heading")}
 									</Accordion.Trigger>
-									<Accordion.Content className="data-[state=closed]:animate-accordion-slide-up data-[state=open]:animate-accordion-slide-down overflow-hidden">
+									<Accordion.Content className="data-[state=closed]:animate-accordion-slide-up data-[state=open]:animate-accordion-slide-down duration-400 ease-in-out-custom overflow-hidden">
 										<div className="grid sm:grid-cols-2 gap-3" onMouseLeave={() => setHighlighted("")}>
 											<div
 												onMouseEnter={() => setHighlighted("band")}
 												className={`${
 													highlighted === "band" ? "bg-neutral-800" : "bg-neutral-900"
-												} rounded-md p-5 duration-100 cursor-default`}
+												} rounded-lg p-5 duration-100 cursor-default`}
 											>
 												<h4 className="font-display font-semibold text-neutral-50 text-xl md:text-2xl pb-1">
 													{t("MINA:Content.Design.HairBand.heading")}
@@ -522,7 +538,7 @@ export default function Mina() {
 												onMouseEnter={() => setHighlighted("ahoge")}
 												className={`${
 													highlighted === "ahoge" ? "bg-neutral-800" : "bg-neutral-900"
-												} rounded-md p-5 duration-100 cursor-default`}
+												} rounded-lg p-5 duration-100 cursor-default`}
 											>
 												<h4 className="font-display font-semibold text-neutral-50 text-xl md:text-2xl pb-1">
 													{t("MINA:Content.Design.Ahoge.heading")}
@@ -533,7 +549,7 @@ export default function Mina() {
 												onMouseEnter={() => setHighlighted("accessories")}
 												className={`${
 													highlighted === "accessories" ? "bg-neutral-800" : "bg-neutral-900"
-												} rounded-md p-5 duration-100 cursor-default`}
+												} rounded-lg p-5 duration-100 cursor-default`}
 											>
 												<h4 className="font-display font-semibold text-neutral-50 text-xl md:text-2xl pb-1">
 													{t("MINA:Content.Design.Accessories.heading")}
@@ -544,7 +560,7 @@ export default function Mina() {
 												onMouseEnter={() => setHighlighted("leaf")}
 												className={`${
 													highlighted === "leaf" ? "bg-neutral-800" : "bg-neutral-900"
-												} rounded-md p-5 duration-100 cursor-default`}
+												} rounded-lg p-5 duration-100 cursor-default`}
 											>
 												<h4 className="font-display font-semibold text-neutral-50 text-xl md:text-2xl pb-1">
 													{t("MINA:Content.Design.LeafDesign.heading")}
@@ -552,13 +568,15 @@ export default function Mina() {
 												<p>{t("MINA:Content.Design.LeafDesign.text")}</p>
 											</div>
 										</div>
+										<div className="h-9" />
 									</Accordion.Content>
 								</Accordion.Item>
 								<Accordion.Item value="colors">
-									<Accordion.Trigger className="text-left font-display w-full data-[state=closed]:pt-6 data-[state=open]:py-6 font-semibold text-neutral-50 text-2xl data-[state=open]:text-3xl md:text-3xl data-[state=open]:md:text-4xl duration-400 in-out-custom">
+									<Accordion.Trigger className="group/trigger flex gap-3 text-left font-display w-full data-[state=closed]:py-3 data-[state=open]:py-6 font-semibold data-[state=closed]:hover:bg-neutral-900 data-[state=closed]:active:bg-transparent text-neutral-50 text-2xl data-[state=open]:text-3xl md:text-3xl data-[state=open]:md:text-4xl duration-400 data-[state=closed]:active:duration-200 ease-in-out-custom data-[state=open]:pointer-events-none">
+										<i className="ri-arrow-down-s-line group-data-[state=open]/trigger:rotate-180 duration-400 ease-in-out-custom" />
 										{t("MINA:Content.Colors.heading")}
 									</Accordion.Trigger>
-									<Accordion.Content className="data-[state=closed]:animate-accordion-slide-up data-[state=open]:animate-accordion-slide-down overflow-hidden">
+									<Accordion.Content className="data-[state=closed]:animate-accordion-slide-up data-[state=open]:animate-accordion-slide-down duration-400 ease-in-out-custom overflow-hidden">
 										<div className="flex -space-x-2 pb-3">
 											<div
 												className="group grid items-center text-center bg-green-300 active:bg-green-500 text-neutral-950 border-2 border-neutral-950 w-10 hover:w-24 h-10 rounded-full duration-150 ease-out overflow-hidden cursor-pointer"
@@ -691,6 +709,7 @@ export default function Mina() {
 										</div>
 										<p>{t("MINA:Content.Colors.text1")}</p>
 										<p>{t("MINA:Content.Colors.text2")}</p>
+										<div className="h-9" />
 									</Accordion.Content>
 									<Toast.Root
 										className="flex gap-6 items-center p-3 rounded-xl shadow-lg shadow-neutral-950/50 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
@@ -709,10 +728,11 @@ export default function Mina() {
 									<Toast.Viewport className="[--viewport-padding:_25px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-50 outline-none" />
 								</Accordion.Item>
 								<Accordion.Item value="fanart">
-									<Accordion.Trigger className="text-left font-display w-full data-[state=closed]:pt-6 data-[state=open]:py-6 font-semibold text-neutral-50 text-2xl data-[state=open]:text-3xl md:text-3xl data-[state=open]:md:text-4xl duration-400 in-out-custom">
+									<Accordion.Trigger className="group/trigger flex gap-3 text-left font-display w-full data-[state=closed]:py-3 data-[state=open]:py-6 font-semibold data-[state=closed]:hover:bg-neutral-900 data-[state=closed]:active:bg-transparent text-neutral-50 text-2xl data-[state=open]:text-3xl md:text-3xl data-[state=open]:md:text-4xl duration-400 data-[state=closed]:active:duration-200 ease-in-out-custom data-[state=open]:pointer-events-none">
+										<i className="ri-arrow-down-s-line group-data-[state=open]/trigger:rotate-180 duration-400 ease-in-out-custom" />
 										{t("MINA:Content.Fanart.heading")}
 									</Accordion.Trigger>
-									<Accordion.Content className="data-[state=closed]:animate-accordion-slide-up data-[state=open]:animate-accordion-slide-down overflow-hidden">
+									<Accordion.Content className="data-[state=closed]:animate-accordion-slide-up data-[state=open]:animate-accordion-slide-down duration-400 ease-in-out-custom overflow-hidden">
 										<p>{t("MINA:Content.Fanart.text1")}</p>
 										<p>{t("MINA:Content.Fanart.text2")}</p>
 										<p>
@@ -728,6 +748,7 @@ export default function Mina() {
 												}}
 											/>
 										</p>
+										<div className="h-9" />
 									</Accordion.Content>
 								</Accordion.Item>
 							</Accordion.Root>
@@ -735,7 +756,7 @@ export default function Mina() {
 					</section>
 					<section className="my-12">
 						<div className="py-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-2 px-2">
-							{filteredArtworks.map((Artwork, index) => (
+							{Artworks.map((Artwork, index) => (
 								<button
 									key={Artwork.src}
 									onClick={() => handleLightboxOpen(index)}

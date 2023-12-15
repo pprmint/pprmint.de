@@ -6,10 +6,12 @@
 	"Content": {
         "About": {
             "heading": "About Mina",
-            "text1": "Born {{birthyear}} years ago on the 11th of June with green hair and emerald-like eyes, she's a laid-back girl who is content with what she has. Having moved from Japan to Germany a long time ago, she has had a lot of time to accumulate some fine German insults. Used sparingly, they manage to make people never attempt to talk to her again.",
-            "text2": "She likes to eat mint-flavored treats, especially chocolate chip mint ice cream. Mina also always keeps a pack of gum in her pocket, though her chewing gum bubbles are rarely larger than a centimeter.",
+            "text1": "Born {{birthyear}} years ago on the 11th of June with green hair and emerald-like eyes, she's a rather laid-back and quiet girl currently standing about 160 cm tall. She moved from Japan to Germany a long time ago, but only speaks English and German fluently. Through her long stay in Germany, she also had plenty of time to acquire a number of lovely German insults. Used sparingly, they make sure that certain people will voluntarily never exchange another word with her.",
+            "text2": "She likes to eat mint-flavored treats, especially chocolate chip mint ice cream. Mina also always keeps a pack of gum in her pocket, though her chewing gum bubbles are rarely larger than a centimeter. Meat dishes also raise her appetite quite a bit.",
             "text3": "Mina is fascinated by architecture and interior design, finding joy in conceptualizing modern living spaces. There are plans for how every room in her dream house should look, not to mention the design of the house itself.",
-            "text4": "Mina was drawn with a height of 160 cm by the talented <Link>@wxsonz</Link>. Please take a look at his profile."
+            "text4": "However, she does have issues committing to something and is quite easy to distract. Some days she may plan on doing something, only to then do anything but.",
+            "text5": "She also loves pats.",
+            "text6": "The design was created by <Link>@wxsonz</Link>. Please take a look at his Twitter profile for more of his work."
         },
         "Design": {
             "heading": "Design",
@@ -38,7 +40,7 @@
 		"Fanart": {
 			"heading": "Fanart rules",
 			"text1": "I don't really have any rules for you if you plan on drawing SFW art with Mina. Knock yourself out.",
-			"text2": "If you want to draw unholy things, I'm fine with it as long as it depicts Mina solo. Just try to keep it tasteful, and don't create anything controversial.",
+			"text2": "If you want to draw unholy things, I'm fine with it as long as it depicts Mina solo. Just try to keep it tasteful, and don't create anything controversial or fetishistic.",
 			"text3": "Regardless of how you end up drawing her, I would love to see your work and maybe put it up on my website. Please feel free to <Link>message me</Link> to show me what you've made."
 		},
 		"Artworks": {

@@ -6,10 +6,12 @@
 	"Content": {
 		"About": {
 			"heading": "Über Mina",
-			"text1": "Mit grünem Haar und smaragdfarbenen Augen wurde sie vor {{birthyear}} Jahren am 11. Juni geboren. Sie ist ein ruhiges Mädchen, das zufrieden ist, mit dem, was sie hat. Sie zog vor langer Zeit von Japan nach Deutschland und hatte daher viel Zeit, sich ein paar schöne deutsche Beleidigungen anzueignen. Sparsam eingesetzt sorgen sie dafür, dass Leute nie wieder mit ihr reden wollen.",
-			"text2": "Sie mag Leckereien mit Minzgeschmack, besonders Schokoladen-Minz-Eiscreme. Ebenso hat sie immer eine Packung Kaugummis parat. Ihre Kaugummiblasen sind jedoch selten größer als ein Zentimeter.",
+			"text1": "Mit grünem Haar und smaragdfarbenen Augen wurde sie vor {{birthyear}} Jahren am 11. Juni geboren. Mina ist ca. 160 cm groß und ist ein eher ruhiges Mädchen, das zufrieden ist mit dem, was sie hat. Sie zog vor langer Zeit von Japan nach Deutschland, spricht jedoch nur Deutsch und Englisch fließend. Durch ihren langen Aufenthalt in Deutschland hatte außerdem viel Zeit, sich ein paar schöne deutsche Beleidigungen anzueignen. Sparsam eingesetzt sorgen sie dafür, dass manche Leute freiwillig nicht mehr mit ihr reden.",
+			"text2": "Sie mag Leckereien mit Minzgeschmack, besonders Schokoladen-Minz-Eiscreme. Ebenso hat sie immer eine Packung Kaugummis parat, ihre Kaugummiblasen sind jedoch nur selten größer als ein Zentimeter. Fleischgerichte regen auch ihren Appetit an.",
 			"text3": "Mina ist fasziniert von Architektur und Innenraumgestaltung und hat Freude daran, moderne Wohnräume zu konzipieren. Sie hat schon Pläne, wie jeder Raum in ihrem Traumhaus auszusehen hat, von der Gestaltung des Hauses an sich ganz zu schweigen.",
-			"text4": "Mina wurde mit 160 cm Körpergröße von <Link>@wxsonz</Link> gezeichnet. Schau dir gerne sein Profil an."
+			"text4": "Trotzdem hat sie Probleme, sich auf Dinge zu fokussieren und ist leicht abzulenken. Auch mag sie an manchen Tagen etwas vorhaben, macht schlussendlich jedoch alles außer das.",
+			"text5": "Außerdem liebt sie Streicheleinheiten.",
+			"text6": "Das Design stammt von <Link>@wxsonz</Link>. Schau dir gerne sein Twitter-Profil für weitere seiner Werke an."
 		},
 		"Design": {
             "heading": "Design",
@@ -38,8 +40,8 @@
 		"Fanart": {
 			"heading": "Fanart-Regeln",
 			"text1": "Wenn es SFW-Artwork ist, habe ich grundsätzlich keine wirklichen Regeln für dich. Tob dich aus.",
-            "text2": "Möchtest du unheilige Dinge zeichnen, habe ich kein Problem damit, solange es Mina solo darstellt. Lass es nur nicht geschmacklos oder anderweitig kontrovers sein.",
-            "text3": "Egal wie du sie letztendlich zeichnest, ich würde es sehr gerne sehen wollen und vielleicht auch auf dieser Seite zeigen. Sende mir dazu gerne eine <Link>Nachricht</Link>, um mir zu zeigen, was du gemacht hast."
+            "text2": "Möchtest du unheilige Dinge zeichnen, habe ich kein Problem damit, solange es Mina solo darstellt. Lass es bitte nur nicht zu fetischistisch, geschmacklos oder anderweitig kontrovers sein.",
+            "text3": "Egal wie du sie letztendlich zeichnest, ich würde es sehr gerne sehen wollen und vielleicht auch auf dieser Seite vorstellen. Sende mir dazu gerne eine <Link>Nachricht</Link>, um mir zu zeigen, was du gemacht hast."
 		},
 		"Artworks": {
 			"artworkBy": "Von "
