@@ -756,7 +756,7 @@ export default function Mina() {
 					</section>
 					<section className="my-12">
 						<div className="py-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-2 px-2">
-							{Artworks.map((Artwork, index) => (
+							{filteredArtworks.map((Artwork, index) => (
 								<button
 									key={Artwork.src}
 									onClick={() => handleLightboxOpen(index)}
