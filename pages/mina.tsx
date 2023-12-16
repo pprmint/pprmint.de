@@ -11,17 +11,19 @@ import * as Toast from "@radix-ui/react-toast";
 import * as Switch from "@radix-ui/react-switch";
 import { useTransition, config, a, easings } from "@react-spring/web";
 
+import MinaArtwork, { MinaArtworks } from "types/mina-artwork";
 import Head from "components/Head";
 import Title from "components/Title";
 import Button from "components/Button";
-import Lightbox from "components/Lightbox";
+import StrapiLightbox from "components/StrapiLightbox";
 
 import HeroMina from "public/assets/mina/hero.webp";
 import TransparentMina from "public/assets/mina/mina.webp";
 import HehMina from "public/assets/mina/heh-upscaled.png";
 
-export default function Mina() {
+export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 	const { t } = useTranslation();
+
 	const [selectedImage, setSelectedImage] = useState(0);
 	const [highlighted, setHighlighted] = useState("");
 	const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -41,237 +43,6 @@ export default function Mina() {
 		leave: { opacity: 0 },
 		config: config.stiff,
 	});
-
-	const Artworks = [
-		{
-			src: "https://static.pprmint.art/mina/nekomimi_3.webp",
-			width: 1414,
-			height: 2000,
-			position: "object-top",
-			caption: `${t("MINA:Content.Artworks.artworkBy")} Nekomimi`,
-			link: "https://twitter.com/nekomimiwubs",
-			linkExternal: true,
-			linkText: t("COMMON:visitProfile"),
-			linkIcon: "ri-user-line",
-			noDownload: true,
-			nsfw: true,
-		},
-		{
-			src: "https://static.pprmint.art/mina/aikoyori_3.webp",
-			width: 1920,
-			height: 1080,
-			position: "object-center",
-			caption: `${t("MINA:Content.Artworks.artworkBy")} Aikoyori`,
-			link: "https://aikoyori.xyz",
-			linkExternal: true,
-			linkText: t("COMMON:visitWebsite"),
-			linkIcon: "ri-global-line",
-			noDownload: true,
-		},
-		{
-			src: "https://static.pprmint.art/mina/layer_3.webp",
-			width: 1500,
-			height: 1900,
-			position: "object-top",
-			caption: `${t("MINA:Content.Artworks.artworkBy")} 108sketches`,
-			link: "https://twitter.com/108sketches",
-			linkExternal: true,
-			linkText: t("COMMON:visitProfile"),
-			linkIcon: "ri-user-line",
-			noDownload: true,
-		},
-		{
-			src: "https://static.pprmint.art/mina/nekomimi_2.webp",
-			width: 1414,
-			height: 2000,
-			position: "object-top",
-			caption: `${t("MINA:Content.Artworks.artworkBy")} Nekomimi`,
-			link: "https://twitter.com/nekomimiwubs",
-			linkExternal: true,
-			linkText: t("COMMON:visitProfile"),
-			linkIcon: "ri-user-line",
-			noDownload: true,
-		},
-		{
-			src: "https://static.pprmint.art/mina/wxz_2.webp",
-			width: 1561,
-			height: 2000,
-			position: "object-top",
-			caption: `${t("MINA:Content.Artworks.artworkBy")} wxsonz`,
-			link: "https://twitter.com/wxsonz",
-			linkExternal: true,
-			linkText: t("COMMON:visitProfile"),
-			linkIcon: "ri-user-line",
-			noDownload: true,
-			secondaryLink: "https://twitter.com/wxsonz/status/1699421416557269175",
-			secondaryLinkExternal: true,
-			secondaryLinkText: t("COMMON:viewOriginal"),
-			secondaryLinkIcon: "ri-external-link-line",
-		},
-		{
-			src: "https://static.pprmint.art/mina/sunnexo_1.webp",
-			width: 1024,
-			height: 1024,
-			position: "object-center",
-			caption: `${t("MINA:Content.Artworks.artworkBy")} Sunnexo`,
-			link: "https://sunnexo.moe",
-			linkExternal: true,
-			linkText: t("COMMON:visitWebsite"),
-			linkIcon: "ri-user-line",
-			noDownload: true,
-			pixelated: true,
-		},
-		{
-			src: "https://static.pprmint.art/mina/aikoyori_2.webp",
-			width: 902,
-			height: 902,
-			position: "object-right",
-			caption: `${t("MINA:Content.Artworks.artworkBy")} Aikoyori`,
-			link: "https://aikoyori.xyz",
-			linkExternal: true,
-			linkText: t("COMMON:visitWebsite"),
-			linkIcon: "ri-global-line",
-			noDownload: true,
-		},
-		{
-			src: "https://static.pprmint.art/mina/layer_2.webp",
-			width: 2000,
-			height: 1577,
-			position: "object-right",
-			caption: `${t("MINA:Content.Artworks.artworkBy")} 108sketches`,
-			link: "https://twitter.com/108sketches",
-			linkExternal: true,
-			linkText: t("COMMON:visitProfile"),
-			linkIcon: "ri-user-line",
-			noDownload: true,
-		},
-		{
-			src: "https://static.pprmint.art/mina/autsellia_5.webp",
-			width: 639,
-			height: 479,
-			position: "object-left",
-			caption: `${t("MINA:Content.Artworks.artworkBy")} Autsellia`,
-			link: "https://twitter.com/autsellia",
-			linkExternal: true,
-			linkText: t("COMMON:visitProfile"),
-			linkIcon: "ri-user-line",
-			noDownload: true,
-			secondaryLink: "https://twitter.com/autsellia/status/1686807119100522496",
-			secondaryLinkExternal: true,
-			secondaryLinkText: t("COMMON:viewOriginal"),
-			secondaryLinkIcon: "ri-external-link-line",
-		},
-		{
-			src: "https://static.pprmint.art/mina/autsellia_4.webp",
-			width: 698,
-			height: 808,
-			position: "object-center",
-			caption: `${t("MINA:Content.Artworks.artworkBy")} Autsellia`,
-			link: "https://twitter.com/autsellia",
-			linkExternal: true,
-			linkText: t("COMMON:visitProfile"),
-			linkIcon: "ri-user-line",
-			noDownload: true,
-			secondaryLink: "https://twitter.com/autsellia/status/1688222449593122816",
-			secondaryLinkExternal: true,
-			secondaryLinkText: t("COMMON:viewOriginal"),
-			secondaryLinkIcon: "ri-external-link-line",
-			nsfw: true,
-		},
-		{
-			src: "https://static.pprmint.art/mina/aikoyori_1.webp",
-			width: 1280,
-			height: 970,
-			position: "object-right",
-			caption: `${t("MINA:Content.Artworks.artworkBy")} Aikoyori`,
-			link: "https://aikoyori.xyz",
-			linkExternal: true,
-			linkText: t("COMMON:visitWebsite"),
-			linkIcon: "ri-global-line",
-			noDownload: true,
-		},
-		{
-			src: "https://static.pprmint.art/mina/autsellia_3.webp",
-			width: 512,
-			height: 512,
-			position: "object-top",
-			caption: `${t("MINA:Content.Artworks.artworkBy")} Autsellia`,
-			link: "https://twitter.com/autsellia",
-			linkExternal: true,
-			linkText: t("COMMON:visitProfile"),
-			linkIcon: "ri-user-line",
-			noDownload: true,
-			secondaryLink: "https://www.differentstrokes.xyz/view/1685337476@7564374",
-			secondaryLinkExternal: true,
-			secondaryLinkText: t("COMMON:viewOriginal"),
-			secondaryLinkIcon: "ri-external-link-line",
-			pixelated: true,
-		},
-		{
-			src: "https://static.pprmint.art/mina/layer_1.webp",
-			width: 1203,
-			height: 2000,
-			position: "object-top",
-			caption: `${t("MINA:Content.Artworks.artworkBy")} 108sketches`,
-			link: "https://twitter.com/108sketches",
-			linkExternal: true,
-			linkText: t("COMMON:visitProfile"),
-			linkIcon: "ri-user-line",
-			noDownload: true,
-		},
-		{
-			src: "https://static.pprmint.art/mina/nekomimi_1.webp",
-			width: 2000,
-			height: 2000,
-			position: "object-top",
-			caption: `${t("MINA:Content.Artworks.artworkBy")} Nekomimi`,
-			link: "https://twitter.com/nekomimiwubs",
-			linkExternal: true,
-			linkText: t("COMMON:visitProfile"),
-			linkIcon: "ri-user-line",
-			noDownload: true,
-		},
-		{
-			src: "https://static.pprmint.art/mina/autsellia_2.webp",
-			width: 1380,
-			height: 2000,
-			position: "object-top",
-			caption: `${t("MINA:Content.Artworks.artworkBy")} Autsellia`,
-			link: "https://twitter.com/autsellia",
-			linkExternal: true,
-			linkText: t("COMMON:visitProfile"),
-			linkIcon: "ri-user-line",
-			noDownload: true,
-		},
-		{
-			src: "https://static.pprmint.art/mina/autsellia_1.webp",
-			width: 546,
-			height: 784,
-			position: "object-top",
-			caption: `${t("MINA:Content.Artworks.artworkBy")} Autsellia`,
-			link: "https://twitter.com/autsellia",
-			linkExternal: true,
-			linkText: t("COMMON:visitProfile"),
-			linkIcon: "ri-user-line",
-			noDownload: true,
-		},
-		{
-			src: "https://static.pprmint.art/mina/wxz_1.webp",
-			width: 1380,
-			height: 2000,
-			position: "object-top",
-			caption: `${t("MINA:Content.Artworks.artworkBy")} wxsonz`,
-			link: "https://twitter.com/wxsonz",
-			linkExternal: true,
-			linkText: t("COMMON:visitProfile"),
-			linkIcon: "ri-user-line",
-			noDownload: true,
-			secondaryLink: "https://twitter.com/wxsonz/status/1573463483122753536",
-			secondaryLinkExternal: true,
-			secondaryLinkText: t("COMMON:viewOriginal"),
-			secondaryLinkIcon: "ri-external-link-line",
-		},
-	];
 
 	const MinaDesignPoints = (
 		<div className="relative max-w-xs lg:max-w-none mx-auto">
@@ -379,7 +150,7 @@ export default function Mina() {
 											alt="A smirking Mina."
 											className="h-32 lg:h-36 w-auto rounded-full border-neutral-50"
 										/>
-										<h1 className="text-neutral-50 font-display text-2xl md:text-3xl lg:text-5xl font-medium flex-grow">
+										<h1 className="text-neutral-50 font-display text-center md:text-left text-2xl md:text-3xl lg:text-5xl font-medium flex-grow">
 											{t("MINA:Content.NSFW.Dialog.title")}
 										</h1>
 									</div>
@@ -457,15 +228,13 @@ export default function Mina() {
 				handleLightboxClose;
 			}
 		};
-
 		document.addEventListener("keydown", handleKeyPress);
-
 		return () => {
 			document.removeEventListener("keydown", handleKeyPress);
 		};
 	}, []);
 
-	const filteredArtworks = showNsfw ? Artworks : Artworks.filter((artwork) => !artwork.nsfw);
+	const filteredArtworks = showNsfw ? Artworks.data : Artworks.data.filter((art: MinaArtwork) => !art.attributes.nsfw);
 
 	return (
 		<>
@@ -756,18 +525,18 @@ export default function Mina() {
 					</section>
 					<section className="my-12">
 						<div className="py-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-2 px-2">
-							{filteredArtworks.map((Artwork, index) => (
+							{filteredArtworks.map((art: MinaArtwork, index: number) => (
 								<button
-									key={Artwork.src}
+									key={art.id}
 									onClick={() => handleLightboxOpen(index)}
 									className="aspect-square relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl hover:z-10 cursor-zoom-in"
 								>
 									<Image
-										src={Artwork.src}
-										fill
+										src={`https://static.pprmint.art${art.attributes.artwork.data.attributes.url}`}
+										width={art.attributes.artwork.data.attributes.width}
+										height={art.attributes.artwork.data.attributes.height}
 										alt=""
-										sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1920px) 25vw, 20vw"
-										className={`h-full object-cover bg-neutral-50/10 ${Artwork.position}`}
+										className={`h-full object-cover bg-neutral-50/10 ${art.attributes.focus}`}
 									/>
 								</button>
 							))}
@@ -796,7 +565,7 @@ export default function Mina() {
 					<FocusTrap>
 						<Portal.Root className="fixed z-50">
 							<a.div style={styles}>
-								<Lightbox
+								<StrapiLightbox
 									images={filteredArtworks}
 									aspectRatio="square"
 									selectedImage={selectedImage}
@@ -809,4 +578,20 @@ export default function Mina() {
 			)}
 		</>
 	);
+}
+
+export async function getStaticProps() {
+	const res = await fetch(`${process.env.STRAPI_API_URL}/mina-artworks?populate=artwork&sort=id:desc`, {
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
+		},
+	});
+	const Artworks: MinaArtworks = await res.json();
+	return {
+		props: {
+			Artworks,
+		},
+		revalidate: 60,
+	};
 }
