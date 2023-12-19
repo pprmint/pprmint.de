@@ -342,7 +342,7 @@ function Footer(props: { className?: string }) {
 					href="https://twitter.com/npprmint"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="w-10 h-10 flex items-center justify-center hover:bg-neutral-800 rounded-full duration-75 active:opacity-50"
+					className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-neutral-50/10 duration-250 ease-out active:opacity-75 active:duration-75"
 				>
 					<i className="ri-twitter-line" />
 				</Link>
@@ -350,7 +350,7 @@ function Footer(props: { className?: string }) {
 					href="https://youtube.com/@pprmint"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="w-10 h-10 flex items-center justify-center hover:bg-neutral-800 rounded-full duration-75 active:opacity-50"
+					className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-neutral-50/10 duration-250 ease-out active:opacity-75 active:duration-75"
 				>
 					<i className="ri-youtube-line" />
 				</Link>
@@ -358,7 +358,7 @@ function Footer(props: { className?: string }) {
 					href="https://github.com/pprmint"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="w-10 h-10 flex items-center justify-center hover:bg-neutral-800 rounded-full duration-75 active:opacity-50"
+					className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-neutral-50/10 duration-250 ease-out active:opacity-75 active:duration-75"
 				>
 					<i className="ri-github-line" />
 				</Link>
@@ -366,7 +366,7 @@ function Footer(props: { className?: string }) {
 					href="https://ko-fi.com/pprmint"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="w-10 h-10 flex items-center justify-center hover:bg-neutral-800 rounded-full duration-75 active:opacity-50"
+					className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-neutral-50/10 duration-250 ease-out active:opacity-75 active:duration-75"
 				>
 					<i className="ri-cup-line" />
 				</Link>
