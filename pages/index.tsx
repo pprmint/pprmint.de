@@ -49,7 +49,7 @@ export default function Home() {
 			<Head title={t("HOME:Head.title")} description={t("HOME:Head.description")} />
 			<Title title={t("HOME:Head.title")} description={t("HOME:Head.description")}>
 				<video
-					src="https://static.pprmint.art/videos/seenthisbefore.mp4"
+					src="https://static.pprmint.art/videos/home.mp4"
 					autoPlay
 					playsInline
 					muted
