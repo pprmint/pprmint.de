@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
 	const router = useRouter();
 	useEffect(() => {
 		router.events.on("routeChangeComplete", () => document.body.classList.remove("overflow-hidden"));
-	}, []);
+	}, [router.events]);
 	return (
 		<>
 			<Head>

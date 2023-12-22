@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
-import { useTransition, a, easings, config } from "@react-spring/web";
+import { useTransition, a, easings } from "@react-spring/web";
 import * as Tooltip from "@radix-ui/react-tooltip";
 
 import LoadingCircle from "./LoadingCircle";
@@ -33,13 +33,15 @@ interface LightboxProps {
 }
 
 export default function Lightbox(props: LightboxProps) {
+    const { images, selectedImage, aspectRatio, onClose } = props;
+
 	const { t } = useTranslation();
-	const [currentImage, setCurrentImage] = useState(props.selectedImage);
+	const [currentImage, setCurrentImage] = useState(selectedImage);
 	const [loading, setLoading] = useState(true);
 
 	const [transitionDirection, setTransitionDirection] = useState<"left" | "right">("left");
 
-	const imageTransition = useTransition(props.images[currentImage], {
+	const imageTransition = useTransition(images[currentImage], {
 		key: currentImage,
 		from: {
 			opacity: 0,
@@ -61,7 +63,7 @@ export default function Lightbox(props: LightboxProps) {
 		exitBeforeEnter: true,
 	});
 
-	const captionTransition = useTransition(props.images[currentImage], {
+	const captionTransition = useTransition(images[currentImage], {
 		key: currentImage,
 		from: {
 			opacity: 0,
@@ -84,15 +86,15 @@ export default function Lightbox(props: LightboxProps) {
 		onDestroyed: () => setLoading(true),
 	});
 
-	const handlePrevious = () => {
+	const handlePrevious = useCallback(() => {
 		setTransitionDirection("right");
-		setCurrentImage((prevIndex) => (prevIndex === 0 ? props.images.length - 1 : prevIndex - 1));
-	};
+		setCurrentImage((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+	}, [images]);
 
-	const handleNext = () => {
+	const handleNext = useCallback(() => {
 		setTransitionDirection("left");
-		setCurrentImage((prevIndex) => (prevIndex === props.images.length - 1 ? 0 : prevIndex + 1));
-	};
+		setCurrentImage((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+	}, [images]);
 
 	const handleImage = (index: number) => {
 		if (index !== currentImage) {
@@ -108,7 +110,7 @@ export default function Lightbox(props: LightboxProps) {
 			} else if (event.key === "ArrowRight") {
 				handleNext();
 			} else if (event.key === "Escape") {
-				props.onClose();
+				onClose();
 			}
 		};
 
@@ -117,7 +119,7 @@ export default function Lightbox(props: LightboxProps) {
 		return () => {
 			document.removeEventListener("keydown", handleKeyDown);
 		};
-	}, []);
+	}, [handlePrevious, handleNext, onClose, images]);
 
 	return (
 		<Tooltip.Provider>
@@ -126,7 +128,7 @@ export default function Lightbox(props: LightboxProps) {
 					<Tooltip.Trigger asChild>
 						<button
 							className="group fixed z-50 top-3 md:top-5 right-3 md:right-5 text-neutral-50 w-10 h-10 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
-							onClick={props.onClose}
+							onClick={onClose}
 						>
 							<i className="ri-close-line" />
 						</button>
@@ -202,13 +204,13 @@ export default function Lightbox(props: LightboxProps) {
 
 					<div className="fixed w-screen max-w-max z-50 bottom-2.5 overflow-x-auto">
 						<div className="flex flex-nowrap items-center justify-center gap-2 h-14 my-0.5 w-max px-2.5 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 bg-neutral-50/10 rounded-xl mx-3">
-							{props.images.map((image, index) => (
+							{images.map((image, index) => (
 								<div
 									key={index}
 									onClick={() => handleImage(index)}
 									className={`relative ${
 										currentImage === index
-											? `${props.aspectRatio === "video" ? "w-16" : "w-9"} h-9 saturate-100 rounded-md`
+											? `${aspectRatio === "video" ? "w-16" : "w-9"} h-9 saturate-100 rounded-md`
 											: "w-8 h-8 opacity-50 hover:opacity-100 saturate-0 hover:saturate-50 rounded-sm"
 									} cursor-pointer duration-200 overflow-hidden`}
 								>
@@ -237,7 +239,7 @@ export default function Lightbox(props: LightboxProps) {
 										<LoadingCircle />
 									</div>
 								)}
-								<div onClick={props.onClose} className="absolute top-0 left-0 w-full h-full" />
+								<div onClick={onClose} className="absolute top-0 left-0 w-full h-full" />
 								<Image
 									src={image.src}
 									alt={image.caption}

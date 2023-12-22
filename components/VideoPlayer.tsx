@@ -150,12 +150,14 @@ function VideoPlayer(props: {
 
 	useEffect(() => {
 		// Detect when video metadata has been loaded for duration and update current video time.
-		if (videoRef.current) {
-			videoRef.current.addEventListener("timeupdate", handleTimeUpdate);
-			videoRef.current.addEventListener("loadedmetadata", handleLoadedMetadata);
+        const currentVideoRef = videoRef.current;
+        
+		if (currentVideoRef) {
+			currentVideoRef.addEventListener("timeupdate", handleTimeUpdate);
+			currentVideoRef.addEventListener("loadedmetadata", handleLoadedMetadata);
 			return () => {
-				videoRef.current?.removeEventListener("timeupdate", handleTimeUpdate);
-				videoRef.current?.removeEventListener("loadedmetadata", handleLoadedMetadata);
+				currentVideoRef?.removeEventListener("timeupdate", handleTimeUpdate);
+				currentVideoRef?.removeEventListener("loadedmetadata", handleLoadedMetadata);
 			};
 		}
 		// Add an event listener to exit fullscreen if the user presses Esc.
