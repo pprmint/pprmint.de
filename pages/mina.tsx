@@ -347,134 +347,34 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 									</Accordion.Trigger>
 									<Accordion.Content className="data-[state=closed]:animate-accordion-slide-up data-[state=open]:animate-accordion-slide-down duration-400 ease-in-out-custom overflow-hidden">
 										<div className="flex -space-x-2 pb-3">
-											<div
-												className="group grid items-center text-center bg-green-300 active:bg-green-500 text-neutral-950 border-2 border-neutral-950 w-10 hover:w-24 h-10 rounded-full duration-150 ease-out overflow-hidden cursor-pointer"
-												onClick={() => {
-													navigator.clipboard.writeText("#5ae39c");
-													setOpen(false);
-													window.clearTimeout(timerRef.current);
-													timerRef.current = window.setTimeout(() => {
-														setCurrentColor("#5ae39c");
-														setOpen(true);
-													}, 100);
-												}}
-											>
-												<span className="selection:bg-neutral-50 font-mono opacity-0 group-hover:opacity-100 duration-150 tracking-tighter">
-													#5ae39c
-												</span>
-											</div>
-											<div
-												className="group grid items-center text-center bg-green active:bg-green-700 text-neutral-950 border-2 border-neutral-950 w-10 hover:w-24 h-10 rounded-full duration-150 ease-out overflow-hidden cursor-pointer"
-												onClick={() => {
-													navigator.clipboard.writeText("#00cc66");
-													setOpen(false);
-													window.clearTimeout(timerRef.current);
-													timerRef.current = window.setTimeout(() => {
-														setCurrentColor("#00cc66");
-														setOpen(true);
-													}, 100);
-												}}
-											>
-												<span className="selection:bg-neutral-50 font-mono opacity-0 group-hover:opacity-100 duration-150 tracking-tighter">
-													#00cc66
-												</span>
-											</div>
-											<div
-												className="group grid items-center text-center bg-green-700 active:bg-green-800 text-neutral-50 border-2 border-neutral-950 w-10 hover:w-24 h-10 rounded-full duration-150 ease-out overflow-hidden cursor-pointer"
-												onClick={() => {
-													navigator.clipboard.writeText("#048541");
-													setOpen(false);
-													window.clearTimeout(timerRef.current);
-													timerRef.current = window.setTimeout(() => {
-														setCurrentColor("#048541");
-														setOpen(true);
-													}, 100);
-												}}
-											>
-												<span className="selection:bg-neutral-50 font-mono opacity-0 group-hover:opacity-100 duration-150 tracking-tighter">
-													#048541
-												</span>
-											</div>
-											<div
-												className="group grid items-center text-center bg-cyan active:bg-cyan-700 text-neutral-950 border-2 border-neutral-950 w-10 hover:w-24 h-10 rounded-full duration-150 ease-out overflow-hidden cursor-pointer"
-												onClick={() => {
-													navigator.clipboard.writeText("#44ccdd");
-													setOpen(false);
-													window.clearTimeout(timerRef.current);
-													timerRef.current = window.setTimeout(() => {
-														setCurrentColor("#44ccdd");
-														setOpen(true);
-													}, 100);
-												}}
-											>
-												<span className="selection:bg-neutral-50 font-mono opacity-0 group-hover:opacity-100 duration-150 tracking-tighter">
-													#44ccdd
-												</span>
-											</div>
-											<div
-												className="group grid items-center text-center bg-blue active:bg-blue-700 text-neutral-950 border-2 border-neutral-950 w-10 hover:w-24 h-10 rounded-full duration-150 ease-out overflow-hidden cursor-pointer"
-												onClick={() => {
-													navigator.clipboard.writeText("#4499ee");
-													setOpen(false);
-													window.clearTimeout(timerRef.current);
-													timerRef.current = window.setTimeout(() => {
-														setCurrentColor("#4499ee");
-														setOpen(true);
-													}, 100);
-												}}
-											>
-												<span className="selection:bg-neutral-50 font-mono opacity-0 group-hover:opacity-100 duration-150 tracking-tighter">
-													#4499ee
-												</span>
-											</div>
-											<div
-												className="group grid items-center text-center bg-neutral-900 active:bg-neutral-950 text-neutral-50 border-2 border-neutral-950 w-10 hover:w-24 h-10 rounded-full duration-150 ease-out overflow-hidden cursor-pointer"
-												onClick={() => {
-													navigator.clipboard.writeText("#222222");
-													setOpen(false);
-													window.clearTimeout(timerRef.current);
-													timerRef.current = window.setTimeout(() => {
-														setCurrentColor("#222222");
-														setOpen(true);
-													}, 100);
-												}}
-											>
-												<span className="selection:bg-neutral-50 font-mono opacity-0 group-hover:opacity-100 duration-150 tracking-tighter">
-													#222222
-												</span>
-											</div>
-											<div
-												className="group grid items-center text-center bg-neutral-800 active:bg-neutral-900 text-neutral-50 border-2 border-neutral-950 w-10 hover:w-24 h-10 rounded-full duration-150 ease-out overflow-hidden cursor-pointer"
-												onClick={() => {
-													navigator.clipboard.writeText("#333333");
-													setOpen(false);
-													window.clearTimeout(timerRef.current);
-													timerRef.current = window.setTimeout(() => {
-														setCurrentColor("#333333");
-														setOpen(true);
-													}, 100);
-												}}
-											>
-												<span className="selection:bg-neutral-50 font-mono opacity-0 group-hover:opacity-100 duration-150 tracking-tighter">
-													#333333
-												</span>
-											</div>
-											<div
-												className="group grid items-center text-center bg-orange-50 active:bg-orange-200 text-neutral-950 border-2 border-neutral-950 w-10 hover:w-24 h-10 rounded-full duration-150 ease-out overflow-hidden cursor-pointer"
-												onClick={() => {
-													navigator.clipboard.writeText("#ffeee4");
-													setOpen(false);
-													window.clearTimeout(timerRef.current);
-													timerRef.current = window.setTimeout(() => {
-														setCurrentColor("#ffeee4");
-														setOpen(true);
-													}, 100);
-												}}
-											>
-												<span className="selection:bg-neutral-50 font-mono opacity-0 group-hover:opacity-100 duration-150 tracking-tighter whitespace-nowrap">
-													pale af
-												</span>
-											</div>
+											{[
+												["#5ae39c", "text-neutral-950"],
+												["#00cc66", "text-neutral-950"],
+												["#048541", "text-neutral-950"],
+												["#44ccdd", "text-neutral-950"],
+												["#4499ee", "text-neutral-950"],
+												["#222222", "text-neutral-50"],
+												["#333333", "text-neutral-50"],
+												["#ffeee4", "text-neutral-950"],
+											].map(([hex, text]) => (
+												<div
+													className={`group grid items-center text-center active:scale-95 ${text} hover:z-10 border-2 border-neutral-950 w-10 hover:w-24 h-10 rounded-full duration-150 ease-out overflow-hidden cursor-pointer`}
+													style={{ backgroundColor: hex }}
+													onClick={() => {
+														navigator.clipboard.writeText(hex);
+														setOpen(false);
+														window.clearTimeout(timerRef.current);
+														timerRef.current = window.setTimeout(() => {
+															setCurrentColor(hex);
+															setOpen(true);
+														}, 100);
+													}}
+												>
+													<span className="selection:bg-neutral-50 font-mono opacity-0 group-hover:opacity-100 duration-150 tracking-tighter whitespace-nowrap">
+														{hex == "#ffeee4" ? "pale af" : hex}
+													</span>
+												</div>
+											))}
 										</div>
 										<p>{t("MINA:Content.Colors.text1")}</p>
 										<p>{t("MINA:Content.Colors.text2")}</p>
