@@ -490,8 +490,8 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 											style={{ backgroundColor: currentColor }}
 										/>
 										<Toast.Description>{t("COMMON:copied")}</Toast.Description>
-										<Toast.Close>
-											<i className="ri-close-line text-neutral-50 hover:bg-neutral-50/10 active:bg-neutral-50/5 p-1 rounded-full duration-100" />
+										<Toast.Close className="hover:bg-neutral-50/10 active:bg-neutral-50/5 rounded-full duration-100 active:duration-75">
+											<i className="ri-close-line text-neutral-50 p-1" />
 										</Toast.Close>
 									</Toast.Root>
 									<Toast.Viewport className="[--viewport-padding:_25px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-50 outline-none" />
