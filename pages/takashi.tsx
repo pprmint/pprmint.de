@@ -7,7 +7,7 @@ export default function Test() {
 		<>
 			<Head title="Takashi" description="Helvetica Standard." />
 			<main className="flex min-h-screen items-center justify-center max-w-6xl mx-auto">
-				<VideoPlayer src="https://takashi.pprmint.art/" title="Takashi" />
+				<VideoPlayer src="https://static.pprmint.art/videos/Takashi.mp4" title="Takashi" />
 			</main>
 		</>
 	);
