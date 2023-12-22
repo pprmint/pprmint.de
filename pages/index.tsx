@@ -59,9 +59,9 @@ export default function Home() {
 			</Title>
 			<main>
 				<section className="relative overflow-hidden">
-					<h1 className="absolute top-6 left-0 right-0 text-center text-neutral-50 font-display font-light text-xl md:text-2xl lg:text-3xl">
+					<h3 className="absolute top-6 left-0 right-0 text-center">
 						{t("HOME:Content.RecentWork.title")}
-					</h1>
+					</h3>
 					{Cards[0].image && (
 						<div className="relative w-full h-full -z-10">
 							<Image
@@ -106,7 +106,7 @@ export default function Home() {
 					)}
 					<div className="flex max-w-7xl px-6 md:px-9 mx-auto my-12 flex-col md:flex-row items-end md:items-center gap-6 md:gap-9">
 						<div className="w-full">
-							<h2 className="font-display font-semibold text-neutral-50 text-3xl md:text-4xl lg:text-5xl pb-6">
+							<h2>
 								{Cards[0].name}
 							</h2>
 							<p>{Cards[0].description}</p>
@@ -144,7 +144,7 @@ export default function Home() {
 											height={1080}
 											className="relative rounded-xl border border-neutral-50/10 mb-3"
 										/>
-										<h2 className="font-display font-semibold text-neutral-50 text-3xl">{card.name}</h2>
+										<h3>{card.name}</h3>
 										<p>{card.description}</p>
 										{card.link &&
 											(card.external ? (

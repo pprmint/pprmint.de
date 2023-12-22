@@ -145,9 +145,9 @@ export default function Lightbox(props: LightboxProps) {
 					</button>
 					{captionTransition((style, image) => (
 						<>
-							<a.h1
+							<a.h3
 								style={style}
-								className="fixed flex flex-wrap w-10/12 items-center gap-3 md:gap-4 z-50 left-5 md:left-6 top-3 md:top-5 text-2xl md:text-3xl text-neutral-50 font-display font-medium md:text-center"
+								className="fixed flex flex-wrap w-10/12 items-center gap-3 md:gap-4 z-50 left-5 md:left-6 top-3 md:top-5 md:text-center"
 							>
 								{image.caption}
 								<div className="flex gap-3 md:gap-4">
@@ -196,7 +196,7 @@ export default function Lightbox(props: LightboxProps) {
 										</Link>
 									)}
 								</div>
-							</a.h1>
+							</a.h3>
 						</>
 					))}
 

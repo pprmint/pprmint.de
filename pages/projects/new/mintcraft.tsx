@@ -104,7 +104,7 @@ export default function Mintcraft() {
 			</Title>
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
 				<section className="my-16">
-					<h2 className="font-display font-semibold text-neutral-50 text-3xl md:text-4xl pb-3">
+					<h2>
 						Good today and welcome to a(n) alpha/beta page.
 					</h2>
 					<p>
@@ -132,7 +132,7 @@ export default function Mintcraft() {
 				</section>
 				<section className="my-16">
 					<div className="flex flex-col sm:flex-row gap-6 pb-6">
-						<h2 className="font-semibold font-display text-neutral-50 text-3xl md:text-4xl flex-grow">
+						<h2 className="flex-grow">
 							{t("MINTCRAFT:Content.Download.commonTitle", { version: gameVersion })}
 						</h2>
 						<Select.Root value={gameVersion} onValueChange={setGameVersion}>

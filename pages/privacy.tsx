@@ -16,7 +16,7 @@ export default function PrivacyPolicy() {
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
 				<section className="my-12">
 					<div className="bg-neutral-900 rounded-xl p-6">
-						<h2 className="font-display font-semibold text-neutral-50 text-3xl md:text-4xl pb-3">
+						<h2>
 							{t("PRIVACY:Content.Tldr.heading")}
 						</h2>
 						<p>
@@ -46,7 +46,7 @@ export default function PrivacyPolicy() {
 					</div>
 				</section>
 				<section className="my-12">
-					<h2 className="font-display font-semibold text-neutral-50 text-3xl md:text-4xl pb-3">
+					<h2>
 						{t("PRIVACY:Content.General.heading")}
 					</h2>
 					<p>{t("PRIVACY:Content.General.text1")}</p>
@@ -54,7 +54,7 @@ export default function PrivacyPolicy() {
 					<p>{t("PRIVACY:Content.General.text3")}</p>
                     <p className="flex gap-6 flex-wrap">
 						<Link
-							className="font-medium text-blue underline decoration-dotted decoration-2 decoration-blue-800 hover:decoration-blue"
+							className="text-link-external"
 							href="https://www.fastmail.com/about/privacy/"
 							target="_blank"
 							rel="noopener noreferrer"
@@ -63,7 +63,7 @@ export default function PrivacyPolicy() {
 							<i className="ri-arrow-right-up-line" />
 						</Link>
 						<Link
-							className="font-medium text-blue underline decoration-dotted decoration-2 decoration-blue-800 hover:decoration-blue"
+							className="text-link-external"
 							href="https://www.fastmail.com/about/dpa/"
 							target="_blank"
 							rel="noopener noreferrer"
@@ -75,7 +75,7 @@ export default function PrivacyPolicy() {
 				</section>
 
 				<section className="my-12">
-					<h2 className="font-display font-semibold text-neutral-50 text-3xl md:text-4xl pb-3">
+					<h2>
 						{t("PRIVACY:Content.Hosting.heading")}
 					</h2>
 					<p>{t("PRIVACY:Content.Hosting.text1")}</p>
@@ -83,7 +83,7 @@ export default function PrivacyPolicy() {
 					<p>{t("PRIVACY:Content.Hosting.text3")}</p>
 					<p className="flex gap-6 flex-wrap">
 						<Link
-							className="font-medium text-blue underline decoration-dotted decoration-2 decoration-blue-800 hover:decoration-blue"
+							className="text-link-external"
                             href={`https://contabo.com/${locale}/legal/privacy/`}
 							target="_blank"
 							rel="noopener noreferrer"
@@ -94,7 +94,7 @@ export default function PrivacyPolicy() {
 							<i className="ri-arrow-right-up-line" />
 						</Link>
 						<Link
-							className="font-medium text-blue underline decoration-dotted decoration-2 decoration-blue-800 hover:decoration-blue"
+							className="text-link-external"
                             href="https://www.cloudflare.com/privacypolicy/"
 							target="_blank"
 							rel="noopener noreferrer"
@@ -105,7 +105,7 @@ export default function PrivacyPolicy() {
 							<i className="ri-arrow-right-up-line" />
 						</Link>
 						<Link
-							className="font-medium text-blue underline decoration-dotted decoration-2 decoration-blue-800 hover:decoration-blue"
+							className="text-link-external"
                             href="https://www.cloudflare.com/cloudflare-customer-dpa/"
 							target="_blank"
 							rel="noopener noreferrer"
@@ -119,7 +119,7 @@ export default function PrivacyPolicy() {
 				</section>
 
 				<section className="my-12">
-					<h2 className="font-display font-semibold text-neutral-50 text-3xl md:text-4xl pb-3">
+					<h2>
 						{t("PRIVACY:Content.Contact.heading")}
 					</h2>
 					<p>

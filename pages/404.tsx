@@ -132,13 +132,13 @@ export default function NotFound() {
 					style={{ ...inFromBottom }}
 				>
 					<NoSSR>
-						<h1 className="font-display-mono text-red text-2xl md:text-5xl lg:text-7xl pb-6 text-center">
+						<h1 className="font-display-mono text-red pb-6 text-center">
 							{errors[Wagenreihung]}
 						</h1>
 					</NoSSR>
-					<h3 className="font-sans text-neutral md:text-2xl text-center pb-6">
+					<p className="text-neutral-50 md:text-lg pb-6">
 						{t("404:Content.info")}
-					</h3>
+					</p>
 					<Link href="/" scroll={false}>
 						<Button color="red">
 							{t("404:Content.returnHome")}

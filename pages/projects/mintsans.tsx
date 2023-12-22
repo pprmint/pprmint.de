@@ -37,7 +37,7 @@ export default function Mintsans() {
 	const [textAlignment, setTextAlignment] = React.useState("text-center");
 	const [tracking, setTracking] = React.useState([0]);
 	const [fontSize, setFontSize] = React.useState([1.5]);
-    function resetFont() {
+	function resetFont() {
 		setWeight("400");
 		setTextAlignment("text-center");
 		setTracking([0]);
@@ -59,9 +59,7 @@ export default function Mintsans() {
 					<Image src={Slide6} alt="Slide 6" className="w-full" />
 				</section>
 				<section className="my-16 px-6 md:px-9 py-5">
-                <h3 className="max-w-7xl mx-auto font-display font-semibold text-neutral-50 text-3xl mb-3">
-						{t("MINTSANS:Content.Tester.heading")}
-					</h3>
+                <h2 className="max-w-7xl mx-auto">{t("MINTSANS:Content.Tester.heading")}</h2>
 					<Toolbar.Root className="max-w-7xl mx-auto flex flex-wrap gap-6 bg-neutral-900 border border-neutral-800 rounded-xl p-4 mb-5">
 						<div className="flex w-full md:w-auto gap-6">
 							<div className="flex flex-col w-full">
@@ -180,12 +178,12 @@ export default function Mintsans() {
 							letterSpacing: `${tracking as unknown as number}em`,
 						}}
 					/>
-                    <hr className="border-green w-1/4 mx-auto" />
+					<hr className="border-green w-1/4 mx-auto" />
 				</section>
 				<section className="max-w-7xl mx-auto px-6 md:px-9 py-5">
-					<h3 className="font-display font-semibold text-neutral-50 text-3xl mb-3">
+					<h2>
 						{t("MINTSANS:Content.Download.heading")}
-					</h3>
+					</h2>
 					<p>{t("MINTSANS:Content.Download.text")}</p>
 					<br />
 					<Link href="https://static.pprmint.art/download/mintsans_2.0.zip">

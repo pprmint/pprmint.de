@@ -551,7 +551,7 @@ export default function AppIcons() {
 			<PityDialog />
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
 				<section className="my-12">
-					<h2 className="font-display font-semibold text-neutral-50 text-3xl mb-3">
+					<h2>
 						{t("APPICONS:Content.Intro.title")}
 					</h2>
 					<p>
@@ -573,7 +573,7 @@ export default function AppIcons() {
 										}/windows/apps/design/style/iconography/app-icon-design`}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="font-medium text-blue underline decoration-2 decoration-dotted hover:decoration-solid decoration-blue-800 hover:decoration-blue duration-100"
+										className="text-link-external"
 									/>
 								),
 							}}
@@ -609,7 +609,7 @@ export default function AppIcons() {
 						{filteredIcons.length === 0 ? (
 							<div className="flex flex-col w-full items-center">
 								<i className="ri-close-line text-red text-8xl" />
-								<h3 className="font-display font-medium text-neutral-50 text-3xl md:text-4xl selection:bg-red">
+								<h3>
 									{t("COMMON:noResults")}
 								</h3>
 							</div>
@@ -668,12 +668,12 @@ export default function AppIcons() {
 							</div>
 							{isDesktop ? (
 								<div className="flex gap-6 items-center">
-									<a
-										className="cursor-pointer text-neutral-50 underline decoration-2 decoration-dotted hover:decoration-solid decoration-neutral-50/50 hover:decoration-neutral-50 duration-100"
+									<p
+										className="cursor-pointer text-link"
 										onClick={() => setSelectedIcons([])}
 									>
 										{t("COMMON:deselectAll")}
-									</a>
+									</p>
 									<Button onClick={handleDownloadSelectedIcons} disabled={loading}>
 										{t("COMMON:downloadSelected")}
 										<div className={loading ? "animate-spin" : ""}>

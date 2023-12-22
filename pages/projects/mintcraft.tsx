@@ -205,7 +205,7 @@ export default function Mintcraft() {
 					className="h-44 w-44 border-r border-neutral-800"
 				/>
 				<div className="flex flex-col w-full h-full p-6">
-					<h3 className="font-semibold font-display text-3xl text-neutral-50">
+					<h3>
 						{props.type === "Complete"
 							? `${props.name} Complete`
 							: props.type === "Full"
@@ -223,7 +223,7 @@ export default function Mintcraft() {
 
 	function VersionSwitch() {
 		return (
-			<div className="flex bg-neutral-900 rounded-lg duration-100 overflow-hidden">
+			<div className="flex bg-neutral-900 rounded-lg duration-100 overflow-hidden h-max">
 				{Versions.map((v) => (
 					<button
 						key={v.version}
@@ -250,11 +250,7 @@ export default function Mintcraft() {
 				image="https://pprmint.art/assets/mintcraft/OG.jpg"
 				color="#ffaa22"
 			/>
-			<Title
-				title={t("MINTCRAFT:Head.title")}
-				description={t("MINTCRAFT:Head.description")}
-				accentColor="text-yellow"
-			>
+			<Title title={t("MINTCRAFT:Head.title")} description={t("MINTCRAFT:Head.description")} accentColor="text-yellow">
 				<div className="bg-neutral-950" style={{ perspective: 2000 }}>
 					<Marquee
 						gradientColor="#111"
@@ -274,13 +270,7 @@ export default function Mintcraft() {
 								<Image src={TCreativeEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
 								<Image src={TCraftingEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
 								<Image src={TFurnaceEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
-								<Image
-									src={TAdvancementsEN}
-									alt=""
-									quality={90}
-									priority
-									className="inline-block h-auto m-6"
-								/>
+								<Image src={TAdvancementsEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
 								<Image src={TAnvilEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
 							</>
 						)}
@@ -292,13 +282,7 @@ export default function Mintcraft() {
 								<Image src={TCreativeDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
 								<Image src={TCraftingDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
 								<Image src={TFurnaceDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
-								<Image
-									src={TAdvancementsDE}
-									alt=""
-									quality={90}
-									priority
-									className="inline-block h-auto m-6"
-								/>
+								<Image src={TAdvancementsDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
 								<Image src={TAnvilDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
 							</>
 						)}
@@ -307,10 +291,8 @@ export default function Mintcraft() {
 			</Title>
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
 				<section className="my-16">
-					<h2 className="font-display font-semibold text-neutral-50 text-3xl md:text-4xl pb-3">
-						{t("MINTCRAFT:Content.Changes.heading", { version: Versions[0].packs[0].packVersion })}
-					</h2>
-					<h3 className="font-display font-semibold text-neutral-50 text-2xl pb-3">Mintcraft</h3>
+					<h2>{t("MINTCRAFT:Content.Changes.heading", { version: Versions[0].packs[0].packVersion })}</h2>
+					<h3>Mintcraft</h3>
 					<div className="flex flex-col gap-3 mb-6">
 						<div className="flex gap-3 items-center">
 							<i className="ri-arrow-up-line text-neutral-50 text-xl" />
@@ -323,15 +305,11 @@ export default function Mintcraft() {
 					</div>
 				</section>
 				<section className="my-16">
-					<h2 className="font-display font-semibold text-neutral-50 text-3xl md:text-4xl pb-3">
-						{t("MINTCRAFT:Content.DosAndDonts.heading")}
-					</h2>
+					<h2>{t("MINTCRAFT:Content.DosAndDonts.heading")}</h2>
 					<p>{t("MINTCRAFT:Content.DosAndDonts.disclaimer")}</p>
 					<div className="grid md:grid-cols-2 gap-6 mt-6">
 						<div>
-							<h3 className="font-display font-semibold text-green text-2xl pb-3">
-								{t("MINTCRAFT:Content.DosAndDonts.Do.heading")}
-							</h3>
+							<h3 className="text-green">{t("MINTCRAFT:Content.DosAndDonts.Do.heading")}</h3>
 							<div className="flex flex-col gap-3">
 								<div className="flex gap-6 items-center">
 									<i className="ri-thumb-up-line text-neutral-50 text-xl" />
@@ -356,9 +334,7 @@ export default function Mintcraft() {
 							</div>
 						</div>
 						<div>
-							<h3 className="font-display font-semibold text-red text-2xl pb-3">
-								{t("MINTCRAFT:Content.DosAndDonts.Dont.heading")}
-							</h3>
+							<h3 className="text-red">{t("MINTCRAFT:Content.DosAndDonts.Dont.heading")}</h3>
 							<div className="flex flex-col gap-3">
 								<div className="flex gap-6 items-center">
 									<i className="ri-thumb-down-line text-neutral-50 text-xl" />
@@ -377,34 +353,34 @@ export default function Mintcraft() {
 					</div>
 				</section>
 				<section className="my-16">
-					<h2 className="font-display font-semibold text-neutral-50 text-3xl md:text-4xl pb-3">
-						{t("MINTCRAFT:Content.Credits.heading")}
-					</h2>
+					<h2>{t("MINTCRAFT:Content.Credits.heading")}</h2>
 					<Link
 						href="https://twitter.com/AfkBlizzy"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="font-display font-semibold text-2xl text-neutral-50 pb-3 underline decoration-2 decoration-dotted hover:decoration-solid decoration-blue-800 hover:decoration-blue duration-100"
+						className="text-link-external"
 					>
-						Blizzy
-						<i className="ri-arrow-right-up-line text-blue" />
+						<h3>
+							Blizzy
+							<i className="ri-arrow-right-up-line text-blue" />
+						</h3>
 					</Link>
 					<p className="pb-3">{t("MINTCRAFT:Content.Credits.blizzy")}</p>
 					<Link
 						href="https://vanillatweaks.net"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="font-display font-semibold text-2xl text-neutral-50 pb-3 underline decoration-2 decoration-dotted hover:decoration-solid decoration-blue-800 hover:decoration-blue duration-100"
+						className="text-link-external"
 					>
-						Vanilla Tweaks
-						<i className="ri-arrow-right-up-line text-blue" />
+						<h3>
+							Vanilla Tweaks
+							<i className="ri-arrow-right-up-line text-blue" />
+						</h3>
 					</Link>
 					<p>{t("MINTCRAFT:Content.Credits.vanillaTweaks")}</p>
 				</section>
 				<section className="my-16">
-					<h2 className="font-display font-semibold text-neutral-50 text-3xl md:text-4xl pb-3">
-						{t("MINTCRAFT:Content.MayContainMistakes.heading")}
-					</h2>
+					<h2>{t("MINTCRAFT:Content.MayContainMistakes.heading")}</h2>
 					<Trans
 						i18nKey="MINTCRAFT:Content.MayContainMistakes.text"
 						components={{
@@ -418,9 +394,7 @@ export default function Mintcraft() {
 					/>
 				</section>
 				<div className="flex flex-col sm:flex-row gap-6 pb-6">
-					<h2 className="font-semibold font-display text-neutral-50 text-3xl md:text-4xl flex-grow">
-						{t("MINTCRAFT:Content.Download.commonTitle", { version: gameVersion })}
-					</h2>
+					<h2 className="flex-grow">{t("MINTCRAFT:Content.Download.commonTitle", { version: gameVersion })}</h2>
 					<VersionSwitch />
 				</div>
 				{transition((styles, version) => (

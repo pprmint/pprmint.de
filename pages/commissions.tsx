@@ -38,7 +38,7 @@ export default function Commissions() {
 			</Title>
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
 				<section className="my-12">
-					<h2 className="font-display font-semibold text-neutral-50 text-3xl md:text-4xl pb-3">
+					<h2>
 						{t("COMMISSIONS:Content.Offers.heading")}
 					</h2>
 					<p className="pb-6 inline-flex items-center gap-3">
@@ -54,11 +54,11 @@ export default function Commissions() {
 								<div className="w-full right-0 h-2 bg-green shadow-lg shadow-transparent group-hover:shadow-green duration-100" />
 								<div className="flex flex-col-reverse lg:flex-row px-6 pb-6 items-center text-center lg:text-left">
 									<div className="flex-grow pt-6">
-										<h4 className="text-neutral-50 font-display font-medium text-3xl">
+										<h4>
 											{t("COMMISSIONS:Content.Offers.2DDesign.heading")}
 										</h4>
 										<h5 className="text-md pb-6">{t("COMMISSIONS:Content.Offers.2DDesign.subheading")}</h5>
-										<h3 className="text-neutral-50 font-display-mono font-bold text-4xl md:text-5xl tracking-tighter">
+										<h3>
 											50€-200€
 										</h3>
 									</div>
@@ -67,7 +67,7 @@ export default function Commissions() {
 							</Accordion.Trigger>
 							<Accordion.Content className="data-[state=open]:animate-accordion-slide-down data-[state=closed]:animate-accordion-slide-up">
 								<div className="border-t border-neutral-800">
-									<h4 className="font-display font-medium text-neutral-50 text-xl px-6 py-3">What I need.</h4>
+									<h4>What I need.</h4>
 									<ul>
 										<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
 											<i className="ri-add-line" />
@@ -78,7 +78,7 @@ export default function Commissions() {
 											License to use custom fonts (unless OFL or similar)
 										</li>
 									</ul>
-									<h4 className="font-display font-medium text-neutral-50 text-xl px-6 py-3">What you get.</h4>
+									<h4>What you get.</h4>
 									<ul>
 										<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
 											<i className="ri-check-line" />
@@ -104,11 +104,11 @@ export default function Commissions() {
 								<div className="w-full right-0 h-2 bg-blue shadow-lg shadow-transparent group-hover:shadow-blue duration-100" />
 								<div className="flex flex-col-reverse lg:flex-row px-6 pb-6 items-center text-center lg:text-left">
 									<div className="flex-grow pt-6">
-										<h4 className="text-neutral-50 font-display font-medium text-3xl">
+										<h4>
 											{t("COMMISSIONS:Content.Offers.2DAnimation.heading")}
 										</h4>
 										<h5 className="text-md pb-6">{t("COMMISSIONS:Content.Offers.2DAnimation.subheading")}</h5>
-										<h3 className="text-neutral-50 font-display-mono font-bold text-4xl md:text-5xl tracking-tighter">
+										<h3>
 											100€-250€
 										</h3>
 									</div>
@@ -117,7 +117,7 @@ export default function Commissions() {
 							</Accordion.Trigger>
 							<Accordion.Content className="data-[state=open]:animate-accordion-slide-down data-[state=closed]:animate-accordion-slide-up">
 								<div className="border-t border-neutral-800">
-									<h4 className="font-display font-medium text-neutral-50 text-xl px-6 py-3">What you get.</h4>
+									<h4>What you get.</h4>
 									<ul>
 										<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
 											<i className="ri-check-line" />
@@ -139,11 +139,11 @@ export default function Commissions() {
 								<div className="w-full right-0 h-2 bg-yellow shadow-lg shadow-transparent group-hover:shadow-yellow duration-100" />
 								<div className="flex flex-col-reverse lg:flex-row px-6 pb-6 items-center text-center lg:text-left">
 									<div className="flex-grow pt-6">
-										<h4 className="text-neutral-50 font-display font-medium text-3xl">
+										<h4>
 											{t("COMMISSIONS:Content.Offers.2D3DGraphic.heading")}
 										</h4>
 										<h5 className="text-md pb-6">{t("COMMISSIONS:Content.Offers.2D3DGraphic.subheading")}</h5>
-										<h3 className="text-neutral-50 font-display-mono font-bold text-4xl md:text-5xl tracking-tighter">
+										<h3>
 											150€-400€
 										</h3>
 									</div>
@@ -152,7 +152,7 @@ export default function Commissions() {
 							</Accordion.Trigger>
 							<Accordion.Content className="data-[state=open]:animate-accordion-slide-down data-[state=closed]:animate-accordion-slide-up">
 								<div className="border-t border-neutral-800">
-									<h4 className="font-display font-medium text-neutral-50 text-xl px-6 py-3">What you get.</h4>
+									<h4>What you get.</h4>
 									<ul>
 										<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
 											<i className="ri-check-line" />
@@ -182,11 +182,11 @@ export default function Commissions() {
 								<div className="w-full right-0 h-2 bg-red shadow-lg shadow-transparent group-hover:shadow-red duration-100" />
 								<div className="flex flex-col-reverse lg:flex-row px-6 pb-6 items-center text-center lg:text-left">
 									<div className="flex-grow pt-6">
-										<h4 className="text-neutral-50 font-display font-medium text-3xl">
+										<h4>
 											{t("COMMISSIONS:Content.Offers.Website.heading")}
 										</h4>
 										<h5 className="text-md pb-6">{t("COMMISSIONS:Content.Offers.Website.subheading")}</h5>
-										<h3 className="text-neutral-50 font-display-mono font-bold text-4xl md:text-5xl tracking-tighter">
+										<h3>
 											200€-2000€+
 										</h3>
 									</div>
@@ -195,7 +195,7 @@ export default function Commissions() {
 							</Accordion.Trigger>
 							<Accordion.Content className="data-[state=open]:animate-accordion-slide-down data-[state=closed]:animate-accordion-slide-up">
 								<div className="border-t border-neutral-800">
-									<h4 className="font-display font-medium text-neutral-50 text-xl px-6 py-3">What you get.</h4>
+									<h4>What you get.</h4>
 									<ul>
 										<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
 											<i className="ri-check-line" />
@@ -228,10 +228,10 @@ export default function Commissions() {
 					</Accordion.Root>
 				</section>
 				<section className="my-12">
-					<h2 className="font-display font-semibold text-neutral-50 text-3xl md:text-4xl pb-3">
+					<h2>
 						{t("COMMISSIONS:Content.Terms.heading")}
 					</h2>
-					<h3 className="font-display font-semibold text-neutral-50 text-2xl md:text-3xl pb-3">
+					<h3>
 						{t("COMMISSIONS:Content.Terms.Disclaimer.heading")}
 					</h3>
 					<p>{t("COMMISSIONS:Content.Terms.Disclaimer.termsAgree")}</p>

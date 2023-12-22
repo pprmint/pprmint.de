@@ -189,7 +189,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 													<Link
 														href="https://twitter.com/wxsonz"
 														target="_blank"
-														className="font-medium text-blue underline decoration-2 decoration-dotted hover:decoration-solid decoration-blue-800 hover:decoration-blue duration-100"
+														className="text-link-external"
 													/>
 												),
 											}}
@@ -276,7 +276,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 															href="https://twitter.com/wxsonz"
 															target="_blank"
 															rel="noopener noreferrer"
-															className="text-blue decoration-2 decoration-dotted hover:decoration-solid underline decoration-blue-800 hover:decoration-blue duration-100"
+															className="text-link-external"
 														/>
 													),
 												}}
@@ -298,7 +298,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 													highlighted === "band" ? "bg-neutral-800" : "bg-neutral-900"
 												} rounded-lg p-5 duration-100 cursor-default`}
 											>
-												<h4 className="font-display font-semibold text-neutral-50 text-xl md:text-2xl pb-1">
+												<h4>
 													{t("MINA:Content.Design.HairBand.heading")}
 												</h4>
 												<p>{t("MINA:Content.Design.HairBand.text")}</p>
@@ -309,7 +309,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 													highlighted === "ahoge" ? "bg-neutral-800" : "bg-neutral-900"
 												} rounded-lg p-5 duration-100 cursor-default`}
 											>
-												<h4 className="font-display font-semibold text-neutral-50 text-xl md:text-2xl pb-1">
+												<h4>
 													{t("MINA:Content.Design.Ahoge.heading")}
 												</h4>
 												<p>{t("MINA:Content.Design.Ahoge.text")}</p>
@@ -320,7 +320,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 													highlighted === "accessories" ? "bg-neutral-800" : "bg-neutral-900"
 												} rounded-lg p-5 duration-100 cursor-default`}
 											>
-												<h4 className="font-display font-semibold text-neutral-50 text-xl md:text-2xl pb-1">
+												<h4>
 													{t("MINA:Content.Design.Accessories.heading")}
 												</h4>
 												<p>{t("MINA:Content.Design.Accessories.text")}</p>
@@ -331,7 +331,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 													highlighted === "leaf" ? "bg-neutral-800" : "bg-neutral-900"
 												} rounded-lg p-5 duration-100 cursor-default`}
 											>
-												<h4 className="font-display font-semibold text-neutral-50 text-xl md:text-2xl pb-1">
+												<h4>
 													{t("MINA:Content.Design.LeafDesign.heading")}
 												</h4>
 												<p>{t("MINA:Content.Design.LeafDesign.text")}</p>
@@ -411,7 +411,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 													Link: (
 														<Link
 															href="/contact"
-															className="text-neutral-50 underline decoration-2 decoration-dotted hover:decoration-solid decoration-neutral-50/75 hover:decoration-neutral-50 duration-100"
+															className="text-link"
 														/>
 													),
 												}}

@@ -243,7 +243,7 @@ function Form() {
 				style={styles}
 				className="w-full h-full flex flex-col gap-3 items-center justify-center text-center"
 			>
-				<h2 className="font-display font-medium text-neutral-50 text-4xl md:text-5xl lg:text-6xl">
+				<h2>
 					{t("CONTACT:Content.Email.Form.sent")} <i className="ri-check-line text-yellow" />
 				</h2>
 				<p>{t("CONTACT:Content.Email.Form.sentText")}</p>
@@ -330,7 +330,7 @@ export default function Contact() {
 			</Title>
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
 				<section className="my-24 flex flex-col items-center justify-center">
-					<h2 className="font-display font-semibold text-neutral-50 text-3xl md:text-4xl pb-3">
+					<h2>
 						{t("CONTACT:Content.Mina.heading")}
 					</h2>
                     <p className="pb-6">{t("CONTACT:Content.Mina.text")}</p>
@@ -381,9 +381,9 @@ export default function Contact() {
 											>
 												<i className="ri-arrow-left-line mr-5 group-hover:mr-0 duration-200 ease-out" />
 											</button>
-											<h2 className="font-display font-medium text-neutral-50 text-3xl lg:text-4xl">
+											<h3>
 												{t("CONTACT:Content.Email.title")}
-											</h2>
+											</h3>
 										</div>
 										<Form />
 									</a.div>
@@ -400,9 +400,9 @@ export default function Contact() {
 										/>
 										<div className="absolute flex flex-row gap-6 items-center">
 											<i className="ri-mail-line text-yellow text-4xl md:text-5xl lg:text-6xl" />
-											<h2 className="font-display font-medium text-neutral-50 text-2xl md:text-3xl lg:text-4xl">
+											<h3>
 												{t("CONTACT:Content.Email.title")}
-											</h2>
+											</h3>
 										</div>
 									</a.div>
 								)
@@ -427,9 +427,9 @@ export default function Contact() {
 										/>
 										<div className="absolute flex flex-row w-max gap-6 items-center">
 											<i className="ri-twitter-line text-blue text-4xl md:text-5xl lg:text-6xl" />
-											<h2 className="font-display font-medium text-neutral-50 text-2xl md:text-3xl lg:text-4xl">
+											<h3>
 												{t("CONTACT:Content.twitter")}
-											</h2>
+											</h3>
 										</div>
 									</a.div>
 								</Link>

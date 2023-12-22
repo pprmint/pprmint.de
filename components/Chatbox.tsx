@@ -33,7 +33,7 @@ function MessageBubble(props: { incoming?: boolean; id: string }) {
 							<Link
 								href="/gallery"
                                 target="_blank"
-								className="font-medium underline underline-offset-2 decoration-2 decoration-dotted hover:decoration-solid decoration-neutral-50/75 hover:decoration-neutral-50 duration-100"
+								className="text-link"
 							/>
 						),
 						sil: (
@@ -41,7 +41,7 @@ function MessageBubble(props: { incoming?: boolean; id: string }) {
 								href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="font-medium underline underline-offset-2 decoration-2 decoration-dotted hover:decoration-solid decoration-blue/75 hover:decoration-blue duration-100"
+								className="text-link-external"
 							/>
 						),
 						br: <br />,
@@ -49,7 +49,7 @@ function MessageBubble(props: { incoming?: boolean; id: string }) {
 							<Link
 								href="/commissions"
                                 target="_blank"
-								className="font-medium underline underline-offset-2 decoration-2 decoration-dotted hover:decoration-solid decoration-neutral-50/75 hover:decoration-neutral-50 duration-100"
+								className="text-link"
 							/>
 						),
 					}}
@@ -136,7 +136,7 @@ function Chatbox(props: { onClose: () => void }) {
 					<Image alt="Mina pixel art by Nekomimi" src={Mina} />
 				</div>
 				<div>
-					<h1 className="font-display font-medium text-2xl sm:text-3xl text-neutral-50">Mina.</h1>
+					<h3>Mina.</h3>
 					<p className="text-sm sm:text-base">{t("CHAT:title")}</p>
 				</div>
 			</div>

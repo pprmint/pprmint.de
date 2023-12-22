@@ -321,9 +321,9 @@ export default function Mintbit() {
 					</Toast.Root>
 					<Toast.Viewport className="[--viewport-padding:_25px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-50 outline-none" />
 					<div className="my-16 px-6 md:px-9 py-5">
-						<h3 className="max-w-7xl mx-auto font-display font-semibold text-neutral-50 text-3xl mb-3">
+						<h2 className="max-w-7xl mx-auto">
 							{t("MINTBIT:Content.Tester.heading")}
-						</h3>
+						</h2>
 						<Toolbar.Root className="max-w-7xl mx-auto flex flex-wrap gap-6 bg-neutral-900 border border-neutral-800 rounded-xl p-4 mb-5">
 							<div className="flex w-full md:w-auto gap-6">
 								<div className="flex flex-col">
@@ -419,9 +419,9 @@ export default function Mintbit() {
                         <hr className="border-green w-1/4 mx-auto" />
 					</div>
 					<div className="my-16 max-w-7xl mx-auto px-6 md:px-9 py-5">
-						<h3 className="font-display font-semibold text-neutral-50 text-3xl mb-3">
+						<h2>
 							{t("MINTBIT:Content.Download.heading")}
-						</h3>
+						</h2>
 						<p>{t("MINTBIT:Content.Download.text")}</p>
 						<br />
 						<Link href="https://static.pprmint.art/download/Mintbit/Mintbit_1.1.zip">
