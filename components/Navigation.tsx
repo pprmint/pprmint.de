@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Router, useRouter } from "next/router";
 import useTranslation from "next-translate/useTranslation";
-import { useTransition, useSpring, a, config } from "@react-spring/web";
+import { useTransition, a, easings } from "@react-spring/web";
 
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import * as Portal from "@radix-ui/react-portal";
@@ -34,10 +34,10 @@ const Projects = [
 		link: "/projects/mintcraft",
 		strings: "Mintcraft",
 	},
-    {
-        link: "/projects/mintbit",
-        strings: "Mintbit",
-    },
+	{
+		link: "/projects/mintbit",
+		strings: "Mintbit",
+	},
 	{
 		link: "/projects/mintsans",
 		strings: "Mintsans",
@@ -189,9 +189,22 @@ function MobileNavigation() {
 	const [navOpen, setNavOpen] = useState(false);
 	const transitions = useTransition(navOpen, {
 		from: { opacity: 0, y: -20 },
-		enter: { opacity: 1, y: 0 },
-		leave: { opacity: 0, y: -20 },
-		config: config.stiff,
+		enter: {
+			opacity: 1,
+			y: 0,
+			config: {
+                duration: 400,
+				easing: easings.easeOutExpo,
+			},
+		},
+		leave: {
+			opacity: 0,
+			y: -20,
+			config: {
+                duration: 300,
+				easing: easings.easeInCubic,
+			},
+		},
 	});
 	const handleOpen = () => {
 		setNavOpen(true);
@@ -251,7 +264,29 @@ function MobileNavigation() {
 				className="fixed top-3 right-3 text-neutral-50 text-xl w-10 h-10 rounded-full z-50 hover:bg-neutral-50/10 duration-100"
 				onClick={toggleOpen}
 			>
-				{navOpen ? <i className="ri-close-line" /> : <i className="ri-menu-line" />}
+				<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg" className="absolute left-0 top-0">
+					<path
+						d={navOpen ? "M14,14 20,20 26,14" : "M12,14 20,14 28,14"}
+						fill="transparent"
+						stroke="#eee"
+						strokeWidth="2"
+						className="duration-400 ease-out-quint"
+					/>
+					<path
+						d={navOpen ? "M20,20 20,20" : "M12,20 28,20"}
+						fill="transparent"
+						stroke="#eee"
+						strokeWidth="2"
+						className="duration-400 ease-out-quint"
+					/>
+					<path
+						d={navOpen ? "M14,26 20,20 26,26" : "M12,26 20,26 28,26"}
+						fill="transparent"
+						stroke="#eee"
+						strokeWidth="2"
+						className="duration-400 ease-out-quint"
+					/>
+				</svg>
 			</button>
 			{transitions((styles, item) =>
 				item ? (
