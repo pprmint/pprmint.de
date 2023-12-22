@@ -185,13 +185,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 										<Trans
 											i18nKey="MINA:Content.NSFW.Dialog.credit"
 											components={{
-												Link: (
-													<Link
-														href="https://twitter.com/wxsonz"
-														target="_blank"
-														className="text-link-external"
-													/>
-												),
+												Link: <Link href="https://twitter.com/wxsonz" target="_blank" className="text-link-external" />,
 											}}
 										/>
 									</p>
@@ -298,9 +292,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 													highlighted === "band" ? "bg-neutral-800" : "bg-neutral-900"
 												} rounded-lg p-5 duration-100 cursor-default`}
 											>
-												<h4>
-													{t("MINA:Content.Design.HairBand.heading")}
-												</h4>
+												<h4>{t("MINA:Content.Design.HairBand.heading")}</h4>
 												<p>{t("MINA:Content.Design.HairBand.text")}</p>
 											</div>
 											<div
@@ -309,9 +301,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 													highlighted === "ahoge" ? "bg-neutral-800" : "bg-neutral-900"
 												} rounded-lg p-5 duration-100 cursor-default`}
 											>
-												<h4>
-													{t("MINA:Content.Design.Ahoge.heading")}
-												</h4>
+												<h4>{t("MINA:Content.Design.Ahoge.heading")}</h4>
 												<p>{t("MINA:Content.Design.Ahoge.text")}</p>
 											</div>
 											<div
@@ -320,9 +310,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 													highlighted === "accessories" ? "bg-neutral-800" : "bg-neutral-900"
 												} rounded-lg p-5 duration-100 cursor-default`}
 											>
-												<h4>
-													{t("MINA:Content.Design.Accessories.heading")}
-												</h4>
+												<h4>{t("MINA:Content.Design.Accessories.heading")}</h4>
 												<p>{t("MINA:Content.Design.Accessories.text")}</p>
 											</div>
 											<div
@@ -331,9 +319,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 													highlighted === "leaf" ? "bg-neutral-800" : "bg-neutral-900"
 												} rounded-lg p-5 duration-100 cursor-default`}
 											>
-												<h4>
-													{t("MINA:Content.Design.LeafDesign.heading")}
-												</h4>
+												<h4>{t("MINA:Content.Design.LeafDesign.heading")}</h4>
 												<p>{t("MINA:Content.Design.LeafDesign.text")}</p>
 											</div>
 										</div>
@@ -358,6 +344,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 												["#ffeee4", "text-neutral-950"],
 											].map(([hex, text]) => (
 												<div
+													key={hex}
 													className={`group grid items-center text-center active:scale-95 ${text} hover:z-10 border-2 border-neutral-950 w-10 hover:w-24 h-10 rounded-full duration-150 ease-out overflow-hidden cursor-pointer`}
 													style={{ backgroundColor: hex }}
 													onClick={() => {
@@ -408,12 +395,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 											<Trans
 												i18nKey="MINA:Content.Fanart.text3"
 												components={{
-													Link: (
-														<Link
-															href="/contact"
-															className="text-link"
-														/>
-													),
+													Link: <Link href="/contact" className="text-link" />,
 												}}
 											/>
 										</p>
