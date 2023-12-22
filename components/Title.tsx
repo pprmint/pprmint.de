@@ -28,7 +28,7 @@ export default function Title(
 		delay: 250,
 	});
 	return (
-		<div className="relative w-screen h-svh overflow-hidden">
+		<div className="relative w-screen h-screen max-h-svh overflow-hidden">
 			<a.div className="absolute w-full h-full" style={{ ...fadeIn }}>
 				<div className="absolute w-full h-full">{props.children}</div>
 			</a.div>
