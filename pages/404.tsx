@@ -1,21 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import useTranslation from "next-translate/useTranslation";
 import { useSpring, a, config } from "@react-spring/web";
-import Marquee from "react-fast-marquee";
+import Trans from "next-translate/Trans";
+import { MouseParallaxChild, MouseParallaxContainer } from "react-parallax-mouse";
 
 import Head from "components/Head";
 import Button from "components/Button";
-import NoSSR from "components/NoSSR";
-import {
-	MouseParallaxChild,
-	MouseParallaxContainer,
-} from "react-parallax-mouse";
+
+import DetectiveMina from "public/assets/404/mina_chibi.webp";
 
 export default function NotFound() {
 	const { t } = useTranslation();
-	const path = usePathname();
 
 	// Animations
 	const inFromBottom = useSpring({
@@ -52,45 +48,9 @@ export default function NotFound() {
 		},
 	});
 
-	// Random text
-	function DBWagenreihung(max: number) {
-		return Math.floor(Math.random() * max);
-	}
-	const Wagenreihung = DBWagenreihung(15);
-	const errors = [
-		"HTTP/1.1 404 Not Found",
-		`${path}: command not found`,
-		"lp0 on fire",
-		"Bad command or file name",
-		"F0 0F C7 C8",
-		"77 68 6f 6f 70 73",
-		"01001100",
-		"┐(￣ヘ￣;)┌",
-		"JS LOAD ERROR",
-		"Sorry, but our page is in another website!",
-		"Please insert a disc.",
-		"Whoopsies.",
-		"Quick, Stanley, close your eyes!",
-		<Marquee
-			key={"theend"}
-			speed={100}
-			gradient
-			gradientColor="#111"
-			gradientWidth="10vw"
-			style={{ overflow: "hidden" }}
-		>
-			HE END IS NEVER THE END IS NEVER THE END IS NEVER THE END IS NEVER T
-		</Marquee>,
-		"Okay, yep, it's worse.",
-	];
-
 	return (
 		<>
-			<Head
-				title={t("404:Head.title")}
-				description={t("404:Content.info")}
-				color="#ff3344"
-			/>
+			<Head title={t("404:Head.title")} description={t("404:Content.info")} color="#ff7722" />
 			<MouseParallaxContainer
 				containerStyle={{ width: "100vw", height: "100vh" }}
 				springConfig={config.gentle}
@@ -108,7 +68,7 @@ export default function NotFound() {
 					}}
 				>
 					<a.div
-						className="text-red-700 font-display-mono font-light blur-sm lg:blur-lg w-full text-center"
+						className="text-orange-700 font-display-mono font-light blur-sm lg:blur-lg w-full text-center -skew-y-6"
 						style={{ fontSize: "50vw", ...fadeIn }}
 					>
 						{countUp.val.to((val) => Math.floor(val))}
@@ -117,7 +77,7 @@ export default function NotFound() {
 				<div className="absolute flex items-center justify-center top-0 left-0 w-screen h-screen">
 					<a.div
 						style={{ ...ripple }}
-						className="bg-red-800 aspect-square h-screen md:h-auto md:w-screen rounded-full"
+						className="bg-orange-800 aspect-square h-screen md:h-auto md:w-screen rounded-full"
 					/>
 				</div>
 				<div
@@ -128,25 +88,33 @@ export default function NotFound() {
 					}}
 				/>
 				<a.div
-					className="absolute z-10 flex w-screen h-screen justify-center items-center flex-col px-6 md:px-9"
+					className="z-10 flex flex-col md:flex-row-reverse justify-center items-center gap-3 md:gap-6 w-full max-w-7xl h-full mx-auto px-6 md:px-9"
 					style={{ ...inFromBottom }}
 				>
-					<NoSSR>
-						<h1 className="font-display-mono text-red pb-6 text-center">
-							{errors[Wagenreihung]}
+					<Image src={DetectiveMina} alt="Detective Mina chibi art, drawn by Layer." className="w-40 md:w-72 lg:w-80" />
+					<div className="flex flex-col items-center md:items-start md:flex-grow text-center md:text-left h-max">
+						<h1>
+							{t("404:Content.title")}
+							<span className="text-orange">.</span>
 						</h1>
-					</NoSSR>
-					<p className="text-neutral-50 md:text-lg pb-6">
-						{t("404:Content.info")}
-					</p>
-					<Link href="/" scroll={false}>
-						<Button color="red">
-							{t("404:Content.returnHome")}
-							<i className="ri-home-2-line" />
-						</Button>
-					</Link>
+						<p className="md:text-lg pb-6">{t("404:Content.info")}</p>
+						<Link href="/" className="w-fit">
+							<Button color="orange">
+								{t("404:Content.returnHome")}
+								<i className="ri-home-2-line" />
+							</Button>
+						</Link>
+					</div>
 				</a.div>
 			</MouseParallaxContainer>
+			<p className="absolute pt-6 bottom-3 md:bottom-5 left-0 right-0 text-xs text-center">
+				<Trans
+					i18nKey="404:Content.credit"
+					components={{
+						Link: <Link href="https://twitter.com/108sketches" target="_blank" className="text-link-external" />,
+					}}
+				/>
+			</p>
 		</>
 	);
 }

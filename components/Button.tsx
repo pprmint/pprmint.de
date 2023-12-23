@@ -33,6 +33,10 @@ export default function Button(
 		? props.outlined
 			? "border border-red-900 hover:border-red-500 active:border-red-950 hover:bg-red-900 active:bg-red-950 text-red"
 			: "bg-red hover:bg-red-600 active:bg-red-700 text-neutral-950 border-b-2 border-b-red-700 border-t border-t-red-400 hover:border-t-red-500 active:border-t-red-800"
+		: props.color === "orange"
+		? props.outlined
+			? "border border-orange-900 hover:border-orange-500 active:border-orange-950 hover:bg-orange-900 active:bg-orange-950 text-orange"
+			: "bg-orange hover:bg-orange-600 active:bg-orange-700 text-neutral-950 border-b-2 border-b-orange-700 border-t border-t-orange-400 hover:border-t-orange-500 active:border-t-orange-800"
 		: props.outlined
 		? "border border-neutral-600 hover:border-neutral-500 active:border-neutral-800 hover:bg-neutral-700 active:bg-neutral-800 text-neutral-50"
 		: "bg-neutral-50 hover:bg-neutral-200 active:bg-neutral-400 text-neutral-950 border-b-2 border-neutral-400";

@@ -1,7 +1,9 @@
 {
     "Content": {
-        "info": "Entweder enthält die eingegebene URL Tippfehler, oder die Seite existiert nicht mehr.",
-        "returnHome": "Zur Startseite"
+        "title": "Sie hat überall gesucht",
+        "info": "Hier gibt es keine Seite. Vielleicht wurde sie verschoben oder es gab sie nie. So ist das manchmal.",
+        "returnHome": "Zur Startseite",
+        "credit": "Detektiv-Mina wurde von <Link>Layer (@108sketches)</Link> gezeichnet."
     },
     "Head": {
         "title": "Seite nicht gefunden"
