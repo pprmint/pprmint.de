@@ -8,7 +8,7 @@ function Footer() {
 	// Is set if you call Mina useless in the chatbox.
 	let pissedOffMina = localStorage.getItem("pissedOffMina");
 
-	const [clicks, setClicks] = useState(498);
+	const [clicks, setClicks] = useState(0);
 	const [textVisible, setTextVisible] = useState(false);
 	const [counterVisible, setCounterVisible] = useState(false);
 
