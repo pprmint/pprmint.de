@@ -22,6 +22,9 @@
         "forgive": "I'll forgive you, if you pat me more.",
         "tooMany1": "You don't have to go all out and mess up my hair though.",
         "tooMany2": "STOP",
-        "tooMany3": "AAAAAAAAAAAAAAAAAAAAAA"
+        "tooMany3": "AAAAAAAAAAAAAAAAAAAAAA",
+        "tooMany4": "Alright, here's a counter. After 9 quadrillion, it's game over though.",
+        "tooMany5": "...why are you like this?",
+        "humanityIsDead": "You've officially surpassed 9.007.199.254.740.992 clicks. No more."
     }
 }

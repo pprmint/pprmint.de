@@ -1,13 +1,19 @@
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useTranslation from "next-translate/useTranslation";
+import { useTransition, a } from "@react-spring/web";
 
 function Footer() {
 	const { t } = useTranslation();
-	const [clicks, setClicks] = useState(0);
-	let sound = new Audio("/assets/nadenade_1.wav");
+	// Is set if you call Mina useless in the chatbox.
 	let pissedOffMina = localStorage.getItem("pissedOffMina");
+
+	const [clicks, setClicks] = useState(498);
+	const [textVisible, setTextVisible] = useState(false);
+	const [counterVisible, setCounterVisible] = useState(false);
+
 	function handlePat() {
+		let sound = new Audio("/assets/nadenade_1.wav");
 		if (clicks === 0) {
 			console.info("Play Needy Streamer Overload.\nhttps://whysoserious.jp/needy/en/");
 		}
@@ -15,31 +21,100 @@ function Footer() {
 		if (!sound.paused) {
 			sound.currentTime = 0;
 		}
-		if (clicks > 9) {
+		if (clicks >= 3) {
+			setTextVisible(true);
+		}
+		if (clicks >= 10) {
 			localStorage.removeItem("pissedOffMina");
+		}
+		if (clicks >= 499) {
+			setCounterVisible(true);
 		}
 		sound.play();
 	}
+
+	useEffect(() => {
+		let timeoutId: NodeJS.Timeout;
+		const resetCount = () => {
+			setTextVisible(false);
+			setCounterVisible(false);
+			setTimeout(() => setClicks(0), 500);
+		};
+		// Set a timeout to reset the count after 5 seconds without pats.
+		timeoutId = setTimeout(resetCount, 5000);
+		return () => {
+			// Clear the timeout when the component unmounts or when the count changes.
+			clearTimeout(timeoutId);
+		};
+	}, [clicks]);
+
+	const textFadeIn = useTransition(textVisible, {
+		from: {
+			opacity: 0,
+			y: 8,
+		},
+		enter: {
+			opacity: 1,
+			y: 0,
+		},
+		leave: {
+			opacity: 0,
+		},
+	});
+
+	const counterFadeIn = useTransition(counterVisible, {
+		from: {
+			opacity: 0,
+			bottom: 88,
+		},
+		enter: {
+			opacity: 1,
+			bottom: 96,
+		},
+		leave: {
+			opacity: 0,
+		},
+	});
+
 	return (
 		<footer className="relative pt-20">
-			{clicks > 3 && (
-				<p className="absolute w-full text-center top-10 text-xs">
-					{t(
-						`COMMON:Mina.${
-							clicks >= 200
-								? "tooMany3"
-								: clicks >= 100
-								? "tooMany2"
-								: clicks >= 50
-								? "tooMany1"
-								: clicks > 3
-								? pissedOffMina
-									? "forgive"
+			{textFadeIn((style, item) =>
+				item ? (
+					<a.p className="absolute w-full text-center top-10 text-xs" style={style}>
+						{t(
+							`COMMON:Mina.${
+								clicks == Number.MAX_SAFE_INTEGER + 1
+									? "humanityIsDead"
+									: clicks >= 1000
+									? "tooMany5"
+									: clicks >= 500
+									? "tooMany4"
+									: clicks >= 200
+									? "tooMany3"
+									: clicks >= 100
+									? "tooMany2"
+									: clicks >= 50
+									? "tooMany1"
+									: clicks >= 3
+									? pissedOffMina
+										? "forgive"
+										: "lovePats"
 									: "lovePats"
-								: "lovePats"
-						}`
-					)}
-				</p>
+							}`
+						)}
+					</a.p>
+				) : null
+			)}
+
+			{counterFadeIn((style, item) =>
+				item ? (
+					<a.div
+						className="absolute left-1/2 -translate-x-1/2 -rotate-3 bg-green text-neutral-950 rounded-full px-2 py-1 w-max text-xs font-mono"
+						style={style}
+					>
+						<span>{clicks}</span>
+					</a.div>
+				) : null
 			)}
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
