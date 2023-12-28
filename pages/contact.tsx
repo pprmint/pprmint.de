@@ -197,14 +197,7 @@ function Form() {
 						aria-label={t("CONTACT:Content.Email.Form.message")}
 					/>
 				</div>
-				<Button
-					type={invalidInput ? "button" : "submit"}
-					onClick={(e) => {
-						handleSubmit(e);
-					}}
-					disabled={invalidInput}
-                    color="yellow"
-				>
+				<Button onClick={handleSubmit} disabled={invalidInput} color={failed ? "red" : "yellow"}>
 					{t(
 						sending
 							? "CONTACT:Content.Email.Form.sending"

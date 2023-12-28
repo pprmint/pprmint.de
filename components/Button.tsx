@@ -1,17 +1,17 @@
-import Link from "next/link";
+import { MouseEvent, FormEvent } from "react";
 import React from "react";
 
-export default function Button(
-	props: React.PropsWithChildren<{
-		large?: boolean;
-		color?: string;
-		outlined?: boolean;
-		noMinWidth?: boolean;
-		onClick?: React.MouseEventHandler;
-		disabled?: boolean;
-        type?: "reset" | "button" | "submit";
-	}>
-) {
+interface ButtonProps {
+	large?: boolean;
+	color?: string;
+	outlined?: boolean;
+	noMinWidth?: boolean;
+	onClick?: (event: MouseEvent<Element> | FormEvent<Element>) => void;
+	disabled?: boolean;
+	type?: "reset" | "button" | "submit";
+}
+
+export default function Button(props: React.PropsWithChildren<ButtonProps>) {
 	const size = props.large ? "h-11 px-5 text-lg" : "h-9 px-4";
 	const width = props.noMinWidth ? "justify-center" : "w-fit";
 	const color = props.disabled
@@ -57,14 +57,20 @@ export default function Button(
 		: props.outlined
 		? "text-neutral-50 ring-2 active:ring-4 ring-inset ring-neutral-700 hover:ring-neutral-50 active:ring-transparent bg-neutral-400/10 hover:bg-neutral-800/50 active:bg-neutral-800/30"
 		: "text-neutral-950 bg-gradient-to-b from-neutral-100 to-neutral-200 border-b-2 active:border-b-0 border-b-neutral-500 border-t active:border-t-2 border-t-neutral-50 active:border-t-neutral-500 hover:brightness-110 active:brightness-90";
+
+	function handleClick(event: MouseEvent<Element> | FormEvent<Element>) {
+		if (props.onClick && !props.disabled) {
+			props.onClick(event);
+		}
+	}
 	return (
-		<div
+		<button
 			className={`group flex items-center font-medium duration-200 ease-out rounded-md rounded-tl-xl rounded-br-xl ${
 				props.disabled ? "cursor-not-allowed" : "cursor-pointer hover:rounded-md"
 			} select-none active:duration-50 ${size} ${width} ${color}`}
-			onClick={props.onClick}
+			onClick={handleClick}
 		>
 			<span className="flex gap-3 whitespace-nowrap items-center justify-between">{props.children}</span>
-		</div>
+		</button>
 	);
 }
