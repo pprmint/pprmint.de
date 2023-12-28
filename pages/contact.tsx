@@ -225,7 +225,7 @@ function Form() {
 						)}
 					</div>
 				</button>
-				<hr className="col-span-2 border-dotted border-neutral-800 border-b-2 md:my-3" />
+				<hr className="col-span-2 border-dotted border-neutral-800 border-t-2 md:my-3" />
 				<p className="text-xs text-neutral">
 					{t("CONTACT:Content.Email.preferMailto")}
 					<Link
