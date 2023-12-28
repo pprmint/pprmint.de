@@ -9,6 +9,7 @@ import * as Portal from "@radix-ui/react-portal";
 
 import Head from "components/Head";
 import Title from "components/Title";
+import Button from "components/Button";
 import Chatbox from "components/Chatbox";
 
 import TitleBackground1 from "public/assets/contact/chat_left.svg";
@@ -121,6 +122,7 @@ function Form() {
 						required
 						type="text"
 						name="email"
+						aria-label={t("CONTACT:Content.Email.Form.emailAddress")}
 						onChange={(e) => {
 							setFormData({ ...formData, email: e.target.value });
 						}}
@@ -138,12 +140,12 @@ function Form() {
 						}}
 					>
 						<Select.Trigger
+							aria-label={t("CONTACT:Content.Email.Form.Subject.title")}
 							className={`flex justify-between w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 ${
 								iHateCommissions
 									? "outline-red-800 focus:outline-red bg-red-900 hover:bg-red-800"
 									: "outline-neutral-800 focus:outline-yellow bg-neutral-900 hover:bg-neutral-800"
 							} focus:bg-transparent px-3 py-2 duration-100`}
-							aria-label="Subject"
 						>
 							<Select.Value aria-label={formData.subject} />
 							<Select.Icon>
@@ -192,21 +194,16 @@ function Form() {
 						maxLength={2000}
 						disabled={iHateCommissions}
 						className="w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-800 focus:outline-yellow bg-neutral-900 hover:bg-neutral-800 focus:bg-transparent px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
+						aria-label={t("CONTACT:Content.Email.Form.message")}
 					/>
 				</div>
-				<button
+				<Button
 					type={invalidInput ? "button" : "submit"}
 					onClick={(e) => {
 						handleSubmit(e);
 					}}
 					disabled={invalidInput}
-					className={`flex gap-3 items-center w-fit h-9 px-4 font-medium ${
-						invalidInput
-							? "bg-neutral-50 border-neutral opacity-50 cursor-not-allowed"
-							: failed
-							? "bg-red hover:bg-red-600 active:bg-red-700 border-red-700 active:opacity-75 cursor-pointer"
-							: "bg-yellow hover:bg-yellow-600 active:bg-yellow-700 border-yellow-700 active:opacity-75 cursor-pointer"
-					} text-neutral-950 border-b-2 duration-200 ease-out rounded-md select-none active:duration-75`}
+                    color="yellow"
 				>
 					{t(
 						sending
@@ -224,7 +221,7 @@ function Form() {
 							<i className="ri-send-plane-line" />
 						)}
 					</div>
-				</button>
+				</Button>
 				<hr className="col-span-2 border-dotted border-neutral-800 border-t-2 md:my-3" />
 				<p className="text-xs text-neutral">
 					{t("CONTACT:Content.Email.preferMailto")}
@@ -239,13 +236,10 @@ function Form() {
 				</p>
 			</a.form>
 		) : (
-			<a.div
-				style={styles}
-				className="w-full h-full flex flex-col gap-3 items-center justify-center text-center"
-			>
-				<h2>
+			<a.div style={styles} className="w-full h-full flex flex-col gap-3 items-center justify-center text-center">
+				<h1>
 					{t("CONTACT:Content.Email.Form.sent")} <i className="ri-check-line text-yellow" />
-				</h2>
+				</h1>
 				<p>{t("CONTACT:Content.Email.Form.sentText")}</p>
 			</a.div>
 		)
@@ -323,17 +317,13 @@ export default function Contact() {
 					src={TitleBackground2}
 					alt=""
 					fill
-					className={`object-cover ${
-						formVisible ? "invert-[100%] saturate-[240%] opacity-75" : ""
-					} duration-500`}
+					className={`object-cover ${formVisible ? "invert-[100%] saturate-[240%] opacity-75" : ""} duration-500`}
 				/>
 			</Title>
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
 				<section className="my-24 flex flex-col items-center justify-center">
-					<h2>
-						{t("CONTACT:Content.Mina.heading")}
-					</h2>
-                    <p className="pb-6">{t("CONTACT:Content.Mina.text")}</p>
+					<h2>{t("CONTACT:Content.Mina.heading")}</h2>
+					<p className="pb-6">{t("CONTACT:Content.Mina.text")}</p>
 					<button
 						onClick={handleChatboxOpen}
 						className="group flex gap-6 items-center font-display font-medium text-3xl text-green pl-3 pr-5 border-2 border-green-900 hover:border-green active:border-green-950 hover:bg-green-900 active:bg-green-950 rounded-lg hover:shadow-[0px_6px_18px_#0c65] duration-100"
@@ -381,9 +371,7 @@ export default function Contact() {
 											>
 												<i className="ri-arrow-left-line mr-5 group-hover:mr-0 duration-200 ease-out" />
 											</button>
-											<h3>
-												{t("CONTACT:Content.Email.title")}
-											</h3>
+											<h3>{t("CONTACT:Content.Email.title")}</h3>
 										</div>
 										<Form />
 									</a.div>
@@ -400,9 +388,7 @@ export default function Contact() {
 										/>
 										<div className="absolute flex flex-row gap-6 items-center">
 											<i className="ri-mail-line text-yellow text-4xl md:text-5xl lg:text-6xl" />
-											<h3>
-												{t("CONTACT:Content.Email.title")}
-											</h3>
+											<h3>{t("CONTACT:Content.Email.title")}</h3>
 										</div>
 									</a.div>
 								)
@@ -427,9 +413,7 @@ export default function Contact() {
 										/>
 										<div className="absolute flex flex-row w-max gap-6 items-center">
 											<i className="ri-twitter-line text-blue text-4xl md:text-5xl lg:text-6xl" />
-											<h3>
-												{t("CONTACT:Content.twitter")}
-											</h3>
+											<h3>{t("CONTACT:Content.twitter")}</h3>
 										</div>
 									</a.div>
 								</Link>
