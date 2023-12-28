@@ -27,7 +27,7 @@ function Footer() {
 		if (clicks >= 10) {
 			localStorage.removeItem("pissedOffMina");
 		}
-		if (clicks >= 499) {
+		if (clicks >= 299) {
 			setCounterVisible(true);
 		}
 		sound.play();
@@ -40,8 +40,8 @@ function Footer() {
 			setCounterVisible(false);
 			setTimeout(() => setClicks(0), 500);
 		};
-		// Set a timeout to reset the count after 5 seconds without pats.
-		timeoutId = setTimeout(resetCount, 5000);
+		// Set a timeout to reset the count after 7 seconds without pats.
+		timeoutId = setTimeout(resetCount, 7000);
 		return () => {
 			// Clear the timeout when the component unmounts or when the count changes.
 			clearTimeout(timeoutId);
@@ -87,7 +87,7 @@ function Footer() {
 									? "humanityIsDead"
 									: clicks >= 1000
 									? "tooMany5"
-									: clicks >= 500
+									: clicks >= 300
 									? "tooMany4"
 									: clicks >= 200
 									? "tooMany3"
