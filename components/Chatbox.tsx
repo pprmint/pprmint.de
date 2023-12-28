@@ -23,7 +23,7 @@ function MessageBubble(props: { incoming?: boolean; id: string }) {
 				className={`w-fit max-w-[80%] px-4 py-2 rounded-3xl border-t border-b-2 ${
 					props.incoming
 						? "rounded-bl-md bg-neutral-700 border-t-neutral-600 border-x-neutral-600 border-b-neutral-800 text-neutral-50"
-						: `rounded-br-md border-y  ${isAppleDevice ? "bg-blue border-t-blue-400 border-x-blue-400 border-b-blue-600 selection:text-blue" : "bg-green border-t-green-400 border-x-green-400 border-b-green-600 selection:text-green"} text-neutral-950 selection:bg-neutral-950`
+						: `rounded-br-md border-y ${isAppleDevice ? "bg-blue border-t-blue-400 border-b-blue-700 selection:text-blue" : "bg-green border-t-green-400 border-b-green-700 selection:text-green"} text-neutral-950 selection:bg-neutral-950`
 				}`}
 			>
 				<Trans
@@ -131,9 +131,9 @@ function Chatbox(props: { onClose: () => void }) {
 
 	return (
 		<div className="relative bg-neutral-900 sm:border border-neutral-50/10 ring-neutral-950/75 sm:rounded-xl overflow-hidden">
-			<div className="absolute top-0 left-0 right-0 flex gap-6 items-center py-3 sm:py-6 px-6 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[67.5%] shadow-lg shadow-neutral-900 z-10">
+			<div className="absolute top-0 left-0 right-0 flex gap-6 items-center py-3 sm:py-6 px-6 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[67.5%] shadow-lg shadow-neutral-900/50 z-10">
 				<div className="w-12 sm:w-16 h-12 sm:h-16 rounded-full overflow-hidden">
-					<Image alt="Mina pixel art by Nekomimi" src={Mina} />
+					<Image alt="Mina art by Nekomimi" src={Mina} />
 				</div>
 				<div>
 					<h3>Mina.</h3>
