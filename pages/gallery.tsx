@@ -11,6 +11,14 @@ import Lightbox from "components/Lightbox";
 
 const Works = [
 	{
+		caption: "Windows wallpaper",
+		src: "https://static.pprmint.art/works/2023/WindowsWallpaper/4k_16-9.png",
+		blurData:
+			"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO88Pb/fwAJDgO9Z6xyEQAAAABJRU5ErkJggg==",
+		width: 3840,
+		height: 2160,
+	},
+	{
 		caption: "Glass Flap",
 		src: "https://static.pprmint.art/works/2023/GlassFlap/Glass_Flap.png",
 		blurData:
