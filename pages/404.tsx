@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
-import { useSpring, a, config } from "@react-spring/web";
+import { useSpring, a, config, easings } from "@react-spring/web";
 import Trans from "next-translate/Trans";
 import { MouseParallaxChild, MouseParallaxContainer } from "react-parallax-mouse";
 
@@ -25,6 +25,11 @@ export default function NotFound() {
 			clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
 			opacity: 1,
 		},
+        delay: 1650,
+        config: {
+            easing: easings.easeOutExpo,
+            duration: 1000,
+        }
 	});
 	const fadeIn = useSpring({
 		from: { opacity: 0 },
@@ -41,7 +46,7 @@ export default function NotFound() {
 	const ripple = useSpring({
 		from: { opacity: 0.75, scale: 0 },
 		to: { opacity: 0, scale: 1.5 },
-		delay: 1700,
+		delay: 1650,
 		config: {
 			mass: 3,
 			friction: 100,
@@ -52,7 +57,7 @@ export default function NotFound() {
 		<>
 			<Head title={t("404:Head.title")} description={t("404:Content.info")} color="#ff7722" />
 			<MouseParallaxContainer
-				containerStyle={{ width: "100vw", height: "100vh" }}
+				containerStyle={{ width: "100vw", height: "100vh", minHeight: "600px" }}
 				springConfig={config.gentle}
 				resetOnLeave
 			>
@@ -105,16 +110,16 @@ export default function NotFound() {
 							</Button>
 						</Link>
 					</div>
+					<p className="md:absolute pt-6 bottom-3 md:bottom-5 left-0 right-0 text-xs text-center">
+						<Trans
+							i18nKey="404:Content.credit"
+							components={{
+								Link: <Link href="https://twitter.com/108sketches" target="_blank" className="text-link-external" />,
+							}}
+						/>
+					</p>
 				</a.div>
 			</MouseParallaxContainer>
-			<p className="absolute pt-6 bottom-3 md:bottom-5 left-0 right-0 text-xs text-center">
-				<Trans
-					i18nKey="404:Content.credit"
-					components={{
-						Link: <Link href="https://twitter.com/108sketches" target="_blank" className="text-link-external" />,
-					}}
-				/>
-			</p>
 		</>
 	);
 }
