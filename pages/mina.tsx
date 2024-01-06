@@ -181,7 +181,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 										</Button>
 										<Button onClick={() => setDialogOpen(false)}>{t("MINA:Content.NSFW.Dialog.nevermind")}</Button>
 									</div>
-									<p className="absolute pt-6 bottom-3 md:bottom-5 left-0 right-0 text-xs text-center">
+									<p className="lg:absolute pt-6 bottom-3 md:bottom-5 left-0 right-0 text-xs text-center">
 										<Trans
 											i18nKey="MINA:Content.NSFW.Dialog.credit"
 											components={{
