@@ -60,6 +60,11 @@ module.exports = nextTranslate({
 				destination: "/projects/mintbit",
 				permanent: true,
 			},
+			{
+				source: "/yt-dlp-gui",
+				destination: "/projects/ytdg",
+				permanent: true,
+			},
 		];
 	},
 	async headers() {

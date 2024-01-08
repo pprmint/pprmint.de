@@ -31,6 +31,10 @@ const Projects = [
 		strings: "Gallery",
 	},
 	{
+		link: "/projects/ytdg",
+		strings: "YtDlpGui",
+	},
+	{
 		link: "/projects/mintcraft",
 		strings: "Mintcraft",
 	},

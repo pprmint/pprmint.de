@@ -8,6 +8,7 @@
 		"/commissions": ["COMMISSIONS"],
 		"/contact": ["CONTACT", "CHAT"],
 		"/projects": ["PROJECTS"],
+		"/projects/ytdg": ["YTDG"],
 		"/projects/appicons": ["APPICONS"],
 		"/projects/mintcraft": ["MINTCRAFT"],
 		"/projects/new/mintcraft": ["MINTCRAFT"],

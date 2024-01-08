@@ -1,0 +1,12 @@
+{
+	"Content": {
+		"Download": {
+			"heading": "Download from GitHub.",
+			"text": "You can always find the latest installer on the releases page of the repo."
+		}
+	},
+	"Head": {
+		"description": "Use yt-dlp without touching a terminal.",
+		"title": "yt-dlp GUI"
+	}
+}

@@ -21,6 +21,10 @@
                 "description": "Something for your eyes.",
                 "title": "Gallery"
             },
+            "YtDlpGui": {
+				"description": "A GUI for yt-dlg on Windows.",
+				"title": "yt-dlp GUI"
+			},
 			"Mintcraft": {
 				"description": "A Minecraft resource pack.",
 				"title": "Mintcraft"
