@@ -6,6 +6,10 @@
 	"Content": {
 		"RecentWork": {
 			"title": "Aktuelle Werke",
+            "Ytdg": {
+				"name": "Eine (weitere) GUI-Anwendung für yt-dlp.",
+				"description": "yt-dlp ist eine Kommandozeilen-Anwendung zum Herunterladen von Video- und Audiodateien. Dafür habe ich eine kleine grafische Oberfläche geschrieben, quelloffen und auf GitHub. Der Button hier führt dich direkt zum Repository."
+			},
             "OpenSUSE": {
                 "name": "Logos für openSUSE und deren Distros.",
                 "description": "Diese Designs haben tatsächlich beim Logo-Contest von openSUSE gewonnen. Yay. Die Inspiration der Logos stammt von denen neuerer Distros wie Aeon und MicroOS. Ich wollte nicht gleich das Rad neu erfinden."
@@ -17,10 +21,6 @@
 			"Mintcraft": {
 				"name": "Mintcraft nun für Version 1.20 verfügbar.",
 				"description": "Viele Texturen wie für das Kreativ-Menü oder der Welt-Erstellungs-Bildschirm mit den Tabs wurden angepasst, sodass du nun die neuste Version von Minecraft mit diesem Pack spielen kannst. Auch meine Pixel-Schriftart hat einige Verbesserungen erhalten."
-			},
-			"Tentative": {
-				"name": "Website und Branding für Tentative.",
-				"description": "Ich habe das Branding und diese (in Entwicklung befindliche) Website für Tentative entworfen, eine junge Gruppe von Künstlern, in der ich Mitglied bin. Zu den wichtigsten Designelementen gehören eine violette Hauptakzentfarbe, abstrakte monochrome Abbildungen und 21,5°-Winkel."
 			}
 		}
 	}

@@ -8,13 +8,20 @@ import Button from "components/Button";
 import Title from "components/Title";
 import VideoPlayer from "components/VideoPlayer";
 
+import Ytdg from "/public/assets/home/ytdg.png";
 import Stairway from "/public/assets/home/Stairway_Night.webp";
 import Mintcraft from "/public/assets/home/mintcraft.webp";
-import Tentative from "/public/assets/home/tentative.png";
 
 export default function Home() {
 	const { t } = useTranslation();
 	const Cards = [
+        {
+            image: Ytdg,
+            name: t("HOME:Content.RecentWork.Ytdg.name"),
+            description: t("HOME:Content.RecentWork.Ytdg.description"),
+            link: "https://github.com/pprmint/yt-dlp-GUI",
+            external: true,
+        },
 		{
 			image: "/assets/home/suse.png",
 			video: "https://static.pprmint.art/works/2023/openSUSE/Comp.mp4",
@@ -35,13 +42,6 @@ export default function Home() {
 			name: t("HOME:Content.RecentWork.Mintcraft.name"),
 			description: t("HOME:Content.RecentWork.Mintcraft.description"),
 			link: "/projects/mintcraft",
-		},
-		{
-			image: Tentative,
-			name: t("HOME:Content.RecentWork.Tentative.name"),
-			description: t("HOME:Content.RecentWork.Tentative.description"),
-			link: "https://tentative.name/home",
-			external: true,
 		},
 	];
 	return (
@@ -114,9 +114,9 @@ export default function Home() {
 						{Cards[0].link &&
 							(Cards[0].external ? (
 								<Link href={Cards[0].link} target="_blank" rel="noopener noreferrer" className="w-fit">
-									<Button color="blue" large>
-										{t("COMMON:visitWebsite")}
-										<i className="ri-arrow-right-up-line" />
+									<Button color="violet" large>
+										{t("COMMON:learnMore")}
+										<i className="ri-github-line" />
 									</Button>
 								</Link>
 							) : (
