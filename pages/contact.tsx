@@ -330,7 +330,7 @@ export default function Contact() {
 								}}
 							/>
 						</div>
-						<div className="z-10 flex flex-nowrap text-nowrap items-center gap-6 px-3 hover:px-4 font-display font-medium text-3xl text-neutral-50 bg-neutral-950 rounded-md rounded-tl-xl rounded-br-xl group-hover:rounded-md duration-500 ease-out-expo">
+						<div className="z-10 flex whitespace-nowrap items-center gap-6 px-3 hover:px-4 font-display font-medium text-3xl text-neutral-50 bg-neutral-950 rounded-md rounded-tl-xl rounded-br-xl group-hover:rounded-md duration-500 ease-out-expo">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 972 600"
