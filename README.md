@@ -1,3 +1,8 @@
+<p align="center">
+    <img height="150" alt="My logo, which is a leaf inside of a circle." src="/public/assets/logo.svg">
+</p>
+
+
 # pprmint.art (Next.js)
 
 ## Setup
