@@ -1,7 +1,9 @@
 <p align="center">
-    <img height="150" alt="My logo, which is a leaf inside of a circle." src="/public/assets/logo.svg">
+    <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="/public/assets/logo_with_background.svg">
+        <img width="150" alt="Screenshot of the UI." src="/public/assets/logo.svg">
+    </picture>
 </p>
-
 
 # pprmint.art (Next.js)
 
