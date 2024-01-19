@@ -1,7 +1,7 @@
 <p align="center">
     <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="/public/assets/logo_with_background.svg">
-        <img width="150" alt="Screenshot of the UI." src="/public/assets/logo.svg">
+        <source media="(prefers-color-scheme: dark)" srcset="/public/assets/logo.svg">
+        <img width="150" alt="Screenshot of the UI." src="/public/assets/logo_with_background.svg">
     </picture>
 </p>
 
