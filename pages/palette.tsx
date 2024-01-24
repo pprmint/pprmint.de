@@ -3,6 +3,7 @@ import useTranslation from "next-translate/useTranslation";
 import * as Toast from "@radix-ui/react-toast";
 
 import Head from "components/Head";
+import Title from "components/Title";
 
 interface Shade {
 	[index: number]: string;
@@ -173,17 +174,19 @@ export default function Palette() {
 
 	return (
 		<>
-			<Head title={t("PALETTE:Head.title")} description={t("PALETTE:Head.description")} />;
+			<Head title={t("PALETTE:Head.title")} description={t("PALETTE:Head.description")} />
+            <Title title={t("PALETTE:Head.title")} description={t("PALETTE:Head.description")} />
 			<main className="mx-auto pt-36">
 				<Toast.Provider>
 					<div className="grid grid-cols-10 pb-20">
-						{Colors.map((color, index) => (
-							<div className="h-[700px]">
-								{color.shades.map((shade, index) => (
+						{Colors.map((color, colorIndex) => (
+							<div key={colorIndex} className="h-[700px]">
+								{color.shades.map((shade, shadeIndex) => (
 									<div
+                                        key={colorIndex + shadeIndex}
 										style={{ backgroundColor: shade as string }}
 										className={`group flex items-center justify-center h-16 font-display-mono ${
-											index > 5 ? "text-neutral-50" : "text-neutral-950"
+											shadeIndex > 5 ? "text-neutral-50" : "text-neutral-950"
 										} hover:scale-110 hover:shadow-xl hover:rounded-md duration-100 ease-in-out-custom active:scale-105 cursor-pointer active:duration-75`}
 										onClick={() => {
 											navigator.clipboard.writeText(shade as string);
@@ -196,7 +199,7 @@ export default function Palette() {
 										}}
 									>
 										<span
-											className={index == 5 ? "text-4xl font-light" : "opacity-0 group-hover:opacity-100 duration-150"}
+											className={shadeIndex == 5 ? "text-4xl font-light" : "opacity-0 group-hover:opacity-100 duration-150"}
 										>
 											{shade as string}
 										</span>
