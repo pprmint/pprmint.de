@@ -17,6 +17,7 @@
 		"/stuff": ["STUFF"],
 		"/mina": ["MINA"],
 		"/calc": ["CALC"],
+		"/palette": ["PALETTE"],
 		"/privacy": ["PRIVACY"]
 	}
 }
