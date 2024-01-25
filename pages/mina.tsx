@@ -418,7 +418,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 										width={art.attributes.artwork.data.attributes.width}
 										height={art.attributes.artwork.data.attributes.height}
 										alt=""
-										className={`h-full object-cover bg-neutral-50/10 ${art.attributes.focus}`}
+										className={`min-h-full min-w-full object-cover bg-neutral-50/10 ${art.attributes.focus}`}
 									/>
 								</button>
 							))}
