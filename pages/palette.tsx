@@ -178,14 +178,14 @@ export default function Palette() {
             <Title title={t("PALETTE:Head.title")} description={t("PALETTE:Head.description")} />
 			<main className="mx-auto pt-36">
 				<Toast.Provider>
-					<div className="grid grid-cols-10 pb-20">
+					<div className="flex flex-col lg:flex-row w-full pb-20">
 						{Colors.map((color, colorIndex) => (
-							<div key={colorIndex} className="h-[700px]">
+							<div key={colorIndex} className="grid grid-cols-4 grid-rows-3 lg:grid-rows-11 lg:grid-cols-1 lg:h-[700px] w-full">
 								{color.shades.map((shade, shadeIndex) => (
 									<div
                                         key={colorIndex + shadeIndex}
 										style={{ backgroundColor: shade as string }}
-										className={`group flex items-center justify-center h-16 font-display-mono ${
+										className={`group flex items-center justify-center h-16 font-display-mono ${shadeIndex == 5 ? "col-span-2 lg:col-span-1" : "col-span-1"} ${
 											shadeIndex > 5 ? "text-neutral-50" : "text-neutral-950"
 										} hover:scale-110 hover:shadow-xl hover:rounded-md duration-100 ease-in-out-custom active:scale-105 cursor-pointer active:duration-75`}
 										onClick={() => {
