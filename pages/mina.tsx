@@ -463,7 +463,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 }
 
 export async function getStaticProps() {
-	const res = await fetch(`${process.env.STRAPI_API_URL}/mina-artworks?populate=artwork&sort=creationDate:desc`, {
+	const res = await fetch(`${process.env.STRAPI_API_URL}/mina-artworks?pagination[pageSize]=50&populate=artwork&sort=creationDate:desc`, {
 		headers: {
 			"Content-Type": "application/json",
 			Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
