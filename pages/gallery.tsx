@@ -9,13 +9,15 @@ import Work, { Works } from "types/work";
 import Head from "components/Head";
 import Title from "components/Title";
 import StrapiLightbox from "components/StrapiLightbox";
+import WorkFlyout from "components/WorkFlyout";
 
 export default function Gallery({ Works }: { Works: Works }) {
 	const { t } = useTranslation();
-	const [selectedImage, setSelectedImage] = React.useState(0);
+	const [selectedWork, setSelectedWork] = React.useState(0);
 	const [open, setOpen] = React.useState(false);
+
 	const handleLightboxOpen = (id: number) => {
-		setSelectedImage(id);
+		setSelectedWork(id);
 		document.body.classList.add("overflow-hidden");
 		setOpen(true);
 	};
@@ -37,7 +39,7 @@ export default function Gallery({ Works }: { Works: Works }) {
 			<Head title={t("GALLERY:Head.title")} description={t("GALLERY:Head.description")} />
 			<Title title={t("GALLERY:Head.title")} description={t("GALLERY:Head.description")}>
 				<Image
-					src={Works.data[0].attributes.cover.data.attributes.url}
+					src={`https://static.pprmint.art${Works.data[0].attributes.cover.data.attributes.url}`}
 					alt={Works.data[0].attributes.title}
 					fill
 					className="object-cover"
@@ -45,20 +47,21 @@ export default function Gallery({ Works }: { Works: Works }) {
 				/>
 			</Title>
 			<main>
+                wokr in pogres
 				<section className="my-12">
 					<div className="py-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-2 px-2">
 						{Works.data.map((work: Work, index: number) => (
 							<button
 								key={work.id}
 								onClick={() => handleLightboxOpen(index)}
-								className="aspect-square relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl hover:z-10 cursor-zoom-in"
+								className="aspect-video relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl hover:z-10 cursor-zoom-in"
 							>
 								<Image
 									src={`https://static.pprmint.art${work.attributes.cover.data.attributes.url}`}
 									width={work.attributes.cover.data.attributes.width}
 									height={work.attributes.cover.data.attributes.height}
 									alt=""
-									className={`min-h-full min-w-full object-cover bg-neutral-50/10 ${work.attributes.coverFocus}`}
+									className={`h-full min-w-full object-cover bg-neutral-50/10 ${work.attributes.coverFocus}`}
 								/>
 							</button>
 						))}
@@ -68,15 +71,9 @@ export default function Gallery({ Works }: { Works: Works }) {
 			{transitions((styles, item) =>
 				item ? (
 					<FocusTrap>
-						data
 						<Portal.Root className="fixed z-50">
 							<a.div style={styles}>
-								<StrapiLightbox
-									images={Works.data}
-									aspectRatio="video"
-									selectedImage={selectedImage}
-									onClose={() => handleLightboxClose()}
-								/>
+								<WorkFlyout works={Works.data} selectedWork={selectedWork} onClose={() => handleLightboxClose()} />
 							</a.div>
 						</Portal.Root>
 					</FocusTrap>
@@ -87,14 +84,13 @@ export default function Gallery({ Works }: { Works: Works }) {
 }
 
 export async function getStaticProps() {
-	const res = await fetch(`${process.env.STRAPI_API_URL}/works?populate=cover&sort=creationDate:desc`, {
+	const res = await fetch(`${process.env.STRAPI_API_URL}/works?pagination[pageSize]=100&populate=*&sort=creationDate:desc`, {
 		headers: {
 			"Content-Type": "application/json",
 			Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
 		},
 	});
 	const Works: Works = await res.json();
-    console.log(res);
 	return {
 		props: {
 			Works,
