@@ -230,6 +230,32 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 
 	const filteredArtworks = showNsfw ? Artworks.data : Artworks.data.filter((art: MinaArtwork) => !art.attributes.nsfw);
 
+	const weekCount = Artworks.data.filter((art: MinaArtwork) => {
+		const creationDate = new Date(art.attributes.creationDate);
+		const oneWeekAgo = new Date();
+		oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+		return creationDate > oneWeekAgo;
+	}).length;
+
+	const weekCountDigit1 = Math.floor(weekCount / 10);
+	const weekCountDigit2 = weekCount % 10;
+
+	function FlipCharacter(props: { digit: number }) {
+		return (
+			<div className="relative flex flex-col gap-0.5 w-28 h-44 text-neutral-50 font-display-mono font-light text-[8.75rem]">
+				<div className="absolute z-10 left-0 top-1/2 -translate-y-1/2 w-1.5 h-9 bg-gradient-to-b from-neutral-950 via-neutral-700 to-neutral-950 rounded-full border-2 border-neutral-950" />
+				<div className="relative top-0 left-0 w-full h-1/2 bg-gradient-to-b from-neutral-700 to-neutral-800 border-t border-neutral-600 rounded-t-lg overflow-hidden">
+					<span className="leading-tight absolute top-0 left-0 w-full text-center">{props.digit}</span>
+				</div>
+				<div className="relative bottom-0 left-0 w-full h-1/2 bg-gradient-to-b from-neutral-900 to-neutral-900 border-t border-neutral-700 rounded-b-lg overflow-hidden">
+					<span aria-hidden className="leading-tight absolute bottom-0 left-0 w-full text-center">{props.digit}</span>
+				</div>
+				<div className="absolute z-10 right-0 top-1/2 -translate-y-1/2 w-1.5 h-9 bg-gradient-to-b from-neutral-950 via-neutral-700 to-neutral-950 rounded-full border-2 border-neutral-950" />
+			</div>
+		);
+	}
+
 	return (
 		<>
 			<Head
@@ -405,6 +431,13 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 							</Accordion.Root>
 						</div>
 					</section>
+					<section className="my-12 max-w-7xl mx-auto px-6 md:px-9 text-center">
+						<h2>{t("MINA:Content.Artworks.drawnPastWeek")}</h2>
+						<div className="flex w-max mx-auto gap-2 text-neutral-50 font-display-mono font-light text-[8.75rem]">
+							<FlipCharacter digit={weekCountDigit1} />
+							<FlipCharacter digit={weekCountDigit2} />
+						</div>
+					</section>
 					<section className="my-12">
 						<div className="py-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-2 px-2">
 							{filteredArtworks.map((art: MinaArtwork, index: number) => (
@@ -418,8 +451,14 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 										width={art.attributes.artwork.data.attributes.width}
 										height={art.attributes.artwork.data.attributes.height}
 										alt=""
-										className={`min-h-full min-w-full object-cover bg-neutral-50/10 ${art.attributes.focus}`}
+										className={`h-full min-w-full object-cover bg-neutral-50/10 ${art.attributes.focus} ${
+											art.attributes.nsfw &&
+											"blur-lg group-hover:blur-none opacity-50 group-hover:opacity-100 duration-200"
+										}`}
 									/>
+									{art.attributes.nsfw && (
+										<i className="text-neutral-50/75 ri-eye-off-line absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl group-hover:opacity-0 duration-200" />
+									)}
 								</button>
 							))}
 						</div>
@@ -463,12 +502,15 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 }
 
 export async function getStaticProps() {
-	const res = await fetch(`${process.env.STRAPI_API_URL}/mina-artworks?pagination[pageSize]=50&populate=artwork&sort=creationDate:desc`, {
-		headers: {
-			"Content-Type": "application/json",
-			Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
-		},
-	});
+	const res = await fetch(
+		`${process.env.STRAPI_API_URL}/mina-artworks?pagination[pageSize]=50&populate=artwork&sort=creationDate:desc`,
+		{
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
+			},
+		}
+	);
 	const Artworks: MinaArtworks = await res.json();
 	return {
 		props: {
