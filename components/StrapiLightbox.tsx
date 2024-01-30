@@ -148,6 +148,8 @@ export default function StrapiLightbox(props: LightboxProps) {
 										>
 											{image.attributes.creditUrl.startsWith("https://twitter.com/") ? (
 												<i className="ri-twitter-line" />
+											) : image.attributes.creditUrl.startsWith("https://www.instagram.com/") ? (
+												<i className="ri-instagram-line" />
 											) : (
 												<i className="ri-global-line" />
 											)}
