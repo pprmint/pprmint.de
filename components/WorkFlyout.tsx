@@ -20,7 +20,6 @@ interface FlyoutProps {
 export default function StrapiLightbox(props: FlyoutProps) {
 	const { selectedWork, onClose } = props;
 
-	const { t } = useTranslation();
 	const [currentWork, setCurrentWork] = useState(selectedWork);
 
 	const flyoutTransition = useTransition(props.works[currentWork], {
@@ -42,6 +41,7 @@ export default function StrapiLightbox(props: FlyoutProps) {
 				easing: easings.easeInCubic,
 			},
 		},
+		delay: 100,
 		exitBeforeEnter: true,
 	});
 
@@ -109,16 +109,15 @@ export default function StrapiLightbox(props: FlyoutProps) {
 												alt={media.attributes.alternativeText}
 												width={media.attributes.width}
 												height={media.attributes.height}
-                                                quality={100}
-                                                imageClassName="w-full h-auto"
+												quality={100}
+												imageClassName="w-full h-auto"
 											/>
 										) : (
 											media.attributes.mime.startsWith("video") && (
-												<VideoPlayer
+												<video
+                                                    controls
 													key={media.id.toString()}
 													src={`https://static.pprmint.art${media.attributes.url}`}
-													noDownload
-                                                    title={media.attributes.caption}
 												/>
 											)
 										)

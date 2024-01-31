@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import FadingImage from "components/FadingImage";
 
 export default function Gallery({ Works }: { Works: Works }) {
-    const locale = useRouter();
+	const locale = useRouter();
 
 	const { t } = useTranslation();
 	const [selectedWork, setSelectedWork] = React.useState(0);
@@ -33,7 +33,9 @@ export default function Gallery({ Works }: { Works: Works }) {
 		from: { opacity: 0 },
 		enter: { opacity: 1 },
 		leave: { opacity: 0 },
-		config: config.stiff,
+		config: {
+			duration: 100,
+		},
 	});
 
 	return (
@@ -62,7 +64,7 @@ export default function Gallery({ Works }: { Works: Works }) {
 									width={work.attributes.cover.data.attributes.width}
 									height={work.attributes.cover.data.attributes.height}
 									alt=""
-                                    containerClassName="h-full min-w-full object-cover bg-neutral-50/10"
+									containerClassName="h-full min-w-full object-cover bg-neutral-50/10"
 									imageClassName={`h-full min-w-full object-cover ${work.attributes.coverFocus}`}
 								/>
 							</button>
@@ -85,9 +87,12 @@ export default function Gallery({ Works }: { Works: Works }) {
 	);
 }
 
-export async function getStaticProps({locale}) {
+export async function getStaticProps({ locale }: { locale: string }) {
+	const initialPage = 1;
+	const pageSize = 100;
+
 	const res = await fetch(
-		`${process.env.STRAPI_API_URL}/works?pagination[pageSize]=30&populate=cover,gallery&locale=${locale}&sort=creationDate:desc`,
+		`${process.env.STRAPI_API_URL}/works?pagination[pageSize]=${pageSize}&pagination[currentPage]=${initialPage}&populate=cover,gallery&locale=${locale}&sort=creationDate:desc`,
 		{
 			headers: {
 				"Content-Type": "application/json",
