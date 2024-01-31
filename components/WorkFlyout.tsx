@@ -109,7 +109,7 @@ export default function StrapiLightbox(props: FlyoutProps) {
 												alt={media.attributes.alternativeText}
 												width={media.attributes.width}
 												height={media.attributes.height}
-												quality={100}
+												quality={90}
 												imageClassName="w-full h-auto"
 											/>
 										) : (
