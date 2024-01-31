@@ -9,8 +9,11 @@ import Work, { Works } from "types/work";
 import Head from "components/Head";
 import Title from "components/Title";
 import WorkFlyout from "components/WorkFlyout";
+import { useRouter } from "next/router";
 
 export default function Gallery({ Works }: { Works: Works }) {
+    const locale = useRouter();
+
 	const { t } = useTranslation();
 	const [selectedWork, setSelectedWork] = React.useState(0);
 	const [open, setOpen] = React.useState(false);
@@ -46,7 +49,7 @@ export default function Gallery({ Works }: { Works: Works }) {
 				/>
 			</Title>
 			<main>
-                wokr in pogres
+				wokr in pogres
 				<section className="my-12">
 					<div className="py-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-2 px-2">
 						{Works.data.map((work: Work, index: number) => (
@@ -82,13 +85,16 @@ export default function Gallery({ Works }: { Works: Works }) {
 	);
 }
 
-export async function getStaticProps() {
-	const res = await fetch(`${process.env.STRAPI_API_URL}/works?pagination[pageSize]=100&populate=*&sort=creationDate:desc`, {
-		headers: {
-			"Content-Type": "application/json",
-			Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
-		},
-	});
+export async function getStaticProps({locale}) {
+	const res = await fetch(
+		`${process.env.STRAPI_API_URL}/works?pagination[pageSize]=25&populate=*&locale=${locale}&sort=creationDate:desc`,
+		{
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
+			},
+		}
+	);
 	const Works: Works = await res.json();
 	return {
 		props: {

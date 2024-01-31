@@ -5,7 +5,6 @@ import useTranslation from "next-translate/useTranslation";
 import { useTransition, a, easings } from "@react-spring/web";
 import * as Tooltip from "@radix-ui/react-tooltip";
 
-import LoadingCircle from "./LoadingCircle";
 import Work from "types/work";
 
 interface FlyoutProps {
@@ -80,7 +79,7 @@ export default function StrapiLightbox(props: FlyoutProps) {
 											className="absolute object-cover w-full h-auto"
 										/>
 										<div className="absolute inset-0 flex items-end justify-start p-9 bg-gradient-to-t from-neutral-950 to-neutral-950/50">
-											<h1>{work.attributes.title}</h1>
+											<h1>{work.attributes.title}<span className="text-green">.</span></h1>
 										</div>
 									</div>
 									<div className="px-3 md:px-6 mb-6">{work.attributes.text}</div>
