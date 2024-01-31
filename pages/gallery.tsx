@@ -8,7 +8,6 @@ import * as Portal from "@radix-ui/react-portal";
 import Work, { Works } from "types/work";
 import Head from "components/Head";
 import Title from "components/Title";
-import StrapiLightbox from "components/StrapiLightbox";
 import WorkFlyout from "components/WorkFlyout";
 
 export default function Gallery({ Works }: { Works: Works }) {
