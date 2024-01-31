@@ -1,5 +1,4 @@
 import { useState, useEffect, ChangeEvent } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -13,6 +12,7 @@ import FileSaver from "file-saver";
 import Head from "components/Head";
 import Title from "components/Title";
 import Button from "components/Button";
+import FadingImage from "components/FadingImage";
 
 import TitleBackground from "/public/assets/appicons/title.svg";
 
@@ -546,7 +546,7 @@ export default function AppIcons() {
 		<>
 			<Head title={t("APPICONS:Head.title")} description={t("APPICONS:Head.description")} />
 			<Title title={t("APPICONS:Head.title")} description={t("APPICONS:Head.description")}>
-				<Image src={TitleBackground} alt="" fill className="object-cover bg-neutral-950" />
+				<FadingImage src={TitleBackground} alt="" fill imageClassName="object-cover bg-neutral-950" />
 			</Title>
 			<PityDialog />
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
@@ -635,10 +635,10 @@ export default function AppIcons() {
 										>
 											<i className="ri-check-line" />
 										</div>
-										<Image
+										<FadingImage
 											src={icon.image}
 											alt={icon.name}
-											className={
+											imageClassName={
 												selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name)
 													? "opacity-50"
 													: "brightness-100"

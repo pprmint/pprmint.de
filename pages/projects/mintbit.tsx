@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import * as Slider from "@radix-ui/react-slider";
 import * as Toast from "@radix-ui/react-toast";
@@ -9,6 +8,7 @@ import { useTransition, config, a } from "@react-spring/web";
 
 import Head from "components/Head";
 import Button from "components/Button";
+import FadingImage from "components/FadingImage";
 
 import Title from "components/Title";
 
@@ -269,7 +269,7 @@ export default function Mintbit() {
 				image="https://pprmint.art/assets/mintbit/embed.png"
 			/>
 			<Title title={t("MINTBIT:Head.title")} description={t("MINTBIT:Head.description")}>
-				<Image src={TitleBackground} alt="" fill className="object-cover" />
+				<FadingImage src={TitleBackground} alt="" fill imageClassName="object-cover" />
 			</Title>
 			<main>
 				<Toast.Provider swipeDirection="right">

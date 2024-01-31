@@ -1,5 +1,4 @@
 import * as React from "react";
-import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import { useTransition, a, config } from "@react-spring/web";
 import FocusTrap from "focus-trap-react";
@@ -10,6 +9,7 @@ import Head from "components/Head";
 import Title from "components/Title";
 import WorkFlyout from "components/WorkFlyout";
 import { useRouter } from "next/router";
+import FadingImage from "components/FadingImage";
 
 export default function Gallery({ Works }: { Works: Works }) {
     const locale = useRouter();
@@ -40,11 +40,11 @@ export default function Gallery({ Works }: { Works: Works }) {
 		<>
 			<Head title={t("GALLERY:Head.title")} description={t("GALLERY:Head.description")} />
 			<Title title={t("GALLERY:Head.title")} description={t("GALLERY:Head.description")}>
-				<Image
+				<FadingImage
 					src={`https://static.pprmint.art${Works.data[0].attributes.cover.data.attributes.url}`}
 					alt={Works.data[0].attributes.title}
 					fill
-					className="object-cover"
+					imageClassName="object-cover"
 					quality={90}
 				/>
 			</Title>
@@ -57,12 +57,13 @@ export default function Gallery({ Works }: { Works: Works }) {
 								onClick={() => handleLightboxOpen(index)}
 								className="aspect-video relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl hover:z-10 cursor-zoom-in"
 							>
-								<Image
+								<FadingImage
 									src={`https://static.pprmint.art${work.attributes.cover.data.attributes.url}`}
 									width={work.attributes.cover.data.attributes.width}
 									height={work.attributes.cover.data.attributes.height}
 									alt=""
-									className={`h-full min-w-full object-cover bg-neutral-50/10 ${work.attributes.coverFocus}`}
+                                    containerClassName="h-full min-w-full object-cover bg-neutral-50/10"
+									imageClassName={`h-full min-w-full object-cover ${work.attributes.coverFocus}`}
 								/>
 							</button>
 						))}
@@ -86,7 +87,7 @@ export default function Gallery({ Works }: { Works: Works }) {
 
 export async function getStaticProps({locale}) {
 	const res = await fetch(
-		`${process.env.STRAPI_API_URL}/works?pagination[pageSize]=25&populate=cover,gallery&locale=${locale}&sort=creationDate:desc`,
+		`${process.env.STRAPI_API_URL}/works?pagination[pageSize]=30&populate=cover,gallery&locale=${locale}&sort=creationDate:desc`,
 		{
 			headers: {
 				"Content-Type": "application/json",

@@ -10,6 +10,7 @@ import { useTransition, a, easings } from "@react-spring/web";
 import Head from "components/Head";
 import Button from "components/Button";
 import Title from "components/Title";
+import FadingImage from "components/FadingImage";
 
 // Container screenshots (German)
 import TSurvivalDE from "/public/assets/mintcraft/de/survival.png";
@@ -264,26 +265,26 @@ export default function Mintcraft() {
 					>
 						{locale === "en" && (
 							<>
-								<Image src={TBeaconEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
-								<Image src={TSurvivalEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
-								<Image src={TEnchantingEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
-								<Image src={TCreativeEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
-								<Image src={TCraftingEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
-								<Image src={TFurnaceEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
-								<Image src={TAdvancementsEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
-								<Image src={TAnvilEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
+								<FadingImage src={TBeaconEN} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
+								<FadingImage src={TSurvivalEN} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
+								<FadingImage src={TEnchantingEN} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
+								<FadingImage src={TCreativeEN} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
+								<FadingImage src={TCraftingEN} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
+								<FadingImage src={TFurnaceEN} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
+								<FadingImage src={TAdvancementsEN} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
+								<FadingImage src={TAnvilEN} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
 							</>
 						)}
 						{locale === "de" && (
 							<>
-								<Image src={TBeaconDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
-								<Image src={TSurvivalDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
-								<Image src={TEnchantingDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
-								<Image src={TCreativeDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
-								<Image src={TCraftingDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
-								<Image src={TFurnaceDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
-								<Image src={TAdvancementsDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
-								<Image src={TAnvilDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
+								<FadingImage src={TBeaconDE} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
+								<FadingImage src={TSurvivalDE} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
+								<FadingImage src={TEnchantingDE} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
+								<FadingImage src={TCreativeDE} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
+								<FadingImage src={TCraftingDE} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
+								<FadingImage src={TFurnaceDE} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
+								<FadingImage src={TAdvancementsDE} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
+								<FadingImage src={TAnvilDE} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
 							</>
 						)}
 					</Marquee>
