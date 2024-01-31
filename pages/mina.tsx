@@ -82,7 +82,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 			<FadingImage
 				src={TransparentMina}
 				alt=""
-				imageClassName={`${highlighted === "" ? "brightness-100" : "brightness-75"} duration-200`}
+				className={`${highlighted === "" ? "brightness-100" : "brightness-75"} duration-200`}
 			/>
 		</div>
 	);
@@ -265,7 +265,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 				image="https://pprmint.art/assets/mina/embed_gold.png"
 			/>
 			<Title title={t("MINA:Head.title")} description={t("MINA:Head.description")}>
-				<FadingImage src={HeroMina} alt="Original Mina artwork by wxsonz." fill imageClassName="object-cover" quality={90} />
+				<FadingImage src={HeroMina} alt="Original Mina artwork by wxsonz." fill className="object-cover" quality={90} />
 			</Title>
 			<main>
 				<Toast.Provider swipeDirection="right">
@@ -445,15 +445,14 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 								<button
 									key={art.id}
 									onClick={() => handleLightboxOpen(index)}
-									className="aspect-square relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl hover:z-10 cursor-zoom-in"
+									className="aspect-square relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl hover:z-10 cursor-pointer"
 								>
 									<FadingImage
 										src={`https://static.pprmint.art${art.attributes.artwork.data.attributes.url}`}
 										width={art.attributes.artwork.data.attributes.width}
 										height={art.attributes.artwork.data.attributes.height}
 										alt=""
-                                        containerClassName="h-full min-w-full object-cover bg-neutral-50/10"
-										imageClassName={`h-full min-w-full object-cover ${art.attributes.focus} ${
+										className={`h-full min-w-full object-cover bg-neutral-900 ${art.attributes.focus} ${
 											art.attributes.nsfw &&
 											"blur-lg group-hover:blur-none opacity-50 group-hover:opacity-100 duration-200"
 										}`}

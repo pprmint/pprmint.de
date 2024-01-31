@@ -110,7 +110,7 @@ export default function StrapiLightbox(props: FlyoutProps) {
 												width={media.attributes.width}
 												height={media.attributes.height}
 												quality={90}
-												imageClassName="w-full h-auto"
+												className="w-full h-auto animate-skeleton-pulse"
 											/>
 										) : (
 											media.attributes.mime.startsWith("video") && (

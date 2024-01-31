@@ -269,7 +269,7 @@ export default function Mintbit() {
 				image="https://pprmint.art/assets/mintbit/embed.png"
 			/>
 			<Title title={t("MINTBIT:Head.title")} description={t("MINTBIT:Head.description")}>
-				<FadingImage src={TitleBackground} alt="" fill imageClassName="object-cover" />
+				<FadingImage src={TitleBackground} alt="" fill className="object-cover" />
 			</Title>
 			<main>
 				<Toast.Provider swipeDirection="right">

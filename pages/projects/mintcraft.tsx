@@ -265,26 +265,26 @@ export default function Mintcraft() {
 					>
 						{locale === "en" && (
 							<>
-								<FadingImage src={TBeaconEN} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
-								<FadingImage src={TSurvivalEN} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
-								<FadingImage src={TEnchantingEN} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
-								<FadingImage src={TCreativeEN} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
-								<FadingImage src={TCraftingEN} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
-								<FadingImage src={TFurnaceEN} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
-								<FadingImage src={TAdvancementsEN} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
-								<FadingImage src={TAnvilEN} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
+								<FadingImage src={TBeaconEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
+								<FadingImage src={TSurvivalEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
+								<FadingImage src={TEnchantingEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
+								<FadingImage src={TCreativeEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
+								<FadingImage src={TCraftingEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
+								<FadingImage src={TFurnaceEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
+								<FadingImage src={TAdvancementsEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
+								<FadingImage src={TAnvilEN} alt="" quality={90} priority className="inline-block h-auto m-6" />
 							</>
 						)}
 						{locale === "de" && (
 							<>
-								<FadingImage src={TBeaconDE} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
-								<FadingImage src={TSurvivalDE} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
-								<FadingImage src={TEnchantingDE} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
-								<FadingImage src={TCreativeDE} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
-								<FadingImage src={TCraftingDE} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
-								<FadingImage src={TFurnaceDE} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
-								<FadingImage src={TAdvancementsDE} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
-								<FadingImage src={TAnvilDE} alt="" quality={90} priority containerClassName="inline-block h-auto m-6" />
+								<FadingImage src={TBeaconDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
+								<FadingImage src={TSurvivalDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
+								<FadingImage src={TEnchantingDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
+								<FadingImage src={TCreativeDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
+								<FadingImage src={TCraftingDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
+								<FadingImage src={TFurnaceDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
+								<FadingImage src={TAdvancementsDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
+								<FadingImage src={TAnvilDE} alt="" quality={90} priority className="inline-block h-auto m-6" />
 							</>
 						)}
 					</Marquee>

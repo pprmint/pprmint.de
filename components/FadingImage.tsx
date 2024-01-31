@@ -9,8 +9,7 @@ export default function FadingImage({
 	onClick,
 	width,
 	height,
-	imageClassName,
-	containerClassName,
+	className,
 	quality,
 	fill,
 	priority,
@@ -20,32 +19,24 @@ export default function FadingImage({
 	onClick?: MouseEventHandler;
 	width?: number;
 	height?: number;
-	imageClassName?: string;
-	containerClassName?: string;
+	className?: string;
 	quality?: number;
 	fill?: boolean;
 	priority?: boolean;
 }) {
 	const [loaded, setLoaded] = useState(false);
 
-	const fadeIn = useSpring({
-		from: { opacity: 0 },
-		to: { opacity: loaded ? 1 : 0 },
-	});
-
 	return (
-		<a.div onClick={onClick} style={fadeIn} className={containerClassName}>
-			<Image
-				src={src}
-				alt={alt}
-				fill={fill}
-				priority={priority}
-				width={width}
-				height={height}
-				quality={quality}
-				onLoad={() => setLoaded(true)}
-				className={imageClassName}
-			/>
-		</a.div>
+		<Image
+			src={src}
+			alt={alt}
+			fill={fill}
+			priority={priority}
+			width={width}
+			height={height}
+			quality={quality}
+			onLoad={() => setLoaded(true)}
+			className={`${loaded ? "opacity-100" : "opacity-0"} duration-500 ${className}`}
+		/>
 	);
 }

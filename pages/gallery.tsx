@@ -46,7 +46,7 @@ export default function Gallery({ Works }: { Works: Works }) {
 					src={`https://static.pprmint.art${Works.data[0].attributes.cover.data.attributes.url}`}
 					alt={Works.data[0].attributes.title}
 					fill
-					imageClassName="object-cover"
+					className="object-cover"
 					quality={90}
 				/>
 			</Title>
@@ -57,15 +57,14 @@ export default function Gallery({ Works }: { Works: Works }) {
 							<button
 								key={work.id}
 								onClick={() => handleLightboxOpen(index)}
-								className="aspect-video relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl hover:z-10 cursor-zoom-in"
+								className="aspect-video relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl hover:z-10 cursor-pointer"
 							>
 								<FadingImage
 									src={`https://static.pprmint.art${work.attributes.cover.data.attributes.url}`}
 									width={work.attributes.cover.data.attributes.width}
 									height={work.attributes.cover.data.attributes.height}
 									alt=""
-									containerClassName="h-full min-w-full object-cover bg-neutral-50/10"
-									imageClassName={`h-full min-w-full object-cover ${work.attributes.coverFocus}`}
+									className={`h-full min-w-full object-cover bg-neutral-50/10 ${work.attributes.coverFocus}`}
 								/>
 							</button>
 						))}
