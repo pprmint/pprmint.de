@@ -234,7 +234,7 @@ module.exports = {
 				},
 			},
 			animation: {
-                "slow-spin": "spin 3s linear infinite;",
+				"slow-spin": "spin 3s linear infinite;",
 				"enter-from-l": "enterFromLeft .25s cubic-bezier(.15,0,.35,1)",
 				"enter-from-r": "enterFromRight .25s cubic-bezier(.15,0,.35,1)",
 				"enter-from-t": "enterFromTop .25s cubic-bezier(.15,0,.35,1)",
@@ -430,5 +430,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [],
+	plugins: [require("@tailwindcss/typography")],
 };
