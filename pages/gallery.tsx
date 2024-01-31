@@ -49,7 +49,6 @@ export default function Gallery({ Works }: { Works: Works }) {
 				/>
 			</Title>
 			<main>
-				wokr in pogres
 				<section className="my-12">
 					<div className="py-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-2 px-2">
 						{Works.data.map((work: Work, index: number) => (
@@ -87,7 +86,7 @@ export default function Gallery({ Works }: { Works: Works }) {
 
 export async function getStaticProps({locale}) {
 	const res = await fetch(
-		`${process.env.STRAPI_API_URL}/works?pagination[pageSize]=25&populate=*&locale=${locale}&sort=creationDate:desc`,
+		`${process.env.STRAPI_API_URL}/works?pagination[pageSize]=25&populate=cover,gallery&locale=${locale}&sort=creationDate:desc`,
 		{
 			headers: {
 				"Content-Type": "application/json",
