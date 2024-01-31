@@ -15,6 +15,7 @@ function VideoPlayer(props: {
 	noSound?: boolean;
 	noDownload?: boolean;
 	loopDefault?: boolean;
+	key?: string;
 }) {
 	const { t } = useTranslation();
 
@@ -150,8 +151,8 @@ function VideoPlayer(props: {
 
 	useEffect(() => {
 		// Detect when video metadata has been loaded for duration and update current video time.
-        const currentVideoRef = videoRef.current;
-        
+		const currentVideoRef = videoRef.current;
+
 		if (currentVideoRef) {
 			currentVideoRef.addEventListener("timeupdate", handleTimeUpdate);
 			currentVideoRef.addEventListener("loadedmetadata", handleLoadedMetadata);
@@ -286,6 +287,7 @@ function VideoPlayer(props: {
 
 	return (
 		<div
+            key={props.key}
 			className={`relative overflow-hidden ${fullscreen ? "bg-black" : "bg-neutral-900"} ${
 				showControls ? "cursor-auto" : "cursor-none"
 			}`}
@@ -341,17 +343,18 @@ function VideoPlayer(props: {
 							</a.div>
 						)
 				)}
-				{props.title && topTransition(
-					(style, item) =>
-						item && (
-							<a.div
-								style={style}
-								className="absolute top-0 left-0 right-0 p-6 z-20 h-20 bg-gradient-to-b from-[#111c] duration-500 ease-out-expo"
-							>
-								<p className="font-display font-medium text-2xl text-neutral-50">{props.title}</p>
-							</a.div>
-						)
-				)}
+				{props.title &&
+					topTransition(
+						(style, item) =>
+							item && (
+								<a.div
+									style={style}
+									className="absolute top-0 left-0 right-0 p-6 z-20 h-20 bg-gradient-to-b from-[#111c] duration-500 ease-out-expo"
+								>
+									<p className="font-display font-medium text-2xl text-neutral-50">{props.title}</p>
+								</a.div>
+							)
+					)}
 				{bottomTransition(
 					(style, item) =>
 						item && (

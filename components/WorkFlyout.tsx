@@ -89,11 +89,12 @@ export default function StrapiLightbox(props: FlyoutProps) {
 										</div>
 									</div>
 									<div className="px-3 md:px-6 lg:px-9 mb-9 prose-a:text-link-external">
-										<Markdown children={work.attributes.text} remarkPlugins={[remarkGfm]} />
+										<Markdown remarkPlugins={[remarkGfm]}>{work.attributes.text}</Markdown>
 									</div>
 									{work.attributes.gallery.data.map((media) =>
 										media.attributes.mime.startsWith("image/") ? (
 											<Image
+												key={media.id.toString()}
 												src={`https://static.pprmint.art${media.attributes.url}`}
 												alt={media.attributes.alternativeText}
 												width={media.attributes.width}
@@ -101,7 +102,7 @@ export default function StrapiLightbox(props: FlyoutProps) {
 											/>
 										) : (
 											media.attributes.mime.startsWith("video") && (
-												<VideoPlayer src={`https://static.pprmint.art${media.attributes.url}`} noDownload />
+												<VideoPlayer key={media.id.toString()} src={`https://static.pprmint.art${media.attributes.url}`} noDownload />
 											)
 										)
 									)}
