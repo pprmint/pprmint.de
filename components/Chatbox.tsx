@@ -9,7 +9,7 @@ import Button from "./Button";
 import { useTransition, a } from "@react-spring/web";
 import dynamic from "next/dynamic";
 
-const Messages = ["UseSelf", "ProjectTerms", "WhatSoftware", "OfferCommissions", "OwnQuestion"];
+const Messages = ["WhoYou", "WhyPprmint", "WhoWebsite", "UseSelf", "ProjectTerms", "WhatSoftware", "OfferCommissions", "OwnQuestion"];
 
 function MessageBubble(props: { incoming?: boolean; id: string }) {
     const isAppleDevice = /iPhone|Mac/i.test(navigator.userAgent);
@@ -137,7 +137,7 @@ function Chatbox(props: { onClose: () => void }) {
 				</div>
 				<div>
 					<h3>Mina.</h3>
-					<p className="text-sm sm:text-base">{t("CHAT:title")}</p>
+					<p className="text-sm sm:text-base">{t(noTalky ? "CHAT:titleAngy" : "CHAT:title")}</p>
 				</div>
 			</div>
 			<div className="px-6 h-[600px] overflow-y-scroll pt-20 sm:pt-28" ref={chatboxRef}>

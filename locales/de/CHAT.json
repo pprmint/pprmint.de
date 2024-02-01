@@ -1,5 +1,6 @@
 {
 	"title": "Stell mir eine Frage.",
+	"titleAngy": "Geh weg.",
 	"Messages": {
 		"Hello": {
 			"answer": "Heya. Wie kann ich helfen?"
@@ -7,9 +8,21 @@
 		"NoTalky": {
 			"answer": "Ich bin doch eh nutzlos, also zisch ab."
 		},
+		"WhoYou": {
+			"message": "Wer bist du?",
+			"answer": "Ich bin Mina, quasi das Maskottchen von pprmint. Der Typ, dem diese Website gehört, heißt Nicklas."
+		},
+		"WhyPprmint": {
+			"message": "Warum \"pprmint.\"?",
+			"answer": "Der Name entstand aus Liebe für Dinge mit Pfefferminzgeschmack, und \"peppermint\" sah ohne Vokale bis auf das i recht cool aus. Der Punkt am Ende ist Teil des Namens, da Satzzeichen direkt unter Pfefferminze auf der Liste stehen."
+		},
+		"WhoWebsite": {
+			"message": "Wie diese Website entstanden?",
+			"answer": "Die Seite wurde im August 2022 von Grund auf neugeschrieben und seither stetig weiterentwickelt. Klick mal im Navigationsmenü unter \"Weiteres\" auf die kleine Tasse, um zu sehen, welche weiteren Bibliotheken verwendet werden."
+		},
 		"UseSelf": {
 			"message": "Darf ich die Grafiken und Animationen in meinen eigenen Projekten verwenden?",
-			"answer": "Nein, alles was du auf der <gallery>Galerie-Seite</gallery> siehst ist nur zum Ansehen gedacht. Du darfst beispielsweise die 3D-Render als Desktop-Hintergrundbild verwenden, aber mehr nicht."
+			"answer": "Nein, (fast) alles was du auf der <gallery>Galerie-Seite</gallery> siehst ist nur zum Ansehen  gedacht. Wenn du willst, darfst du z.B. 3D-Render als Desktophintergrund verwenden, aber mehr nicht."
 		},
 		"ProjectTerms": {
 			"message": "Unter welchen Bedingungen dürfen Projekte wie Schriftarten und Icons verwendet werden?",
@@ -17,11 +30,11 @@
 		},
 		"WhatSoftware": {
 			"message": "Welche Programme werden hier meist verwendet?",
-			"answer": "Alles mit weniger als 3 Dimensionen wird mit Affinity Designer erstellt. Für Motion Graphics werden Komposition meistens in Affinity Designer vorbereitet und anschließend in After Effects mit Hilfe von Mt. Mograph's Motion-Erweiterung animiert. Schriftarten werden mit FontForge erstellt."
+			"answer": "Alles mit weniger als 3 Dimensionen wird in Affinity Designer erstellt. Für Motion Graphics werden Kompositionen in Affinity Designer vorbereitet und anschließend in After Effects mit Hilfe von Mt. Mograph's Motion-Erweiterung animiert. Schriftarten werden mit FontForge erstellt."
 		},
 		"OfferCommissions": {
 			"message": "Kann ich Projekte in Auftrag geben?",
-			"answer": "Vielleicht, wenn du eine Idee (und Geld) hast. Schau dir für Genaueres die <comms>Seite für Auftragsarbeiten</comms> an."
+			"answer": "Aktuell noch nicht, aber es ist geplant."
 		},
 		"OwnQuestion": {
 			"message": "Kann ich meine eigene Frage stellen?",

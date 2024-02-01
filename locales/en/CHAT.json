@@ -1,5 +1,6 @@
 {
 	"title": "Ask me a question.",
+	"titleAngy": "Go away.",
 	"Messages": {
 		"Hello": {
 			"answer": "Hiya. How can I help?"
@@ -7,9 +8,21 @@
         "NoTalky": {
 			"answer": "I'm useless anyways, so get lost."
 		},
+        "WhoYou": {
+			"message": "Who are you?",
+			"answer": "Name's Mina. I'm basically the mascot of pprmint. The guy who owns this website is called Nicklas, but prefers to be called Nick."
+		},
+		"WhyPprmint": {
+			"message": "Why \"pprmint.\"?",
+			"answer": "The name is the result of a love for peppermint-flavored things and \"peppermint\" looked cooler without vowels other than the i. The period at the end is part of the name, as punctuation is right below peppermint in that list."
+		},
+		"WhoWebsite": {
+			"message": "How was this website made?",
+			"answer": "The site was built from the ground up in August of 2022 and has been in continuous development since. Try clicking on the cup in the navigation menu under \"Other\" to see some of the other libraries used."
+		},
 		"UseSelf": {
 			"message": "May I use the graphics and animations in my own works?",
-			"answer": "No, everything you see on the <gallery>gallery page</gallery> is just for looking at. You could use the 3D renders as desktop wallpapers for instance, but that's it."
+			"answer": "No, (almost) everything you see on the <gallery>gallery page</gallery> is just for looking at. You could use the 3D renders as desktop wallpapers for instance, but that's it."
 		},
 		"ProjectTerms": {
 			"message": "Under which conditions may projects such as fonts and icons be used?",
@@ -21,7 +34,7 @@
 		},
 		"OfferCommissions": {
 			"message": "Can I request a commission?",
-			"answer": "Maybe, provided you have an idea (and money). Take a look at the <comms>Commissions page</comms> for more details."
+			"answer": "Not currently, however it is something that's planned."
 		},
 		"OwnQuestion": {
 			"message": "Can I ask my own question?",
