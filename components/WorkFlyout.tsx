@@ -63,11 +63,11 @@ export default function StrapiLightbox(props: FlyoutProps) {
 		<Tooltip.Provider>
 			<Tooltip.Root>
 				<div className="fixed flex items-center justify-center bg-neutral-950/75 md:backdrop-blur-md z-50 inset-0">
-					<div className="fixed z-40 md:p-24 h-screen w-screen overflow-auto">
+					<div className="absolute z-40 md:p-24 h-screen w-screen overflow-auto">
 						<div onClick={onClose} className="fixed inset-0" />
 						{flyoutTransition((style, work) => (
-							<a.div key={work.id} style={style} className="flex max-w-6xl mx-auto drop-shadow-xl">
-								<div className="w-full h-screen max-h-svh md:h-max md:max-h-none bg-neutral-950 md:border border-neutral-50/10 md:rounded-xl overflow-hidden">
+							<a.div key={work.id} style={style} className="flex max-w-6xl mx-auto drop-shadow-xl overflow-auto">
+								<div className="w-full h-max md:max-h-none bg-neutral-950 md:border border-neutral-50/10 md:rounded-xl md:overflow-hidden">
 									<div className="relative overflow-hidden h-80 md:h-1/3-screen">
 										<button
 											className="group fixed md:absolute z-50 top-3 md:top-5 right-3 md:right-5 text-neutral-50 w-10 h-10 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
