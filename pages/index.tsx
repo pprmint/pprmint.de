@@ -8,6 +8,7 @@ import Button from "components/Button";
 import Title from "components/Title";
 
 import Announcement, { Announcements } from "types/announcement";
+import FadingImage from "components/FadingImage";
 
 export default function Home({ Announcements }: { Announcements: Announcements }) {
 	const { t } = useTranslation();
@@ -27,7 +28,7 @@ export default function Home({ Announcements }: { Announcements: Announcements }
 			<main>
 				<section className="relative overflow-hidden">
 					<div className="relative w-full h-full -z-10">
-						<Image
+						<FadingImage
 							src={`https://static.pprmint.art/${Announcements.data[0].attributes.media.data.attributes.formats.thumbnail.url}`}
 							alt={Announcements.data[0].attributes.media.data.attributes.alternativeText}
 							quality={90}
@@ -44,7 +45,7 @@ export default function Home({ Announcements }: { Announcements: Announcements }
 							}}
 						/>
 					</div>
-					<Image
+					<FadingImage
 						src={`https://static.pprmint.art${Announcements.data[0].attributes.media.data.attributes.url}`}
 						alt={Announcements.data[0].attributes.media.data.attributes.alternativeText}
 						quality={90}
@@ -88,7 +89,7 @@ export default function Home({ Announcements }: { Announcements: Announcements }
 							(announcement, index) =>
 								index > 0 && (
 									<div key={announcement.id} className="flex flex-col gap-3">
-										<Image
+										<FadingImage
 											src={`https://static.pprmint.art${announcement.attributes.media.data.attributes.url}`}
 											alt={announcement.attributes.media.data.attributes.alternativeText}
 											quality={90}
