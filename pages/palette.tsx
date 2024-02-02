@@ -174,7 +174,7 @@ export default function Palette() {
 
 	return (
 		<>
-			<Head title={t("PALETTE:Head.title")} description={t("PALETTE:Head.description")} />
+			<Head title={t("PALETTE:Head.title")} description={t("PALETTE:Head.description")} image="https://pprmint.art/assets/palette/OG.png" />
             <Title title={t("PALETTE:Head.title")} description={t("PALETTE:Head.description")} />
 			<main className="mx-auto pt-36">
 				<Toast.Provider>
