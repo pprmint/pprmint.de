@@ -2,7 +2,7 @@ export default interface MinaArtwork {
 	id: number;
 	attributes: {
 		artist: string;
-		creditUrl: string;
+		creditUrl?: string;
 		createdAt: string;
 		updatedAt: string;
 		publishedAt: string;

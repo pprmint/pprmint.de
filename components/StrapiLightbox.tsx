@@ -135,27 +135,29 @@ export default function StrapiLightbox(props: LightboxProps) {
 								className="fixed flex flex-wrap w-10/12 items-center gap-3 md:gap-4 z-50 left-5 md:left-6 top-3 md:top-5 md:text-center"
 							>
 								{`${t("MINA:Content.Artworks.drawnBy")} ${image.attributes.artist}`}
-								<div className="flex gap-3 md:gap-4">
-									<Link
-										href={image.attributes.creditUrl}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="rounded-full"
-									>
-										<button
-											tabIndex={-1}
-											className="text-neutral-50 w-10 h-10 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
+								{image.attributes.creditUrl && (
+									<div className="flex gap-3 md:gap-4">
+										<Link
+											href={image.attributes.creditUrl}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="rounded-full"
 										>
-											{image.attributes.creditUrl.startsWith("https://twitter.com/") ? (
-												<i className="ri-twitter-line" />
-											) : image.attributes.creditUrl.startsWith("https://www.instagram.com/") ? (
-												<i className="ri-instagram-line" />
-											) : (
-												<i className="ri-global-line" />
-											)}
-										</button>
-									</Link>
-								</div>
+											<button
+												tabIndex={-1}
+												className="text-neutral-50 w-10 h-10 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
+											>
+												{image.attributes.creditUrl.startsWith("https://twitter.com/") ? (
+													<i className="ri-twitter-line" />
+												) : image.attributes.creditUrl.startsWith("https://www.instagram.com/") ? (
+													<i className="ri-instagram-line" />
+												) : (
+													<i className="ri-global-line" />
+												)}
+											</button>
+										</Link>
+									</div>
+								)}
 							</a.h3>
 						</>
 					))}
