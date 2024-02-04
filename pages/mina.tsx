@@ -9,6 +9,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import * as Accordion from "@radix-ui/react-accordion";
 import * as Toast from "@radix-ui/react-toast";
 import * as Switch from "@radix-ui/react-switch";
+import * as Select from "@radix-ui/react-select";
 import { useTransition, config, a, easings } from "@react-spring/web";
 
 import MinaArtwork, { MinaArtworks } from "types/mina-artwork";
@@ -229,7 +230,31 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 		};
 	}, []);
 
-	const filteredArtworks = showNsfw ? Artworks.data : Artworks.data.filter((art: MinaArtwork) => !art.attributes.nsfw);
+	// Filter by artist.
+	const artistList = Array.from(new Set(Artworks.data.map((art: MinaArtwork) => art.attributes.artist)));
+	const [filteredArtist, setFilteredArtist] = useState("");
+	function SelectItem(props: React.PropsWithChildren<{ value: string }>) {
+		return (
+			<Select.Item
+				value={props.value}
+				className="flex text-neutral-50 items-center cursor-pointer rounded-md px-2 hover:pl-4 py-2 select-none hover:bg-green hover:text-neutral-950 duration-100"
+			>
+				<Select.ItemText className="flex-grow">{props.children}</Select.ItemText>
+				<Select.ItemIndicator className="ml-auto">
+					<i className="ri-check-line" />
+				</Select.ItemIndicator>
+			</Select.Item>
+		);
+	}
+
+	const artistFilteredArtworks =
+		filteredArtist != ""
+			? Artworks.data.filter((art: MinaArtwork) => art.attributes.artist == filteredArtist)
+			: Artworks.data;
+
+	const filteredArtworks = showNsfw
+		? artistFilteredArtworks
+		: artistFilteredArtworks.filter((art: MinaArtwork) => !art.attributes.nsfw);
 
 	// Artwork counters.
 	const [countWeekly, setCountWeekly] = useState(false);
@@ -258,8 +283,8 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 			x: 0,
 			opacity: 1,
 			config: {
-				duration: 400,
-				easing: easings.easeOutCubic,
+				duration: 500,
+				easing: easings.easeOutQuint,
 			},
 		},
 		leave: {
@@ -510,6 +535,39 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 						)}
 					</section>
 					<section id="gallery" className="my-12">
+						<div className="px-2">
+							<Select.Root value={filteredArtist} onValueChange={setFilteredArtist}>
+								<div className="flex">
+									<Select.Trigger
+										className={`flex items-center justify-between rounded-md leading-none px-3 h-9 w-full md:w-40 border border-neutral-800 ${filteredArtist != "" && "rounded-r-none"} hover:bg-neutral-800 hover:text-neutral-50 duration-100`}
+										aria-label="Artist"
+									>
+										<Select.Value aria-label={filteredArtist} placeholder="Filter by artist" />
+										<Select.Icon className="ml-auto">
+											<i className="ri-arrow-down-s-line" />
+										</Select.Icon>
+									</Select.Trigger>
+									{filteredArtist != "" && (
+										<button onClick={() => setFilteredArtist("")} className="h-9 border border-l-0 border-neutral-800 px-2.5 rounded-r-md hover:bg-neutral-800 hover:text-neutral-50 duration-100">
+											<i className="ri-close-line" />
+										</button>
+									)}
+								</div>
+								<Select.Portal>
+									<Select.Content className="overflow-hidden bg-neutral-800 rounded-md shadow-lg">
+										<Select.Viewport className="p-2">
+											<Select.Group>
+												{artistList
+													.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }))
+													.map((artist) => (
+														<SelectItem value={artist}>{artist}</SelectItem>
+													))}
+											</Select.Group>
+										</Select.Viewport>
+									</Select.Content>
+								</Select.Portal>
+							</Select.Root>
+						</div>
 						<div className="py-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-2 px-2">
 							{filteredArtworks.map((art: MinaArtwork, index: number) => (
 								<button

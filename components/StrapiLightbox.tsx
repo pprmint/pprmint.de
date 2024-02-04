@@ -134,7 +134,7 @@ export default function StrapiLightbox(props: LightboxProps) {
 								style={style}
 								className="fixed flex flex-wrap w-10/12 items-center gap-3 md:gap-4 z-50 left-5 md:left-6 top-3 md:top-5 md:text-center"
 							>
-								{`${t("MINA:Content.Artworks.drawnBy")} ${image.attributes.artist}`}
+								{`${t("MINA:Content.Artworks.drawnBy")} ${image.attributes.artist} ${image.attributes.heart ? "<3" : ""}`}
 								{image.attributes.creditUrl && (
 									<div className="flex gap-3 md:gap-4">
 										<Link

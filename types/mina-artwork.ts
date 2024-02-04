@@ -7,6 +7,7 @@ export default interface MinaArtwork {
 		updatedAt: string;
 		publishedAt: string;
 		nsfw: boolean;
+		heart: boolean;
 		creationDate: string;
 		focus: string;
 		artwork: {
