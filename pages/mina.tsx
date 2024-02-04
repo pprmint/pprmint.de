@@ -231,6 +231,13 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 
 	const filteredArtworks = showNsfw ? Artworks.data : Artworks.data.filter((art: MinaArtwork) => !art.attributes.nsfw);
 
+	// Artwork counters.
+	const [countWeekly, setCountWeekly] = useState(false);
+
+	const allTimeCount = Artworks.data.length;
+	const allTimeCountDigit1 = Math.floor(allTimeCount / 10);
+	const allTimeCountDigit2 = allTimeCount % 10;
+
 	const weekCount = Artworks.data.filter((art: MinaArtwork) => {
 		const creationDate = new Date(art.attributes.creationDate);
 		const oneWeekAgo = new Date();
@@ -238,9 +245,33 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 
 		return creationDate > oneWeekAgo;
 	}).length;
-
 	const weekCountDigit1 = Math.floor(weekCount / 10);
 	const weekCountDigit2 = weekCount % 10;
+
+	const counterTransition = useTransition(countWeekly, {
+		key: countWeekly,
+		from: {
+			x: countWeekly ? -30 : 30,
+			opacity: 0,
+		},
+		enter: {
+			x: 0,
+			opacity: 1,
+			config: {
+				duration: 400,
+				easing: easings.easeOutCubic,
+			},
+		},
+		leave: {
+			x: countWeekly ? 30 : -30,
+			opacity: 0,
+			config: {
+				duration: 100,
+				easing: easings.easeInCubic,
+			},
+		},
+		exitBeforeEnter: true,
+	});
 
 	function FlipCharacter(props: { digit: number }) {
 		return (
@@ -250,7 +281,9 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 					<span className="leading-tight absolute top-0 left-0 w-full text-center">{props.digit}</span>
 				</div>
 				<div className="relative bottom-0 left-0 w-full h-1/2 bg-gradient-to-b from-neutral-900 to-neutral-900 border-t border-neutral-700 rounded-b-lg overflow-hidden">
-					<span aria-hidden className="leading-tight absolute bottom-0 left-0 w-full text-center">{props.digit}</span>
+					<span aria-hidden className="leading-tight absolute bottom-0 left-0 w-full text-center">
+						{props.digit}
+					</span>
 				</div>
 				<div className="absolute z-10 right-0 top-1/2 -translate-y-1/2 w-1.5 h-9 bg-gradient-to-b from-neutral-950 via-neutral-700 to-neutral-950 rounded-full border-2 border-neutral-950" />
 			</div>
@@ -269,7 +302,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 			</Title>
 			<main>
 				<Toast.Provider swipeDirection="right">
-					<section className="my-12 max-w-7xl mx-auto px-6 md:px-9">
+					<section id="design" className="my-12 max-w-7xl mx-auto px-6 md:px-9">
 						<div className="lg:grid grid-cols-2 lg:grid-cols-3 gap-6">
 							{MinaDesignPoints}
 							<Accordion.Root
@@ -432,14 +465,51 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 							</Accordion.Root>
 						</div>
 					</section>
-					<section className="my-12 max-w-7xl mx-auto px-6 md:px-9 text-center">
-						<h2>{t("MINA:Content.Artworks.drawnPastWeek")}</h2>
-						<div className="flex w-max mx-auto gap-2 text-neutral-50 font-display-mono font-light text-[8.75rem]">
-							<FlipCharacter digit={weekCountDigit1} />
-							<FlipCharacter digit={weekCountDigit2} />
+					<section id="count" className="my-12 max-w-7xl mx-auto px-6 md:px-9 text-center">
+						<div className="relative w-72 mx-auto mb-12 h-10 bg-gradient-to-b from-neutral-950 to-neutral-900 border border-neutral-800 rounded-full">
+							<div onClick={() => setCountWeekly(!countWeekly)} className="flex px-1 absolute z-10 inset-0">
+								<button
+									className={`w-full text-center ${
+										countWeekly ? "text-neutral-950 font-medium" : "text-neutral-50 hover:text-neutral"
+									} py-2 rounded-full duration-200 ease-in-out-custom`}
+								>
+									{t("MINA:Content.Artworks.buttonLast7Days")}
+								</button>
+								<button
+									className={`w-full text-center ${
+										countWeekly ? "text-neutral-50 hover:text-neutral" : "text-neutral-950 font-medium"
+									} py-2 rounded-full duration-200 ease-in-out-custom`}
+								>
+									{t("MINA:Content.Artworks.buttonAlltime")}
+								</button>
+							</div>
+							<div
+								className={`absolute top-1 bottom-1 w-[calc(50%_-_4px)] bg-gradient-to-b from-neutral-50 to-neutral-100 rounded-full ${
+									countWeekly ? "left-1 right-1/2" : "left-1/2 right-1"
+								} duration-200 ease-in-out-custom`}
+							/>
 						</div>
+						{counterTransition((styles, item) =>
+							item ? (
+								<a.div style={styles}>
+									<h2>{t("MINA:Content.Artworks.textLast7Days")}</h2>
+									<div className="flex w-max mx-auto gap-2 text-neutral-50 font-display-mono font-light text-[8.75rem]">
+										<FlipCharacter digit={weekCountDigit1} />
+										<FlipCharacter digit={weekCountDigit2} />
+									</div>
+								</a.div>
+							) : (
+								<a.div style={styles}>
+									<h2>{t("MINA:Content.Artworks.textAlltime")}</h2>
+									<div className="flex w-max mx-auto gap-2 text-neutral-50 font-display-mono font-light text-[8.75rem]">
+										<FlipCharacter digit={allTimeCountDigit1} />
+										<FlipCharacter digit={allTimeCountDigit2} />
+									</div>
+								</a.div>
+							)
+						)}
 					</section>
-					<section className="my-12">
+					<section id="gallery" className="my-12">
 						<div className="py-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-2 px-2">
 							{filteredArtworks.map((art: MinaArtwork, index: number) => (
 								<button
@@ -464,7 +534,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 							))}
 						</div>
 					</section>
-					<section className="flex items-center justify-center my-12 max-w-7xl mx-auto px-6 md:px-9">
+					<section id="neuron" className="flex items-center justify-center my-12 max-w-7xl mx-auto px-6 md:px-9">
 						<label className="Label" htmlFor="light-theme" style={{ paddingRight: 15 }}>
 							{t("MINA:Content.NSFW.switch")}
 						</label>

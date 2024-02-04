@@ -44,7 +44,10 @@
 			"text3": "Regardless of how you end up drawing her, I would love to see your work and maybe put it up on my website. Please feel free to <Link>message me</Link> to show me what you've made."
 		},
 		"Artworks": {
-			"drawnPastWeek": "Fanart drawn in the last 7 days:",
+            "buttonLast7Days": "Last 7 days",
+            "buttonAlltime": "All-time",
+			"textLast7Days": "Fanart drawn in the last 7 days:",
+			"textAlltime": "Total amount of fanart drawn:",
 			"drawnBy": "Drawn by "
 		},
 		"NSFW": {
