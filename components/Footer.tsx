@@ -85,7 +85,13 @@ function Footer() {
 							`COMMON:Mina.${
 								clicks == Number.MAX_SAFE_INTEGER + 1
 									? "humanityIsDead"
+									: clicks >= 10000
+									? "tooMany8"
+									: clicks >= 5000
+									? "tooMany7"
 									: clicks >= 1000
+									? "tooMany6"
+									: clicks >= 500
 									? "tooMany5"
 									: clicks >= 300
 									? "tooMany4"
