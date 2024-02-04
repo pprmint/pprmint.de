@@ -560,7 +560,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 												{artistList
 													.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }))
 													.map((artist) => (
-														<SelectItem value={artist}>{artist}</SelectItem>
+														<SelectItem key={artist} value={artist}>{artist}</SelectItem>
 													))}
 											</Select.Group>
 										</Select.Viewport>
