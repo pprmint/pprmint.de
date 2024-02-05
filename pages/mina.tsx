@@ -237,7 +237,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 		return (
 			<Select.Item
 				value={props.value}
-				className="flex text-neutral-50 items-center cursor-pointer rounded-md px-2 hover:pl-4 py-2 select-none hover:bg-green hover:text-neutral-950 duration-100"
+				className="group relative flex items-center gap-3 pr-2 pl-2 data-[highlighted]:pl-3 h-8 rounded-sm leading-none select-none outline-none data-[disabled]:text-neutral data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-50 data-[state=checked]:text-neutral-50 data-[highlighted]:bg-neutral-50/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-none"
 			>
 				<Select.ItemText className="flex-grow">{props.children}</Select.ItemText>
 				<Select.ItemIndicator className="ml-auto">
@@ -491,7 +491,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 						</div>
 					</section>
 					<section id="count" className="my-12 max-w-7xl mx-auto px-6 md:px-9 text-center">
-						<div className="relative w-72 mx-auto mb-12 h-10 bg-gradient-to-b from-neutral-950 to-neutral-900 border border-neutral-800 rounded-full">
+						<div className="relative w-72 mx-auto mb-12 h-11 bg-gradient-to-b from-neutral-950 to-neutral-900 border border-neutral-800 rounded-full">
 							<div onClick={() => setCountWeekly(!countWeekly)} className="flex px-1 absolute z-10 inset-0">
 								<button
 									className={`w-full text-center ${
@@ -554,8 +554,11 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 									)}
 								</div>
 								<Select.Portal>
-									<Select.Content className="overflow-hidden bg-neutral-800 rounded-md shadow-lg">
-										<Select.Viewport className="p-2">
+									<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-lg rounded-lg">
+                                    <Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900/50 text-neutral-50 rounded-t-md">
+                                        <i className="ri-arrow-up-s-line" />
+                                    </Select.ScrollUpButton>
+										<Select.Viewport className="p-1">
 											<Select.Group>
 												{artistList
 													.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }))
@@ -564,6 +567,9 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 													))}
 											</Select.Group>
 										</Select.Viewport>
+                                    <Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-neutral-900/50 text-neutral-50 rounded-b-md">
+                                        <i className="ri-arrow-down-s-line" />
+                                    </Select.ScrollDownButton>
 									</Select.Content>
 								</Select.Portal>
 							</Select.Root>
