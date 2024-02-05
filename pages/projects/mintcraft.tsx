@@ -291,7 +291,7 @@ export default function Mintcraft() {
 				</div>
 			</Title>
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
-				<section className="my-16">
+				<section className="my-20">
 					<h2>{t("MINTCRAFT:Content.Changes.heading", { version: Versions[0].packs[0].packVersion })}</h2>
 					<h3>Mintcraft</h3>
 					<div className="flex flex-col gap-3 mb-6">
@@ -305,7 +305,7 @@ export default function Mintcraft() {
 						</div>
 					</div>
 				</section>
-				<section className="my-16">
+				<section className="my-20">
 					<h2>{t("MINTCRAFT:Content.DosAndDonts.heading")}</h2>
 					<p>{t("MINTCRAFT:Content.DosAndDonts.disclaimer")}</p>
 					<div className="grid md:grid-cols-2 gap-6 mt-6">
@@ -353,7 +353,7 @@ export default function Mintcraft() {
 						</div>
 					</div>
 				</section>
-				<section className="my-16">
+				<section className="my-20">
 					<h2>{t("MINTCRAFT:Content.Credits.heading")}</h2>
 					<Link
 						href="https://twitter.com/AfkBlizzy"
@@ -380,7 +380,7 @@ export default function Mintcraft() {
 					</Link>
 					<p>{t("MINTCRAFT:Content.Credits.vanillaTweaks")}</p>
 				</section>
-				<section className="my-16">
+				<section className="my-20">
 					<h2>{t("MINTCRAFT:Content.MayContainMistakes.heading")}</h2>
 					<Trans
 						i18nKey="MINTCRAFT:Content.MayContainMistakes.text"

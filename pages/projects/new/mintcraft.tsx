@@ -103,7 +103,7 @@ export default function Mintcraft() {
 				<div className="w-full h-full flex items-center justify-center">(insert mintcraft logo here)</div>
 			</Title>
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
-				<section className="my-16">
+				<section className="my-20">
 					<h2>
 						Good today and welcome to a(n) alpha/beta page.
 					</h2>
@@ -130,7 +130,7 @@ export default function Mintcraft() {
 						page if you want to download it.
 					</p>
 				</section>
-				<section className="my-16">
+				<section className="my-20">
 					<div className="flex flex-col sm:flex-row gap-6 pb-6">
 						<h2 className="flex-grow">
 							{t("MINTCRAFT:Content.Download.commonTitle", { version: gameVersion })}

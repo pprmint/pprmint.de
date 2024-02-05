@@ -320,7 +320,7 @@ export default function Mintbit() {
 						</Toast.Close>
 					</Toast.Root>
 					<Toast.Viewport className="[--viewport-padding:_25px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-50 outline-none" />
-					<div className="my-16 px-6 md:px-9 py-5">
+					<div className="my-20 px-6 md:px-9 py-5">
 						<h2 className="max-w-7xl mx-auto">
 							{t("MINTBIT:Content.Tester.heading")}
 						</h2>
@@ -418,7 +418,7 @@ export default function Mintbit() {
 						/>
                         <hr className="border-green w-1/4 mx-auto" />
 					</div>
-					<div className="my-16 max-w-7xl mx-auto px-6 md:px-9 py-5">
+					<div className="my-20 max-w-7xl mx-auto px-6 md:px-9 py-5">
 						<h2>
 							{t("MINTBIT:Content.Download.heading")}
 						</h2>

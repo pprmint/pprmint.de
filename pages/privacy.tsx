@@ -14,7 +14,7 @@ export default function PrivacyPolicy() {
 			<Head title={t("PRIVACY:Head.title")} description={t("PRIVACY:Head.description")} />
 			<Title title={t("PRIVACY:Head.title")} description={t("PRIVACY:Head.description")} />
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
-				<section className="my-12">
+				<section className="my-20">
 					<div className="bg-neutral-900 rounded-xl p-6">
 						<h2>
 							{t("PRIVACY:Content.Tldr.heading")}
@@ -45,7 +45,7 @@ export default function PrivacyPolicy() {
 						</p>
 					</div>
 				</section>
-				<section className="my-12">
+				<section className="my-20">
 					<h2>
 						{t("PRIVACY:Content.General.heading")}
 					</h2>
@@ -74,7 +74,7 @@ export default function PrivacyPolicy() {
 					</p>
 				</section>
 
-				<section className="my-12">
+				<section className="my-20">
 					<h2>
 						{t("PRIVACY:Content.Hosting.heading")}
 					</h2>
@@ -118,7 +118,7 @@ export default function PrivacyPolicy() {
 					</p>
 				</section>
 
-				<section className="my-12">
+				<section className="my-20">
 					<h2>
 						{t("PRIVACY:Content.Contact.heading")}
 					</h2>

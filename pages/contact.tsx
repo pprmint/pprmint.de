@@ -326,7 +326,7 @@ export default function Contact() {
 								className="absolute w-full aspect-square opacity-0 group-hover:opacity-100 rounded-full animate-slow-spin duration-200"
 								style={{
 									backgroundImage:
-										"conic-gradient(#ff4444, #ff7711, #ffbb00, #99cc33, #00cc66, #22ccff, #2299ff, #9955ee, #ee66bb, #ff4444)",
+										"conic-gradient(#f44, #f71, #fb0, #9c3, #0c6, #2cf, #29f, #95e, #e6b, #f44)",
 								}}
 							/>
 						</div>

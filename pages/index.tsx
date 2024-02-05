@@ -53,7 +53,7 @@ export default function Home({ Announcements }: { Announcements: Announcements }
 						height={Announcements.data[0].attributes.media.data.attributes.height}
 						className="w-full max-w-7xl mx-auto mt-24 xl:rounded-xl shadow-[0px_0px_5px_10px_#111]"
 					/>
-					<div className="flex max-w-7xl px-6 md:px-9 mx-auto my-12 flex-col md:flex-row items-end md:items-center gap-6 md:gap-9">
+					<div className="flex max-w-7xl px-6 md:px-9 mx-auto my-20 flex-col md:flex-row items-end md:items-center gap-6 md:gap-9">
 						<div className="w-full">
 							<h2>{Announcements.data[0].attributes.title}</h2>
 							<p>{Announcements.data[0].attributes.description}</p>
@@ -83,7 +83,7 @@ export default function Home({ Announcements }: { Announcements: Announcements }
 					</div>
 				</section>
 				<hr className="px-6 md:px-9 border-dotted border-t-2 border-neutral-800" />
-				<section className="my-12 px-6 md:px-9 max-w-8xl mx-auto">
+				<section className="my-20 px-6 md:px-9 max-w-8xl mx-auto">
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-9">
 						{Announcements.data.map(
 							(announcement, index) =>

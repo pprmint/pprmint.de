@@ -51,7 +51,7 @@ export default function Gallery({ Works }: { Works: Works }) {
 				/>
 			</Title>
 			<main>
-				<section className="my-12">
+				<section className="my-20">
 					<div className="py-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-2 px-2">
 						{Works.data.map((work: Work, index: number) => (
 							<button

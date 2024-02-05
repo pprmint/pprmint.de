@@ -58,7 +58,7 @@ export default function Mintsans() {
 					<Image src={Slide5} alt="Slide 5" className="w-full" />
 					<Image src={Slide6} alt="Slide 6" className="w-full" />
 				</section>
-				<section className="my-16 px-6 md:px-9 py-5">
+				<section className="my-20 px-6 md:px-9 py-5">
                 <h2 className="max-w-7xl mx-auto">{t("MINTSANS:Content.Tester.heading")}</h2>
 					<Toolbar.Root className="max-w-7xl mx-auto flex flex-wrap gap-6 bg-neutral-900 border border-neutral-800 rounded-xl p-4 mb-5">
 						<div className="flex w-full md:w-auto gap-6">

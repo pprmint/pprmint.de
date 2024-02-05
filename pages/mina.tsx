@@ -22,6 +22,7 @@ import FadingImage from "components/FadingImage";
 import HeroMina from "public/assets/mina/hero.webp";
 import TransparentMina from "public/assets/mina/mina.webp";
 import HehMina from "public/assets/mina/heh-upscaled.png";
+import DetectiveMina from "public/assets/404/mina_chibi.webp";
 
 export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 	const { t } = useTranslation();
@@ -230,9 +231,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 		};
 	}, []);
 
-	// Filter by artist.
-	const artistList = Array.from(new Set(Artworks.data.map((art: MinaArtwork) => art.attributes.artist)));
-	const [filteredArtist, setFilteredArtist] = useState("");
+	// For dropdowns.
 	function SelectItem(props: React.PropsWithChildren<{ value: string }>) {
 		return (
 			<Select.Item
@@ -247,17 +246,25 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 		);
 	}
 
+	// Filter by artist.
+	const [filteredArtist, setFilteredArtist] = useState("");
+	const artistList = Array.from(new Set(Artworks.data.map((art: MinaArtwork) => art.attributes.artist)));
+
+	// Filter by year.
+	const [filteredYear, setFilteredYear] = useState("");
+	const yearList = Array.from({ length: new Date().getFullYear() - 2022 + 1 }, (_, index) =>
+		(new Date().getFullYear() - index).toString()
+	);
+
 	const artistFilteredArtworks =
 		filteredArtist != ""
 			? Artworks.data.filter((art: MinaArtwork) => art.attributes.artist == filteredArtist)
 			: Artworks.data;
 
-	const filteredArtworks = showNsfw
-		? artistFilteredArtworks
-		: artistFilteredArtworks.filter((art: MinaArtwork) => !art.attributes.nsfw);
-
-	// Artwork counters.
-	const [countWeekly, setCountWeekly] = useState(false);
+	const filteredArtworks = Artworks.data
+		.filter((art: MinaArtwork) => (showNsfw ? true : !art.attributes.nsfw))
+		.filter((art: MinaArtwork) => (filteredArtist != "" ? art.attributes.artist == filteredArtist : true))
+		.filter((art: MinaArtwork) => (filteredYear != "" ? art.attributes.creationDate.startsWith(filteredYear) : true));
 
 	const allTimeCount = Artworks.data.length;
 	const allTimeCountDigit1 = Math.floor(allTimeCount / 10);
@@ -273,40 +280,15 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 	const weekCountDigit1 = Math.floor(weekCount / 10);
 	const weekCountDigit2 = weekCount % 10;
 
-	const counterTransition = useTransition(countWeekly, {
-		key: countWeekly,
-		from: {
-			x: countWeekly ? -30 : 30,
-			opacity: 0,
-		},
-		enter: {
-			x: 0,
-			opacity: 1,
-			config: {
-				duration: 500,
-				easing: easings.easeOutQuint,
-			},
-		},
-		leave: {
-			x: countWeekly ? 30 : -30,
-			opacity: 0,
-			config: {
-				duration: 100,
-				easing: easings.easeInCubic,
-			},
-		},
-		exitBeforeEnter: true,
-	});
-
 	function FlipCharacter(props: { digit: number }) {
 		return (
-			<div className="relative flex flex-col gap-0.5 w-28 h-44 text-neutral-50 font-display-mono font-light text-[8.75rem]">
+			<div className="relative flex flex-col gap-0.5 w-24 h-36 md:w-28 md:h-44 font-display-mono font-light text-[7.15rem] md:text-[8.75rem]">
 				<div className="absolute z-10 left-0 top-1/2 -translate-y-1/2 w-1.5 h-9 bg-gradient-to-b from-neutral-950 via-neutral-700 to-neutral-950 rounded-full border-2 border-neutral-950" />
 				<div className="relative top-0 left-0 w-full h-1/2 bg-gradient-to-b from-neutral-700 to-neutral-800 border-t border-neutral-600 rounded-t-lg overflow-hidden">
-					<span className="leading-tight absolute top-0 left-0 w-full text-center">{props.digit}</span>
+					<span className="text-neutral-50 leading-tight absolute top-0 left-0 w-full text-center">{props.digit}</span>
 				</div>
 				<div className="relative bottom-0 left-0 w-full h-1/2 bg-gradient-to-b from-neutral-900 to-neutral-900 border-t border-neutral-700 rounded-b-lg overflow-hidden">
-					<span aria-hidden className="leading-tight absolute bottom-0 left-0 w-full text-center">
+					<span aria-hidden className="text-neutral-200 leading-tight absolute bottom-0 left-0 w-full text-center">
 						{props.digit}
 					</span>
 				</div>
@@ -327,7 +309,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 			</Title>
 			<main>
 				<Toast.Provider swipeDirection="right">
-					<section id="design" className="my-12 max-w-7xl mx-auto px-6 md:px-9">
+					<section id="design" className="my-20 max-w-7xl mx-auto px-6 md:px-9">
 						<div className="lg:grid grid-cols-2 lg:grid-cols-3 gap-6">
 							{MinaDesignPoints}
 							<Accordion.Root
@@ -490,115 +472,155 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 							</Accordion.Root>
 						</div>
 					</section>
-					<section id="count" className="my-12 max-w-7xl mx-auto px-6 md:px-9 text-center">
-						<div className="relative w-72 mx-auto mb-12 h-11 bg-gradient-to-b from-neutral-950 to-neutral-900 border border-neutral-800 rounded-full">
-							<div onClick={() => setCountWeekly(!countWeekly)} className="flex px-1 absolute z-10 inset-0">
-								<button
-									className={`w-full text-center ${
-										countWeekly ? "text-neutral-950 font-medium" : "text-neutral-50 hover:text-neutral"
-									} py-2 rounded-full duration-200 ease-in-out-custom`}
-								>
-									{t("MINA:Content.Artworks.buttonLast7Days")}
-								</button>
-								<button
-									className={`w-full text-center ${
-										countWeekly ? "text-neutral-50 hover:text-neutral" : "text-neutral-950 font-medium"
-									} py-2 rounded-full duration-200 ease-in-out-custom`}
-								>
-									{t("MINA:Content.Artworks.buttonAlltime")}
-								</button>
+					<section
+						id="count"
+						className="flex flex-col md:flex-row gap-12 my-20 max-w-7xl mx-auto px-6 md:px-9 text-center"
+					>
+						<div className="w-full">
+							<h3 className="pb-6">{t("MINA:Content.Artworks.last7Days")}</h3>
+							<div className="flex w-max mx-auto gap-2 text-neutral-50 font-display-mono font-light text-[8.75rem]">
+								<FlipCharacter digit={weekCountDigit1} />
+								<FlipCharacter digit={weekCountDigit2} />
 							</div>
-							<div
-								className={`absolute top-1 bottom-1 w-[calc(50%_-_4px)] bg-gradient-to-b from-neutral-50 to-neutral-100 rounded-full ${
-									countWeekly ? "left-1 right-1/2" : "left-1/2 right-1"
-								} duration-200 ease-in-out-custom`}
-							/>
 						</div>
-						{counterTransition((styles, item) =>
-							item ? (
-								<a.div style={styles}>
-									<h2>{t("MINA:Content.Artworks.textLast7Days")}</h2>
-									<div className="flex w-max mx-auto gap-2 text-neutral-50 font-display-mono font-light text-[8.75rem]">
-										<FlipCharacter digit={weekCountDigit1} />
-										<FlipCharacter digit={weekCountDigit2} />
+						<div className="w-full">
+							<h3 className="pb-6">{t("MINA:Content.Artworks.alltime")}</h3>
+							<div className="flex w-max mx-auto gap-2 text-neutral-50 font-display-mono font-light text-[8.75rem]">
+								<FlipCharacter digit={allTimeCountDigit1} />
+								<FlipCharacter digit={allTimeCountDigit2} />
+							</div>
+						</div>
+					</section>
+					<section id="gallery" className="my-20 px-2">
+						<div className="flex flex-col md:flex-row gap-1 max-w-xl mx-auto items-center p-2 bg-neutral-900 rounded-lg">
+							<span className="text-neutral-50 font-medium px-3 py-1 md:py-0 whitespace-nowrap">
+								{t("MINA:Content.Artworks.Filters.label")} <i className="ri-filter-2-line" />
+							</span>
+							<div className="flex w-full gap-2">
+								<Select.Root value={filteredArtist} onValueChange={setFilteredArtist}>
+									<div className="flex w-full">
+										<Select.Trigger
+											className={`group flex items-center justify-between rounded-md leading-none px-3 h-9 w-full border border-neutral-800 ${
+												filteredArtist != "" && "rounded-r-none"
+											} hover:bg-neutral-800 hover:text-neutral-50 duration-100`}
+											aria-label="Artist"
+										>
+											<Select.Value
+												aria-label={filteredArtist}
+												placeholder={t("MINA:Content.Artworks.Filters.artist")}
+											/>
+											<Select.Icon className="ml-auto group-hover:translate-y-0.5 duration-100">
+												<i className="ri-arrow-down-s-line" />
+											</Select.Icon>
+										</Select.Trigger>
+										{filteredArtist != "" && (
+											<button
+												onClick={() => setFilteredArtist("")}
+												className="h-9 border border-l-0 border-neutral-800 px-2.5 rounded-r-md hover:bg-neutral-800 hover:text-neutral-50 duration-100"
+											>
+												<i className="ri-close-line" />
+											</button>
+										)}
 									</div>
-								</a.div>
-							) : (
-								<a.div style={styles}>
-									<h2>{t("MINA:Content.Artworks.textAlltime")}</h2>
-									<div className="flex w-max mx-auto gap-2 text-neutral-50 font-display-mono font-light text-[8.75rem]">
-										<FlipCharacter digit={allTimeCountDigit1} />
-										<FlipCharacter digit={allTimeCountDigit2} />
+									<Select.Portal>
+										<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-lg rounded-lg">
+											<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900/50 text-neutral-50 rounded-t-md">
+												<i className="ri-arrow-up-s-line" />
+											</Select.ScrollUpButton>
+											<Select.Viewport className="p-1">
+												<Select.Group>
+													{artistList
+														.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }))
+														.map((artist) => (
+															<SelectItem key={artist} value={artist}>
+																{artist}
+															</SelectItem>
+														))}
+												</Select.Group>
+											</Select.Viewport>
+											<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-neutral-900/50 text-neutral-50 rounded-b-md">
+												<i className="ri-arrow-down-s-line" />
+											</Select.ScrollDownButton>
+										</Select.Content>
+									</Select.Portal>
+								</Select.Root>
+								<Select.Root value={filteredYear} onValueChange={setFilteredYear}>
+									<div className="flex w-full">
+										<Select.Trigger
+											className={`group flex items-center justify-between rounded-md leading-none px-3 h-9 w-full border border-neutral-800 ${
+												filteredYear != "" && "rounded-r-none"
+											} hover:bg-neutral-800 hover:text-neutral-50 duration-100`}
+											aria-label="Year"
+										>
+											<Select.Value aria-label={filteredYear} placeholder={t("MINA:Content.Artworks.Filters.year")} />
+											<Select.Icon className="ml-auto group-hover:translate-y-0.5 duration-100">
+												<i className="ri-arrow-down-s-line" />
+											</Select.Icon>
+										</Select.Trigger>
+										{filteredYear != "" && (
+											<button
+												onClick={() => setFilteredYear("")}
+												className="h-9 border border-l-0 border-neutral-800 px-2.5 rounded-r-md hover:bg-neutral-800 hover:text-neutral-50 duration-100"
+											>
+												<i className="ri-close-line" />
+											</button>
+										)}
 									</div>
-								</a.div>
-							)
+									<Select.Portal>
+										<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-lg rounded-lg">
+											<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900/50 text-neutral-50 rounded-t-md">
+												<i className="ri-arrow-up-s-line" />
+											</Select.ScrollUpButton>
+											<Select.Viewport className="p-1">
+												<Select.Group>
+													{yearList.map((year) => (
+														<SelectItem key={year} value={year}>
+															{year}
+														</SelectItem>
+													))}
+												</Select.Group>
+											</Select.Viewport>
+											<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-neutral-900/50 text-neutral-50 rounded-b-md">
+												<i className="ri-arrow-down-s-line" />
+											</Select.ScrollDownButton>
+										</Select.Content>
+									</Select.Portal>
+								</Select.Root>
+							</div>
+						</div>
+						{filteredArtworks.length > 0 ? (
+							<div className="py-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-2">
+								{filteredArtworks.map((art: MinaArtwork, index: number) => (
+									<button
+										key={art.id}
+										onClick={() => handleLightboxOpen(index)}
+										className="aspect-square relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl hover:z-10 cursor-pointer"
+									>
+										<FadingImage
+											src={`https://static.pprmint.art${art.attributes.artwork.data.attributes.url}`}
+											width={art.attributes.artwork.data.attributes.width}
+											height={art.attributes.artwork.data.attributes.height}
+											alt=""
+											className={`h-full min-w-full object-cover bg-neutral-900 ${art.attributes.focus} ${
+												art.attributes.nsfw &&
+												"blur-lg group-hover:blur-none opacity-50 group-hover:opacity-100 duration-200"
+											}`}
+										/>
+										{art.attributes.nsfw && (
+											<i className="text-neutral-50/75 ri-eye-off-line absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl group-hover:opacity-0 duration-200" />
+										)}
+									</button>
+								))}
+							</div>
+						) : (
+							<div className="flex flex-col items-center justify-center w-full max-w-2xl mx-auto">
+								<Image src={DetectiveMina} alt="" className="w-full max-w-64 h-auto my-12" />
+								<h2>{t("MINA:Content.Artworks.nothingHere")}</h2>
+								<p>{t("MINA:Content.Artworks.tryDifferent")}</p>
+							</div>
 						)}
 					</section>
-					<section id="gallery" className="my-12">
-						<div className="px-2">
-							<Select.Root value={filteredArtist} onValueChange={setFilteredArtist}>
-								<div className="flex">
-									<Select.Trigger
-										className={`flex items-center justify-between rounded-md leading-none px-3 h-9 w-full md:w-40 border border-neutral-800 ${filteredArtist != "" && "rounded-r-none"} hover:bg-neutral-800 hover:text-neutral-50 duration-100`}
-										aria-label="Artist"
-									>
-										<Select.Value aria-label={filteredArtist} placeholder="Filter by artist" />
-										<Select.Icon className="ml-auto">
-											<i className="ri-arrow-down-s-line" />
-										</Select.Icon>
-									</Select.Trigger>
-									{filteredArtist != "" && (
-										<button onClick={() => setFilteredArtist("")} className="h-9 border border-l-0 border-neutral-800 px-2.5 rounded-r-md hover:bg-neutral-800 hover:text-neutral-50 duration-100">
-											<i className="ri-close-line" />
-										</button>
-									)}
-								</div>
-								<Select.Portal>
-									<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-lg rounded-lg">
-                                    <Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900/50 text-neutral-50 rounded-t-md">
-                                        <i className="ri-arrow-up-s-line" />
-                                    </Select.ScrollUpButton>
-										<Select.Viewport className="p-1">
-											<Select.Group>
-												{artistList
-													.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }))
-													.map((artist) => (
-														<SelectItem key={artist} value={artist}>{artist}</SelectItem>
-													))}
-											</Select.Group>
-										</Select.Viewport>
-                                    <Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-neutral-900/50 text-neutral-50 rounded-b-md">
-                                        <i className="ri-arrow-down-s-line" />
-                                    </Select.ScrollDownButton>
-									</Select.Content>
-								</Select.Portal>
-							</Select.Root>
-						</div>
-						<div className="py-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-2 px-2">
-							{filteredArtworks.map((art: MinaArtwork, index: number) => (
-								<button
-									key={art.id}
-									onClick={() => handleLightboxOpen(index)}
-									className="aspect-square relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl hover:z-10 cursor-pointer"
-								>
-									<FadingImage
-										src={`https://static.pprmint.art${art.attributes.artwork.data.attributes.url}`}
-										width={art.attributes.artwork.data.attributes.width}
-										height={art.attributes.artwork.data.attributes.height}
-										alt=""
-										className={`h-full min-w-full object-cover bg-neutral-900 ${art.attributes.focus} ${
-											art.attributes.nsfw &&
-											"blur-lg group-hover:blur-none opacity-50 group-hover:opacity-100 duration-200"
-										}`}
-									/>
-									{art.attributes.nsfw && (
-										<i className="text-neutral-50/75 ri-eye-off-line absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl group-hover:opacity-0 duration-200" />
-									)}
-								</button>
-							))}
-						</div>
-					</section>
-					<section id="neuron" className="flex items-center justify-center my-12 max-w-7xl mx-auto px-6 md:px-9">
+					<section id="neuron" className="flex items-center justify-center my-20 max-w-7xl mx-auto px-6 md:px-9">
 						<label className="Label" htmlFor="light-theme" style={{ paddingRight: 15 }}>
 							{t("MINA:Content.NSFW.switch")}
 						</label>

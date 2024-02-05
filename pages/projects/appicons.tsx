@@ -550,7 +550,7 @@ export default function AppIcons() {
 			</Title>
 			<PityDialog />
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
-				<section className="my-12">
+				<section className="my-20">
 					<h2>
 						{t("APPICONS:Content.Intro.title")}
 					</h2>

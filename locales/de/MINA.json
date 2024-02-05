@@ -44,10 +44,15 @@
             "text3": "Egal wie du sie letztendlich zeichnest, ich würde es sehr gerne sehen wollen und vielleicht auch auf dieser Seite vorstellen. Sende mir dazu gerne eine <Link>Nachricht</Link>, um mir zu zeigen, was du gemacht hast."
 		},
 		"Artworks": {
-            "buttonLast7Days": "Letzte 7 Tage",
-            "buttonAlltime": "Insgesamt",
-			"textLast7Days": "Fanart der letzten 7 Tage:",
-			"textAlltime": "Fanart ingesamt gezeichnet:",
+            "Filters": {
+                "label": "Filter",
+                "artist": "Künstler",
+                "year": "Jahr"
+            },
+			"last7Days": "Fanart der letzten 7 Tage:",
+			"alltime": "Fanart ingesamt gezeichnet:",
+            "nothingHere": "Nüscht da.",
+            "tryDifferent": "Probiere andere Filter aus, oder entferne welche.",
 			"drawnBy": "Von "
 		},
         "NSFW": {

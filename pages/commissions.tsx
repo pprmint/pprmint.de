@@ -37,7 +37,7 @@ export default function Commissions() {
 				<Image src={HeroImages[Status]} alt="" fill className="object-cover" quality={90} />
 			</Title>
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
-				<section className="my-12">
+				<section className="my-20">
 					<h2>
 						{t("COMMISSIONS:Content.Offers.heading")}
 					</h2>
@@ -227,7 +227,7 @@ export default function Commissions() {
 						</Accordion.Item>
 					</Accordion.Root>
 				</section>
-				<section className="my-12">
+				<section className="my-20">
 					<h2>
 						{t("COMMISSIONS:Content.Terms.heading")}
 					</h2>
