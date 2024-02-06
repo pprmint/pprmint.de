@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import useTranslation from "next-translate/useTranslation";
 import Trans from "next-translate/Trans";
 import FocusTrap from "focus-trap-react";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import * as Portal from "@radix-ui/react-portal";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Accordion from "@radix-ui/react-accordion";
@@ -589,29 +590,31 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 							</div>
 						</div>
 						{filteredArtworks.length > 0 ? (
-							<div className="py-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-2">
-								{filteredArtworks.map((art: MinaArtwork, index: number) => (
-									<button
-										key={art.id}
-										onClick={() => handleLightboxOpen(index)}
-										className="aspect-square relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl hover:z-10 cursor-pointer"
-									>
-										<FadingImage
-											src={`https://static.pprmint.art${art.attributes.artwork.data.attributes.url}`}
-											width={art.attributes.artwork.data.attributes.width}
-											height={art.attributes.artwork.data.attributes.height}
-											alt=""
-											className={`h-full min-w-full object-cover bg-neutral-900 ${art.attributes.focus} ${
-												art.attributes.nsfw &&
-												"blur-lg group-hover:blur-none opacity-50 group-hover:opacity-100 duration-200"
-											}`}
-										/>
-										{art.attributes.nsfw && (
-											<i className="text-neutral-50/75 ri-eye-off-line absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl group-hover:opacity-0 duration-200" />
-										)}
-									</button>
-								))}
-							</div>
+							<ResponsiveMasonry columnsCountBreakPoints={{ 0: 2, 767: 3, 1279: 4, 1920: 5 }}>
+								<Masonry gutter="8px" className="pt-6">
+									{filteredArtworks.map((art: MinaArtwork, index: number) => (
+										<button
+											key={art.id}
+											onClick={() => handleLightboxOpen(index)}
+											className="relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl hover:z-10 cursor-pointer"
+										>
+											<FadingImage
+												src={`https://static.pprmint.art${art.attributes.artwork.data.attributes.url}`}
+												width={art.attributes.artwork.data.attributes.width}
+												height={art.attributes.artwork.data.attributes.height}
+												alt=""
+												className={`h-full min-w-full object-cover bg-neutral-900 ${
+													art.attributes.nsfw &&
+													"blur-lg group-hover:blur-none opacity-50 group-hover:opacity-100 duration-200"
+												}`}
+											/>
+											{art.attributes.nsfw && (
+												<i className="text-neutral-50/75 ri-eye-off-line absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl group-hover:opacity-0 duration-200" />
+											)}
+										</button>
+									))}
+								</Masonry>
+							</ResponsiveMasonry>
 						) : (
 							<div className="flex flex-col items-center justify-center w-full max-w-2xl mx-auto">
 								<Image src={DetectiveMina} alt="" className="w-full max-w-64 h-auto my-12" />
