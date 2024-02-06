@@ -7,6 +7,7 @@ import * as Tooltip from "@radix-ui/react-tooltip";
 
 import LoadingCircle from "./LoadingCircle";
 import MinaArtwork from "types/mina-artwork";
+import FadingImage from "./FadingImage";
 
 interface LightboxProps {
 	images: MinaArtwork[];
@@ -27,7 +28,7 @@ export default function StrapiLightbox(props: LightboxProps) {
 	const imageTransition = useTransition(images[currentImage], {
 		key: currentImage,
 		from: {
-			opacity: 0,
+			opacity: 1,
 			x: transitionDirection === "right" ? -40 : 40,
 		},
 		enter: {
@@ -134,7 +135,9 @@ export default function StrapiLightbox(props: LightboxProps) {
 								style={style}
 								className="fixed flex flex-wrap w-10/12 items-center gap-3 md:gap-4 z-50 left-5 md:left-6 top-3 md:top-5 md:text-center"
 							>
-								{`${t("MINA:Content.Artworks.drawnBy")} ${image.attributes.artist} ${image.attributes.heart ? "<3" : ""}`}
+								{`${t("MINA:Content.Artworks.drawnBy")} ${image.attributes.artist} ${
+									image.attributes.heart ? "<3" : ""
+								}`}
 								{image.attributes.creditUrl && (
 									<div className="flex gap-3 md:gap-4">
 										<Link
@@ -193,14 +196,10 @@ export default function StrapiLightbox(props: LightboxProps) {
 								style={style}
 								className="flex items-center justify-center w-full h-full drop-shadow-xl"
 							>
-								{loading && (
-									<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-										<LoadingCircle />
-									</div>
-								)}
 								<div onClick={onClose} className="absolute top-0 left-0 w-full h-full" />
-								<Image
+								<FadingImage
 									src={`https://static.pprmint.art${image.attributes.artwork.data.attributes.url}`}
+									quality={100}
 									alt={`${t("MINA:Content.Artworks.drawnBy")} ${image.attributes.artist}`}
 									width={image.attributes.artwork.data.attributes.width}
 									height={image.attributes.artwork.data.attributes.height}

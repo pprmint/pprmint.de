@@ -6,7 +6,6 @@ import { a, useSpring } from "@react-spring/web";
 export default function FadingImage({
 	src,
 	alt,
-	onClick,
 	width,
 	height,
 	className,
@@ -16,7 +15,6 @@ export default function FadingImage({
 }: {
 	src: string | StaticImageData;
 	alt: string;
-	onClick?: MouseEventHandler;
 	width?: number;
 	height?: number;
 	className?: string;
