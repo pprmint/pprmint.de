@@ -1,6 +1,18 @@
 {
-    "Head": {
-        "description": "Stimuliere deine visuellen Sinne, wie es kein Kaugummi kann.",
-        "title": "Galerie"
-    }
+	"Head": {
+		"description": "Stimuliere deine visuellen Sinne, wie es kein Kaugummi kann.",
+		"title": "Galerie"
+	},
+	"Content": {
+		"Filters": {
+			"label": "Filter",
+			"year": "Jahr",
+			"dimension": "Dimension",
+			"Type": {
+				"label": "Art",
+				"static": "Statisch",
+				"animated": "Animiert"
+			}
+		}
+	}
 }

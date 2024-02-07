@@ -2,5 +2,17 @@
     "Head": {
         "description": "Stimulate your visual senses like no chewing gum can.",
         "title": "Gallery"
+    },
+    "Content": {
+        "Filters": {
+            "label": "Filters",
+            "year": "Year",
+            "dimension": "Dimension",
+            "Type": {
+				"label": "Type",
+				"static": "Static",
+				"animated": "Animated"
+			}
+        }
     }
 }

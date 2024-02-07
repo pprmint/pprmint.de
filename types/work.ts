@@ -9,6 +9,8 @@ export default interface Work {
 		locale: string;
 		creationDate: string;
 		coverFocus: string;
+		dimension: string;
+		type: string;
 		cover: {
 			data: {
 				id: number;

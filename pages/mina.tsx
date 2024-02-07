@@ -24,7 +24,6 @@ import HeroMina from "public/assets/mina/hero.webp";
 import TransparentMina from "public/assets/mina/mina.webp";
 import HehMina from "public/assets/mina/heh-upscaled.png";
 import DetectiveMina from "public/assets/404/mina_chibi.webp";
-import LoadingCircle from "components/LoadingCircle";
 
 export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 	const { t } = useTranslation();
