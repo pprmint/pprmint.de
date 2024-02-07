@@ -210,7 +210,7 @@ export default function Gallery({ Works }: { Works: Works }) {
 					<FocusTrap>
 						<Portal.Root className="fixed z-50">
 							<a.div style={styles}>
-								<WorkFlyout works={Works.data} selectedWork={selectedWork} onClose={() => handleLightboxClose()} />
+								<WorkFlyout works={filteredWorks} selectedWork={selectedWork} onClose={() => handleLightboxClose()} />
 							</a.div>
 						</Portal.Root>
 					</FocusTrap>
