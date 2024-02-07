@@ -304,7 +304,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 			<Head
 				title={t("MINA:Head.title")}
 				description={t("MINA:Head.description")}
-				image="https://pprmint.art/assets/mina/embed_gold.png"
+				image="https://pprmint.art/assets/mina/embed.png"
 			/>
 			<Title title={t("MINA:Head.title")} description={t("MINA:Head.description")}>
 				<FadingImage src={HeroMina} alt="Original Mina artwork by wxsonz." fill className="object-cover" quality={90} />
