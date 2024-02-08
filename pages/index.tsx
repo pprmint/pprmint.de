@@ -29,7 +29,7 @@ export default function Home({ Announcements }: { Announcements: Announcements }
 				<section className="relative overflow-hidden">
 					<div className="relative w-full h-full -z-10">
 						<FadingImage
-							src={`https://static.pprmint.art/${Announcements.data[0].attributes.media.data.attributes.formats.thumbnail.url}`}
+							src={`https://static.pprmint.art${Announcements.data[0].attributes.media.data.attributes.formats.thumbnail.url}`}
 							alt={Announcements.data[0].attributes.media.data.attributes.alternativeText}
 							quality={90}
 							width={Announcements.data[0].attributes.media.data.attributes.formats.thumbnail.width}
@@ -53,7 +53,7 @@ export default function Home({ Announcements }: { Announcements: Announcements }
 						height={Announcements.data[0].attributes.media.data.attributes.height}
 						className="w-full max-w-7xl mx-auto mt-24 xl:rounded-xl shadow-[0px_0px_5px_10px_#111]"
 					/>
-					<div className="flex max-w-7xl px-6 md:px-9 mx-auto my-20 flex-col md:flex-row items-end md:items-center gap-6 md:gap-9">
+					<div className="flex max-w-7xl px-6 md:px-9 mx-auto my-12 flex-col md:flex-row items-end md:items-center gap-6 md:gap-9">
 						<div className="w-full">
 							<h2>{Announcements.data[0].attributes.title}</h2>
 							<p>{Announcements.data[0].attributes.description}</p>
