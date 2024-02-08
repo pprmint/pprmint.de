@@ -5,7 +5,6 @@
     },
     "Content": {
         "Filters": {
-            "label": "Filters",
             "year": "Year",
             "dimension": "Dimension",
             "Type": {

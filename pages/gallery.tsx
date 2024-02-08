@@ -84,11 +84,8 @@ export default function Gallery({ Works }: { Works: Works }) {
 				/>
 			</Title>
 			<main>
-				<section className="my-20">
-					<div className="flex flex-col md:flex-row gap-1 max-w-3xl mx-2 md:mx-auto items-center p-2 bg-neutral-900 rounded-lg">
-						<span className="text-neutral-50 font-medium px-3 py-1 md:py-0 whitespace-nowrap">
-							{t("GALLERY:Content.Filters.label")} <i className="ri-filter-2-line" />
-						</span>
+				<section className="my-20 px-2">
+					<div className="max-w-lg md:max-w-3xl mx-auto items-center p-2 bg-neutral-900 rounded-lg">
 						<div className="grid grid-cols-2 md:flex w-full flex-wrap md:flex-nowrap gap-2">
 							<Select.Root value={filteredYear} onValueChange={setFilteredYear}>
 								<div className="flex md:w-1/2">
@@ -113,7 +110,7 @@ export default function Gallery({ Works }: { Works: Works }) {
 									)}
 								</div>
 								<Select.Portal>
-									<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-lg rounded-lg">
+									<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-xl shadow-neutral-950/50 rounded-lg data-[state=open]:animate-select-open">
 										<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900/50 text-neutral-50 rounded-t-md">
 											<i className="ri-arrow-up-s-line" />
 										</Select.ScrollUpButton>
@@ -132,7 +129,7 @@ export default function Gallery({ Works }: { Works: Works }) {
 									</Select.Content>
 								</Select.Portal>
 							</Select.Root>
-							<div className="flex h-9 w-full">
+							<div className="flex h-9 md:w-4/5">
 								<button
 									onClick={() =>
 										filteredDimension == "twodee" ? setFilteredDimension("") : setFilteredDimension("twodee")
@@ -186,7 +183,7 @@ export default function Gallery({ Works }: { Works: Works }) {
 							</div>
 						</div>
 					</div>
-					<div className="py-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-2 px-2">
+					<div className="py-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-2">
 						{filteredWorks.map((work: Work, index: number) => (
 							<button
 								key={work.id}

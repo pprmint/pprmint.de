@@ -493,10 +493,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 						</div>
 					</section>
 					<section id="gallery" className="my-20 px-2">
-						<div className="flex flex-col md:flex-row gap-1 max-w-xl mx-auto items-center p-2 bg-neutral-900 rounded-lg">
-							<span className="text-neutral-50 font-medium px-3 py-1 md:py-0 whitespace-nowrap">
-								{t("MINA:Content.Artworks.Filters.label")} <i className="ri-filter-2-line" />
-							</span>
+						<div className="max-w-lg mx-auto items-center p-2 bg-neutral-900 rounded-lg">
 							<div className="flex w-full gap-2">
 								<Select.Root value={filteredArtist} onValueChange={setFilteredArtist}>
 									<div className="flex w-full">
@@ -524,7 +521,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 										)}
 									</div>
 									<Select.Portal>
-										<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-lg rounded-lg">
+										<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-xl shadow-neutral-950/50 rounded-lg data-[state=open]:animate-select-open">
 											<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900/50 text-neutral-50 rounded-t-md">
 												<i className="ri-arrow-up-s-line" />
 											</Select.ScrollUpButton>
@@ -568,7 +565,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 										)}
 									</div>
 									<Select.Portal>
-										<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-lg rounded-lg">
+										<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-xl shadow-neutral-950/50 rounded-lg data-[state=open]:animate-select-open">
 											<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900/50 text-neutral-50 rounded-t-md">
 												<i className="ri-arrow-up-s-line" />
 											</Select.ScrollUpButton>

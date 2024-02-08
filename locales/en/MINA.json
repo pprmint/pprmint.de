@@ -1,7 +1,7 @@
 {
 	"Head": {
-		"description": "He draws so much art.",
-		"title": "The Great Wall of Kozu"
+		"description": "My mascot, or something like that.",
+		"title": "Mina"
 	},
 	"Content": {
 		"About": {
@@ -45,7 +45,6 @@
 		},
 		"Artworks": {
 			"Filters": {
-				"label": "Filters",
 				"artist": "Artist",
 				"year": "Year"
 			},

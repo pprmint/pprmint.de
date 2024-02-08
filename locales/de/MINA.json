@@ -1,6 +1,6 @@
 {
 	"Head": {
-		"description": "Mein Maskottchen, oder so.",
+		"description": "Mein Maskottchen, oder sowas in der Art.",
 		"title": "Mina"
 	},
 	"Content": {
@@ -45,7 +45,6 @@
 		},
 		"Artworks": {
             "Filters": {
-                "label": "Filter",
                 "artist": "Künstler",
                 "year": "Jahr"
             },
