@@ -66,7 +66,7 @@ export default function StrapiLightbox(props: FlyoutProps) {
 					<div className="absolute z-40 md:p-24 h-screen w-screen overflow-auto">
 						<div onClick={onClose} className="fixed inset-0" />
 						{flyoutTransition((style, work) => (
-							<a.div key={work.id} style={style} className="flex max-w-6xl mx-auto drop-shadow-xl overflow-auto border border-neutral-950 md:rounded-xl shadow-xl shadow-neutral-950/50">
+							<a.div key={work.id} style={style} className="flex max-w-8xl mx-auto drop-shadow-xl overflow-auto border border-neutral-950 md:rounded-xl shadow-xl shadow-neutral-950/50">
 								<div className="w-full h-max md:max-h-none bg-neutral-950 md:border border-neutral-900 md:rounded-xl md:overflow-hidden">
 									<div className="relative overflow-hidden h-80 md:h-1/3-screen">
 										<button
