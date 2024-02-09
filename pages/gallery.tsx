@@ -8,7 +8,7 @@ import * as Portal from "@radix-ui/react-portal";
 import Work, { Works } from "types/work";
 import Head from "components/Head";
 import Title from "components/Title";
-import WorkFlyout from "components/WorkFlyout";
+import WorkCard from "components/WorkCard";
 import { useRouter } from "next/router";
 import FadingImage from "components/FadingImage";
 
@@ -207,7 +207,10 @@ export default function Gallery({ Works }: { Works: Works }) {
 					<FocusTrap>
 						<Portal.Root className="fixed z-50">
 							<a.div style={styles}>
-								<WorkFlyout works={filteredWorks} selectedWork={selectedWork} onClose={() => handleLightboxClose()} />
+								<WorkCard
+									work={Works.data[selectedWork]}
+									onClose={() => handleLightboxClose()}
+								/>
 							</a.div>
 						</Portal.Root>
 					</FocusTrap>
