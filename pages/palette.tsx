@@ -18,145 +18,145 @@ const Colors: Color[] = [
 	{
 		name: "red",
 		shades: [
-			"#fde9ec",
-			"#fec8ca",
-			"#fea6a7",
-			"#ff8585",
-			"#ff6665",
+			"#fce3e7",
+			"#fdcdcf",
+			"#fea9ab",
+			"#fe8687",
+			"#ff6465",
 			"#f44",
-			"#d43838",
-			"#ae2e2e",
-			"#822222",
-			"#591717",
-			"#2e0b0b",
+			"#df333a",
+			"#b5262b",
+			"#8e1a1d",
+			"#640d0e",
+			"#3b0000",
 		],
 	},
 	{
 		name: "orange",
 		shades: [
-			"#ffeee4",
-			"#ffd7be",
-			"#ffbf97",
-			"#ffa871",
-			"#ff8f4a",
+			"#ffece0",
+			"#ffdac1",
+			"#ffc397",
+			"#ffab6c",
+			"#ff9443",
 			"#f71",
-			"#e06100",
-			"#b85000",
-			"#8f3e00",
-			"#662c00",
-			"#3d1600",
+			"#e36311",
+			"#bc4e0e",
+			"#95380a",
+			"#6d2207",
+			"#430f04",
 		],
 	},
 	{
 		name: "yellow",
 		shades: [
 			"#fff4d6",
-			"#ffe9ad",
-			"#ffde85",
-			"#ffd35c",
-			"#ffc933",
+			"#ffeab1",
+			"#ffe18e",
+			"#ffd767",
+			"#ffce44",
 			"#fb0",
-			"#dfa000",
-			"#c08600",
-			"#a16d00",
-			"#774900",
-			"#371e00",
+			"#e59801",
+			"#bc7801",
+			"#935802",
+			"#703d03",
+			"#441f02",
 		],
 	},
 	{
 		name: "lime",
 		shades: [
-			"#eff7de",
-			"#deefbe",
-			"#cee79d",
-			"#bede7c",
-			"#add65c",
+			"#f0fadb",
+			"#dff0be",
+			"#cfe89d",
+			"#bfe17c",
+			"#afd95c",
 			"#9c3",
-			"#87b42d",
-			"#6e9325",
-			"#56721d",
-			"#3d5214",
+			"#82ad2b",
+			"#688a23",
+			"#4f6a1b",
+			"#394c13",
 			"#1f290b",
 		],
 	},
 	{
 		name: "green",
 		shades: [
-			"#d6ffe9",
-			"#aef6d0",
-			"#84ecb6",
-			"#5ae39c",
-			"#30d982",
+			"#d1ffed",
+			"#b2f6d3",
+			"#8bedbb",
+			"#63e4a3",
+			"#3cda8b",
 			"#0c6",
-			"#00b85c",
-			"#008f47",
-			"#006633",
-			"#005229",
+			"#00ab56",
+			"#008b45",
+			"#006b35",
+			"#004a25",
 			"#002914",
 		],
 	},
 	{
 		name: "cyan",
 		shades: [
-			"#def7ff",
-			"#c2f1ff",
-			"#adecff",
-			"#85e2ff",
-			"#5cd9ff",
+			"#c7f9ff",
+			"#acf3ff",
+			"#8febff",
+			"#70e2ff",
+			"#50d9ff",
 			"#2cf",
-			"#00bcf5",
-			"#009ccc",
-			"#007da3",
-			"#005e7a",
-			"#002f3d",
+			"#1fb5e3",
+			"#1894bc",
+			"#106f90",
+			"#084c65",
+			"#062835",
 		],
 	},
 	{
 		name: "blue",
 		shades: [
-			"#def0ff",
-			"#bde1ff",
-			"#99d1ff",
-			"#70bcff",
-			"#47a9ff",
+			"#c7f0ff",
+			"#a4e1ff",
+			"#88d2ff",
+			"#68c0ff",
+			"#4db1ff",
 			"#29f",
-			"#0083f5",
-			"#006dcc",
-			"#0057a3",
-			"#00417a",
+			"#1f83e9",
+			"#196bc0",
+			"#135395",
+			"#0d3b6a",
 			"#00213d",
 		],
 	},
 	{
 		name: "violet",
 		shades: [
-			"#f4ecfd",
-			"#e9dafb",
-			"#d3b5f8",
-			"#bd90f4",
-			"#a76af0",
-			"#95e",
-			"#8844dc",
-			"#7332c8",
-			"#6520b4",
-			"#4D158E",
-			"#25074a",
+			"#f0e2ff",
+			"#e1cafb",
+			"#d3b6f8",
+			"#c6a1f5",
+			"#b88df1",
+			"#a7e",
+			"#9363ce",
+			"#784caa",
+			"#5c3586",
+			"#411e62",
+			"#220c3f",
 		],
 	},
 	{
 		name: "pink",
 		shades: [
-			"#fdedf7",
-			"#fbdaee",
-			"#f9c8e6",
-			"#f5a3d6",
-			"#f17ec5",
-			"#e6b",
-			"#dc56ab",
-			"#c74299",
-			"#a42d7e",
-			"#7f1b65",
-			"#470034",
+			"#ffdeff",
+			"#fcc6f5",
+			"#f8afeb",
+			"#f597e1",
+			"#f180d7",
+			"#e6c",
+			"#d654b5",
+			"#af3f93",
+			"#882a70",
+			"#62154e",
+			"#3c002c",
 		],
 	},
 	{
@@ -174,18 +174,27 @@ export default function Palette() {
 
 	return (
 		<>
-			<Head title={t("PALETTE:Head.title")} description={t("PALETTE:Head.description")} image="https://pprmint.art/assets/palette/OG.png" />
-            <Title title={t("PALETTE:Head.title")} description={t("PALETTE:Head.description")} />
+			<Head
+				title={t("PALETTE:Head.title")}
+				description={t("PALETTE:Head.description")}
+				image="https://pprmint.art/assets/palette/og.png"
+			/>
+			<Title title={t("PALETTE:Head.title")} description={t("PALETTE:Head.description")} />
 			<main className="mx-auto pt-36">
 				<Toast.Provider>
 					<div className="flex flex-col lg:flex-row w-full pb-20">
 						{Colors.map((color, colorIndex) => (
-							<div key={colorIndex} className="grid grid-cols-4 grid-rows-3 lg:grid-rows-11 lg:grid-cols-1 lg:h-[700px] w-full">
+							<div
+								key={colorIndex}
+								className="grid grid-cols-4 grid-rows-3 lg:grid-rows-11 lg:grid-cols-1 lg:h-[700px] w-full"
+							>
 								{color.shades.map((shade, shadeIndex) => (
 									<div
-                                        key={colorIndex + shadeIndex}
+										key={colorIndex + shadeIndex}
 										style={{ backgroundColor: shade as string }}
-										className={`group flex items-center justify-center h-16 font-display-mono ${shadeIndex == 5 ? "col-span-2 lg:col-span-1" : "col-span-1"} ${
+										className={`group flex items-center justify-center h-16 font-display-mono ${
+											shadeIndex == 5 ? "col-span-2 lg:col-span-1" : "col-span-1"
+										} ${
 											shadeIndex > 5 ? "text-neutral-50" : "text-neutral-950"
 										} hover:scale-110 hover:shadow-xl hover:rounded-md duration-100 ease-in-out-custom active:scale-105 cursor-pointer active:duration-75`}
 										onClick={() => {
@@ -199,7 +208,9 @@ export default function Palette() {
 										}}
 									>
 										<span
-											className={shadeIndex == 5 ? "text-4xl font-light" : "opacity-0 group-hover:opacity-100 duration-150"}
+											className={
+												shadeIndex == 5 ? "text-4xl font-light" : "opacity-0 group-hover:opacity-100 duration-150"
+											}
 										>
 											{shade as string}
 										</span>
