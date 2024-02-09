@@ -23,7 +23,7 @@ import FadingImage from "components/FadingImage";
 import HeroMina from "public/assets/mina/hero.webp";
 import TransparentMina from "public/assets/mina/mina.webp";
 import HehMina from "public/assets/mina/heh-upscaled.png";
-import DetectiveMina from "public/assets/404/mina_chibi.webp";
+import MinaWhat from "public/assets/mina/minawhat.png";
 
 export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 	const { t } = useTranslation();
@@ -614,7 +614,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 							</ResponsiveMasonry>
 						) : (
 							<div className="flex flex-col items-center justify-center w-full max-w-2xl mx-auto">
-								<Image src={DetectiveMina} alt="" className="w-full max-w-64 h-auto my-12" />
+								<Image src={MinaWhat} alt="" className="w-full max-w-64 h-auto my-12" />
 								<h2>{t("MINA:Content.Artworks.nothingHere")}</h2>
 								<p>{t("MINA:Content.Artworks.tryDifferent")}</p>
 							</div>
