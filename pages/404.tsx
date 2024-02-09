@@ -55,7 +55,7 @@ export default function NotFound() {
 
 	return (
 		<>
-			<Head title={t("404:Head.title")} description={t("404:Content.info")} color="#ff7722" />
+			<Head title={t("404:Head.title")} description={t("404:Content.info")} color="#ff7711" />
 			<MouseParallaxContainer
 				containerStyle={{ width: "100vw", height: "100vh", minHeight: "600px" }}
 				springConfig={config.gentle}
@@ -73,7 +73,7 @@ export default function NotFound() {
 					}}
 				>
 					<a.div
-						className="text-orange-700 font-display-mono font-light blur-sm lg:blur-lg w-full text-center -skew-y-6"
+						className="text-orange-800 font-display-mono font-light blur-sm lg:blur-lg w-full text-center -skew-y-6"
 						style={{ fontSize: "50vw", ...fadeIn }}
 					>
 						{countUp.val.to((val) => Math.floor(val))}
