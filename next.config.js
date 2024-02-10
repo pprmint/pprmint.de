@@ -65,6 +65,11 @@ module.exports = nextTranslate({
 				destination: "/projects/ytdg",
 				permanent: true,
 			},
+			{
+				source: "/kozu",
+				destination: "/mina",
+				permanent: true,
+			},
 		];
 	},
 	async headers() {
