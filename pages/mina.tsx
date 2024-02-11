@@ -11,13 +11,13 @@ import * as Accordion from "@radix-ui/react-accordion";
 import * as Toast from "@radix-ui/react-toast";
 import * as Switch from "@radix-ui/react-switch";
 import * as Select from "@radix-ui/react-select";
-import { useTransition, config, a, easings } from "@react-spring/web";
+import { useTransition, useSpring, config, a, easings } from "@react-spring/web";
 
 import MinaArtwork, { MinaArtworks } from "types/mina-artwork";
 import Head from "components/Head";
 import Title from "components/Title";
 import Button from "components/Button";
-import StrapiLightbox from "components/StrapiLightbox";
+import MinaLightbox from "components/MinaLightbox";
 import FadingImage from "components/FadingImage";
 
 import HeroMina from "public/assets/mina/hero.webp";
@@ -105,7 +105,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 	}, []);
 	const [dialogOpen, setDialogOpen] = useState(false);
 	const dialogTransitions = useTransition(dialogOpen, {
-		from: { opacity: 0, y: 40 },
+		from: { opacity: 0, y: 60 },
 		enter: {
 			opacity: 1,
 			y: 0,
@@ -118,14 +118,36 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 			opacity: 0,
 			y: 40,
 			config: {
-				easing: easings.easeInQuint,
-				duration: 400,
+				easing: easings.easeInCirc,
+				duration: 250,
 			},
 		},
 	});
 
-	function HornyDialog() {
+	function NsfwDialog() {
 		const { t } = useTranslation();
+
+		const [timer, setTimer] = useState(0);
+
+		useEffect(() => {
+			const interval = setInterval(() => {
+				setTimer((prevTimer) => (prevTimer >= 10 ? 10 : prevTimer + 0.1));
+			}, 100);
+
+			return () => clearInterval(interval);
+		}, []);
+
+		const progressCircle = useSpring({
+			from: { val: 44 },
+			to: {
+				val: 0,
+			},
+			config: {
+				duration: 10000,
+				easing: easings.easeInOutQuad,
+			},
+		});
+
 		return (
 			<Dialog.Root open={dialogOpen} onOpenChange={setDialogOpen}>
 				{dialogTransitions((styles, item) =>
@@ -161,30 +183,42 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 									<div className="text-center text-neutral-50 max-w-3xl">
 										<p>{t("MINA:Content.NSFW.Dialog.text1")}</p>
 										<p>{t("MINA:Content.NSFW.Dialog.text2")}</p>
-										<p>
-											<Trans
-												i18nKey="MINA:Content.NSFW.Dialog.text3"
-												components={{
-													b: <b />,
-												}}
-											/>
-										</p>
-										<p className="text-neutral text-xs italic">{t("MINA:Content.NSFW.Dialog.hint")}</p>
+										<p className="font-bold text-red">{t("MINA:Content.NSFW.Dialog.text3")}</p>
 									</div>
 									<div className="flex flex-col md:flex-row items-center gap-3 pt-6 px-6">
 										<Button
 											color="green"
 											onClick={() => {
 												setShowNsfw(true);
-												localStorage.setItem("confirmedHornyDialog", "interestingly, yes");
-												localStorage.setItem("horny", "understandably so");
+												localStorage.setItem("confirmedNsfwDialog", "interestingly, yes");
+												localStorage.setItem("horny", "looks like it");
 												setDialogOpen(false);
 											}}
+											disabled={timer < 10}
 										>
+											<svg height={16} width={16} className="-rotate-90">
+												<a.circle
+													cx={8}
+													cy={8}
+													r={7}
+													strokeWidth={2}
+													className="stroke-neutral-950 fill-none"
+													strokeDasharray={44}
+													strokeDashoffset={progressCircle.val}
+													strokeLinecap="butt" // hehe butt
+												/>
+											</svg>
 											{t("MINA:Content.NSFW.Dialog.admitSins")}
 										</Button>
 										<Button onClick={() => setDialogOpen(false)}>{t("MINA:Content.NSFW.Dialog.nevermind")}</Button>
 									</div>
+									<p
+										className={`text-neutral text-xs italic max-w-xl text-center pt-6 ${
+											timer < 10 ? "opacity-0 select-none" : "opacity-100"
+										} duration-250`}
+									>
+										{t("MINA:Content.NSFW.Dialog.hint")}
+									</p>
 									<p className="lg:absolute pt-6 bottom-3 md:bottom-5 left-0 right-0 text-xs text-center">
 										<Trans
 											i18nKey="MINA:Content.NSFW.Dialog.credit"
@@ -203,12 +237,12 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 	}
 
 	const toggleNsfw = () => {
-		const seenHornyDialog = localStorage.getItem("confirmedHornyDialog");
+		const seenNsfwDialog = localStorage.getItem("confirmedNsfwDialog");
 		if (!showNsfw) {
-			if (!seenHornyDialog) {
+			if (!seenNsfwDialog) {
 				setDialogOpen(true);
 			} else {
-				localStorage.setItem("horny", "understandably so");
+				localStorage.setItem("horny", "came back for more, eh?");
 				setShowNsfw(true);
 			}
 		} else {
@@ -221,16 +255,17 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 	useEffect(() => {
 		const handleKeyPress = (event: KeyboardEvent) => {
 			if (event.key === " ") {
+				setLightboxOpen(false);
 				setShowNsfw(false);
+				document.body.classList.remove("overflow-hidden");
 				localStorage.removeItem("horny");
-				handleLightboxClose;
 			}
 		};
 		document.addEventListener("keydown", handleKeyPress);
 		return () => {
 			document.removeEventListener("keydown", handleKeyPress);
 		};
-	}, []);
+	}, [showNsfw]);
 
 	// For dropdowns.
 	function SelectItem(props: React.PropsWithChildren<{ value: string }>) {
@@ -256,11 +291,6 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 	const yearList = Array.from({ length: new Date().getFullYear() - 2022 + 1 }, (_, index) =>
 		(new Date().getFullYear() - index).toString()
 	);
-
-	const artistFilteredArtworks =
-		filteredArtist != ""
-			? Artworks.data.filter((art: MinaArtwork) => art.attributes.artist == filteredArtist)
-			: Artworks.data;
 
 	const filteredArtworks = Artworks.data
 		.filter((art: MinaArtwork) => (showNsfw ? true : !art.attributes.nsfw))
@@ -606,7 +636,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 												}`}
 											/>
 											{art.attributes.nsfw && (
-												<i className="text-neutral-50/75 ri-eye-off-line absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl group-hover:opacity-0 duration-200" />
+												<i className="text-neutral-50/75 ri-eye-off-line absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl group-hover:opacity-0 duration-200" />
 											)}
 										</button>
 									))}
@@ -625,7 +655,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 							{t("MINA:Content.NSFW.switch")}
 						</label>
 						<Switch.Root
-							className="group relative w-14 h-8 rounded-full bg-neutral-800  data-[state='checked']:bg-green duration-200 ease-out"
+							className="group relative w-14 h-8 rounded-full bg-neutral-900 data-[state='unchecked']:hover:bg-neutral-800 data-[state='checked']:bg-green duration-200 ease-out"
 							id="light-theme"
 							onClick={toggleNsfw}
 							checked={showNsfw}
@@ -637,13 +667,13 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 					</section>
 				</Toast.Provider>
 			</main>
-			<HornyDialog />
+			<NsfwDialog />
 			{transitions((styles, item) =>
 				item ? (
 					<FocusTrap>
 						<Portal.Root className="fixed z-50">
 							<a.div style={styles}>
-								<StrapiLightbox
+								<MinaLightbox
 									images={filteredArtworks}
 									aspectRatio="square"
 									selectedImage={selectedImage}

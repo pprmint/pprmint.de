@@ -5,7 +5,6 @@ import useTranslation from "next-translate/useTranslation";
 import { useTransition, a, easings } from "@react-spring/web";
 import * as Tooltip from "@radix-ui/react-tooltip";
 
-import LoadingCircle from "./LoadingCircle";
 import MinaArtwork from "types/mina-artwork";
 import FadingImage from "./FadingImage";
 
@@ -16,12 +15,11 @@ interface LightboxProps {
 	onClose: () => void;
 }
 
-export default function StrapiLightbox(props: LightboxProps) {
+export default function MinaLightbox(props: LightboxProps) {
 	const { images, selectedImage, aspectRatio, onClose } = props;
 
 	const { t } = useTranslation();
 	const [currentImage, setCurrentImage] = useState(selectedImage);
-	const [loading, setLoading] = useState(true);
 
 	const [transitionDirection, setTransitionDirection] = useState<"left" | "right">("left");
 
@@ -67,7 +65,6 @@ export default function StrapiLightbox(props: LightboxProps) {
 			},
 		},
 		exitBeforeEnter: true,
-		onDestroyed: () => setLoading(true),
 	});
 
 	const handlePrevious = useCallback(() => {
@@ -129,84 +126,92 @@ export default function StrapiLightbox(props: LightboxProps) {
 					>
 						<i className="ri-arrow-right-line group-active:ml-2 duration-200 group-active:duration-100 ease-in-out" />
 					</button>
-					{captionTransition((style, image) => (
-						<>
-							<a.h3
-								style={style}
-								className="fixed flex flex-wrap w-10/12 items-center gap-3 md:gap-4 z-50 left-5 md:left-6 top-3 md:top-5 md:text-center"
-							>
-								{`${t("MINA:Content.Artworks.drawnBy")} ${image.attributes.artist} ${
-									image.attributes.heart ? "<3" : ""
-								}`}
-								{image.attributes.creditUrl && (
-									<div className="flex gap-3 md:gap-4">
-										<Link
-											href={image.attributes.creditUrl}
-											target="_blank"
-											rel="noopener noreferrer"
-											className="rounded-full"
-										>
-											<button
-												tabIndex={-1}
-												className="text-neutral-50 w-10 h-10 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
-											>
-												{image.attributes.creditUrl.startsWith("https://twitter.com/") ? (
-													<i className="ri-twitter-line" />
-												) : image.attributes.creditUrl.startsWith("https://www.instagram.com/") ? (
-													<i className="ri-instagram-line" />
-												) : (
-													<i className="ri-global-line" />
-												)}
-											</button>
-										</Link>
-									</div>
-								)}
-							</a.h3>
-						</>
-					))}
+					{captionTransition(
+						(style, image) =>
+							image && (
+								<>
+									<a.h3
+										style={style}
+										className="fixed flex flex-wrap w-10/12 items-center gap-3 md:gap-4 z-50 left-5 md:left-6 top-3 md:top-5 md:text-center"
+									>
+										{`${t("MINA:Content.Artworks.drawnBy")} ${image.attributes.artist} ${
+											image.attributes.heart ? "<3" : ""
+										}`}
+										{image.attributes.creditUrl && (
+											<div className="flex gap-3 md:gap-4">
+												<Link
+													href={image.attributes.creditUrl}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="rounded-full"
+												>
+													<button
+														tabIndex={-1}
+														className="text-neutral-50 w-10 h-10 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
+													>
+														{image.attributes.creditUrl.startsWith("https://twitter.com/") ? (
+															<i className="ri-twitter-line" />
+														) : image.attributes.creditUrl.startsWith("https://www.instagram.com/") ? (
+															<i className="ri-instagram-line" />
+														) : (
+															<i className="ri-global-line" />
+														)}
+													</button>
+												</Link>
+											</div>
+										)}
+									</a.h3>
+								</>
+							)
+					)}
 
 					<div className="fixed w-screen max-w-max z-50 bottom-2.5 overflow-x-auto">
 						<div className="flex flex-nowrap items-center justify-center gap-2 h-14 my-0.5 w-max px-2.5 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 bg-neutral-50/10 rounded-xl mx-3">
-							{images.map((image, index) => (
-								<div
-									key={index}
-									onClick={() => handleImage(index)}
-									className={`relative ${
-										currentImage === index
-											? `${aspectRatio === "video" ? "w-16" : "w-9"} h-9 saturate-100 rounded-md`
-											: "w-8 h-8 opacity-50 hover:opacity-100 saturate-0 hover:saturate-50 rounded-sm"
-									} cursor-pointer duration-200 overflow-hidden`}
-								>
-									<Image
-										src={`https://static.pprmint.art${image.attributes.artwork.data.attributes.formats.thumbnail.url}`}
-										alt=""
-										width={image.attributes.artwork.data.attributes.formats.thumbnail.width}
-										height={image.attributes.artwork.data.attributes.formats.thumbnail.height}
-										className={`h-full object-cover ${image.attributes.focus} bg-neutral-50/20`}
-										onLoad={() => setLoading(false)}
-									/>
-								</div>
-							))}
+							{images.map(
+								(image, index) =>
+									image && (
+										<div
+											key={index}
+											onClick={() => handleImage(index)}
+											className={`relative ${
+												currentImage === index
+													? `${aspectRatio === "video" ? "w-16" : "w-9"} h-9 saturate-100 rounded-md`
+													: "w-8 h-8 opacity-50 hover:opacity-100 saturate-0 hover:saturate-50 rounded-sm"
+											} cursor-pointer duration-200 overflow-hidden`}
+										>
+											<Image
+												src={`https://static.pprmint.art${image.attributes.artwork.data.attributes.formats.thumbnail.url}`}
+												alt=""
+												width={image.attributes.artwork.data.attributes.formats.thumbnail.width}
+												height={image.attributes.artwork.data.attributes.formats.thumbnail.height}
+												className={`h-full object-cover ${image.attributes.focus} bg-neutral-50/20`}
+											/>
+										</div>
+									)
+							)}
 						</div>
 					</div>
 					<div className="fixed z-40 py-20 md:p-20 h-screen w-screen">
-						{imageTransition((style, image) => (
-							<a.div
-								key={image.id}
-								style={style}
-								className="flex items-center justify-center w-full h-full drop-shadow-xl"
-							>
-								<div onClick={onClose} className="absolute top-0 left-0 w-full h-full" />
-								<FadingImage
-									src={`https://static.pprmint.art${image.attributes.artwork.data.attributes.url}`}
-									quality={100}
-									alt={`${t("MINA:Content.Artworks.drawnBy")} ${image.attributes.artist}`}
-									width={image.attributes.artwork.data.attributes.width}
-									height={image.attributes.artwork.data.attributes.height}
-									className="relative h-fit max-h-full w-auto"
-								/>
-							</a.div>
-						))}
+						{imageTransition(
+							(style, image) =>
+								image && (
+									<a.div
+										key={image.id}
+										style={style}
+										className="flex items-center justify-center w-full h-full drop-shadow-xl"
+									>
+										<div onClick={onClose} className="absolute top-0 left-0 w-full h-full" />
+										<FadingImage
+											src={`https://static.pprmint.art${image.attributes.artwork.data.attributes.url}`}
+											quality={100}
+											alt={`${t("MINA:Content.Artworks.drawnBy")} ${image.attributes.artist}`}
+											width={image.attributes.artwork.data.attributes.width}
+											height={image.attributes.artwork.data.attributes.height}
+											className="relative h-fit max-h-full w-auto"
+										/>
+									</a.div>
+								)
+						)}
 					</div>
 				</div>
 			</Tooltip.Root>

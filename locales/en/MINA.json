@@ -52,19 +52,19 @@
 			"alltime": "Fanart drawn in total:",
 			"nothingHere": "Nothing here.",
 			"tryDifferent": "Try using different filters or removing some.",
-			"drawnBy": "Drawn by "
+			"drawnBy": "By "
 		},
 		"NSFW": {
 			"switch": "Neuron activation",
 			"Dialog": {
 				"title": "Looks like that switch made you a bit curious.",
 				"text1": "Some things are better left unseen. Especially if you're in public or otherwise at risk of someone peeking over your shoulder.",
-				"text2": "Flicking this switch will reveal suggestive or lewd (NSFW) artwork on the page. If you're fine with that, give that green button a click.",
-				"text3": "<b>If you're under the age of 18, you should close this pop-up.</b> I won't tell your mom.",
+				"text2": "Flicking this switch will reveal suggestive and lewd (NSFW) artwork on the page. If you're fine with that, please sell your soul using the green button below in a few seconds.",
+				"text3": "If you're under the age of 18, close this pop-up.",
 				"hint": "Hint: If there's a keyboard in front of you, you only have one hand free and suddenly need to abort your mission, press the space bar to hide the smut again.",
 				"credit": "The art of Mina judging you up there was drawn by <Link>@wxsonz</Link>.",
-				"admitSins": "I'm a lost cause.",
-				"nevermind": "Nah, I think I'm good."
+				"admitSins": "See ya, soul!",
+				"nevermind": "Nah, I'm good."
 			}
 		}
 	}

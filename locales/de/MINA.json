@@ -59,12 +59,12 @@
             "Dialog": {
                 "title": "Der Schalter hat dich wohl neugierig gemacht.",
                 "text1": "Manche Dinge sollte man lieber ungesehen lassen. Besonders wenn du dich in der Öffentlichkeit befindest, oder dir jemand aus anderen Gründen über die Schulter linsen könnte.",
-                "text2": "Wenn du diesen Schalter anklickst werden anzügliche bzw. anstößige (NSFW) Illustrationen auf der Seite angezeigt. Wenn das für dich kein Problem ist, klick auf den grünen Knopf.",
-                "text3": "<b>Wenn du noch keine 18 Jahre alt bist, solltest du dieses Pop-up schließen.</b> Ich sag's auch nicht Mama.",
+                "text2": "Dieser Schalter wird anzügliche bzw. anstößige (NSFW) Illustrationen auf der Seite anzeigen. Ist dies kein Problem für dich, so verkaufe deine Seele gleich mit dem grünen Knopf unten.",
+                "text3": "Wenn du noch keine 18 Jahre alt bist, schließe dieses Pop-up.",
                 "hint": "Tipp: Wenn eine Tastatur vor dir liegt, du nur eine Hand frei hast und plötzlich deine Mission abbrechen musst, kannst du die Leertaste drücken, um die Schweinereien wieder zu verstecken.",
                 "credit": "Die Zeichnung von Mina da oben stammt von <Link>@wxsonz</Link>.",
-                "admitSins": "Ich bin ein hoffnungsloser Fall.",
-                "nevermind": "Nee, lass mal."
+                "admitSins": "Tschüssi, Seele!",
+                "nevermind": "Nee, passt schon."
             }
 		}
 	}
