@@ -50,9 +50,9 @@
             },
 			"last7Days": "Fanart der letzten 7 Tage:",
 			"alltime": "Fanart ingesamt:",
-            "nothingHere": "Nüscht da.",
-            "tryDifferent": "Probiere andere Filter aus, oder entferne welche.",
-			"drawnBy": "Von "
+			"drawnBy": "Von ",
+            "showingArtworks_one": "{{count}} Artwork wird gezeigt.",
+            "showingArtworks_other": "{{count}} Artworks werden gezeigt."
 		},
         "NSFW": {
             "switch": "Neuronen-Aktivierung",

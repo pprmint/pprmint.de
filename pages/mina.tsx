@@ -33,12 +33,14 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 	const [lightboxOpen, setLightboxOpen] = useState(false);
 	const handleLightboxOpen = (id: number) => {
 		setSelectedImage(id);
-		document.body.classList.add("overflow-hidden");
 		setLightboxOpen(true);
+		document.body.classList.add("overflow-hidden");
 	};
 	const handleLightboxClose = () => {
-		document.body.classList.remove("overflow-hidden");
 		setLightboxOpen(false);
+		setTimeout(() => {
+			document.body.classList.remove("overflow-hidden");
+		}, 450);
 	};
 
 	const transitions = useTransition(lightboxOpen, {
@@ -257,7 +259,6 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 			if (event.key === " ") {
 				setLightboxOpen(false);
 				setShowNsfw(false);
-				document.body.classList.remove("overflow-hidden");
 				localStorage.removeItem("horny");
 			}
 		};
@@ -617,36 +618,42 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 							</div>
 						</div>
 						{filteredArtworks.length > 0 ? (
-							<ResponsiveMasonry columnsCountBreakPoints={{ 0: 2, 767: 3, 1279: 4, 1920: 5 }}>
-								<Masonry gutter="8px" className="pt-6">
-									{filteredArtworks.map((art: MinaArtwork, index: number) => (
-										<button
-											key={art.id}
-											onClick={() => handleLightboxOpen(index)}
-											className="relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl hover:z-10 cursor-pointer"
-										>
-											<FadingImage
-												src={`https://static.pprmint.art${art.attributes.artwork.data.attributes.url}`}
-												width={art.attributes.artwork.data.attributes.width}
-												height={art.attributes.artwork.data.attributes.height}
-												alt=""
-												className={`h-full min-w-full object-cover bg-neutral-900 ${
-													art.attributes.nsfw &&
-													"blur-lg group-hover:blur-none opacity-50 group-hover:opacity-100 duration-200"
-												}`}
-											/>
-											{art.attributes.nsfw && (
-												<i className="text-neutral-50/75 ri-eye-off-line absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl group-hover:opacity-0 duration-200" />
-											)}
-										</button>
-									))}
-								</Masonry>
-							</ResponsiveMasonry>
+							<>
+								<h3 className="text-center pt-6">{t("MINA:Content.Artworks.showingArtworks", { count: filteredArtworks.length })}</h3>
+								<ResponsiveMasonry columnsCountBreakPoints={{ 0: 2, 767: 3, 1279: 4, 1920: 5 }}>
+									<Masonry gutter="8px" className="pt-6">
+										{filteredArtworks.map((art: MinaArtwork, index: number) => (
+											<button
+												key={art.id}
+												onClick={() => handleLightboxOpen(index)}
+												className="relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl hover:z-10 cursor-pointer"
+											>
+												<FadingImage
+													src={`https://static.pprmint.art${art.attributes.artwork.data.attributes.url}`}
+													width={art.attributes.artwork.data.attributes.width}
+													height={art.attributes.artwork.data.attributes.height}
+													alt=""
+													className={`h-full min-w-full object-cover bg-neutral-900 ${
+														art.attributes.nsfw &&
+														"blur-lg group-hover:blur-none opacity-50 group-hover:opacity-100 duration-200"
+													}`}
+												/>
+												{art.attributes.nsfw && (
+													<i className="text-neutral-50/75 ri-eye-off-line absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl group-hover:opacity-0 duration-200" />
+												)}
+											</button>
+										))}
+									</Masonry>
+								</ResponsiveMasonry>
+							</>
 						) : (
 							<div className="flex flex-col items-center justify-center w-full max-w-2xl mx-auto">
 								<Image src={MinaWhat} alt="" className="w-full max-w-64 h-auto my-12" />
-								<h2>{t("MINA:Content.Artworks.nothingHere")}</h2>
-								<p>{t("MINA:Content.Artworks.tryDifferent")}</p>
+								<h2>
+									{t("COMMON:noResults")}
+									<span className="text-green">.</span>
+								</h2>
+								<p>{t("COMMON:tryDifferent")}</p>
 							</div>
 						)}
 					</section>

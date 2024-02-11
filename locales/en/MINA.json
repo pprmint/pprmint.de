@@ -50,9 +50,9 @@
 			},
 			"last7Days": "Fanart drawn in the last 7 days:",
 			"alltime": "Fanart drawn in total:",
-			"nothingHere": "Nothing here.",
-			"tryDifferent": "Try using different filters or removing some.",
-			"drawnBy": "By "
+			"drawnBy": "By ",
+            "showingArtworks_one": "Showing {{count}} artwork.",
+            "showingArtworks_other": "Showing {{count}} artworks."
 		},
 		"NSFW": {
 			"switch": "Neuron activation",

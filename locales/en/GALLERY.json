@@ -12,6 +12,8 @@
 				"static": "Static",
 				"animated": "Animated"
 			}
-        }
+        },
+        "showingWorks_one": "Showing {{count}} work.",
+        "showingWorks_other": "Showing {{count}} works."
     }
 }

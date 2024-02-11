@@ -1,4 +1,5 @@
 import { useState, PropsWithChildren } from "react";
+import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import { useTransition, a, config } from "@react-spring/web";
 import FocusTrap from "focus-trap-react";
@@ -9,12 +10,11 @@ import Work, { Works } from "types/work";
 import Head from "components/Head";
 import Title from "components/Title";
 import WorkCard from "components/WorkCard";
-import { useRouter } from "next/router";
 import FadingImage from "components/FadingImage";
 
-export default function Gallery({ Works }: { Works: Works }) {
-	const locale = useRouter();
+import MinaWhat from "public/assets/mina/minawhat.png";
 
+export default function Gallery({ Works }: { Works: Works }) {
 	const { t } = useTranslation();
 	const [selectedWork, setSelectedWork] = useState(0);
 	const [open, setOpen] = useState(false);
@@ -183,23 +183,37 @@ export default function Gallery({ Works }: { Works: Works }) {
 							</div>
 						</div>
 					</div>
-					<div className="py-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-2">
-						{filteredWorks.map((work: Work, index: number) => (
-							<button
-								key={work.id}
-								onClick={() => handleLightboxOpen(index)}
-								className="aspect-video relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl hover:z-10 cursor-pointer"
-							>
-								<FadingImage
-									src={`https://static.pprmint.art${work.attributes.cover.data.attributes.url}`}
-									width={work.attributes.cover.data.attributes.width}
-									height={work.attributes.cover.data.attributes.height}
-									alt=""
-									className={`h-full min-w-full object-cover bg-neutral-50/10 ${work.attributes.coverFocus}`}
-								/>
-							</button>
-						))}
-					</div>
+					{filteredWorks.length > 0 ? (
+						<>
+							<h3 className="text-center pt-6">{t("GALLERY:Content.showingWorks", { count: filteredWorks.length })}</h3>
+							<div className="py-5 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-2">
+								{filteredWorks.map((work: Work, index: number) => (
+									<button
+										key={work.id}
+										onClick={() => handleLightboxOpen(index)}
+										className="aspect-video relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl hover:z-10 cursor-pointer"
+									>
+										<FadingImage
+											src={`https://static.pprmint.art${work.attributes.cover.data.attributes.url}`}
+											width={work.attributes.cover.data.attributes.width}
+											height={work.attributes.cover.data.attributes.height}
+											alt=""
+											className={`h-full min-w-full object-cover bg-neutral-50/10 ${work.attributes.coverFocus}`}
+										/>
+									</button>
+								))}
+							</div>
+						</>
+					) : (
+						<div className="flex flex-col items-center justify-center w-full max-w-2xl mx-auto">
+							<Image src={MinaWhat} alt="" className="w-full max-w-64 h-auto my-12" />
+							<h2>
+								{t("COMMON:noResults")}
+								<span className="text-green">.</span>
+							</h2>
+							<p>{t("COMMON:tryDifferent")}</p>
+						</div>
+					)}
 				</section>
 			</main>
 			{transitions((styles, item) =>
@@ -207,10 +221,7 @@ export default function Gallery({ Works }: { Works: Works }) {
 					<FocusTrap>
 						<Portal.Root className="fixed z-50">
 							<a.div style={styles}>
-								<WorkCard
-									work={Works.data[selectedWork]}
-									onClose={() => handleLightboxClose()}
-								/>
+								<WorkCard work={Works.data[selectedWork]} onClose={() => handleLightboxClose()} />
 							</a.div>
 						</Portal.Root>
 					</FocusTrap>

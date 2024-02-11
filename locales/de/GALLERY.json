@@ -12,6 +12,8 @@
 				"static": "Statisch",
 				"animated": "Animiert"
 			}
-		}
+		},
+        "showingWorks_one": "{{count}} Werk wird gezeigt.",
+        "showingWorks_other": "{{count}} Werke werden gezeigt."
 	}
 }
