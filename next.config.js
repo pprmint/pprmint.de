@@ -36,6 +36,11 @@ module.exports = nextTranslate({
 	async redirects() {
 		return [
 			{
+				source: "/works",
+				destination: "/gallery",
+				permanent: false,
+			},
+			{
 				source: "/projects",
 				destination: "/",
 				permanent: true,
