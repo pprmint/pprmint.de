@@ -42,7 +42,7 @@ export default function WorkCard(props: FlyoutProps) {
 		return () => {
 			document.removeEventListener("keydown", handleKeyDown);
 		};
-	}, [props.onClose]);
+	}, [props, props.onClose]);
 
 	return (
 		<Tooltip.Provider>
