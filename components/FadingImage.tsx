@@ -35,6 +35,7 @@ export default function FadingImage({
 			quality={quality}
 			onLoad={() => setLoaded(true)}
 			className={`${loaded ? "opacity-100" : "opacity-0"} duration-500 ${className}`}
+			draggable={false}
 		/>
 	);
 }
