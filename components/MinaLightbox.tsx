@@ -48,7 +48,9 @@ export default function MinaLightbox(props: LightboxProps) {
 					: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
 		},
 		config: {
+			mass: 1.4,
 			tension: 200,
+			friction: 30,
 			clamp: true,
 		},
 	});
@@ -118,11 +120,7 @@ export default function MinaLightbox(props: LightboxProps) {
 	});
 
 	return (
-		<div
-			className="fixed flex items-center justify-center bg-neutral-950/75 backdrop-blur-md z-50 inset-0"
-			{...swipeHandlers}
-		>
-
+		<div className="fixed flex items-center justify-center bg-neutral-950/90 z-50 inset-0">
 			<button
 				className="group fixed z-50 top-3 md:top-5 right-3 md:right-5 text-neutral-50 w-10 h-10 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
 				onClick={onClose}
@@ -191,7 +189,7 @@ export default function MinaLightbox(props: LightboxProps) {
 								<div
 									key={index}
 									onClick={() => handleImage(index)}
-									className={`relative ${
+									className={`group relative ${
 										currentImage === index
 											? "w-16 h-16 saturate-100 rounded-md"
 											: "w-12 h-12 opacity-50 hover:opacity-100 saturate-0 hover:saturate-50 rounded-md"
@@ -202,14 +200,19 @@ export default function MinaLightbox(props: LightboxProps) {
 										alt=""
 										width={image.attributes.artwork.data.attributes.formats.thumbnail.width}
 										height={image.attributes.artwork.data.attributes.formats.thumbnail.height}
-										className={`h-full object-cover ${image.attributes.focus} bg-neutral-50/20`}
+										className={`h-full object-cover ${image.attributes.focus} bg-neutral-50/20 ${
+											image.attributes.nsfw && currentImage != index && "blur-sm group-hover:blur-none"
+										} duration-200`}
 									/>
+									{image.attributes.nsfw && (
+										<i className="text-neutral-50/75 ri-eye-off-line absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl group-hover:opacity-0 duration-200" />
+									)}
 								</div>
 							)
 					)}
 				</div>
 			</div>
-			<div className="fixed z-40 py-20 md:p-20 h-screen w-screen">
+			<div className="fixed z-40 py-20 md:p-20 h-screen w-screen" {...swipeHandlers}>
 				{imageTransition(
 					(style, image) =>
 						image && (

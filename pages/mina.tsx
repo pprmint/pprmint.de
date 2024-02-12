@@ -160,7 +160,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 									style={{
 										opacity: styles.opacity,
 									}}
-									className="bg-neutral-950/80 backdrop-blur-xl"
+									className="bg-neutral-950/90"
 								/>
 							</Dialog.Overlay>
 							<Dialog.Content
