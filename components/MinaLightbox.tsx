@@ -48,7 +48,7 @@ export default function MinaLightbox(props: LightboxProps) {
 					: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
 		},
 		config: {
-			mass: 1.4,
+			mass: 1.5,
 			tension: 200,
 			friction: 30,
 			clamp: true,
