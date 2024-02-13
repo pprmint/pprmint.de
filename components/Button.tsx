@@ -66,7 +66,7 @@ export default function Button(props: React.PropsWithChildren<ButtonProps>) {
 	return (
 		<button
 			className={`group flex items-center font-medium duration-200 ease-out rounded-md rounded-tl-xl rounded-br-xl ${
-				props.disabled ? "cursor-not-allowed" : "cursor-pointer hover:rounded-md"
+				props.disabled ? "pointer-events-none" : "cursor-pointer hover:rounded-md"
 			} select-none active:duration-50 ${size} ${width} ${color}`}
 			onClick={handleClick}
 		>

@@ -6,6 +6,7 @@ import useTranslation from "next-translate/useTranslation";
 import { useTransition, a, config, easings } from "@react-spring/web";
 import * as Select from "@radix-ui/react-select";
 import * as Portal from "@radix-ui/react-portal";
+import FocusTrap from "focus-trap-react";
 
 import Head from "components/Head";
 import Title from "components/Title";
@@ -16,7 +17,10 @@ import TitleBackground1 from "public/assets/contact/chat_left.svg";
 import TitleBackground2 from "public/assets/contact/chat_right.svg";
 import TwitterBackground from "public/assets/contact/kenny-eliason-8Yk4T-tDSYY-unsplash.jpg";
 import EmailBackground from "public/assets/contact/sigmund-jZXZvw2CdqY-unsplash.jpg";
-import FocusTrap from "focus-trap-react";
+
+import Letter from "public/assets/contact/letter.svg";
+import Bubbles from "public/assets/contact/bubbles.svg";
+import PaperPlane from "public/assets/contact/paperplane.svg";
 
 function Form() {
 	const { t } = useTranslation();
@@ -101,7 +105,7 @@ function Form() {
 
 	return submitTransition((styles, item) =>
 		!item ? (
-			<a.form style={styles} className="grid grid-cols-2 gap-6 mb-auto">
+			<a.form style={styles} className="grid grid-cols-2 gap-6">
 				<div className="flex flex-col gap-1 col-span-2 md:col-span-1">
 					<label htmlFor="name">{t("CONTACT:Content.Email.Form.name")}</label>
 					<input
@@ -113,7 +117,7 @@ function Form() {
 						}}
 						maxLength={50}
 						disabled={iHateCommissions}
-						className="w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-800 focus:outline-yellow bg-neutral-900 hover:bg-neutral-800 focus:bg-transparent px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
+						className="w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-900 focus:outline-green bg-neutral-950/50 hover:bg-neutral-900/50 focus:bg-neutral-950 backdrop-blur-md px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
 					/>
 				</div>
 				<div className="flex flex-col gap-1 col-span-2 md:col-span-1">
@@ -128,7 +132,7 @@ function Form() {
 						}}
 						maxLength={50}
 						disabled={iHateCommissions}
-						className="w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-800 focus:outline-yellow bg-neutral-900 hover:bg-neutral-800 focus:bg-transparent px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
+						className="w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-900 focus:outline-green bg-neutral-950/50 hover:bg-neutral-900/50 focus:bg-neutral-950 backdrop-blur-md px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
 					/>
 				</div>
 				<div className="flex flex-col gap-1 col-span-2">
@@ -143,8 +147,8 @@ function Form() {
 							aria-label={t("CONTACT:Content.Email.Form.Subject.title")}
 							className={`flex justify-between w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 ${
 								iHateCommissions
-									? "outline-red-800 focus:outline-red bg-red-900 hover:bg-red-800"
-									: "outline-neutral-800 focus:outline-yellow bg-neutral-900 hover:bg-neutral-800"
+									? "outline-red-800 focus:neutral-950/50 bg-red-900/50 hover:bg-neutral-950 backdrop-blur-md-800"
+									: "outline-neutral-900 bg-neutral-950/50 hover:bg-neutral-900/50 focus:bg-neutral-950 backdrop-blur-md"
 							} focus:bg-transparent px-3 py-2 duration-100`}
 						>
 							<Select.Value aria-label={formData.subject} />
@@ -153,14 +157,17 @@ function Form() {
 							</Select.Icon>
 						</Select.Trigger>
 						<Select.Portal>
-							<Select.Content className="overflow-hidden bg-neutral-800 rounded-lg shadow-lg">
-								<Select.Viewport className="p-2">
+							<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-xl shadow-neutral-950/50 rounded-lg data-[state=open]:animate-select-open">
+								<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900/50 text-neutral-50 rounded-t-md">
+									<i className="ri-arrow-up-s-line" />
+								</Select.ScrollUpButton>
+								<Select.Viewport className="p-1">
 									<Select.Group>
 										{Subjects.map((subject) => (
 											<Select.Item
 												key={subject}
 												value={subject}
-												className="flex text-neutral-50 items-center cursor-pointer rounded-md px-2 hover:pl-4 py-2 select-none hover:bg-yellow hover:text-neutral-950 duration-100"
+												className="group relative flex items-center gap-3 pr-2 pl-2 data-[highlighted]:pl-3 h-8 rounded-sm leading-none select-none outline-none data-[disabled]:text-neutral data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-50 data-[state=checked]:text-neutral-50 data-[highlighted]:bg-neutral-50/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-none"
 											>
 												<Select.ItemText className="flex-grow">
 													{t(`CONTACT:Content.Email.Form.Subject.${subject}`)}
@@ -172,6 +179,9 @@ function Form() {
 										))}
 									</Select.Group>
 								</Select.Viewport>
+								<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-neutral-900/50 text-neutral-50 rounded-b-md">
+									<i className="ri-arrow-down-s-line" />
+								</Select.ScrollDownButton>
 							</Select.Content>
 						</Select.Portal>
 					</Select.Root>
@@ -193,11 +203,11 @@ function Form() {
 						}}
 						maxLength={2000}
 						disabled={iHateCommissions}
-						className="w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-800 focus:outline-yellow bg-neutral-900 hover:bg-neutral-800 focus:bg-transparent px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
+						className="resize-none w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-900 focus:outline-green bg-neutral-950/50 hover:bg-neutral-900/50 focus:bg-neutral-950 backdrop-blur-md px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
 						aria-label={t("CONTACT:Content.Email.Form.message")}
 					/>
 				</div>
-				<Button onClick={handleSubmit} disabled={invalidInput} color={failed ? "red" : "yellow"}>
+				<Button onClick={handleSubmit} disabled={invalidInput} color={failed ? "red" : "green"}>
 					{t(
 						sending
 							? "CONTACT:Content.Email.Form.sending"
@@ -222,7 +232,7 @@ function Form() {
 						href={`mailto:mail@pprmint.art?subject=${t("CONTACT:Content.Message.subject")}&body=${t(
 							"CONTACT:Content.Message.body"
 						)}`}
-						className="text-yellow underline decoration-dotted hover:decoration-solid decoration-yellow-800 hover:decoration-yellow"
+						className="text-green underline decoration-dotted hover:decoration-solid decoration-green-800 hover:decoration-green"
 					>
 						mail@pprmint.art
 					</Link>
@@ -231,7 +241,7 @@ function Form() {
 		) : (
 			<a.div style={styles} className="w-full h-full flex flex-col gap-3 items-center justify-center text-center">
 				<h1>
-					{t("CONTACT:Content.Email.Form.sent")} <i className="ri-check-line text-yellow" />
+					{t("CONTACT:Content.Email.Form.sent")} <i className="ri-check-line text-green" />
 				</h1>
 				<p>{t("CONTACT:Content.Email.Form.sentText")}</p>
 			</a.div>
@@ -303,7 +313,7 @@ export default function Contact() {
 			<Title
 				title={t("CONTACT:Head.title")}
 				description={t("CONTACT:Head.description")}
-				accentColor={formVisible ? "text-yellow" : "text-blue"}
+				accentColor={formVisible ? "text-green" : "text-blue"}
 			>
 				<Image src={TitleBackground1} alt="" fill className="object-cover" />
 				<Image
@@ -313,8 +323,8 @@ export default function Contact() {
 					className={`object-cover ${formVisible ? "invert-[100%] saturate-[240%] opacity-75" : ""} duration-500`}
 				/>
 			</Title>
-			<main className="max-w-7xl mx-auto px-6 md:px-9">
-				<section className="my-24 flex flex-col items-center justify-center">
+			<main>
+				<section className="max-w-7xl mx-auto my-24 px-6 md:px-9 flex flex-col items-center justify-center">
 					<h2>{t("CONTACT:Content.Mina.heading")}</h2>
 					<p className="pb-6">{t("CONTACT:Content.Mina.text")}</p>
 					<button
@@ -325,8 +335,7 @@ export default function Contact() {
 							<div
 								className="absolute w-full aspect-square opacity-0 group-hover:opacity-100 rounded-full animate-slow-spin duration-200"
 								style={{
-									backgroundImage:
-										"conic-gradient(#f44, #f71, #fb0, #9c3, #0c6, #2cf, #29f, #95e, #e6b, #f44)",
+									backgroundImage: "conic-gradient(#f44, #f71, #fb0, #9c3, #0c6, #2cf, #29f, #95e, #e6b, #f44)",
 								}}
 							/>
 						</div>
@@ -346,84 +355,51 @@ export default function Contact() {
 						</div>
 					</button>
 				</section>
-				<section>
-					<div
-						className={`flex flex-col md:flex-row items-center h-[500px] ${
-							formVisible ? "gap-0" : "gap-6"
-						} duration-250`}
-					>
-						<div
-							className={`relative flex flex-col items-center justify-center rounded-xl border overflow-hidden ${
-								formVisible
-									? "w-full h-full bg-neutral-900 border-transparent"
-									: "w-full md:w-1/2 md:hover:w-3/5 h-64 border-transparent hover:border-yellow-800"
-							} duration-250 ease-out`}
-							onClick={handleOpen}
-							tabIndex={0}
-						>
-							{formTransition((styles, item) =>
-								item ? (
-									<a.div
-										id="form"
-										style={styles}
-										className="absolute flex flex-col gap-6 inset-0 p-6 md:p-9 overflow-y-auto selection:bg-yellow"
-									>
-										<div className="flex items-center">
-											<button
-												className="group w-10 h-10 text-xl text-yellow hover:bg-yellow active:bg-yellow-700 hover:text-neutral-900 rounded-full duration-200 hover:mr-3 active:opacity-75 active:duration-75 ease-out"
-												onClick={handleClose}
-											>
-												<i className="ri-arrow-left-line mr-5 group-hover:mr-0 duration-200 ease-out" />
-											</button>
-											<h3>{t("CONTACT:Content.Email.title")}</h3>
-										</div>
-										<Form />
-									</a.div>
-								) : (
-									<a.div
-										style={styles}
-										className="group absolute flex items-center justify-center inset-0 cursor-pointer"
-									>
-										<Image
-											src={EmailBackground}
-											fill
-											alt=""
-											className="absolute object-cover opacity-50 saturate-0 group-hover:saturate-100 duration-250 ease-out"
-										/>
-										<div className="absolute flex flex-row gap-6 items-center">
-											<i className="ri-mail-line text-yellow text-4xl md:text-5xl lg:text-6xl" />
-											<h3>{t("CONTACT:Content.Email.title")}</h3>
-										</div>
-									</a.div>
-								)
-							)}
-						</div>
-						{formTransition((styles, item) =>
-							!item ? (
-								<Link
-									href="https://twitter.com/messages/compose?recipient_id=1571518236394397699"
-									target="_blank"
-									rel="noopener noreferrer"
-									className={`group relative flex flex-col items-center justify-center rounded-xl border border-transparent hover:border-blue-800 overflow-hidden ${
-										formVisible ? "h-0 w-full md:h-64 md:w-0" : "h-64 w-full md:w-1/2 md:hover:w-3/5"
-									} duration-250 ease-out`}
-								>
-									<a.div style={styles} className="absolute flex items-center justify-center inset-0">
-										<Image
-											src={TwitterBackground}
-											fill
-											alt=""
-											className="absolute object-cover opacity-50 saturate-0 group-hover:saturate-100 duration-250 ease-out"
-										/>
-										<div className="absolute flex flex-row w-max gap-6 items-center">
-											<i className="ri-twitter-line text-blue text-4xl md:text-5xl lg:text-6xl" />
-											<h3>{t("CONTACT:Content.twitter")}</h3>
-										</div>
-									</a.div>
-								</Link>
-							) : null
-						)}
+				<section className="group relative w-full min-h-2/3-screen overflow-clip">
+					<div className="max-w-7xl mx-auto px-6 md:px-9 py-9 h-full">
+						<h2>Email</h2>
+						<p className="pb-9">
+							The classic. Send me a message through the following form and one day I'll send you a response back.
+						</p>
+						<Form />
 					</div>
+					<Image
+						src={Letter}
+						alt=""
+						className="absolute -z-10 w-1/2 md:w-1/4 h-auto bottom-0 right-0 md:right-48 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
+					/>
+				</section>
+				<section className="group relative w-full min-h-1/3-screen overflow-clip">
+					<div className="max-w-7xl mx-auto px-6 md:px-9 py-9 h-full">
+						<h2>Telegram</h2>
+						<p className="pb-9">Telegram</p>
+					</div>
+					<Image
+						src={PaperPlane}
+						alt=""
+						className="absolute -z-10 w-1/2 md:w-1/4 h-auto top-0 md:top-1/2 md:-translate-y-1/2 right-0 md:right-48 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
+					/>
+				</section>
+				<section className="group relative w-full min-h-1/3-screen overflow-clip">
+					<div className="max-w-7xl mx-auto px-6 md:px-9 py-9 h-full">
+						<h2>{t("CONTACT:Content.twitter")}</h2>
+						<p className="pb-9">Twitter</p>
+						<Link
+							href="https://twitter.com/messages/compose?recipient_id=1571518236394397699"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<Button color="blue">
+								<i className="ri-twitter-line" />
+								Nachricht schreiben
+							</Button>
+						</Link>
+					</div>
+					<Image
+						src={Bubbles}
+						alt=""
+						className="absolute -z-10 w-1/2 md:w-1/4 h-auto top-0 md:top-1/2 md:-translate-y-1/2 right-0 md:right-48 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
+					/>
 				</section>
 			</main>
 			{chatTransition((styles, item) =>
