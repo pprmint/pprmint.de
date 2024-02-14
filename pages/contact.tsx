@@ -15,8 +15,6 @@ import Chatbox from "components/Chatbox";
 
 import TitleBackground1 from "public/assets/contact/chat_left.svg";
 import TitleBackground2 from "public/assets/contact/chat_right.svg";
-import TwitterBackground from "public/assets/contact/kenny-eliason-8Yk4T-tDSYY-unsplash.jpg";
-import EmailBackground from "public/assets/contact/sigmund-jZXZvw2CdqY-unsplash.jpg";
 
 import Letter from "public/assets/contact/letter.svg";
 import Bubbles from "public/assets/contact/bubbles.svg";
@@ -117,7 +115,7 @@ function Form() {
 						}}
 						maxLength={50}
 						disabled={iHateCommissions}
-						className="w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-900 focus:outline-green bg-neutral-950/50 hover:bg-neutral-900/50 focus:bg-neutral-950 backdrop-blur-md px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
+						className="w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-900 focus:outline-green bg-neutral-950 hover:bg-neutral-900 focus:bg-neutral-950 px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
 					/>
 				</div>
 				<div className="flex flex-col gap-1 col-span-2 md:col-span-1">
@@ -132,7 +130,7 @@ function Form() {
 						}}
 						maxLength={50}
 						disabled={iHateCommissions}
-						className="w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-900 focus:outline-green bg-neutral-950/50 hover:bg-neutral-900/50 focus:bg-neutral-950 backdrop-blur-md px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
+						className="w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-900 focus:outline-green bg-neutral-950 hover:bg-neutral-900 focus:bg-neutral-950 px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
 					/>
 				</div>
 				<div className="flex flex-col gap-1 col-span-2">
@@ -147,8 +145,8 @@ function Form() {
 							aria-label={t("CONTACT:Content.Email.Form.Subject.title")}
 							className={`flex justify-between w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 ${
 								iHateCommissions
-									? "outline-red-800 focus:neutral-950/50 bg-red-900/50 hover:bg-neutral-950 backdrop-blur-md-800"
-									: "outline-neutral-900 bg-neutral-950/50 hover:bg-neutral-900/50 focus:bg-neutral-950 backdrop-blur-md"
+									? "outline-red-800 focus:outline-red focus:neutral-950/50 bg-red-900/50 hover:bg-neutral-950"
+									: "outline-neutral-900 focus:outline-green bg-neutral-950 hover:bg-neutral-900 focus:bg-neutral-950"
 							} focus:bg-transparent px-3 py-2 duration-100`}
 						>
 							<Select.Value aria-label={formData.subject} />
@@ -158,7 +156,7 @@ function Form() {
 						</Select.Trigger>
 						<Select.Portal>
 							<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-xl shadow-neutral-950/50 rounded-lg data-[state=open]:animate-select-open">
-								<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900/50 text-neutral-50 rounded-t-md">
+								<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900 text-neutral-50 rounded-t-md">
 									<i className="ri-arrow-up-s-line" />
 								</Select.ScrollUpButton>
 								<Select.Viewport className="p-1">
@@ -179,7 +177,7 @@ function Form() {
 										))}
 									</Select.Group>
 								</Select.Viewport>
-								<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-neutral-900/50 text-neutral-50 rounded-b-md">
+								<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-neutral-900 text-neutral-50 rounded-b-md">
 									<i className="ri-arrow-down-s-line" />
 								</Select.ScrollDownButton>
 							</Select.Content>
@@ -203,7 +201,7 @@ function Form() {
 						}}
 						maxLength={2000}
 						disabled={iHateCommissions}
-						className="resize-none w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-900 focus:outline-green bg-neutral-950/50 hover:bg-neutral-900/50 focus:bg-neutral-950 backdrop-blur-md px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
+						className="resize-none w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-900 focus:outline-green bg-neutral-950 hover:bg-neutral-900 focus:bg-neutral-950 px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
 						aria-label={t("CONTACT:Content.Email.Form.message")}
 					/>
 				</div>
@@ -340,8 +338,8 @@ export default function Contact() {
 							<h2>{t("CONTACT:Content.Telegram.title")}</h2>
 							<p className="pb-9">{t("CONTACT:Content.Telegram.text")}</p>
 							<div className="w-max">
-								<Link href="https://t.me/pprmina" target="_blank" rel="noopener noreferrer">
-									<Button color="blue">Open chat</Button>
+								<Link href="https://t.me/npprmint" target="_blank" rel="noopener noreferrer">
+									<Button color="blue">{t("CONTACT:Content.Telegram.button")}</Button>
 								</Link>
 							</div>
 						</div>
@@ -363,7 +361,7 @@ export default function Contact() {
 									target="_blank"
 									rel="noopener noreferrer"
 								>
-									<Button color="blue">Nachricht schreiben</Button>
+									<Button color="blue">{t("CONTACT:Content.Twitter.button")}</Button>
 								</Link>
 							</div>
 						</div>
