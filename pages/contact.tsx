@@ -226,7 +226,7 @@ function Form() {
 					</div>
 				</Button>
 				<hr className="col-span-2 border-dotted border-neutral-800 border-t-2 md:my-3" />
-				<p className="text-xs text-neutral">
+				<p className="col-span-2 text-xs text-neutral">
 					{t("CONTACT:Content.Email.preferMailto")}
 					<Link
 						href={`mailto:mail@pprmint.art?subject=${t("CONTACT:Content.Message.subject")}&body=${t(
@@ -254,41 +254,6 @@ export default function Contact() {
 	const [formVisible, setFormVisible] = useState(false);
 	const [transitionDirection, setTransitionDirection] = useState<"left" | "right">("left");
 	const isDesktop = useMediaQuery({ minWidth: 768 });
-
-	const formTransition = useTransition(formVisible, {
-		key: formVisible,
-		from: {
-			opacity: 0,
-			x: isDesktop ? (transitionDirection === "right" ? -40 : 40) : 0,
-			scale: isDesktop ? 1 : 0.95,
-		},
-		enter: {
-			delay: 150,
-			opacity: 1,
-			x: 0,
-			scale: 1,
-			config: { duration: 750, easing: easings.easeOutExpo },
-		},
-		leave: {
-			opacity: 0,
-			config: {
-				duration: 250,
-				easing: easings.easeOutCirc,
-			},
-		},
-	});
-
-	function handleOpen() {
-		if (!formVisible) {
-			setTransitionDirection("right");
-			setFormVisible(true);
-		}
-	}
-
-	function handleClose() {
-		setTransitionDirection("left");
-		setFormVisible(false);
-	}
 
 	const [chatVisible, setChatVisible] = useState(false);
 	const chatTransition = useTransition(chatVisible, {
@@ -355,50 +320,58 @@ export default function Contact() {
 						</div>
 					</button>
 				</section>
-				<section className="group relative w-full min-h-2/3-screen overflow-clip">
-					<div className="max-w-7xl mx-auto px-6 md:px-9 py-9 h-full">
-						<h2>Email</h2>
-						<p className="pb-9">
-							The classic. Send me a message through the following form and one day I'll send you a response back.
-						</p>
-						<Form />
+				<section className="group relative w-full overflow-clip">
+					<div className="max-w-7xl mx-auto py-12">
+						<div className="max-w-xl lg:max-w-3xl px-6 md:px-9 py-9  h-full">
+							<h2>{t("CONTACT:Content.Email.title")}</h2>
+							<p className="pb-9">{t("CONTACT:Content.Email.text")}</p>
+							<Form />
+						</div>
 					</div>
 					<Image
 						src={Letter}
 						alt=""
-						className="absolute -z-10 w-1/2 md:w-1/4 h-auto bottom-0 right-0 md:right-48 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
+						className="absolute -z-10 w-1/2 md:w-1/3 h-auto bottom-0 right-0 xl:right-16 2xl:right-48 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
 					/>
 				</section>
-				<section className="group relative w-full min-h-1/3-screen overflow-clip">
-					<div className="max-w-7xl mx-auto px-6 md:px-9 py-9 h-full">
-						<h2>Telegram</h2>
-						<p className="pb-9">Telegram</p>
+				<section className="group relative w-full overflow-clip">
+					<div className="max-w-7xl mx-auto py-12">
+						<div className="max-w-xl lg:max-w-3xl px-6 md:px-9 py-9 h-full">
+							<h2>{t("CONTACT:Content.Telegram.title")}</h2>
+							<p className="pb-9">{t("CONTACT:Content.Telegram.text")}</p>
+							<div className="w-max">
+								<Link href="https://t.me/pprmina" target="_blank" rel="noopener noreferrer">
+									<Button color="blue">Open chat</Button>
+								</Link>
+							</div>
+						</div>
 					</div>
 					<Image
 						src={PaperPlane}
 						alt=""
-						className="absolute -z-10 w-1/2 md:w-1/4 h-auto top-0 md:top-1/2 md:-translate-y-1/2 right-0 md:right-48 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
+						className="absolute -z-10 w-1/2 md:w-1/4 h-auto top-0 md:top-1/2 md:-translate-y-1/2 right-0 xl:right-16 2xl:right-48 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
 					/>
 				</section>
-				<section className="group relative w-full min-h-1/3-screen overflow-clip">
-					<div className="max-w-7xl mx-auto px-6 md:px-9 py-9 h-full">
-						<h2>{t("CONTACT:Content.twitter")}</h2>
-						<p className="pb-9">Twitter</p>
-						<Link
-							href="https://twitter.com/messages/compose?recipient_id=1571518236394397699"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<Button color="blue">
-								<i className="ri-twitter-line" />
-								Nachricht schreiben
-							</Button>
-						</Link>
+				<section className="group relative w-full overflow-clip">
+					<div className="max-w-7xl mx-auto py-12">
+						<div className="max-w-xl lg:max-w-3xl px-6 md:px-9 py-9 h-full">
+							<h2>{t("CONTACT:Content.Twitter.title")}</h2>
+							<p className="pb-9">{t("CONTACT:Content.Twitter.text")}</p>
+							<div className="w-max">
+								<Link
+									href="https://twitter.com/messages/compose?recipient_id=1571518236394397699"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<Button color="blue">Nachricht schreiben</Button>
+								</Link>
+							</div>
+						</div>
 					</div>
 					<Image
 						src={Bubbles}
 						alt=""
-						className="absolute -z-10 w-1/2 md:w-1/4 h-auto top-0 md:top-1/2 md:-translate-y-1/2 right-0 md:right-48 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
+						className="absolute -z-10 w-1/2 md:w-1/4 h-auto top-0 md:top-1/2 md:-translate-y-1/2 right-0 xl:right-16 2xl:right-48 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
 					/>
 				</section>
 			</main>
