@@ -130,7 +130,7 @@ function Chatbox(props: { onClose: () => void }) {
 	});
 
 	return (
-		<div className="relative bg-neutral-900 sm:border border-neutral-50/10 ring-neutral-950/75 sm:rounded-xl overflow-hidden">
+		<div className="relative flex flex-col bg-neutral-900 sm:border border-neutral-50/10 ring-neutral-950/75 sm:rounded-xl overflow-hidden h-svh md:h-2/3-screen">
 			<div className="absolute top-0 left-0 right-0 flex gap-6 items-center py-3 sm:py-6 px-6 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[67.5%] shadow-lg shadow-neutral-900/50 z-10">
 				<div className="w-12 sm:w-16 h-12 sm:h-16 rounded-full overflow-hidden">
 					<Image alt="Mina art by Nekomimi" src={Mina} />
@@ -140,13 +140,13 @@ function Chatbox(props: { onClose: () => void }) {
 					<p className="text-sm sm:text-base">{t(noTalky ? "CHAT:titleAngy" : "CHAT:title")}</p>
 				</div>
 			</div>
-			<div className="px-6 h-[600px] overflow-y-scroll pt-20 sm:pt-28" ref={chatboxRef}>
+			<div className="px-6 h-full overflow-y-scroll pt-20 sm:pt-28" ref={chatboxRef}>
 				<MessageBubble incoming id={noTalky ? "NoTalky" : "Hello"} />
 				{chatMessages.map((message, index) => (
 					<MessageBubble key={index} incoming={message.incoming} id={message.id} />
 				))}
 			</div>
-			<div className="h-36 overflow-y-auto px-3 border-t border-neutral-800">
+			<div className="h-48 overflow-y-auto px-3 border-t border-neutral-800">
 				{messageBox &&
 					messageBoxTransition((style, item) =>
 						item ? (

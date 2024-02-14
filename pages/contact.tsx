@@ -250,8 +250,6 @@ function Form() {
 export default function Contact() {
 	const { t } = useTranslation();
 	const [formVisible, setFormVisible] = useState(false);
-	const [transitionDirection, setTransitionDirection] = useState<"left" | "right">("left");
-	const isDesktop = useMediaQuery({ minWidth: 768 });
 
 	const [chatVisible, setChatVisible] = useState(false);
 	const chatTransition = useTransition(chatVisible, {
@@ -276,7 +274,6 @@ export default function Contact() {
 			<Title
 				title={t("CONTACT:Head.title")}
 				description={t("CONTACT:Head.description")}
-				accentColor={formVisible ? "text-green" : "text-blue"}
 			>
 				<Image src={TitleBackground1} alt="" fill className="object-cover" />
 				<Image
@@ -298,7 +295,7 @@ export default function Contact() {
 							<div
 								className="absolute w-full aspect-square opacity-0 group-hover:opacity-100 rounded-full animate-slow-spin duration-200"
 								style={{
-									backgroundImage: "conic-gradient(#f44, #f71, #fb0, #9c3, #0c6, #2cf, #29f, #95e, #e6b, #f44)",
+									backgroundImage: "conic-gradient(#f44, #f71, #fb0, #9c3, #0c6, #2cf, #29f, #a7e, #e6b, #f44)",
 								}}
 							/>
 						</div>
@@ -318,10 +315,10 @@ export default function Contact() {
 						</div>
 					</button>
 				</section>
-				<section className="group relative w-full overflow-clip">
+				<section className="group relative w-full overflow-clip border-y border-y-neutral-900">
 					<div className="max-w-7xl mx-auto py-12">
 						<div className="max-w-xl lg:max-w-3xl px-6 md:px-9 py-9  h-full">
-							<h2>{t("CONTACT:Content.Email.title")}</h2>
+							<h2>{t("CONTACT:Content.Email.title")}<span className="text-green">.</span></h2>
 							<p className="pb-9">{t("CONTACT:Content.Email.text")}</p>
 							<Form />
 						</div>
@@ -329,17 +326,17 @@ export default function Contact() {
 					<Image
 						src={Letter}
 						alt=""
-						className="absolute -z-10 w-1/2 md:w-1/3 h-auto bottom-0 right-0 xl:right-16 2xl:right-48 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
+						className="absolute -z-10 w-1/2 md:w-1/3 h-auto bottom-0 md:top-1/2 md:-translate-y-1/2 right-0 xl:right-12 2xl:right-40 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
 					/>
 				</section>
-				<section className="group relative w-full overflow-clip">
+				<section className="group relative w-full overflow-clip border-b border-b-neutral-900">
 					<div className="max-w-7xl mx-auto py-12">
 						<div className="max-w-xl lg:max-w-3xl px-6 md:px-9 py-9 h-full">
-							<h2>{t("CONTACT:Content.Telegram.title")}</h2>
+							<h2>{t("CONTACT:Content.Telegram.title")}<span className="text-green">.</span></h2>
 							<p className="pb-9">{t("CONTACT:Content.Telegram.text")}</p>
 							<div className="w-max">
 								<Link href="https://t.me/npprmint" target="_blank" rel="noopener noreferrer">
-									<Button color="blue">{t("CONTACT:Content.Telegram.button")}</Button>
+									<Button color="green">{t("CONTACT:Content.Telegram.button")}</Button>
 								</Link>
 							</div>
 						</div>
@@ -347,13 +344,13 @@ export default function Contact() {
 					<Image
 						src={PaperPlane}
 						alt=""
-						className="absolute -z-10 w-1/2 md:w-1/4 h-auto top-0 md:top-1/2 md:-translate-y-1/2 right-0 xl:right-16 2xl:right-48 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
+						className="absolute -z-10 w-1/2 md:w-1/4 h-auto bottom-0 md:top-1/2 md:-translate-y-1/2 right-0 xl:right-16 2xl:right-48 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
 					/>
 				</section>
-				<section className="group relative w-full overflow-clip">
+				<section className="group relative w-full overflow-clip border-b border-b-neutral-900">
 					<div className="max-w-7xl mx-auto py-12">
 						<div className="max-w-xl lg:max-w-3xl px-6 md:px-9 py-9 h-full">
-							<h2>{t("CONTACT:Content.Twitter.title")}</h2>
+							<h2>{t("CONTACT:Content.Twitter.title")}<span className="text-green">.</span></h2>
 							<p className="pb-9">{t("CONTACT:Content.Twitter.text")}</p>
 							<div className="w-max">
 								<Link
@@ -361,7 +358,7 @@ export default function Contact() {
 									target="_blank"
 									rel="noopener noreferrer"
 								>
-									<Button color="blue">{t("CONTACT:Content.Twitter.button")}</Button>
+									<Button color="green">{t("CONTACT:Content.Twitter.button")}</Button>
 								</Link>
 							</div>
 						</div>
@@ -369,7 +366,7 @@ export default function Contact() {
 					<Image
 						src={Bubbles}
 						alt=""
-						className="absolute -z-10 w-1/2 md:w-1/4 h-auto top-0 md:top-1/2 md:-translate-y-1/2 right-0 xl:right-16 2xl:right-48 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
+						className="absolute -z-10 w-1/2 md:w-1/4 h-auto bottom-0 md:top-1/2 md:-translate-y-1/2 right-0 xl:right-16 2xl:right-48 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
 					/>
 				</section>
 			</main>

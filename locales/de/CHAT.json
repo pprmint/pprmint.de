@@ -45,7 +45,7 @@
 			"answer": "War ich ein guter Chatbot?"
 		},
 		"EndingYes": {
-			"message": "Ja, du warst sehr hilfreich.",
+			"message": "Ja, sehr hilfreich.",
 			"answer": "yayy~"
 		},
 		"EndingNo": {
