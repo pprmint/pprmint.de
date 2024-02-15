@@ -15,6 +15,7 @@ import Chatbox from "components/Chatbox";
 
 import TitleBackground1 from "public/assets/contact/chat_left.svg";
 import TitleBackground2 from "public/assets/contact/chat_right.svg";
+import PixelMina from "public/assets/mina64.gif";
 
 import Letter from "public/assets/contact/letter.svg";
 import Bubbles from "public/assets/contact/bubbles.svg";
@@ -65,7 +66,7 @@ function Form() {
 
 			if (response.ok) {
 				const data = await response.json();
-				console.log(data.message); // Success message from the API
+				console.log(data.message);
 				setSubmitted(true);
 				setSending(false);
 			} else {
@@ -82,13 +83,16 @@ function Form() {
 		key: submitted,
 		from: {
 			opacity: 0,
+			y: 20,
 		},
 		enter: {
 			opacity: 1,
+			y: 0,
 			duration: 100,
 		},
 		leave: {
 			opacity: 0,
+			y: -20,
 			duration: 100,
 			config: config.stiff,
 		},
@@ -103,141 +107,156 @@ function Form() {
 
 	return submitTransition((styles, item) =>
 		!item ? (
-			<a.form style={styles} className="grid grid-cols-2 gap-6">
-				<div className="flex flex-col gap-1 col-span-2 md:col-span-1">
-					<label htmlFor="name">{t("CONTACT:Content.Email.Form.name")}</label>
-					<input
-						required
-						type="text"
-						name="name"
-						onChange={(e) => {
-							setFormData({ ...formData, name: e.target.value });
-						}}
-						maxLength={50}
-						disabled={iHateCommissions}
-						className="w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-900 focus:outline-green bg-neutral-950 hover:bg-neutral-900 focus:bg-neutral-950 px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
-					/>
-				</div>
-				<div className="flex flex-col gap-1 col-span-2 md:col-span-1">
-					<label htmlFor="email">{t("CONTACT:Content.Email.Form.emailAddress")}</label>
-					<input
-						required
-						type="text"
-						name="email"
-						aria-label={t("CONTACT:Content.Email.Form.emailAddress")}
-						onChange={(e) => {
-							setFormData({ ...formData, email: e.target.value });
-						}}
-						maxLength={50}
-						disabled={iHateCommissions}
-						className="w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-900 focus:outline-green bg-neutral-950 hover:bg-neutral-900 focus:bg-neutral-950 px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
-					/>
-				</div>
-				<div className="flex flex-col gap-1 col-span-2">
-					<label htmlFor="subject">{t("CONTACT:Content.Email.Form.Subject.title")}</label>
-					<Select.Root
-						value={formData.subject}
-						onValueChange={(value) => {
-							setFormData({ ...formData, subject: value });
-						}}
-					>
-						<Select.Trigger
-							aria-label={t("CONTACT:Content.Email.Form.Subject.title")}
-							className={`flex justify-between w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 ${
-								iHateCommissions
-									? "outline-red-800 focus:outline-red focus:neutral-950/50 bg-red-900/50 hover:bg-neutral-950"
-									: "outline-neutral-900 focus:outline-green bg-neutral-950 hover:bg-neutral-900 focus:bg-neutral-950"
-							} focus:bg-transparent px-3 py-2 duration-100`}
+			<a.form style={styles} className="relative min-h-[534px] md:min-h-[467px]">
+				{(sending || submitted) && (
+					<div className="absolute inset-0 z-10 flex items-center justify-center">
+						<Image
+							src={PixelMina}
+							alt=""
+							className="w-32 h-32 animate-fade-in"
+							style={{ imageRendering: "pixelated" }}
+						/>
+					</div>
+				)}
+				<div className={`grid grid-cols-2 gap-6 ${(sending || submitted) && "opacity-25"} duration-200`}>
+					<div className="flex flex-col gap-1 col-span-2 md:col-span-1">
+						<label htmlFor="name">{t("CONTACT:Content.Email.Form.name")}</label>
+						<input
+							required
+							type="text"
+							name="name"
+							onChange={(e) => {
+								setFormData({ ...formData, name: e.target.value });
+							}}
+							maxLength={50}
+							disabled={iHateCommissions}
+							className="w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-900 focus:outline-green bg-neutral-950 hover:bg-neutral-900 focus:bg-neutral-950 px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
+						/>
+					</div>
+					<div className="flex flex-col gap-1 col-span-2 md:col-span-1">
+						<label htmlFor="email">{t("CONTACT:Content.Email.Form.emailAddress")}</label>
+						<input
+							required
+							type="text"
+							name="email"
+							aria-label={t("CONTACT:Content.Email.Form.emailAddress")}
+							onChange={(e) => {
+								setFormData({ ...formData, email: e.target.value });
+							}}
+							maxLength={50}
+							disabled={iHateCommissions}
+							className="w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-900 focus:outline-green bg-neutral-950 hover:bg-neutral-900 focus:bg-neutral-950 px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
+						/>
+					</div>
+					<div className="flex flex-col gap-1 col-span-2">
+						<label htmlFor="subject">{t("CONTACT:Content.Email.Form.Subject.title")}</label>
+						<Select.Root
+							value={formData.subject}
+							onValueChange={(value) => {
+								setFormData({ ...formData, subject: value });
+							}}
 						>
-							<Select.Value aria-label={formData.subject} />
-							<Select.Icon>
-								<i className="ri-arrow-down-s-line" />
-							</Select.Icon>
-						</Select.Trigger>
-						<Select.Portal>
-							<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-xl shadow-neutral-950/50 rounded-lg data-[state=open]:animate-select-open">
-								<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900 text-neutral-50 rounded-t-md">
-									<i className="ri-arrow-up-s-line" />
-								</Select.ScrollUpButton>
-								<Select.Viewport className="p-1">
-									<Select.Group>
-										{Subjects.map((subject) => (
-											<Select.Item
-												key={subject}
-												value={subject}
-												className="group relative flex items-center gap-3 pr-2 pl-2 data-[highlighted]:pl-3 h-8 rounded-sm leading-none select-none outline-none data-[disabled]:text-neutral data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-50 data-[state=checked]:text-neutral-50 data-[highlighted]:bg-neutral-50/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-none"
-											>
-												<Select.ItemText className="flex-grow">
-													{t(`CONTACT:Content.Email.Form.Subject.${subject}`)}
-												</Select.ItemText>
-												<Select.ItemIndicator className="ml-auto">
-													<i className="ri-check-line" />
-												</Select.ItemIndicator>
-											</Select.Item>
-										))}
-									</Select.Group>
-								</Select.Viewport>
-								<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-neutral-900 text-neutral-50 rounded-b-md">
+							<Select.Trigger
+								aria-label={t("CONTACT:Content.Email.Form.Subject.title")}
+								className={`flex justify-between w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 ${
+									iHateCommissions
+										? "outline-red-800 focus:outline-red focus:neutral-950/50 bg-red-900/50 hover:bg-neutral-950"
+										: "outline-neutral-900 focus:outline-green bg-neutral-950 hover:bg-neutral-900 focus:bg-neutral-950"
+								} focus:bg-transparent px-3 py-2 duration-100`}
+							>
+								<Select.Value aria-label={formData.subject} />
+								<Select.Icon>
 									<i className="ri-arrow-down-s-line" />
-								</Select.ScrollDownButton>
-							</Select.Content>
-						</Select.Portal>
-					</Select.Root>
-					{iHateCommissions && (
-						<p className="text-red mt-3">
-							<i className="ri-alert-line mr-3" />
-							{t("CONTACT:Content.Email.Form.noCommissions")}
-						</p>
-					)}
-				</div>
-				<div className="flex flex-col gap-1 col-span-2">
-					<label htmlFor="message">{t("CONTACT:Content.Email.Form.message")}</label>
-					<textarea
-						required
-						name="message"
-						rows={3}
-						onChange={(e) => {
-							setFormData({ ...formData, message: e.target.value });
-						}}
-						maxLength={2000}
-						disabled={iHateCommissions}
-						className="resize-none w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-900 focus:outline-green bg-neutral-950 hover:bg-neutral-900 focus:bg-neutral-950 px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
-						aria-label={t("CONTACT:Content.Email.Form.message")}
-					/>
-				</div>
-				<Button onClick={handleSubmit} disabled={invalidInput} color={failed ? "red" : "green"}>
-					{t(
-						sending
-							? "CONTACT:Content.Email.Form.sending"
-							: failed
-							? "CONTACT:Content.Email.Form.retry"
-							: "CONTACT:Content.Email.Form.send"
-					)}
-					<div className={sending ? "animate-spin" : "animate-none"}>
-						{sending ? (
-							<i className="ri-loader-4-line" />
-						) : failed ? (
-							<i className="ri-refresh-line" />
-						) : (
-							<i className="ri-send-plane-line" />
+								</Select.Icon>
+							</Select.Trigger>
+							<Select.Portal>
+								<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-xl shadow-neutral-950/50 rounded-lg data-[state=open]:animate-select-open">
+									<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900 text-neutral-50 rounded-t-md">
+										<i className="ri-arrow-up-s-line" />
+									</Select.ScrollUpButton>
+									<Select.Viewport className="p-1">
+										<Select.Group>
+											{Subjects.map((subject) => (
+												<Select.Item
+													key={subject}
+													value={subject}
+													className="group relative flex items-center gap-3 pr-2 pl-2 data-[highlighted]:pl-3 h-8 rounded-sm leading-none select-none outline-none data-[disabled]:text-neutral data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-50 data-[state=checked]:text-neutral-50 data-[highlighted]:bg-neutral-50/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-none"
+												>
+													<Select.ItemText className="flex-grow">
+														{t(`CONTACT:Content.Email.Form.Subject.${subject}`)}
+													</Select.ItemText>
+													<Select.ItemIndicator className="ml-auto">
+														<i className="ri-check-line" />
+													</Select.ItemIndicator>
+												</Select.Item>
+											))}
+										</Select.Group>
+									</Select.Viewport>
+									<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-neutral-900 text-neutral-50 rounded-b-md">
+										<i className="ri-arrow-down-s-line" />
+									</Select.ScrollDownButton>
+								</Select.Content>
+							</Select.Portal>
+						</Select.Root>
+						{iHateCommissions && (
+							<p className="text-red mt-3">
+								<i className="ri-alert-line mr-3" />
+								{t("CONTACT:Content.Email.Form.noCommissions")}
+							</p>
 						)}
 					</div>
-				</Button>
-				<hr className="col-span-2 border-dotted border-neutral-800 border-t-2 md:my-3" />
-				<p className="col-span-2 text-xs text-neutral">
-					{t("CONTACT:Content.Email.preferMailto")}
-					<Link
-						href={`mailto:mail@pprmint.art?subject=${t("CONTACT:Content.Message.subject")}&body=${t(
-							"CONTACT:Content.Message.body"
-						)}`}
-						className="text-green underline decoration-dotted hover:decoration-solid decoration-green-800 hover:decoration-green"
-					>
-						mail@pprmint.art
-					</Link>
-				</p>
+					<div className="flex flex-col gap-1 col-span-2">
+						<label htmlFor="message">{t("CONTACT:Content.Email.Form.message")}</label>
+						<textarea
+							required
+							name="message"
+							rows={3}
+							onChange={(e) => {
+								setFormData({ ...formData, message: e.target.value });
+							}}
+							maxLength={2000}
+							disabled={iHateCommissions}
+							className="resize-none w-full rounded-md outline focus:outline outline-1 focus:outline-2 text-neutral-50 outline-neutral-900 focus:outline-green bg-neutral-950 hover:bg-neutral-900 focus:bg-neutral-950 px-3 py-2 duration-100 disabled:outline-dotted disabled:hover:bg-transparent disabled:cursor-not-allowed"
+							aria-label={t("CONTACT:Content.Email.Form.message")}
+						/>
+					</div>
+					<Button onClick={handleSubmit} disabled={invalidInput} color={failed ? "red" : "green"}>
+						{t(
+							sending
+								? "CONTACT:Content.Email.Form.sending"
+								: failed
+								? "CONTACT:Content.Email.Form.retry"
+								: "CONTACT:Content.Email.Form.send"
+						)}
+						<div className={sending ? "animate-spin" : "animate-none"}>
+							{sending ? (
+								<i className="ri-loader-4-line" />
+							) : failed ? (
+								<i className="ri-refresh-line" />
+							) : (
+								<i className="ri-send-plane-line" />
+							)}
+						</div>
+					</Button>
+					<hr className="col-span-2 border-dotted border-neutral-800 border-t-2 md:my-3" />
+					<p className="col-span-2 text-xs text-neutral">
+						{t("CONTACT:Content.Email.preferMailto")}
+						<Link
+							href={`mailto:mail@pprmint.art?subject=${t("CONTACT:Content.Message.subject")}&body=${t(
+								"CONTACT:Content.Message.body"
+							)}`}
+							className="text-green underline decoration-dotted hover:decoration-solid decoration-green-800 hover:decoration-green"
+						>
+							mail@pprmint.art
+						</Link>
+					</p>
+				</div>
 			</a.form>
 		) : (
-			<a.div style={styles} className="w-full h-full flex flex-col gap-3 items-center justify-center text-center">
+			<a.div
+				style={styles}
+				className="w-full h-full min-h-[534px] md:min-h-[467px] flex flex-col gap-3 items-center justify-center text-center"
+			>
 				<h1>
 					{t("CONTACT:Content.Email.Form.sent")} <i className="ri-check-line text-green" />
 				</h1>
@@ -249,7 +268,6 @@ function Form() {
 
 export default function Contact() {
 	const { t } = useTranslation();
-	const [formVisible, setFormVisible] = useState(false);
 
 	const [chatVisible, setChatVisible] = useState(false);
 	const chatTransition = useTransition(chatVisible, {
@@ -271,17 +289,9 @@ export default function Contact() {
 	return (
 		<>
 			<Head title={t("CONTACT:Head.title")} description={t("CONTACT:Head.description")} />
-			<Title
-				title={t("CONTACT:Head.title")}
-				description={t("CONTACT:Head.description")}
-			>
+			<Title title={t("CONTACT:Head.title")} description={t("CONTACT:Head.description")}>
 				<Image src={TitleBackground1} alt="" fill className="object-cover" />
-				<Image
-					src={TitleBackground2}
-					alt=""
-					fill
-					className={`object-cover ${formVisible ? "invert-[100%] saturate-[240%] opacity-75" : ""} duration-500`}
-				/>
+				<Image src={TitleBackground2} alt="" fill className="object-cover" />
 			</Title>
 			<main>
 				<section className="max-w-7xl mx-auto my-24 px-6 md:px-9 flex flex-col items-center justify-center">
@@ -318,7 +328,10 @@ export default function Contact() {
 				<section className="group relative w-full overflow-clip border-y border-y-neutral-900">
 					<div className="max-w-7xl mx-auto py-12">
 						<div className="max-w-xl lg:max-w-3xl px-6 md:px-9 py-9  h-full">
-							<h2>{t("CONTACT:Content.Email.title")}<span className="text-green">.</span></h2>
+							<h2>
+								{t("CONTACT:Content.Email.title")}
+								<span className="text-green">.</span>
+							</h2>
 							<p className="pb-9">{t("CONTACT:Content.Email.text")}</p>
 							<Form />
 						</div>
@@ -332,7 +345,10 @@ export default function Contact() {
 				<section className="group relative w-full overflow-clip border-b border-b-neutral-900">
 					<div className="max-w-7xl mx-auto py-12">
 						<div className="max-w-xl lg:max-w-3xl px-6 md:px-9 py-9 h-full">
-							<h2>{t("CONTACT:Content.Telegram.title")}<span className="text-green">.</span></h2>
+							<h2>
+								{t("CONTACT:Content.Telegram.title")}
+								<span className="text-green">.</span>
+							</h2>
 							<p className="pb-9">{t("CONTACT:Content.Telegram.text")}</p>
 							<div className="w-max">
 								<Link href="https://t.me/npprmint" target="_blank" rel="noopener noreferrer">
@@ -350,7 +366,10 @@ export default function Contact() {
 				<section className="group relative w-full overflow-clip border-b border-b-neutral-900">
 					<div className="max-w-7xl mx-auto py-12">
 						<div className="max-w-xl lg:max-w-3xl px-6 md:px-9 py-9 h-full">
-							<h2>{t("CONTACT:Content.Twitter.title")}<span className="text-green">.</span></h2>
+							<h2>
+								{t("CONTACT:Content.Twitter.title")}
+								<span className="text-green">.</span>
+							</h2>
 							<p className="pb-9">{t("CONTACT:Content.Twitter.text")}</p>
 							<div className="w-max">
 								<Link
