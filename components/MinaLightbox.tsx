@@ -166,6 +166,8 @@ export default function MinaLightbox(props: LightboxProps) {
 													<i className="ri-twitter-line" />
 												) : image.attributes.creditUrl.startsWith("https://www.instagram.com/") ? (
 													<i className="ri-instagram-line" />
+												) : image.attributes.creditUrl.startsWith("https://www.youtube.com/") ? (
+													<i className="ri-youtube-line" />
 												) : (
 													<i className="ri-global-line" />
 												)}
