@@ -198,7 +198,7 @@ export default function Palette() {
 											shadeIndex > 5 ? "text-neutral-50" : "text-neutral-950"
 										} hover:scale-110 hover:shadow-xl hover:rounded-md duration-100 ease-in-out-custom active:scale-105 cursor-pointer active:duration-75`}
 										onClick={() => {
-											navigator.clipboard.writeText(shade as string);
+											navigator.clipboard.writeText((shade as string).substring(1));
 											setOpen(false);
 											window.clearTimeout(timerRef.current);
 											timerRef.current = window.setTimeout(() => {
