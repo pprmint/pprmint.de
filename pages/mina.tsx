@@ -447,7 +447,7 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 													className={`group grid items-center text-center active:scale-95 ${text} hover:z-10 border-2 border-neutral-950 w-10 hover:w-24 h-10 rounded-full duration-150 ease-out overflow-hidden cursor-pointer`}
 													style={{ backgroundColor: hex }}
 													onClick={() => {
-														navigator.clipboard.writeText(hex);
+														navigator.clipboard.writeText(hex.substring(1));
 														setOpen(false);
 														window.clearTimeout(timerRef.current);
 														timerRef.current = window.setTimeout(() => {
@@ -619,7 +619,9 @@ export default function Mina({ Artworks }: { Artworks: MinaArtworks }) {
 						</div>
 						{filteredArtworks.length > 0 ? (
 							<>
-								<h3 className="text-center pt-6">{t("MINA:Content.Artworks.showingArtworks", { count: filteredArtworks.length })}</h3>
+								<h3 className="text-center pt-6">
+									{t("MINA:Content.Artworks.showingArtworks", { count: filteredArtworks.length })}
+								</h3>
 								<ResponsiveMasonry columnsCountBreakPoints={{ 0: 2, 767: 3, 1279: 4, 1920: 5 }}>
 									<Masonry gutter="8px" className="pt-6">
 										{filteredArtworks.map((art: MinaArtwork, index: number) => (
