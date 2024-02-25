@@ -164,22 +164,22 @@ module.exports = {
 			keyframes: {
 				enterFromLeft: {
 					from: { opacity: 0, transform: "translateX(-290px)" },
-					to: { opacity: 1, transform: "translateX(0)" },
+					to: { opacity: 1, transform: "translateX(0px)" },
 				},
 				enterFromRight: {
 					from: { opacity: 0, transform: "translateX(290px)" },
-					to: { opacity: 1, transform: "translateX(0)" },
+					to: { opacity: 1, transform: "translateX(0px)" },
 				},
 				enterFromTop: {
 					from: { opacity: 0, transform: "rotateX(-20deg)" },
 					to: { opacity: 1, transform: "rotateX(0deg)" },
 				},
 				exitToLeft: {
-					from: { opacity: 1, transform: "translateX(0)" },
+					from: { opacity: 1, transform: "translateX(0px)" },
 					to: { opacity: 0, transform: "translateX(-290px)" },
 				},
 				exitToRight: {
-					from: { opacity: 1, transform: "translateX(0)" },
+					from: { opacity: 1, transform: "translateX(0px)" },
 					to: { opacity: 0, transform: "translateX(290px)" },
 				},
 				exitToTop: {
@@ -263,6 +263,7 @@ module.exports = {
 				"scale-up": "scaleUp .2s cubic-bezier(0, 0, 0.2, 1)",
 				"scale-down": "scaleDown .2s cubic-bezier(0, 0, 0.2, 1)",
 				"fade-in": "fadeIn .25s cubic-bezier(0, 0, 0.2, 1)",
+				"title-fade-in": "fadeIn .3s cubic-bezier(0.45, 0, 0.55, 1)",
 				"fade-out": "fadeOut .25s cubic-bezier(0, 0, 0.2, 1)",
 				"fade-out-scale-down": "fadeOutScaleDown .2s cubic-bezier(0, 0, 0.2, 1)",
 				"arrow-fade-down": "arrowFadeDown 1.5s cubic-bezier(0.2, 0.2, .2, 1) 2s infinite",

@@ -9,24 +9,12 @@ export default function Title(
 	}>
 ) {
 	const { accentColor = "text-green" } = props;
-	const inFromBottom = useSpring({
-		from: {
-			y: 100,
-			clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-			opacity: 0,
-		},
-		to: {
-			y: 0,
-			clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-			opacity: 1,
-		},
-		delay: 100,
-	});
 	const fadeIn = useSpring({
-		from: { opacity: 0 },
-		to: { opacity: 0.75 },
+		from: { opacity: 0, scale: 1.05 },
+		to: { opacity: 0.75, scale: 1 },
 		delay: 250,
 	});
+	const Title = props.title.split("");
 	return (
 		<div className="relative w-screen h-screen max-h-svh overflow-hidden">
 			<a.div className="absolute w-full h-full" style={{ ...fadeIn }}>
@@ -34,21 +22,34 @@ export default function Title(
 			</a.div>
 			<div className="absolute w-full h-16 bg-gradient-to-b from-neutral-950/50" />
 			<div className="absolute w-full h-full bg-gradient-to-t from-neutral-950 via-transparent" />
-			<a.div
-				className="absolute bottom-0 flex w-full gap-3 p-6 md:p-12 items-end"
-                style={inFromBottom}
-			>
+			<div className="absolute bottom-0 flex w-full gap-3 p-6 md:p-12 items-end">
 				<div className="flex-grow">
-					<h1 className="font-display font-semibold text-neutral-50 text-4xl md:text-5xl lg:text-6xl xl:text-8xl pb-1 md:pb-3">
-						{props.title}
-						<span className={accentColor}>.</span>
+					<h1 className="relative font-display font-semibold text-neutral-50 text-4xl md:text-5xl lg:text-6xl xl:text-8xl pb-1 md:pb-3">
+						{Title.map((character, index) => (
+							<span
+								key={index}
+								className="animate-title-fade-in"
+								style={{ animationDelay: `${index / 50 + 0.25}s`, animationFillMode: "backwards" }}
+							>
+								{character}
+							</span>
+						))}
+						<span
+							className={`animate-title-fade-in ${accentColor}`}
+							style={{ animationDelay: `${Title.length * 0.02 + 0.27}s`, animationFillMode: "backwards" }}
+						>
+							.
+						</span>
 					</h1>
-					<p className="text-neutral text-xl md:text-2xl xl:text-3xl">{props.description}</p>
+					<p
+						className="animate-title-fade-in text-neutral text-xl md:text-2xl xl:text-3xl"
+						style={{ animationDelay: "0.25s", animationFillMode: "backwards" }}
+					>
+						{props.description}
+					</p>
 				</div>
-				<i
-					className={`ri-arrow-down-line text-3xl ${accentColor} animate-arrow-fade-down opacity-0`}
-				/>
-			</a.div>
+				<i className={`ri-arrow-down-line text-3xl ${accentColor} animate-arrow-fade-down opacity-0`} />
+			</div>
 		</div>
 	);
 }
