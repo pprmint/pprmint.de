@@ -1,5 +1,6 @@
 /** @type {import("next").NextConfig} */
-const nextTranslate = require("next-translate-plugin");
+const createNextIntlPlugin = require("next-intl/plugin");
+const withNextIntl = createNextIntlPlugin();
 
 const securityHeaders = [
 	{
@@ -23,7 +24,8 @@ const securityHeaders = [
 		value: "nosniff",
 	},
 ];
-module.exports = nextTranslate({
+
+module.exports = withNextIntl({
 	reactStrictMode: true,
 	images: {
 		remotePatterns: [

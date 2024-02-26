@@ -39,6 +39,7 @@
 		"focus-trap-react": "^10.2.3",
 		"jszip": "^3.10.1",
 		"next": "14.1.0",
+		"next-intl": "^3.9.1",
 		"next-translate": "^2.6.2",
 		"nodemailer": "^6.9.9",
 		"react": "18.2.0",
