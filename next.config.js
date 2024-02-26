@@ -26,7 +26,7 @@ const securityHeaders = [
 ];
 
 module.exports = withNextIntl({
-	reactStrictMode: true,
+	reactStrictMode: false,
 	images: {
 		remotePatterns: [
 			{
