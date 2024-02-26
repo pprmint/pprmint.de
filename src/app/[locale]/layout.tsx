@@ -1,13 +1,31 @@
+import { ReactNode } from "react";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { NextIntlClientProvider, useMessages } from "next-intl";
+import { locales } from "../../navigation";
 import NavBar from "src/components/NavBar";
 import Footer from "src/components/Footer";
 
-export default function LocaleLayout({
-	children,
-	params: { locale },
-}: {
-	children: React.ReactNode;
+type Props = {
+	children: ReactNode;
 	params: { locale: string };
-}) {
+};
+
+export function generateStaticParams() {
+	return locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({ params: { locale } }: Props) {
+	const t = await getTranslations({ locale, namespace: "HOME" });
+	return {
+		title: t("Meta.title"),
+		description: t("Meta.description"),
+	};
+}
+
+export default function LocaleLayout({ children, params: { locale } }: Props) {
+	// Enable static rendering
+	unstable_setRequestLocale(locale);
+	const messages = useMessages();
 	return (
 		<html lang={locale}>
 			<body className="bg-neutral-950 selection:bg-green selection:text-neutral-950 text-neutral focus-visible:outline-none focus-visible:ring-2 overflow-x-hidden">
@@ -19,9 +37,11 @@ export default function LocaleLayout({
 						</p>
 					</div>
 				</noscript>
-                <NavBar />
-				{children}
-                <Footer />
+				<NextIntlClientProvider messages={messages}>
+					<NavBar />
+					{children}
+					<Footer />
+				</NextIntlClientProvider>
 			</body>
 		</html>
 	);
