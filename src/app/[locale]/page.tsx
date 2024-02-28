@@ -7,7 +7,7 @@ import Head from "src/components/Head";
 import Button from "src/components/Button";
 import Title from "src/components/Title";
 
-import Announcement, { Announcements } from "types/announcement";
+import Announcement, { Announcements } from "src/types/announcement";
 import FadingImage from "src/components/FadingImage";
 import { useLocale } from "next-intl";
 

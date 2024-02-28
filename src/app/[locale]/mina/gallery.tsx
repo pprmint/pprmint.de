@@ -1,4 +1,4 @@
-import { MinaArtworks } from "types/mina-artwork";
+import { MinaArtworks } from "src/types/mina-artwork";
 
 export default async function Gallery() {
 	const page = 1;

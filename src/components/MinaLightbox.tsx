@@ -6,7 +6,7 @@ import { useSwipeable } from "react-swipeable";
 import { useTransition, a, easings } from "@react-spring/web";
 import * as Tooltip from "@radix-ui/react-tooltip";
 
-import MinaArtwork from "types/mina-artwork";
+import MinaArtwork from "src/types/mina-artwork";
 import FadingImage from "./FadingImage";
 
 interface LightboxProps {

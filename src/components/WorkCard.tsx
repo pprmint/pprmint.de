@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { useSpring, a, easings } from "@react-spring/web";
 
-import Work from "types/work";
+import Work from "src/types/work";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import FadingImage from "./FadingImage";
