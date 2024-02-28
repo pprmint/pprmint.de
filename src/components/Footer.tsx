@@ -1,11 +1,11 @@
 "use client";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import useTranslation from "next-translate/useTranslation";
+import { useTranslations } from "next-intl";
 import { useTransition, a } from "@react-spring/web";
 
 function Footer() {
-	const { t } = useTranslation();
+	const t = useTranslations("COMMON");
 	// Is set if you call Mina useless in the chatbox.
 	let pissedOffMina = localStorage.getItem("pissedOffMina");
 
@@ -83,7 +83,7 @@ function Footer() {
 				item ? (
 					<a.p className="absolute top-0 w-full text-center text-xs" style={style}>
 						{t(
-							`COMMON:Mina.${
+							`Mina.${
 								clicks == Number.MAX_SAFE_INTEGER + 1
 									? "humanityIsDead"
 									: clicks >= 10000
