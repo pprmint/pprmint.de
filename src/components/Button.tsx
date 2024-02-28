@@ -1,3 +1,4 @@
+"use client";
 import { MouseEvent, FormEvent } from "react";
 import React from "react";
 

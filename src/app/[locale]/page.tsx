@@ -9,27 +9,14 @@ import Title from "src/components/Title";
 
 import Announcement, { Announcements } from "types/announcement";
 import FadingImage from "src/components/FadingImage";
+import { useLocale } from "next-intl";
 
-async function getData({ locale }: { locale: string }) {
-	const pageSize = 4;
-	const res = await fetch(
-		`${process.env.STRAPI_API_URL}/announcements?pagination[pageSize]=${pageSize}&populate=media&locale=${locale}&sort=id:desc`,
-		{
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
-			},
-		}
-	);
-}
-
-export default async function Home({ Announcements }: { Announcements: Announcements }) {
-	const locale = await getLocale();
-	const data = await getData({ locale });
+export default async function Home() {
 	const t = await getTranslations("HOME");
+	const Announcements: Announcements = await getData();
 	return (
 		<>
-			<Title title={t("HOME:Head.title")} description={t("HOME:Head.description")}>
+			<Title title={t("Head.title")} description={t("Head.description")}>
 				<video
 					src="https://static.pprmint.art/videos/home.mp4"
 					autoPlay
@@ -143,4 +130,23 @@ export default async function Home({ Announcements }: { Announcements: Announcem
 			</main>
 		</>
 	);
+}
+
+async function getData() {
+	const pageSize = 4;
+	const locale = useLocale();
+	const res = await fetch(
+		`${process.env.STRAPI_API_URL}/announcements?pagination[pageSize]=${pageSize}&populate=media&locale=${locale}&sort=id:desc`,
+		{
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
+			},
+			next: { revalidate: 1800 },
+		}
+	);
+	if (!res.ok) {
+		throw new Error("Failed to fetch data");
+	}
+	return res.json();
 }

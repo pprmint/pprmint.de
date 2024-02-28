@@ -5,7 +5,7 @@ import useTranslation from "next-translate/useTranslation";
 import { useTransition, a, easings } from "@react-spring/web";
 import * as Tooltip from "@radix-ui/react-tooltip";
 
-import LoadingCircle from "./LoadingCircle";
+import LoadingCircle from "../app/[locale]/loading";
 
 interface Image {
 	caption: string;

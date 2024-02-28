@@ -81,6 +81,16 @@ export default interface MinaArtwork {
 	};
 }
 
+export interface MinaArtworksMeta {
+	pagination: {
+		page: number;
+		pageSize: number;
+		pageCount: number;
+		total: number;
+	};
+}
+
 export interface MinaArtworks {
-    data: MinaArtwork[];
+	data: MinaArtwork[];
+	meta: MinaArtworksMeta;
 }

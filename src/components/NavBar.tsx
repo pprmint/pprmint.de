@@ -61,7 +61,7 @@ const Caret = (
 );
 
 function DesktopNavigation() {
-	const { t } = useTranslation();
+	const t = useTranslations("NAVIGATION");
 
 	const pathname = usePathname();
 	const locale = useLocale();
@@ -112,7 +112,7 @@ function DesktopNavigation() {
 				<NavigationMenu.List className="flex py-3 pr-6">
 					<NavigationMenu.Item>
 						<NavigationMenu.Trigger className={NavMenuTrigger}>
-							{t("NAVIGATION:Path.General.title")}
+							{t("Path.General.title")}
 							{Caret}
 						</NavigationMenu.Trigger>
 
@@ -122,8 +122,8 @@ function DesktopNavigation() {
 									<MenuItem
 										key={Page.link}
 										href={Page.link}
-										title={t(`NAVIGATION:Path.General.${Page.strings}.title`)}
-										description={t(`NAVIGATION:Path.General.${Page.strings}.description`)}
+										title={t(`Path.General.${Page.strings}.title`)}
+										description={t(`Path.General.${Page.strings}.description`)}
 									/>
 								))}
 							</ul>
@@ -132,7 +132,7 @@ function DesktopNavigation() {
 
 					<NavigationMenu.Item>
 						<NavigationMenu.Trigger className={NavMenuTrigger}>
-							{t("NAVIGATION:Path.Projects.title")}
+							{t("Path.Projects.title")}
 							{Caret}
 						</NavigationMenu.Trigger>
 
@@ -142,8 +142,8 @@ function DesktopNavigation() {
 									<MenuItem
 										key={Project.link}
 										href={Project.link}
-										title={t(`NAVIGATION:Path.Projects.${Project.strings}.title`)}
-										description={t(`NAVIGATION:Path.Projects.${Project.strings}.description`)}
+										title={t(`Path.Projects.${Project.strings}.title`)}
+										description={t(`Path.Projects.${Project.strings}.description`)}
 									/>
 								))}
 							</ul>
@@ -152,20 +152,20 @@ function DesktopNavigation() {
 
 					<NavigationMenu.Item>
 						<NavigationMenu.Trigger className={NavMenuTrigger}>
-							{t("NAVIGATION:Path.Other.title")}
+							{t("Path.Other.title")}
 							{Caret}
 						</NavigationMenu.Trigger>
 
 						<NavigationMenu.Content className={`${NavMenuContent} w-[400px] lg:w-[500px]`}>
 							<ul className="grid grid-flow-row">
 								<MenuItem
-									title={t("NAVIGATION:Path.Other.Privacy.title")}
-									description={t("NAVIGATION:Path.Other.Privacy.description")}
+									title={t("Path.Other.Privacy.title")}
+									description={t("Path.Other.Privacy.description")}
 									href="/privacy"
 								/>
 								<MenuItem
-									title={t("NAVIGATION:Path.Other.SwitchLocale.title")}
-									description={t("NAVIGATION:Path.Other.SwitchLocale.description")}
+									title={t("Path.Other.SwitchLocale.title")}
+									description={t("Path.Other.SwitchLocale.description")}
 									href={pathname}
 									locale={otherLocale}
 									disableHighlight
@@ -188,7 +188,7 @@ function DesktopNavigation() {
 }
 
 function MobileNavigation() {
-	const { t } = useTranslation();
+	const t = useTranslations("NAVIGATION");
 
 	// Opening and closing logic
 	const [navOpen, setNavOpen] = useState(false);
@@ -307,13 +307,13 @@ function MobileNavigation() {
 							<a.div className="px-3 w-full h-full py-6 overflow-auto text-neutral-500" style={styles}>
 								<div className="pb-6">
 									<p className="pl-3 pb-1 font-display text-neutral-50 font-semibold text-2xl">
-										{t("NAVIGATION:Path.General.title")}
+										{t("Path.General.title")}
 									</p>
 									<ul>
 										{Pages.map((Page) => (
 											<ListItem
 												key={Page.link}
-												title={t(`NAVIGATION:Path.General.${Page.strings}.title`)}
+												title={t(`Path.General.${Page.strings}.title`)}
 												href={Page.link}
 											/>
 										))}
@@ -321,13 +321,13 @@ function MobileNavigation() {
 								</div>
 								<div className="pb-6">
 									<p className="pl-3 pb-1 font-display text-neutral-50 font-semibold text-2xl">
-										{t("NAVIGATION:Path.Projects.title")}
+										{t("Path.Projects.title")}
 									</p>
 									<ul>
 										{Projects.map((Project) => (
 											<ListItem
 												key={Project.link}
-												title={t(`NAVIGATION:Path.Projects.${Project.strings}.title`)}
+												title={t(`Path.Projects.${Project.strings}.title`)}
 												href={Project.link}
 											/>
 										))}
@@ -335,14 +335,14 @@ function MobileNavigation() {
 								</div>
 								<div className="pb-6">
 									<p className="pl-3 pb-1 font-display text-neutral-50 font-semibold text-2xl">
-										{t("NAVIGATION:Path.Other.title")}
+										{t("Path.Other.title")}
 									</p>
 									<ul>
-										<ListItem href="/privacy" title={t("NAVIGATION:Path.Other.Privacy.title")} />
+										<ListItem href="/privacy" title={t("Path.Other.Privacy.title")} />
 										<ListItem
 											href={pathname}
 											locale={otherLocale}
-											title={t("NAVIGATION:Path.Other.SwitchLocale.title")}
+											title={t("Path.Other.SwitchLocale.title")}
 											disableHighlight
 										/>
 									</ul>
@@ -358,14 +358,14 @@ function MobileNavigation() {
 }
 
 function Footer(props: { className?: string }) {
-	const { t } = useTranslation();
+	const t = useTranslations("NAVIGATION");
 	return (
 		<div className={`flex flex-row ${props.className}`}>
 			<div className="text-neutral text-xs">
 				<p className="leading-4">
-					{t("NAVIGATION:madeWith")}
+					{t("madeWith")}
 					<i className="ri-heart-line mx-1 text-red" />
-					{t("NAVIGATION:and")}
+					{t("and")}
 					<Link
 						href="https://github.com/pprmint/pprmint.art/blob/main/package.json"
 						target="_blank"

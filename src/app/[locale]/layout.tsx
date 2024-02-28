@@ -17,8 +17,8 @@ export function generateStaticParams() {
 export async function generateMetadata({ params: { locale } }: Props) {
 	const t = await getTranslations({ locale, namespace: "HOME" });
 	return {
-		title: t("Meta.title"),
-		description: t("Meta.description"),
+		title: `${t("Head.title")}.`,
+		description: t("Head.description"),
 	};
 }
 
@@ -27,7 +27,7 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
 	unstable_setRequestLocale(locale);
 	const messages = useMessages();
 	return (
-		<html lang={locale}>
+		<html lang={locale} suppressHydrationWarning>
 			<body className="bg-neutral-950 selection:bg-green selection:text-neutral-950 text-neutral focus-visible:outline-none focus-visible:ring-2 overflow-x-hidden">
 				<noscript>
 					<div className="fixed z-[9999] bottom-6 left-1/2 -translate-x-1/2 w-[92vw] max-w-max px-4 py-2 bg-red text-black rounded-3xl font-sans">
