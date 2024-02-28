@@ -263,8 +263,8 @@
 					"animated": "Animated"
 				}
 			},
-			"showingWorks_one": "Showing {{count}} work.",
-			"showingWorks_other": "Showing {{count}} works."
+			"showingWorks_one": "Showing {count} work.",
+			"showingWorks_other": "Showing {count} works."
 		}
 	},
 	"HOME": {
@@ -347,8 +347,8 @@
 				"last7Days": "Fanart drawn in the last 7 days:",
 				"alltime": "Fanart drawn in total:",
 				"drawnBy": "By ",
-				"showingArtworks_one": "Showing {{count}} artwork.",
-				"showingArtworks_other": "Showing {{count}} artworks."
+				"showingArtworks_one": "Showing {count} artwork.",
+				"showingArtworks_other": "Showing {count} artworks."
 			},
 			"NSFW": {
 				"switch": "Neuron activation",
@@ -391,7 +391,7 @@
 	"MINTCRAFT": {
 		"Content": {
 			"Changes": {
-				"heading": "Changes in Mintcraft {{version}}.",
+				"heading": "Changes in Mintcraft {version}.",
 				"Mintcraft": {
 					"fixMinceraft": "Fix texture for Minceraft easter egg,",
 					"deleteDuplicate": "Removed basic Mintcraft pack ZIP from Complete pack. Don't ask."
@@ -425,7 +425,7 @@
 				"text": "If you have some feedback or found something that looks to be an error, feel free to <Link>send me a message</Link>."
 			},
 			"Download": {
-				"commonTitle": "Downloads for Minecraft {{version}}.",
+				"commonTitle": "Downloads for Minecraft {version}.",
 				"fullSauceInfo": "This pack contains Mintcraft with all add-ons."
 			}
 		},
@@ -551,8 +551,8 @@
 				"text1": "If you have any privacy-related questions, please feel free to send an email to <strong>privacy[at]pprmint.art</strong>.",
 				"text2": "Please use this email address only for this purpose and not to send general questions, advers, offers, spam or the like."
 			},
-			"dpaOf": "Data Processing Addendum of {{provider}}",
-			"privacyPolicyOf": "Privacy policy of {{provider}}",
+			"dpaOf": "Data Processing Addendum of {provider}",
+			"privacyPolicyOf": "Privacy policy of {provider}",
 			"lastUpdated": "Last updated: {revisionDate, date, ::yyyyMMMMd}"
 		}
 	},

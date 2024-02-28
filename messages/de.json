@@ -264,8 +264,8 @@
 					"animated": "Animiert"
 				}
 			},
-			"showingWorks_one": "{{count}} Werk wird gezeigt.",
-			"showingWorks_other": "{{count}} Werke werden gezeigt."
+			"showingWorks_one": "{count} Werk wird gezeigt.",
+			"showingWorks_other": "{count} Werke werden gezeigt."
 		}
 	},
 	"HOME": {
@@ -348,8 +348,8 @@
 				"last7Days": "Fanart der letzten 7 Tage:",
 				"alltime": "Fanart ingesamt:",
 				"drawnBy": "Von ",
-				"showingArtworks_one": "{{count}} Artwork wird gezeigt.",
-				"showingArtworks_other": "{{count}} Artworks werden gezeigt."
+				"showingArtworks_one": "{count} Artwork wird gezeigt.",
+				"showingArtworks_other": "{count} Artworks werden gezeigt."
 			},
 			"NSFW": {
 				"switch": "Neuronen-Aktivierung",
@@ -396,7 +396,7 @@
 		},
 		"Content": {
 			"Changes": {
-				"heading": "Änderungen in Mintcraft {{version}}.",
+				"heading": "Änderungen in Mintcraft {version}.",
 				"Mintcraft": {
 					"fixMinceraft": "Textur für Minceraft-Easter-Egg behoben,",
 					"deleteDuplicate": "ZIP-Datei des einfachen Mintcraft-Packs aus dem Complete-Pack entfernt. Frag nicht."
@@ -430,7 +430,7 @@
 				"text": "Wenn du Feedback geben möchtest oder etwas gefunden hast, was wie ein Fehler aussieht, kannst du mir gerne <Link>eine Nachricht schicken</Link>."
 			},
 			"Download": {
-				"commonTitle": "Downloads für Minecraft {{version}}.",
+				"commonTitle": "Downloads für Minecraft {version}.",
 				"fullSauceInfo": "Dieses Pack enthält Mintcraft mit allen Add-ons."
 			}
 		}
@@ -552,8 +552,8 @@
 				"text1": "Bei Fragen zum Thema Datenschutz kannst du mir gerne eine Email an <strong>privacy[at]pprmint.art</strong> schicken.",
 				"text2": "Verwende diese Adresse nur für den obigen Zweck, nicht für allgemeine Fragen, Werbung, Spam oder Ähnliches."
 			},
-			"dpaOf": "Data Processing Addendum von {{provider}}",
-			"privacyPolicyOf": "Datenschutzerklärung von {{provider}}",
+			"dpaOf": "Data Processing Addendum von {provider}",
+			"privacyPolicyOf": "Datenschutzerklärung von {provider}",
 			"lastUpdated": "Zuletzt aktualisiert: {revisionDate, date, ::yyyyMMMMd}"
 		}
 	},
