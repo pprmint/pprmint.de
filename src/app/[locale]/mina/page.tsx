@@ -1,25 +1,30 @@
 import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { Suspense } from "react";
-import Title from "src/components/Title";
-import FadingImage from "src/components/FadingImage";
+import Title from "src/components/layout/Title";
+import FadingImage from "src/components/ui/FadingImage";
 import { MinaArtworks } from "src/types/mina-artwork";
 
 import Ref from "./ref";
 
 import HeroMina from "public/assets/mina/hero.webp";
 import Gallery from "./gallery";
+import GallerySkeleton from "./gallerySkeleton";
 
 export default async function Page({
 	searchParams,
 }: {
 	searchParams?: {
 		p?: string;
+		nsfw?: string;
+		artist?: string;
 	};
 }) {
 	const t = await getTranslations("MINA");
 	const currentPage = Number(searchParams?.p) || 1;
-	const Artworks: MinaArtworks = await getData(currentPage);
+	const nsfw = String(searchParams?.nsfw) || "show";
+	const artist = String(searchParams?.artist) || "";
+	const Artworks: MinaArtworks = await getData(currentPage, nsfw);
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
@@ -27,19 +32,19 @@ export default async function Page({
 			</Title>
 			<main>
 				<Ref />
-				<Suspense>
-					<Gallery artworks={Artworks} page={currentPage} />
+				<Suspense fallback={<GallerySkeleton />}>
+					<Gallery artworks={Artworks} />
 				</Suspense>
 			</main>
 		</>
 	);
 }
 
-async function getData(page: number) {
+async function getData(page: number, nsfw: string) {
 	const res = await fetch(
-		`${process.env.STRAPI_API_URL}/mina-artworks?pagination[page]=${Number(
-			page
-		)}&pagination[pageSize]=20&populate=artwork&sort=creationDate:desc`,
+		`${process.env.STRAPI_API_URL}/mina-artworks?pagination[page]=${Number(page)}&pagination[pageSize]=20&${
+			nsfw != "show" && `filters[nsfw][$ne]=true`
+		}&populate=artwork&sort=creationDate:desc`,
 		{
 			headers: {
 				"Content-Type": "application/json",

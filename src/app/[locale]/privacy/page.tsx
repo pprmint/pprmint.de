@@ -2,7 +2,7 @@ import { Link } from "src/navigation";
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
 
-import Title from "src/components/Title";
+import Title from "src/components/layout/Title";
 
 export default function PrivacyPolicy() {
 	const t = useTranslations("PRIVACY");

@@ -6,7 +6,7 @@ import { useSpring, a, config, easings } from "@react-spring/web";
 import Trans from "next-translate/Trans";
 
 import Head from "src/components/Head";
-import Button from "src/components/Button";
+import Button from "src/components/ui/Button";
 
 import DetectiveMina from "public/assets/404/mina_chibi.webp";
 

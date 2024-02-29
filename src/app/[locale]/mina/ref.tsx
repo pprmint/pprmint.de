@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import * as Accordion from "@radix-ui/react-accordion";
 import * as Toast from "@radix-ui/react-toast";
-import FadingImage from "src/components/FadingImage";
+import FadingImage from "src/components/ui/FadingImage";
 
 import TransparentMina from "public/assets/mina/mina.webp";
 import { Link } from "src/navigation";

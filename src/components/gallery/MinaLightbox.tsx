@@ -7,7 +7,7 @@ import { useTransition, a, easings } from "@react-spring/web";
 import * as Tooltip from "@radix-ui/react-tooltip";
 
 import MinaArtwork from "src/types/mina-artwork";
-import FadingImage from "./FadingImage";
+import FadingImage from "../ui/FadingImage";
 
 interface LightboxProps {
 	images: MinaArtwork[];

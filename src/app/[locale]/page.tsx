@@ -4,11 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 import Head from "src/components/Head";
-import Button from "src/components/Button";
-import Title from "src/components/Title";
+import Button from "src/components/ui/Button";
+import Title from "src/components/layout/Title";
 
 import Announcement, { Announcements } from "src/types/announcement";
-import FadingImage from "src/components/FadingImage";
+import FadingImage from "src/components/ui/FadingImage";
 import { useLocale } from "next-intl";
 
 export default async function Home() {
@@ -140,6 +140,7 @@ async function getData() {
 		{
 			headers: {
 				"Content-Type": "application/json",
+				Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
 			},
 			next: { revalidate: 1800 },
 		}

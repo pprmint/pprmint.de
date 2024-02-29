@@ -2,8 +2,8 @@ import { ReactNode } from "react";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { locales } from "../../navigation";
-import NavBar from "src/components/NavBar";
-import Footer from "src/components/Footer";
+import NavBar from "src/components/layout/NavBar";
+import Footer from "src/components/layout/Footer";
 
 type Props = {
 	children: ReactNode;
