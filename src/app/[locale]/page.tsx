@@ -140,7 +140,6 @@ async function getData() {
 		{
 			headers: {
 				"Content-Type": "application/json",
-				Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
 			},
 			next: { revalidate: 1800 },
 		}
