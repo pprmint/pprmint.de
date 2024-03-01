@@ -341,6 +341,7 @@
 			},
 			"Artworks": {
 				"Filters": {
+					"nsfw": "Neuron activation",
 					"artist": "Artist",
 					"year": "Year"
 				},
@@ -348,7 +349,9 @@
 				"alltime": "Fanart drawn in total:",
 				"drawnBy": "By ",
 				"showingArtworks_one": "Showing {count} artwork.",
-				"showingArtworks_other": "Showing {count} artworks."
+				"showingArtworks_other": "Showing {count} artworks.",
+                "outOfBounds": "...where am i?",
+                "clipBackIn": "Clip back in bounds"
 			},
 			"NSFW": {
 				"switch": "Neuron activation",

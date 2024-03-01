@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import { useTranslations } from "next-intl";
 import { Suspense } from "react";
+
 import Title from "src/components/layout/Title";
 import FadingImage from "src/components/ui/FadingImage";
 import { MinaArtworks } from "src/types/mina-artwork";
@@ -10,6 +10,22 @@ import Ref from "./ref";
 import HeroMina from "public/assets/mina/hero.webp";
 import Gallery from "./gallery";
 import GallerySkeleton from "./gallerySkeleton";
+import Filters from "./filters";
+import Pagination from "src/components/gallery/Pagination";
+
+import OutOfBounds from "./outOfBounds";
+
+type Props = {
+	params: { locale: string };
+};
+
+export async function generateMetadata({ params: { locale } }: Props) {
+	const t = await getTranslations({ locale, namespace: "MINA" });
+	return {
+		title: `${t("Head.title")}.`,
+		description: t("Head.description"),
+	};
+}
 
 export default async function Page({
 	searchParams,
@@ -25,6 +41,7 @@ export default async function Page({
 	const nsfw = String(searchParams?.nsfw) || "show";
 	const artist = String(searchParams?.artist) || "";
 	const Artworks: MinaArtworks = await getData(currentPage, nsfw);
+	const pageCount = Artworks.meta.pagination.pageCount;
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
@@ -32,9 +49,17 @@ export default async function Page({
 			</Title>
 			<main>
 				<Ref />
-				<Suspense fallback={<GallerySkeleton />}>
-					<Gallery artworks={Artworks} />
-				</Suspense>
+				{currentPage > pageCount ? (
+					<div className="relative">
+						<GallerySkeleton />
+						<OutOfBounds />
+					</div>
+				) : (
+					<Suspense fallback={<GallerySkeleton />}>
+						<Gallery artworks={Artworks} />
+					</Suspense>
+				)}
+				<Pagination page={currentPage} pageCount={pageCount} />
 			</main>
 		</>
 	);

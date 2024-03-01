@@ -1,5 +1,4 @@
 import FadingImage from "src/components/ui/FadingImage";
-import Pagination from "src/components/ui/Pagination";
 import MinaArtwork, { MinaArtworks } from "src/types/mina-artwork";
 
 export default async function Gallery(artworks: { artworks: MinaArtworks }) {
@@ -26,10 +25,6 @@ export default async function Gallery(artworks: { artworks: MinaArtworks }) {
 					</button>
 				))}
 			</div>
-			<Pagination
-				page={artworks.artworks.meta.pagination.page}
-				pageCount={artworks.artworks.meta.pagination.pageCount}
-			/>
 		</section>
 	);
 }
