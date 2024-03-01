@@ -17,12 +17,15 @@ export default function OutOfBounds() {
 		replace(`${pathname}?${params.toString()}`, { scroll: false });
 	}
 	return (
-		<div className="absolute flex flex-col gap-3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 items-center">
-			<Image src={MinaWhat} alt="" className="size-24" />
-			<h3>{t("Content.Artworks.outOfBounds")}</h3>
-			<Button outlined onClick={ClipBackInBounds}>
-				{t("Content.Artworks.clipBackIn")}
-			</Button>
+		<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+			<div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-80 bg-neutral-950 rounded-full blur-3xl" />
+			<div className="flex flex-col gap-3 items-center z-10">
+				<Image src={MinaWhat} alt="" className="size-28" />
+				<h3>{t("Content.Artworks.outOfBounds")}</h3>
+				<Button outlined onClick={ClipBackInBounds}>
+					{t("Content.Artworks.clipBackIn")}
+				</Button>
+			</div>
 		</div>
 	);
 }
