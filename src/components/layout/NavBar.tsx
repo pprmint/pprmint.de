@@ -69,7 +69,7 @@ function DesktopNavigation() {
 
 	// Styles
 	const NavMenuTrigger =
-		"group/root flex items-center gap-3 h-10 px-4 text-neutral-50/80 hover:text-neutral-50 data-[state='open']:text-neutral-50 duration-250 font-medium rounded-lg";
+		"group/root flex items-center gap-3 h-10 px-4 text-neutral-50/80 hover:text-neutral-50 data-[state='open']:text-neutral-50 duration-250 font-medium rounded-lg drop-shadow-md";
 	const NavMenuContent =
 		"absolute top-0 left-0 p-3 duration-250 data-[motion='from-start']:animate-enter-from-l data-[motion='from-end']:animate-enter-from-r data-[motion='to-start']:animate-exit-to-l data-[motion='to-end']:animate-exit-to-r";
 	const NavMenuViewport =
@@ -311,11 +311,7 @@ function MobileNavigation() {
 									</p>
 									<ul>
 										{Pages.map((Page) => (
-											<ListItem
-												key={Page.link}
-												title={t(`Path.General.${Page.strings}.title`)}
-												href={Page.link}
-											/>
+											<ListItem key={Page.link} title={t(`Path.General.${Page.strings}.title`)} href={Page.link} />
 										))}
 									</ul>
 								</div>
@@ -442,10 +438,10 @@ export default function NavBar() {
 				className={`absolute z-0 inset-0 border-b ${
 					navBackground
 						? "ease-out border-transparent"
-						: "linear border-neutral-50/10 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[91.5%]"
+						: "linear border-neutral-50/10 backdrop-blur-xl bg-neutral-950/75"
 				} duration-300`}
 			/>
-			<Link href="/" className="z-50 pl-3 md:pl-6 my-auto mr-auto">
+			<Link href="/" className="z-50 pl-3 md:pl-6 my-auto mr-auto drop-shadow-md">
 				<Image src={Wordmark} alt="pprmint. logo" className="h-9 w-[184px] mt-1" />
 			</Link>
 			<div className="hidden z-50 md:flex">
