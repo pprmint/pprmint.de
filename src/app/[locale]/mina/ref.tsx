@@ -61,7 +61,9 @@ export default function RefSheet() {
 		}
 		return (
 			<div
-				className={`active:scale-95 size-12 rounded-full duration-150 ease-out cursor-pointer ${ring && "ring-1 ring-neutral-800"}`}
+				className={`active:scale-95 size-12 rounded-full duration-150 ease-out cursor-pointer ${
+					ring && "ring-1 ring-neutral-800"
+				}`}
 				style={{ backgroundColor: color }}
 				onClick={handleClick}
 			/>
@@ -70,8 +72,11 @@ export default function RefSheet() {
 
 	return (
 		<section id="design" className="my-20 max-w-7xl mx-auto px-2">
-			<div className="grid grid-cols-2 md:grid-cols-4 grid-rows-6 md:grid-rows-2 grid-flow-col gap-3 md:max-h-[800px]">
-				<div className="bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl">
+			<div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-rows-4 md:grid-rows-3 xl:grid-rows-2 grid-flow-dense gap-3 md:max-h-[800px]">
+				<div
+					id="colorpalette"
+					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl"
+				>
 					<ColorPickerToast color={currentColor} open={open} onOpenChange={setOpen} />
 					<div className="flex flex-col gap-2 h-full justify-center">
 						<div className="flex gap-5 px-6">
@@ -95,14 +100,10 @@ export default function RefSheet() {
 						</div>
 					</div>
 				</div>
-				<div className="bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6">
-					<FadingImage
-						src={ReferenceHand}
-						className="w-auto max-h-full object-contain"
-						alt="Full-body drawing of Mina doing a peace sign, front perspective."
-					/>
-				</div>
-				<div className="bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl row-span-2 p-3">
+                <div
+					id="front"
+					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl row-span-2 p-3"
+				>
 					<FadingImage
 						src={ReferenceFront}
 						className="w-auto max-h-full object-contain"
@@ -110,7 +111,10 @@ export default function RefSheet() {
 						priority
 					/>
 				</div>
-				<div className="bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl row-span-2 p-3">
+				<div
+					id="back"
+					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl row-span-2 p-3"
+				>
 					<FadingImage
 						src={ReferenceBack}
 						className="w-auto max-h-full object-contain"
@@ -118,22 +122,48 @@ export default function RefSheet() {
 						priority
 					/>
 				</div>
-				<div className="bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6">
+                <div
+					id="hairtie"
+					className="flex md:col-span-2 xl:col-span-1 items-center justify-center gap-6 bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6"
+				>
 					<FadingImage
 						src={ReferenceHairtieBack}
 						className="w-auto max-h-full object-contain"
-						alt="Full-body drawing of Mina doing a peace sign, back perspective."
+						alt="Outline of Mina's head, viewed from the back."
+						priority
+					/>
+					<FadingImage
+						src={ReferenceHairtieFront}
+						className="w-auto max-h-full object-containm hidden md:block xl:hidden"
+						alt="Outline of Mina's head, viewed from the front."
 						priority
 					/>
 				</div>
-				<div className="bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6"></div>
+				<div
+					id="hand"
+					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6"
+				>
+					<FadingImage
+						src={ReferenceHand}
+						className="w-auto max-h-full object-contain"
+						alt="Full-body drawing of Mina doing a peace sign, front perspective."
+					/>
+				</div>
+
+				<div
+					id="shoe"
+					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6"
+				>
+					shoes
+				</div>
 			</div>
 			<div className="flex items-center justify-between pt-6">
 				<p>
 					Reference drawings made by{" "}
 					<Link href="https://twitter.com/nekomimiwubs" rel="noopener noreferrer" className="text-link-external">
 						Nekomimi
-					</Link>.
+					</Link>
+					.
 				</p>
 				<Link href="https://static.pprmint.art/download/Mina/reference.png">
 					<Button>
