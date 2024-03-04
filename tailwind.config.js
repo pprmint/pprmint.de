@@ -445,6 +445,9 @@ module.exports = {
 			gridTemplateColumns: {
 				16: "repeat(16, minmax(0, 1fr))",
 			},
+			boxShadow: {
+				"inner": "inset 0 2px 3px rgba(0, 0, 0, 0.2)",
+			},
 		},
 	},
 	plugins: [require("@tailwindcss/typography")],
