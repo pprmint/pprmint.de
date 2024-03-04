@@ -4,6 +4,7 @@ import { NextIntlClientProvider, useMessages } from "next-intl";
 import { locales } from "../../navigation";
 import NavBar from "src/components/layout/NavBar";
 import Footer from "src/components/layout/Footer";
+import ScrollToTopButton from "src/components/layout/ScrollToTopButton";
 
 type Props = {
 	children: ReactNode;
@@ -41,6 +42,7 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
 					<NavBar />
 					{children}
 					<Footer />
+					<ScrollToTopButton />
 				</NextIntlClientProvider>
 			</body>
 		</html>
