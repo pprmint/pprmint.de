@@ -95,6 +95,9 @@ dependencies:
   jszip:
     specifier: ^3.10.1
     version: 3.10.1
+  lucide-react:
+    specifier: ^0.345.0
+    version: 0.345.0(react@18.2.0)
   next:
     specifier: 14.1.1
     version: 14.1.1(react-dom@18.2.0)(react@18.2.0)
@@ -3621,6 +3624,14 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
+    dev: false
+
+  /lucide-react@0.345.0(react@18.2.0):
+    resolution: {integrity: sha512-hDU+wTmMsWR5IsnVMVGSAGcR1wdCfzPfKFpfsJ19qy51ixWFJyrmpdM9mq7MZxOsiAEr5CdS3EQMNnvLejfy9A==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /markdown-table@3.0.3:

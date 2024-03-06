@@ -7,6 +7,7 @@ import { Link, locales, usePathname } from "src/navigation";
 import Copyright from "./Copyright";
 
 import { Pages, Projects } from "./Links";
+import { ChevronRight } from "lucide-react";
 
 export default function MobileNavigation() {
 	const t = useTranslations("NAVIGATION");
@@ -74,10 +75,10 @@ export default function MobileNavigation() {
 		return (
 			<Link href={props.href} locale={props.locale as "en" | "de" | undefined} onClick={handleClose}>
 				<li
-					className={`hover:text-neutral-50 hover:bg-neutral-50/10 active:opacity-75 px-3 py-1.5 w-full duration-100 rounded-full ${highlight}`}
+					className={`flex items-center hover:text-neutral-50 hover:bg-neutral-50/10 active:opacity-75 px-3 py-1.5 w-full duration-100 rounded-full ${highlight}`}
 				>
 					{!props.disableHighlight && props.href === pathname && (
-						<i className="ri-arrow-right-s-line font-normal text-green mr-1.5" />
+						<ChevronRight size={16} className="inline stroke-green mr-1.5" />
 					)}
 					{props.title}
 				</li>
@@ -91,7 +92,7 @@ export default function MobileNavigation() {
 				className="fixed top-3 right-3 text-neutral-50 text-xl w-10 h-10 rounded-full z-50 hover:bg-neutral-50/10 duration-100"
 				onClick={toggleOpen}
 			>
-				<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg" className="absolute left-0 top-0">
+				<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg" className="absolute left-0 top-0" strokeLinecap="round">
 					<path
 						d={navOpen ? "M14,14 20,20 26,14" : "M12,14 20,14 28,14"}
 						fill="transparent"
