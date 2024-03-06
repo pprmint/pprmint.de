@@ -8,6 +8,7 @@ import FadingImage from "src/components/ui/FadingImage";
 import ReferenceFront from "public/assets/mina/ref/front.webp";
 import ReferenceBack from "public/assets/mina/ref/back.webp";
 import ReferenceHand from "public/assets/mina/ref/hand.webp";
+import ReferenceShoes from "public/assets/mina/ref/shoes.webp";
 import ReferenceHairtieFront from "public/assets/mina/ref/head_front.svg";
 import ReferenceHairtieBack from "public/assets/mina/ref/head_back.svg";
 
@@ -36,7 +37,7 @@ function ColorPickerToast(props: {
 					<i className="ri-close-line text-neutral-50 p-1" />
 				</Toast.Close>
 			</Toast.Root>
-			<Toast.Viewport className="[--viewport-padding:_25px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-50 outline-none" />
+			<Toast.Viewport className="[--viewport-padding:_25px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-[9999] outline-none" />
 		</Toast.Provider>
 	);
 }
@@ -74,6 +75,67 @@ export default function RefSheet() {
 		<section id="design" className="my-20 max-w-7xl mx-auto px-2">
 			<div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-rows-4 md:grid-rows-3 xl:grid-rows-2 grid-flow-dense gap-3 md:max-h-[800px]">
 				<div
+					id="hand"
+					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6"
+				>
+					<FadingImage
+						src={ReferenceHand}
+						className="w-auto max-h-full object-contain"
+						alt="Full-body drawing of Mina doing a peace sign, front perspective."
+					/>
+				</div>
+
+				<div
+					id="front"
+					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl row-span-2 p-3"
+				>
+					<FadingImage
+						src={ReferenceFront}
+						className="w-auto max-h-full object-contain"
+						alt="Full-body drawing of Mina doing a peace sign, front perspective."
+						priority
+					/>
+				</div>
+				<div
+					id="back"
+					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl row-span-2 p-3"
+				>
+					<FadingImage
+						src={ReferenceBack}
+						className="w-auto max-h-full object-contain"
+						alt="Full-body drawing of Mina doing a peace sign, back perspective."
+						priority
+					/>
+				</div>
+				<div
+					id="hairtie"
+					className="flex md:col-span-2 xl:col-span-1 items-center justify-center gap-6 bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6"
+				>
+					<FadingImage
+						src={ReferenceHairtieBack}
+						className="w-auto max-h-full object-contain"
+						alt="Outline of Mina's head, viewed from the back."
+						priority
+					/>
+					<FadingImage
+						src={ReferenceHairtieFront}
+						className="w-auto max-h-full object-containm hidden md:block xl:hidden"
+						alt="Outline of Mina's head, viewed from the front."
+						priority
+					/>
+				</div>
+
+				<div
+					id="shoe"
+					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6"
+				>
+					<FadingImage
+						src={ReferenceShoes}
+						className="w-auto max-h-full object-contain"
+						alt="Full-body drawing of Mina doing a peace sign, front perspective."
+					/>
+				</div>
+				<div
 					id="colorpalette"
 					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl"
 				>
@@ -100,62 +162,6 @@ export default function RefSheet() {
 						</div>
 					</div>
 				</div>
-                <div
-					id="front"
-					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl row-span-2 p-3"
-				>
-					<FadingImage
-						src={ReferenceFront}
-						className="w-auto max-h-full object-contain"
-						alt="Full-body drawing of Mina doing a peace sign, front perspective."
-						priority
-					/>
-				</div>
-				<div
-					id="back"
-					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl row-span-2 p-3"
-				>
-					<FadingImage
-						src={ReferenceBack}
-						className="w-auto max-h-full object-contain"
-						alt="Full-body drawing of Mina doing a peace sign, back perspective."
-						priority
-					/>
-				</div>
-                <div
-					id="hairtie"
-					className="flex md:col-span-2 xl:col-span-1 items-center justify-center gap-6 bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6"
-				>
-					<FadingImage
-						src={ReferenceHairtieBack}
-						className="w-auto max-h-full object-contain"
-						alt="Outline of Mina's head, viewed from the back."
-						priority
-					/>
-					<FadingImage
-						src={ReferenceHairtieFront}
-						className="w-auto max-h-full object-containm hidden md:block xl:hidden"
-						alt="Outline of Mina's head, viewed from the front."
-						priority
-					/>
-				</div>
-				<div
-					id="hand"
-					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6"
-				>
-					<FadingImage
-						src={ReferenceHand}
-						className="w-auto max-h-full object-contain"
-						alt="Full-body drawing of Mina doing a peace sign, front perspective."
-					/>
-				</div>
-
-				<div
-					id="shoe"
-					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6"
-				>
-					shoes
-				</div>
 			</div>
 			<div className="flex items-center justify-between pt-6">
 				<p>
@@ -165,7 +171,7 @@ export default function RefSheet() {
 					</Link>
 					.
 				</p>
-				<Link href="https://static.pprmint.art/download/Mina/reference.png">
+				<Link href="https://static.pprmint.art/download/Mina/Mina_ref_sheet_(by_nekomimi).png" target="_blank" download>
 					<Button>
 						<i className="ri-download-2-line" /> Download reference sheet
 					</Button>
