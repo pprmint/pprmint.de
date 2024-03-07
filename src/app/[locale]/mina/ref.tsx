@@ -1,7 +1,7 @@
 "use client";
-import { useRef, useState } from "react";
+import { PropsWithChildren, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import * as Accordion from "@radix-ui/react-accordion";
+import * as Dialog from "@radix-ui/react-dialog";
 import * as Toast from "@radix-ui/react-toast";
 import FadingImage from "src/components/ui/FadingImage";
 
@@ -14,6 +14,7 @@ import ReferenceHairtieBack from "public/assets/mina/ref/head_back.svg";
 
 import { Link } from "src/navigation";
 import Button from "src/components/ui/Button";
+import { X } from "lucide-react";
 
 function ColorPickerToast(props: {
 	color: string;
@@ -42,22 +43,37 @@ function ColorPickerToast(props: {
 	);
 }
 
+function InfoDialog(props: PropsWithChildren<{ title: string; description: string }>) {
+	return (
+		<div className="flex flex-col md:flex-row">
+			{props.children}
+			<div>
+				<h1>{props.title}</h1>
+				<p>{props.description}</p>
+			</div>
+		</div>
+	);
+}
+
 export default function RefSheet() {
 	const t = useTranslations("MINA");
 
 	// Toast
-	const [open, setOpen] = useState(false);
+	const [toastOpen, setToastOpen] = useState(false);
 	const timerRef = useRef(0);
 	const [currentColor, setCurrentColor] = useState("");
+
+	// Info cards
+	const [activeDetail, setActiveDetail] = useState("");
 
 	function ColorSwatch({ color, ring }: { color: string; ring?: boolean }) {
 		function handleClick() {
 			navigator.clipboard.writeText(color.substring(1));
-			setOpen(false);
+			setToastOpen(false);
 			window.clearTimeout(timerRef.current);
 			timerRef.current = window.setTimeout(() => {
 				setCurrentColor(color);
-				setOpen(true);
+				setToastOpen(true);
 			}, 100);
 		}
 		return (
@@ -73,110 +89,135 @@ export default function RefSheet() {
 
 	return (
 		<section id="design" className="my-20 max-w-7xl mx-auto px-2">
-			<div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-rows-4 md:grid-rows-3 xl:grid-rows-2 grid-flow-dense gap-3 md:max-h-[800px]">
-				<div
-					id="hand"
-					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6"
-				>
-					<FadingImage
-						src={ReferenceHand}
-						className="w-auto max-h-full object-contain"
-						alt="Full-body drawing of Mina doing a peace sign, front perspective."
-					/>
-				</div>
-
-				<div
-					id="front"
-					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl row-span-2 p-3"
-				>
-					<FadingImage
-						src={ReferenceFront}
-						className="w-auto max-h-full object-contain"
-						alt="Full-body drawing of Mina doing a peace sign, front perspective."
-						priority
-					/>
-				</div>
-				<div
-					id="back"
-					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl row-span-2 p-3"
-				>
-					<FadingImage
-						src={ReferenceBack}
-						className="w-auto max-h-full object-contain"
-						alt="Full-body drawing of Mina doing a peace sign, back perspective."
-						priority
-					/>
-				</div>
-				<div
-					id="hairtie"
-					className="flex md:col-span-2 xl:col-span-1 items-center justify-center gap-6 bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6"
-				>
-					<FadingImage
-						src={ReferenceHairtieBack}
-						className="w-auto max-h-full object-contain"
-						alt="Outline of Mina's head, viewed from the back."
-						priority
-					/>
-					<FadingImage
-						src={ReferenceHairtieFront}
-						className="w-auto max-h-full object-containm hidden md:block xl:hidden"
-						alt="Outline of Mina's head, viewed from the front."
-						priority
-					/>
-				</div>
-
-				<div
-					id="shoe"
-					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6"
-				>
-					<FadingImage
-						src={ReferenceShoes}
-						className="w-auto max-h-full object-contain"
-						alt="Full-body drawing of Mina doing a peace sign, front perspective."
-					/>
-				</div>
-				<div
-					id="colorpalette"
-					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl"
-				>
-					<ColorPickerToast color={currentColor} open={open} onOpenChange={setOpen} />
-					<div className="flex flex-col gap-2 h-full justify-center">
-						<div className="flex gap-5 px-6">
-							<ColorSwatch color="#63e4a3" />
-							<ColorSwatch color="#22ccff" />
-							<ColorSwatch color="#111111" />
-							<ColorSwatch color="#ffeee4" />
+			<Dialog.Root>
+				<div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-rows-4 md:grid-rows-3 xl:grid-rows-2 grid-flow-dense gap-3 md:max-h-[800px]">
+					<Dialog.Trigger asChild onClick={() => setActiveDetail("hand")}>
+						<div
+							id="hand"
+							className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6"
+						>
+							<FadingImage
+								src={ReferenceHand}
+								className="w-auto max-h-full object-contain"
+								alt="Full-body drawing of Mina doing a peace sign, front perspective."
+							/>
 						</div>
-						<div className="flex gap-2 px-4 items-center">
-							<div className="flex gap-5 p-2 ring-2 ring-neutral-800 rounded-full">
-								<ColorSwatch color="#00cc66" />
-								<ColorSwatch color="#4499ee" />
-								<ColorSwatch color="#222222" ring />
+					</Dialog.Trigger>
+
+					<div
+						id="front"
+						className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl row-span-2 p-3"
+					>
+						<FadingImage
+							src={ReferenceFront}
+							className="w-auto max-h-full object-contain"
+							alt="Full-body drawing of Mina doing a peace sign, front perspective."
+							priority
+						/>
+					</div>
+					<div
+						id="back"
+						className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl row-span-2 p-3"
+					>
+						<FadingImage
+							src={ReferenceBack}
+							className="w-auto max-h-full object-contain"
+							alt="Full-body drawing of Mina doing a peace sign, back perspective."
+							priority
+						/>
+					</div>
+					<div
+						id="hairtie"
+						className="flex md:col-span-2 xl:col-span-1 items-center justify-center gap-6 bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6"
+					>
+						<FadingImage
+							src={ReferenceHairtieBack}
+							className="w-auto max-h-full object-contain"
+							alt="Outline of Mina's head, viewed from the back."
+							priority
+						/>
+						<FadingImage
+							src={ReferenceHairtieFront}
+							className="w-auto max-h-full object-containm hidden md:block xl:hidden"
+							alt="Outline of Mina's head, viewed from the front."
+							priority
+						/>
+					</div>
+
+					<div
+						id="shoe"
+						className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6"
+					>
+						<FadingImage
+							src={ReferenceShoes}
+							className="w-auto max-h-full object-contain"
+							alt="Full-body drawing of Mina doing a peace sign, front perspective."
+						/>
+					</div>
+					<div
+						id="colorpalette"
+						className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl"
+					>
+						<ColorPickerToast color={currentColor} open={toastOpen} onOpenChange={setToastOpen} />
+						<div className="flex flex-col gap-2 h-full justify-center">
+							<div className="flex gap-5 px-6">
+								<ColorSwatch color="#63e4a3" />
+								<ColorSwatch color="#22ccff" />
+								<ColorSwatch color="#111111" />
+								<ColorSwatch color="#ffeee4" />
 							</div>
-							<p className="text-xs font-medium text-neutral-600">PRIMARY</p>
-						</div>
-						<div className="flex gap-5 px-6">
-							<ColorSwatch color="#008b45" />
-							<ColorSwatch color="#196bc0" />
-							<ColorSwatch color="#111111" />
+							<div className="flex gap-2 px-4 items-center">
+								<div className="flex gap-5 p-2 ring-2 ring-neutral-800 rounded-full">
+									<ColorSwatch color="#00cc66" />
+									<ColorSwatch color="#4499ee" />
+									<ColorSwatch color="#222222" ring />
+								</div>
+								<p className="text-xs font-medium text-neutral-600">PRIMARY</p>
+							</div>
+							<div className="flex gap-5 px-6">
+								<ColorSwatch color="#008b45" />
+								<ColorSwatch color="#196bc0" />
+								<ColorSwatch color="#111111" />
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div className="flex items-center justify-between pt-6">
-				<p>
-					Reference drawings made by{" "}
-					<Link href="https://twitter.com/nekomimiwubs" rel="noopener noreferrer" className="text-link-external">
-						Nekomimi
+				<div className="flex items-center justify-between pt-6">
+					<p>
+						Reference drawings made by{" "}
+						<Link href="https://twitter.com/nekomimiwubs" rel="noopener noreferrer" className="text-link-external">
+							Nekomimi
+						</Link>
+						.
+					</p>
+					<Link
+						href="https://static.pprmint.art/download/Mina/Mina_ref_sheet_(by_nekomimi).png"
+						target="_blank"
+						download
+					>
+						<Button>
+							<i className="ri-download-2-line" /> Download reference sheet
+						</Button>
 					</Link>
-					.
-				</p>
-				<Link href="https://static.pprmint.art/download/Mina/Mina_ref_sheet_(by_nekomimi).png" target="_blank" download>
-					<Button>
-						<i className="ri-download-2-line" /> Download reference sheet
-					</Button>
-				</Link>
-			</div>
+				</div>
+				<Dialog.Portal>
+					<Dialog.Overlay className="bg-neutral-950/90 data-[state=open]:animate-fade-in fixed inset-0 z-[10000]" />
+					<Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-lg border border-neutral-900 ring-neutral-950 bg-neutral-900 p-6 focus:outline-none z-[10001]">
+						<Dialog.Title asChild>
+							<h2>{activeDetail}</h2>
+						</Dialog.Title>
+						<Dialog.Description>{activeDetail}</Dialog.Description>
+						<Dialog.Close asChild>
+							<button
+								className="absolute top-3 right-3 inline-flex size-9 bg-neutral-800 appearance-none items-center justify-center rounded-full focus:outline-none"
+								aria-label="Close"
+							>
+								<X />
+							</button>
+						</Dialog.Close>
+					</Dialog.Content>
+				</Dialog.Portal>
+			</Dialog.Root>
 		</section>
 	);
 }
