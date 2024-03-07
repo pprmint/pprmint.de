@@ -22,7 +22,7 @@ function ColorPickerToast(props: {
 }) {
 	const t = useTranslations("COMMON");
 	return (
-		<Toast.Provider swipeDirection="right">
+		<Toast.Provider swipeDirection="right" duration={3000}>
 			<Toast.Root
 				className="flex gap-5 items-center p-3 rounded-xl shadow-lg shadow-neutral-950/50 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
 				open={props.open}
