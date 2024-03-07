@@ -309,23 +309,32 @@
 				"text5": "She also loves pats.",
 				"text6": "The design was created by <Link>@wxsonz</Link>. Please take a look at his Twitter profile for more of his work."
 			},
-			"Design": {
-				"heading": "Design",
-				"HairBand": {
-					"heading": "Hair band & ponytail",
-					"text": "Shaped like a leaf, used for her ponytail. It might make her look like a certain Vocaloid character."
+			"Reference": {
+				"Outfit": {
+					"heading": "Common outfit",
+					"text1": "Mina's outfits are usually rather dark, a combination of dark grey, white and green.",
+					"text2": "Her regular outfit consists of a comfy hooded jacket with grey fluff inside, featuring green lines around the hood and lower edge of the jacket and more green for the sleeves.",
+					"text3": "Similarly, her thigh highs feature a vertical green line which has my leaf icon embedded into it.",
+					"text4": ""
 				},
-				"Ahoge": {
-					"heading": "Ahoge",
-					"text": "Her hair antenna shoots up when you aim for pats."
+				"Rings": {
+					"heading": "Rings",
+					"text1": "Her standard ring is plain rectangular, worn on both the ring and middle finger.",
+					"text2": "If you have a certain theme or outfit in mind for any art you draw, you're free to change the design to match it. How many rings there and on which fingers is up to you.",
+					"text3": "You may also omit the ring entirely, though at least one is generally preferred."
 				},
-				"Accessories": {
-					"heading": "Accessories",
-					"text": "She often wears a ring and can sometimes be seen with badges of icons for tools and programs."
+				"Hairbow": {
+					"heading": "Hair bow and ponytail",
+					"text1": "Her hair bow is (somehow) tied in such a way that a leaf shape peeks out at the top. Her ponytail is also tied a little to the left (when viewed from behind). That way it can still be seen to the right behind her head when looking at her face to face.",
+					"text2": "The center point of the tie is highlighted red."
 				},
-				"LeafDesign": {
-					"heading": "Leaf design",
-					"text": "Her clothes often have a green line with a two-toned leaf embedded into it."
+				"Shoes": {
+					"heading": "Shoes",
+					"text1": "Instead of a hanger that nobody ever uses, you can find a little leaf attached to the back, along with some other green accents.",
+					"text2": "Like with other parts of her outfit, feel free to change the design to match your own vision."
+				},
+				"Color": {
+					"text": "Psst, you can find a more comprehensive and interactive color palette to quickly copy HEX codes from on the <Link>palette page</Link>."
 				}
 			},
 			"Colors": {
@@ -350,8 +359,8 @@
 				"drawnBy": "By ",
 				"showingArtworks_one": "Showing {count} artwork.",
 				"showingArtworks_other": "Showing {count} artworks.",
-                "outOfBounds": "...where am i?",
-                "clipBackIn": "Clip back in bounds"
+				"outOfBounds": "...where am i?",
+				"clipBackIn": "Clip back in bounds"
 			},
 			"NSFW": {
 				"switch": "Neuron activation",
