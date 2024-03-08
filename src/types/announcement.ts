@@ -4,7 +4,7 @@ export default interface Announcement {
 		title: string;
 		link?: string;
 		linkText?: string;
-		buttonColor?: string;
+		buttonColor?: "red" | "orange" | "yellow" | "lime" | "green" | "cyan" | "blue" | "violet" | "pink" | undefined;
 		description: string;
 		createdAt: string;
 		updatedAt: string;
