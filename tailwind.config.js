@@ -245,6 +245,10 @@ module.exports = {
 					"50%": { backgroundColor: "#eeeeee26" },
 					"100%": { backgroundColor: "#eeeeee14" },
 				},
+				lucideCheckDrawIn: {
+					from: { strokeDashoffset: -24 },
+					to: { strokeDashoffset: 0 },
+				},
 			},
 			animation: {
 				"slow-spin": "spin 3s linear infinite;",
@@ -268,6 +272,7 @@ module.exports = {
 				"fade-out-scale-down": "fadeOutScaleDown .2s cubic-bezier(0, 0, 0.2, 1)",
 				"arrow-fade-down": "arrowFadeDown 1.5s cubic-bezier(0.2, 0.2, .2, 1) 2s infinite",
 				"skeleton-pulse": "skeletonPulse 3s cubic-bezier(0.7, 0, 0.3, 1) 2s infinite",
+				"lucide-check-draw-in": "lucideCheckDrawIn 0.25s cubic-bezier(0.33, 1, 0.68, 1)",
 			},
 			transitionDuration: {
 				25: "25ms",
@@ -446,7 +451,7 @@ module.exports = {
 				16: "repeat(16, minmax(0, 1fr))",
 			},
 			boxShadow: {
-				"inner": "inset 0 2px 3px rgba(0, 0, 0, 0.2)",
+				inner: "inset 0 2px 3px rgba(0, 0, 0, 0.2)",
 			},
 		},
 	},
