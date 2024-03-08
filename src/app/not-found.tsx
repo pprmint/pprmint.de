@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useSpring, a, config, easings } from "@react-spring/web";
+import { useSpring, a, config, easings, useTransition } from "@react-spring/web";
 
 import Button from "src/components/ui/Button";
 
@@ -10,6 +10,7 @@ import { Home } from "lucide-react";
 
 import Wordmark from "public/assets/wordmark.svg";
 import DetectiveMina from "public/assets/404/mina_chibi.webp";
+import { useEffect, useState } from "react";
 
 export default function NotFound() {
 	// Animations
@@ -52,6 +53,22 @@ export default function NotFound() {
 		},
 	});
 
+	// Cycle between front and back full-body drawing.
+	const [showGerman, setShowGerman] = useState(false);
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setShowGerman(!showGerman);
+		}, 10000);
+		return () => clearInterval(interval);
+	}, [showGerman]);
+
+	const cycleTransition = useTransition(!showGerman, {
+		from: { opacity: 0, y: 20 },
+		enter: { opacity: 1, y: 0 },
+		leave: { opacity: 0, y: -20, config: config.stiff },
+		exitBeforeEnter: true,
+	});
+
 	return (
 		<html lang="en">
 			<body className="bg-neutral-950 selection:bg-orange selection:text-neutral-950 text-neutral focus-visible:outline-none focus-visible:ring-2 overflow-x-hidden">
@@ -90,31 +107,52 @@ export default function NotFound() {
 							className="w-40 md:w-72 lg:w-80"
 							priority
 						/>
-						<div className="flex flex-col items-center md:items-start md:flex-grow text-center md:text-left h-max">
-							<div className="pb-6">
-								<h1>
-									She looked everywhere
-									<span className="text-orange">.</span>
-								</h1>
-								<p className="md:text-lg">
-									There's no page here. Maybe it was moved or it never existed. That's how it is sometimes.
-								</p>
-							</div>
-							<Link href="/" className="w-fit pb-9">
-								<Button color="orange">
-									Go to home page
-									<Home size={16} strokeWidth={2} />
-								</Button>
-							</Link>
-							<div className="opacity-75">
-								<h1 className="text-lg md:text-xl pb-1">
-									Sie hat überall gesucht<span className="text-orange">.</span>
-								</h1>
-								<p className="text-xs">
-									Hier gibt es keine Seite. Vielleicht wurde sie verschoben, oder es gab sie nie. So ist das manchmal.
-								</p>
-							</div>
-						</div>
+						{cycleTransition((styles, item) =>
+							item ? (
+								<a.div
+									style={styles}
+									className="flex flex-col items-center md:items-start md:flex-grow text-center md:text-left h-max"
+								>
+									<div className="pb-6">
+										<h1>
+											She looked everywhere
+											<span className="text-orange">.</span>
+										</h1>
+										<p className="md:text-lg">
+											There's no page here. Maybe it was moved or it never existed. That's how it is sometimes.
+										</p>
+									</div>
+									<Link href="/" className="w-fit">
+										<Button color="orange">
+											Go to home page
+											<Home size={16} strokeWidth={2} />
+										</Button>
+									</Link>
+								</a.div>
+							) : (
+								<a.div
+									style={styles}
+									className="flex flex-col items-center md:items-start md:flex-grow text-center md:text-left h-max"
+								>
+									<div className="pb-6">
+										<h1>
+											Sie hat überall gesucht<span className="text-orange">.</span>
+										</h1>
+										<p className="md:text-lg">
+											Hier gibt es keine Seite. Vielleicht wurde sie verschoben, oder es gab sie nie. So ist das
+											manchmal.
+										</p>
+									</div>
+									<Link href="/" className="w-fit">
+										<Button color="orange">
+											Zur Startseite
+											<Home size={16} strokeWidth={2} />
+										</Button>
+									</Link>
+								</a.div>
+							)
+						)}
+
 						<p className="md:absolute pt-6 bottom-3 md:bottom-5 left-0 right-0 text-xs text-center">
 							Detective Mina was drawn by{" "}
 							<Link href="https://twitter.com/108sketches" target="_blank" className="text-link-external">
