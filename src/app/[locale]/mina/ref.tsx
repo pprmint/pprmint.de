@@ -46,15 +46,11 @@ function ColorPickerToast(props: {
 }
 
 function CyclingFrontBackRef() {
-	// Cycle between front and back full-body drawing.
 	const [showBack, setShowBack] = useState(false);
 	useEffect(() => {
-		//Implementing the setInterval method
 		const interval = setInterval(() => {
 			setShowBack(!showBack);
 		}, 5000);
-
-		//Clearing the interval
 		return () => clearInterval(interval);
 	}, [showBack]);
 
@@ -72,7 +68,7 @@ function CyclingFrontBackRef() {
 				<FadingImage
 					src={ReferenceBack}
 					alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
-					className="h-full max-h-[90vh] object-contain"
+					className="h-full max-h-2/3-screen lg:max-h-[90vh] object-contain"
 				/>
 			</a.div>
 		) : (
@@ -80,7 +76,7 @@ function CyclingFrontBackRef() {
 				<FadingImage
 					src={ReferenceFront}
 					alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
-					className="h-full max-h-[90vh] object-contain"
+					className="h-full max-h-2/3-screen lg:max-h-[90vh] object-contain"
 				/>
 			</a.div>
 		)
@@ -132,9 +128,9 @@ export default function RefSheet() {
 			<Dialog.Portal>
 				<Dialog.Overlay className="bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-50" />
 				<Dialog.Content
-					className={`fixed z-[9999] flex flex-col ${
-						!col && "xl:flex-row"
-					} gap-12 items-center top-1/2 left-1/2 max-h-[90vh] w-full max-w-5xl -translate-x-1/2 -translate-y-1/2 p-3 md:p-6 xl:p-9 bg-neutral-950 border border-neutral-900 ring-1 ring-neutral-950 shadow-xl shadow-neutral-950/50 rounded-xl data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down focus:outline-none origin-top-left overflow-clip`}
+					className={`fixed inset-0 lg:inset-auto overflow-auto lg:overflow-clip z-[9999] flex flex-col ${
+						!col && "lg:flex-row"
+					} gap-12 items-center lg:top-1/2 lg:left-1/2 max-h-svh lg:max-h-[90vh] w-screen max-w-5xl lg:-translate-x-1/2 lg:-translate-y-1/2 p-6 md:p-9 bg-neutral-950 border border-neutral-900 ring-1 ring-neutral-950 shadow-xl shadow-neutral-950/50 rounded-xl data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down focus:outline-none origin-center lg:origin-top-left`}
 				>
 					{reference}
 					<div>
@@ -188,7 +184,7 @@ export default function RefSheet() {
 							<FadingImage
 								src={ReferenceHand}
 								alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
-								className="w-2/3 h-auto object-contain"
+								className="max-h-2/3-screen w-auto lg:w-full lg:max-h-[90vh] object-contain"
 							/>
 						}
 					/>
@@ -253,7 +249,7 @@ export default function RefSheet() {
 						</div>
 					</Dialog.Trigger>
 					<InfoDialog
-                        col
+						col
 						title={t("Content.Reference.Hairbow.heading")}
 						description={
 							<>
@@ -262,16 +258,16 @@ export default function RefSheet() {
 							</>
 						}
 						reference={
-							<div className="flex w-3/4">
+							<div className="flex flex-col items-center md:flex-row w-full lg:w-3/4 max-h-2/3-screen">
 								<FadingImage
 									src={ReferenceHairbowFront}
 									alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
-									className="h-full max-h-[90vh] object-contain"
+									className="md:w-full md:h-auto h-full max-h-[90vh] object-contain"
 								/>
 								<FadingImage
 									src={ReferenceHairbowBack}
 									alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
-									className="h-full max-h-[90vh] object-contain"
+									className="md:w-full md:h-auto h-full max-h-[90vh] object-contain"
 								/>
 							</div>
 						}
@@ -302,7 +298,7 @@ export default function RefSheet() {
 							<FadingImage
 								src={ReferenceShoes}
 								alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
-								className="w-full max-h-[90vh] object-contain"
+								className="max-h-2/3-screen w-auto lg:w-full lg:max-h-[90vh] object-contain"
 							/>
 						}
 					/>
