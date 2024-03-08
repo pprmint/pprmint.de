@@ -109,57 +109,67 @@ export default function NotFound() {
 						/>
 						{cycleTransition((styles, item) =>
 							item ? (
-								<a.div
-									style={styles}
-									className="flex flex-col items-center md:items-start md:flex-grow text-center md:text-left h-max"
-								>
-									<div className="pb-6">
-										<h1>
-											She looked everywhere
-											<span className="text-orange">.</span>
-										</h1>
-										<p className="md:text-lg">
-											There's no page here. Maybe it was moved or it never existed. That's how it is sometimes.
-										</p>
-									</div>
-									<Link href="/" className="w-fit">
-										<Button color="orange">
-											Go to home page
-											<Home size={16} strokeWidth={2} />
-										</Button>
-									</Link>
-								</a.div>
+								<>
+									<a.div
+										style={styles}
+										className="flex flex-col items-center md:items-start md:flex-grow text-center md:text-left h-max"
+									>
+										<div className="pb-6">
+											<h1>
+												She looked everywhere
+												<span className="text-orange">.</span>
+											</h1>
+											<p className="md:text-lg">
+												There's no page here. Maybe it was moved or it never existed. That's how it is sometimes.
+											</p>
+										</div>
+										<Link href="/" className="w-fit">
+											<Button color="orange">
+												Go to home page
+												<Home size={16} strokeWidth={3} />
+											</Button>
+										</Link>
+									</a.div>
+									<a.p style={styles} className="md:absolute pt-6 bottom-3 md:bottom-5 left-0 right-0 text-xs text-center">
+										Detective Mina was drawn by{" "}
+										<Link href="https://twitter.com/108sketches" target="_blank" className="text-link-external">
+											Layer (@108sketches)
+										</Link>
+										.
+									</a.p>
+								</>
 							) : (
-								<a.div
-									style={styles}
-									className="flex flex-col items-center md:items-start md:flex-grow text-center md:text-left h-max"
-								>
-									<div className="pb-6">
-										<h1>
-											Sie hat überall gesucht<span className="text-orange">.</span>
-										</h1>
-										<p className="md:text-lg">
-											Hier gibt es keine Seite. Vielleicht wurde sie verschoben, oder es gab sie nie. So ist das
-											manchmal.
-										</p>
-									</div>
-									<Link href="/" className="w-fit">
-										<Button color="orange">
-											Zur Startseite
-											<Home size={16} strokeWidth={2} />
-										</Button>
-									</Link>
-								</a.div>
+								<>
+									<a.div
+										style={styles}
+										className="flex flex-col items-center md:items-start md:flex-grow text-center md:text-left h-max"
+									>
+										<div className="pb-6">
+											<h1>
+												Sie hat überall gesucht<span className="text-orange">.</span>
+											</h1>
+											<p className="md:text-lg">
+												Hier gibt es keine Seite. Vielleicht wurde sie verschoben, oder es gab sie nie. So ist das
+												manchmal.
+											</p>
+										</div>
+										<Link href="/" className="w-fit">
+											<Button color="orange">
+												Zur Startseite
+												<Home size={16} strokeWidth={3} />
+											</Button>
+										</Link>
+									</a.div>
+									<a.p style={styles} className="md:absolute pt-6 bottom-3 md:bottom-5 left-0 right-0 text-xs text-center">
+										Detektiv Mina wurde von{" "}
+										<Link href="https://twitter.com/108sketches" target="_blank" className="text-link-external">
+											Layer (@108sketches)
+										</Link>{" "}
+										gezeichnet.
+									</a.p>
+								</>
 							)
 						)}
-
-						<p className="md:absolute pt-6 bottom-3 md:bottom-5 left-0 right-0 text-xs text-center">
-							Detective Mina was drawn by{" "}
-							<Link href="https://twitter.com/108sketches" target="_blank" className="text-link-external">
-								Layer (@108sketches)
-							</Link>
-							.
-						</p>
 					</a.div>
 				</main>
 			</body>
