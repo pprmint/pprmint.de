@@ -48,18 +48,22 @@ export default async function Page({
 				<FadingImage src={HeroMina} alt="Original Mina artwork by wxsonz." fill className="object-cover" quality={90} />
 			</Title>
 			<main>
-				<Ref />
-				{currentPage > pageCount ? (
-					<div className="relative">
-						<GallerySkeleton />
-						<OutOfBounds />
-					</div>
-				) : (
-					<Suspense fallback={<GallerySkeleton />}>
-						<Gallery artworks={Artworks} />
-					</Suspense>
-				)}
-				<Pagination page={currentPage} pageCount={pageCount} />
+				<section id="design" className="my-20 max-w-7xl mx-auto px-2">
+					<Ref />
+				</section>
+				<section className="max-w-7xl mx-auto px-2">
+					{currentPage > pageCount ? (
+						<div className="relative">
+							<GallerySkeleton />
+							<OutOfBounds />
+						</div>
+					) : (
+						<Suspense fallback={<GallerySkeleton />}>
+							<Gallery artworks={Artworks} />
+						</Suspense>
+					)}
+					<Pagination page={currentPage} pageCount={pageCount} />
+				</section>
 			</main>
 		</>
 	);

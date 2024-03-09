@@ -156,7 +156,7 @@ export default function RefSheet() {
 	}
 
 	return (
-		<section id="design" className="my-20 max-w-7xl mx-auto px-2">
+		<>
 			<div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-rows-4 md:grid-rows-3 xl:grid-rows-2 grid-flow-dense gap-3 md:max-h-[800px]">
 				<Dialog.Root>
 					<Dialog.Trigger asChild>
@@ -345,6 +345,6 @@ export default function RefSheet() {
 					</Button>
 				</Link>
 			</div>
-		</section>
+		</>
 	);
 }
