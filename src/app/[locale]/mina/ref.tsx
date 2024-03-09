@@ -144,7 +144,7 @@ export default function RefSheet() {
 					</div>
 					<Dialog.Close asChild>
 						<button
-							className="absolute inline-flex items-center justify-center top-3 md:top-5 right-3 md:right-5 size-10 rounded-full text-neutral-50 hover:bg-neutral-800 duration-100"
+							className="absolute inline-flex items-center justify-center top-3 md:top-5 right-3 md:right-5 size-10 rounded-full text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800 duration-100"
 							aria-label="Close"
 						>
 							<X />
