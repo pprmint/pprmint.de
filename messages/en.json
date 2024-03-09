@@ -47,6 +47,8 @@
 		}
 	},
 	"CHAT": {
+		"button": "Ask Mina!",
+		"back": "Back",
 		"title": "Ask me a question.",
 		"titleAngy": "Go away.",
 		"Messages": {
@@ -206,8 +208,7 @@
 		"Content": {
 			"Mina": {
 				"heading": "You just have a short question?",
-				"text": "Save yourself (and most importantly me) some time and:",
-				"askMina": "Ask Mina!"
+				"text": "Save yourself (and most importantly me) some time and:"
 			},
 			"Email": {
 				"title": "Email",

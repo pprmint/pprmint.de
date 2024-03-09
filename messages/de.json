@@ -47,6 +47,8 @@
 		}
 	},
 	"CHAT": {
+        "button": "Frag Mina!",
+        "back": "Zurück",
 		"title": "Stell mir eine Frage.",
 		"titleAngy": "Geh weg.",
 		"Messages": {
@@ -207,8 +209,7 @@
 		"Content": {
 			"Mina": {
 				"heading": "Du hast nur eine kurze Frage?",
-				"text": "Spar dir (und vor allem mir) etwas Zeit und:",
-				"askMina": "Frag Mina!"
+				"text": "Spar dir (und vor allem mir) etwas Zeit und:"
 			},
 			"Email": {
 				"title": "Email",
@@ -351,8 +352,8 @@
 				"drawnBy": "Von ",
 				"showingArtworks_one": "{count} Artwork wird gezeigt.",
 				"showingArtworks_other": "{count} Artworks werden gezeigt.",
-                "outOfBounds": "...wo bin ich?",
-                "clipBackIn": "Noclip ausschalten"
+				"outOfBounds": "...wo bin ich?",
+				"clipBackIn": "Noclip ausschalten"
 			},
 			"NSFW": {
 				"switch": "Neuronen-Aktivierung",
