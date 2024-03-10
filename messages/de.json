@@ -26,8 +26,13 @@
 				"noThanks": "Nöp"
 			},
 			"search": "Icons nach App-Namen suchen",
-			"iconsSelected_one": "Icon ausgewählt.",
-			"iconsSelected_other": "Icons ausgewählt."
+            "noResults": "Keine Ergebnisse",
+            "Panel": {
+                "iconsSelected": "{count, plural, =1 {Icon} other {Icons}} ausgewählt.",
+				"downloadAll": "Alle herunterladen",
+				"downloadSelected": "Ausgewählte herunterladen",
+				"deselectAll": "Auswahl zurücksetzen"
+			}
 		},
 		"Head": {
 			"description": "App-Symbole im Windows-11-Stil.",
@@ -174,7 +179,6 @@
 		"downloadAll": "Alle herunterladen",
 		"downloadSelected": "Ausgewählte herunterladen",
 		"deselectAll": "Auswahl zurücksetzen",
-		"noResults": "Keine Ergebnisse",
 		"tryDifferent": "Probiere andere Filter aus, oder entferne welche.",
 		"settings": "Einstellungen",
 		"visitPage": "Seite besuchen",

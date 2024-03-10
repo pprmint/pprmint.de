@@ -26,8 +26,13 @@
 				"noThanks": "Nah"
 			},
 			"search": "Search for an app icon by its name",
-			"iconsSelected_one": "icon selected.",
-			"iconsSelected_other": "icons selected."
+			"noResults": "No results",
+			"Panel": {
+				"iconsSelected": "{count, plural, =1 {Icon} other {Icons}} selected.",
+				"downloadAll": "Download all",
+				"downloadSelected": "Download selected",
+				"deselectAll": "Deselect all"
+			}
 		},
 		"Head": {
 			"description": "Windows-11-style app icons.",
@@ -173,7 +178,6 @@
 		"downloadAll": "Download all",
 		"downloadSelected": "Download selected",
 		"deselectAll": "Deselect all",
-		"noResults": "No results",
 		"tryDifferent": "Try using different filters or removing some.",
 		"settings": "Settings",
 		"visitPage": "Visit page",
