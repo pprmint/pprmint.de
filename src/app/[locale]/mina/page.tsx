@@ -41,6 +41,8 @@ export default async function Page({
 	const nsfw = String(searchParams?.nsfw) || "hide";
 	const artist = String(searchParams?.artist) || "";
 	const Artworks: MinaArtworks = await getData(currentPage, nsfw);
+	const Artists: MinaArtworks = await getArtists();
+	const ArtistList: string[] = Array.from(new Set(Artists.data.map((artwork) => artwork.attributes.artist))).sort();
 	const pageCount = Artworks.meta.pagination.pageCount;
 	return (
 		<>
@@ -52,7 +54,7 @@ export default async function Page({
 					<Ref />
 				</section>
 				<section className="max-w-7xl mx-auto px-2">
-					<Filters nsfw={nsfw} />
+					<Filters nsfw={nsfw} artists={ArtistList} />
 					{currentPage > pageCount ? (
 						<div className="relative">
 							<GallerySkeleton />
@@ -83,6 +85,21 @@ async function getData(page: number, nsfw: string) {
 			next: { revalidate: 1800 },
 		}
 	);
+	if (!res.ok) {
+		throw new Error("Failed to fetch data");
+	}
+	return res.json();
+}
+
+async function getArtists() {
+    // Also known as I hate that Strapi doesn't have an easy way to get all distinct values.
+	const res = await fetch(`${process.env.STRAPI_API_URL}/mina-artworks?fields[0]=artist&&pagination[pageSize]=999`, {
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
+		},
+		next: { revalidate: 1800 },
+	});
 	if (!res.ok) {
 		throw new Error("Failed to fetch data");
 	}
