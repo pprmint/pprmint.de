@@ -453,6 +453,13 @@ module.exports = {
 			boxShadow: {
 				inner: "inset 0 2px 3px rgba(0, 0, 0, 0.2)",
 			},
+			zIndex: {
+				60: "60",
+				70: "70",
+				80: "80",
+				90: "90",
+				100: "100",
+			},
 		},
 	},
 	plugins: [require("@tailwindcss/typography")],

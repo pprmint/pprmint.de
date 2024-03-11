@@ -38,7 +38,7 @@ export default async function Page({
 }) {
 	const t = await getTranslations("MINA");
 	const currentPage = Number(searchParams?.p) || 1;
-	const nsfw = String(searchParams?.nsfw) || "show";
+	const nsfw = String(searchParams?.nsfw) || "hide";
 	const artist = String(searchParams?.artist) || "";
 	const Artworks: MinaArtworks = await getData(currentPage, nsfw);
 	const pageCount = Artworks.meta.pagination.pageCount;
@@ -52,6 +52,7 @@ export default async function Page({
 					<Ref />
 				</section>
 				<section className="max-w-7xl mx-auto px-2">
+					<Filters nsfw={nsfw} />
 					{currentPage > pageCount ? (
 						<div className="relative">
 							<GallerySkeleton />

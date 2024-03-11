@@ -315,29 +315,33 @@
 				"text5": "Außerdem liebt sie Streicheleinheiten.",
 				"text6": "Das Design stammt von <Link>@wxsonz</Link>. Schau dir gerne sein Twitter-Profil für weitere seiner Werke an."
 			},
-			"Design": {
-				"heading": "Design",
-				"HairBand": {
-					"heading": "Haartuch & Pferdeschwanz",
-					"text": "In Form eines Blattes für ihren Pferdeschwanz. Es erinnert etwas an einen gewissen Vocaloid-Charakter."
+            "Reference": {
+				"Outfit": {
+					"heading": "Standard-Outfit",
+					"text1": "Mina's outfits are usually rather dark, a combination of dark grey, white and green.",
+					"text2": "Her regular outfit consists of a comfy hooded jacket with grey fluff inside, featuring green lines around the hood and lower edge of the jacket and more green for the sleeves.",
+					"text3": "Similarly, her thigh highs feature a vertical green line which has my leaf icon embedded into it.",
+					"text4": ""
 				},
-				"Ahoge": {
-					"heading": "Ahoge",
-					"text": "Ihre Haar-Antenne schießt in die Höhe, wenn man sie streicheln will."
+				"Rings": {
+					"heading": "Ringe",
+					"text1": "Her standard ring is plain rectangular, worn on both the ring and middle finger.",
+					"text2": "If you have a certain theme or outfit in mind for any art you draw, you're free to change the design to match it. How many rings there and on which fingers is up to you.",
+					"text3": "You may also omit the ring entirely, though at least one is generally preferred."
 				},
-				"Accessories": {
-					"heading": "Schmuck",
-					"text": "Sie trägt oftmals einen Ring und gegentlich Anstecker mit Logos diverser Tools und Programme."
+				"Hairbow": {
+					"heading": "Hairband und Pferdeschwanz",
+					"text1": "Her hair bow is (somehow) tied in such a way that a leaf shape peeks out at the top. Her ponytail is also tied a little to the left (when viewed from behind). That way it can still be seen to the right behind her head when looking at her face to face.",
+					"text2": "The center point of the tie is highlighted red."
 				},
-				"LeafDesign": {
-					"heading": "Blatt-Design",
-					"text": "Ihre Kleidung hat oftmals einen Strich, welcher durch ein zweifarbiges Blatt unterbrochen wird."
+				"Shoes": {
+					"heading": "Schuhe",
+					"text1": "Instead of a hanger that nobody ever uses, you can find a little leaf attached to the back, along with some other green accents.",
+					"text2": "Like with other parts of her outfit, feel free to change the design to match your own vision."
+				},
+				"Color": {
+					"text": "Psst, you can find a more comprehensive and interactive color palette to quickly copy HEX codes from on the <Link>palette page</Link>."
 				}
-			},
-			"Colors": {
-				"heading": "Farben",
-				"text1": "Diese Farben sind Teil meiner eigenen Farbpalette, aber nur Richtwerte. Wenn du Mina zeichnen willst, beachte nur, dass sie grüne Haare und hellblaue Augen mit einem Verlauf zu grün hat. Sonst kannst du gerne experimentieren.",
-				"text2": "Klicke auf eine Farbe, um den HEX-Code in die Zwischenablage zu kopieren."
 			},
 			"Fanart": {
 				"heading": "Fanart-Regeln",
