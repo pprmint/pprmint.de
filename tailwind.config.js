@@ -194,6 +194,22 @@ module.exports = {
 					from: { height: "var(--radix-accordion-content-height)", opacity: 1 },
 					to: { height: 0, opacity: 0 },
 				},
+				collapsibleOpen: {
+					from: {
+						width: 0,
+					},
+					to: {
+						width: "var(--radix-collapsible-content-width)",
+					},
+				},
+				collapsibleClose: {
+					from: {
+						width: "var(--radix-collapsible-content-width)",
+					},
+					to: {
+						width: 0,
+					},
+				},
 				selectOpen: {
 					from: { opacity: 0 },
 					to: { opacity: 1 },
@@ -260,6 +276,8 @@ module.exports = {
 				"exit-to-t": "exitToTop .25s cubic-bezier(.15,0,.35,1)",
 				"accordion-slide-down": "accordionSlideDown .4s cubic-bezier(0.5, 0, 0.1, 1);",
 				"accordion-slide-up": "accordionSlideUp .4s cubic-bezier(0.5, 0, 0.1, 1);",
+				"collapsible-open": "collapsibleOpen .4s cubic-bezier(0.16, 1, 0.3, 1);",
+				"collapsible-close": "collapsibleClose .25s cubic-bezier(0.33, 1, 0.68, 1);",
 				"select-open": "selectOpen .2s;",
 				"select-close": "selectClose .2s;",
 				"toast-slide-in": "toastSlideIn .3s cubic-bezier(0.16, 1, 0.3, 1);",

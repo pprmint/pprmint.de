@@ -7,7 +7,7 @@ export default async function Gallery(artworks: { artworks: MinaArtworks }) {
 			{artworks.artworks.data.map((art: MinaArtwork, index: number) => (
 				<button
 					key={art.id}
-					className="relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl hover:z-10 cursor-pointer aspect-square"
+					className="relative group overflow-hidden rounded-lg hover:contrast-[80%] active:contrast-100 hover:scale-[102%] active:scale-100 duration-200 active:duration-75 hover:shadow-xl cursor-pointer aspect-square"
 				>
 					<FadingImage
 						src={`https://static.pprmint.art${art.attributes.artwork.data.attributes.url}`}

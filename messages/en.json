@@ -355,6 +355,7 @@
 			},
 			"Artworks": {
 				"Filters": {
+                    "button": "Filters",
 					"nsfw": "Neuron activation",
 					"artist": "Artist",
 					"year": "Year"
