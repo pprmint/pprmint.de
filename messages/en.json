@@ -368,9 +368,9 @@
 				"clipBackIn": "Clip back in bounds"
 			},
 			"NSFW": {
-				"switch": "Neuron activation",
+				"checkbox": "Neuron activation",
 				"Dialog": {
-					"title": "Looks like that switch made you a bit curious.",
+					"title": "Looks like that checkbox made you a bit curious",
 					"text1": "Some things are better left unseen. Especially if you're in public or otherwise at risk of someone peeking over your shoulder.",
 					"text2": "Flicking this switch will reveal suggestive and lewd (NSFW) artwork on the page. If you're fine with that, please sell your soul using the green button below in a few seconds.",
 					"text3": "If you're under the age of 18, close this pop-up.",

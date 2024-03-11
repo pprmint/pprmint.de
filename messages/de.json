@@ -364,9 +364,9 @@
 				"clipBackIn": "Noclip ausschalten"
 			},
 			"NSFW": {
-				"switch": "Neuronen-Aktivierung",
+				"checkbox": "Neuronen-Aktivierung",
 				"Dialog": {
-					"title": "Der Schalter hat dich wohl neugierig gemacht.",
+					"title": "Das Ankreuzfeld hat dich wohl neugierig gemacht",
 					"text1": "Manche Dinge sollte man lieber ungesehen lassen. Besonders wenn du dich in der Öffentlichkeit befindest, oder dir jemand aus anderen Gründen über die Schulter linsen könnte.",
 					"text2": "Dieser Schalter wird anzügliche bzw. anstößige (NSFW) Illustrationen auf der Seite anzeigen. Ist dies kein Problem für dich, so verkaufe deine Seele gleich mit dem grünen Knopf unten.",
 					"text3": "Wenn du noch keine 18 Jahre alt bist, schließe dieses Pop-up.",
