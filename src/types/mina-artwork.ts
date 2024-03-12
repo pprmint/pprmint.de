@@ -1,15 +1,18 @@
+import Artist from "./artist";
+
 export default interface MinaArtwork {
 	id: number;
 	attributes: {
-		artist: string;
-		creditUrl?: string;
-		createdAt: string;
-		updatedAt: string;
-		publishedAt: string;
+		artist: {
+			data: Artist;
+		};
 		nsfw: boolean;
 		heart: boolean;
 		creationDate: string;
 		focus: string;
+		createdAt: string;
+		updatedAt: string;
+		publishedAt: string;
 		artwork: {
 			data: {
 				id: number;
