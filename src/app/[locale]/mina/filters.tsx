@@ -17,6 +17,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: string[] }) {
 	const t = useTranslations("MINA");
 	const searchParams = useSearchParams();
 	const nsfw = props.nsfw == "show" ? true : false;
+	const artist = props.artist == "undefined" ? undefined : props;
 	const [filtersOpen, setFiltersOpen] = useState(false);
 	const pathname = usePathname();
 	const { replace } = useRouter();
@@ -102,10 +103,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: string[] }) {
 						onClick={() => setFiltersOpen(!filtersOpen)}
 					>
 						<span className="flex gap-3 items-center font-medium">
-							<Filter
-								size={16}
-								className={`${nsfw || props.artist ? "fill-neutral-50" : "fill-transparent"} duration-100`}
-							/>
+							<Filter size={16} className={`${nsfw || artist ? "fill-neutral-50" : "fill-transparent"} duration-100`} />
 							{t("Content.Artworks.Filters.button")}
 						</span>
 					</button>
@@ -116,11 +114,11 @@ function Filters(props: { nsfw?: string; artist?: string; artists: string[] }) {
 						<label htmlFor="nsfw">{t("Content.NSFW.checkbox")}</label>
 					</div>
 					<div className="inline-flex gap-3 items-center mx-3 w-max">
-						<Select.Root value={props.artist} onValueChange={handleSelectArtist}>
+						<Select.Root value={artist ? props.artist : undefined} onValueChange={handleSelectArtist}>
 							<div className="flex w-48">
 								<Select.Trigger
-									className={`group flex items-center justify-between rounded-md leading-none px-3 h-9 w-full border border-neutral-800 ${
-										props.artist != "" && "rounded-r-none"
+									className={`group flex items-center justify-between rounded-md leading-none px-3 h-9 w-full ${
+										artist && "rounded-r-none"
 									} hover:bg-neutral-800 hover:text-neutral-50 duration-100`}
 									aria-label="Artist"
 								>
@@ -129,10 +127,10 @@ function Filters(props: { nsfw?: string; artist?: string; artists: string[] }) {
 										<i className="ri-arrow-down-s-line" />
 									</Select.Icon>
 								</Select.Trigger>
-								{!props.artist && (
+								{artist && (
 									<button
 										onClick={handleClearArtist}
-										className="h-9 border border-l-0 border-neutral-800 px-2.5 rounded-r-md hover:bg-neutral-800 hover:text-neutral-50 duration-100"
+										className="h-9 px-2.5 rounded-r-md hover:bg-neutral-800 hover:text-neutral-50 duration-100"
 									>
 										<i className="ri-close-line" />
 									</button>
