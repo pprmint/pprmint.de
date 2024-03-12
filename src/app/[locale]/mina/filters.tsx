@@ -125,7 +125,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: string[] }) {
 									<Select.Trigger
 										className={`group flex items-center justify-between px-3 h-9 w-full ${
 											props.artist != "undefined" && "rounded-r-none"
-										} hover:bg-neutral-800 hover:text-neutral-50 active:shadow-inner`}
+										} hover:bg-neutral-800 hover:text-neutral-50 active:shadow-inner duration-100`}
 										aria-label="Artist"
 									>
 										<Select.Value aria-label={props.artist}>
