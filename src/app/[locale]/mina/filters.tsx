@@ -109,11 +109,11 @@ function Filters(props: { nsfw?: string; artist?: string; artists: string[] }) {
 					</button>
 				</Collapsible.Trigger>
 				<Collapsible.Content className="data-[state=open]:animate-collapsible-open data-[state=closed]:animate-collapsible-close whitespace-nowrap overflow-clip">
-					<div className="h-9 inline-flex gap-3 mx-3 w-max">
+					<div className="inline-flex items-center gap-3 mx-3">
 						<Checkbox id="nsfw" checked={nsfw} onCheckedChange={handleNsfw} />
 						<label htmlFor="nsfw">{t("Content.NSFW.checkbox")}</label>
 					</div>
-					<div className="inline-flex gap-3 items-center mx-3 w-max">
+					<div className="inline-flex items-center gap-3 mx-3">
 						<Select.Root value={artist ? props.artist : undefined} onValueChange={handleSelectArtist}>
 							<div className="flex w-48">
 								<Select.Trigger
