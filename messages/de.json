@@ -308,7 +308,7 @@
 		"Content": {
 			"About": {
 				"heading": "Über Mina",
-				"text1": "Mit grünem Haar und smaragdfarbenen Augen wurde sie am 11. Juni 2004 geboren. Mina ist ca. 160 cm groß und ist ein eher ruhiges Mädchen, das zufrieden ist mit dem, was sie hat. Sie zog vor langer Zeit von Japan nach Deutschland, spricht jedoch nur Deutsch und Englisch fließend. Durch ihren langen Aufenthalt in Deutschland hatte außerdem viel Zeit, sich ein paar schöne deutsche Beleidigungen anzueignen. Sparsam eingesetzt sorgen sie dafür, dass manche Leute freiwillig nicht mehr mit ihr reden.",
+				"text1": "Mit grünem Haar und blauen Augen wurde sie am 11. Juni 2004 geboren. Mina ist ca. 160 cm groß und ist ein eher ruhiges Mädchen, das zufrieden ist mit dem, was sie hat. Sie zog vor langer Zeit von Japan nach Deutschland, spricht jedoch nur Deutsch und Englisch fließend. Durch ihren langen Aufenthalt in Deutschland hatte außerdem viel Zeit, sich ein paar schöne deutsche Beleidigungen anzueignen. Sparsam eingesetzt sorgen sie dafür, dass manche Leute freiwillig nicht mehr mit ihr reden.",
 				"text2": "Sie mag Leckereien mit Minzgeschmack, besonders Schokoladen-Minz-Eiscreme. Ebenso hat sie immer eine Packung Kaugummis parat, ihre Kaugummiblasen sind jedoch nur selten größer als ein Zentimeter. Fleischgerichte regen auch ihren Appetit an.",
 				"text3": "Mina ist fasziniert von Architektur und Innenraumgestaltung und hat Freude daran, moderne Wohnräume zu konzipieren. Sie hat schon Pläne, wie jeder Raum in ihrem Traumhaus auszusehen hat, von der Gestaltung des Hauses an sich ganz zu schweigen.",
 				"text4": "Trotzdem hat sie Probleme, sich auf Dinge zu fokussieren und ist leicht abzulenken. Auch mag sie an manchen Tagen etwas vorhaben, macht schlussendlich jedoch alles außer das.",
@@ -318,30 +318,36 @@
             "Reference": {
 				"Outfit": {
 					"heading": "Standard-Outfit",
-					"text1": "Mina's outfits are usually rather dark, a combination of dark grey, white and green.",
-					"text2": "Her regular outfit consists of a comfy hooded jacket with grey fluff inside, featuring green lines around the hood and lower edge of the jacket and more green for the sleeves.",
-					"text3": "Similarly, her thigh highs feature a vertical green line which has my leaf icon embedded into it.",
-					"text4": ""
+					"text1": "Minas Kleidung ist mit einer Kombination aus dunklem Grau, Weiß und Grün in der Regel eher dunkel.",
+					"text2": "Ihr normales Outfit besteht aus einer bequemen Jacke mit Kapuze und grauem Flausch auf der Innenseite. Grüne Linien verzieren dabei den Rand der Kapuze, sowie unteren Rand ihrer Jacke und ihres Rocks. Die Ärmel der Jacke sind ebenfalls grün.",
+					"text3": "Passend dazu sind ihre Strümpfe mit vertikalen Linien bedruckt, welche knapp über dem Knie von meinem Blatt-Logo unterbrochen werden.",
+					"text4": "Sie trägt fast immer mindestens einen Ring, deren Designs sehr unterschiedlich sein können. Zusammen mit ihrem normalen Outfit trägt sie meist einen rechteckigen, silbernen Ring, welcher im Ring- und Mittelfinger getragen wird.",
+					"text5": "Obwohl spätestens die Jacke jegliche Professionalität vermissen lässt, trägt sie dennoch gerne eine schicke Krawatte. Erhöht den FancyScore™ um 20 Punkte."
 				},
 				"Rings": {
 					"heading": "Ringe",
-					"text1": "Her standard ring is plain rectangular, worn on both the ring and middle finger.",
-					"text2": "If you have a certain theme or outfit in mind for any art you draw, you're free to change the design to match it. How many rings there and on which fingers is up to you.",
-					"text3": "You may also omit the ring entirely, though at least one is generally preferred."
+					"text1": "Ihr normaler Ring ist rechteckig und eher simpel, und wird auf dem Ring- und Mittelfinger getragen.",
+					"text2": "Wenn du für etwaige Zeichnungen ein bestimmtes Thema oder Outfit im Sinn hast, darfst du das Design gerne anpassen. Ob und wie viele Ringe sie an welchen Fingern trägt, ist dir überlassen.",
+					"text3": "Obwohl du den Ring auch weglassen darfst, ist mindestens ein Ring bevorzugt."
 				},
 				"Hairbow": {
-					"heading": "Hairband und Pferdeschwanz",
-					"text1": "Her hair bow is (somehow) tied in such a way that a leaf shape peeks out at the top. Her ponytail is also tied a little to the left (when viewed from behind). That way it can still be seen to the right behind her head when looking at her face to face.",
-					"text2": "The center point of the tie is highlighted red."
+					"heading": "Haarschleife und Pferdeschwanz",
+					"text1": "Ihre Haarschleife ist (irgendwie) so gebunden, dass oben eine Blattform heraussticht. Der Pferdeschwanz ist zudem (von hinten betrachtet) etwas weiter nach links gebunden, sodass er rechts hinter ihrem Kopf gesehen werden kann, wenn man sie von vorne anschaut.",
+					"text2": "Der Mittelpunkt des Knotens ist rot markiert."
 				},
 				"Shoes": {
 					"heading": "Schuhe",
-					"text1": "Instead of a hanger that nobody ever uses, you can find a little leaf attached to the back, along with some other green accents.",
-					"text2": "Like with other parts of her outfit, feel free to change the design to match your own vision."
+					"text1": "Anstelle einer nutzlosen Schlaufe haben diese Schuhe ein kleines Blatt an der Rückseite angebracht, zusammen mit einigen anderen grünen Akzenten.",
+					"text2": "Wie auch ein paar andere Aspekte ihres Outfits, darfst du auch dieses Design nach deinen Wünschen anpassen."
 				},
 				"Color": {
-					"text": "Psst, you can find a more comprehensive and interactive color palette to quickly copy HEX codes from on the <Link>palette page</Link>."
-				}
+					"text": "Es gibt da noch eine <Link>Palette-Seite</Link>, solltest du etwas ausführlicheres wollen."
+				},
+                "credit": "Referenzzeichnungen von <Link>nekomimi</Link>.",
+                "Download": {
+                    "text": "Möchtest du diese Übersicht mit allen Infos als einzelnes Bild haben? Bitte schön:",
+                    "button": "Referenzblatt herunterladen"
+                }
 			},
 			"Fanart": {
 				"heading": "Fanart-Regeln",

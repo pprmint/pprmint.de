@@ -14,8 +14,6 @@ import ReferenceShoes from "public/assets/mina/ref/shoes.webp";
 import ReferenceHairbowFront from "public/assets/mina/ref/head_front.svg";
 import ReferenceHairbowBack from "public/assets/mina/ref/head_back.svg";
 
-import Button from "src/components/ui/Button";
-
 import { X } from "lucide-react";
 
 function ColorPickerToast(props: {
@@ -91,7 +89,7 @@ export default function RefSheet() {
 	const timerRef = useRef(0);
 	const [currentColor, setCurrentColor] = useState("");
 
-	function ColorSwatch({ color, ring }: { color: string; ring?: boolean }) {
+	function ColorSwatch({ color }: { color: string }) {
 		function handleClick() {
 			navigator.clipboard.writeText(color.substring(1));
 			setToastOpen(false);
@@ -103,9 +101,7 @@ export default function RefSheet() {
 		}
 		return (
 			<div
-				className={`active:scale-95 size-12 rounded-full duration-150 ease-out cursor-pointer ${
-					ring && "ring-1 ring-neutral-800"
-				}`}
+				className="w-full h-12 active:shadow-inner active:opacity-75 duration-100 ease-out cursor-pointer"
 				style={{ backgroundColor: color }}
 				onClick={handleClick}
 			/>
@@ -162,7 +158,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="hand"
-							className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6 cursor-pointer"
+							className="flex items-center justify-center hover:bg-neutral-900 border border-neutral-900 duration-200 active:duration-100 active:opacity-75 active:shadow-inner rounded-xl p-6 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceHand}
@@ -193,7 +189,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="front"
-							className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl row-span-2 p-3 cursor-pointer"
+							className="flex items-center justify-center hover:bg-neutral-900 border border-neutral-900 duration-100 active:opacity-75 active:shadow-inner rounded-xl row-span-2 p-3 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceFront}
@@ -206,7 +202,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="back"
-							className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl row-span-2 p-3 cursor-pointer"
+							className="flex items-center justify-center hover:bg-neutral-900 border border-neutral-900 duration-100 active:opacity-75 active:shadow-inner rounded-xl row-span-2 p-3 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceBack}
@@ -223,6 +219,8 @@ export default function RefSheet() {
 								<p>{t("Content.Reference.Outfit.text1")}</p>
 								<p>{t("Content.Reference.Outfit.text2")}</p>
 								<p>{t("Content.Reference.Outfit.text3")}</p>
+								<p>{t("Content.Reference.Outfit.text4")}</p>
+								<p>{t("Content.Reference.Outfit.text5")}</p>
 							</>
 						}
 						reference={<CyclingFrontBackRef />}
@@ -232,7 +230,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="hairbow"
-							className="flex md:col-span-2 xl:col-span-1 items-center justify-center gap-6 bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6 cursor-pointer"
+							className="flex md:col-span-2 xl:col-span-1 items-center justify-center gap-6 hover:bg-neutral-900 border border-neutral-900 duration-100 active:opacity-75 active:shadow-inner rounded-xl p-6 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceHairbowBack}
@@ -262,12 +260,12 @@ export default function RefSheet() {
 								<FadingImage
 									src={ReferenceHairbowFront}
 									alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
-									className="md:w-full md:h-auto h-full max-h-[90vh] object-contain"
+									className="h-1/2 md:h-auto md:w-1/2"
 								/>
 								<FadingImage
 									src={ReferenceHairbowBack}
 									alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
-									className="md:w-full md:h-auto h-full max-h-[90vh] object-contain"
+									className="h-1/2 md:h-auto md:w-1/2"
 								/>
 							</div>
 						}
@@ -277,7 +275,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="shoe"
-							className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl p-6 cursor-pointer"
+							className="flex items-center justify-center hover:bg-neutral-900 border border-neutral-900 duration-100 active:opacity-75 active:shadow-inner rounded-xl p-6 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceShoes}
@@ -303,47 +301,36 @@ export default function RefSheet() {
 						}
 					/>
 				</Dialog.Root>
-				<div
-					id="colorpalette"
-					className="flex items-center justify-center bg-neutral-900 border border-neutral-800 hover:ring-2 ring-neutral-800 duration-100 rounded-xl"
-				>
+				<div id="colorpalette" className="flex flex-col justify-between p-6 border border-neutral-900 rounded-xl">
 					<ColorPickerToast color={currentColor} open={toastOpen} onOpenChange={setToastOpen} />
-					<div className="flex flex-col gap-2 h-full justify-center">
-						<div className="flex gap-5 px-6">
+					<div className="flex flex-col">
+						<div className="grid grid-cols-4">
 							<ColorSwatch color="#63e4a3" />
 							<ColorSwatch color="#22ccff" />
 							<ColorSwatch color="#111111" />
 							<ColorSwatch color="#ffeee4" />
 						</div>
-						<div className="flex gap-2 px-4 items-center">
-							<div className="flex gap-5 p-2 ring-2 ring-neutral-800 rounded-full">
-								<ColorSwatch color="#00cc66" />
-								<ColorSwatch color="#4499ee" />
-								<ColorSwatch color="#222222" ring />
-							</div>
-							<p className="text-xs font-medium text-neutral-600">PRIMARY</p>
+						<div className="grid grid-cols-4">
+							<ColorSwatch color="#00cc66" />
+							<ColorSwatch color="#4499ee" />
+							<ColorSwatch color="#222222" />
 						</div>
-						<div className="flex gap-5 px-6">
+						<div className="grid grid-cols-4">
 							<ColorSwatch color="#008b45" />
 							<ColorSwatch color="#196bc0" />
-							<ColorSwatch color="#111111" />
+							<ColorSwatch color="#333333" />
 						</div>
 					</div>
+					<p className="text-xs text-center">
+						{t.rich("Content.Reference.Color.text", {
+							Link: (chunks) => (
+								<Link href="/palette" className="text-link">
+									{chunks}
+								</Link>
+							),
+						})}
+					</p>
 				</div>
-			</div>
-			<div className="flex items-center justify-between pt-6">
-				<p>
-					Reference drawings made by{" "}
-					<Link href="https://twitter.com/nekomimiwubs" rel="noopener noreferrer" className="text-link-external">
-						Nekomimi
-					</Link>
-					.
-				</p>
-				<Link href="https://static.pprmint.art/download/Mina/Mina_ref_sheet_(by_nekomimi).png" target="_blank" download>
-					<Button>
-						<i className="ri-download-2-line" /> Download reference sheet
-					</Button>
-				</Link>
 			</div>
 		</>
 	);

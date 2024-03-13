@@ -307,7 +307,7 @@
 		"Content": {
 			"About": {
 				"heading": "About Mina",
-				"text1": "Born on the 11th of June 2004 with green hair and emerald-like eyes, she's a rather laid-back and quiet girl currently standing about 160 cm tall. She moved from Japan to Germany a long time ago, but only speaks English and German fluently. Through her long stay in Germany, she also had plenty of time to acquire a number of lovely German insults. Used sparingly, they make sure that certain people will voluntarily never exchange another word with her.",
+				"text1": "Born on the 11th of June 2004 with green hair and blue eyes, she's a rather laid-back and quiet girl currently standing about 160 cm tall. She moved from Japan to Germany a long time ago, but only speaks English and German fluently. Through her long stay in Germany, she also had plenty of time to acquire a number of lovely German insults. Used sparingly, they make sure that certain people will voluntarily never exchange another word with her.",
 				"text2": "She likes to eat mint-flavored treats, especially chocolate chip mint ice cream. Mina also always keeps a pack of gum in her pocket, though her chewing gum bubbles are rarely larger than a centimeter. Meat dishes also raise her appetite quite a bit.",
 				"text3": "Mina is fascinated by architecture and interior design, finding joy in conceptualizing modern living spaces. There are plans for how every room in her dream house should look, not to mention the design of the house itself.",
 				"text4": "However, she does have issues committing to something and is quite easy to distract. Some days she may plan on doing something, only to then do anything but.",
@@ -317,10 +317,11 @@
 			"Reference": {
 				"Outfit": {
 					"heading": "Common outfit",
-					"text1": "Mina's outfits are usually rather dark, a combination of dark grey, white and green.",
-					"text2": "Her regular outfit consists of a comfy hooded jacket with grey fluff inside, featuring green lines around the hood and lower edge of the jacket and more green for the sleeves.",
-					"text3": "Similarly, her thigh highs feature a vertical green line which has my leaf icon embedded into it.",
-					"text4": ""
+					"text1": "Mina's clothes are usually rather dark; A combination of dark grey, white and green.",
+					"text2": "Her regular outfit consists of a comfy hooded jacket with grey fluff inside, featuring green lines around the hood and lower edge of the jacket and skirt, and more green for the sleeves.",
+					"text3": "To match, her thigh-high stockings are decorated with vertical lines that have my leaf logo just above the knee.",
+					"text4": "She almost always wears at least one ring, their designs varying greatly. In combination with her regular outfit she usually just wears a silver rectangular ring that's worn on both middle and ring finger.",
+					"text5": "Even though the jacket is throwing any professionalism out the window, she still likes to wear a fancy tie. Adds 20 points to the FancyScore™."
 				},
 				"Rings": {
 					"heading": "Rings",
@@ -331,7 +332,7 @@
 				"Hairbow": {
 					"heading": "Hair bow and ponytail",
 					"text1": "Her hair bow is (somehow) tied in such a way that a leaf shape peeks out at the top. Her ponytail is also tied a little to the left (when viewed from behind). That way it can still be seen to the right behind her head when looking at her face to face.",
-					"text2": "The center point of the tie is highlighted red."
+					"text2": "The center point of the knot is highlighted red."
 				},
 				"Shoes": {
 					"heading": "Shoes",
@@ -339,7 +340,12 @@
 					"text2": "Like with other parts of her outfit, feel free to change the design to match your own vision."
 				},
 				"Color": {
-					"text": "Psst, you can find a more comprehensive and interactive color palette to quickly copy HEX codes from on the <Link>palette page</Link>."
+					"text": "There's also a <Link>palette page</Link> if you'd like something more exhaustive."
+				},
+				"credit": "Reference drawings by <Link>nekomimi</Link>.",
+				"Download": {
+					"text": "Would you like to have this overview with all details as a single image? Look no further:",
+					"button": "Download reference sheet"
 				}
 			},
 			"Colors": {
@@ -355,7 +361,7 @@
 			},
 			"Artworks": {
 				"Filters": {
-                    "button": "Filters",
+					"button": "Filters",
 					"nsfw": "Neuron activation",
 					"artist": "Artist",
 					"year": "Year"

@@ -15,6 +15,9 @@ import Pagination from "src/components/gallery/Pagination";
 
 import OutOfBounds from "./outOfBounds";
 import { Artists } from "src/types/artist";
+import { Link } from "src/navigation";
+import Button from "src/components/ui/Button";
+import { Download } from "lucide-react";
 
 type Props = {
 	params: { locale: string };
@@ -51,8 +54,52 @@ export default async function Page({
 				<FadingImage src={HeroMina} alt="Original Mina artwork by wxsonz." fill className="object-cover" quality={90} />
 			</Title>
 			<main>
+				<section id="lore" className="my-20 max-w-7xl mx-auto px-6 md:px-9">
+					<h2>
+						{t("Content.About.heading")}
+						<span className="text-green">.</span>
+					</h2>
+					<p>{t("Content.About.text1")}</p>
+					<p>{t("Content.About.text2")}</p>
+					<p>{t("Content.About.text3")}</p>
+					<p>{t("Content.About.text4")}</p>
+					<p>{t("Content.About.text5")}</p>
+					<p>
+						{t.rich("Content.About.text6", {
+							Link: (chunks) => (
+								<Link href="https://twitter.com/wxsonz" className="text-link-external">
+									{chunks}
+								</Link>
+							),
+						})}
+					</p>
+				</section>
 				<section id="design" className="my-20 max-w-7xl mx-auto px-2">
 					<Ref />
+					<div className="flex flex-col lg:flex-row lg:justify-between gap-6 mt-6 px-6">
+						<p>
+							{t.rich("Content.Reference.credit", {
+								Link: (chunks) => (
+									<Link href="https://twitter.com/nekomimiwubs" className="text-link-external">
+										{chunks}
+									</Link>
+								),
+							})}
+						</p>
+						<div className="flex flex-col lg:items-end">
+							<p className="mb-3">{t("Content.Reference.Download.text")}</p>
+							<Link
+								href="https://static.pprmint.art/download/Mina/Mina_ref_sheet_(by_nekomimi).png"
+								target="_blank"
+								download
+							>
+								<Button>
+									<Download size={16} />
+									{t("Content.Reference.Download.button")}
+								</Button>
+							</Link>
+						</div>
+					</div>
 				</section>
 				<section className="max-w-7xl mx-auto px-2">
 					<Filters nsfw={nsfw} artist={artist} artists={ArtistList} />
