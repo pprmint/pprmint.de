@@ -46,7 +46,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: string[] }) {
 	function handleSelectArtist(artist: string) {
 		const params = new URLSearchParams(searchParams);
 		params.set("artist", artist);
-        params.delete("p"); // Otherwise you may end up on a page with no results.
+		params.delete("p"); // Otherwise you may end up on a page with no results.
 		replace(`${pathname}?${params.toString()}`, { scroll: false });
 	}
 	function handleClearArtist() {
