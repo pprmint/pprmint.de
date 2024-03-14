@@ -93,7 +93,7 @@ export default async function Page({
 								target="_blank"
 								download
 							>
-								<Button>
+								<Button tabIndex={-1}>
 									<Download size={16} />
 									{t("Content.Reference.Download.button")}
 								</Button>
@@ -124,7 +124,7 @@ async function getArtworks(page: number, nsfw: string, artist: string) {
 	const res = await fetch(
 		`${process.env.STRAPI_API_URL}/mina-artworks?pagination[page]=${Number(page)}&pagination[pageSize]=20&${
 			nsfw != "show" ? `filters[nsfw][$ne]=true&` : ""
-		}${artist != "undefined" ? `filters[artist][name][$eq]=${artist}&` : ""}populate=artwork&sort=creationDate:desc`,
+		}${artist != "undefined" ? `filters[artist][name][$eq]=${artist}&` : ""}populate=artwork&populate=artist&sort=creationDate:desc`,
 		{
 			headers: {
 				"Content-Type": "application/json",
