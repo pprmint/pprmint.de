@@ -17,6 +17,7 @@ export default async function Gallery(artworks: { artworks: MinaArtworks }) {
 						className={`h-full min-w-full object-cover ${art.attributes.focus} bg-neutral-900 ${
 							art.attributes.nsfw && "blur-lg group-hover:blur-none opacity-50 group-hover:opacity-100 duration-200"
 						}`}
+                        unoptimized={art.attributes.artwork.data.attributes.url.includes(".gif")}
 					/>
 					{art.attributes.nsfw && (
 						<i className="text-neutral-50/75 ri-eye-off-line absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl group-hover:opacity-0 duration-200" />
