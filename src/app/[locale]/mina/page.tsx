@@ -134,7 +134,7 @@ async function getArtworks(page: number, nsfw: string, artist: string) {
 		}
 	);
 	if (!res.ok) {
-		throw new Error("Failed to fetch Mina artwork data");
+		throw new Error("Failed to fetch artworks.");
 	}
 	return res.json();
 }
@@ -148,7 +148,7 @@ async function getArtists() {
 		next: { revalidate: 1800 },
 	});
 	if (!res.ok) {
-		throw new Error("Failed to fetch artist data");
+		throw new Error("Failed to fetch artists.");
 	}
 	return res.json();
 }
