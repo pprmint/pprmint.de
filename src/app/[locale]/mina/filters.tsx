@@ -99,7 +99,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: string[] }) {
 			>
 				<Collapsible.Trigger asChild>
 					<button
-						className="h-9 px-4 text-neutral-50 hover:bg-neutral-900 data-[state=open]:bg-neutral-900 data-[state=open]:hover:bg-neutral-800 active:shadow-inner active:opacity-75 disabled:text-neutral-800 disabled:bg-transparent duration-100"
+						className="h-9 px-4 text-neutral-50 hover:bg-neutral-900 data-[state=open]:bg-neutral-900 data-[state=open]:hover:bg-neutral-800 active:shadow-inner active:opacity-75 disabled:text-neutral-800 disabled:bg-transparent duration-100 focus-visible:bg-neutral-900"
 						onClick={() => setFiltersOpen(!filtersOpen)}
 					>
 						<span className="flex gap-3 items-center font-medium">
