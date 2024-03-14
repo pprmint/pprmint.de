@@ -12,10 +12,15 @@ export default function OutOfBounds() {
 	const pathname = usePathname();
 	const { replace } = useRouter();
 	function ClipBackInBounds() {
+		console.log("] noclip");
+		console.log("noclip OFF");
 		const params = new URLSearchParams(searchParams);
 		params.set("p", "1");
 		replace(`${pathname}?${params.toString()}`, { scroll: false });
 	}
+	console.info(
+		"You clipped out of bounds.\nIn other words: The page you were aiming for in the URL is out of the range of available pages.\nJust stick to the pages you can see below the gallery grid."
+	);
 	return (
 		<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
 			<div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-80 bg-neutral-950 rounded-full blur-3xl" />
