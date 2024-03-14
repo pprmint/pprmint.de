@@ -136,7 +136,7 @@ export default function RefSheet() {
 								<span className="text-green">.</span>
 							</h2>
 						</Dialog.Title>
-						<Dialog.Description>{description}</Dialog.Description>
+						<Dialog.Description asChild>{description}</Dialog.Description>
 					</div>
 					<Dialog.Close asChild>
 						<button
