@@ -70,9 +70,9 @@ export default async function Page({
 						})}
 					</p>
 				</section>
-				<section id="design" className="my-20 max-w-7xl mx-auto px-2">
+				<section id="design" className="my-20 max-w-7xl mx-auto px-3 xl:px-9">
 					<Ref />
-					<div className="flex flex-col lg:flex-row lg:justify-between gap-6 mt-6 px-6">
+					<div className="flex flex-col lg:flex-row lg:justify-between gap-6 mt-6 px-3 md:px-6 xl:px-0">
 						<p>
 							{t.rich("Content.Reference.credit", {
 								Link: (chunks) => (
@@ -97,7 +97,7 @@ export default async function Page({
 						</div>
 					</div>
 				</section>
-				<section className="max-w-7xl mx-auto px-2">
+				<section className="max-w-7xl mx-auto px-3 xl:px-9">
 					<Filters nsfw={nsfw} artist={artist} artists={ArtistList} />
 					{currentPage > pageCount ? (
 						<div className="relative">

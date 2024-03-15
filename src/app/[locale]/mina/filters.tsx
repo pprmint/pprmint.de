@@ -95,14 +95,14 @@ function Filters(props: { nsfw?: string; artist?: string; artists: string[] }) {
 			<Collapsible.Root
 				open={filtersOpen}
 				onOpenChange={setFiltersOpen}
-				className="flex items-center mb-3 w-fit bg-transparent border border-neutral-900 rounded-lg overflow-hidden duration-100"
+				className="sm:flex items-center mb-3 w-full sm:w-fit bg-transparent border border-neutral-900 rounded-lg overflow-hidden duration-100"
 			>
 				<Collapsible.Trigger asChild>
 					<button
-						className="h-9 px-4 text-neutral-50 hover:bg-neutral-900 data-[state=open]:bg-neutral-900 data-[state=open]:hover:bg-neutral-800 active:shadow-inner active:opacity-75 disabled:text-neutral-800 disabled:bg-transparent duration-100 focus-visible:bg-neutral-900"
+						className="h-9 w-full sm:w-max px-4 text-neutral-50 hover:bg-neutral-900 data-[state=open]:bg-neutral-900 data-[state=open]:hover:bg-neutral-800 active:shadow-inner active:opacity-75 disabled:text-neutral-800 disabled:bg-transparent duration-100 focus-visible:bg-neutral-900"
 						onClick={() => setFiltersOpen(!filtersOpen)}
 					>
-						<span className="flex gap-3 items-center font-medium">
+						<span className="flex gap-3 items-center justify-center font-medium">
 							<Filter
 								size={16}
 								className={`${
@@ -113,13 +113,13 @@ function Filters(props: { nsfw?: string; artist?: string; artists: string[] }) {
 						</span>
 					</button>
 				</Collapsible.Trigger>
-				<Collapsible.Content className="data-[state=open]:animate-collapsible-open data-[state=closed]:animate-collapsible-close whitespace-nowrap overflow-clip">
+				<Collapsible.Content className="data-[state=open]:animate-collapsible-vertical-open sm:data-[state=open]:animate-collapsible-horizontal-open data-[state=closed]:animate-collapsible-vertical-close sm:data-[state=closed]:animate-collapsible-horizontal-close whitespace-nowrap overflow-clip">
 					<div className="flex items-center divide-x divide-neutral-900">
 						<div className="flex items-center gap-3 mx-3">
 							<Checkbox id="nsfw" checked={nsfw} onCheckedChange={handleNsfw} />
 							<label htmlFor="nsfw">{t("Content.NSFW.checkbox")}</label>
 						</div>
-						<div className="w-48 gap-3">
+						<div className="w-full sm:w-48 gap-3">
 							<Select.Root value={props.artist} onValueChange={handleSelectArtist}>
 								<div className="flex w-full">
 									<Select.Trigger
@@ -138,7 +138,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: string[] }) {
 									{props.artist != "undefined" && (
 										<button
 											onClick={handleClearArtist}
-											className="h-9 px-2.5 rounded-r-md hover:bg-neutral-800 hover:text-neutral-50 active:shadow-inner active:opacity-75 duration-100"
+											className="h-9 px-2.5 hover:bg-neutral-800 hover:text-neutral-50 active:shadow-inner active:opacity-75 duration-100"
 										>
 											<X size={16} />
 										</button>

@@ -194,7 +194,7 @@ module.exports = {
 					from: { height: "var(--radix-accordion-content-height)", opacity: 1 },
 					to: { height: 0, opacity: 0 },
 				},
-				collapsibleOpen: {
+				collapsibleHorizontalOpen: {
 					from: {
 						width: 0,
 					},
@@ -202,12 +202,28 @@ module.exports = {
 						width: "var(--radix-collapsible-content-width)",
 					},
 				},
-				collapsibleClose: {
+				collapsibleHorizontalClose: {
 					from: {
 						width: "var(--radix-collapsible-content-width)",
 					},
 					to: {
 						width: 0,
+					},
+				},
+				collapsibleVerticalOpen: {
+					from: {
+						height: 0,
+					},
+					to: {
+						height: "var(--radix-collapsible-content-height)",
+					},
+				},
+				collapsibleVerticalClose: {
+					from: {
+						height: "var(--radix-collapsible-content-height)",
+					},
+					to: {
+						height: 0,
 					},
 				},
 				selectOpen: {
@@ -276,8 +292,10 @@ module.exports = {
 				"exit-to-t": "exitToTop .25s cubic-bezier(.15,0,.35,1)",
 				"accordion-slide-down": "accordionSlideDown .4s cubic-bezier(0.5, 0, 0.1, 1);",
 				"accordion-slide-up": "accordionSlideUp .4s cubic-bezier(0.5, 0, 0.1, 1);",
-				"collapsible-open": "collapsibleOpen .4s cubic-bezier(0.16, 1, 0.3, 1);",
-				"collapsible-close": "collapsibleClose .25s cubic-bezier(0.33, 1, 0.68, 1);",
+				"collapsible-horizontal-open": "collapsibleHorizontalOpen .4s cubic-bezier(0.16, 1, 0.3, 1);",
+				"collapsible-horizontal-close": "collapsibleHorizontalClose .25s cubic-bezier(0.33, 1, 0.68, 1);",
+				"collapsible-vertical-open": "collapsibleVerticalOpen .4s cubic-bezier(0.16, 1, 0.3, 1);",
+				"collapsible-vertical-close": "collapsibleVerticalClose .25s cubic-bezier(0.33, 1, 0.68, 1);",
 				"select-open": "selectOpen .2s;",
 				"select-close": "selectClose .2s;",
 				"toast-slide-in": "toastSlideIn .3s cubic-bezier(0.16, 1, 0.3, 1);",
