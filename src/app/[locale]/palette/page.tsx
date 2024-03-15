@@ -19,7 +19,18 @@ export default function PrivacyPolicy() {
 	const t = useTranslations("PALETTE");
 	return (
 		<>
-			<Title title={t("Head.title")} description={t("Head.description")} />
+			<Title title={t("Head.title")} description={t("Head.description")}>
+				<div className="relative w-full h-full overflow-clip">
+					<div className="absolute top-1/2 inset-x-0 -translate-y-1/2">
+						<div className="w-full h-1/6-screen skew-y-12 bg-green" />
+						<div className="w-full h-1/6-screen -skew-y-12 border-y-2 border-yellow" />
+						<div className="w-full h-1/6-screen skew-y-12 border-y-2 border-orange" />
+						<div className="w-full h-1/6-screen -skew-y-12 border-y-2 border-red" />
+						<div className="w-full h-1/6-screen skew-y-12 border-y-2 border-violet" />
+						<div className="w-full h-1/6-screen -skew-y-12 border-y-2 border-blue" />
+					</div>
+				</div>
+			</Title>
 			<main>
 				<section className="my-20 max-w-7xl mx-auto px-6 lg:px-9">
 					<h2>
@@ -36,13 +47,13 @@ export default function PrivacyPolicy() {
 						>
 							<Button tabIndex={-1}>
 								<FileJson size={16} />
-								{t('Content.Usage.tailwind')}
+								{t("Content.Usage.tailwind")}
 							</Button>
 						</Link>
 						<Link href="https://static.pprmint.art/download/pprmint.2024.afpalette" download>
 							<Button tabIndex={-1}>
 								<SwatchBook size={16} />
-								{t('Content.Usage.affinity')}
+								{t("Content.Usage.affinity")}
 							</Button>
 						</Link>
 					</div>
