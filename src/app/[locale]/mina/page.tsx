@@ -19,11 +19,7 @@ import { Link } from "src/navigation";
 import Button from "src/components/ui/Button";
 import { Download } from "lucide-react";
 
-type Props = {
-	params: { locale: string };
-};
-
-export async function generateMetadata({ params: { locale } }: Props) {
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
 	const t = await getTranslations({ locale, namespace: "MINA" });
 	return {
 		title: `${t("Head.title")}.`,
@@ -124,7 +120,9 @@ async function getArtworks(page: number, nsfw: string, artist: string) {
 	const res = await fetch(
 		`${process.env.STRAPI_API_URL}/mina-artworks?pagination[page]=${Number(page)}&pagination[pageSize]=20&${
 			nsfw != "show" ? `filters[nsfw][$ne]=true&` : ""
-		}${artist != "undefined" ? `filters[artist][name][$eq]=${artist}&` : ""}populate=artwork&populate=artist&sort=creationDate:desc`,
+		}${
+			artist != "undefined" ? `filters[artist][name][$eq]=${artist}&` : ""
+		}populate=artwork&populate=artist&sort=creationDate:desc`,
 		{
 			headers: {
 				"Content-Type": "application/json",
