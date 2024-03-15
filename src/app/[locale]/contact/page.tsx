@@ -36,7 +36,15 @@ export default function Page() {
 								<span className="text-green">.</span>
 							</h2>
 							<p className="pb-9">{t("Content.Email.text")}</p>
-							soon tm
+							<Link
+								href={`mailto:mail@pprmint.art?subject=${t("Content.Message.subject")}&body=${t(
+									"Content.Message.body"
+								)}`}
+							>
+								<Button tabIndex={-1} color="green">
+									mail@pprmint.art
+								</Button>
+							</Link>
 						</div>
 					</div>
 					<Image
@@ -55,7 +63,9 @@ export default function Page() {
 							<p className="pb-9">{t("Content.Telegram.text")}</p>
 							<div className="w-max">
 								<Link href="https://t.me/npprmint" target="_blank" rel="noopener noreferrer">
-									<Button color="green">{t("Content.Telegram.button")}</Button>
+									<Button tabIndex={-1} color="green">
+										{t("Content.Telegram.button")}
+									</Button>
 								</Link>
 							</div>
 						</div>
@@ -80,7 +90,9 @@ export default function Page() {
 									target="_blank"
 									rel="noopener noreferrer"
 								>
-									<Button color="green">{t("Content.Twitter.button")}</Button>
+									<Button tabIndex={-1} color="green">
+										{t("Content.Twitter.button")}
+									</Button>
 								</Link>
 							</div>
 						</div>
