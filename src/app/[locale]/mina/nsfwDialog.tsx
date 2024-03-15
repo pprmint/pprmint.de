@@ -57,16 +57,9 @@ export default function NsfwDialog({ onAccept }: { onAccept: () => void }) {
 							<p>{t("Content.NSFW.Dialog.text1")}</p>
 							<p>{t("Content.NSFW.Dialog.text2")}</p>
 							<p className="font-bold text-red">{t("Content.NSFW.Dialog.text3")}</p>
-							<p
-								className={`text-neutral-700 lg:text-balance text-xs italic ${
-									timer < 10 ? "opacity-0 select-none" : "opacity-100"
-								} duration-250`}
-							>
-								{t("Content.NSFW.Dialog.hint")}
-							</p>
 						</div>
 					</Dialog.Description>
-					<div className="flex flex-row flex-wrap justify-between sm:justify-normal gap-3 pt-3 pb-9 lg:pb-0">
+					<div className="flex flex-row flex-wrap justify-between sm:justify-normal gap-3 py-9 lg:pb-0">
 						<Button color="green" onClick={onAccept} disabled={timer < 10}>
 							<svg height={16} width={16} className="-rotate-90">
 								<a.circle
