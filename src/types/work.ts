@@ -152,6 +152,16 @@ export default interface Work {
 	};
 }
 
+export interface WorksMeta {
+	pagination: {
+		page: number;
+		pageSize: number;
+		pageCount: number;
+		total: number;
+	};
+}
+
 export interface Works {
 	data: Work[];
+	meta: WorksMeta;
 }

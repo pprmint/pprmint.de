@@ -8,13 +8,14 @@ import Button from "src/components/ui/Button";
 import Hero from "public/assets/ytdg/hero.png";
 import IsometricScreenshot from "public/assets/ytdg/screenshot_dark_iso.webp";
 import { Check, ExternalLink } from "lucide-react";
+import FadingImage from "src/components/ui/FadingImage";
 
 export default function Page() {
 	const t = useTranslations();
 	return (
 		<>
 			<Title title={t("YTDG.Head.title")} description={t("YTDG.Head.description")} accentColor="text-violet">
-				<Image src={Hero} alt="" fill className="object-cover" quality={90} />
+				<FadingImage src={Hero} alt="" fill className="object-cover" quality={90} />
 			</Title>
 			<main>
 				<section className="relative flex items-center lg:min-h-2/3-screen pb-48 xl:pb-0">

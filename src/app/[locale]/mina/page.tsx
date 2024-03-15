@@ -13,7 +13,7 @@ import GallerySkeleton from "./gallerySkeleton";
 import Filters from "./filters";
 import Pagination from "src/components/gallery/Pagination";
 
-import OutOfBounds from "./outOfBounds";
+import OutOfBounds from "../../../components/gallery/OutOfBounds";
 import { Artists } from "src/types/artist";
 import { Link } from "src/navigation";
 import Button from "src/components/ui/Button";
@@ -47,7 +47,7 @@ export default async function Page({
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
-				<FadingImage src={HeroMina} alt="Original Mina artwork by wxsonz." fill className="object-cover" quality={90} />
+				<FadingImage src={HeroMina} alt="" fill className="object-cover" quality={90} />
 			</Title>
 			<main>
 				<section id="lore" className="my-20 max-w-7xl mx-auto px-6 md:px-9">
