@@ -7,7 +7,7 @@ import * as Collapsible from "@radix-ui/react-collapsible";
 import * as Select from "@radix-ui/react-select";
 import { useTranslations } from "next-intl";
 
-import { Check, ChevronDown, ChevronUp, Filter, X } from "lucide-react";
+import { Box, Check, ChevronDown, ChevronUp, Film, Filter, Image, Square, X } from "lucide-react";
 
 function Filters(props: { type?: string; dimension?: string }) {
 	const t = useTranslations("GALLERY");
@@ -16,47 +16,119 @@ function Filters(props: { type?: string; dimension?: string }) {
 	const pathname = usePathname();
 	const { replace } = useRouter();
 
-	function handleSelectArtist(artist: string) {
+	function handleSelectDimension(dimension: string) {
 		const params = new URLSearchParams(searchParams);
-		params.set("artist", artist);
+		if (props.dimension == dimension) {
+			params.delete("dimension");
+		} else {
+			params.set("dimension", dimension);
+		}
 		params.delete("p"); // Otherwise you may end up on a page with no results.
 		replace(`${pathname}?${params.toString()}`, { scroll: false });
 	}
-	function handleClearArtist() {
+	function handleSelectType(type: string) {
 		const params = new URLSearchParams(searchParams);
-		params.delete("artist");
+		if (props.type == type) {
+			params.delete("type");
+		} else {
+			params.set("type", type);
+		}
+		params.delete("p"); // Otherwise you may end up on a page with no results.
 		replace(`${pathname}?${params.toString()}`, { scroll: false });
 	}
 
-	const [dialogOpen, setDialogOpen] = useState(false);
+	const filtersActive =
+		(props.dimension && (props.dimension === "2d" || props.dimension === "3d") && props.type) ||
+		props.type === "static" ||
+		props.type === "animated";
 
 	return (
 		<>
 			<Collapsible.Root
 				open={filtersOpen}
 				onOpenChange={setFiltersOpen}
-				className="flex items-center mb-3 w-fit bg-transparent border border-neutral-900 rounded-lg overflow-hidden duration-100"
+				className="sm:flex items-center mb-3 w-full sm:w-fit bg-transparent border border-neutral-900 rounded-lg overflow-hidden duration-100"
 			>
 				<Collapsible.Trigger asChild>
 					<button
-						className="h-9 px-4 text-neutral-50 hover:bg-neutral-900 data-[state=open]:bg-neutral-900 data-[state=open]:hover:bg-neutral-800 active:shadow-inner active:opacity-75 disabled:text-neutral-800 disabled:bg-transparent duration-100 focus-visible:bg-neutral-900"
+						className="h-9 w-full sm:w-max px-4 text-neutral-50 hover:bg-neutral-900 data-[state=open]:bg-neutral-900 data-[state=open]:hover:bg-neutral-800 active:shadow-inner active:opacity-75 disabled:text-neutral-800 disabled:bg-transparent duration-100 focus-visible:bg-neutral-900"
 						onClick={() => setFiltersOpen(!filtersOpen)}
 					>
-						<span className="flex gap-3 items-center font-medium">
-							<Filter
-								size={16}
-								className={`${
-									props.type || props.dimension != "undefined" ? "fill-neutral-50" : "fill-transparent"
-								} duration-100`}
-							/>
+						<span className="flex gap-3 items-center justify-center font-medium">
+							<Filter size={16} className={`${filtersActive ? "fill-neutral-50" : "fill-transparent"} duration-100`} />
 							{t("Content.Filters.button")}
 						</span>
 					</button>
 				</Collapsible.Trigger>
-				<Collapsible.Content className="data-[state=open]:animate-collapsible-open data-[state=closed]:animate-collapsible-close whitespace-nowrap overflow-clip">
-					<div className="flex items-center divide-x divide-neutral-900">
-						<div className="flex items-center gap-3 mx-3">
-							
+				<Collapsible.Content className="data-[state=open]:animate-collapsible-vertical-open sm:data-[state=open]:animate-collapsible-horizontal-open data-[state=closed]:animate-collapsible-vertical-close sm:data-[state=closed]:animate-collapsible-horizontal-close whitespace-nowrap overflow-clip">
+					<div className="flex items-center w-max divide-x divide-neutral-900">
+						<div className="grid grid-cols-2 w-64">
+							<button
+								onClick={() => handleSelectDimension("2d")}
+								className={`flex gap-3 items-center justify-center w-full h-9 ${
+									props.dimension == "2d"
+										? "text-neutral-50 bg-neutral-900 hover:bg-neutral-800"
+										: "hover:bg-neutral-900 hover:text-neutral-50"
+								} active:shadow-inner active:opacity-75 duration-100`}
+							>
+								<Square
+									size={16}
+									className={`${
+										props.dimension == "2d" ? "fill-neutral-600 stroke-neutral-50" : "fill-transparent"
+									} duration-100`}
+								/>
+								2D
+							</button>
+							<button
+								onClick={() => handleSelectDimension("3d")}
+								className={`flex gap-3 items-center justify-center w-full h-9 ${
+									props.dimension == "3d"
+										? "text-neutral-50 bg-neutral-900 hover:bg-neutral-800"
+										: "hover:bg-neutral-900 hover:text-neutral-50"
+								} active:shadow-inner active:opacity-75 duration-100`}
+							>
+								<Box
+									size={16}
+									className={`${
+										props.dimension == "3d" ? "fill-neutral-600 stroke-neutral-50" : "fill-transparent"
+									} duration-100`}
+								/>
+								3D
+							</button>
+						</div>
+						<div className="grid grid-cols-2 w-64">
+							<button
+								onClick={() => handleSelectType("static")}
+								className={`flex gap-3 items-center justify-center w-full h-9 ${
+									props.type == "static"
+										? "text-neutral-50 bg-neutral-900 hover:bg-neutral-800"
+										: "hover:bg-neutral-900 hover:text-neutral-50"
+								} active:shadow-inner active:opacity-75 duration-100`}
+							>
+								<Image
+									size={16}
+									className={`${
+										props.type == "static" ? "fill-neutral-600 stroke-neutral-50" : "fill-transparent"
+									} duration-100`}
+								/>
+								{t('Content.Filters.Type.static')}
+							</button>
+							<button
+								onClick={() => handleSelectType("animated")}
+								className={`flex gap-3 items-center justify-center w-full h-9 ${
+									props.type == "animated"
+										? "text-neutral-50 bg-neutral-900 hover:bg-neutral-800"
+										: "hover:bg-neutral-900 hover:text-neutral-50"
+								} active:shadow-inner active:opacity-75 duration-100`}
+							>
+								<Film
+									size={16}
+									className={`${
+										props.type == "animated" ? "fill-neutral-600 stroke-neutral-50" : "fill-transparent"
+									} duration-100`}
+								/>
+								{t('Content.Filters.Type.animated')}
+							</button>
 						</div>
 					</div>
 				</Collapsible.Content>

@@ -40,9 +40,8 @@ export default async function Page({
 	const currentPage = Number(searchParams?.p) || 1;
 	const nsfw = String(searchParams?.nsfw) || "hide";
 	const artist = String(searchParams?.artist) || "undefined";
-	const Artworks: MinaArtworks = await getArtworks(currentPage, nsfw, artist);
 	const Artists: Artists = await getArtists();
-	const ArtistList: string[] = Array.from(new Set(Artists.data.map((artist) => artist.attributes.name))).sort();
+	const Artworks: MinaArtworks = await getArtworks(currentPage, nsfw, artist, Artists);
 	const pageCount = Artworks.meta.pagination.pageCount;
 	return (
 		<>
@@ -98,7 +97,7 @@ export default async function Page({
 					</div>
 				</section>
 				<section className="max-w-7xl mx-auto px-3 xl:px-9">
-					<Filters nsfw={nsfw} artist={artist} artists={ArtistList} />
+					<Filters nsfw={nsfw} artist={artist} artists={Artists} />
 					{currentPage > pageCount ? (
 						<div className="relative">
 							<GallerySkeleton />
@@ -116,13 +115,25 @@ export default async function Page({
 	);
 }
 
-async function getArtworks(page: number, nsfw: string, artist: string) {
+async function getArtworks(page: number, nsfw: string, artist: string, artists: Artists) {
+	let nsfwFilter = "";
+	let artistFilter = "";
+
+	if (nsfw !== "show") {
+		nsfwFilter = `filters[nsfw][$ne]=true&`;
+	}
+
+	if (artist !== "undefined") {
+		const matchingArtist = artists.data.find((a) => a.attributes.name === artist);
+		if (matchingArtist) {
+			artistFilter = `filters[artist][name][$eq]=${matchingArtist.attributes.name}&`;
+		}
+	}
+
 	const res = await fetch(
-		`${process.env.STRAPI_API_URL}/mina-artworks?pagination[page]=${Number(page)}&pagination[pageSize]=20&${
-			nsfw != "show" ? `filters[nsfw][$ne]=true&` : ""
-		}${
-			artist != "undefined" ? `filters[artist][name][$eq]=${artist}&` : ""
-		}populate=artwork&populate=artist&sort=creationDate:desc`,
+		`${process.env.STRAPI_API_URL}/mina-artworks?pagination[page]=${Number(
+			page
+		)}&pagination[pageSize]=20&${nsfwFilter}${artistFilter}populate=artwork&populate=artist&sort=creationDate:desc`,
 		{
 			headers: {
 				"Content-Type": "application/json",

@@ -12,8 +12,9 @@ import * as Select from "@radix-ui/react-select";
 import { useTranslations } from "next-intl";
 
 import { Check, ChevronDown, ChevronUp, Filter, X } from "lucide-react";
+import { Artists } from "src/types/artist";
 
-function Filters(props: { nsfw?: string; artist?: string; artists: string[] }) {
+function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 	const t = useTranslations("MINA");
 	const searchParams = useSearchParams();
 	const nsfw = props.nsfw == "show" ? true : false;
@@ -90,6 +91,9 @@ function Filters(props: { nsfw?: string; artist?: string; artists: string[] }) {
 		);
 	}
 
+	const nsfwActive = props.nsfw == "show";
+	const artistFilterActive = props.artist ? props.artists.data.some((a) => a.attributes.name === props.artist) : false;
+
 	return (
 		<>
 			<Collapsible.Root
@@ -105,9 +109,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: string[] }) {
 						<span className="flex gap-3 items-center justify-center font-medium">
 							<Filter
 								size={16}
-								className={`${
-									nsfw || props.artist != "undefined" ? "fill-neutral-50" : "fill-transparent"
-								} duration-100`}
+								className={`${nsfwActive || artistFilterActive ? "fill-neutral-50" : "fill-transparent"} duration-100`}
 							/>
 							{t("Content.Artworks.Filters.button")}
 						</span>
@@ -129,13 +131,13 @@ function Filters(props: { nsfw?: string; artist?: string; artists: string[] }) {
 										aria-label="Artist"
 									>
 										<Select.Value aria-label={props.artist}>
-											{props.artist != "undefined" ? props.artist : t("Content.Artworks.Filters.artist")}
+											{artistFilterActive ? props.artist : t("Content.Artworks.Filters.artist")}
 										</Select.Value>
 										<Select.Icon className="ml-auto group-hover:translate-y-0.5 duration-100">
 											<ChevronDown size={16} />
 										</Select.Icon>
 									</Select.Trigger>
-									{props.artist != "undefined" && (
+									{artistFilterActive && (
 										<button
 											onClick={handleClearArtist}
 											className="h-9 px-2.5 hover:bg-neutral-800 hover:text-neutral-50 active:shadow-inner active:opacity-75 duration-100"
@@ -151,11 +153,13 @@ function Filters(props: { nsfw?: string; artist?: string; artists: string[] }) {
 										</Select.ScrollUpButton>
 										<Select.Viewport className="p-1">
 											<Select.Group>
-												{props.artists
-													.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }))
+												{props.artists.data
+													.sort((a, b) =>
+														a.attributes.name.localeCompare(b.attributes.name, undefined, { sensitivity: "base" })
+													)
 													.map((artist) => (
-														<SelectItem key={artist} value={artist}>
-															{artist}
+														<SelectItem key={artist.id} value={artist.attributes.name}>
+															{artist.attributes.name}
 														</SelectItem>
 													))}
 											</Select.Group>
