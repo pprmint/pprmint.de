@@ -3,6 +3,15 @@ import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
 
 import Title from "src/components/layout/Title";
+import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+	const t = await getTranslations({ locale, namespace: "PRIVACY" });
+	return {
+		title: `${t("Head.title")}.`,
+		description: t("Head.description"),
+	};
+}
 
 export default function PrivacyPolicy() {
 	const t = useTranslations("PRIVACY");
