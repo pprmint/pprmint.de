@@ -13,29 +13,29 @@ export const Pages = [
 		strings: "Contact",
 	},
 ];
-export const Projects = [
+export const Works = [
 	{
 		link: "/gallery",
 		strings: "Gallery",
 	},
 	{
-		link: "/projects/ytdg",
+		link: "/project/ytdg",
 		strings: "YtDlpGui",
 	},
 	{
-		link: "/projects/mintcraft",
+		link: "/project/mintcraft",
 		strings: "Mintcraft",
 	},
 	{
-		link: "/projects/mintbit",
+		link: "/project/mintbit",
 		strings: "Mintbit",
 	},
 	{
-		link: "/projects/mintsans",
+		link: "/project/mintsans",
 		strings: "Mintsans",
 	},
 	{
-		link: "/projects/appicons",
+		link: "/project/appicons",
 		strings: "AppIcons",
 	},
 ];

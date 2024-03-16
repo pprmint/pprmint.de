@@ -6,7 +6,7 @@ import * as Portal from "@radix-ui/react-portal";
 import { Link, locales, usePathname } from "src/navigation";
 import Copyright from "./Copyright";
 
-import { Pages, Projects } from "./Links";
+import { Pages, Works } from "./Links";
 import { ChevronRight } from "lucide-react";
 
 export default function MobileNavigation() {
@@ -139,14 +139,14 @@ export default function MobileNavigation() {
 								</div>
 								<div className="pb-6">
 									<p className="pl-3 pb-1 font-display text-neutral-50 font-semibold text-2xl">
-										{t("Path.Projects.title")}
+										{t("Path.Works.title")}
 									</p>
 									<ul>
-										{Projects.map((Project) => (
+										{Works.map((Work) => (
 											<ListItem
-												key={Project.link}
-												title={t(`Path.Projects.${Project.strings}.title`)}
-												href={Project.link}
+												key={Work.link}
+												title={t(`Path.Works.${Work.strings}.title`)}
+												href={Work.link}
 											/>
 										))}
 									</ul>

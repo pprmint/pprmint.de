@@ -4,7 +4,7 @@ import { Link, locales, usePathname } from "src/navigation";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { ChevronDown } from "lucide-react";
 
-import { Pages, Projects } from "./Links";
+import { Pages, Works } from "./Links";
 import Copyright from "./Copyright";
 import { JSXElementConstructor, ReactElement, ReactNodeArray } from "react";
 
@@ -86,18 +86,18 @@ export default function DesktopNavigation() {
 
 					<NavigationMenu.Item>
 						<NavigationMenu.Trigger className={NavMenuTrigger}>
-							{t("Path.Projects.title")}
+							{t("Path.Works.title")}
 							{Caret}
 						</NavigationMenu.Trigger>
 
 						<NavigationMenu.Content className={`${NavMenuContent} w-[500px] lg:w-[600px]`}>
 							<ul className="grid gap-1 grid-cols-2 grid-flow-row">
-								{Projects.map((Project) => (
+								{Works.map((Work) => (
 									<MenuItem
-										key={Project.link}
-										href={Project.link}
-										title={t(`Path.Projects.${Project.strings}.title`)}
-										description={t(`Path.Projects.${Project.strings}.description`)}
+										key={Work.link}
+										href={Work.link}
+										title={t(`Path.Works.${Work.strings}.title`)}
+										description={t(`Path.Works.${Work.strings}.description`)}
 									/>
 								))}
 							</ul>
