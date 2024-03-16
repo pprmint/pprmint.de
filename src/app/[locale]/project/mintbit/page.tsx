@@ -40,7 +40,7 @@ export default function Page() {
 					<p>{t("MINTBIT.Content.Download.text")}</p>
 					<br />
 					<Link href="https://static.pprmint.art/download/Mintbit/Mintbit_1.1.zip">
-						<Button color="green">
+						<Button color="green" tabIndex={-1}>
 							<Download size={16} />
 							{t("COMMON.download")}
 						</Button>

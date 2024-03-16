@@ -462,15 +462,17 @@
 				"text": "und deine Augen bluten."
 			},
 			"Tester": {
+				"Weight": {
+					"label": "Gewicht",
+					"extralight": "Extraleicht",
+					"regular": "Normal",
+					"bold": "Breit"
+				},
 				"alignment": "Ausrichtung",
-				"bold": "Fett",
-				"extralight": "Extraleicht",
 				"heading": "Probier es aus, oder noch besser: Lass es",
 				"pangram": "Franz jagt im komplett verwahrlosten Taxi quer durch Bayern.",
-				"regular": "Normal",
 				"size": "Größe",
-				"spacing": "Zeichenabstand",
-				"weight": "Weite"
+				"spacing": "Zeichenabstand"
 			}
 		},
 		"Head": {

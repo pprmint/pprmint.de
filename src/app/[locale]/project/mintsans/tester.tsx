@@ -55,9 +55,9 @@ export default function Tester() {
 									</Select.ScrollUpButton>
 									<Select.Viewport className="p-1">
 										<Select.Group>
-											<SelectItem value="200">{t("Content.Tester.extralight")}</SelectItem>
-											<SelectItem value="400">{t("Content.Tester.regular")}</SelectItem>
-											<SelectItem value="700">{t("Content.Tester.bold")}</SelectItem>
+											<SelectItem value="200">{t("Content.Tester.Weight.extralight")}</SelectItem>
+											<SelectItem value="400">{t("Content.Tester.Weight.regular")}</SelectItem>
+											<SelectItem value="700">{t("Content.Tester.Weight.bold")}</SelectItem>
 										</Select.Group>
 									</Select.Viewport>
 									<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-neutral-900/50 text-neutral-50 rounded-b-md">
@@ -66,7 +66,7 @@ export default function Tester() {
 								</Select.Content>
 							</Select.Portal>
 						</Select.Root>
-						<sub className="pt-3 pb-2">{t("Content.Tester.weight")}</sub>
+						<sub className="pt-3 pb-2">{t("Content.Tester.Weight.label")}</sub>
 					</div>
 					<div className="flex flex-col">
 						<Toolbar.ToggleGroup

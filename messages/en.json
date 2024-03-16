@@ -466,15 +466,17 @@
 				"text": "and your eyes bleed."
 			},
 			"Tester": {
+				"Weight": {
+					"label": "Weight",
+					"extralight": "Extra light",
+					"regular": "Regular",
+					"bold": "Bold"
+				},
 				"alignment": "Alignment",
-				"bold": "Bold",
-				"extralight": "Extra Light",
 				"heading": "Try it out, or better yet: Don't",
 				"pangram": "The quick brown fox jumps over the lazy dog.",
-				"regular": "Regular",
 				"size": "Size",
-				"spacing": "Letter spacing",
-				"weight": "Weight"
+				"spacing": "Letter spacing"
 			}
 		},
 		"Head": {
