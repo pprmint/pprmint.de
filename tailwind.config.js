@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ["./app/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+	content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
 	safelist: ["object-top", "object-center", "object-bottom", "object-left", "object-right"],
 	theme: {
 		extend: {
@@ -194,6 +194,38 @@ module.exports = {
 					from: { height: "var(--radix-accordion-content-height)", opacity: 1 },
 					to: { height: 0, opacity: 0 },
 				},
+				collapsibleHorizontalOpen: {
+					from: {
+						width: 0,
+					},
+					to: {
+						width: "var(--radix-collapsible-content-width)",
+					},
+				},
+				collapsibleHorizontalClose: {
+					from: {
+						width: "var(--radix-collapsible-content-width)",
+					},
+					to: {
+						width: 0,
+					},
+				},
+				collapsibleVerticalOpen: {
+					from: {
+						height: 0,
+					},
+					to: {
+						height: "var(--radix-collapsible-content-height)",
+					},
+				},
+				collapsibleVerticalClose: {
+					from: {
+						height: "var(--radix-collapsible-content-height)",
+					},
+					to: {
+						height: 0,
+					},
+				},
 				selectOpen: {
 					from: { opacity: 0 },
 					to: { opacity: 1 },
@@ -245,6 +277,10 @@ module.exports = {
 					"50%": { backgroundColor: "#eeeeee26" },
 					"100%": { backgroundColor: "#eeeeee14" },
 				},
+				lucideCheckDrawIn: {
+					from: { strokeDashoffset: -24 },
+					to: { strokeDashoffset: 0 },
+				},
 			},
 			animation: {
 				"slow-spin": "spin 3s linear infinite;",
@@ -256,6 +292,10 @@ module.exports = {
 				"exit-to-t": "exitToTop .25s cubic-bezier(.15,0,.35,1)",
 				"accordion-slide-down": "accordionSlideDown .4s cubic-bezier(0.5, 0, 0.1, 1);",
 				"accordion-slide-up": "accordionSlideUp .4s cubic-bezier(0.5, 0, 0.1, 1);",
+				"collapsible-horizontal-open": "collapsibleHorizontalOpen .4s cubic-bezier(0.16, 1, 0.3, 1);",
+				"collapsible-horizontal-close": "collapsibleHorizontalClose .25s cubic-bezier(0.33, 1, 0.68, 1);",
+				"collapsible-vertical-open": "collapsibleVerticalOpen .4s cubic-bezier(0.16, 1, 0.3, 1);",
+				"collapsible-vertical-close": "collapsibleVerticalClose .25s cubic-bezier(0.33, 1, 0.68, 1);",
 				"select-open": "selectOpen .2s;",
 				"select-close": "selectClose .2s;",
 				"toast-slide-in": "toastSlideIn .3s cubic-bezier(0.16, 1, 0.3, 1);",
@@ -268,6 +308,7 @@ module.exports = {
 				"fade-out-scale-down": "fadeOutScaleDown .2s cubic-bezier(0, 0, 0.2, 1)",
 				"arrow-fade-down": "arrowFadeDown 1.5s cubic-bezier(0.2, 0.2, .2, 1) 2s infinite",
 				"skeleton-pulse": "skeletonPulse 3s cubic-bezier(0.7, 0, 0.3, 1) 2s infinite",
+				"lucide-check-draw-in": "lucideCheckDrawIn 0.25s cubic-bezier(0.33, 1, 0.68, 1)",
 			},
 			transitionDuration: {
 				25: "25ms",
@@ -444,6 +485,16 @@ module.exports = {
 			},
 			gridTemplateColumns: {
 				16: "repeat(16, minmax(0, 1fr))",
+			},
+			boxShadow: {
+				inner: "inset 0 2px 3px rgba(0, 0, 0, 0.2)",
+			},
+			zIndex: {
+				60: "60",
+				70: "70",
+				80: "80",
+				90: "90",
+				100: "100",
 			},
 		},
 	},

@@ -1,5 +1,6 @@
 /** @type {import("next").NextConfig} */
-const nextTranslate = require("next-translate-plugin");
+const createNextIntlPlugin = require("next-intl/plugin");
+const withNextIntl = createNextIntlPlugin();
 
 const securityHeaders = [
 	{
@@ -23,8 +24,9 @@ const securityHeaders = [
 		value: "nosniff",
 	},
 ];
-module.exports = nextTranslate({
-	reactStrictMode: true,
+
+module.exports = withNextIntl({
+	reactStrictMode: false,
 	images: {
 		remotePatterns: [
 			{
@@ -41,33 +43,53 @@ module.exports = nextTranslate({
 				permanent: false,
 			},
 			{
+				source: "/projects/:slug*",
+				destination: "/project/:slug*",
+				permanent: true,
+			},
+			{
+				source: "/project",
+				destination: "/",
+				permanent: true,
+			},
+			{
 				source: "/projects",
 				destination: "/",
 				permanent: true,
 			},
 			{
 				source: "/mintcraft",
-				destination: "/projects/mintcraft",
+				destination: "/project/mintcraft",
 				permanent: true,
 			},
 			{
 				source: "/appicons",
-				destination: "/projects/appicons",
+				destination: "/project/appicons",
 				permanent: true,
 			},
 			{
 				source: "/mintsans",
-				destination: "/projects/mintsans",
+				destination: "/project/mintsans",
 				permanent: true,
 			},
 			{
 				source: "/mintbit",
-				destination: "/projects/mintbit",
+				destination: "/project/mintbit",
+				permanent: true,
+			},
+			{
+				source: "/ytdlp",
+				destination: "/project/ytdg",
+				permanent: true,
+			},
+			{
+				source: "/ytdlg",
+				destination: "/project/ytdg",
 				permanent: true,
 			},
 			{
 				source: "/yt-dlp-gui",
-				destination: "/projects/ytdg",
+				destination: "/project/ytdg",
 				permanent: true,
 			},
 		];
