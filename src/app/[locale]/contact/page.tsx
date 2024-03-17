@@ -13,8 +13,22 @@ import Image from "next/image";
 import { Link } from "src/navigation";
 import Button from "src/components/ui/Button";
 import Chatbox from "./chatbox";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
-export default function Page() {
+type Props = {
+    params: { locale: string };
+};
+
+export async function generateMetadata({ params: { locale } }: Props) {
+	const t = await getTranslations({ locale, namespace: "CONTACT" });
+	return {
+		title: `${t("Head.title")} • pprmint.art`,
+		description: t("Head.description"),
+	};
+}
+
+export default function Page({ params: { locale } }: Props) {
+	unstable_setRequestLocale(locale);
 	const t = useTranslations("CONTACT");
 	return (
 		<>

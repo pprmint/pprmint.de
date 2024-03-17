@@ -1,7 +1,12 @@
 import { useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { Link } from "src/navigation";
 import Tester from "./tester";
+import { Download } from "lucide-react";
+
+import Title from "src/components/layout/Title";
+import FadingImage from "src/components/ui/FadingImage";
+import Button from "src/components/ui/Button";
 
 import TitleImage from "public/assets/mintsans/MintSans_V2.jpg";
 import Slide1 from "public/assets/mintsans/slide1.svg";
@@ -11,20 +16,20 @@ import Slide4 from "public/assets/mintsans/slide4.svg";
 import Slide5 from "public/assets/mintsans/slide5.svg";
 import Slide6 from "public/assets/mintsans/slide6.svg";
 
-import Title from "src/components/layout/Title";
-import FadingImage from "src/components/ui/FadingImage";
-import Button from "src/components/ui/Button";
-import { Download } from "lucide-react";
+type Props = {
+    params: { locale: string };
+};
 
-export async function generateMetadata({ locale }: { locale: string }) {
+export async function generateMetadata({ params: { locale } }: Props) {
 	const t = await getTranslations({ locale, namespace: "MINTSANS" });
 	return {
-		title: `${t("Head.title")}.`,
+		title: `${t("Head.title")} • pprmint.art`,
 		description: t("Head.description"),
 	};
 }
 
-export default function Page() {
+export default function Page({ params: { locale } }: Props) {
+	unstable_setRequestLocale(locale);
 	const t = useTranslations();
 	return (
 		<>

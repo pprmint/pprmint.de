@@ -1,6 +1,7 @@
 "use client";
 import * as React from "react";
 import { useSpring, a } from "@react-spring/web";
+import { ArrowDown } from "lucide-react";
 
 export default function Title(
 	props: React.PropsWithChildren<{
@@ -49,7 +50,7 @@ export default function Title(
 						{props.description}
 					</p>
 				</div>
-				<i className={`ri-arrow-down-line text-3xl ${accentColor} animate-arrow-fade-down opacity-0`} />
+				<ArrowDown size={32} className={`${accentColor} animate-arrow-fade-down opacity-0`} />
 			</div>
 		</div>
 	);

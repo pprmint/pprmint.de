@@ -1,4 +1,5 @@
 "use client";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { usePathname, useRouter } from "src/navigation";
 
@@ -19,11 +20,11 @@ export default function Pagination({ page, pageCount }: { page: number; pageCoun
 	return (
 		<div className="flex gap-2 justify-center w-full">
 			<button
-				className={`size-10 rounded-full text-lg text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800 disabled:text-neutral-800 disabled:bg-transparent duration-100`}
+				className={`group inline-flex items-center justify-center size-10 rounded-full text-lg text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800 disabled:text-neutral-800 disabled:bg-transparent duration-100`}
 				disabled={page == 1}
 				onClick={() => handlePagination(String(page - 1))}
 			>
-				<i className="ri-arrow-left-s-line" />
+				<ChevronLeft size={16} className="group-active:-translate-x-0.5 duration-50" />
 			</button>
 			{[...Array(pageCount)].map((_, index) => (
 				<button
@@ -39,11 +40,11 @@ export default function Pagination({ page, pageCount }: { page: number; pageCoun
 				</button>
 			))}
 			<button
-				className={`size-10 rounded-full text-lg text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800 disabled:text-neutral-800 disabled:bg-transparent duration-100`}
+				className={`group inline-flex items-center justify-center size-10 rounded-full text-lg text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800 disabled:text-neutral-800 disabled:bg-transparent duration-100`}
 				disabled={page == pageCount}
 				onClick={() => handlePagination(String(page + 1))}
 			>
-				<i className="ri-arrow-right-s-line" />
+				<ChevronRight size={16} className="group-active:translate-x-0.5 duration-50" />
 			</button>
 		</div>
 	);

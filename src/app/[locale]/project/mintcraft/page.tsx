@@ -1,4 +1,5 @@
 import { useLocale, useTranslations } from "next-intl";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Marquee from "react-fast-marquee";
 
 import Title from "src/components/layout/Title";
@@ -25,10 +26,27 @@ import TFurnaceEN from "/public/assets/mintcraft/en/furnace.png";
 import { Link } from "src/navigation";
 import Button from "src/components/ui/Button";
 import { SiGithub, SiModrinth } from "@icons-pack/react-simple-icons";
+import { Viewport } from "next";
 
-export default function Page() {
+type Props = {
+    params: { locale: string };
+};
+
+export async function generateMetadata({ params: { locale } }: Props) {
+	const t = await getTranslations({ locale, namespace: "MINTCRAFT" });
+	return {
+		title: `${t("Head.title")} • pprmint.art`,
+		description: t("Head.description"),
+	};
+}
+
+export const viewport: Viewport = {
+	themeColor: "#ffbb00",
+};
+
+export default function Page({ params: { locale } }: Props) {
+	unstable_setRequestLocale(locale);
 	const t = useTranslations("MINTCRAFT");
-	const locale = useLocale();
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} accentColor="text-yellow">
@@ -101,10 +119,7 @@ export default function Page() {
 						rel="noopener noreferrer"
 						className="text-link-external"
 					>
-						<h3>
-							Blizzy
-							<i className="ri-arrow-right-up-line text-blue" />
-						</h3>
+						<h3>Blizzy</h3>
 					</Link>
 					<p className="pb-3">{t("Content.Credits.blizzy")}</p>
 					<Link
@@ -113,10 +128,7 @@ export default function Page() {
 						rel="noopener noreferrer"
 						className="text-link-external"
 					>
-						<h3>
-							Vanilla Tweaks
-							<i className="ri-arrow-right-up-line text-blue" />
-						</h3>
+						<h3>Vanilla Tweaks</h3>
 					</Link>
 					<p>{t("Content.Credits.vanillaTweaks")}</p>
 				</section>

@@ -3,19 +3,23 @@ import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
 
 import Title from "src/components/layout/Title";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+type Props = {
+    params: { locale: string };
+};
+
+export async function generateMetadata({ params: { locale } }: Props) {
 	const t = await getTranslations({ locale, namespace: "PRIVACY" });
 	return {
-		title: `${t("Head.title")}.`,
+		title: `${t("Head.title")} • pprmint.art`,
 		description: t("Head.description"),
 	};
 }
 
-export default function PrivacyPolicy() {
+export default function Page({ params: { locale } }: Props) {
+	unstable_setRequestLocale(locale);
 	const t = useTranslations("PRIVACY");
-	const locale = useLocale();
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} />
@@ -53,7 +57,6 @@ export default function PrivacyPolicy() {
 							rel="noopener noreferrer"
 						>
 							{t("Content.privacyPolicyOf", { provider: "Fastmail" })}
-							<i className="ri-arrow-right-up-line" />
 						</Link>
 						<Link
 							className="text-link-external"
@@ -62,7 +65,6 @@ export default function PrivacyPolicy() {
 							rel="noopener noreferrer"
 						>
 							{t("Content.dpaOf", { provider: "Fastmail" })}
-							<i className="ri-arrow-right-up-line" />
 						</Link>
 					</p>
 				</section>
@@ -82,7 +84,6 @@ export default function PrivacyPolicy() {
 							{t("Content.privacyPolicyOf", {
 								provider: "Contabo",
 							})}
-							<i className="ri-arrow-right-up-line" />
 						</Link>
 						<Link
 							className="text-link-external"
@@ -93,7 +94,6 @@ export default function PrivacyPolicy() {
 							{t("Content.privacyPolicyOf", {
 								provider: "Cloudflare",
 							})}
-							<i className="ri-arrow-right-up-line" />
 						</Link>
 						<Link
 							className="text-link-external"
@@ -104,7 +104,6 @@ export default function PrivacyPolicy() {
 							{t("Content.dpaOf", {
 								provider: "Cloudflare",
 							})}
-							<i className="ri-arrow-right-up-line" />
 						</Link>
 					</p>
 				</section>

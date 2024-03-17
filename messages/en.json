@@ -422,7 +422,7 @@
 				"text3": "Mintcraft is a resource pack I made mostly to fit my own taste, but has proven to be liked by at least 3 other beings of human nature within this galaxy.",
 				"text4": "Taking some inspiration from the Minecraft Launcher's giant PLAY button, Mintcraft aims to provide a consistent dark mode and slightly refreshed look to the Minecraft UI.",
 				"text5": "Stress being on UI: This pack mainly affects the solid backgrounds of the options and world/server selection screens. If you'd like, you can also apply my take at the Minecraft Seven font, <Link>Mintbit</Link>, and a new button click sound via add-ons. Or download the Complete version to get all of that in one handy ZIP.",
-				"text6": "Want screenshots? Scroll up."
+				"text6": "Need screenshots? Scroll up."
 			},
 			"Credits": {
 				"heading": "Special thanks",
@@ -460,7 +460,8 @@
 				"heading": "Try it out, or better yet: Don't",
 				"pangram": "The quick brown fox jumps over the lazy dog.",
 				"size": "Size",
-				"spacing": "Letter spacing"
+				"spacing": "Letter spacing",
+				"reset": "Reset settings"
 			}
 		},
 		"Head": {

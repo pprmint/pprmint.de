@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { Suspense } from "react";
 
 import Title from "src/components/layout/Title";
@@ -19,23 +19,26 @@ import { Link } from "src/navigation";
 import Button from "src/components/ui/Button";
 import { Download } from "lucide-react";
 
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
-	const t = await getTranslations({ locale, namespace: "MINA" });
-	return {
-		title: `${t("Head.title")}.`,
-		description: t("Head.description"),
-	};
-}
-
-export default async function Page({
-	searchParams,
-}: {
+type Props = {
+	params: { locale: string };
+    
 	searchParams?: {
 		p?: string;
 		nsfw?: string;
 		artist?: string;
 	};
-}) {
+};
+
+export async function generateMetadata({ params: { locale } }: Props) {
+	const t = await getTranslations({ locale, namespace: "MINA" });
+	return {
+		title: `${t("Head.title")} • pprmint.art`,
+		description: t("Head.description"),
+	};
+}
+
+export default async function Page({ searchParams, params: { locale } }: Props) {
+	unstable_setRequestLocale(locale);
 	const t = await getTranslations("MINA");
 	const currentPage = Number(searchParams?.p) || 1;
 	const nsfw = String(searchParams?.nsfw) || "hide";

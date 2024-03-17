@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import * as Accordion from "@radix-ui/react-accordion";
 
 import Title from "src/components/layout/Title";
 
@@ -8,8 +7,23 @@ import RedLight from "public/assets/commissions/red.webp";
 import YellowLight from "public/assets/commissions/yellow.webp";
 import GreenLight from "public/assets/commissions/green.webp";
 import Services from "./services";
+import { Info } from "lucide-react";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
-export default function Page() {
+type Props = {
+    params: { locale: string };
+};
+
+export async function generateMetadata({ params: { locale } }: Props) {
+	const t = await getTranslations({ locale, namespace: "COMMISSIONS" });
+	return {
+		title: `${t("Head.title")} • pprmint.art`,
+		description: t("Head.description"),
+	};
+}
+
+export default function Page({ params: { locale } }: Props) {
+	unstable_setRequestLocale(locale);
 	const t = useTranslations("COMMISSIONS");
 	// Status for commissions
 	// 0 = closed (red)
@@ -32,7 +46,7 @@ export default function Page() {
 				<section className="my-20">
 					<h2>{t("Content.Offers.heading")}</h2>
 					<p className="pb-6 inline-flex items-center gap-3">
-						<i className="ri-information-line" />
+						<Info size={16} />
 						{t("Content.Offers.priceInfo")}
 					</p>
 					<Services/>

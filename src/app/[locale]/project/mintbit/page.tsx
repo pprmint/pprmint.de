@@ -1,26 +1,30 @@
 import { useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
-import Title from "src/components/layout/Title";
-import FadingImage from "src/components/ui/FadingImage";
-
-import TitleBackground from "public/assets/mintbit/title.svg";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { Link } from "src/navigation";
+import { Download } from "lucide-react";
 import Glyphs from "./glyphs";
 import Tester from "./tester";
-import { Link } from "src/navigation";
-import Button from "src/components/ui/Button";
-import { Download } from "lucide-react";
 
-export async function generateMetadata({ locale }: { locale: string }) {
+import Title from "src/components/layout/Title";
+import TitleBackground from "public/assets/mintbit/title.svg";
+import FadingImage from "src/components/ui/FadingImage";
+import Button from "src/components/ui/Button";
+
+export async function generateMetadata({ params: { locale } }: Props) {
 	const t = await getTranslations({ locale, namespace: "MINTBIT" });
 	return {
-		title: `${t("Head.title")}.`,
+		title: `${t("Head.title")} • pprmint.art`,
 		description: t("Head.description"),
 	};
 }
 
-export default function Page() {
-	const t = useTranslations();
+type Props = {
+	params: { locale: string };
+};
 
+export default function Page({ params: { locale } }: Props) {
+	unstable_setRequestLocale(locale);
+	const t = useTranslations();
 	return (
 		<>
 			<Title title={t("MINTBIT.Head.title")} description={t("MINTBIT.Head.description")}>

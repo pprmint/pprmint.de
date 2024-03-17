@@ -34,8 +34,8 @@ function ColorPickerToast(props: {
 					style={{ backgroundColor: props.color }}
 				/>
 				<Toast.Description>{t("copied")}</Toast.Description>
-				<Toast.Close className="hover:bg-neutral-50/10 active:bg-neutral-50/5 rounded-full duration-100 active:duration-75">
-					<i className="ri-close-line text-neutral-50 p-1" />
+				<Toast.Close className="inline-flex items-center justify-center size-6 hover:bg-neutral-50/10 active:bg-neutral-50/5 rounded-full duration-100 active:duration-75">
+					<X size={16} className="stroke-neutral-50" />
 				</Toast.Close>
 			</Toast.Root>
 			<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-[9999] outline-none" />

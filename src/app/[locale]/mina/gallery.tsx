@@ -1,6 +1,8 @@
 "use client";
+import { SiInstagram, SiTwitter, SiYoutube } from "@icons-pack/react-simple-icons";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useTransition, a, config, easings } from "@react-spring/web";
+import { EyeOff, Globe } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import FadingImage from "src/components/ui/FadingImage";
@@ -43,7 +45,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 								unoptimized={art.attributes.artwork.data[0].attributes.url.includes(".gif")}
 							/>
 							{art.attributes.nsfw && (
-								<i className="text-neutral-50/75 ri-eye-off-line absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl group-hover:opacity-0 duration-200" />
+								<EyeOff size={36} className="stroke-neutral-50 opacity-75 ri-eye-off-line absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:opacity-0 duration-200" />
 							)}
 						</button>
 					</Dialog.Trigger>
@@ -81,20 +83,20 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 							>
 								<button
 									tabIndex={-1}
-									className="text-neutral-50 size-9 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
+									className="text-neutral-50 inline-flex items-center justify-center size-9 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
 								>
 									{selectedArtwork.attributes.artist.data.attributes.creditUrl!.startsWith("https://twitter.com/") ? (
-										<i className="ri-twitter-line" />
+										<SiTwitter size={16} />
 									) : selectedArtwork.attributes.artist.data.attributes.creditUrl!.startsWith(
 											"https://www.instagram.com/"
 									  ) ? (
-										<i className="ri-instagram-line" />
+										<SiInstagram size={16} />
 									) : selectedArtwork.attributes.artist.data.attributes.creditUrl!.startsWith(
 											"https://www.youtube.com/"
 									  ) ? (
-										<i className="ri-youtube-line" />
+										<SiYoutube size={16} />
 									) : (
-										<i className="ri-global-line" />
+										<Globe size={16} />
 									)}
 								</button>
 							</Link>

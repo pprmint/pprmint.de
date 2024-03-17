@@ -9,6 +9,7 @@ import TwoDeeCardImage from "public/assets/commissions/2D.svg";
 import MoGraphCardImage from "public/assets/commissions/MoGraph.svg";
 import ThreeDeeCardImage from "public/assets/commissions/3D.svg";
 import WebsiteCardImage from "public/assets/commissions/Hell.svg";
+import { Check, Plus } from "lucide-react";
 
 export default function Services() {
 	const t = useTranslations("COMMISSIONS");
@@ -21,7 +22,9 @@ export default function Services() {
 						<div className="flex-grow pt-6">
 							<h3>{t("Content.Offers.2DDesign.heading")}</h3>
 							<p className="text-md">{t("Content.Offers.2DDesign.subheading")}</p>
-							<p className="font-display-mono font-semibold text-neutral-50 text-2xl lg:text-4xl tracking-tighter">50€-200€</p>
+							<p className="font-display-mono font-semibold text-neutral-50 text-2xl lg:text-4xl tracking-tighter">
+								50€-200€
+							</p>
 						</div>
 						<FadingImage src={TwoDeeCardImage} alt="" className="w-36 h-36" />
 					</div>
@@ -31,26 +34,26 @@ export default function Services() {
 						<h4>What I need.</h4>
 						<ul>
 							<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
-								<i className="ri-add-line" />
+								<Plus size={16} />
 								Detailed description of ideas (sketches preferred)
 							</li>
 							<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
-								<i className="ri-add-line" />
+								<Plus size={16} />
 								License to use custom fonts (unless OFL or similar)
 							</li>
 						</ul>
 						<h4>What you get.</h4>
 						<ul>
 							<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
-								<i className="ri-check-line" />
+								<Check size={16} />
 								Assets for various social media profiles
 							</li>
 							<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
-								<i className="ri-check-line" />
+								<Check size={16} />
 								Exports as PNG, SVG and EPS files
 							</li>
 							<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
-								<i className="ri-check-line" />
+								<Check size={16} />
 								Access to Affinity Designer project files (can also be exported as .PSD files)
 							</li>
 						</ul>
@@ -64,7 +67,9 @@ export default function Services() {
 						<div className="flex-grow pt-6">
 							<h3>{t("Content.Offers.2DAnimation.heading")}</h3>
 							<p className="text-md">{t("Content.Offers.2DAnimation.subheading")}</p>
-							<p className="font-display-mono font-semibold text-neutral-50 text-2xl lg:text-4xl tracking-tighter">100€-250€</p>
+							<p className="font-display-mono font-semibold text-neutral-50 text-2xl lg:text-4xl tracking-tighter">
+								100€-250€
+							</p>
 						</div>
 						<FadingImage src={MoGraphCardImage} alt="" className="w-36 h-36" />
 					</div>
@@ -74,11 +79,11 @@ export default function Services() {
 						<h4>What you get.</h4>
 						<ul>
 							<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
-								<i className="ri-check-line" />
+								<Check size={16} />
 								Original After Effects project file
 							</li>
 							<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
-								<i className="ri-check-line" />
+								<Check size={16} />
 								Exports in various formats (MP4, AVI, WEBM, GIF, PNG sequence, Lottie-compatible JSON)
 							</li>
 						</ul>
@@ -92,7 +97,9 @@ export default function Services() {
 						<div className="flex-grow pt-6">
 							<h3>{t("Content.Offers.2D3DGraphic.heading")}</h3>
 							<p className="text-md">{t("Content.Offers.2D3DGraphic.subheading")}</p>
-							<p className="font-display-mono font-semibold text-neutral-50 text-2xl lg:text-4xl tracking-tighter">150€-400€</p>
+							<p className="font-display-mono font-semibold text-neutral-50 text-2xl lg:text-4xl tracking-tighter">
+								150€-400€
+							</p>
 						</div>
 						<FadingImage src={ThreeDeeCardImage} alt="" className="w-36 h-36" />
 					</div>
@@ -102,19 +109,19 @@ export default function Services() {
 						<h4>What you get.</h4>
 						<ul>
 							<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
-								<i className="ri-check-line" />
+								<Check size={16} />
 								Something
 							</li>
 							<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
-								<i className="ri-check-line" />
+								<Check size={16} />
 								Something
 							</li>
 							<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
-								<i className="ri-check-line" />
+								<Check size={16} />
 								Something
 							</li>
 							<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
-								<i className="ri-check-line" />
+								<Check size={16} />
 								Something
 							</li>
 						</ul>
@@ -128,7 +135,9 @@ export default function Services() {
 						<div className="flex-grow pt-6">
 							<h3>{t("Content.Offers.Website.heading")}</h3>
 							<p className="text-md">{t("Content.Offers.Website.subheading")}</p>
-							<p className="font-display-mono font-semibold text-neutral-50 text-2xl lg:text-4xl tracking-tighter">200€-2000€+</p>
+							<p className="font-display-mono font-semibold text-neutral-50 text-2xl lg:text-4xl tracking-tighter">
+								200€-2000€+
+							</p>
 						</div>
 						<FadingImage src={WebsiteCardImage} alt="" className="w-36 h-36" />
 					</div>
@@ -138,27 +147,27 @@ export default function Services() {
 						<h4>What you get.</h4>
 						<ul>
 							<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
-								<i className="ri-check-line" />
+								<Check size={16} />
 								Something
 							</li>
 							<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
-								<i className="ri-check-line" />
+								<Check size={16} />
 								Something
 							</li>
 							<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
-								<i className="ri-check-line" />
+								<Check size={16} />
 								Something
 							</li>
 							<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
-								<i className="ri-check-line" />
+								<Check size={16} />
 								Something
 							</li>
 							<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
-								<i className="ri-check-line" />
+								<Check size={16} />
 								Something
 							</li>
 							<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
-								<i className="ri-check-line" />
+								<Check size={16} />
 								Something
 							</li>
 						</ul>

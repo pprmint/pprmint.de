@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { Suspense } from "react";
 
 import Title from "src/components/layout/Title";
@@ -12,23 +12,26 @@ import Pagination from "src/components/gallery/Pagination";
 import OutOfBounds from "src/components/gallery/OutOfBounds";
 import { Works } from "src/types/work";
 
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+export async function generateMetadata({ params: { locale } }: Props) {
 	const t = await getTranslations({ locale, namespace: "GALLERY" });
 	return {
-		title: `${t("Head.title")}.`,
+		title: `${t("Head.title")} • pprmint.art`,
 		description: t("Head.description"),
 	};
 }
 
-export default async function Page({
-	searchParams,
-}: {
+type Props = {
+	params: { locale: string };
+
 	searchParams?: {
 		p?: string;
 		type?: string;
 		dimension?: string;
 	};
-}) {
+};
+
+export default async function Page({ searchParams, params: { locale } }: Props) {
+	unstable_setRequestLocale(locale);
 	const t = await getTranslations("GALLERY");
 	const currentPage = Number(searchParams?.p) || 1;
 	const type = String(searchParams?.type) || "undefined";
@@ -98,16 +101,13 @@ async function getWorks(page: number, dimension: string, type: string) {
 }
 
 async function getLatest() {
-	const res = await fetch(
-		`${process.env.STRAPI_API_URL}/works?pagination[limit]=1&populate=*&sort=creationDate:desc`,
-		{
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
-			},
-			next: { revalidate: 1800 },
-		}
-	);
+	const res = await fetch(`${process.env.STRAPI_API_URL}/works?pagination[limit]=1&populate=*&sort=creationDate:desc`, {
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
+		},
+		next: { revalidate: 1800 },
+	});
 	if (!res.ok) {
 		throw new Error("Failed to fetch latest.");
 	}

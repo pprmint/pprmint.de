@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
 import Title from "src/components/layout/Title";
 import Palette from "./palette";
@@ -7,15 +7,20 @@ import Button from "src/components/ui/Button";
 import { FileJson, SwatchBook } from "lucide-react";
 import Link from "next/link";
 
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+type Props = {
+    params: { locale: string };
+};
+
+export async function generateMetadata({ params: { locale } }: Props) {
 	const t = await getTranslations({ locale, namespace: "PALETTE" });
 	return {
-		title: `${t("Head.title")}.`,
+		title: `${t("Head.title")} • pprmint.art`,
 		description: t("Head.description"),
 	};
 }
 
-export default function PrivacyPolicy() {
+export default function Page({ params: { locale } }: Props) {
+	unstable_setRequestLocale(locale);
 	const t = useTranslations("PALETTE");
 	return (
 		<>

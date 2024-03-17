@@ -1,5 +1,6 @@
 import Button from "src/components/ui/Button";
 import Checkbox from "src/components/ui/Checkbox";
+import VideoPlayer from "src/components/ui/VideoPlayer";
 
 export default function Page() {
 	return (
@@ -139,6 +140,10 @@ export default function Page() {
 					<Checkbox checked color="pink" />
 					<Checkbox checked disabled />
 				</div>
+			</section>
+			<section className="flex flex-col gap-6 mb-48">
+				<h2>Video player</h2>
+                <VideoPlayer src="https://static.pprmint.art/videos/Takashi.mp4" />
 			</section>
 		</main>
 	);

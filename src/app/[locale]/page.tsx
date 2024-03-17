@@ -1,19 +1,23 @@
 import * as React from "react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Link from "next/link";
-import Image from "next/image";
 
-import Head from "src/components/Head";
 import Button from "src/components/ui/Button";
 import Title from "src/components/layout/Title";
 
-import Announcement, { Announcements } from "src/types/announcement";
+import { Announcements } from "src/types/announcement";
 import FadingImage from "src/components/ui/FadingImage";
 import { useLocale } from "next-intl";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
-export default async function Home() {
+type Props = {
+	params: { locale: string };
+};
+
+export default async function Page({ params: { locale } }: Props) {
+	unstable_setRequestLocale(locale);
 	const t = await getTranslations("HOME");
-	const Announcements: Announcements = await getData();
+	const Announcements: Announcements = await GetData();
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
@@ -64,7 +68,7 @@ export default async function Home() {
 								<Link href={Announcements.data[0].attributes.link} className="w-fit">
 									<Button color={Announcements.data[0].attributes.buttonColor} large>
 										{Announcements.data[0].attributes.linkText}
-										<i className="ri-arrow-right-line" />
+										<ArrowRight size={20} />
 									</Button>
 								</Link>
 							) : (
@@ -76,7 +80,7 @@ export default async function Home() {
 								>
 									<Button color={Announcements.data[0].attributes.buttonColor} large>
 										{Announcements.data[0].attributes.linkText}
-										<i className="ri-arrow-right-up-line" />
+										<ArrowUpRight size={20} />
 									</Button>
 								</Link>
 							)
@@ -105,7 +109,7 @@ export default async function Home() {
 												<Link href={announcement.attributes.link} className="w-fit">
 													<Button color={announcement.attributes.buttonColor} outlined>
 														{announcement.attributes.linkText}
-														<i className="ri-arrow-right-line" />
+														<ArrowRight size={16} />
 													</Button>
 												</Link>
 											) : (
@@ -117,7 +121,7 @@ export default async function Home() {
 												>
 													<Button color={announcement.attributes.buttonColor} outlined>
 														{announcement.attributes.linkText}
-														<i className="ri-arrow-right-up-line" />
+														<ArrowUpRight size={16} />
 													</Button>
 												</Link>
 											)
@@ -132,7 +136,7 @@ export default async function Home() {
 	);
 }
 
-async function getData() {
+async function GetData() {
 	const pageSize = 4;
 	const locale = useLocale();
 	const res = await fetch(

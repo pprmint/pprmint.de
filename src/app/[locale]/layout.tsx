@@ -18,13 +18,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params: { locale } }: Props) {
 	const t = await getTranslations({ locale, namespace: "HOME" });
 	return {
-		title: `${t("Head.title")}.`,
+		title: `pprmint.`,
 		description: t("Head.description"),
 	};
 }
 
 export default function LocaleLayout({ children, params: { locale } }: Props) {
-	// Enable static rendering
 	unstable_setRequestLocale(locale);
 	const messages = useMessages();
 	return (

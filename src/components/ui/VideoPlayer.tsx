@@ -1,3 +1,4 @@
+"use client";
 import dynamic from "next/dynamic";
 import { useRef, useState, useEffect } from "react";
 import saveAs from "file-saver";
@@ -7,6 +8,24 @@ import useTranslation from "next-translate/useTranslation";
 import * as Slider from "@radix-ui/react-slider";
 import * as ContextMenu from "@radix-ui/react-context-menu";
 import * as Progress from "@radix-ui/react-progress";
+import {
+	Check,
+	ChevronRight,
+	Download,
+	Gauge,
+	LinkIcon,
+	Maximize,
+	Minimize,
+	Pause,
+	Play,
+	Repeat,
+	SkipBack,
+	Volume,
+	Volume1,
+	Volume2,
+	VolumeX,
+} from "lucide-react";
+import { useTranslations } from "next-intl";
 
 function VideoPlayer(props: {
 	src: string;
@@ -17,7 +36,7 @@ function VideoPlayer(props: {
 	loopDefault?: boolean;
 	key?: string;
 }) {
-	const { t } = useTranslation();
+	const t = useTranslations("COMMON");
 
 	const videoRef = useRef<HTMLVideoElement | null>(null);
 	const videoPlayerRef = useRef<HTMLDivElement | null>(null);
@@ -287,7 +306,7 @@ function VideoPlayer(props: {
 
 	return (
 		<div
-            key={props.key}
+			key={props.key}
 			className={`relative overflow-hidden ${fullscreen ? "bg-black" : "bg-neutral-900"} ${
 				showControls ? "cursor-auto" : "cursor-none"
 			}`}
@@ -301,8 +320,8 @@ function VideoPlayer(props: {
 							style={style}
 							className="absolute flex items-center justify-center w-full h-full z-10"
 						>
-							<button className="flex items-center justify-center z-10 w-24 md:w-32 h-24 md:h-32 bg-neutral-950/30 hover:bg-neutral-950/40 text-neutral-50 text-6xl md:text-8xl rounded-full cursor-pointer duration-100">
-								<i className="ri-play-fill ml-2" />
+							<button className="flex items-center justify-center z-10 size-24 md:size-32 bg-neutral-950/30 hover:bg-neutral-950/40 text-neutral-50 rounded-full cursor-pointer duration-100">
+								<Play size={64} />
 							</button>
 						</a.div>
 					)
@@ -338,7 +357,7 @@ function VideoPlayer(props: {
 									/>
 								</Progress.Root>
 								<p className="text-neutral-50 text-xs text-right my-1 mr-2 drop-shadow-md">
-									{t("COMMON:downloading")}: {progress}%
+									{t("downloading")}: {progress}%
 								</p>
 							</a.div>
 						)
@@ -388,16 +407,16 @@ function VideoPlayer(props: {
 								</div>
 								<div className="flex pt-1 justify-between">
 									<button
-										className="w-10 h-10 bg-neutral-50/0 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-neutral-50 text-2xl duration-100"
+										className="size-10 inline-flex items-center justify-center bg-neutral-50/0 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-neutral-50 text-2xl duration-100"
 										onClick={handlePlay}
 										aria-label="pause/play"
 									>
 										{currentTime === duration ? (
-											<i className="ri-skip-back-fill" />
+											<SkipBack size={20} />
 										) : playing ? (
-											<i className="ri-pause-fill" />
+											<Pause size={20} />
 										) : (
-											<i className="ri-play-fill" />
+											<Play size={20} />
 										)}
 									</button>
 									<div className="flex gap-3">
@@ -423,27 +442,29 @@ function VideoPlayer(props: {
 												</div>
 												<div>
 													<button
-														className={`ml-auto w-10 h-10 bg-neutral-50/0 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-neutral-50 text-xl duration-100`}
+														className={`ml-auto size-10 inline-flex items-center justify-center hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-neutral-50 text-xl duration-100`}
 														onClick={handleMute}
 														aria-label="mute/unmute"
 													>
-														{volume > 0.5 ? (
-															<i className="ri-volume-up-line" />
+														{volume > 0.66 ? (
+															<Volume2 size={20} />
+														) : volume > 0.33 ? (
+															<Volume1 size={20} />
 														) : volume > 0 ? (
-															<i className="ri-volume-down-line" />
+															<Volume size={20} />
 														) : (
-															<i className="ri-volume-mute-line" />
+															<VolumeX size={20} />
 														)}
 													</button>
 												</div>
 											</div>
 										)}
 										<button
-											className="w-10 h-10 bg-neutral-50/0 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-neutral-50 text-xl duration-100"
+											className="size-10 inline-flex items-center justify-center hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-neutral-50 text-xl duration-100"
 											onClick={handleFullscreen}
 											aria-label="enter/exit fullscreen"
 										>
-											{fullscreen ? <i className="ri-fullscreen-exit-line" /> : <i className="ri-fullscreen-line" />}
+											{fullscreen ? <Minimize size={20} /> : <Maximize size={20} />}
 										</button>
 									</div>
 								</div>
@@ -457,27 +478,27 @@ function VideoPlayer(props: {
 							checked={loopEnabled}
 							onCheckedChange={setLoopEnabled}
 						>
-							<i className="ri-loop-right-line" />
-							{t("COMMON:VideoPlayer.loop")}
+							<Repeat size={16} />
+							{t("VideoPlayer.loop")}
 							<ContextMenu.ItemIndicator className="absolute right-0 w-[25px] inline-flex items-center justify-center">
-								<i className="ri-check-line" />
+								<Check size={16} />
 							</ContextMenu.ItemIndicator>
 						</ContextMenu.CheckboxItem>
 						<ContextMenu.Item
 							className="group relative flex items-center gap-3 pr-2 pl-2 data-[highlighted]:pl-3 h-7 rounded-sm leading-none select-none outline-none data-[disabled]:text-neutral data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-50 data-[highlighted]:bg-neutral-50/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-none"
 							onClick={copyVideoUrl}
 						>
-							<i className="ri-link" />
-							{t("COMMON:VideoPlayer.copyVideoUrl")}
+							<LinkIcon size={16} />
+							{t("VideoPlayer.copyVideoUrl")}
 						</ContextMenu.Item>
 
 						<ContextMenu.Sub>
 							<ContextMenu.SubTrigger className="group relative flex items-center gap-3 pr-2 pl-2 data-[highlighted]:pl-3 data-[state='open']:pl-3 h-7 rounded-sm leading-none select-none outline-none data-[disabled]:text-neutral data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-50 data-[state='open']:text-neutral-50 data-[highlighted]:bg-neutral-50/10 active:opacity-75 data-[state='open']:bg-neutral-50/10 duration-100 cursor-pointer focus-visible:outline-none">
-								<i className="ri-speed-up-line" />
-								{t("COMMON:VideoPlayer.playbackSpeed")}
+								<Gauge size={16} />
+								{t("VideoPlayer.playbackSpeed")}
 								<div className="flex items-center ml-auto">
 									<span className="text-xs">{playbackSpeed}x</span>
-									<i className="ri-arrow-right-s-line" />
+									<ChevronRight size={16} />
 								</div>
 							</ContextMenu.SubTrigger>
 							<ContextMenu.Portal>
@@ -494,7 +515,7 @@ function VideoPlayer(props: {
 												value={speed}
 											>
 												<ContextMenu.ItemIndicator className="absolute left-2 group-data-[highlighted]:left-3 duration-100">
-													<i className="ri-check-line" />
+													<Check size={16} />
 												</ContextMenu.ItemIndicator>
 												<span className="absolute left-8 group-data-[highlighted]:left-9 duration-100">{`${speed}x`}</span>
 											</ContextMenu.RadioItem>
@@ -510,8 +531,8 @@ function VideoPlayer(props: {
 								onClick={downloadVideo}
 								disabled={downloading}
 							>
-								<i className="ri-download-line" />
-								{downloading ? `${t("COMMON:downloading")}...` : t("COMMON:download")}
+								<Download size={16} />
+								{downloading ? `${t("downloading")}...` : t("download")}
 							</ContextMenu.Item>
 						)}
 					</ContextMenu.Content>

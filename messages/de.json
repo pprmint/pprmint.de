@@ -422,7 +422,7 @@
 				"text3": "Mintcraft ist ein Ressourcenpaket, welches ich hauptsächlich für meine eigenen Bedürfnisse und meinen Geschmack erstellt habe, aber es hat sich gezeigt, dass es noch von mindestens 3 anderen menschlichen Wesen in dieser Galaxie gemocht wird.",
 				"text4": "Inspiration wurde dabei häuptsächlich von dem fetten SPIELEN-Knopf im offiziellen Launcher genommen. Mit Mintcraft möchte ich der Minecraft-Oberfläche einen einheitlichen Dark-Mode und etwas moderneren Look verschaffen.",
 				"text5": "Die Betonung liegt dabei auf Oberfläche: Das Paket fokussiert sich hauptsächlich auf die Hintergründe der Options-, Einzelspieler- und Mehrspieler-Menüs, sowie diverse Buttons und Container im Spiel. Wenn du möchtest, kannst du außerdem meine Version von Minecraft Seven, <Link>Mintbit</Link>.",
-				"text6": "Want screenshots? Scroll up."
+				"text6": "Brauchst du Screenshots? Scroll hoch."
 			},
 			"Credits": {
 				"heading": "Besonderes Danke",
@@ -456,7 +456,8 @@
 				"heading": "Probier es aus, oder noch besser: Lass es",
 				"pangram": "Franz jagt im komplett verwahrlosten Taxi quer durch Bayern.",
 				"size": "Größe",
-				"spacing": "Zeichenabstand"
+				"spacing": "Zeichenabstand",
+                "reset": "Einstellungen zurücksetzen"
 			}
 		},
 		"Head": {

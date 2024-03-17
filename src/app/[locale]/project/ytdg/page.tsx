@@ -1,16 +1,30 @@
 import Image from "next/image";
 import { Link } from "src/navigation";
 import { useTranslations } from "next-intl";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { Check, ExternalLink } from "lucide-react";
 
 import Title from "src/components/layout/Title";
+import Hero from "public/assets/ytdg/hero.png";
+import FadingImage from "src/components/ui/FadingImage";
 import Button from "src/components/ui/Button";
 
-import Hero from "public/assets/ytdg/hero.png";
 import IsometricScreenshot from "public/assets/ytdg/screenshot_dark_iso.webp";
-import { Check, ExternalLink } from "lucide-react";
-import FadingImage from "src/components/ui/FadingImage";
 
-export default function Page() {
+type Props = {
+    params: { locale: string };
+};
+
+export async function generateMetadata({ params: { locale } }: Props) {
+	const t = await getTranslations({ locale, namespace: "YTDG" });
+	return {
+		title: `${t("Head.title")} • pprmint.art`,
+		description: t("Head.description"),
+	};
+}
+
+export default function Page({ params: { locale } }: Props) {
+	unstable_setRequestLocale(locale);
 	const t = useTranslations();
 	return (
 		<>

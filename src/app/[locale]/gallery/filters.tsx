@@ -1,15 +1,14 @@
 "use client";
-import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { usePathname, useRouter } from "src/navigation";
 import * as Collapsible from "@radix-ui/react-collapsible";
-import * as Select from "@radix-ui/react-select";
 import { useTranslations } from "next-intl";
 
-import { Box, Check, ChevronDown, ChevronUp, Film, Filter, Image, Square, X } from "lucide-react";
+// eslint-disable-next-line jsx-a11y/alt-text
+import { Box, Film, Filter, Image, Square } from "lucide-react";
 
-function Filters(props: { type?: string; dimension?: string }) {
+export default function Filters(props: { type?: string; dimension?: string }) {
 	const t = useTranslations("GALLERY");
 	const searchParams = useSearchParams();
 	const [filtersOpen, setFiltersOpen] = useState(false);
@@ -105,6 +104,7 @@ function Filters(props: { type?: string; dimension?: string }) {
 										: "hover:bg-neutral-900 hover:text-neutral-50"
 								} active:shadow-inner active:opacity-75 duration-100`}
 							>
+                                {/* eslint-disable-next-line jsx-a11y/alt-text */}
 								<Image
 									size={16}
 									className={`${
@@ -136,7 +136,3 @@ function Filters(props: { type?: string; dimension?: string }) {
 		</>
 	);
 }
-
-export default dynamic(() => Promise.resolve(Filters), {
-	ssr: false,
-});
