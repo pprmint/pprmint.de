@@ -63,36 +63,19 @@ export default function MobileNavigation() {
 	const locale = useLocale();
 	const otherLocale = locales?.find((cur) => cur !== locale);
 
-	function ListItem(
-		props: React.PropsWithChildren<{
-			href: string;
-			title: string;
-			locale?: string;
-			disableHighlight?: boolean;
-		}>
-	) {
-		const highlight = !props.disableHighlight && props.href === pathname && "text-neutral-50";
-		return (
-			<Link href={props.href} locale={props.locale as "en" | "de" | undefined} onClick={handleClose}>
-				<li
-					className={`flex items-center hover:text-neutral-50 hover:bg-neutral-50/10 active:opacity-75 px-3 py-1.5 w-full duration-100 rounded-full ${highlight}`}
-				>
-					{!props.disableHighlight && props.href === pathname && (
-						<ChevronRight size={16} className="inline stroke-green mr-1.5" />
-					)}
-					{props.title}
-				</li>
-			</Link>
-		);
-	}
-
 	return (
 		<>
 			<button
 				className="fixed top-3 right-3 text-neutral-50 text-xl w-10 h-10 rounded-full z-50 hover:bg-neutral-50/10 duration-100"
 				onClick={toggleOpen}
 			>
-				<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg" className="absolute left-0 top-0" strokeLinecap="round">
+				<svg
+					width="40"
+					height="40"
+					xmlns="http://www.w3.org/2000/svg"
+					className="absolute left-0 top-0"
+					strokeLinecap="round"
+				>
 					<path
 						d={navOpen ? "M14,14 20,20 26,14" : "M12,14 20,14 28,14"}
 						fill="transparent"
@@ -133,7 +116,12 @@ export default function MobileNavigation() {
 									</p>
 									<ul>
 										{Pages.map((Page) => (
-											<ListItem key={Page.link} title={t(`Path.General.${Page.strings}.title`)} href={Page.link} />
+											<Link key={Page.link} href={Page.link} onClick={handleClose}>
+												<li className="flex items-center hover:text-neutral-50 hover:bg-neutral-50/10 active:opacity-75 px-3 py-1.5 w-full duration-100 rounded-full">
+													{Page.link === pathname && <ChevronRight size={16} className="inline stroke-green mr-1.5" />}
+													{t(`Path.General.${Page.strings}.title`)}
+												</li>
+											</Link>
 										))}
 									</ul>
 								</div>
@@ -143,11 +131,12 @@ export default function MobileNavigation() {
 									</p>
 									<ul>
 										{Works.map((Work) => (
-											<ListItem
-												key={Work.link}
-												title={t(`Path.Works.${Work.strings}.title`)}
-												href={Work.link}
-											/>
+											<Link key={Work.link} href={Work.link} onClick={handleClose}>
+												<li className="flex items-center hover:text-neutral-50 hover:bg-neutral-50/10 active:opacity-75 px-3 py-1.5 w-full duration-100 rounded-full">
+													{Work.link === pathname && <ChevronRight size={16} className="inline stroke-green mr-1.5" />}
+													{t(`Path.Works.${Work.strings}.title`)}
+												</li>
+											</Link>
 										))}
 									</ul>
 								</div>
@@ -156,13 +145,17 @@ export default function MobileNavigation() {
 										{t("Path.Other.title")}
 									</p>
 									<ul>
-										<ListItem href="/privacy" title={t("Path.Other.Privacy.title")} />
-										<ListItem
-											href={pathname}
-											locale={otherLocale}
-											title={t("Path.Other.SwitchLocale.title")}
-											disableHighlight
-										/>
+										<Link href="/privacy" onClick={handleClose}>
+											<li className="flex items-center hover:text-neutral-50 hover:bg-neutral-50/10 active:opacity-75 px-3 py-1.5 w-full duration-100 rounded-full">
+												{"/privacy" === pathname && <ChevronRight size={16} className="inline stroke-green mr-1.5" />}
+												{t("Path.Other.Privacy.title")}
+											</li>
+										</Link>
+										<Link href={pathname} locale={otherLocale} scroll={false} onClick={handleClose}>
+											<li className="flex items-center hover:text-neutral-50 hover:bg-neutral-50/10 active:opacity-75 px-3 py-1.5 w-full duration-100 rounded-full">
+												{t("Path.Other.SwitchLocale.title")}
+											</li>
+										</Link>
 									</ul>
 								</div>
 								<Copyright className="pl-3" />
