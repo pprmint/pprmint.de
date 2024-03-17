@@ -133,7 +133,7 @@ export default function DesktopNavigation() {
 						<div className="relative bg-neutral-50/10 -top-2 w-full h-10 rounded-lg" />
 					</NavigationMenu.Indicator>
 				</NavigationMenu.List>
-				<div className="absolute flex justify-center top-[63px] right-6" style={{ perspective: 2000 }}>
+				<div className="absolute flex justify-center top-[63px] right-6 z-[9999]" style={{ perspective: 2000 }}>
 					<NavigationMenu.Viewport className={NavMenuViewport} />
 				</div>
 			</NavigationMenu.Root>
