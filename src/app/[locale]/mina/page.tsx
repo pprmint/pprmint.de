@@ -142,7 +142,7 @@ async function getArtworks(page: number, nsfw: string, artist: string, artists: 
 				"Content-Type": "application/json",
 				Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
 			},
-			next: { revalidate: 1800 },
+			next: { revalidate: 60 },
 		}
 	);
 	if (!res.ok) {
@@ -157,7 +157,7 @@ async function getArtists() {
 			"Content-Type": "application/json",
 			Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
 		},
-		next: { revalidate: 1800 },
+		next: { revalidate: 60 },
 	});
 	if (!res.ok) {
 		throw new Error("Failed to fetch artists.");

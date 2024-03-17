@@ -91,7 +91,7 @@ async function getWorks(page: number, dimension: string, type: string) {
 				"Content-Type": "application/json",
 				Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
 			},
-			next: { revalidate: 1800 },
+			next: { revalidate: 60 },
 		}
 	);
 	if (!res.ok) {
@@ -106,7 +106,7 @@ async function getLatest() {
 			"Content-Type": "application/json",
 			Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
 		},
-		next: { revalidate: 1800 },
+		next: { revalidate: 60 },
 	});
 	if (!res.ok) {
 		throw new Error("Failed to fetch latest.");
