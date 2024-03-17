@@ -415,43 +415,27 @@
 			"title": "Mintcraft"
 		},
 		"Content": {
-			"Changes": {
-				"heading": "Änderungen in Mintcraft {version}.",
-				"Mintcraft": {
-					"fixMinceraft": "Textur für Minceraft-Easter-Egg behoben,",
-					"deleteDuplicate": "ZIP-Datei des einfachen Mintcraft-Packs aus dem Complete-Pack entfernt. Frag nicht."
-				}
-			},
-			"DosAndDonts": {
-				"heading": "Do's und don'ts.",
-				"disclaimer": "Im Folgenden bezieht sich 'Mintcraft' sowohl auf das eigentliche UI-Paket als auch auf dessen Add-ons.",
-				"Do": {
-					"heading": "Das darfst du:",
-					"modifyPersonal": "Verwende und modifiziere Mintcraft für private Zwecke, um deinen Ansprüchen gerecht zu werden",
-					"mix": "Mische Mintcraft zusammen mit anderen Ressourcenpaketen",
-					"useOnline": "Verwende Mintcraft in Online-Inhalten, wie Videos oder Livestreams.",
-					"sharePrivately": "Teile Mintcraft und/oder deine Modifikation privat mit Freunden.",
-					"useServer": "Verwende Mintcraft als Server-Ressourcenpaket."
-				},
-				"Dont": {
-					"heading": "Untersteh dich:",
-					"claim": "Sei ein Pisser und behaupte, du hättest das alles erstellt.",
-					"redistribute": "Stelle Mirrors für Mintcraft oder deine Modifikation zur Verfügung, oder verbreite sie anderweitig öffentlich.",
-					"sell": "Verkaufe oder biete Mintcraft oder eine Modifikation davon hinter einer Paywall an."
-				}
+			"About": {
+				"heading": "Über dieses Pack",
+				"text1": "Die hellgrauen Hintergründe in Kombination mit den unregelmäßigen, abgerundeten Ecken der Container, haben mich nie wirklich angesprochen.",
+				"text2": "Also hab ich das behoben.",
+				"text3": "Mintcraft ist ein Ressourcenpaket, welches ich hauptsächlich für meine eigenen Bedürfnisse und meinen Geschmack erstellt habe, aber es hat sich gezeigt, dass es noch von mindestens 3 anderen menschlichen Wesen in dieser Galaxie gemocht wird.",
+				"text4": "Inspiration wurde dabei häuptsächlich von dem fetten SPIELEN-Knopf im offiziellen Launcher genommen. Mit Mintcraft möchte ich der Minecraft-Oberfläche einen einheitlichen Dark-Mode und etwas moderneren Look verschaffen.",
+				"text5": "Die Betonung liegt dabei auf Oberfläche: Das Paket fokussiert sich hauptsächlich auf die Hintergründe der Options-, Einzelspieler- und Mehrspieler-Menüs, sowie diverse Buttons und Container im Spiel. Wenn du möchtest, kannst du außerdem meine Version von Minecraft Seven, <Link>Mintbit</Link>.",
+				"text6": "Want screenshots? Scroll up."
 			},
 			"Credits": {
-				"heading": "Besonderes Danke.",
+				"heading": "Besonderes Danke",
 				"blizzy": "Für seine Musik im Sounds-Add-on. Weitere Titel werden (hoffentlich) folgen.",
 				"vanillaTweaks": "Für die Korrektur von Textfarben auf dunklen Hintergründen."
 			},
 			"MayContainMistakes": {
-				"heading": "Kann Spuren von Fehlern und dummen Entscheidungen enthalten.",
+				"heading": "Kann Spuren von Fehlern und dummen Entscheidungen enthalten",
 				"text": "Wenn du Feedback geben möchtest oder etwas gefunden hast, was wie ein Fehler aussieht, kannst du mir gerne <Link>eine Nachricht schicken</Link>."
 			},
 			"Download": {
-				"commonTitle": "Downloads für Minecraft {version}.",
-				"fullSauceInfo": "Dieses Pack enthält Mintcraft mit allen Add-ons."
+				"heading": "Willste?",
+				"text": "Lade dir Mintcraft entweder von Modrinth oder den GitHub-Releases herunter."
 			}
 		}
 	},

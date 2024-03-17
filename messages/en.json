@@ -415,43 +415,27 @@
 	},
 	"MINTCRAFT": {
 		"Content": {
-			"Changes": {
-				"heading": "Changes in Mintcraft {version}.",
-				"Mintcraft": {
-					"fixMinceraft": "Fix texture for Minceraft easter egg,",
-					"deleteDuplicate": "Removed basic Mintcraft pack ZIP from Complete pack. Don't ask."
-				}
-			},
-			"DosAndDonts": {
-				"heading": "Do's and don'ts.",
-				"disclaimer": "In the following, 'Mintcraft' refers to both the main UI pack itself and its add-ons.",
-				"Do": {
-					"heading": "Do:",
-					"modifyPersonal": "Use and modify Mintcraft to fit your own needs and tastes.",
-					"mix": "Mix Mintcraft with other resource packs.",
-					"useOnline": "Use Mintcraft in online content, like videos or livestreams.",
-					"sharePrivately": "Share Mintcraft and/or your modification of it with friends privately.",
-					"useServer": "Use Mintcraft as a server resource pack."
-				},
-				"Dont": {
-					"heading": "Don't you dare:",
-					"claim": "Be a cunt and claim you made all this.",
-					"redistribute": "Provide mirrors for Mintcraft or your modification, or otherwise redistribute it publicly.",
-					"sell": "Sell or offer Mintcraft or a modification of it behind a paywall."
-				}
+			"About": {
+				"heading": "About this pack",
+				"text1": "The default light-grey backgrounds used for containers along with the irregular rounded corners never really spoke to me.",
+				"text2": "So I fixed that.",
+				"text3": "Mintcraft is a resource pack I made mostly to fit my own taste, but has proven to be liked by at least 3 other beings of human nature within this galaxy.",
+				"text4": "Taking some inspiration from the Minecraft Launcher's giant PLAY button, Mintcraft aims to provide a consistent dark mode and slightly refreshed look to the Minecraft UI.",
+				"text5": "Stress being on UI: This pack mainly affects the solid backgrounds of the options and world/server selection screens. If you'd like, you can also apply my take at the Minecraft Seven font, <Link>Mintbit</Link>, and a new button click sound via add-ons. Or download the Complete version to get all of that in one handy ZIP.",
+				"text6": "Want screenshots? Scroll up."
 			},
 			"Credits": {
-				"heading": "Special thanks.",
+				"heading": "Special thanks",
 				"blizzy": "For his custom song in the Sounds add-on. More to follow. Hopefully.",
 				"vanillaTweaks": "For fixing the text color on dark backgrounds."
 			},
 			"MayContainMistakes": {
-				"heading": "May contain mistakes and bad decisions.",
+				"heading": "May contain mistakes and bad decisions",
 				"text": "If you have some feedback or found something that looks to be an error, feel free to <Link>send me a message</Link>."
 			},
 			"Download": {
-				"commonTitle": "Downloads for Minecraft {version}.",
-				"fullSauceInfo": "This pack contains Mintcraft with all add-ons."
+				"heading": "Want?",
+				"text": "Download Mintcraft either from Modrinth or the GitHub releases."
 			}
 		},
 		"Head": {
