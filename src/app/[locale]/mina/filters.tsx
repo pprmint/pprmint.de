@@ -99,7 +99,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 			<Collapsible.Root
 				open={filtersOpen}
 				onOpenChange={setFiltersOpen}
-				className="sm:flex items-center mb-3 w-full sm:w-fit bg-transparent border data-[state=closed]:border-neutral-900 data-[state=open]:border-neutral-800 rounded-lg overflow-hidden duration-100"
+				className="sm:flex items-center mb-3 w-full sm:w-fit mx-auto bg-transparent border data-[state=closed]:border-neutral-900 data-[state=open]:border-neutral-800 rounded-lg overflow-hidden duration-100"
 			>
 				<Collapsible.Trigger asChild>
 					<button
@@ -117,7 +117,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 				</Collapsible.Trigger>
 				<Collapsible.Content className="data-[state=open]:animate-collapsible-vertical-open sm:data-[state=open]:animate-collapsible-horizontal-open data-[state=closed]:animate-collapsible-vertical-close sm:data-[state=closed]:animate-collapsible-horizontal-close whitespace-nowrap overflow-clip">
 					<div className="flex items-center border-t sm:border-t-0 border-neutral-800">
-						<div className="flex items-center gap-3 h-9 px-3 border-x border-neutral-800">
+						<div className="flex items-center gap-3 h-9 px-3 border-r border-neutral-800">
 							<Checkbox id="nsfw" checked={nsfw} onCheckedChange={handleNsfw} />
 							<label htmlFor="nsfw">{t("Content.NSFW.checkbox")}</label>
 						</div>
