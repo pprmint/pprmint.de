@@ -106,7 +106,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 						className="h-9 w-full sm:w-max px-4 text-neutral-50 hover:bg-neutral-900 data-[state=open]:bg-neutral-900 data-[state=open]:hover:bg-neutral-800 active:shadow-inner active:opacity-75 disabled:text-neutral-800 disabled:bg-transparent duration-100 focus-visible:bg-neutral-900"
 						onClick={() => setFiltersOpen(!filtersOpen)}
 					>
-						<span className="flex gap-3 items-center justify-center font-medium">
+						<span className="flex gap-3 items-center justify-center">
 							<Filter
 								size={16}
 								className={`${nsfwActive || artistFilterActive ? "fill-neutral-50" : "fill-transparent"} duration-100`}
@@ -127,7 +127,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 									<Select.Trigger
 										className={`group flex items-center justify-between px-3 h-9 w-full ${
 											props.artist != "undefined" && "rounded-r-none"
-										} hover:bg-neutral-800 hover:text-neutral-50 active:shadow-inner duration-100`}
+										} hover:bg-neutral-900 hover:text-neutral-50 active:shadow-inner duration-100`}
 										aria-label="Artist"
 									>
 										<Select.Value aria-label={props.artist}>
@@ -140,7 +140,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 									{artistFilterActive && (
 										<button
 											onClick={handleClearArtist}
-											className="h-9 px-2.5 hover:bg-neutral-800 hover:text-neutral-50 active:shadow-inner active:opacity-75 duration-100"
+											className="h-9 px-2.5 hover:bg-neutral-900 hover:text-neutral-50 active:shadow-inner active:opacity-75 duration-100"
 										>
 											<X size={16} />
 										</button>

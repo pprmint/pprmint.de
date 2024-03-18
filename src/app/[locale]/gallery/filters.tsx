@@ -53,7 +53,7 @@ export default function Filters(props: { type?: string; dimension?: string }) {
 						className="h-9 w-full sm:w-max px-4 text-neutral-50 hover:bg-neutral-900 data-[state=open]:bg-neutral-900 data-[state=open]:hover:bg-neutral-800 active:shadow-inner active:opacity-75 disabled:text-neutral-800 disabled:bg-transparent duration-100 focus-visible:bg-neutral-900"
 						onClick={() => setFiltersOpen(!filtersOpen)}
 					>
-						<span className="flex gap-3 items-center justify-center font-medium">
+						<span className="flex gap-3 items-center justify-center">
 							<Filter size={16} className={`${filtersActive ? "fill-neutral-50" : "fill-transparent"} duration-100`} />
 							{t("Content.Filters.button")}
 						</span>
@@ -66,7 +66,7 @@ export default function Filters(props: { type?: string; dimension?: string }) {
 								onClick={() => handleSelectDimension("2d")}
 								className={`flex gap-3 items-center justify-center w-full h-9 ${
 									props.dimension == "2d"
-										? "text-neutral-50 bg-neutral-900 hover:bg-neutral-800"
+										? "font-semibold text-neutral-50 bg-neutral-900 hover:bg-neutral-800"
 										: "hover:bg-neutral-900 hover:text-neutral-50"
 								} active:shadow-inner active:opacity-75 duration-100`}
 							>
@@ -82,7 +82,7 @@ export default function Filters(props: { type?: string; dimension?: string }) {
 								onClick={() => handleSelectDimension("3d")}
 								className={`flex gap-3 items-center justify-center w-full h-9 ${
 									props.dimension == "3d"
-										? "text-neutral-50 bg-neutral-900 hover:bg-neutral-800"
+										? "font-semibold text-neutral-50 bg-neutral-900 hover:bg-neutral-800"
 										: "hover:bg-neutral-900 hover:text-neutral-50"
 								} active:shadow-inner active:opacity-75 duration-100`}
 							>
@@ -100,7 +100,7 @@ export default function Filters(props: { type?: string; dimension?: string }) {
 								onClick={() => handleSelectType("static")}
 								className={`flex gap-3 items-center justify-center w-full h-9 ${
 									props.type == "static"
-										? "text-neutral-50 bg-neutral-900 hover:bg-neutral-800"
+										? "font-semibold text-neutral-50 bg-neutral-900 hover:bg-neutral-800"
 										: "hover:bg-neutral-900 hover:text-neutral-50"
 								} active:shadow-inner active:opacity-75 duration-100`}
 							>
@@ -117,7 +117,7 @@ export default function Filters(props: { type?: string; dimension?: string }) {
 								onClick={() => handleSelectType("animated")}
 								className={`flex gap-3 items-center justify-center w-full h-9 ${
 									props.type == "animated"
-										? "text-neutral-50 bg-neutral-900 hover:bg-neutral-800"
+										? "font-semibold text-neutral-50 bg-neutral-900 hover:bg-neutral-800"
 										: "hover:bg-neutral-900 hover:text-neutral-50"
 								} active:shadow-inner active:opacity-75 duration-100`}
 							>
