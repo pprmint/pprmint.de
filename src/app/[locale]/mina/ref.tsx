@@ -101,7 +101,7 @@ export default function RefSheet() {
 		}
 		return (
 			<div
-				className="w-full h-12 active:shadow-inner active:opacity-75 duration-100 ease-out cursor-pointer"
+				className="w-full h-12 md:h-12 xl:h-auto xl:aspect-square active:shadow-inner active:opacity-75 duration-100 ease-out cursor-pointer"
 				style={{ backgroundColor: color }}
 				onClick={handleClick}
 			/>
@@ -301,9 +301,9 @@ export default function RefSheet() {
 						}
 					/>
 				</Dialog.Root>
-				<div id="colorpalette" className="flex flex-col justify-between p-6 border border-neutral-900 rounded-xl">
+				<div id="colorpalette" className="flex flex-col justify-between border border-neutral-900 rounded-xl">
 					<ColorPickerToast color={currentColor} open={toastOpen} onOpenChange={setToastOpen} />
-					<div className="flex flex-col">
+					<div className="flex flex-col px-3 lg:px-6">
 						<div className="grid grid-cols-4">
 							<ColorSwatch color="#63e4a3" />
 							<ColorSwatch color="#22ccff" />
@@ -321,7 +321,7 @@ export default function RefSheet() {
 							<ColorSwatch color="#333333" />
 						</div>
 					</div>
-					<p className="text-xs text-center">
+					<p className="text-xs text-center px-3 pb-3">
 						{t.rich("Content.Reference.Color.text", {
 							Link: (chunks) => (
 								<Link href="/palette" className="text-link">
