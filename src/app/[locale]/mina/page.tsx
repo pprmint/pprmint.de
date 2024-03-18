@@ -21,7 +21,7 @@ import { Download } from "lucide-react";
 
 type Props = {
 	params: { locale: string };
-    
+
 	searchParams?: {
 		p?: string;
 		nsfw?: string;
@@ -112,6 +112,20 @@ export default async function Page({ searchParams, params: { locale } }: Props) 
 						</Suspense>
 					)}
 					<Pagination page={currentPage} pageCount={pageCount} />
+				</section>
+				<section className="my-20 max-w-7xl mx-auto px-6 md:px-9">
+					<h2>
+						{t("Content.Fanart.heading")}
+						<span className="text-green">.</span>
+					</h2>
+					<p>{t("Content.Fanart.text1")}</p>
+					<p>{t("Content.Fanart.text2")}</p>
+					<p>
+						{t.rich("Content.Fanart.text3", {
+							spoiler: (chunks) => <span className="inline px-1 py-0.5 bg-neutral-900 text-transparent hover:text-neutral rounded-md duration-100 select-none hover:select-text">{chunks}</span>,
+						})}
+					</p>
+					<p>{t("Content.Fanart.text4")}</p>
 				</section>
 			</main>
 		</>
