@@ -60,8 +60,8 @@ export default function Filters(props: { type?: string; dimension?: string }) {
 					</button>
 				</Collapsible.Trigger>
 				<Collapsible.Content className="data-[state=open]:animate-collapsible-vertical-open sm:data-[state=open]:animate-collapsible-horizontal-open data-[state=closed]:animate-collapsible-vertical-close sm:data-[state=closed]:animate-collapsible-horizontal-close whitespace-nowrap overflow-clip">
-					<div className="flex items-center w-max divide-x divide-neutral-900">
-						<div className="grid grid-cols-2 w-64">
+					<div className="flex flex-col sm:flex-row items-center w-full sm:w-max divide-x divide-neutral-900">
+						<div className="grid grid-cols-2 w-full sm:w-64">
 							<button
 								onClick={() => handleSelectDimension("2d")}
 								className={`flex gap-3 items-center justify-center w-full h-9 ${
@@ -95,7 +95,7 @@ export default function Filters(props: { type?: string; dimension?: string }) {
 								3D
 							</button>
 						</div>
-						<div className="grid grid-cols-2 w-64">
+						<div className="grid grid-cols-2 w-full sm:w-64">
 							<button
 								onClick={() => handleSelectType("static")}
 								className={`flex gap-3 items-center justify-center w-full h-9 ${
@@ -104,14 +104,14 @@ export default function Filters(props: { type?: string; dimension?: string }) {
 										: "hover:bg-neutral-900 hover:text-neutral-50"
 								} active:shadow-inner active:opacity-75 duration-100`}
 							>
-                                {/* eslint-disable-next-line jsx-a11y/alt-text */}
+								{/* eslint-disable-next-line jsx-a11y/alt-text */}
 								<Image
 									size={16}
 									className={`${
 										props.type == "static" ? "fill-neutral-600 stroke-neutral-50" : "fill-transparent"
 									} duration-100`}
 								/>
-								{t('Content.Filters.Type.static')}
+								{t("Content.Filters.Type.static")}
 							</button>
 							<button
 								onClick={() => handleSelectType("animated")}
@@ -127,7 +127,7 @@ export default function Filters(props: { type?: string; dimension?: string }) {
 										props.type == "animated" ? "fill-neutral-600 stroke-neutral-50" : "fill-transparent"
 									} duration-100`}
 								/>
-								{t('Content.Filters.Type.animated')}
+								{t("Content.Filters.Type.animated")}
 							</button>
 						</div>
 					</div>
