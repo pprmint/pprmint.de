@@ -122,10 +122,16 @@ export default async function Page({ searchParams, params: { locale } }: Props) 
 					<p>{t("Content.Fanart.text2")}</p>
 					<p>
 						{t.rich("Content.Fanart.text3", {
-							spoiler: (chunks) => <span className="inline px-1 py-0.5 bg-neutral-900 text-transparent hover:text-neutral rounded-md duration-100 select-none hover:select-text">{chunks}</span>,
+							spoiler: (chunks) => (
+								<span className="inline px-1 py-0.5 bg-neutral-900 text-transparent hover:text-neutral rounded-md duration-100 select-none hover:select-text">
+									{chunks}
+								</span>
+							),
 						})}
+						<br />
+						<sub>{t("Content.Fanart.text4")}</sub>
 					</p>
-					<p>{t("Content.Fanart.text4")}</p>
+					<p>{t("Content.Fanart.text5")}</p>
 				</section>
 			</main>
 		</>
