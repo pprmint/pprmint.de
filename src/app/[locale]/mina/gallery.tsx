@@ -64,7 +64,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 						width={selectedArtwork.attributes.artwork.data[selectedVariant].attributes.width}
 						height={selectedArtwork.attributes.artwork.data[selectedVariant].attributes.height}
 						alt=""
-						className="h-fit max-h-svh max-w-[90vw] w-fit py-16"
+						className="max-h-svh max-w-[90vw] w-auto py-16"
 						unoptimized
 					/>
 					<div className="absolute flex items-center top-0 inset-x-0 h-16 text-xl font-display">
