@@ -37,10 +37,8 @@ export default function MobileNavigation() {
 		setNavOpen(true);
 		document.body.classList.add("overflow-hidden");
 	};
-	const handleClose = async () => {
-		await new Promise((r) => setTimeout(r, 100));
+	const handleClose = () => {
 		setNavOpen(false);
-		await new Promise((r) => setTimeout(r, 100));
 		document.body.classList.remove("overflow-hidden");
 	};
 	const toggleOpen = navOpen ? handleClose : handleOpen;
@@ -117,7 +115,7 @@ export default function MobileNavigation() {
 									<ul>
 										{Pages.map((Page) => (
 											<Link key={Page.link} href={Page.link} onClick={handleClose}>
-												<li className="flex items-center hover:text-neutral-50 hover:bg-neutral-50/10 active:opacity-75 px-3 py-1.5 w-full duration-100 rounded-full">
+												<li className={`flex items-center ${Page.link === pathname ? "text-neutral-50" : "hover:text-neutral-50 hover:bg-neutral-50/10 active:opacity-75"} px-3 py-1.5 w-full duration-100 rounded-full`}>
 													{Page.link === pathname && <ChevronRight size={16} className="inline stroke-green mr-1.5" />}
 													{t(`Path.General.${Page.strings}.title`)}
 												</li>
@@ -132,7 +130,7 @@ export default function MobileNavigation() {
 									<ul>
 										{Works.map((Work) => (
 											<Link key={Work.link} href={Work.link} onClick={handleClose}>
-												<li className="flex items-center hover:text-neutral-50 hover:bg-neutral-50/10 active:opacity-75 px-3 py-1.5 w-full duration-100 rounded-full">
+												<li className={`flex items-center ${Work.link === pathname ? "text-neutral-50" : "hover:text-neutral-50 hover:bg-neutral-50/10 active:opacity-75"} px-3 py-1.5 w-full duration-100 rounded-full`}>
 													{Work.link === pathname && <ChevronRight size={16} className="inline stroke-green mr-1.5" />}
 													{t(`Path.Works.${Work.strings}.title`)}
 												</li>
@@ -146,7 +144,7 @@ export default function MobileNavigation() {
 									</p>
 									<ul>
 										<Link href="/privacy" onClick={handleClose}>
-											<li className="flex items-center hover:text-neutral-50 hover:bg-neutral-50/10 active:opacity-75 px-3 py-1.5 w-full duration-100 rounded-full">
+											<li className={`flex items-center ${"/privacy" === pathname ? "text-neutral-50" : "hover:text-neutral-50 hover:bg-neutral-50/10 active:opacity-75"} px-3 py-1.5 w-full duration-100 rounded-full`}>
 												{"/privacy" === pathname && <ChevronRight size={16} className="inline stroke-green mr-1.5" />}
 												{t("Path.Other.Privacy.title")}
 											</li>
