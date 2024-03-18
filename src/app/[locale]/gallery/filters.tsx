@@ -46,7 +46,7 @@ export default function Filters(props: { type?: string; dimension?: string }) {
 			<Collapsible.Root
 				open={filtersOpen}
 				onOpenChange={setFiltersOpen}
-				className="sm:flex items-center mb-3 w-full sm:w-fit bg-transparent border border-neutral-900 rounded-lg overflow-hidden duration-100"
+				className="sm:flex items-center mb-3 w-full sm:w-fit bg-transparent border data-[state=closed]:border-neutral-900 data-[state=open]:border-neutral-800 rounded-lg overflow-hidden duration-100"
 			>
 				<Collapsible.Trigger asChild>
 					<button
@@ -60,8 +60,8 @@ export default function Filters(props: { type?: string; dimension?: string }) {
 					</button>
 				</Collapsible.Trigger>
 				<Collapsible.Content className="data-[state=open]:animate-collapsible-vertical-open sm:data-[state=open]:animate-collapsible-horizontal-open data-[state=closed]:animate-collapsible-vertical-close sm:data-[state=closed]:animate-collapsible-horizontal-close whitespace-nowrap overflow-clip">
-					<div className="flex flex-col sm:flex-row items-center w-full sm:w-max divide-x divide-neutral-900">
-						<div className="grid grid-cols-2 w-full sm:w-64">
+					<div className="flex flex-col sm:flex-row items-center w-full sm:w-max">
+						<div className="grid grid-cols-2 w-full sm:w-64 border-y sm:border-y-0 sm:border-x border-neutral-800">
 							<button
 								onClick={() => handleSelectDimension("2d")}
 								className={`flex gap-3 items-center justify-center w-full h-9 ${
