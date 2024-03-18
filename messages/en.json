@@ -81,7 +81,7 @@
 			},
 			"ProjectTerms": {
 				"message": "Under which conditions may projects such as fonts and icons be used?",
-				"answer": "Fonts are licensed under the <sil>SIL Open Font License</sil>. You may freely use those even commercially. A copy of the license is included with the ZIP.<br />It's a different story with projects like Mintcraft or the app icons. You may use them for free and modify them to your needs. However, you may not sell or otherwise redistribute them. Please link back to the respective project page if you want to share stuff."
+				"answer": "Fonts are licensed under the <sil>SIL Open Font License</sil>. You may freely use those even commercially. A copy of the license is included with the ZIP. It's a different story with projects like Mintcraft or the app icons. You may use the app icons for free and modify them to your needs. However, you may not sell or otherwise redistribute them. Please link back to the respective project page if you want to share stuff. Mintcraft is licensed under the Creative Commons BY-NC-SA license."
 			},
 			"WhatSoftware": {
 				"message": "What software is typically used to create stuff around here?",

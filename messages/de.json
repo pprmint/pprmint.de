@@ -81,7 +81,7 @@
 			},
 			"ProjectTerms": {
 				"message": "Unter welchen Bedingungen dürfen Projekte wie Schriftarten und Icons verwendet werden?",
-				"answer": "Schriftarten sind unter der <sil>SIL Open Font License</sil> lizenziert. Diese kannst du frei verwenden, auch für kommerzielle Zwecke. Die Lizenz ist in der ZIP-Datei mit dabei.<br />Anders sieht es bei Projekten wie Mintcraft oder den App-Symbolen aus. Du darfst sie kostenlos verwenden und an deine Bedürfnisse anpassen. Du darfst sie jedoch nicht verkaufen oder anderweitig verbreiten. Verlinke zum Teilen bitte die entsprechende Projektseite."
+				"answer": "Schriftarten sind unter der <sil>SIL Open Font License</sil> lizenziert. Diese kannst du frei verwenden, auch für kommerzielle Zwecke. Die Lizenz ist in der ZIP-Datei mit dabei. App-Symbole darfst du kostenlos verwenden und an deine Bedürfnisse anpassen. Du darfst sie jedoch nicht verkaufen oder anderweitig verbreiten. Verlinke zum Teilen bitte die entsprechende Projektseite. Mintcraft ist under Creative Commons CC-BY-NC-SA lizenziert."
 			},
 			"WhatSoftware": {
 				"message": "Welche Programme werden hier meist verwendet?",
