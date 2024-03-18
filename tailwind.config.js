@@ -278,8 +278,8 @@ module.exports = {
 					"100%": { backgroundColor: "#eeeeee14" },
 				},
 				lucideCheckDrawIn: {
-					from: { strokeDashoffset: -24 },
-					to: { strokeDashoffset: 0 },
+					from: { strokeDashoffset: 24 },
+					to: { strokeDashoffset: 48 },
 				},
 			},
 			animation: {
@@ -308,7 +308,7 @@ module.exports = {
 				"fade-out-scale-down": "fadeOutScaleDown .2s cubic-bezier(0, 0, 0.2, 1)",
 				"arrow-fade-down": "arrowFadeDown 1.5s cubic-bezier(0.2, 0.2, .2, 1) 2s infinite",
 				"skeleton-pulse": "skeletonPulse 3s cubic-bezier(0.7, 0, 0.3, 1) 2s infinite",
-				"lucide-check-draw-in": "lucideCheckDrawIn 0.25s cubic-bezier(0.33, 1, 0.68, 1)",
+				"lucide-check-draw-in": "lucideCheckDrawIn 0.25s cubic-bezier(0.33, 1, 0.68, 1) forwards",
 			},
 			transitionDuration: {
 				25: "25ms",

@@ -4,10 +4,10 @@ import VideoPlayer from "src/components/ui/VideoPlayer";
 
 export default function Page() {
 	return (
-		<main className="min-h-screen max-w-7xl mx-auto pt-48">
-			<section id="buttons" className="flex flex-col gap-6 mb-48">
+		<main className="min-h-screen max-w-7xl mx-auto pt-48 px-6 md:px-9">
+			<section id="buttons" className="flex flex-col gap-6 mb-48 flex-wrap">
 				<h2>Buttons</h2>
-				<div className="flex gap-3">
+				<div className="flex gap-3 flex-wrap">
 					<Button>Button</Button>
 					<Button color="red">Button</Button>
 					<Button color="orange">Button</Button>
@@ -19,7 +19,7 @@ export default function Page() {
 					<Button color="violet">Button</Button>
 					<Button color="pink">Button</Button>
 				</div>
-				<div className="flex gap-3">
+				<div className="flex gap-3 flex-wrap">
 					<Button outlined>Button</Button>
 					<Button outlined color="red">
 						Button
@@ -49,7 +49,7 @@ export default function Page() {
 						Button
 					</Button>
 				</div>
-				<div className="flex gap-3">
+				<div className="flex gap-3 flex-wrap">
 					<Button large>Button</Button>
 					<Button large color="red">
 						Button
@@ -79,7 +79,7 @@ export default function Page() {
 						Button
 					</Button>
 				</div>
-				<div className="flex gap-3">
+				<div className="flex gap-3 flex-wrap">
 					<Button large outlined>
 						Button
 					</Button>
