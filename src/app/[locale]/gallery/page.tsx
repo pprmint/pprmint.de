@@ -11,6 +11,7 @@ import Pagination from "src/components/gallery/Pagination";
 
 import OutOfBounds from "src/components/gallery/OutOfBounds";
 import { Works } from "src/types/work";
+import { Link } from "src/navigation";
 
 export async function generateMetadata({ params: { locale } }: Props) {
 	const t = await getTranslations({ locale, namespace: "GALLERY" });
@@ -64,6 +65,24 @@ export default async function Page({ searchParams, params: { locale } }: Props) 
 						</Suspense>
 					)}
 					<Pagination page={currentPage} pageCount={pageCount} />
+				</section>
+				<section className="my-20 max-w-7xl mx-auto px-6 md:px-9 xl:text-center">
+					<h2>{t("Content.Disclaimer.heading")}<span className="text-green">.</span></h2>
+					<p>{t("Content.Disclaimer.text1")}</p>
+					<p>
+						{t.rich("Content.Disclaimer.text2", {
+							b: (chunks) => <b>{chunks}</b>,
+						})}
+					</p>
+					<p>
+						{t.rich("Content.Disclaimer.text3", {
+							Link: (chunks) => (
+								<Link href="/contact" className="text-link">
+									{chunks}
+								</Link>
+							),
+						})}
+					</p>
 				</section>
 			</main>
 		</>
