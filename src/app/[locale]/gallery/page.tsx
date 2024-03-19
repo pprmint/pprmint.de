@@ -16,7 +16,7 @@ import { Link } from "src/navigation";
 export async function generateMetadata({ params: { locale } }: Props) {
 	const t = await getTranslations({ locale, namespace: "GALLERY" });
 	return {
-		title: `${t("Head.title")} • pprmint.art`,
+		title: t("Head.title"),
 		description: t("Head.description"),
 	};
 }

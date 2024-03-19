@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 	metadataBase: new URL("https://pprmint.art"),
 	keywords: ["art, design, graphic design, after effects, development, webdev, cinema 4d, 2d, 3d"],
 	openGraph: {
-		siteName: "pprmint.",
+		siteName: "pprmint.art",
 	},
 	twitter: {
 		site: "pprmint.art",

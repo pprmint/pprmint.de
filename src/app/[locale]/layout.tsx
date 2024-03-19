@@ -18,7 +18,10 @@ export function generateStaticParams() {
 export async function generateMetadata({ params: { locale } }: Props) {
 	const t = await getTranslations({ locale, namespace: "HOME" });
 	return {
-		title: `pprmint.`,
+		title: {
+			template: `%s • pprmint.`,
+			default: `pprmint.`,
+		},
 		description: t("Head.description"),
 	};
 }

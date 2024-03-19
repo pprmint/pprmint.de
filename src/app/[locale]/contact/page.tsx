@@ -22,7 +22,7 @@ type Props = {
 export async function generateMetadata({ params: { locale } }: Props) {
 	const t = await getTranslations({ locale, namespace: "CONTACT" });
 	return {
-		title: `${t("Head.title")} • pprmint.art`,
+		title: t("Head.title"),
 		description: t("Head.description"),
 	};
 }
