@@ -9,5 +9,5 @@ export default createMiddleware({
 
 export const config = {
 	// Match only internationalized pathnames
-	matcher: ["/", "/(en|de)/:path*", "/((?!api|_next|_vercel|.*\\..*).*)"],
+	matcher: ["/", "/(en|de)/:path*/((?!twitter-image))", "/((?!api|_next|_vercel|.*\\..*).*)"],
 };
