@@ -37,7 +37,7 @@ export default async function Page({ searchParams, params: { locale } }: Props) 
 	const currentPage = Number(searchParams?.p) || 1;
 	const type = String(searchParams?.type) || "undefined";
 	const dimension = String(searchParams?.dimension) || "undefined";
-	const Works: Works = await getWorks(currentPage, dimension, type);
+	const Works: Works = await getWorks(locale, currentPage, dimension, type);
 	const Latest: Works = await getLatest();
 	const pageCount = Works.meta.pagination.pageCount;
 	return (
@@ -89,7 +89,7 @@ export default async function Page({ searchParams, params: { locale } }: Props) 
 	);
 }
 
-async function getWorks(page: number, dimension: string, type: string) {
+async function getWorks(locale: string, page: number, dimension: string, type: string) {
 	let dimensionFilter = "";
 	let typeFilter = "";
 
@@ -102,7 +102,7 @@ async function getWorks(page: number, dimension: string, type: string) {
 	}
 
 	const res = await fetch(
-		`${process.env.STRAPI_API_URL}/works?pagination[page]=${Number(
+		`${process.env.STRAPI_API_URL}/works?locale=${locale}&pagination[page]=${Number(
 			page
 		)}&pagination[pageSize]=20&${dimensionFilter}${typeFilter}populate=*&sort=creationDate:desc`,
 		{
