@@ -38,7 +38,7 @@ export default function Gallery(works: { works: Works }) {
 				<Dialog.Content
 					className={`fixed z-60 top-0 lg:top-1/2 left-0 lg:left-1/2 inset-0 lg:inset-auto ${
 						fullscreen
-							? "max-h-svh w-screen max-w-[100vw]"
+							? "w-screen h-screen max-h-svh max-w-[100vw]"
 							: "max-h-svh lg:max-h-[90vh] lg:w-4/5-screen max-w-screen-3xl lg:border lg:ring-1 lg:rounded-xl"
 					} lg:-translate-x-1/2 lg:-translate-y-1/2 bg-neutral-950 border-neutral-900 ring-neutral-950 shadow-xl shadow-neutral-950/50 data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down focus-visible:outline-none origin-center lg:origin-top-left overflow-auto lg:duration-400 lg:ease-out-quint`}
 				>
