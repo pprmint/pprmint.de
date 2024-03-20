@@ -6,11 +6,10 @@ import { useState } from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import FadingImage from "src/components/ui/FadingImage";
-import { Link } from "src/navigation";
 import Work, { Works } from "src/types/work";
 
 export default function Gallery(works: { works: Works }) {
-	const t = useTranslations("MINA");
+	const t = useTranslations("GALLERY");
 	const [selected, setSelected] = useState(0);
 	const selectedWork = works.works.data[selected > works.works.data.length ? 0 : selected];
 	const [fullscreen, setFullscreen] = useState(false);
@@ -37,7 +36,11 @@ export default function Gallery(works: { works: Works }) {
 			<Dialog.Portal>
 				<Dialog.Overlay className="bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-50" />
 				<Dialog.Content
-					className={`fixed z-60 top-0 lg:top-1/2 left-0 lg:left-1/2 inset-0 lg:inset-auto ${fullscreen ? "max-h-svh w-screen max-w-[100vw]" : "max-h-svh lg:max-h-[90vh] lg:w-4/5-screen max-w-screen-3xl lg:border lg:ring-1 lg:rounded-xl"} lg:-translate-x-1/2 lg:-translate-y-1/2 bg-neutral-950 border-neutral-900 ring-neutral-950 shadow-xl shadow-neutral-950/50 data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down focus-visible:outline-none origin-center lg:origin-top-left overflow-auto lg:duration-400 lg:ease-out-quint`}
+					className={`fixed z-60 top-0 lg:top-1/2 left-0 lg:left-1/2 inset-0 lg:inset-auto ${
+						fullscreen
+							? "max-h-svh w-screen max-w-[100vw]"
+							: "max-h-svh lg:max-h-[90vh] lg:w-4/5-screen max-w-screen-3xl lg:border lg:ring-1 lg:rounded-xl"
+					} lg:-translate-x-1/2 lg:-translate-y-1/2 bg-neutral-950 border-neutral-900 ring-neutral-950 shadow-xl shadow-neutral-950/50 data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down focus-visible:outline-none origin-center lg:origin-top-left overflow-auto lg:duration-400 lg:ease-out-quint`}
 				>
 					<Dialog.Close asChild>
 						<button
@@ -79,7 +82,14 @@ export default function Gallery(works: { works: Works }) {
 						</div>
 					</div>
 					<Dialog.Description asChild className="px-6 lg:px-9 prose-a:text-link-external">
-						<Markdown remarkPlugins={[remarkGfm]}>{selectedWork.attributes.text}</Markdown>
+						{!!Object.hasOwn ? (
+							<Markdown remarkPlugins={[remarkGfm]}>{selectedWork.attributes.text}</Markdown>
+						) : (
+							<div>
+								<p>{selectedWork.attributes.text}</p>
+								<p className="text-xs bg-red-950 text-neutral-50 px-3 py-2 rounded-md w-fit">{t("Content.noHasOwn")}</p>
+							</div>
+						)}
 					</Dialog.Description>
 					<hr className="m-6 lg:m-9 border-neutral-900" />
 					{selectedWork.attributes.gallery.data.map((media) =>
