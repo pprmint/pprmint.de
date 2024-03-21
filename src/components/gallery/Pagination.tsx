@@ -24,7 +24,7 @@ export default function Pagination({ page, pageCount }: { page: number; pageCoun
 				disabled={page == 1}
 				onClick={() => handlePagination(String(page - 1))}
 			>
-				<ChevronLeft size={16} className="group-active:-translate-x-0.5 duration-50" />
+				<ChevronLeft size={16} className={`${page != 1 &&"group-active:-translate-x-0.5"} duration-50`} />
 			</button>
 			{[...Array(pageCount)].map((_, index) => (
 				<button
@@ -44,7 +44,7 @@ export default function Pagination({ page, pageCount }: { page: number; pageCoun
 				disabled={page == pageCount}
 				onClick={() => handlePagination(String(page + 1))}
 			>
-				<ChevronRight size={16} className="group-active:translate-x-0.5 duration-50" />
+				<ChevronRight size={16} className={`${page != pageCount &&"group-active:translate-x-0.5"} duration-50`} />
 			</button>
 		</div>
 	);
