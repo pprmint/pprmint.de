@@ -100,7 +100,7 @@ export default function RefSheet() {
 						alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
 						className="h-full max-h-2/3-screen lg:max-h-[80vh] object-contain"
 					/>
-					<div className="relative h-1 mt-3 rounded-full overflow-clip bg-neutral-900">
+					<div className="relative h-1 mt-6 rounded-full overflow-clip bg-neutral-900">
 						<a.div className="absolute inset-0 rounded-full bg-neutral-50" style={progress} />
 					</div>
 				</a.div>
@@ -111,7 +111,7 @@ export default function RefSheet() {
 						alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
 						className="h-full max-h-2/3-screen lg:max-h-[80vh] object-contain"
 					/>
-					<div className="relative h-1 mt-3 rounded-full overflow-clip bg-neutral-900">
+					<div className="relative h-1 mt-6 rounded-full overflow-clip bg-neutral-900">
 						<a.div className="absolute inset-0 rounded-full bg-neutral-50" style={progress} />
 					</div>
 				</a.div>
