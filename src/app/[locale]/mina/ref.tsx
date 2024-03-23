@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Toast from "@radix-ui/react-toast";
 import FadingImage from "src/components/ui/FadingImage";
-import { config, useTransition, a } from "@react-spring/web";
+import { config, useTransition, a, useSpring, easings } from "@react-spring/web";
 
 import ReferenceFront from "public/assets/mina/ref/front.webp";
 import ReferenceBack from "public/assets/mina/ref/back.webp";
@@ -16,73 +16,135 @@ import ReferenceHairbowBack from "public/assets/mina/ref/head_back.svg";
 
 import { X } from "lucide-react";
 
-function ColorPickerToast(props: {
-	color: string;
-	open: boolean;
-	onOpenChange: ((open: boolean) => void) | undefined;
-}) {
-	const t = useTranslations("COMMON");
-	return (
-		<Toast.Provider swipeDirection="right" duration={3000}>
-			<Toast.Root
-				className="flex gap-6 items-center p-3 rounded-xl shadow-lg shadow-neutral-950/50 backdrop-blur-xl bg-gradient-to-b from-neutral-800/75 to-neutral-900/90 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
-				open={props.open}
-				onOpenChange={props.onOpenChange}
-			>
-				<div
-					className="w-[30px] h-[30px] rounded-full border border-neutral-50/10"
-					style={{ backgroundColor: props.color }}
-				/>
-				<Toast.Description>{t("copied")}</Toast.Description>
-				<Toast.Close className="inline-flex items-center justify-center size-6 hover:bg-neutral-50/10 active:bg-neutral-50/5 rounded-full duration-100 active:duration-75">
-					<X size={16} className="stroke-neutral-50" />
-				</Toast.Close>
-			</Toast.Root>
-			<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-[9999] outline-none" />
-		</Toast.Provider>
-	);
-}
-
-function CyclingFrontBackRef() {
-	const [showBack, setShowBack] = useState(false);
-	useEffect(() => {
-		const interval = setInterval(() => {
-			setShowBack(!showBack);
-		}, 5000);
-		return () => clearInterval(interval);
-	}, [showBack]);
-
-	const cycleTransition = useTransition(showBack, {
-		from: { opacity: 0 },
-		enter: { opacity: 1 },
-		leave: { opacity: 0 },
-		config: config.stiff,
-		exitBeforeEnter: true,
-	});
-
-	return cycleTransition((styles, item) =>
-		item ? (
-			<a.div className="h-full w-fit object-contain" style={styles}>
-				<FadingImage
-					src={ReferenceBack}
-					alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
-					className="h-full max-h-2/3-screen lg:max-h-[90vh] object-contain"
-				/>
-			</a.div>
-		) : (
-			<a.div className="h-full w-fit object-contain" style={styles}>
-				<FadingImage
-					src={ReferenceFront}
-					alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
-					className="h-full max-h-2/3-screen lg:max-h-[90vh] object-contain"
-				/>
-			</a.div>
-		)
-	);
-}
-
 export default function RefSheet() {
 	const t = useTranslations("MINA");
+
+	// Detail cards.
+	function InfoDialog({
+		title,
+		description,
+		reference,
+		col,
+	}: {
+		title: string;
+		description: ReactNode;
+		reference: ReactNode;
+		col?: boolean;
+	}) {
+		return (
+			<Dialog.Portal>
+				<Dialog.Overlay className="bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-50" />
+				<Dialog.Content
+					className={`fixed inset-0 lg:inset-auto overflow-auto lg:overflow-clip z-[9999] flex flex-col ${
+						!col && "lg:flex-row"
+					} gap-12 items-center lg:top-1/2 lg:left-1/2 max-h-svh lg:max-h-[90vh] w-screen max-w-7xl lg:-translate-x-1/2 lg:-translate-y-1/2 p-6 md:p-9 bg-neutral-950 border border-neutral-900 ring-1 ring-neutral-950 shadow-xl shadow-neutral-950/50 rounded-xl data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down focus:outline-none origin-center lg:origin-top-left`}
+				>
+					{reference}
+					<div>
+						<Dialog.Title asChild>
+							<h2>
+								{title}
+								<span className="text-green">.</span>
+							</h2>
+						</Dialog.Title>
+						<Dialog.Description asChild>{description}</Dialog.Description>
+					</div>
+					<Dialog.Close asChild>
+						<button
+							className="absolute inline-flex items-center justify-center top-3 md:top-5 right-3 md:right-5 size-10 rounded-full text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800 duration-100"
+							aria-label="Close"
+						>
+							<X />
+						</button>
+					</Dialog.Close>
+				</Dialog.Content>
+			</Dialog.Portal>
+		);
+	}
+
+	function CyclingFrontBackRef({ backFirst }: { backFirst: boolean }) {
+		const [showBack, setShowBack] = useState(backFirst);
+		useEffect(() => {
+			const interval = setInterval(() => {
+				setShowBack(!showBack);
+			}, 5000);
+			return () => clearInterval(interval);
+		}, [showBack]);
+
+		const cycleTransition = useTransition(showBack, {
+			from: { opacity: 0 },
+			enter: { opacity: 1 },
+			leave: { opacity: 0 },
+			config: config.stiff,
+			exitBeforeEnter: true,
+		});
+
+		const progress = useSpring({
+			from: { x: "-100%" },
+			to: {
+				x: "0%",
+			},
+			config: {
+				duration: 4500,
+				easing: easings.easeInOutSine,
+			},
+			delay: 500,
+			loop: true,
+		});
+
+		return cycleTransition((styles, item) =>
+			item ? (
+				<a.div className="h-full w-4/5 object-contain" style={styles}>
+					<FadingImage
+						src={ReferenceBack}
+						alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
+						className="h-full max-h-2/3-screen lg:max-h-[80vh] object-contain"
+					/>
+					<div className="relative h-1 mt-3 rounded-full overflow-clip bg-neutral-900">
+						<a.div className="absolute inset-0 rounded-full bg-neutral-50" style={progress} />
+					</div>
+				</a.div>
+			) : (
+				<a.div className="h-full w-4/5 object-contain" style={styles}>
+					<FadingImage
+						src={ReferenceFront}
+						alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
+						className="h-full max-h-2/3-screen lg:max-h-[80vh] object-contain"
+					/>
+					<div className="relative h-1 mt-3 rounded-full overflow-clip bg-neutral-900">
+						<a.div className="absolute inset-0 rounded-full bg-neutral-50" style={progress} />
+					</div>
+				</a.div>
+			)
+		);
+	}
+
+	function ColorPickerToast(props: {
+		color: string;
+		open: boolean;
+		onOpenChange: ((open: boolean) => void) | undefined;
+	}) {
+		const t = useTranslations("COMMON");
+		return (
+			<Toast.Provider swipeDirection="right" duration={3000}>
+				<Toast.Root
+					className="flex gap-6 items-center p-3 rounded-xl shadow-lg shadow-neutral-950/50 backdrop-blur-xl bg-gradient-to-b from-neutral-800/75 to-neutral-900/90 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
+					open={props.open}
+					onOpenChange={props.onOpenChange}
+				>
+					<div
+						className="w-[30px] h-[30px] rounded-full border border-neutral-50/10"
+						style={{ backgroundColor: props.color }}
+					/>
+					<Toast.Description>{t("copied")}</Toast.Description>
+					<Toast.Close className="inline-flex items-center justify-center size-6 hover:bg-neutral-50/10 active:bg-neutral-50/5 rounded-full duration-100 active:duration-75">
+						<X size={16} className="stroke-neutral-50" />
+					</Toast.Close>
+				</Toast.Root>
+				<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-[9999] outline-none" />
+			</Toast.Provider>
+		);
+	}
 
 	// Toasts for copying palette colors.
 	const [toastOpen, setToastOpen] = useState(false);
@@ -105,49 +167,6 @@ export default function RefSheet() {
 				style={{ backgroundColor: color }}
 				onClick={handleClick}
 			/>
-		);
-	}
-
-	// Detail cards.
-	function InfoDialog({
-		title,
-		description,
-		reference,
-		col,
-	}: {
-		title: string;
-		description: ReactNode;
-		reference: ReactNode;
-		col?: boolean;
-	}) {
-		return (
-			<Dialog.Portal>
-				<Dialog.Overlay className="bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-50" />
-				<Dialog.Content
-					className={`fixed inset-0 lg:inset-auto overflow-auto lg:overflow-clip z-[9999] flex flex-col ${
-						!col && "lg:flex-row"
-					} gap-12 items-center lg:top-1/2 lg:left-1/2 max-h-svh lg:max-h-[90vh] w-screen max-w-5xl lg:-translate-x-1/2 lg:-translate-y-1/2 p-6 md:p-9 bg-neutral-950 border border-neutral-900 ring-1 ring-neutral-950 shadow-xl shadow-neutral-950/50 rounded-xl data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down focus:outline-none origin-center lg:origin-top-left`}
-				>
-					{reference}
-					<div>
-						<Dialog.Title asChild>
-							<h2>
-								{title}
-								<span className="text-green">.</span>
-							</h2>
-						</Dialog.Title>
-						<Dialog.Description asChild>{description}</Dialog.Description>
-					</div>
-					<Dialog.Close asChild>
-						<button
-							className="absolute inline-flex items-center justify-center top-3 md:top-5 right-3 md:right-5 size-10 rounded-full text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800 duration-100"
-							aria-label="Close"
-						>
-							<X />
-						</button>
-					</Dialog.Close>
-				</Dialog.Content>
-			</Dialog.Portal>
 		);
 	}
 
@@ -199,6 +218,21 @@ export default function RefSheet() {
 							/>
 						</div>
 					</Dialog.Trigger>
+					<InfoDialog
+						title={t("Content.Reference.Outfit.heading")}
+						description={
+							<>
+								<p>{t("Content.Reference.Outfit.text1")}</p>
+								<p>{t("Content.Reference.Outfit.text2")}</p>
+								<p>{t("Content.Reference.Outfit.text3")}</p>
+								<p>{t("Content.Reference.Outfit.text4")}</p>
+								<p>{t("Content.Reference.Outfit.text5")}</p>
+							</>
+						}
+						reference={<CyclingFrontBackRef backFirst={false} />}
+					/>
+				</Dialog.Root>
+				<Dialog.Root>
 					<Dialog.Trigger asChild>
 						<div
 							id="back"
@@ -223,7 +257,7 @@ export default function RefSheet() {
 								<p>{t("Content.Reference.Outfit.text5")}</p>
 							</>
 						}
-						reference={<CyclingFrontBackRef />}
+						reference={<CyclingFrontBackRef backFirst={true} />}
 					/>
 				</Dialog.Root>
 				<Dialog.Root>
