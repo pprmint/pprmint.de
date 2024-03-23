@@ -44,7 +44,7 @@ export default function Page({ params: { locale } }: Props) {
 					</h2>
 					<p>{t("Content.Usage.text1")}</p>
 					<p>{t("Content.Usage.text2")}</p>
-					<div className="flex gap-3 pt-6">
+					<div className="flex flex-wrap gap-3 pt-6">
 						<Link
 							href="https://github.com/pprmint/pprmint.art/blob/main/tailwind.config.js#L7"
 							target="_blank"
