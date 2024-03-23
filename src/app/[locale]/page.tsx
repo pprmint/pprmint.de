@@ -138,7 +138,7 @@ export default async function Page({ params: { locale } }: Props) {
 	);
 }
 
-async function getData() {
+async function GetData() {
 	const pageSize = 4;
 	const locale = useLocale();
 	const res = await fetch(
