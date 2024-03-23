@@ -540,7 +540,7 @@ export default function Selector() {
 				item ? (
 					<a.div
 						style={styles}
-						className="fixed z-60 flex items-center justify-between left-1/2 bottom-0 xl:bottom-6 w-full xl:max-w-6xl pl-5 pr-3 py-3 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border-neutral-50/10 xl:ring-1 xl:ring-neutral-950/75 border-t xl:border xl:rounded-2xl shadow-[0_6px_22px_#11111166]"
+						className="fixed z-60 flex items-center justify-between left-1/2 bottom-0 xl:bottom-6 w-full xl:max-w-6xl pl-5 pr-3 py-3 backdrop-blur-xl bg-gradient-to-b from-neutral-800/75 to-neutral-900/90 border-neutral-50/10 border-t xl:border border-neutral-950 xl:ring-1 ring-inset ring-neutral-50/10 xl:rounded-2xl shadow-xl shadow-neutral-950/50"
 					>
 						<div className="flex items-center">
 							{selectedCountTransition((styles, count) => (
