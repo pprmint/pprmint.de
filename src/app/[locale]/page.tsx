@@ -9,6 +9,7 @@ import { Announcements } from "src/types/announcement";
 import FadingImage from "src/components/ui/FadingImage";
 import { useLocale } from "next-intl";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import ThreeThingies from "./threethingies";
 
 type Props = {
 	params: { locale: string };
@@ -17,7 +18,7 @@ type Props = {
 export default async function Page({ params: { locale } }: Props) {
 	unstable_setRequestLocale(locale);
 	const t = await getTranslations("HOME");
-	const Announcements: Announcements = await GetData();
+	const Announcements: Announcements = await getData();
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
@@ -31,6 +32,7 @@ export default async function Page({ params: { locale } }: Props) {
 				/>
 			</Title>
 			<main>
+				<ThreeThingies />
 				<section className="relative overflow-hidden">
 					<div className="relative w-full h-full -z-10">
 						<FadingImage
@@ -136,7 +138,7 @@ export default async function Page({ params: { locale } }: Props) {
 	);
 }
 
-async function GetData() {
+async function getData() {
 	const pageSize = 4;
 	const locale = useLocale();
 	const res = await fetch(
