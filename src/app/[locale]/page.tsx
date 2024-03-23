@@ -18,7 +18,7 @@ type Props = {
 export default async function Page({ params: { locale } }: Props) {
 	unstable_setRequestLocale(locale);
 	const t = await getTranslations("HOME");
-	const Announcements: Announcements = await getData();
+	const Announcements: Announcements = await GetData();
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
