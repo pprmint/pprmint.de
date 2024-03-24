@@ -22,7 +22,6 @@ export default function Title(
 			<a.div className="absolute w-full h-full" style={{ ...fadeIn }}>
 				<div className="absolute w-full h-full">{props.children}</div>
 			</a.div>
-			<div className="absolute w-full h-16 bg-gradient-to-b from-neutral-950/50" />
 			<div className="absolute w-full h-full bg-gradient-to-t from-neutral-950 via-transparent" />
 			<div className="absolute bottom-0 flex w-full gap-3 p-6 md:p-12 items-end">
 				<div className="flex-grow">

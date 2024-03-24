@@ -26,7 +26,7 @@ export default function DesktopNavigation() {
 
 	// Styles
 	const NavMenuTrigger =
-		"group/root flex items-center gap-3 h-10 px-4 text-neutral-50/80 hover:text-neutral-50 data-[state='open']:text-neutral-50 duration-250 font-medium rounded-lg drop-shadow-md";
+		"group/root flex items-center gap-3 h-10 px-4 text-neutral-50/80 hover:text-neutral-50 data-[state='open']:text-neutral-50 data-[state='open']:backdrop-blur-md duration-250 font-medium rounded-lg";
 	const NavMenuContent =
 		"absolute top-0 left-0 p-3 duration-250 data-[motion='from-start']:animate-enter-from-l data-[motion='from-end']:animate-enter-from-r data-[motion='to-start']:animate-exit-to-l data-[motion='to-end']:animate-exit-to-r";
 	const NavMenuViewport =
@@ -38,8 +38,10 @@ export default function DesktopNavigation() {
 				<NavigationMenu.List className="flex py-3 pr-6">
 					<NavigationMenu.Item>
 						<NavigationMenu.Trigger className={NavMenuTrigger}>
-							{t("Path.General.title")}
-							{Caret}
+							<span className="inline-flex items-center gap-3 drop-shadow-[0px_2px_12px_#111a]">
+								{t("Path.General.title")}
+								{Caret}
+							</span>
 						</NavigationMenu.Trigger>
 
 						<NavigationMenu.Content className={`${NavMenuContent} w-[500px] lg:w-[600px]`}>
@@ -68,8 +70,10 @@ export default function DesktopNavigation() {
 
 					<NavigationMenu.Item>
 						<NavigationMenu.Trigger className={NavMenuTrigger}>
-							{t("Path.Works.title")}
-							{Caret}
+							<span className="inline-flex items-center gap-3 drop-shadow-[0px_2px_12px_#111a]">
+								{t("Path.Works.title")}
+								{Caret}
+							</span>
 						</NavigationMenu.Trigger>
 
 						<NavigationMenu.Content className={`${NavMenuContent} w-[500px] lg:w-[600px]`}>
@@ -97,8 +101,10 @@ export default function DesktopNavigation() {
 					</NavigationMenu.Item>
 					<NavigationMenu.Item>
 						<NavigationMenu.Trigger className={NavMenuTrigger}>
-							{t("Path.Other.title")}
-							{Caret}
+							<span className="inline-flex items-center gap-3 drop-shadow-[0px_2px_12px_#111a]">
+								{t("Path.Other.title")}
+								{Caret}
+							</span>
 						</NavigationMenu.Trigger>
 						<NavigationMenu.Content className={`${NavMenuContent} w-[400px] lg:w-[500px]`}>
 							<ul className="grid gap-1 grid-flow-row">
@@ -139,8 +145,8 @@ export default function DesktopNavigation() {
 							<Copyright className="pl-3 pt-1 items-center" />
 						</NavigationMenu.Content>
 					</NavigationMenu.Item>
-					<NavigationMenu.Indicator className="flex items-end justify-center h-3 top-12 -z-10 transition-transform duration-250 ease-out data-[state='visible']:animate-fade-in data-[state='hidden']:animate-fade-out">
-						<div className="relative bg-neutral-50/10 -top-2 w-full h-10 rounded-lg" />
+					<NavigationMenu.Indicator className="flex items-end justify-center h-3 top-12 -z-10 duration-250 ease-out data-[state='visible']:animate-fade-in data-[state='hidden']:animate-fade-out">
+						<div className="relative bg-neutral-900/75 shadow-inner -top-2 w-full h-10 rounded-lg duration-250" />
 					</NavigationMenu.Indicator>
 				</NavigationMenu.List>
 				<div className="absolute flex justify-center top-[63px] right-6" style={{ perspective: 2000 }}>
