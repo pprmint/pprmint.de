@@ -43,9 +43,9 @@ export default function ThreeThingies() {
 						<p>{t("Content.TheThreeThingies.Vectors.text2")}</p>
 					</div>
 				</div>
-				<div className="absolute flex items-center gap-3 md:gap-6 bottom-6 md:bottom-9 right-6 md:right-9 translate-x-9 md:translate-x-12 group-hover:-translate-x-0 duration-300 ease-out-quint">
+				<div className="opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 absolute lg:inset-x-0 flex items-center lg:justify-center gap-3 md:gap-6 bottom-6 md:bottom-9 right-6 md:right-9 translate-x-9 md:translate-x-12 lg:translate-x-6 group-hover:translate-x-0 group-focus-visible:translate-x-0 duration-300 ease-out-quint">
 					<p className="font-medium text-neutral-50 text-lg md:text-xl lg:text-2xl">{t("Content.TheThreeThingies.moreOnGallery")}</p>
-					<ArrowRight className="opacity-0 group-hover:opacity-100 text-green -translate-x-12 lg:-translate-x-14 group-hover:translate-x-0 duration-300 ease-out-quint" />
+					<ArrowRight className="opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 text-green -translate-x-12 lg:-translate-x-14 group-hover:translate-x-0 group-focus-visible:translate-x-0 duration-300 ease-out-quint" />
 				</div>
 			</Link>
 			<Link
@@ -64,9 +64,9 @@ export default function ThreeThingies() {
 						<p>{t("Content.TheThreeThingies.Polygons.text2")}</p>
 					</div>
 				</div>
-				<div className="absolute flex items-center gap-3 md:gap-6 bottom-6 md:bottom-9 right-6 md:right-9 translate-x-9 md:translate-x-12 group-hover:-translate-x-0 duration-300 ease-out-quint">
+				<div className="opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 absolute lg:inset-x-0 flex items-center lg:justify-center gap-3 md:gap-6 bottom-6 md:bottom-9 right-6 md:right-9 translate-x-9 md:translate-x-12 lg:translate-x-6 group-hover:translate-x-0 group-focus-visible:translate-x-0 duration-300 ease-out-quint">
 					<p className="font-medium text-neutral-50 text-lg md:text-xl lg:text-2xl">{t("Content.TheThreeThingies.moreOnGallery")}</p>
-					<ArrowRight className="opacity-0 group-hover:opacity-100 text-blue -translate-x-12 lg:-translate-x-14 group-hover:translate-x-0 duration-300 ease-out-quint" />
+					<ArrowRight className="opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 text-blue -translate-x-12 lg:-translate-x-14 group-hover:translate-x-0 group-focus-visible:translate-x-0 duration-300 ease-out-quint" />
 				</div>
 			</Link>
 			<Link
@@ -87,9 +87,9 @@ export default function ThreeThingies() {
 						<p>{t("Content.TheThreeThingies.Code.text2")}</p>
 					</div>
 				</div>
-				<div className="absolute flex items-center gap-3 md:gap-6 bottom-6 md:bottom-9 right-6 md:right-9 translate-x-9 md:translate-x-12 group-hover:-translate-x-0 duration-300 ease-out-quint">
+				<div className="opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 absolute lg:inset-x-0 flex items-center lg:justify-center gap-3 md:gap-6 bottom-6 md:bottom-9 right-6 md:right-9 translate-x-9 md:translate-x-12 lg:translate-x-9 group-hover:translate-x-0 group-focus-visible:translate-x-0 duration-300 ease-out-quint">
 					<p className="font-medium text-neutral-50 text-lg md:text-xl lg:text-2xl">{t("Content.TheThreeThingies.moreOnGitHub")}</p>
-					<ArrowUpRight className="opacity-0 group-hover:opacity-100 text-red -translate-x-12 lg:-translate-x-14 group-hover:translate-x-0 translate-y-3 group-hover:-translate-y-0  duration-300 ease-out-quint" />
+					<ArrowUpRight className="opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 text-red -translate-x-12 lg:-translate-x-14 group-hover:translate-x-0 group-focus-visible:translate-x-0 translate-y-3 group-hover:-translate-y-0  duration-300 ease-out-quint" />
 				</div>
 			</Link>
 			<div className="absolute inset-0 z-10 bg-gradient-to-t from-neutral-950 via-transparent to-neutral-950" />
