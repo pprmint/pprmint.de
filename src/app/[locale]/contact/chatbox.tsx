@@ -3,8 +3,6 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import * as Portal from "@radix-ui/react-portal";
 import FocusTrap from "focus-trap-react";
-import useTranslation from "next-translate/useTranslation";
-import Trans from "next-translate/Trans";
 
 import Mina from "public/assets/mina/nekomimi_smol.webp";
 import Link from "next/link";

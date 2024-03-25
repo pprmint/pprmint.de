@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import { useRef, useState, useEffect } from "react";
 import saveAs from "file-saver";
 import { a, useTransition, easings } from "@react-spring/web";
-import useTranslation from "next-translate/useTranslation";
 
 import * as Slider from "@radix-ui/react-slider";
 import * as ContextMenu from "@radix-ui/react-context-menu";
