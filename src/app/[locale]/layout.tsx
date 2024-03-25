@@ -5,6 +5,7 @@ import { locales } from "../../navigation";
 import NavBar from "src/components/layout/NavBar";
 import Footer from "src/components/layout/Footer";
 import ScrollToTopButton from "src/components/layout/ScrollToTopButton";
+import { AlertTriangle } from "lucide-react";
 
 type Props = {
 	children: ReactNode;
@@ -33,10 +34,13 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
 		<html lang={locale} suppressHydrationWarning>
 			<body className="bg-neutral-950 selection:bg-green selection:text-neutral-950 text-neutral focus-visible:outline-none focus-visible:ring-2 overflow-x-hidden">
 				<noscript>
-					<div className="fixed z-[9999] bottom-6 left-1/2 -translate-x-1/2 w-[92vw] max-w-max px-4 py-2 bg-red text-black rounded-3xl font-sans">
-						<p>
-							<span className="font-bold animate-pulse">No JavaScript detected.</span> Some parts of the site might not
-							work properly. Please allow JavaScript on the site or use a more recent browser.
+					<div className="fixed flex z-100 bottom-6 left-1/2 -translate-x-1/2 min-h-9 w-[92vw] max-w-max bg-gradient-to-b from-red-800/75 to-red-900/75 ring-inset ring-1 ring-red/10 border border-neutral-950 rounded-2xl font-sans text-neutral-50 backdrop-blur-md shadow-xl shadow-neutral-950/50">
+						<div className="inline-flex items-center p-2 rounded-3xl bg-gradient-to-b from-red/50 to-red/25">
+							<AlertTriangle size={20} />
+						</div>
+						<p className="px-3 py-2 text-sm">
+							<span className="font-bold animate-pulse">No JavaScript detected.</span> Some parts of the site won't work
+							properly. Please allow JavaScript on the site or use a more recent browser.
 						</p>
 					</div>
 				</noscript>
