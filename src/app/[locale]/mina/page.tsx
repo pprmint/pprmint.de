@@ -78,7 +78,7 @@ export default async function Page({ searchParams, params: { locale } }: Props) 
 						<p>
 							{t.rich("Content.Reference.credit", {
 								Link: (chunks) => (
-									<Link href="https://twitter.com/nekomimiwubs" className="text-link-external">
+									<Link href="https://twitter.com/neko__draws" className="text-link-external">
 										{chunks}
 									</Link>
 								),
