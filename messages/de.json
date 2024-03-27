@@ -274,8 +274,8 @@
 			"showingWorks_other": "{count} Werke werden gezeigt.",
 			"Disclaimer": {
 				"heading": "Alle Reche vorbehalten, sofern nicht anders angegeben",
-				"text1": "Die Verwendung von Grafiken auf dieser Seite als Desktop- oder Handy-Hintergrundbilder auf deinen persönlichen Geräten ist erlaubt.",
-				"text2": "Jeder andere Verwendungszweck, ganz gleich ob für kommerzielle oder persönliche Projekte, ist ohne meine schriftliche Erlaubnis <b>untersagt</b>.",
+				"text1": "Die Verwendung von Grafiken auf dieser Seite als Desktop- oder Handy-Hintergrundbilder ist auf deinen persönlichen Geräten erlaubt.",
+				"text2": "Davon abgesehen ist jegliche Wiederverwendung, ganz gleich ob für kommerzielle oder persönliche Zwecke, ohne meine schriftliche Erlaubnis <b>untersagt</b>.",
 				"text3": "<Link>Schreibe mir eine Nachricht</Link>, wenn du Fragen dazu hast."
 			},
 			"noHasOwn": "Der Text oben wurde eigentlich in Markdown geschrieben. Wenn du das hier lesen kannst, solltest du mal deinen Browser aktualisieren, da sonst Formatierungen und Links für dich hier nicht funktionieren werden."
