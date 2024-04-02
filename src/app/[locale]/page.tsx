@@ -1,15 +1,18 @@
 import * as React from "react";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Link from "next/link";
+import { useLocale } from "next-intl";
+import { ArrowRight, ArrowUpRight, Heart } from "lucide-react";
 
 import Button from "src/components/ui/Button";
 import Title from "src/components/layout/Title";
 
 import { Announcements } from "src/types/announcement";
 import FadingImage from "src/components/ui/FadingImage";
-import { useLocale } from "next-intl";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
 import ThreeThingies from "./threethingies";
+import { MinaArtworks } from "src/types/mina-artwork";
+
+import MinaBackground from "public/assets/home/Mina_bg.webp";
 
 type Props = {
 	params: { locale: string };
@@ -18,7 +21,8 @@ type Props = {
 export default async function Page({ params: { locale } }: Props) {
 	unstable_setRequestLocale(locale);
 	const t = await getTranslations("HOME");
-	const Announcements: Announcements = await GetData();
+	const Announcements: Announcements = await GetAnnouncements();
+	const MinaArt: MinaArtworks = await GetArt();
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
@@ -33,7 +37,7 @@ export default async function Page({ params: { locale } }: Props) {
 			</Title>
 			<main>
 				<ThreeThingies />
-				<section className="relative overflow-hidden">
+				<section className="relative overflow-clip">
 					<div className="relative w-full h-full -z-10">
 						<FadingImage
 							src={`https://static.pprmint.art${Announcements.data[0].attributes.media.data.attributes.formats.thumbnail.url}`}
@@ -89,8 +93,11 @@ export default async function Page({ params: { locale } }: Props) {
 						) : null}
 					</div>
 				</section>
-				<hr className="px-6 md:px-9 border-dotted border-t-2 border-neutral-800" />
 				<section className="my-20 px-6 md:px-9 max-w-8xl mx-auto">
+					<h2 className="pb-6">
+						{t("Content.News.heading")}
+						<span className="text-green">.</span>
+					</h2>
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-9">
 						{Announcements.data.map(
 							(announcement, index) =>
@@ -133,12 +140,66 @@ export default async function Page({ params: { locale } }: Props) {
 						)}
 					</div>
 				</section>
+				<section className="relative px-6 md:px-9 w-screen lg:h-2/3-screen min-h-[500px] overflow-clip">
+					<div className="absolute inset-0 -z-10">
+						<FadingImage src={MinaBackground} fill alt="" className="absolute inset-0 opacity-50" />
+						<div
+							className="absolute inset-0"
+							style={{
+								backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24" height="24" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23111"/></svg>')`,
+								backgroundRepeat: "repeat",
+								backgroundPosition: "center",
+							}}
+						/>
+					</div>
+					<div className="flex flex-col gap-9 md:flex-row items-center max-w-7xl h-full mx-auto">
+						<div className="w-full">
+							<h2>{t("Content.Mina.heading")}</h2>
+							<p>{t("Content.Mina.text1")}</p>
+							<p className="mb-6">
+								{t.rich("Content.Mina.text2", {
+									artist: MinaArt.data[0].attributes.artist.data.attributes.name,
+									link: (chunks) =>
+										MinaArt.data[0].attributes.artist.data.attributes.creditUrl ? (
+											<Link
+												href={MinaArt.data[0].attributes.artist.data.attributes.creditUrl}
+												className="text-link-external"
+											>
+												{chunks}
+											</Link>
+										) : (
+											<span className="font-medium font-neutal-50">{chunks}</span>
+										),
+								})}
+								<br />
+								<span className="text-xs opacity-50">
+									{t.rich("Content.Mina.text3", {
+										i: (chunks) => <i>{chunks}</i>,
+									})}
+								</span>
+							</p>
+							<Link href="/mina" className="w-fit">
+								<Button tabIndex={-1} color="green">
+									{t("Content.Mina.button")}
+									<Heart size={16} />
+								</Button>
+							</Link>
+						</div>
+						<FadingImage
+							src={`https://static.pprmint.art${MinaArt.data[0].attributes.artwork.data[0].attributes.url}`}
+							alt={MinaArt.data[0].attributes.artwork.data[0].attributes.alternativeText}
+							width={MinaArt.data[0].attributes.artwork.data[0].attributes.width}
+							height={MinaArt.data[0].attributes.artwork.data[0].attributes.height}
+							className="w-full max-w-fit h-full object-contain"
+						/>
+					</div>
+				</section>
 			</main>
 		</>
 	);
 }
 
-async function GetData() {
+async function GetAnnouncements() {
 	const pageSize = 4;
 	const locale = useLocale();
 	const res = await fetch(
@@ -153,6 +214,23 @@ async function GetData() {
 	);
 	if (!res.ok) {
 		throw new Error("Failed to fetch data");
+	}
+	return res.json();
+}
+
+async function GetArt() {
+	const res = await fetch(
+		`${process.env.STRAPI_API_URL}/mina-artworks?pagination[limit]=1&filters[nsfw][$ne]=true&populate=artwork&populate=artist&sort=creationDate:desc`,
+		{
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
+			},
+			next: { revalidate: 60 },
+		}
+	);
+	if (!res.ok) {
+		throw new Error("Failed to fetch artwork.");
 	}
 	return res.json();
 }

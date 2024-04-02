@@ -306,24 +306,15 @@
 				"moreOnGallery": "Mehr auf der Galerie-Seite",
 				"moreOnGitHub": "Mehr auf GitHub"
 			},
-			"RecentWork": {
-				"title": "Aktuelle Werke",
-				"Ytdg": {
-					"name": "Eine (weitere) GUI-Anwendung für yt-dlp.",
-					"description": "yt-dlp ist eine Kommandozeilen-Anwendung zum Herunterladen von Video- und Audiodateien. Dafür habe ich eine kleine grafische Oberfläche geschrieben, quelloffen und auf GitHub. Der Button hier führt dich direkt zum Repository."
-				},
-				"OpenSUSE": {
-					"name": "Logos für openSUSE und deren Distros.",
-					"description": "Diese Designs haben tatsächlich beim Logo-Contest von openSUSE gewonnen. Yay. Die Inspiration der Logos stammt von denen neuerer Distros wie Aeon und MicroOS. Ich wollte nicht gleich das Rad neu erfinden."
-				},
-				"Stairway": {
-					"name": "Stairway - Ein Hintergrundbild für KDE Plasma 6.",
-					"description": "In der KDE Community findet aktuell ein Wallpaper-Contest für die nächste Version von Plasma statt. Das hier ist mein erster Beitrag dazu. Wahrscheinlich werde ich irgendwann noch ein paar weitere Bilder rendern. Klicke auf diesen schicken Knopf um mehr zu erfahren."
-				},
-				"Mintcraft": {
-					"name": "Mintcraft nun für Version 1.20 verfügbar.",
-					"description": "Viele Texturen wie für das Kreativ-Menü oder der Welt-Erstellungs-Bildschirm mit den Tabs wurden angepasst, sodass du nun die neuste Version von Minecraft mit diesem Pack spielen kannst. Auch meine Pixel-Schriftart hat einige Verbesserungen erhalten."
-				}
+			"News": {
+				"heading": "Weitere Neuigkeiten"
+			},
+			"Mina": {
+				"heading": "Du steht mehr auf Anime-Mädchen?",
+				"text1": "Die offizielle pprmint.art Website versorgt dich auch damit. Lang lebe das Internet.",
+				"text2": "Hier ist das neueste* Artwork von Mina, meinem OC, gezeichnet von <link>{artist}</link>.",
+				"text3": "* Neuestes <i>SFW</i>-Artwork. Will das andere Zeug lieber nicht direkt auf der Startseite zeigen.",
+				"button": "Ich liebe sie."
 			}
 		}
 	},
