@@ -64,7 +64,7 @@ export default function MobileNavigation() {
 	return (
 		<>
 			<button
-				className="fixed top-3 right-3 text-neutral-50 text-xl w-10 h-10 rounded-full z-50 hover:bg-neutral-50/10 duration-100"
+				className="relative m-3 text-neutral-50 text-xl w-10 h-10 rounded-full hover:bg-neutral-50/10 duration-100"
 				onClick={toggleOpen}
 			>
 				<svg
@@ -101,21 +101,25 @@ export default function MobileNavigation() {
 				item ? (
 					<Portal.Root>
 						<a.div
-							className="fixed top-0 left-0 bg-neutral-950 w-screen h-screen z-40 pt-16"
+							className="fixed inset-0 bg-neutral-950 z-80"
 							style={{
 								opacity: styles.opacity,
 							}}
 						>
 							{/* Main container */}
-							<a.div className="px-3 w-full h-full py-6 overflow-auto text-neutral-500" style={styles}>
-								<div className="pb-6">
-									<p className="pl-3 pb-1 font-display text-neutral-50 font-semibold text-2xl">
-										{t("Path.General.title")}
-									</p>
+							<a.div className="px-3 w-full h-full pb-6 pt-20 overflow-auto z-80" style={styles}>
+								<div className="my-9">
+									<p className="pl-3 font-display text-neutral-50 font-semibold text-2xl">{t("Path.General.title")}</p>
 									<ul>
 										{Pages.map((Page) => (
-											<Link key={Page.link} href={Page.link} onClick={handleClose}>
-												<li className={`flex items-center ${Page.link === pathname ? "text-neutral-50" : "hover:text-neutral-50 hover:bg-neutral-50/10 active:opacity-75"} px-3 py-1.5 w-full duration-100 rounded-full`}>
+											<Link className="group" key={Page.link} href={Page.link} onClick={handleClose}>
+												<li
+													className={`flex items-center ${
+														Page.link === pathname
+															? "text-neutral-50"
+															: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
+													} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
+												>
 													{Page.link === pathname && <ChevronRight size={16} className="inline stroke-green mr-1.5" />}
 													{t(`Path.General.${Page.strings}.title`)}
 												</li>
@@ -123,35 +127,63 @@ export default function MobileNavigation() {
 										))}
 									</ul>
 								</div>
-								<div className="pb-6">
-									<p className="pl-3 pb-1 font-display text-neutral-50 font-semibold text-2xl">
-										{t("Path.Works.title")}
-									</p>
+								<div className="my-9">
+									<p className="pl-3 font-display text-neutral-50 font-semibold text-2xl">{t("Path.Works.title")}</p>
 									<ul>
 										{Works.map((Work) => (
-											<Link key={Work.link} href={Work.link} onClick={handleClose}>
-												<li className={`flex items-center ${Work.link === pathname ? "text-neutral-50" : "hover:text-neutral-50 hover:bg-neutral-50/10 active:opacity-75"} px-3 py-1.5 w-full duration-100 rounded-full`}>
+											<Link className="group" key={Work.link} href={Work.link} onClick={handleClose}>
+												<li
+													className={`flex items-center ${
+														Work.link === pathname
+															? "text-neutral-50"
+															: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
+													} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
+												>
 													{Work.link === pathname && <ChevronRight size={16} className="inline stroke-green mr-1.5" />}
-													{t(`Path.Works.${Work.strings}.title`)}
+													<div className="flex flex-col">
+														<span>{t(`Path.Works.${Work.strings}.title`)}</span>
+														<span className="text-xs opacity-50">{t(`Path.Works.${Work.strings}.description`)}</span>
+													</div>
 												</li>
 											</Link>
 										))}
 									</ul>
 								</div>
-								<div className="pb-6">
-									<p className="pl-3 pb-1 font-display text-neutral-50 font-semibold text-2xl">
-										{t("Path.Other.title")}
-									</p>
+								<div className="my-9">
+									<p className="pl-3 font-display text-neutral-50 font-semibold text-2xl">{t("Path.Other.title")}</p>
 									<ul>
-										<Link href="/privacy" onClick={handleClose}>
-											<li className={`flex items-center ${"/privacy" === pathname ? "text-neutral-50" : "hover:text-neutral-50 hover:bg-neutral-50/10 active:opacity-75"} px-3 py-1.5 w-full duration-100 rounded-full`}>
+										<Link className="group" href="/privacy" onClick={handleClose}>
+											<li
+												className={`flex items-center ${
+													"/privacy" === pathname
+														? "text-neutral-50"
+														: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
+												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
+											>
 												{"/privacy" === pathname && <ChevronRight size={16} className="inline stroke-green mr-1.5" />}
 												{t("Path.Other.Privacy.title")}
 											</li>
 										</Link>
-										<Link href={pathname} locale={otherLocale} scroll={false} onClick={handleClose}>
-											<li className="flex items-center hover:text-neutral-50 hover:bg-neutral-50/10 active:opacity-75 px-3 py-1.5 w-full duration-100 rounded-full">
-												{t("Path.Other.SwitchLocale.title")}
+										<Link className="group" href="https://potato.pprmint.art">
+											<li
+												className={`flex items-center ${
+													"/privacy" === pathname
+														? "text-neutral-50"
+														: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
+												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
+											>
+												<div className="flex flex-col">
+													<span>{t("Path.Other.Potato.title")}</span>
+													<span className="text-xs opacity-50">{t("Path.Other.Potato.description")}</span>
+												</div>
+											</li>
+										</Link>
+										<Link className="group" href={pathname} locale={otherLocale} scroll={false} onClick={handleClose}>
+											<li className="flex items-center hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75 px-3 py-1.5 w-full duration-100 rounded-[17px]">
+												<div className="flex flex-col">
+													<span>{t("Path.Other.SwitchLocale.title")}</span>
+													<span className="text-xs opacity-50">{t("Path.Other.SwitchLocale.description")}</span>
+												</div>
 											</li>
 										</Link>
 									</ul>

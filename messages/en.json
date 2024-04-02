@@ -545,6 +545,10 @@
 				"SwitchLocale": {
 					"description": "Du verstehst nicht mal Bahnhof? Klick hier.",
 					"title": "Deutsch, bitte!"
+				},
+				"Potato": {
+					"description": "Visit a less intense version of this website.",
+					"title": "Potato"
 				}
 			}
 		},

@@ -546,6 +546,10 @@
 				"SwitchLocale": {
 					"description": "What you're reading doesn't make a lick of sense to you? Click here.",
 					"title": "English, please!"
+				},
+				"Potato": {
+					"description": "Besuche eine weniger aufwendige Version dieser Website.",
+					"title": "Kartoffel"
 				}
 			}
 		},
