@@ -126,7 +126,7 @@ export default function NotFound() {
 										<Link href="/" className="w-fit">
 											<Button color="orange">
 												Go to home page
-												<Home size={16} strokeWidth={3} />
+												<Home size={16} />
 											</Button>
 										</Link>
 									</a.div>
@@ -156,7 +156,7 @@ export default function NotFound() {
 										<Link href="/" className="w-fit">
 											<Button color="orange">
 												Zur Startseite
-												<Home size={16} strokeWidth={3} />
+												<Home size={16} />
 											</Button>
 										</Link>
 									</a.div>
