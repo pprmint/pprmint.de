@@ -2,7 +2,7 @@ import * as React from "react";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import { useLocale } from "next-intl";
-import { ArrowRight, ArrowUpRight, Heart } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Heart, Sparkle } from "lucide-react";
 
 import Button from "src/components/ui/Button";
 import Title from "src/components/layout/Title";
@@ -35,7 +35,7 @@ export default async function Page({ params: { locale } }: Props) {
 			</Title>
 			<main>
 				<ThreeThingies />
-				<section className="relative overflow-clip">
+				<section className="my-20 relative overflow-clip">
 					<div className="relative w-full h-full -z-10">
 						<FadingImage
 							src={`https://static.pprmint.art${Announcements.data[0].attributes.media.data.attributes.formats.thumbnail.url}`}
@@ -62,7 +62,7 @@ export default async function Page({ params: { locale } }: Props) {
 						height={Announcements.data[0].attributes.media.data.attributes.height}
 						className="w-full max-w-7xl mx-auto mt-24 xl:rounded-xl shadow-[0px_0px_5px_10px_#111] xl:border border-neutral-900"
 					/>
-					<div className="flex max-w-7xl px-6 md:px-9 mx-auto my-12 flex-col md:flex-row items-end md:items-center gap-6 md:gap-9">
+					<div className="flex max-w-7xl px-6 md:px-9 2xl:px-0 mx-auto my-12 flex-col md:flex-row items-end md:items-center gap-6 md:gap-9">
 						<div className="w-full">
 							<h2>{Announcements.data[0].attributes.title}</h2>
 							<p>{Announcements.data[0].attributes.description}</p>
@@ -138,7 +138,7 @@ export default async function Page({ params: { locale } }: Props) {
 						)}
 					</div>
 				</section>
-				<section className="relative flex items-center px-6 md:px-9 w-screen lg:h-2/3-screen min-h-[500px] overflow-clip">
+				<section className="my-20 relative flex items-center px-6 md:px-9 w-screen lg:h-2/3-screen min-h-[500px] overflow-clip">
 					<div className="absolute inset-0 -z-10">
 						<FadingImage
 							src={`https://static.pprmint.art${MinaArt.data[0].attributes.artwork.data[0].attributes.formats.thumbnail.url}`}
@@ -157,7 +157,7 @@ export default async function Page({ params: { locale } }: Props) {
 						<div
 							className="absolute inset-0"
 							style={{
-								background: `radial-gradient(at right center, #111a, #111)`,
+								background: `radial-gradient(at right center, #111a 0%, #111 75%)`,
 							}}
 						/>
 					</div>
@@ -194,17 +194,39 @@ export default async function Page({ params: { locale } }: Props) {
 								</Button>
 							</Link>
 						</div>
-						<Link href="/mina#gallery" className="relative group my-12 w-4/5 xl:w-full max-w-fit max-h-4/5 rotate-3 hover:rotate-0 hover:scale-[1.02] active:scale-[0.99] active:brightness-90 duration-400 active:duration-100 ease-out-back active:ease-out rounded-xl shadow-[0px_0px_5px_10px_#111] overflow-clip">
+						<Link
+							href="/mina#gallery"
+							className="relative group my-12 w-4/5 xl:w-full max-w-fit max-h-4/5 rotate-3 hover:rotate-0 hover:scale-[1.02] active:scale-[0.99] active:brightness-90 duration-400 active:duration-100 ease-out-back active:ease-out rounded-xl shadow-[0px_0px_5px_10px_#111]"
+						>
 							<FadingImage
 								src={`https://static.pprmint.art${MinaArt.data[0].attributes.artwork.data[0].attributes.url}`}
 								alt={MinaArt.data[0].attributes.artwork.data[0].attributes.alternativeText}
 								width={MinaArt.data[0].attributes.artwork.data[0].attributes.width}
 								height={MinaArt.data[0].attributes.artwork.data[0].attributes.height}
+								className="rounded-xl"
 							/>
-                            <div className="absolute -left-2/3 xl:-left-1/2 group-hover:left-[150%] top-0 bottom-0 skew-x-[30deg] w-40 group-hover:w-0 bg-neutral-50/50 blur-xl duration-0 group-hover:duration-700 ease-in-out-custom" />
+							<div className="absolute inset-0 overflow-clip blur-md rounded-xl">
+								<div className="absolute -left-[225%] lg:-left-full group-hover:left-[150%] top-0 bottom-0 skew-x-[30deg] w-64 group-hover:w-0 bg-neutral-50/25 duration-0 group-hover:duration-1000 ease-out-quint" />
+							</div>
+							<Sparkle
+								className="absolute -top-3.5 -right-3.5 group-hover:animate-lucide-sparkle opacity-0"
+								fill="#eee"
+								stroke="none"
+								size={36}
+							/>
 						</Link>
 					</div>
 				</section>
+				<section className="my-48 max-w-7xl px-6 md:px-9 2xl:px-0 mx-auto flex flex-col lg:flex-row gap-3 items-center justify-center lg:justify-between">
+					<h1 className="font-light">{t("Content.Contact.questions")}</h1>
+					<Link href="/contact">
+						<h1 className="group inline-flex text-nowrap items-center gap-3 hover:gap-6 lg:hover:gap-3 duration-200 ease-out-quint">
+							{t("Content.Contact.answers")}
+							<ArrowRight className="stroke-green size-[1em] group-hover:translate-x-0 lg:group-hover:translate-x-3 duration-200 ease-out-quint" />
+						</h1>
+					</Link>
+				</section>
+				<p className="px-6 md:px-9 text-center text-xs">{t("Content.Contact.pronunciation")}</p>
 			</main>
 		</>
 	);

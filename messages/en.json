@@ -314,6 +314,11 @@
 				"text2": "Here's the latest* artwork of Mina, my OC, drawn by <link>{artist}</link>.",
 				"text3": "* Latest <i>SFW</i> artwork. Don't really wanna show the other stuff right on the home page.",
 				"button": "I love her."
+			},
+			"Contact": {
+				"questions": "Questions?",
+				"answers": "I've got answers",
+				"pronunciation": "Actually, before you ask: It's pronounced \"peppermint\" just like the plant. That's not obvious to some people, but now you're smarter than them."
 			}
 		}
 	},

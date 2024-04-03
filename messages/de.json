@@ -310,11 +310,16 @@
 				"heading": "Weitere Neuigkeiten"
 			},
 			"Mina": {
-				"heading": "Du steht mehr auf Anime-Mädchen?",
+				"heading": "Doch lieber Anime-Mädchen?",
 				"text1": "Die offizielle pprmint.art Website versorgt dich auch damit. Lang lebe das Internet.",
 				"text2": "Hier ist das neueste* Artwork von Mina, meinem OC, gezeichnet von <link>{artist}</link>.",
 				"text3": "* Neuestes <i>SFW</i>-Artwork. Will das andere Zeug lieber nicht direkt auf der Startseite zeigen.",
 				"button": "Ich liebe sie."
+			},
+			"Contact": {
+				"questions": "Fragen?",
+				"answers": "Ich hab Antworten",
+				"pronunciation": "Bevor du fragst: Es wird \"peppermint\" ausgesprochen, also wie Pfefferminze auf Englisch. Das erscheließt sich nicht jedem, aber jetzt bist du schlauer als die."
 			}
 		}
 	},

@@ -281,6 +281,12 @@ module.exports = {
 					from: { strokeDashoffset: 24 },
 					to: { strokeDashoffset: 48 },
 				},
+				lucideSparkle: {
+					"0%": { transform: "scale(0) rotate(-90deg)", opacity: 0, filter: "blur(5px)" },
+					"40%": { transform: "scale(1) rotate(-5deg)", opacity: 1, filter: "blur(1px)" },
+					"50%": { transform: "scale(1) rotate(0deg)", opacity: 1, filter: "blur(0px)" },
+					"100%": { transform: "scale(0) rotate(45deg)", opacity: 0, filter: "blur(5px)" },
+				},
 			},
 			animation: {
 				"slow-spin": "spin 3s linear infinite;",
@@ -309,6 +315,7 @@ module.exports = {
 				"arrow-fade-down": "arrowFadeDown 1.5s cubic-bezier(0.2, 0.2, .2, 1) 2s infinite",
 				"skeleton-pulse": "skeletonPulse 3s cubic-bezier(0.7, 0, 0.3, 1) 2s infinite",
 				"lucide-check-draw-in": "lucideCheckDrawIn 0.25s cubic-bezier(0.33, 1, 0.68, 1) forwards",
+				"lucide-sparkle": "lucideSparkle 0.75s linear 0.25s forwards",
 			},
 			transitionDuration: {
 				25: "25ms",
