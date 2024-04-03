@@ -12,8 +12,6 @@ import FadingImage from "src/components/ui/FadingImage";
 import ThreeThingies from "./threethingies";
 import { MinaArtworks } from "src/types/mina-artwork";
 
-import MinaBackground from "public/assets/home/Mina_bg.webp";
-
 type Props = {
 	params: { locale: string };
 };
@@ -62,7 +60,7 @@ export default async function Page({ params: { locale } }: Props) {
 						quality={90}
 						width={Announcements.data[0].attributes.media.data.attributes.width}
 						height={Announcements.data[0].attributes.media.data.attributes.height}
-						className="w-full max-w-7xl mx-auto mt-24 xl:rounded-xl shadow-[0px_0px_5px_10px_#111]"
+						className="w-full max-w-7xl mx-auto mt-24 xl:rounded-xl shadow-[0px_0px_5px_10px_#111] xl:border border-neutral-900"
 					/>
 					<div className="flex max-w-7xl px-6 md:px-9 mx-auto my-12 flex-col md:flex-row items-end md:items-center gap-6 md:gap-9">
 						<div className="w-full">
@@ -109,7 +107,7 @@ export default async function Page({ params: { locale } }: Props) {
 											quality={90}
 											width={announcement.attributes.media.data.attributes.width}
 											height={announcement.attributes.media.data.attributes.height}
-											className="relative rounded-xl border border-neutral-50/10 mb-3"
+											className="relative rounded-xl border border-neutral-900 mb-3"
 										/>
 										<h3>{announcement.attributes.title}</h3>
 										<p>{announcement.attributes.description}</p>
@@ -140,9 +138,14 @@ export default async function Page({ params: { locale } }: Props) {
 						)}
 					</div>
 				</section>
-				<section className="relative px-6 md:px-9 w-screen lg:h-2/3-screen min-h-[500px] overflow-clip">
+				<section className="relative flex items-center px-6 md:px-9 w-screen lg:h-2/3-screen min-h-[500px] overflow-clip">
 					<div className="absolute inset-0 -z-10">
-						<FadingImage src={MinaBackground} fill alt="" className="absolute inset-0 opacity-50" />
+						<FadingImage
+							src={`https://static.pprmint.art${MinaArt.data[0].attributes.artwork.data[0].attributes.formats.thumbnail.url}`}
+							fill
+							alt=""
+							className="object-cover blur-xl"
+						/>
 						<div
 							className="absolute inset-0"
 							style={{
@@ -151,9 +154,15 @@ export default async function Page({ params: { locale } }: Props) {
 								backgroundPosition: "center",
 							}}
 						/>
+						<div
+							className="absolute inset-0"
+							style={{
+								background: `radial-gradient(at right center, #111a, #111)`,
+							}}
+						/>
 					</div>
 					<div className="flex flex-col gap-9 md:flex-row items-center max-w-7xl h-full mx-auto">
-						<div className="w-full">
+						<div className="flex flex-col w-full">
 							<h2>{t("Content.Mina.heading")}</h2>
 							<p>{t("Content.Mina.text1")}</p>
 							<p className="mb-6">
@@ -178,20 +187,22 @@ export default async function Page({ params: { locale } }: Props) {
 									})}
 								</span>
 							</p>
-							<Link href="/mina" className="w-fit">
+							<Link href="/mina" className="w-max">
 								<Button tabIndex={-1} color="green">
 									{t("Content.Mina.button")}
 									<Heart size={16} />
 								</Button>
 							</Link>
 						</div>
-						<FadingImage
-							src={`https://static.pprmint.art${MinaArt.data[0].attributes.artwork.data[0].attributes.url}`}
-							alt={MinaArt.data[0].attributes.artwork.data[0].attributes.alternativeText}
-							width={MinaArt.data[0].attributes.artwork.data[0].attributes.width}
-							height={MinaArt.data[0].attributes.artwork.data[0].attributes.height}
-							className="w-full max-w-fit h-full object-contain"
-						/>
+						<Link href="/mina#gallery" className="relative group my-12 w-4/5 xl:w-full max-w-fit max-h-4/5 rotate-3 hover:rotate-0 hover:scale-[1.02] active:scale-[0.99] active:brightness-90 duration-400 active:duration-100 ease-out-back active:ease-out rounded-xl shadow-[0px_0px_5px_10px_#111] overflow-clip">
+							<FadingImage
+								src={`https://static.pprmint.art${MinaArt.data[0].attributes.artwork.data[0].attributes.url}`}
+								alt={MinaArt.data[0].attributes.artwork.data[0].attributes.alternativeText}
+								width={MinaArt.data[0].attributes.artwork.data[0].attributes.width}
+								height={MinaArt.data[0].attributes.artwork.data[0].attributes.height}
+							/>
+                            <div className="absolute -left-2/3 xl:-left-1/2 group-hover:left-[150%] top-0 bottom-0 skew-x-[30deg] w-40 group-hover:w-0 bg-neutral-50/50 blur-xl duration-0 group-hover:duration-700 ease-in-out-custom" />
+						</Link>
 					</div>
 				</section>
 			</main>

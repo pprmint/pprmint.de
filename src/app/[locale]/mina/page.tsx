@@ -99,7 +99,7 @@ export default async function Page({ searchParams, params: { locale } }: Props) 
 						</div>
 					</div>
 				</section>
-				<section className="max-w-7xl mx-auto px-3 xl:px-9">
+				<section id="gallery" className="max-w-7xl mx-auto px-3 xl:px-9">
 					<Filters nsfw={nsfw} artist={artist} artists={Artists} />
 					{currentPage > pageCount ? (
 						<div className="relative">
