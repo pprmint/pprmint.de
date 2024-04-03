@@ -27,9 +27,9 @@ export default function Gallery(works: { works: Works }) {
 						</button>
 					</Dialog.Trigger>
 					<Dialog.Portal>
-						<Dialog.Overlay className="bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-50" />
+						<Dialog.Overlay className="bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
 						<Dialog.Content
-							className={`fixed z-60 top-0 lg:top-1/2 left-0 lg:left-1/2 inset-0 lg:inset-auto ${
+							className={`fixed z-100 top-0 lg:top-1/2 left-0 lg:left-1/2 inset-0 lg:inset-auto ${
 								fullscreen
 									? "w-screen h-screen max-h-svh max-w-[100vw]"
 									: "max-h-svh lg:max-h-[90vh] lg:w-4/5-screen max-w-screen-3xl lg:border lg:ring-1 lg:rounded-xl"
