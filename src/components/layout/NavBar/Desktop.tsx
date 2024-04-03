@@ -133,7 +133,7 @@ export default function DesktopNavigation() {
 										asChild
 										className="group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/10 active:shadow-inner duration-250 ease-out active:duration-75"
 									>
-										<Link href="https://potato.pprmint.art">
+										<Link href={`https://potato.pprmint.art${pathname}`}>
 											<span className="text-neutral-50 font-display font-semibold text-xl pb-0.5">
 												{t("Path.Other.Potato.title")}
 											</span>

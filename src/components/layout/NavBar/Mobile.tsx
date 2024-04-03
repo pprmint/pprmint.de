@@ -164,7 +164,7 @@ export default function MobileNavigation() {
 												{t("Path.Other.Privacy.title")}
 											</li>
 										</Link>
-										<Link className="group" href="https://potato.pprmint.art">
+										<Link className="group" href={`https://potato.pprmint.art${pathname}`}>
 											<li
 												className={`flex items-center ${
 													"/privacy" === pathname
