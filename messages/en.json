@@ -406,6 +406,11 @@
 					"admitSins": "See ya, soul!",
 					"nevermind": "Nah, I'm good."
 				}
+			},
+			"Discord": {
+				"heading": "Give your messages a touch of green",
+				"text": "Got Discord Nitro? Join the emote server and start using Mina stickers and emojis anywhere you want.",
+				"button": "Join server"
 			}
 		}
 	},

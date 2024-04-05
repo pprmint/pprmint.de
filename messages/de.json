@@ -407,7 +407,12 @@
 					"admitSins": "Tschüssi, Seele!",
 					"nevermind": "Nee, passt schon."
 				}
-			}
+			},
+            "Discord": {
+                "heading": "Verleihe deinen Nachrichten einen Hauch von Grün",
+                "text": "Hast du Discord Nitro? Dann tritt dem Emote-Server bei und verwende Mina-Sticker und -Emojis, wo immer du möchtest.",
+                "button": "Server beitreten"
+            }
 		}
 	},
 	"MINTBIT": {
