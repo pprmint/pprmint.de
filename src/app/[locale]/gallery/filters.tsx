@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 // eslint-disable-next-line jsx-a11y/alt-text
 import { Box, Film, Filter, Image, Square } from "lucide-react";
 
-export default function Filters(props: { type?: string; dimension?: string }) {
+export default function Filters(props: { type: string; dimension: string }) {
 	const t = useTranslations("GALLERY");
 	const searchParams = useSearchParams();
 	const [filtersOpen, setFiltersOpen] = useState(false);
