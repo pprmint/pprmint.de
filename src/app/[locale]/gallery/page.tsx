@@ -9,6 +9,7 @@ import GallerySuspense from "./gallery/gallerySuspense";
 
 import { Works } from "src/types/work";
 import { Link } from "src/navigation";
+import { OctagonAlert } from "lucide-react";
 
 export async function generateMetadata({ params: { locale } }: Props) {
     const t = await getTranslations({ locale, namespace: "GALLERY" });
@@ -60,26 +61,31 @@ export default async function Page({
                         />
                     </Suspense>
                 </section>
-                <section className="my-20 max-w-7xl mx-auto px-6 md:px-9 xl:text-center">
-                    <h2>
-                        {t("Content.Disclaimer.heading")}
-                        <span className="text-green">.</span>
-                    </h2>
-                    <p>{t("Content.Disclaimer.text1")}</p>
-                    <p>
-                        {t.rich("Content.Disclaimer.text2", {
-                            b: (chunks) => <b>{chunks}</b>,
-                        })}
-                    </p>
-                    <p>
-                        {t.rich("Content.Disclaimer.text3", {
-                            Link: (chunks) => (
-                                <Link href="/contact" className="text-link">
-                                    {chunks}
-                                </Link>
-                            ),
-                        })}
-                    </p>
+                <section className="flex flex-col lg:flex-row items-center justify-center gap-9 my-20 max-w-7xl mx-auto px-6 md:px-9">
+                    <div>
+                        <OctagonAlert className="size-24 stroke-red" />
+                    </div>
+                    <div>
+                        <h2>
+                            {t("Content.Disclaimer.heading")}
+                            <span className="text-red">.</span>
+                        </h2>
+                        <p>{t("Content.Disclaimer.text1")}</p>
+                        <p>
+                            {t.rich("Content.Disclaimer.text2", {
+                                b: (chunks) => <b>{chunks}</b>,
+                            })}
+                        </p>
+                        <p>
+                            {t.rich("Content.Disclaimer.text3", {
+                                Link: (chunks) => (
+                                    <Link href="/contact" className="text-link">
+                                        {chunks}
+                                    </Link>
+                                ),
+                            })}
+                        </p>
+                    </div>
                 </section>
             </main>
         </>

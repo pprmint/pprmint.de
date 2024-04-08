@@ -15,10 +15,11 @@ import StickerYippie from "public/assets/mina/sticker_yippie.webp";
 
 import { Link } from "src/navigation";
 import Button from "src/components/ui/Button";
-import { Download } from "lucide-react";
+import { BookCheck, Download } from "lucide-react";
 import GallerySuspense from "./gallery/gallerySuspense";
 import { useTranslations } from "next-intl";
 import GallerySkeleton from "./gallery/gallerySkeleton";
+import FanartRules from "./rules";
 
 type Props = {
     params: { locale: string };
@@ -128,26 +129,7 @@ export default function Page({ searchParams, params: { locale } }: Props) {
                         />
                     </Suspense>
                 </section>
-                <section className="my-20 max-w-7xl mx-auto px-6 md:px-9">
-                    <h2>
-                        {t("Content.Fanart.heading")}
-                        <span className="text-green">.</span>
-                    </h2>
-                    <p>{t("Content.Fanart.text1")}</p>
-                    <p>{t("Content.Fanart.text2")}</p>
-                    <p>
-                        {t.rich("Content.Fanart.text3", {
-                            spoiler: (chunks) => (
-                                <span className="inline px-1 py-0.5 bg-neutral-900 text-transparent hover:text-neutral rounded-md duration-100 select-none hover:select-text">
-                                    {chunks}
-                                </span>
-                            ),
-                        })}
-                        <br />
-                        <sub>{t("Content.Fanart.text4")}</sub>
-                    </p>
-                    <p>{t("Content.Fanart.text5")}</p>
-                </section>
+                <FanartRules />
                 <section className="relative flex items-end justify-center overflow-clip my-20 px-6 md:px-9 min-h-2/3-screen">
                     <div className="absolute inset-0 -z-10 overflow-clip">
                         <FadingImage
