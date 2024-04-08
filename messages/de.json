@@ -307,7 +307,10 @@
 				"moreOnGitHub": "Mehr auf GitHub"
 			},
 			"News": {
-				"heading": "Weitere Neuigkeiten"
+				"heading": "Das Neueste vom Neuesten:"
+			},
+			"OtherNews": {
+				"heading": "Und sonst noch:"
 			},
 			"Mina": {
 				"heading": "Doch lieber Anime-Mädchen?",

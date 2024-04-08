@@ -36,6 +36,7 @@ export default async function Page({ params: { locale } }: Props) {
 			<main>
 				<ThreeThingies />
 				<section className="my-20 md:my-32 xl:my-40 relative overflow-clip">
+					<h2 className="absolute top-0 w-full text-center">{t("Content.News.heading")}</h2>
 					<div className="relative w-full h-full -z-10">
 						<FadingImage
 							src={`https://static.pprmint.art${Announcements.data[0].attributes.media.data.attributes.formats.thumbnail.url}`}
@@ -93,8 +94,7 @@ export default async function Page({ params: { locale } }: Props) {
 				</section>
 				<section className="my-20 md:my-32 xl:my-40 px-6 md:px-9 max-w-8xl mx-auto">
 					<h2 className="pb-6">
-						{t("Content.News.heading")}
-						<span className="text-green">.</span>
+						{t("Content.OtherNews.heading")}
 					</h2>
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-9">
 						{Announcements.data.map(

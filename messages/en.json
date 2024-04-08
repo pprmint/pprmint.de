@@ -306,7 +306,10 @@
 				"moreOnGitHub": "More on GitHub"
 			},
 			"News": {
-				"heading": "Other news"
+				"heading": "I've come to make an announcement:"
+			},
+			"OtherNews": {
+				"heading": "In other news:"
 			},
 			"Mina": {
 				"heading": "More into anime girls?",
