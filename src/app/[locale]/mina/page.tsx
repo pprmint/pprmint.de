@@ -120,7 +120,7 @@ export default function Page({ searchParams, params: { locale } }: Props) {
                 <FanartRules />
                 <section
                     id="gallery"
-                    className="my-20 md:my-28 xl:my-32 max-w-7xl mx-auto px-3 xl:px-9"
+                    className="mb-20 md:mb-28 xl:mb-32 pt-20 md:pt-28 xl:pt-32 max-w-7xl mx-auto px-3 xl:px-9"
                 >
                     <Suspense fallback={<GallerySkeleton />}>
                         <GallerySuspense

@@ -8,7 +8,7 @@ export default function FanartRules() {
     const t = useTranslations("MINA");
     const [hovered, setHovered] = useState(false);
     return (
-        <section className="flex flex-col lg:flex-row items-center justify-center gap-9 my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9">
+        <section className="flex flex-col lg:flex-row items-center justify-center gap-9 mt-20 md:mt-32 xl:mt-40 max-w-7xl mx-auto px-6 md:px-9">
             <NoSSR>
                 <div>
                     {hovered ? (
