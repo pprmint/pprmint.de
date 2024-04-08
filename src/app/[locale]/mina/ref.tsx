@@ -33,9 +33,9 @@ export default function RefSheet() {
 	}) {
 		return (
 			<Dialog.Portal>
-				<Dialog.Overlay className="bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-50" />
+				<Dialog.Overlay className="bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
 				<Dialog.Content
-					className={`fixed inset-0 lg:inset-auto overflow-auto lg:overflow-clip z-[9999] flex flex-col ${
+					className={`fixed inset-0 lg:inset-auto overflow-auto lg:overflow-clip z-100 flex flex-col ${
 						!col && "lg:flex-row"
 					} gap-12 items-center lg:top-1/2 lg:left-1/2 max-h-svh lg:max-h-[90vh] w-screen max-w-7xl lg:-translate-x-1/2 lg:-translate-y-1/2 p-6 md:p-9 bg-neutral-950 border border-neutral-900 ring-1 ring-neutral-950 shadow-xl shadow-neutral-950/50 rounded-xl data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down focus:outline-none origin-center lg:origin-top-left`}
 				>
