@@ -61,7 +61,7 @@ export default async function Page({
                         />
                     </Suspense>
                 </section>
-                <section className="flex flex-col lg:flex-row items-center justify-center gap-9 my-20 max-w-7xl mx-auto px-6 md:px-9">
+                <section className="flex flex-col lg:flex-row items-center justify-center gap-9 my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9">
                     <div>
                         <OctagonAlert className="size-24 stroke-red" />
                     </div>

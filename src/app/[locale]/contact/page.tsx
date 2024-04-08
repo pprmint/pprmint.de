@@ -42,7 +42,7 @@ export default function Page({ params: { locale } }: Props) {
 				/>
 			</Title>
 			<main>
-				<section className="max-w-7xl mx-auto my-24 px-6 md:px-9 flex flex-col items-center justify-center">
+				<section className="max-w-7xl mx-auto my-20 md:my-32 xl:my-40 px-6 md:px-9 flex flex-col items-center justify-center">
 					<h2>{t("Content.Mina.heading")}</h2>
 					<p className="pb-6">{t("Content.Mina.text")}</p>
 					<Chatbox />

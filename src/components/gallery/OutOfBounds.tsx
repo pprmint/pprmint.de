@@ -22,7 +22,7 @@ export default function OutOfBounds() {
         "You clipped out of bounds.\nIn other words: The page you were aiming for in the URL is out of the range of available pages.\nJust stick to the pages you can see below the gallery grid."
     );
     return (
-        <div className="flex flex-col gap-3 items-center z-10 my-20">
+        <div className="flex flex-col gap-3 items-center z-10 my-20 md:my-32 xl:my-40">
             <Image src={MinaWhat} alt="" className="size-28" />
             <h3>{t("Content.Artworks.outOfBounds")}</h3>
             <Button outlined onClick={ClipBackInBounds}>

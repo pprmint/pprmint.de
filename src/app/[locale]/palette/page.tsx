@@ -37,7 +37,7 @@ export default function Page({ params: { locale } }: Props) {
 				</div>
 			</Title>
 			<main>
-				<section className="my-20 max-w-7xl mx-auto px-6 lg:px-9">
+				<section className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 lg:px-9">
 					<h2>
 						{t("Content.Usage.heading")}
 						<span className="text-green">.</span>

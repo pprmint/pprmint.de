@@ -87,7 +87,7 @@ export default function Page({ params: { locale } }: Props) {
 				</div>
 			</Title>
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
-				<section className="my-20">
+				<section className="my-20 md:my-32 xl:my-40">
 					<h2>
 						{t("Content.About.heading")}
 						<span className="text-yellow">.</span>
@@ -107,7 +107,7 @@ export default function Page({ params: { locale } }: Props) {
 					</p>
 					<p>{t("Content.About.text6")}</p>
 				</section>
-				<section className="my-20">
+				<section className="my-20 md:my-32 xl:my-40">
 					<h2>
 						{t("Content.Credits.heading")}
 						<span className="text-yellow">.</span>
@@ -131,7 +131,7 @@ export default function Page({ params: { locale } }: Props) {
 					</Link>
 					<p>{t("Content.Credits.vanillaTweaks")}</p>
 				</section>
-				<section className="my-20">
+				<section className="my-20 md:my-32 xl:my-40">
 					<h2>
 						{t("Content.MayContainMistakes.heading")}
 						<span className="text-yellow">.</span>
@@ -144,7 +144,7 @@ export default function Page({ params: { locale } }: Props) {
 						),
 					})}
 				</section>
-				<section className="my-20">
+				<section className="my-20 md:my-32 xl:my-40">
 					<h2>{t("Content.Download.heading")}</h2>
 					{t("Content.Download.text")}
 					<div className="flex gap-3 pt-6">

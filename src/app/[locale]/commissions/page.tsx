@@ -43,7 +43,7 @@ export default function Page({ params: { locale } }: Props) {
 				<Image src={HeroImages[Status]} alt="" fill className="object-cover" quality={90} />
 			</Title>
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
-				<section className="my-20">
+				<section className="my-20 md:my-32 xl:my-40">
 					<h2>{t("Content.Offers.heading")}</h2>
 					<p className="pb-6 inline-flex items-center gap-3">
 						<Info size={16} />
@@ -51,7 +51,7 @@ export default function Page({ params: { locale } }: Props) {
 					</p>
 					<Services/>
 				</section>
-				<section className="my-20">
+				<section className="my-20 md:my-32 xl:my-40">
 					<h2>{t("Content.Terms.heading")}</h2>
 					<h3>{t("Content.Terms.Disclaimer.heading")}</h3>
 					<p>{t("Content.Terms.Disclaimer.termsAgree")}</p>

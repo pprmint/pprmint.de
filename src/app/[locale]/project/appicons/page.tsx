@@ -29,7 +29,7 @@ export default function Page({ params: { locale } }: Props) {
 				<FadingImage src={TitleBackground} alt="" fill className="object-cover bg-neutral-950" />
 			</Title>
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
-				<section className="my-20">
+				<section className="my-20 md:my-32 xl:my-40">
 					<h2>{t("Content.Intro.title")}</h2>
 					<p>
 						{t.rich("Content.Intro.text1", {

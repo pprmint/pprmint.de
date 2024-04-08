@@ -58,7 +58,7 @@ export default function Page({ searchParams, params: { locale } }: Props) {
             <main>
                 <section
                     id="lore"
-                    className="my-20 max-w-7xl mx-auto px-6 md:px-9"
+                    className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9"
                 >
                     <h2>
                         {t("Content.About.heading")}
@@ -84,7 +84,7 @@ export default function Page({ searchParams, params: { locale } }: Props) {
                 </section>
                 <section
                     id="design"
-                    className="my-20 max-w-7xl mx-auto px-3 xl:px-9"
+                    className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-3 xl:px-9"
                 >
                     <Ref />
                     <div className="flex flex-col lg:flex-row lg:justify-between gap-6 mt-6 px-3 md:px-6 xl:px-0">
@@ -117,9 +117,10 @@ export default function Page({ searchParams, params: { locale } }: Props) {
                         </div>
                     </div>
                 </section>
+                <FanartRules />
                 <section
                     id="gallery"
-                    className="max-w-7xl mx-auto px-3 xl:px-9"
+                    className="my-20 md:my-28 xl:my-32 max-w-7xl mx-auto px-3 xl:px-9"
                 >
                     <Suspense fallback={<GallerySkeleton />}>
                         <GallerySuspense
@@ -129,8 +130,7 @@ export default function Page({ searchParams, params: { locale } }: Props) {
                         />
                     </Suspense>
                 </section>
-                <FanartRules />
-                <section className="relative flex items-end justify-center overflow-clip my-20 px-6 md:px-9 min-h-2/3-screen">
+                <section className="relative flex items-end justify-center overflow-clip my-20 md:my-32 xl:my-40 max-w-screen-3xl mx-auto px-6 md:px-9 min-h-[500px]">
                     <div className="absolute inset-0 -z-10 overflow-clip">
                         <FadingImage
                             src={Stickers}

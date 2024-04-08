@@ -33,7 +33,7 @@ export default function Page({ params: { locale } }: Props) {
 			</Title>
 			<main>
 				<section className="relative flex items-center lg:min-h-2/3-screen pb-48 xl:pb-0">
-					<div className="my-24 w-full max-w-7xl mx-auto px-6 md:px-9 z-10">
+					<div className="my-20 md:my-32 xl:my-40 w-full max-w-7xl mx-auto px-6 md:px-9 z-10">
 						<div className="w-full max-w-xl 2xl:max-w-3xl">
 							<h2>{t("YTDG.Content.About.heading")}</h2>
 							<p>{t("YTDG.Content.About.text1")}</p>
@@ -63,7 +63,7 @@ export default function Page({ params: { locale } }: Props) {
 						quality={90}
 					/>
 				</section>
-				<section className="my-24 max-w-7xl mx-auto px-6 md:px-9">
+				<section className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9">
 					<h2>{t("YTDG.Content.Roadmap.heading")}</h2>
 					<div className="flex flex-col">
 						<div className="flex gap-6">
@@ -115,7 +115,7 @@ export default function Page({ params: { locale } }: Props) {
 						</div>
 					</div>
 				</section>
-				<section className="my-24 max-w-7xl mx-auto px-6 md:px-9">
+				<section className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9">
 					<h2>{t("YTDG.Content.Download.heading")}</h2>
 					<p>{t("YTDG.Content.Download.text")}</p>
 					<br />

@@ -35,7 +35,7 @@ export default async function Page({ params: { locale } }: Props) {
 			</Title>
 			<main>
 				<ThreeThingies />
-				<section className="my-20 relative overflow-clip">
+				<section className="my-20 md:my-32 xl:my-40 relative overflow-clip">
 					<div className="relative w-full h-full -z-10">
 						<FadingImage
 							src={`https://static.pprmint.art${Announcements.data[0].attributes.media.data.attributes.formats.thumbnail.url}`}
@@ -91,7 +91,7 @@ export default async function Page({ params: { locale } }: Props) {
 						) : null}
 					</div>
 				</section>
-				<section className="my-20 px-6 md:px-9 max-w-8xl mx-auto">
+				<section className="my-20 md:my-32 xl:my-40 px-6 md:px-9 max-w-8xl mx-auto">
 					<h2 className="pb-6">
 						{t("Content.News.heading")}
 						<span className="text-green">.</span>
@@ -138,7 +138,7 @@ export default async function Page({ params: { locale } }: Props) {
 						)}
 					</div>
 				</section>
-				<section className="my-20 relative flex items-center px-6 md:px-9 w-screen lg:h-2/3-screen min-h-[500px] overflow-clip">
+				<section className="my-20 md:my-32 xl:my-40 relative flex items-center px-6 md:px-9 w-screen lg:h-2/3-screen min-h-[500px] overflow-clip">
 					<div className="absolute inset-0 -z-10">
 						<FadingImage
 							src={`https://static.pprmint.art${MinaArt.data[0].attributes.artwork.data[0].attributes.formats.thumbnail.url}`}

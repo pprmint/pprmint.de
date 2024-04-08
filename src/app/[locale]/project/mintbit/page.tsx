@@ -32,14 +32,14 @@ export default function Page({ params: { locale } }: Props) {
 			</Title>
 			<main>
 				<Glyphs />
-				<section className="my-20 px-6 md:px-9 py-5">
+				<section className="my-20 md:my-32 xl:my-40 px-6 md:px-9 py-5">
 					<h2 className="max-w-7xl mx-auto">
 						{t("MINTBIT.Content.Tester.heading")}
 						<span className="text-green">.</span>
 					</h2>
 					<Tester />
 				</section>
-				<section className="my-20 max-w-7xl mx-auto px-6 md:px-9 py-5">
+				<section className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9 py-5">
 					<h2>{t("MINTBIT.Content.Download.heading")}</h2>
 					<p>{t("MINTBIT.Content.Download.text")}</p>
 					<br />

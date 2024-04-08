@@ -24,7 +24,7 @@ export default function Page({ params: { locale } }: Props) {
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} />
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
-				<section className="my-20">
+				<section className="my-20 md:my-32 xl:my-40">
 					<div className="bg-neutral-900 rounded-xl p-6">
 						<h2>{t("Content.Tldr.heading")}</h2>
 						<p>
@@ -44,7 +44,7 @@ export default function Page({ params: { locale } }: Props) {
 						</p>
 					</div>
 				</section>
-				<section className="my-20">
+				<section className="my-20 md:my-32 xl:my-40">
 					<h2>{t("Content.General.heading")}</h2>
 					<p>{t("Content.General.text1")}</p>
 					<p>{t("Content.General.text2")}</p>
@@ -69,7 +69,7 @@ export default function Page({ params: { locale } }: Props) {
 					</p>
 				</section>
 
-				<section className="my-20">
+				<section className="my-20 md:my-32 xl:my-40">
 					<h2>{t("Content.Hosting.heading")}</h2>
 					<p>{t("Content.Hosting.text1")}</p>
 					<p>{t("Content.Hosting.text2")}</p>
@@ -108,7 +108,7 @@ export default function Page({ params: { locale } }: Props) {
 					</p>
 				</section>
 
-				<section className="my-20">
+				<section className="my-20 md:my-32 xl:my-40">
 					<h2>{t("Content.Contact.heading")}</h2>
 					<p>
 						{t.rich("Content.Contact.text1", {
