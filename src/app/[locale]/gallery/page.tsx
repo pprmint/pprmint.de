@@ -51,7 +51,7 @@ export default async function Page({
                 />
             </Title>
             <main>
-                <section className="mx-auto px-3">
+                <section className="mx-auto">
                     <Suspense fallback={<GallerySkeleton />}>
                         <GallerySuspense
                             locale={locale}
