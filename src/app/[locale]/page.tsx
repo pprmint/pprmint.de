@@ -138,7 +138,7 @@ export default async function Page({ params: { locale } }: Props) {
 						)}
 					</div>
 				</section>
-				<section className="my-20 md:my-32 xl:my-40 relative flex items-center px-6 md:px-9 w-screen lg:h-2/3-screen min-h-[500px] overflow-clip">
+				<section className="my-20 md:my-32 xl:my-40 relative flex items-center px-6 md:px-9 w-screen min-h-[500px] overflow-clip">
 					<div className="absolute inset-0 -z-10">
 						<FadingImage
 							src={`https://static.pprmint.art${MinaArt.data[0].attributes.artwork.data[0].attributes.formats.thumbnail.url}`}
@@ -196,7 +196,7 @@ export default async function Page({ params: { locale } }: Props) {
 						</div>
 						<Link
 							href="/mina#gallery"
-							className="relative group my-12 w-4/5 xl:w-full max-w-fit max-h-4/5 rotate-3 hover:rotate-0 hover:scale-[1.02] active:scale-[0.99] active:brightness-90 duration-400 active:duration-100 ease-out-back active:ease-out rounded-xl shadow-[0px_0px_5px_10px_#111]"
+							className="relative group my-12 w-4/5 xl:w-auto max-w-fit max-h-4/5 rotate-3 hover:rotate-0 hover:scale-[1.02] active:scale-[0.99] active:brightness-90 duration-400 active:duration-100 ease-out-back active:ease-out rounded-xl shadow-[0px_0px_5px_10px_#111]"
 						>
 							<FadingImage
 								src={`https://static.pprmint.art${MinaArt.data[0].attributes.artwork.data[0].attributes.url}`}
