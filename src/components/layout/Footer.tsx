@@ -127,7 +127,7 @@ function Footer() {
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 160 160"
-					className="group h-full w-auto mx-auto -rotate-6 hover:rotate-0 translate-y-12 hover:translate-y-9 active:translate-y-10 duration-300 active:duration-50 ease-in-out-custom cursor-grab active:cursor-grabbing"
+					className="group h-full w-auto mx-auto -rotate-6 hover:rotate-0 translate-y-12 hover:translate-y-9 active:translate-y-10 duration-300 active:duration-75 ease-in-out-custom cursor-grab active:cursor-grabbing"
 					onMouseDown={handlePat}
 				>
 					<path
@@ -145,7 +145,7 @@ function Footer() {
 						className="fill-neutral-900"
 						transform="matrix(.51246 0 0 .51246 -129.197 -1.568)"
 					/>
-					<g className="group-hover:rotate-45 group-active:rotate-[30deg] duration-300 group-active:duration-50 ease-in-out-custom origin-[51.6%_24.4%]">
+					<g className="group-hover:rotate-45 group-active:rotate-[30deg] duration-300 group-active:duration-75 ease-in-out-custom origin-[51.6%_24.4%]">
 						<path
 							d="M378 54c17.022 0 15.506-6.048-2-4s-22.829 13.544-24 26 10.132 60.361 22 68.846c0 0-14-36.846-14-53.846s4.479-37 18-37"
 							className="fill-neutral-950"

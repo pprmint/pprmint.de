@@ -62,7 +62,7 @@ export default function Overview(data: { data: Commission }) {
 				].map((service) => (
 					<Collapsible.Root
 						key={service.id}
-						className="group/card relative w-full h-fit data-[state=closed]:hover:bg-neutral-900 data-[state=closed]:active:scale-[0.98] data-[state=closed]:active:opacity-75 ring-1 ring-inset ring-neutral-900 duration-200 data-[state=closed]:active:duration-100 rounded-xl overflow-clip"
+						className="group/card relative w-full h-fit data-[state=closed]:hover:bg-neutral-900 data-[state=closed]:active:scale-[0.98] data-[state=closed]:active:opacity-75 ring-1 ring-inset ring-neutral-900 duration-200 data-[state=closed]:active:duration-75 rounded-xl overflow-clip"
 					>
 						<Collapsible.Trigger className="w-full selection:text-neutral-950 focus-visible:bg-neutral-900 data-[state=open]:hover:bg-neutral-900 data-[state=open]:active:opacity-75 duration-200">
 							<div

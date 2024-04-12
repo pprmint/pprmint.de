@@ -261,7 +261,7 @@ export default function Glyphs() {
 					"ÿ",
 				].map((glyph, index) => (
 					<div
-						className="aspect-square flex items-center justify-center font-mintbit text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl text-white hover:bg-neutral-900 hover:scale-125 active:scale-110 hover:rounded-md border border-neutral-900 hover:border-neutral-800 hover:shadow-xl hover:shadow-neutral-950/50 duration-200 active:duration-50 ease-out-quint cursor-pointer select-none"
+						className="aspect-square flex items-center justify-center font-mintbit text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl text-white hover:bg-neutral-900 hover:scale-110 active:scale-105 active:opacity-75 hover:rounded-md hover:ring-1 ring-neutral-800 hover:shadow-xl hover:shadow-neutral-950/50 duration-200 active:duration-75 ease-out-quint cursor-pointer select-none"
 						key={index}
 						onClick={() => {
 							navigator.clipboard.writeText(glyph);

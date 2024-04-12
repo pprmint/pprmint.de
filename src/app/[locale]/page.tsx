@@ -196,7 +196,7 @@ export default async function Page({ params: { locale } }: Props) {
 						</div>
 						<Link
 							href="/mina#gallery"
-							className="relative group my-12 w-4/5 xl:w-auto max-w-fit max-h-4/5 rotate-3 hover:rotate-0 hover:scale-[1.02] active:scale-[0.99] active:brightness-90 duration-400 active:duration-100 ease-out-back active:ease-out rounded-xl shadow-[0px_0px_5px_10px_#111]"
+							className="relative group my-12 w-4/5 xl:w-auto max-w-fit max-h-4/5 rotate-3 hover:rotate-0 hover:scale-[1.02] active:scale-[0.99] active:brightness-90 duration-400 active:duration-75 ease-out-back active:ease-out rounded-xl shadow-[0px_0px_5px_10px_#111]"
 						>
 							<FadingImage
 								src={`https://static.pprmint.art${MinaArt.data[0].attributes.artwork.data[0].attributes.url}`}

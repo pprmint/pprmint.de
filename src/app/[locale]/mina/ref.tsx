@@ -163,7 +163,7 @@ export default function RefSheet() {
 		}
 		return (
 			<div
-				className="w-full h-12 md:h-12 xl:h-auto xl:aspect-square active:shadow-inner active:opacity-75 duration-100 ease-out cursor-pointer"
+				className="w-full h-12 md:h-12 xl:h-auto xl:aspect-square active:scale-[0.98] active:opacity-75 duration-100 ease-out cursor-pointer"
 				style={{ backgroundColor: color }}
 				onClick={handleClick}
 			/>
@@ -177,7 +177,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="hand"
-							className="flex items-center justify-center hover:bg-neutral-900 border border-neutral-900 duration-200 active:duration-100 active:opacity-75 active:shadow-inner rounded-xl p-6 cursor-pointer"
+							className="flex items-center justify-center hover:bg-neutral-900 border border-neutral-900 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl p-6 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceHand}
@@ -208,7 +208,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="front"
-							className="flex items-center justify-center hover:bg-neutral-900 border border-neutral-900 duration-100 active:opacity-75 active:shadow-inner rounded-xl row-span-2 p-3 cursor-pointer"
+							className="flex items-center justify-center hover:bg-neutral-900 border border-neutral-900 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl row-span-2 p-3 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceFront}
@@ -236,7 +236,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="back"
-							className="flex items-center justify-center hover:bg-neutral-900 border border-neutral-900 duration-100 active:opacity-75 active:shadow-inner rounded-xl row-span-2 p-3 cursor-pointer"
+							className="flex items-center justify-center hover:bg-neutral-900 border border-neutral-900 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl row-span-2 p-3 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceBack}
@@ -264,7 +264,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="hairbow"
-							className="flex md:col-span-2 xl:col-span-1 items-center justify-center gap-6 hover:bg-neutral-900 border border-neutral-900 duration-100 active:opacity-75 active:shadow-inner rounded-xl p-6 cursor-pointer"
+							className="flex md:col-span-2 xl:col-span-1 items-center justify-center gap-6 hover:bg-neutral-900 border border-neutral-900 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl p-6 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceHairbowBack}
@@ -309,7 +309,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="shoe"
-							className="flex items-center justify-center hover:bg-neutral-900 border border-neutral-900 duration-100 active:opacity-75 active:shadow-inner rounded-xl p-6 cursor-pointer"
+							className="flex items-center justify-center hover:bg-neutral-900 border border-neutral-900 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl p-6 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceShoes}

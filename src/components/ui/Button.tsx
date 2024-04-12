@@ -58,7 +58,7 @@ export default function Button({large, color, outlined, noMinWidth, children, ..
 		<button
 			className={`group flex items-center font-medium rounded-xl rounded-bl-md rounded-tr-md hover:rounded-md duration-200 ease-out ${
 				rest.disabled && "pointer-events-none"
-			} select-none active:duration-50 ${size} ${width} ${colors}`}
+			} select-none active:duration-75 ${size} ${width} ${colors}`}
             {...rest}
 		>
 			<span className="flex gap-3 whitespace-nowrap items-center justify-between">{children}</span>
