@@ -82,7 +82,7 @@ export default function Overview(data: { data: Commission }) {
 								<h4 className="px-6 py-3">{t("Content.Offers.need")}</h4>
 								<ul>
 									{service.need.map((need) => (
-										<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
+										<li key={need} className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
 											<Plus size={16} />
 											{t(`Content.Offers.${service.id}.Need.${need}`)}
 										</li>
@@ -91,7 +91,7 @@ export default function Overview(data: { data: Commission }) {
 								<h4 className="border-t border-neutral-800 px-6 py-3">{t("Content.Offers.get")}</h4>
 								<ul className="pb-12">
 									{service.get.map((get) => (
-										<li className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
+										<li key={need} className="flex gap-3 items-center odd:bg-neutral-800 px-6 py-2">
 											<Check size={16} />
 											{t(`Content.Offers.${service.id}.Get.${get}`)}
 										</li>
