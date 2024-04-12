@@ -272,6 +272,86 @@ module.exports = {
 					"70%": { opacity: 1 },
 					"100%": { opacity: 0, transform: "translateY(0px)" },
 				},
+				tooltipEnterTop: {
+					from: {
+						opacity: 0,
+						transform: "translateY(4px)",
+					},
+					to: {
+						opacity: 1,
+						transform: "translateY(0px)",
+					},
+				},
+				tooltipExitTop: {
+					from: {
+						opacity: 1,
+						transform: "translateY(0px)",
+					},
+					to: {
+						opacity: 0,
+						transform: "translateY(4px)",
+					},
+				},
+				tooltipEnterBottom: {
+					from: {
+						opacity: 0,
+						transform: "translateY(-4px)",
+					},
+					to: {
+						opacity: 1,
+						transform: "translateY(0px)",
+					},
+				},
+				tooltipExitBottom: {
+					from: {
+						opacity: 1,
+						transform: "translateY(0px)",
+					},
+					to: {
+						opacity: 0,
+						transform: "translateY(-4px)",
+					},
+				},
+				tooltipEnterLeft: {
+					from: {
+						opacity: 0,
+						transform: "translateX(4px)",
+					},
+					to: {
+						opacity: 1,
+						transform: "translateX(0px)",
+					},
+				},
+				tooltipExitLeft: {
+					from: {
+						opacity: 1,
+						transform: "translateX(0px)",
+					},
+					to: {
+						opacity: 0,
+						transform: "translateX(4px)",
+					},
+				},
+				tooltipEnterRight: {
+					from: {
+						opacity: 0,
+						transform: "translateX(-4px)",
+					},
+					to: {
+						opacity: 1,
+						transform: "translateX(0px)",
+					},
+				},
+				tooltipExitRight: {
+					from: {
+						opacity: 1,
+						transform: "translateX(0px)",
+					},
+					to: {
+						opacity: 0,
+						transform: "translateX(-4px)",
+					},
+				},
 				skeletonPulse: {
 					"0%": { backgroundColor: "#eeeeee14" },
 					"50%": { backgroundColor: "#eeeeee26" },
@@ -313,6 +393,14 @@ module.exports = {
 				"fade-out": "fadeOut .25s cubic-bezier(0, 0, 0.2, 1)",
 				"fade-out-scale-down": "fadeOutScaleDown .2s cubic-bezier(0, 0, 0.2, 1)",
 				"arrow-fade-down": "arrowFadeDown 1.5s cubic-bezier(0.2, 0.2, .2, 1) 2s infinite",
+				"tooltip-enter-top": "tooltipEnterTop .2s cubic-bezier(0.33, 1, 0.68, 1) forwards",
+				"tooltip-exit-top": "tooltipExitTop .2s cubic-bezier(0.33, 1, 0.68, 1) forwards",
+				"tooltip-enter-bottom": "tooltipEnterBottom .2s cubic-bezier(0.33, 1, 0.68, 1) forwards",
+				"tooltip-exit-bottom": "tooltipExitBottom .2s cubic-bezier(0.33, 1, 0.68, 1) forwards",
+				"tooltip-enter-left": "tooltipEnterLeft .2s cubic-bezier(0.33, 1, 0.68, 1) forwards",
+				"tooltip-exit-left": "tooltipExitLeft .2s cubic-bezier(0.33, 1, 0.68, 1) forwards",
+				"tooltip-enter-right": "tooltipEnterRight .2s cubic-bezier(0.33, 1, 0.68, 1) forwards",
+				"tooltip-exit-right": "tooltipExitRight .2s cubic-bezier(0.33, 1, 0.68, 1) forwards",
 				"skeleton-pulse": "skeletonPulse 3s cubic-bezier(0.7, 0, 0.3, 1) 2s infinite",
 				"lucide-check-draw-in": "lucideCheckDrawIn 0.25s cubic-bezier(0.33, 1, 0.68, 1) forwards",
 				"lucide-sparkle": "lucideSparkle 0.75s linear 0.25s forwards",

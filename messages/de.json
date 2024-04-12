@@ -117,28 +117,71 @@
 		"Content": {
 			"Status": {
 				"heading": "Status",
-				"red": "Derzeit akzeptiere ich keine Auftragsarbeiten, aber lies gerne weiter.",
-				"yellow": "Ich akzeptiere Auftragsarbeiten, jedoch nur begrenzt.",
-				"green": "Ich akzeptiere Auftragsarbeiten. Scroll runter für mehr Infos."
+				"closed": "Derzeit akzeptiere ich keine Auftragsarbeiten, aber lies gerne weiter.",
+				"limited": "Ich akzeptiere Auftragsarbeiten, jedoch nur begrenzt.",
+				"open": "Ich akzeptiere Auftragsarbeiten. Scroll runter für mehr Infos."
 			},
 			"Offers": {
 				"heading": "Verfügbare Arbeiten",
 				"priceInfo": "Die hier gezeigten Preise sind Schätzungen. Sie können vom Endbetrag durch Faktoren wie der Komplexität des Projektes abweichen.",
-				"2DDesign": {
-					"heading": "2D-Design",
-					"subheading": "Logo-Design, Assets für Social-Media-Profile"
+                "need": "Was ich brauche",
+                "get": "Was du kriegst",
+				"2D": {
+					"heading": "Design oder 2D-Grafik",
+					"description": "Logo-Design, Assets für Social-Media-Profile",
+					"Need": {
+						"ideas": "Sammlung/Beschreibung von Ideen, vorzugsweise Skizzen",
+						"license": "Lizenz zur Verwendung eigener Schriftarten"
+					},
+					"Get": {
+						"revisions": "Bis zu 2 Revisionen",
+						"assets": "Assets in verschiedenen Formaten und Größen, wie gewünscht",
+						"exports": "Exporte als PNG-, SVG- und/oder EPS-Dateien",
+						"projectFiles": "Projekt-Dateien für Affinity Designer"
+					}
 				},
-				"2DAnimation": {
-					"heading": "2D-Animation",
-					"subheading": "Kurze Logo-Animation, Motion Graphics"
+				"Anim": {
+					"heading": "Vektor-Animation",
+					"description": "Kurze Logo-Animation, Motion Graphics",
+					"Need": {
+						"ideas": "Sammlung/Beschreibung von Ideen, vorzugsweise Skizzen",
+						"license": "Lizenz zur Verwendung eigener Schriftarten",
+						"assets": "Besondere, zu animierende Assets"
+					},
+					"Get": {
+						"revisions": "Bis zu 2 Revisionen",
+						"projectFiles": "Projekt-Dateien für Adobe After Effects",
+						"exports": "Exporte als MP4, AVI, WEBM, GIF, PNG-Sequenz, oder JSON für Lottie"
+					}
 				},
-				"2D3DGraphic": {
-					"heading": "2D/3D-Grafik",
-					"subheading": "Vektor-Illustration, abstrakte 3D-Szene"
+				"3D": {
+					"heading": "3D-Grafik",
+					"description": "Abstrakte, gerenderte 3D-Szene",
+					"Need": {
+						"ideas": "Sammlung/Beschreibung von Ideen, vorzugsweise Skizzen"
+					},
+					"Get": {
+						"revisions": "Eine Revision",
+						"projectFiles": "Projekt-Dateien für Blender",
+						"exports": "Unkomprimierte Render als PNG oder TIFF"
+					}
 				},
-				"Website": {
+				"Web": {
 					"heading": "Website",
-					"subheading": "Einfache HTML/CSS oder komplexere Next.js website"
+					"description": "Einfache HTML/CSS oder komplexe Next.js website",
+					"Need": {
+						"ideas": "Sammlung/Beschreibung von Ideen, vorzugsweise Skizzen",
+						"license": "Lizenz zur Verwendung eigener Schriftarten",
+						"pages": "Liste der gewünschten Unterseiten",
+						"assets": "Benötigte Assets (z.B. Logo, Bilder, Videos, etc.)",
+						"hosting": "Hosting-Möglichkeiten, die dir zur Verfügung stehen",
+						"integrations": "Details zu Integrationen mit APIs Dritter"
+					},
+					"Get": {
+						"sourceCode": "Vollständiger Quellcode",
+						"documentation": "Dokumentation über den Quellcode",
+						"frameworks": "Ggf. Liste über verwendete Frameworks und/oder Pakete"
+					}
 				}
 			},
 			"Terms": {
@@ -412,11 +455,11 @@
 					"nevermind": "Nee, passt schon."
 				}
 			},
-            "Discord": {
-                "heading": "Verleihe deinen Nachrichten einen Hauch von Grün",
-                "text": "Hast du Discord Nitro? Dann tritt dem Emote-Server bei und verwende Mina-Sticker und -Emojis, wo immer du möchtest.",
-                "button": "Server beitreten"
-            }
+			"Discord": {
+				"heading": "Verleihe deinen Nachrichten einen Hauch von Grün",
+				"text": "Hast du Discord Nitro? Dann tritt dem Emote-Server bei und verwende Mina-Sticker und -Emojis, wo immer du möchtest.",
+				"button": "Server beitreten"
+			}
 		}
 	},
 	"MINTBIT": {

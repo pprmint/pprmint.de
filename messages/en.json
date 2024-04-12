@@ -117,28 +117,72 @@
 		"Content": {
 			"Status": {
 				"heading": "Status",
-				"red": "I'm currently not accepting commissions, but feel free to read on.",
-				"yellow": "I'm accepting commissions, but slots are very limited.",
-				"green": "I'm accepting commissions. Find out more by scrolling down."
+				"closed": "I'm currently not accepting commissions, but feel free to read on.",
+				"limited": "I'm accepting commissions, but slots are very limited.",
+				"open": "I'm accepting commissions. Find out more by scrolling down."
 			},
 			"Offers": {
 				"heading": "Available works",
 				"priceInfo": "The prices shown here are estimates. They may differ from the final amount depending on the complexity of the project and other factors.",
-				"2DDesign": {
-					"heading": "2D design",
-					"subheading": "Logo design, social media profile assets"
+				"need": "What I need",
+				"get": "What you get",
+				"2D": {
+					"heading": "Design or 2D graphic",
+					"description": "Logo design, social media profile assets",
+					"Need": {
+						"ideas": "Collection or description of ideas, preferably sketches",
+						"license": "License to use custom fonts"
+					},
+					"Get": {
+						"revisions": "Up to 2 revisions",
+						"assets": "Assets in various different sizes and formats, as needed",
+						"exports": "Exports as PNG, SVG and/or EPS files",
+						"projectFiles": "Project files for Affinity Designer"
+					}
 				},
-				"2DAnimation": {
-					"heading": "2D animation",
-					"subheading": "Short logo animation, motion graphics"
+				"Anim": {
+					"heading": "Vector animation",
+					"description": "Short logo animation, motion graphics",
+					"Need": {
+						"ideas": "Collection or description of ideas, preferably sketches",
+						"license": "License to use custom fonts",
+						"assets": "Special assets to be animated"
+					},
+					"Get": {
+						"revisions": "Up to 2 revisions",
+						"projectFiles": "Project files for Adobe After Effects",
+						"exports": "Exports as MP4, AVI, WEBM, GIF, PNG sequence, or JSON for Lottie"
+					}
 				},
-				"2D3DGraphic": {
-					"heading": "2D/3D graphic",
-					"subheading": "Vector illustration, abstract 3D scene"
+				"3D": {
+					"heading": "3D graphic",
+					"description": "Abstract, rendered 3D scene",
+					"Need": {
+						"ideas": "Collection or description of ideas, preferably sketches",
+						"license": "License to use custom fonts"
+					},
+					"Get": {
+						"revisions": "One Revision",
+						"projectFiles": "Project files for Blender",
+						"exports": "Uncompressed renders as PNGs or TIFFs"
+					}
 				},
-				"Website": {
+				"Web": {
 					"heading": "Website",
-					"subheading": "Basic HTML/CSS or more complex Next.js website"
+					"description": "Basic HTML/CSS or complex Next.js website",
+					"Need": {
+						"ideas": "Collection or description of ideas, preferably sketches",
+						"license": "License to use custom fonts",
+						"pages": "List of desired pages",
+						"assets": "Other assets as needed (logos, images, etc.)",
+						"hosting": "Hosting methods available to you",
+						"integrations": "Details on integrations with third-party APIs, if desired"
+					},
+					"Get": {
+						"sourceCode": "Complete source code",
+						"documentation": "Documentation of source code",
+						"frameworks": "List of used frameworks and packages, if applicable"
+					}
 				}
 			},
 			"Terms": {

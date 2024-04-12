@@ -1,17 +1,17 @@
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
 import Title from "src/components/layout/Title";
 
 import RedLight from "public/assets/commissions/red.webp";
 import YellowLight from "public/assets/commissions/yellow.webp";
 import GreenLight from "public/assets/commissions/green.webp";
-import Services from "./services";
+import Services from "./overview";
+import Commission from "src/types/commission";
 import { Info } from "lucide-react";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
 type Props = {
-    params: { locale: string };
+	params: { locale: string };
 };
 
 export async function generateMetadata({ params: { locale } }: Props) {
@@ -22,25 +22,25 @@ export async function generateMetadata({ params: { locale } }: Props) {
 	};
 }
 
-export default function Page({ params: { locale } }: Props) {
+export default async function Page({ params: { locale } }: Props) {
 	unstable_setRequestLocale(locale);
-	const t = useTranslations("COMMISSIONS");
-	// Status for commissions
-	// 0 = closed (red)
-	// 1 = limited (yellow)
-	// 2 = open (green)
-	const Status = 0;
-	const HeroImages = [RedLight, YellowLight, GreenLight];
-	const Colors = ["red", "yellow", "green"];
-	const TextColors = ["text-red", "text-yellow", "text-green"];
+	const CommissionData: Commission = await getData();
+	const Data = CommissionData.data.attributes;
+	const t = await getTranslations("COMMISSIONS");
 	return (
 		<>
 			<Title
 				title={t("Head.title")}
-				description={t(`Content.Status.${Colors[Status]}`)}
-				accentColor={TextColors[Status]}
+				description={t(`Content.Status.${Data.status}`)}
+				accentColor={Data.status == "open" ? "text-green" : Data.status == "limited" ? "text-yellow" : "text-red"}
 			>
-				<Image src={HeroImages[Status]} alt="" fill className="object-cover" quality={90} />
+				<Image
+					src={Data.status == "open" ? GreenLight : Data.status == "limited" ? YellowLight : RedLight}
+					alt=""
+					fill
+					className="object-cover"
+					quality={90}
+				/>
 			</Title>
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
 				<section className="my-20 md:my-32 xl:my-40">
@@ -49,7 +49,7 @@ export default function Page({ params: { locale } }: Props) {
 						<Info size={16} />
 						{t("Content.Offers.priceInfo")}
 					</p>
-					<Services/>
+					<Services data={CommissionData} />
 				</section>
 				<section className="my-20 md:my-32 xl:my-40">
 					<h2>{t("Content.Terms.heading")}</h2>
@@ -61,4 +61,18 @@ export default function Page({ params: { locale } }: Props) {
 			</main>
 		</>
 	);
+}
+
+async function getData() {
+	const res = await fetch(`${process.env.STRAPI_API_URL}/commission`, {
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
+		},
+		next: { revalidate: 60 },
+	});
+	if (!res.ok) {
+		throw new Error("Failed to fetch status.");
+	}
+	return res.json();
 }
