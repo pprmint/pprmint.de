@@ -114,7 +114,7 @@ export default function Overview(data: { data: Commission }) {
 										{[...Array(service.totalSlots)].map((_, index) => (
 											<div
 												className={`size-3 border-2 ${
-													index >= service.filledSlots ? "border-neutral" : "bg-neutral-50"
+													index >= service.filledSlots ? "bg-neutral-50" : "border-neutral"
 												} rounded-full`}
 												key={index}
 											/>
@@ -128,7 +128,7 @@ export default function Overview(data: { data: Commission }) {
 									side="left"
 									sideOffset={-5}
 								>
-									{service.totalSlots - service.filledSlots} slots available
+									{t("Content.Offers.slotsAvailable", { count: service.totalSlots - service.filledSlots })}
 									<Tooltip.Arrow className="fill-neutral-700" />
 								</Tooltip.Content>
 							</Collapsible.Trigger>

@@ -124,6 +124,7 @@
 			"Offers": {
 				"heading": "Verfügbare Arbeiten",
 				"priceInfo": "Die hier gezeigten Preise sind Schätzungen. Sie können vom Endbetrag durch Faktoren wie der Komplexität des Projektes abweichen.",
+                "slotsAvailable": "{count, plural, =0 {Keine Slots} =1 {Ein Slot} other {# Slots}} verfügbar",
                 "need": "Was ich brauche",
                 "get": "Was du kriegst",
 				"2D": {

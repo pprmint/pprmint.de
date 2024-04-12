@@ -124,6 +124,7 @@
 			"Offers": {
 				"heading": "Available works",
 				"priceInfo": "The prices shown here are estimates. They may differ from the final amount depending on the complexity of the project and other factors.",
+                "slotsAvailable": "{count, plural, =0 {No slots} =1 {One slot} other {# slots}} available",
 				"need": "What I need",
 				"get": "What you get",
 				"2D": {
