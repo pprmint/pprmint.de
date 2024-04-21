@@ -124,7 +124,7 @@
 			"Offers": {
 				"heading": "Available works",
 				"priceInfo": "The prices shown here are estimates. They may differ from the final amount depending on the complexity of the project and other factors.",
-                "slotsAvailable": "{count, plural, =0 {No slots} =1 {One slot} other {# slots}} available",
+				"slotsAvailable": "{count, plural, =0 {No slots} =1 {One slot} other {# slots}} available",
 				"need": "What I need",
 				"get": "What you get",
 				"2D": {
@@ -230,6 +230,7 @@
 		"visitProfile": "Visit profile",
 		"viewOriginal": "View original",
 		"copied": "Copied to clipboard.",
+		"yikes": "Yikes.",
 		"VideoPlayer": {
 			"loop": "Loop",
 			"copyVideoUrl": "Copy video URL",
@@ -246,7 +247,7 @@
 			"tooMany6": "Your mom must be very proud of you.",
 			"tooMany7": "Alright, see you after 9 quadrillion.",
 			"tooMany8": "insanity.",
-			"humanityIsDead": "You've officially surpassed 9.007.199.254.740.992 clicks. No more."
+			"humanityIsDead": "You've officially surpassed 9.007.199.254.740.992 clicks. Congratulations..."
 		}
 	},
 	"CONTACT": {
@@ -367,6 +368,31 @@
 				"questions": "Questions?",
 				"answers": "I've got answers",
 				"pronunciation": "Actually, before you ask: It's pronounced \"peppermint\" just like the plant. That's not obvious to some people, but now you're smarter than them."
+			}
+		}
+	},
+	"ICONS": {
+		"Head": {
+			"description": "Made in a 15x15 grid for your next UI. Yes, yours.",
+			"title": "Icons"
+		},
+		"Content": {
+			"largeIcons": "Large icons",
+			"Category": {
+				"arrows": "Arrows",
+				"actions": "Actions",
+				"symbolic": "Symbolic",
+				"technology": "Technology",
+				"objects": "Objects",
+				"media": "Media",
+				"logos": "Logos",
+				"text": "Text"
+			},
+			"Disclaimer": {
+				"heading": "Caffeine addiction",
+				"text1": "You may use these icons freely in personal and commercial projects. However, you're not allowed to sell the icons themselves, individually or in collections, modified or not.",
+				"text2": "A lot of time has gone into this project and I have a couple more things planned. If you can and want to support me with my endeavours, I'd really appreciate a coffee.",
+				"button": "Visit my Ko-fi profile"
 			}
 		}
 	},

@@ -2,7 +2,7 @@ import * as React from "react";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import { useLocale } from "next-intl";
-import { ArrowRight, ArrowUpRight, Heart, Sparkle } from "lucide-react";
+import { Sparkle } from "lucide-react";
 
 import Button from "src/components/ui/Button";
 import Title from "src/components/layout/Title";
@@ -11,6 +11,9 @@ import { Announcements } from "src/types/announcement";
 import FadingImage from "src/components/ui/FadingImage";
 import ThreeThingies from "./threethingies";
 import { MinaArtworks } from "src/types/mina-artwork";
+import ArrowRight from "src/icons/ArrowRight";
+import ArrowUpRight from "src/icons/ArrowUpRight";
+import HeartFilled from "src/icons/HeartFilled";
 
 type Props = {
 	params: { locale: string };
@@ -73,7 +76,7 @@ export default async function Page({ params: { locale } }: Props) {
 								<Link href={Announcements.data[0].attributes.link} className="w-fit">
 									<Button color={Announcements.data[0].attributes.buttonColor} large>
 										{Announcements.data[0].attributes.linkText}
-										<ArrowRight size={20} />
+										<ArrowRight width={20} height={20} />
 									</Button>
 								</Link>
 							) : (
@@ -85,7 +88,7 @@ export default async function Page({ params: { locale } }: Props) {
 								>
 									<Button color={Announcements.data[0].attributes.buttonColor} large>
 										{Announcements.data[0].attributes.linkText}
-										<ArrowUpRight size={20} />
+										<ArrowUpRight width={20} height={20} />
 									</Button>
 								</Link>
 							)
@@ -116,7 +119,7 @@ export default async function Page({ params: { locale } }: Props) {
 												<Link href={announcement.attributes.link} className="w-fit">
 													<Button color={announcement.attributes.buttonColor} outlined>
 														{announcement.attributes.linkText}
-														<ArrowRight size={16} />
+														<ArrowRight />
 													</Button>
 												</Link>
 											) : (
@@ -128,7 +131,7 @@ export default async function Page({ params: { locale } }: Props) {
 												>
 													<Button color={announcement.attributes.buttonColor} outlined>
 														{announcement.attributes.linkText}
-														<ArrowUpRight size={16} />
+														<ArrowUpRight />
 													</Button>
 												</Link>
 											)
@@ -190,7 +193,7 @@ export default async function Page({ params: { locale } }: Props) {
 							<Link href="/mina" className="w-max">
 								<Button tabIndex={-1} color="green">
 									{t("Content.Mina.button")}
-									<Heart size={16} />
+									<HeartFilled />
 								</Button>
 							</Link>
 						</div>
@@ -222,7 +225,7 @@ export default async function Page({ params: { locale } }: Props) {
 					<Link href="/contact">
 						<h1 className="group inline-flex text-nowrap items-center gap-3 hover:gap-6 lg:hover:gap-3 duration-200 ease-out-quint">
 							{t("Content.Contact.answers")}
-							<ArrowRight className="stroke-green size-[1em] group-hover:translate-x-0 lg:group-hover:translate-x-3 duration-200 ease-out-quint" />
+							<ArrowRight className="fill-green stroke-green size-[1em] group-hover:translate-x-0 lg:group-hover:translate-x-3 duration-200 ease-out-quint" />
 						</h1>
 					</Link>
 				</section>

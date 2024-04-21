@@ -124,9 +124,9 @@
 			"Offers": {
 				"heading": "Verfügbare Arbeiten",
 				"priceInfo": "Die hier gezeigten Preise sind Schätzungen. Sie können vom Endbetrag durch Faktoren wie der Komplexität des Projektes abweichen.",
-                "slotsAvailable": "{count, plural, =0 {Keine Slots} =1 {Ein Slot} other {# Slots}} verfügbar",
-                "need": "Was ich brauche",
-                "get": "Was du kriegst",
+				"slotsAvailable": "{count, plural, =0 {Keine Slots} =1 {Ein Slot} other {# Slots}} verfügbar",
+				"need": "Was ich brauche",
+				"get": "Was du kriegst",
 				"2D": {
 					"heading": "Design oder 2D-Grafik",
 					"description": "Logo-Design, Assets für Social-Media-Profile",
@@ -230,6 +230,7 @@
 		"visitProfile": "Profil besuchen",
 		"viewOriginal": "Original ansehen",
 		"copied": "In Zwischenablage kopiert.",
+		"yikes": "Oh je.",
 		"VideoPlayer": {
 			"loop": "Wiederholen",
 			"copyVideoUrl": "Video-URL kopieren",
@@ -246,7 +247,7 @@
 			"tooMany6": "Deine Mama ist bestimmt ganz stolz.",
 			"tooMany7": "Na gut, wir sehen uns nach 9 Billiarden.",
 			"tooMany8": "du bist wahnsinnig.",
-			"humanityIsDead": "Du hast offiziell 9.007.199.254.740.992 Klicks hinter dir. Mehr geht nicht."
+			"humanityIsDead": "Du hast offiziell 9.007.199.254.740.992 Klicks hinter dir. Herzlichen Glückwunsch..."
 		}
 	},
 	"CONTACT": {
@@ -367,6 +368,31 @@
 				"questions": "Fragen?",
 				"answers": "Ich hab Antworten",
 				"pronunciation": "Bevor du fragst: Es wird \"peppermint\" ausgesprochen, also wie Pfefferminze auf Englisch. Das erscheließt sich nicht jedem, aber jetzt bist du schlauer als die."
+			}
+		}
+	},
+	"ICONS": {
+		"Head": {
+			"description": "Aus einem 15x15-Raster für deine Nutzeroberfläche. Ja, genau deine.",
+			"title": "Icons"
+		},
+		"Content": {
+			"largeIcons": "Große Icons",
+			"Category": {
+				"arrows": "Pfeile",
+				"actions": "Aktionen",
+				"symbolic": "Symbolisch",
+				"technology": "Technologie",
+				"objects": "Objekte",
+				"media": "Medien",
+				"logos": "Logos",
+				"text": "Text"
+			},
+			"Disclaimer": {
+				"heading": "Koffeinsucht",
+				"text1": "Du darfst diese Icons frei verwenden, sowohl für kommerzielle als auch private Projekte. Es ist jedoch untersagt, die Icons selbst zum Verkauf anzubieten, egal ob einzeln oder in Sammlungen, modifiziert oder nicht.",
+				"text2": "Eine Menge Zeit floss in dieses Projekt hinein und ich habe noch ein paar weitere Dinge vor. Wenn du mich dabei unterstützen kannst und möchtest, wäre ich dir für einen Kaffee sehr dankbar.",
+				"button": "Zu meinem Ko-fi-Profil"
 			}
 		}
 	},

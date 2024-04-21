@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useTransition, a, easings } from "@react-spring/web";
-import { ChevronUp } from "lucide-react";
+import ChevronUp from "src/icons/ChevronUp";
 
 export default function ScrollToTopButton() {
 	// Show button on scroll.
@@ -54,7 +54,7 @@ export default function ScrollToTopButton() {
 				style={styles}
 				className="group fixed bottom-6 right-6 z-50 size-12 flex items-center justify-center text-neutral-50 bg-neutral-950/75 hover:bg-neutral-900/75 active:bg-neutral-800/75 border border-neutral-50/10 rounded-full backdrop-blur-xl shadow-xl shadow-neutral-950/50 duration-100"
 			>
-				<ChevronUp className="stroke-1 group-hover:stroke-2 duration-100" />
+				<ChevronUp width={20} height={20} />
 			</a.button>
 		) : null
 	);

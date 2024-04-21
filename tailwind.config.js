@@ -275,7 +275,7 @@ module.exports = {
 				tooltipEnterTop: {
 					from: {
 						opacity: 0,
-						transform: "translateY(4px)",
+						transform: "translateY(-4px)",
 					},
 					to: {
 						opacity: 1,
@@ -289,13 +289,13 @@ module.exports = {
 					},
 					to: {
 						opacity: 0,
-						transform: "translateY(4px)",
+						transform: "translateY(-4px)",
 					},
 				},
 				tooltipEnterBottom: {
 					from: {
 						opacity: 0,
-						transform: "translateY(-4px)",
+						transform: "translateY(4px)",
 					},
 					to: {
 						opacity: 1,
@@ -309,7 +309,7 @@ module.exports = {
 					},
 					to: {
 						opacity: 0,
-						transform: "translateY(-4px)",
+						transform: "translateY(4px)",
 					},
 				},
 				tooltipEnterLeft: {
