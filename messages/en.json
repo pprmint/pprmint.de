@@ -591,6 +591,10 @@
 					"description": "Something for your eyes.",
 					"title": "Gallery"
 				},
+				"Icons": {
+					"description": "15x15 icons for UIs.",
+					"title": "Icons"
+				},
 				"YtDlpGui": {
 					"description": "A GUI for yt-dlg on Windows.",
 					"title": "yt-dlp GUI"

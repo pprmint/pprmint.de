@@ -19,6 +19,10 @@ export const Works = [
 		strings: "Gallery",
 	},
 	{
+		link: "/project/icons",
+		strings: "Icons",
+	},
+	{
 		link: "/project/ytdg",
 		strings: "YtDlpGui",
 	},
