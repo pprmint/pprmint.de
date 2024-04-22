@@ -588,32 +588,34 @@
 			"Works": {
 				"title": "Works",
 				"Gallery": {
-					"description": "Something for your eyes.",
+          "description": "Vector graphics, animations and 3D renders.",
 					"title": "Gallery"
 				},
-				"Icons": {
-					"description": "15x15 icons for UIs.",
-					"title": "Icons"
-				},
-				"YtDlpGui": {
-					"description": "A GUI for yt-dlg on Windows.",
-					"title": "yt-dlp GUI"
-				},
-				"Mintcraft": {
-					"description": "A Minecraft resource pack.",
-					"title": "Mintcraft"
-				},
-				"Mintsans": {
-					"description": "A sans-serif font.",
-					"title": "Mintsans"
-				},
-				"Mintbit": {
-					"description": "A pixel font.",
-					"title": "Mintbit"
-				},
-				"AppIcons": {
-					"description": "Windows-11-style app icons.",
-					"title": "App icons"
+				"Projects": {
+					"Icons": {
+						"description": "15x15 icons for UIs.",
+						"title": "Icons"
+					},
+					"YtDlpGui": {
+						"description": "A GUI for yt-dlg on Windows.",
+						"title": "yt-dlp GUI"
+					},
+					"Mintcraft": {
+						"description": "A Minecraft resource pack.",
+						"title": "Mintcraft"
+					},
+					"Mintsans": {
+						"description": "A sans-serif font.",
+						"title": "Mintsans"
+					},
+					"Mintbit": {
+						"description": "A pixel font.",
+						"title": "Mintbit"
+					},
+					"AppIcons": {
+						"description": "Windows-11-style app icons.",
+						"title": "App icons"
+					}
 				}
 			},
 			"Other": {

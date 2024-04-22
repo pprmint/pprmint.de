@@ -6,7 +6,7 @@ import * as Portal from "@radix-ui/react-portal";
 import { Link, locales, usePathname } from "src/navigation";
 import Copyright from "./Copyright";
 
-import { Pages, Works } from "./Links";
+import { Pages, Projects } from "./Links";
 import { ChevronRight } from "lucide-react";
 
 export default function MobileNavigation() {
@@ -130,19 +130,34 @@ export default function MobileNavigation() {
 								<div className="my-9">
 									<p className="pl-3 font-display text-neutral-50 font-semibold text-2xl">{t("Path.Works.title")}</p>
 									<ul>
-										{Works.map((Work) => (
-											<Link className="group" key={Work.link} href={Work.link} onClick={handleClose}>
+										<Link className="group" href="/gallery" onClick={handleClose}>
+											<li
+												className={`flex items-center ${
+													"/gallery" === pathname
+														? "text-neutral-50"
+														: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
+												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
+											>
+												{"/gallery" === pathname && <ChevronRight size={16} className="inline stroke-green mr-1.5" />}
+												<div className="flex flex-col">
+													<span>{t(`Path.Works.Gallery.title`)}</span>
+													<span className="text-xs opacity-50">{t(`Path.Works.Gallery.description`)}</span>
+												</div>
+											</li>
+										</Link>
+										{Projects.map((Project) => (
+											<Link className="group" key={Project.link} href={Project.link} onClick={handleClose}>
 												<li
 													className={`flex items-center ${
-														Work.link === pathname
+														Project.link === pathname
 															? "text-neutral-50"
 															: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
 													} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 												>
-													{Work.link === pathname && <ChevronRight size={16} className="inline stroke-green mr-1.5" />}
+													{Project.link === pathname && <ChevronRight size={16} className="inline stroke-green mr-1.5" />}
 													<div className="flex flex-col">
-														<span>{t(`Path.Works.${Work.strings}.title`)}</span>
-														<span className="text-xs opacity-50">{t(`Path.Works.${Work.strings}.description`)}</span>
+														<span>{t(`Path.Works.Projects.${Project.strings}.title`)}</span>
+														<span className="text-xs opacity-50">{t(`Path.Works.Projects.${Project.strings}.description`)}</span>
 													</div>
 												</li>
 											</Link>

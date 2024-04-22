@@ -13,11 +13,7 @@ export const Pages = [
 		strings: "Contact",
 	},
 ];
-export const Works = [
-	{
-		link: "/gallery",
-		strings: "Gallery",
-	},
+export const Projects = [
 	{
 		link: "/project/icons",
 		strings: "Icons",

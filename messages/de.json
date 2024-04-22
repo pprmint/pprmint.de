@@ -588,32 +588,34 @@
 			"Works": {
 				"title": "Werke",
 				"Gallery": {
-					"description": "Was für die Augen.",
+					"description": "Vektor-Grafiken, Animationen und 3D-Render.",
 					"title": "Galerie"
 				},
-				"Icons": {
-					"description": "15x15 Icons für UIs.",
-					"title": "Icons"
-				},
-				"YtDlpGui": {
-					"description": "Ein GUI für yt-dlg unter Windows.",
-					"title": "yt-dlp GUI"
-				},
-				"Mintcraft": {
-					"description": "Ein Minecraft-Ressourcenpaket.",
-					"title": "Mintcraft"
-				},
-				"Mintsans": {
-					"description": "Eine serifenlose Schriftart.",
-					"title": "Mintsans"
-				},
-				"Mintbit": {
-					"description": "Eine Pixelschriftart.",
-					"title": "Mintbit"
-				},
-				"AppIcons": {
-					"description": "App-Symbole im Windows-11-Stil.",
-					"title": "App-Symbole"
+				"Projects": {
+					"Icons": {
+						"description": "15x15 Icons für UIs.",
+						"title": "Icons"
+					},
+					"YtDlpGui": {
+						"description": "Ein GUI für yt-dlg unter Windows.",
+						"title": "yt-dlp GUI"
+					},
+					"Mintcraft": {
+						"description": "Ein Minecraft-Ressourcenpaket.",
+						"title": "Mintcraft"
+					},
+					"Mintsans": {
+						"description": "Eine serifenlose Schriftart.",
+						"title": "Mintsans"
+					},
+					"Mintbit": {
+						"description": "Eine Pixelschriftart.",
+						"title": "Mintbit"
+					},
+					"AppIcons": {
+						"description": "App-Symbole im Windows-11-Stil.",
+						"title": "App-Symbole"
+					}
 				}
 			},
 			"Other": {

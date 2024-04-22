@@ -1,8 +1,8 @@
 import { Link } from "src/navigation";
 import Image from "next/image";
 
-import DesktopNavigation from "./NavBar/Desktop";
-import MobileNavigation from "./NavBar/Mobile";
+import DesktopNavigation from "./navigation/Desktop";
+import MobileNavigation from "./navigation/Mobile";
 
 import Wordmark from "public/assets/wordmark.svg";
 
