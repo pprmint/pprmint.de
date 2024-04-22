@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { Link } from "src/navigation";
 import Tester from "./tester";
-import { Download } from "lucide-react";
+import Download from "src/icons/Download";
 
 import Title from "src/components/layout/Title";
 import FadingImage from "src/components/ui/FadingImage";
@@ -58,7 +58,7 @@ export default function Page({ params: { locale } }: Props) {
 					<br />
 					<Link href="https://static.pprmint.art/download/mintsans_2.0.zip">
 						<Button color="green" tabIndex={-1}>
-							<Download size={16} />
+							<Download />
 							{t("COMMON.download")}
 						</Button>
 					</Link>

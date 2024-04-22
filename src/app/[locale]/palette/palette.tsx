@@ -1,8 +1,8 @@
 "use client";
 import * as Toast from "@radix-ui/react-toast";
-import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRef, useState } from "react";
+import X from "src/icons/X";
 
 interface Shade {
 	[index: number]: string;
@@ -218,7 +218,7 @@ export default function Palette() {
 				<div className="size-8 rounded-full border border-neutral-50/10" style={{ backgroundColor: currentColor }} />
 				<Toast.Description>{t("copied")}</Toast.Description>
 				<Toast.Close className="inline-flex items-center justify-center size-6 hover:bg-neutral-50/10 active:bg-neutral-50/5 rounded-full duration-100 active:duration-75">
-					<X size={16} className="stroke-neutral-50" />
+					<X className="fill-neutral-50" />
 				</Toast.Close>
 			</Toast.Root>
 			<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-60 outline-none" />

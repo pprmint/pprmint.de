@@ -9,7 +9,7 @@ import GallerySuspense from "./gallery/gallerySuspense";
 
 import { Works } from "src/types/work";
 import { Link } from "src/navigation";
-import { OctagonAlert } from "lucide-react";
+import WarningOctagon from "src/icons/WarningOctagon";
 
 export async function generateMetadata({ params: { locale } }: Props) {
     const t = await getTranslations({ locale, namespace: "GALLERY" });
@@ -63,7 +63,7 @@ export default async function Page({
                 </section>
                 <section className="flex flex-col lg:flex-row items-center justify-center gap-9 my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9">
                     <div>
-                        <OctagonAlert className="size-24 stroke-red" />
+                        <WarningOctagon className="size-24 fill-red" />
                     </div>
                     <div>
                         <h2>

@@ -2,16 +2,13 @@
 import { useLocale, useTranslations } from "next-intl";
 import { Link, locales, usePathname } from "src/navigation";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { ChevronDown } from "lucide-react";
 
 import { Pages, Projects } from "./Links";
-import Copyright from "./Copyright";
-import { JSXElementConstructor, ReactElement, ReactNodeArray } from "react";
+import Copyright from "./Socials";
+import ChevronDown from "src/icons/ChevronDown";
 
 const Caret = (
 	<ChevronDown
-		size={16}
-		strokeWidth={3}
 		className="group-data-[state='open']/root:translate-y-0.5 duration-250 ease-out ml-auto"
 		aria-hidden
 	/>
@@ -26,7 +23,7 @@ export default function DesktopNavigation() {
 
 	// Styles
 	const NavMenuTrigger =
-		"group/root flex items-center gap-3 h-10 px-4 text-neutral-50/80 hover:text-neutral-50 data-[state='open']:text-neutral-50 data-[state='open']:backdrop-blur-md duration-250 font-medium rounded-lg";
+		"group/root flex items-center gap-3 h-10 px-4 text-neutral-50/80 hover:text-neutral-50 data-[state='open']:text-neutral-50 data-[state='open']:backdrop-blur-md duration-250 rounded-lg";
 	const NavMenuContent =
 		"absolute top-0 left-0 p-3 duration-250 data-[motion='from-start']:animate-enter-from-l data-[motion='from-end']:animate-enter-from-r data-[motion='to-start']:animate-exit-to-l data-[motion='to-end']:animate-exit-to-r";
 	const NavMenuViewport =

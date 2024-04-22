@@ -38,7 +38,7 @@ export default function Checkbox({ color = "neutral", ...rest }: CheckboxProps) 
 			{...rest}
 		>
 			<RCheckbox.Indicator>
-				<Check strokeWidth={3} size={16} strokeLinejoin="miter" strokeLinecap="square" className="drop-shadow-[0px_1px_1px_#0006] group-data-[state=checked]:animate-lucide-check-draw-in" strokeDasharray={24} />
+				<Check strokeWidth={2} size={16} strokeLinejoin="miter" strokeLinecap="square" className="drop-shadow-[0px_1px_1px_#0006] group-data-[state=checked]:animate-lucide-check-draw-in" strokeDasharray={24} />
 			</RCheckbox.Indicator>
 		</RCheckbox.Root>
 	);

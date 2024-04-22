@@ -10,8 +10,10 @@ import TwoDeeCardImage from "public/assets/commissions/2D.svg";
 import AnimCardImage from "public/assets/commissions/Anim.svg";
 import ThreeDeeCardImage from "public/assets/commissions/3D.svg";
 import WebsiteCardImage from "public/assets/commissions/Hell.svg";
-import { Check, ChevronDown, Plus } from "lucide-react";
 import Commission from "src/types/commission";
+import Add from "src/icons/Add";
+import Check from "src/icons/Check";
+import ChevronDown from "src/icons/ChevronDown";
 
 export default function Overview(data: { data: Commission }) {
 	const t = useTranslations("COMMISSIONS");
@@ -90,7 +92,7 @@ export default function Overview(data: { data: Commission }) {
 										key={need}
 										className="flex gap-3 items-center odd:bg-neutral-900 px-6 py-1.5"
 									>
-										<Plus size={16} />
+										<Add />
 										{t(`Content.Offers.${service.id}.Need.${need}`)}
 									</li>
 								))}
@@ -103,7 +105,7 @@ export default function Overview(data: { data: Commission }) {
 										key={get}
 										className="flex gap-3 items-center odd:bg-neutral-900 px-6 py-1.5"
 									>
-										<Check size={16} />
+										<Check />
 										{t(`Content.Offers.${service.id}.Get.${get}`)}
 									</li>
 								))}
@@ -117,8 +119,6 @@ export default function Overview(data: { data: Commission }) {
 								tabIndex={-1}
 							>
 								<ChevronDown
-									size={16}
-									strokeWidth={3}
 									className="ml-6 group-data-[state=open]/card:rotate-180 group-data-[state=closed]/card:group-hover/card:translate-y-1 group-data-[state=open]/card:group-hover/arrow:-translate-y-1 duration-250 ease-out-cubic"
 								/>
 								<Tooltip.Trigger asChild>

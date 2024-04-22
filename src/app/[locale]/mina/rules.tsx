@@ -1,8 +1,9 @@
 "use client";
-import { BookCheck, BookX } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import NoSSR from "src/components/NoSSR";
+import BookCheck from "src/icons/BookCheck";
+import BookX from "src/icons/BookX";
 
 export default function FanartRules() {
     const t = useTranslations("MINA");
@@ -12,9 +13,9 @@ export default function FanartRules() {
             <NoSSR>
                 <div>
                     {hovered ? (
-                        <BookX className="size-24 stroke-red" />
+                        <BookX className="size-24 fill-red" />
                     ) : (
-                        <BookCheck className="size-24 stroke-green" />
+                        <BookCheck className="size-24 fill-green" />
                     )}
                 </div>
             </NoSSR>

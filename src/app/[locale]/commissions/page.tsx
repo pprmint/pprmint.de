@@ -8,7 +8,7 @@ import YellowLight from "public/assets/commissions/yellow.webp";
 import GreenLight from "public/assets/commissions/green.webp";
 import Services from "./overview";
 import Commission from "src/types/commission";
-import { Info } from "lucide-react";
+import InfoCircle from "src/icons/InfoCircle";
 
 type Props = {
 	params: { locale: string };
@@ -46,7 +46,7 @@ export default async function Page({ params: { locale } }: Props) {
 				<section className="my-20 md:my-32 xl:my-40">
 					<h2>{t("Content.Offers.heading")}</h2>
 					<p className="pb-6 inline-flex items-center gap-3">
-						<Info size={16} />
+						<InfoCircle />
 						{t("Content.Offers.priceInfo")}
 					</p>
 					<Services data={CommissionData} />

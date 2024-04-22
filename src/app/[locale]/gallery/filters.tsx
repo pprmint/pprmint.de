@@ -4,9 +4,12 @@ import { useState } from "react";
 import { usePathname, useRouter } from "src/navigation";
 import * as Collapsible from "@radix-ui/react-collapsible";
 import { useTranslations } from "next-intl";
-
-// eslint-disable-next-line jsx-a11y/alt-text
-import { Box, Film, Filter, Image, Square } from "lucide-react";
+import Filter from "src/icons/Filter";
+import Stop from "src/icons/Stop";
+import Photo from "src/icons/Photo";
+import Video from "src/icons/Video";
+import Cube from "src/icons/Cube";
+import FilterFilled from "src/icons/FilterFilled";
 
 export default function Filters(props: { type: string; dimension: string }) {
 	const t = useTranslations("GALLERY");
@@ -54,7 +57,7 @@ export default function Filters(props: { type: string; dimension: string }) {
 						onClick={() => setFiltersOpen(!filtersOpen)}
 					>
 						<span className="flex gap-3 items-center justify-center">
-							<Filter size={16} className={`${filtersActive ? "fill-neutral-50" : "fill-transparent"} duration-100`} />
+							{filtersActive ? <FilterFilled /> : <Filter />}
 							{t("Content.Filters.button")}
 						</span>
 					</button>
@@ -70,10 +73,9 @@ export default function Filters(props: { type: string; dimension: string }) {
 										: "hover:bg-neutral-900 hover:text-neutral-50"
 								} active:shadow-inner active:opacity-75 duration-100`}
 							>
-								<Square
-									size={16}
+								<Stop
 									className={`${
-										props.dimension == "2d" ? "fill-neutral-600 stroke-neutral-50" : "fill-transparent"
+										props.dimension == "2d" ? "fill-neutral-50" : "fill-neutral"
 									} duration-100`}
 								/>
 								2D
@@ -86,10 +88,9 @@ export default function Filters(props: { type: string; dimension: string }) {
 										: "hover:bg-neutral-900 hover:text-neutral-50"
 								} active:shadow-inner active:opacity-75 duration-100`}
 							>
-								<Box
-									size={16}
+								<Cube
 									className={`${
-										props.dimension == "3d" ? "fill-neutral-600 stroke-neutral-50" : "fill-transparent"
+										props.dimension == "3d" ? "fill-neutral-50" : "fill-neutral"
 									} duration-100`}
 								/>
 								3D
@@ -104,11 +105,9 @@ export default function Filters(props: { type: string; dimension: string }) {
 										: "hover:bg-neutral-900 hover:text-neutral-50"
 								} active:shadow-inner active:opacity-75 duration-100`}
 							>
-								{/* eslint-disable-next-line jsx-a11y/alt-text */}
-								<Image
-									size={16}
+								<Photo
 									className={`${
-										props.type == "static" ? "fill-neutral-600 stroke-neutral-50" : "fill-transparent"
+										props.type == "static" ? "fill-neutral-50" : "fill-neutral"
 									} duration-100`}
 								/>
 								{t("Content.Filters.Type.static")}
@@ -121,10 +120,9 @@ export default function Filters(props: { type: string; dimension: string }) {
 										: "hover:bg-neutral-900 hover:text-neutral-50"
 								} active:shadow-inner active:opacity-75 duration-100`}
 							>
-								<Film
-									size={16}
+								<Video
 									className={`${
-										props.type == "animated" ? "fill-neutral-600 stroke-neutral-50" : "fill-transparent"
+										props.type == "animated" ? "fill-neutral-50" : "fill-neutral"
 									} duration-100`}
 								/>
 								{t("Content.Filters.Type.animated")}

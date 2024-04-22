@@ -52,7 +52,7 @@ function Footer() {
 	const textFadeIn = useTransition(textVisible, {
 		from: {
 			opacity: 0,
-			y: 8,
+			y: 10,
 		},
 		enter: {
 			opacity: 1,
@@ -110,9 +110,13 @@ function Footer() {
 							}`
 						)}
 					</a.p>
-				) : null
+				) : (
+					<a.p className="text-neutral-800 absolute top-0 w-full text-center" style={style}>
+						{"© "}
+						{new Date().getFullYear()} pprmint.
+					</a.p>
+				)
 			)}
-
 			{counterFadeIn((style, item) =>
 				item ? (
 					<a.div

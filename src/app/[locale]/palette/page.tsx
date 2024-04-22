@@ -4,11 +4,12 @@ import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Title from "src/components/layout/Title";
 import Palette from "./palette";
 import Button from "src/components/ui/Button";
-import { FileJson, SwatchBook } from "lucide-react";
 import Link from "next/link";
+import SwatchBook from "src/icons/SwatchBook";
+import ExternalLink from "src/icons/ExternalLink";
 
 type Props = {
-    params: { locale: string };
+	params: { locale: string };
 };
 
 export async function generateMetadata({ params: { locale } }: Props) {
@@ -45,20 +46,20 @@ export default function Page({ params: { locale } }: Props) {
 					<p>{t("Content.Usage.text1")}</p>
 					<p>{t("Content.Usage.text2")}</p>
 					<div className="flex flex-wrap gap-3 pt-6">
+						<Link href="https://static.pprmint.art/download/pprmint.2024.afpalette" download>
+							<Button tabIndex={-1}>
+								<SwatchBook />
+								{t("Content.Usage.affinity")}
+							</Button>
+						</Link>
 						<Link
 							href="https://github.com/pprmint/pprmint.art/blob/main/tailwind.config.js#L7"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
 							<Button tabIndex={-1}>
-								<FileJson size={16} />
+								<ExternalLink />
 								{t("Content.Usage.tailwind")}
-							</Button>
-						</Link>
-						<Link href="https://static.pprmint.art/download/pprmint.2024.afpalette" download>
-							<Button tabIndex={-1}>
-								<SwatchBook size={16} />
-								{t("Content.Usage.affinity")}
 							</Button>
 						</Link>
 					</div>

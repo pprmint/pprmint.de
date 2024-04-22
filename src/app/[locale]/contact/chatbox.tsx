@@ -10,7 +10,7 @@ import Button from "../../../components/ui/Button";
 import { useTransition, a, config } from "@react-spring/web";
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
-import { ChevronLeft, X } from "lucide-react";
+import ChevronLeft from "src/icons/ChevronLeft";
 
 const Messages = [
 	"WhoYou",
@@ -243,7 +243,7 @@ function Chatbox() {
 												className="flex items-center text-neutral-50 hover:opacity-75 duration-100"
 												onClick={handleChatboxClose}
 											>
-												<ChevronLeft size={32} />
+												<ChevronLeft className="size-7" />
 												{t("back")}
 											</button>
 										</div>

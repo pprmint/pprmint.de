@@ -4,7 +4,13 @@ import * as Slider from "@radix-ui/react-slider";
 import * as Select from "@radix-ui/react-select";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
-import { AlignCenter, AlignLeft, AlignRight, Check, ChevronDown, ChevronUp, RotateCcw } from "lucide-react";
+import Check from "src/icons/Check";
+import ChevronDown from "src/icons/ChevronDown";
+import ChevronUp from "src/icons/ChevronUp";
+import TextAlignLeft from "src/icons/TextAlignLeft";
+import TextAlignCenter from "src/icons/TextAlignCenter";
+import TextAlignRight from "src/icons/TextAlignRight";
+import RotateCcw from "src/icons/RotateCcw";
 
 export default function Tester() {
 	// For dropdowns.
@@ -16,7 +22,7 @@ export default function Tester() {
 			>
 				<Select.ItemText className="flex-grow">{props.children}</Select.ItemText>
 				<Select.ItemIndicator className="ml-auto">
-					<Check size={16} />
+					<Check />
 				</Select.ItemIndicator>
 			</Select.Item>
 		);
@@ -45,13 +51,13 @@ export default function Tester() {
 							>
 								<Select.Value aria-label={weight} />
 								<Select.Icon className="ml-auto group-hover:translate-y-0.5 duration-100">
-									<ChevronDown size={16} />
+									<ChevronDown />
 								</Select.Icon>
 							</Select.Trigger>
 							<Select.Portal>
 								<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl bg-gradient-to-b from-neutral-900/75 to-neutral-900/75 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-xl shadow-neutral-950/50 rounded-lg data-[state=open]:animate-select-open">
 									<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900/50 text-neutral-50 rounded-t-md">
-										<ChevronUp size={16} />
+										<ChevronUp />
 									</Select.ScrollUpButton>
 									<Select.Viewport className="p-1">
 										<Select.Group>
@@ -61,7 +67,7 @@ export default function Tester() {
 										</Select.Group>
 									</Select.Viewport>
 									<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-neutral-900/50 text-neutral-50 rounded-b-md">
-										<ChevronDown size={16} />
+										<ChevronDown />
 									</Select.ScrollDownButton>
 								</Select.Content>
 							</Select.Portal>
@@ -80,25 +86,25 @@ export default function Tester() {
 							className="h-9 rounded-md w-max"
 						>
 							<Toolbar.ToggleItem
-								className="h-9 w-9 border-y border-l rounded-l-md hover:text-neutral-50 hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
+								className="size-9 border-y border-l rounded-l-md hover:text-neutral-50 hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
 								value="text-left"
 								aria-label="Left aligned"
 							>
-								<AlignLeft size={16} className="mx-auto" />
+								<TextAlignLeft className="mx-auto" />
 							</Toolbar.ToggleItem>
 							<Toolbar.ToggleItem
-								className="h-9 w-9 border hover:text-neutral-50 hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
+								className="size-9 border hover:text-neutral-50 hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
 								value="text-center"
 								aria-label="Center aligned"
 							>
-								<AlignCenter size={16} className="mx-auto" />
+								<TextAlignCenter className="mx-auto" />
 							</Toolbar.ToggleItem>
 							<Toolbar.ToggleItem
-								className="h-9 w-9 border-y border-r rounded-r-md hover:text-neutral-50 hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
+								className="size-9 border-y border-r rounded-r-md hover:text-neutral-50 hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
 								value="text-right"
 								aria-label="Right aligned"
 							>
-								<AlignRight size={16} className="mx-auto" />
+								<TextAlignRight className="mx-auto" />
 							</Toolbar.ToggleItem>
 						</Toolbar.ToggleGroup>
 						<sub className="pt-3 pb-2">{t("Content.Tester.alignment")}</sub>
@@ -145,7 +151,7 @@ export default function Tester() {
 							className="group text-center size-9 border-l-neutral-900 hover:border-red text-neutral hover:bg-red active:shadow-inner active:opacity-75 hover:text-neutral-950 duration-100 rounded-md"
 							onClick={resetFont}
 						>
-							<RotateCcw size={16} className="mx-auto" />
+							<RotateCcw className="mx-auto" />
 						</button>
 					</div>
 				</div>

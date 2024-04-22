@@ -11,8 +11,13 @@ import * as Collapsible from "@radix-ui/react-collapsible";
 import * as Select from "@radix-ui/react-select";
 import { useTranslations } from "next-intl";
 
-import { Check, ChevronDown, ChevronUp, Filter, X } from "lucide-react";
 import { Artists } from "src/types/artist";
+import Check from "src/icons/Check";
+import Filter from "src/icons/Filter";
+import FilterFilled from "src/icons/FilterFilled";
+import ChevronDown from "src/icons/ChevronDown";
+import ChevronUp from "src/icons/ChevronUp";
+import X from "src/icons/X";
 
 function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 	const t = useTranslations("MINA");
@@ -85,14 +90,16 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 			>
 				<Select.ItemText className="flex-grow">{props.children}</Select.ItemText>
 				<Select.ItemIndicator className="ml-auto">
-					<Check size={16} />
+					<Check />
 				</Select.ItemIndicator>
 			</Select.Item>
 		);
 	}
 
 	const nsfwActive = props.nsfw == "show";
-	const artistFilterActive = props.artist ? props.artists.data.some((a) => a.attributes.name === props.artist) : false;
+	const artistFilterActive = props.artist
+		? props.artists.data.some((a) => a.attributes.name === props.artist)
+		: false;
 
 	return (
 		<>
@@ -107,10 +114,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 						onClick={() => setFiltersOpen(!filtersOpen)}
 					>
 						<span className="flex gap-3 items-center justify-center">
-							<Filter
-								size={16}
-								className={`${nsfwActive || artistFilterActive ? "fill-neutral-50" : "fill-transparent"} duration-100`}
-							/>
+							{nsfwActive || artistFilterActive ? <FilterFilled /> : <Filter />}
 							{t("Content.Artworks.Filters.button")}
 						</span>
 					</button>
@@ -134,7 +138,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 											{artistFilterActive ? props.artist : t("Content.Artworks.Filters.artist")}
 										</Select.Value>
 										<Select.Icon className="ml-auto group-hover:translate-y-0.5 duration-100">
-											<ChevronDown size={16} />
+											<ChevronDown />
 										</Select.Icon>
 									</Select.Trigger>
 									{artistFilterActive && (
@@ -142,20 +146,22 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 											onClick={handleClearArtist}
 											className="h-9 px-2.5 hover:bg-neutral-900 hover:text-neutral-50 active:shadow-inner active:opacity-75 duration-100"
 										>
-											<X size={16} />
+											<X />
 										</button>
 									)}
 								</div>
 								<Select.Portal>
 									<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl bg-gradient-to-b from-neutral-900/75 to-neutral-900/75 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-xl shadow-neutral-950/50 rounded-lg data-[state=open]:animate-select-open">
 										<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900/50 text-neutral-50 rounded-t-md">
-											<ChevronUp size={16} />
+											<ChevronUp />
 										</Select.ScrollUpButton>
 										<Select.Viewport className="p-1">
 											<Select.Group>
 												{props.artists.data
 													.sort((a, b) =>
-														a.attributes.name.localeCompare(b.attributes.name, undefined, { sensitivity: "base" })
+														a.attributes.name.localeCompare(b.attributes.name, undefined, {
+															sensitivity: "base",
+														})
 													)
 													.map((artist) => (
 														<SelectItem key={artist.id} value={artist.attributes.name}>
@@ -165,7 +171,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 											</Select.Group>
 										</Select.Viewport>
 										<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-neutral-900/50 text-neutral-50 rounded-b-md">
-											<ChevronDown size={16} />
+											<ChevronDown />
 										</Select.ScrollDownButton>
 									</Select.Content>
 								</Select.Portal>

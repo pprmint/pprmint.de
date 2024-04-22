@@ -1,11 +1,13 @@
 "use client";
 import * as Dialog from "@radix-ui/react-dialog";
-import { Maximize, Minimize, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import FadingImage from "src/components/ui/FadingImage";
+import Fullscreen from "src/icons/Fullscreen";
+import FullscreenExit from "src/icons/FullscreenExit";
+import X from "src/icons/X";
 import { Works } from "src/types/work";
 
 export default function Gallery(works: { works: Works }) {
@@ -54,7 +56,7 @@ export default function Gallery(works: { works: Works }) {
                                     className="absolute z-60 inline-flex items-center justify-center top-3 md:top-5 right-3 md:right-5 size-10 rounded-full text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800 duration-100"
                                     aria-label="Close"
                                 >
-                                    <X />
+                                    <X className="size-6" />
                                 </button>
                             </Dialog.Close>
                             <button
@@ -62,7 +64,7 @@ export default function Gallery(works: { works: Works }) {
                                 aria-label="Toggle fullscreen"
                                 onClick={() => setFullscreen(!fullscreen)}
                             >
-                                {fullscreen ? <Minimize /> : <Maximize />}
+                                {fullscreen ? <FullscreenExit className="size-6" /> : <Fullscreen className="size-6" />}
                             </button>
                             <div className="relative overflow-hidden h-80 md:h-1/3-screen">
                                 <FadingImage

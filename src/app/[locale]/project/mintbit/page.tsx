@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { Link } from "src/navigation";
-import { Download } from "lucide-react";
 import Glyphs from "./glyphs";
 import Tester from "./tester";
 
@@ -9,6 +8,7 @@ import Title from "src/components/layout/Title";
 import TitleBackground from "public/assets/mintbit/title.svg";
 import FadingImage from "src/components/ui/FadingImage";
 import Button from "src/components/ui/Button";
+import Download from "src/icons/Download";
 
 export async function generateMetadata({ params: { locale } }: Props) {
 	const t = await getTranslations({ locale, namespace: "MINTBIT" });
@@ -45,7 +45,7 @@ export default function Page({ params: { locale } }: Props) {
 					<br />
 					<Link href="https://static.pprmint.art/download/Mintbit/Mintbit_1.1.zip">
 						<Button color="green" tabIndex={-1}>
-							<Download size={16} />
+							<Download />
 							{t("COMMON.download")}
 						</Button>
 					</Link>

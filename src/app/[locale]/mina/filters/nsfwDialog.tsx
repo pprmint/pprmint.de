@@ -8,9 +8,8 @@ import * as Dialog from "@radix-ui/react-dialog";
 import Button from "src/components/ui/Button";
 
 import HehMina from "public/assets/mina/heh-upscaled.png";
-import { Link } from "src/navigation";
 import FadingImage from "src/components/ui/FadingImage";
-import { X } from "lucide-react";
+import X from "src/icons/X";
 
 export default function NsfwDialog({ onAccept }: { onAccept: () => void }) {
 	const t = useTranslations("MINA");
@@ -24,7 +23,7 @@ export default function NsfwDialog({ onAccept }: { onAccept: () => void }) {
 	}, []);
 
 	const progressCircle = useSpring({
-		from: { val: 44 },
+		from: { val: 42.5 },
 		to: {
 			val: 0,
 		},
@@ -61,14 +60,14 @@ export default function NsfwDialog({ onAccept }: { onAccept: () => void }) {
 					</Dialog.Description>
 					<div className="flex flex-row flex-wrap justify-between sm:justify-normal gap-3 py-9 lg:pb-0">
 						<Button color="green" onClick={onAccept} disabled={timer < 10}>
-							<svg height={16} width={16} className="-rotate-90">
+							<svg height={15} width={15} className="-rotate-90">
 								<a.circle
-									cx={8}
-									cy={8}
-									r={7}
-									strokeWidth={2}
-									className="stroke-neutral-950 fill-none"
-									strokeDasharray={44}
+									cx={7.5}
+									cy={7.5}
+									r={6.75}
+									strokeWidth={1.25}
+									className="stroke-current fill-none"
+									strokeDasharray={42.5}
 									strokeDashoffset={progressCircle.val}
 									strokeLinecap="butt" // hehe butt
 								/>
@@ -86,7 +85,7 @@ export default function NsfwDialog({ onAccept }: { onAccept: () => void }) {
 						className="absolute inline-flex items-center justify-center top-3 md:top-5 right-3 md:right-5 size-10 rounded-full text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800 duration-100"
 						aria-label="Close"
 					>
-						<X />
+						<X className="size-6" />
 					</button>
 				</Dialog.Close>
 			</Dialog.Content>

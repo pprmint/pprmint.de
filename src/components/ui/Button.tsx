@@ -56,7 +56,7 @@ export default function Button({large, color, outlined, noMinWidth, children, ..
 		: "text-neutral-950 bg-gradient-to-b from-neutral-100 to-neutral-200 border-b active:border-b-0 border-b-neutral-400 border-t active:border-t-0 border-t-neutral-50 active:border-t-neutral-500 hover:brightness-110 active:brightness-90 active:shadow-inner";
 	return (
 		<button
-			className={`group flex items-center font-medium rounded-xl rounded-bl-md rounded-tr-md hover:rounded-md duration-200 ease-out ${
+			className={`group flex items-center rounded-xl rounded-bl-md rounded-tr-md hover:rounded-md duration-200 ease-out ${
 				rest.disabled && "pointer-events-none"
 			} select-none active:duration-75 ${size} ${width} ${colors}`}
             {...rest}

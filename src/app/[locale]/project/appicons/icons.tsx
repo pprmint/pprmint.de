@@ -69,8 +69,11 @@ import SpotifyIcon from "/public/assets/appicons/Spotify.png";
 import TixatiIcon from "/public/assets/appicons/Tixati.png";
 import { useTranslations } from "next-intl";
 import FadingImage from "src/components/ui/FadingImage";
-import { Check, Download, LoaderCircle, Search, X } from "lucide-react";
 import Button from "src/components/ui/Button";
+import Search from "src/icons/Search";
+import X from "src/icons/X";
+import Check from "src/icons/Check";
+import Download from "src/icons/Download";
 
 const Icons = [
 	{
@@ -475,7 +478,7 @@ export default function Selector() {
 							: search && "hover:bg-neutral-900 cursor-pointer"
 					} duration-100`}
 				>
-					{search ? <X size={16} /> : <Search size={16} />}
+					{search ? <X /> : <Search />}
 				</div>
 				<input
 					type="text"
@@ -493,7 +496,7 @@ export default function Selector() {
 				<div className="w-full justify-center">
 					{filteredIcons.length === 0 ? (
 						<div className="flex flex-col w-full items-center">
-							<X size={64} className="stroke-red" />
+							<X className="size-24 fill-red" />
 							<h3>
 								{t("Content.noResults")}
 								<span className="text-red">.</span>
@@ -519,7 +522,7 @@ export default function Selector() {
 										} active:backdrop-brightness-75 duration-150`}
 										onClick={() => handleIconSelect(icon)}
 									>
-										<Check size={16} strokeWidth={3} />
+										<Check />
 									</div>
 									<FadingImage
 										src={icon.image}
@@ -544,11 +547,18 @@ export default function Selector() {
 					>
 						<div className="flex items-center">
 							{selectedCountTransition((styles, count) => (
-								<a.div style={styles} className="h-9 text-neutral-50 font-bold font-mono text-3xl text-center">
+								<a.div
+									style={styles}
+									className="h-9 text-neutral-50 font-bold font-mono text-3xl text-center"
+								>
 									<p className="absolute text-center">{count}</p>
 								</a.div>
 							))}
-							<p className={`text-lg ${selectedIcons.length > 9 ? "ml-14" : "ml-9"} duration-200 ease-out`}>
+							<p
+								className={`text-lg ${
+									selectedIcons.length > 9 ? "ml-14" : "ml-9"
+								} duration-200 ease-out`}
+							>
 								{t("Content.Panel.iconsSelected", { count: selectedIcons.length })}
 							</p>
 						</div>
@@ -559,7 +569,22 @@ export default function Selector() {
 								</p>
 								<Button onClick={handleDownloadSelectedIcons} disabled={loading}>
 									{t("Content.Panel.downloadSelected")}
-									{loading ? <LoaderCircle size={16} className="animate-spin" /> : <Download size={16} />}
+									{loading ? (
+										<svg height={15} width={15} className="animate-spin">
+											<circle
+												cx={7.5}
+												cy={7.5}
+												r={6.75}
+												strokeWidth={1.25}
+												className="stroke-current fill-none"
+												strokeDasharray={43}
+												strokeDashoffset={11}
+												strokeLinecap="butt" // hehe butt
+											/>
+										</svg>
+									) : (
+										<Download />
+									)}
 								</Button>
 							</div>
 						) : (
@@ -568,14 +593,29 @@ export default function Selector() {
 									onClick={() => setSelectedIcons([])}
 									className="inline-flex items-center justify-center text-neutral-50 w-9 h-9 rounded-full text-lg bg-neutral-50/10 hover:bg-neutral-50/20 duration-100"
 								>
-									<X size={16} />
+									<X />
 								</button>
 								<button
 									onClick={handleDownloadSelectedIcons}
 									disabled={loading}
 									className="inline-flex items-center justify-center text-neutral-950 w-9 h-9 rounded-full text-lg bg-neutral-50 hover:bg-neutral-100 active:bg-neutral"
 								>
-									{loading ? <LoaderCircle size={16} className="animate-spin" /> : <Download size={16} />}
+									{loading ? (
+										<svg height={15} width={15} className="animate-spin">
+											<circle
+												cx={7.5}
+												cy={7.5}
+												r={6.75}
+												strokeWidth={1.25}
+												className="stroke-current fill-none"
+												strokeDasharray={43}
+												strokeDashoffset={11}
+												strokeLinecap="butt" // hehe butt
+											/>
+										</svg>
+									) : (
+										<Download />
+									)}
 								</button>
 							</div>
 						)}

@@ -13,8 +13,7 @@ import ReferenceHand from "public/assets/mina/ref/hand.webp";
 import ReferenceShoes from "public/assets/mina/ref/shoes.webp";
 import ReferenceHairbowFront from "public/assets/mina/ref/head_front.svg";
 import ReferenceHairbowBack from "public/assets/mina/ref/head_back.svg";
-
-import { X } from "lucide-react";
+import X from "src/icons/X";
 
 export default function RefSheet() {
 	const t = useTranslations("MINA");
@@ -54,7 +53,7 @@ export default function RefSheet() {
 							className="absolute inline-flex items-center justify-center top-3 md:top-5 right-3 md:right-5 size-10 rounded-full text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800 duration-100"
 							aria-label="Close"
 						>
-							<X />
+							<X className="size-6" />
 						</button>
 					</Dialog.Close>
 				</Dialog.Content>
@@ -138,7 +137,7 @@ export default function RefSheet() {
 					/>
 					<Toast.Description>{t("copied")}</Toast.Description>
 					<Toast.Close className="inline-flex items-center justify-center size-6 hover:bg-neutral-50/10 active:bg-neutral-50/5 rounded-full duration-100 active:duration-75">
-						<X size={16} className="stroke-neutral-50" />
+						<X className="size-6 fill-neutral-50" />
 					</Toast.Close>
 				</Toast.Root>
 				<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-[9999] outline-none" />

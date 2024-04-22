@@ -6,11 +6,10 @@ import { useSpring, a, config, easings, useTransition } from "@react-spring/web"
 
 import Button from "src/components/ui/Button";
 
-import { Home } from "lucide-react";
-
 import Wordmark from "public/assets/wordmark.svg";
 import DetectiveMina from "public/assets/404/mina_chibi.webp";
 import { useEffect, useState } from "react";
+import Home from "src/icons/Home";
 
 export default function NotFound() {
 	// Animations
@@ -126,7 +125,7 @@ export default function NotFound() {
 										<Link href="/" className="w-fit">
 											<Button color="orange">
 												Go to home page
-												<Home size={16} />
+												<Home />
 											</Button>
 										</Link>
 									</a.div>
@@ -156,7 +155,7 @@ export default function NotFound() {
 										<Link href="/" className="w-fit">
 											<Button color="orange">
 												Zur Startseite
-												<Home size={16} />
+												<Home />
 											</Button>
 										</Link>
 									</a.div>

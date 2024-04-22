@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import * as Toast from "@radix-ui/react-toast";
 import Button from "src/components/ui/Button";
-import { X } from "lucide-react";
+import X from "src/icons/X";
 
 export default function Glyphs() {
 	const t = useTranslations();
@@ -286,7 +286,7 @@ export default function Glyphs() {
 				<Toast.Title className="text-neutral-50 pt-0.5 pl-3 text-3xl font-mintbit leading-none">{currentGlyph}</Toast.Title>
 				<Toast.Description>{t("COMMON.copied")}</Toast.Description>
 				<Toast.Close className="inline-flex items-center justify-center size-6 hover:bg-neutral-50/10 active:bg-neutral-50/5 rounded-full duration-100 active:duration-75">
-					<X size={16} className="stroke-neutral-50" />
+					<X className="fill-neutral-50" />
 				</Toast.Close>
 			</Toast.Root>
 			<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-60 outline-none" />
