@@ -39,7 +39,6 @@ export default async function Page({ params: { locale } }: Props) {
 			<main>
 				<ThreeThingies />
 				<section className="my-20 md:my-32 xl:my-40 relative overflow-clip">
-					<h2 className="absolute top-0 w-full text-center">{t("Content.News.heading")}</h2>
 					<div className="relative w-full h-full -z-10">
 						<FadingImage
 							src={`https://static.pprmint.art${Announcements.data[0].attributes.media.data.attributes.formats.thumbnail.url}`}
@@ -58,13 +57,14 @@ export default async function Page({ params: { locale } }: Props) {
 							}}
 						/>
 					</div>
+					<h2 className="h-24 w-full text-center">{t("Content.News.heading")}</h2>
 					<FadingImage
 						src={`https://static.pprmint.art${Announcements.data[0].attributes.media.data.attributes.url}`}
 						alt={Announcements.data[0].attributes.media.data.attributes.alternativeText}
 						quality={90}
 						width={Announcements.data[0].attributes.media.data.attributes.width}
 						height={Announcements.data[0].attributes.media.data.attributes.height}
-						className="w-full max-w-7xl mx-auto mt-24 xl:rounded-xl shadow-[0px_0px_5px_10px_#111] xl:border border-neutral-900"
+						className="w-full max-w-7xl mx-auto xl:rounded-xl shadow-[0px_0px_5px_10px_#111] xl:border border-neutral-900"
 					/>
 					<div className="flex max-w-7xl px-6 md:px-9 2xl:px-0 mx-auto my-12 flex-col md:flex-row items-end md:items-center gap-6 md:gap-9">
 						<div className="w-full">
@@ -96,9 +96,7 @@ export default async function Page({ params: { locale } }: Props) {
 					</div>
 				</section>
 				<section className="my-20 md:my-32 xl:my-40 px-6 md:px-9 max-w-8xl mx-auto">
-					<h2 className="pb-6">
-						{t("Content.OtherNews.heading")}
-					</h2>
+					<h2 className="pb-6">{t("Content.OtherNews.heading")}</h2>
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-9">
 						{Announcements.data.map(
 							(announcement, index) =>
