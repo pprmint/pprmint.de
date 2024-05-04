@@ -59,7 +59,7 @@ async function getWorks(
                 "Content-Type": "application/json",
                 Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
             },
-            next: { revalidate: 60 },
+            next: { revalidate: 0 },
         }
     );
     if (!res.ok) {
