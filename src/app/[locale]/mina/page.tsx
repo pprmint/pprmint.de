@@ -21,6 +21,7 @@ import GallerySkeleton from "./gallery/gallerySkeleton";
 import FanartRules from "./rules";
 import Download from "src/icons/Download";
 import Discord from "src/icons/Discord";
+import Twitter from "src/icons/Twitter";
 
 type Props = {
 	params: { locale: string };
@@ -48,6 +49,14 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
+				<div className="relative w-screen h-screen max-h-svh">
+					<p
+						className="absolute right-3 top-1/2 -translate-y-1/2 z-10 text-xs text-neutral-500"
+						style={{ writingMode: "vertical-rl" }}
+					>
+						<Twitter className="inline fill-blue rotate-90" /> @neko__draws
+					</p>
+				</div>
 				<FadingImage src={HeroMina} alt="" fill className="object-cover" quality={90} />
 			</Title>
 			<main>

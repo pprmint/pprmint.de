@@ -14,6 +14,7 @@ import { Link } from "src/navigation";
 import Button from "src/components/ui/Button";
 import Chatbox from "./chatbox";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import Twitter from "src/icons/Twitter";
 
 type Props = {
 	params: { locale: string };
@@ -33,13 +34,18 @@ export default function Page({ params: { locale } }: Props) {
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
-				<FadingImage
-					src={locale == "de" ? TitleBackgroundDe : TitleBackgroundEn}
-					alt=""
-					quality={100}
-					fill
-					className="object-cover object-top xl:object-[0%_15%]"
-				/>
+				<div className="relative w-screen h-screen max-h-svh">
+					<p className="absolute right-3 top-1/2 -translate-y-1/2 z-10 text-xs" style={{ writingMode: "vertical-rl" }}>
+						<Twitter className="inline fill-blue rotate-90" /> @neko__draws
+					</p>
+					<FadingImage
+						src={locale == "de" ? TitleBackgroundDe : TitleBackgroundEn}
+						alt=""
+						quality={100}
+						fill
+						className="object-cover object-top xl:object-[0%_15%]"
+					/>
+				</div>
 			</Title>
 			<main>
 				<section className="max-w-7xl mx-auto my-20 md:my-32 xl:my-40 px-6 md:px-9 flex flex-col items-center justify-center">
