@@ -92,6 +92,21 @@ module.exports = withNextIntl({
 				destination: "/project/ytdg",
 				permanent: true,
 			},
+			{
+				source: "/minttriangles",
+				destination: "/project/minttriangles",
+				permanent: true,
+			},
+			{
+				source: "/triangles",
+				destination: "/project/minttriangles",
+				permanent: true,
+			},
+			{
+				source: "/727",
+				destination: "/project/minttriangles",
+				permanent: true,
+			},
 		];
 	},
 	async headers() {

@@ -155,6 +155,7 @@ module.exports = {
 				],
 				display: ["Silka", "Gotham", "Metropolis", "Clarity City", "Montserrat", "sans-serif"],
 				mintbit: "Mintbit, 'Roboto Mono', monospace",
+				minttriangles: "'Mint Triangles', monospace",
 				mono: "'Basier Square Mono', 'Roboto Mono', monospace",
 				"display-mono": "'Silka Mono', 'Roboto Mono', monospace",
 				lcd: "'LCD 14', 'Roboto Mono', monospace",

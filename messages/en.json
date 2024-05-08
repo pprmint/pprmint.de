@@ -568,6 +568,37 @@
 			"title": "Mintsans"
 		}
 	},
+	"MINTTRIANGLES": {
+		"Content": {
+			"Intro": {
+				"heading": "This is a very specific font",
+				"text1": "I like the design of osu!lazer, particularly its <Link>score counter</Link>, so I made a font that I could use for my lockscreen.",
+				"text2": "That's the plot.",
+				"text3": "As this is a font made to serve one purpose, the character set is quite limited. Nevertheless, it might prove to be helpful for your own purposes."
+			},
+			"Wireframe": {
+				"heading": "Wireframe",
+				"text": "Typing a <key>*</key> will bring up a wireframe glyph that can be placed behind any digits for aesthetics. It's slightly thinner than the stroke width of the digits themselves. If you need one that's the same thickness, type a <key>#</key> instead."
+			},
+			"Punctuation": {
+				"heading": "Punctuation",
+				"text": "You could show the time, fractions... or something that requires a semicolon. I don't know what that could be, but it's there if you need it. Semicolons are cool."
+			},
+			"Special": {
+				"heading": "Special characters",
+				"text": "In the event that numbers alone aren't cutting it, I've also included some math symbols and slashes that you can use. Useful for showing things like differences or multipliers."
+			},
+			"Download": {
+				"heading": "When you see it",
+				"text": "I've been told that's a reference. Anyway, here's the download button.",
+				"button": "Come and get it"
+			}
+		},
+		"Head": {
+			"description": "Digits inspired by the score counter in osu!lazer.",
+			"title": "Mint Triangles"
+		}
+	},
 	"NAVIGATION": {
 		"Path": {
 			"General": {
@@ -588,10 +619,14 @@
 			"Works": {
 				"title": "Works",
 				"Gallery": {
-          "description": "Vector graphics, animations and 3D renders.",
+					"description": "Vector graphics, animations and 3D renders.",
 					"title": "Gallery"
 				},
 				"Projects": {
+					"Triangles": {
+						"description": "The digits from osu!lazer. Almost.",
+						"title": "Mint Triangles"
+					},
 					"Icons": {
 						"description": "15x15 icons for UIs.",
 						"title": "Icons"

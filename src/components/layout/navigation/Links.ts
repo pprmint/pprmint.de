@@ -15,6 +15,10 @@ export const Pages = [
 ];
 export const Projects = [
 	{
+		link: "/project/minttriangles",
+		strings: "Triangles",
+	},
+	{
 		link: "/project/icons",
 		strings: "Icons",
 	},

@@ -568,6 +568,37 @@
 			"title": "Mintsans"
 		}
 	},
+	"MINTTRIANGLES": {
+		"Content": {
+			"Intro": {
+				"heading": "Dies ist eine sehr spezielle Schriftart",
+				"text1": "Mir gefällt das Design von osu!lazer, besonders die <Link>Score-Anzeige</Link>. Folglich habe ich eine Schriftart erstellt, die ich für meinen Sperrbildschirm verwenden kann.",
+				"text2": "Das ist der Grund.",
+				"text3": "Da diese Schriftart nur einem simplen Zweck dient, ist der Zeichensatz sehr beschränkt. Vielleicht ist sie ja trotzdem für deine Zwecke hilfreich."
+			},
+			"Wireframe": {
+				"heading": "Drahtgitter",
+				"text": "Hinter der <key>*</key>-Taste verbirgt sich eine Drahtgitter-Glyphe, die hinter den eigentlichen Ziffern platziert werden kann. Die Linien sind etwas dünner als die Ziffern selbst. Wenn du ein Drahtgitter mit identischer Strichbreite brauchst, verwende stattdessen die <key>#</key>-Taste."
+			},
+			"Punctuation": {
+				"heading": "Interpunktion",
+				"text": "Du könntest die Zeit oder Brüche anzeigen, oder... etwas, das ein Semikolon erfordert. Mir fällt zwar kein Beispiel ein, aber es ist da, falls du's brauchst. Semikolons sind cool."
+			},
+			"Special": {
+				"heading": "Sonderzeichen",
+				"text": "Sollten Zahlen allein mal nicht reichen, habe ich einige Rechenoperatoren und Schrägstriche hinzugefügt. Die könntest du für Differenzen oder Multiplikatoren verwenden."
+			},
+			"Download": {
+				"heading": "Ab in den Zahlentraum",
+				"text": "Nichts ist schöner.",
+				"button": "Abfahrt"
+			}
+		},
+		"Head": {
+			"description": "Ziffern inspiriert von der Score-Anzeige in osu!lazer.",
+			"title": "Mint Triangles"
+		}
+	},
 	"NAVIGATION": {
 		"Path": {
 			"General": {
@@ -592,6 +623,10 @@
 					"title": "Galerie"
 				},
 				"Projects": {
+					"Triangles": {
+						"description": "Die Ziffern von osu!lazer. Fast.",
+						"title": "Mint Triangles"
+					},
 					"Icons": {
 						"description": "15x15 Icons für UIs.",
 						"title": "Icons"

@@ -7,6 +7,7 @@ import "../fonts/SilkaMono/silkamono.css";
 import "../fonts/BasierSquare/basiersquare.css";
 import "../fonts/BasierSquareMono/basiersquaremono.css";
 import "../fonts/Mintbit/mintbit.css";
+import "../fonts/MintTriangles/minttriangles.css";
 // yikes
 import "../fonts/MintSans/mintsans.css";
 
