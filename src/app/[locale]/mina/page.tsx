@@ -51,13 +51,13 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 			<Title title={t("Head.title")} description={t("Head.description")}>
 				<div className="relative w-screen h-screen max-h-svh">
 					<p
-						className="absolute right-3 top-1/2 -translate-y-1/2 z-10 text-xs text-neutral-500"
+						className="absolute right-0 top-1/2 -translate-y-1/2 z-100 px-1 py-2 rounded-l-md text-xs text-neutral-50 bg-neutral-950/75 backdrop-blur-md"
 						style={{ writingMode: "vertical-rl" }}
 					>
 						<Twitter className="inline fill-blue rotate-90" /> @108sketches
 					</p>
+					<FadingImage src={TitleMina} alt="" fill className="object-cover object-top" quality={90} />
 				</div>
-				<FadingImage src={TitleMina} alt="" fill className="object-cover object-top" quality={90} />
 			</Title>
 			<main>
 				<section
