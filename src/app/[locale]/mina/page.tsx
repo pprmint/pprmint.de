@@ -6,7 +6,7 @@ import FadingImage from "src/components/ui/FadingImage";
 
 import Ref from "./ref";
 
-import HeroMina from "public/assets/mina/hero.webp";
+import TitleMina from "public/assets/mina/title.webp";
 import Stickers from "public/assets/mina/stickers.svg";
 import StickerSeyana from "public/assets/mina/sticker_seyana.webp";
 import StickerStare from "public/assets/mina/sticker_stare.webp";
@@ -54,12 +54,20 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 						className="absolute right-3 top-1/2 -translate-y-1/2 z-10 text-xs text-neutral-500"
 						style={{ writingMode: "vertical-rl" }}
 					>
-						<Twitter className="inline fill-blue rotate-90" /> @neko__draws
+						<Twitter className="inline fill-blue rotate-90" /> @108sketches
 					</p>
 				</div>
-				<FadingImage src={HeroMina} alt="" fill className="object-cover" quality={90} />
+				<FadingImage src={TitleMina} alt="" fill className="object-cover object-top" quality={90} />
 			</Title>
 			<main>
+				<section
+					id="gallery"
+					className="mb-20 md:mb-28 xl:mb-32 pt-20 md:pt-28 xl:pt-32 max-w-7xl mx-auto px-3 xl:px-9"
+				>
+					<Suspense fallback={<GallerySkeleton />}>
+						<GallerySuspense p={currentPage} artist={artist} nsfw={nsfw} />
+					</Suspense>
+				</section>
 				<section id="lore" className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9">
 					<h2>
 						{t("Content.About.heading")}
@@ -108,14 +116,6 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 					</div>
 				</section>
 				<FanartRules />
-				<section
-					id="gallery"
-					className="mb-20 md:mb-28 xl:mb-32 pt-20 md:pt-28 xl:pt-32 max-w-7xl mx-auto px-3 xl:px-9"
-				>
-					<Suspense fallback={<GallerySkeleton />}>
-						<GallerySuspense p={currentPage} artist={artist} nsfw={nsfw} />
-					</Suspense>
-				</section>
 				<section className="relative flex items-end justify-center overflow-clip my-20 md:my-32 xl:my-40 max-w-screen-3xl mx-auto px-6 md:px-9 min-h-[500px]">
 					<div className="absolute inset-0 -z-10 overflow-clip">
 						<FadingImage
