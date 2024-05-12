@@ -54,7 +54,7 @@ export default function Page({ params: { locale } }: Props) {
 					</p>
 					<p>{t("Content.Intro.text3")}</p>
 				</section>
-				<section>
+				<section className="my-20 md:my-32 xl:my-40">
 					<Selector />
 				</section>
 			</main>

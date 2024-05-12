@@ -153,6 +153,20 @@ export default function MobileNavigation() {
 												</li>
 											</Link>
 										))}
+											<Link className="group" href="/projects" onClick={handleClose}>
+												<li
+													className={`flex items-center ${
+														"/projects" === pathname
+															? "text-neutral-50"
+															: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
+													} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
+												>
+													{"/projects" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
+													<div className="flex flex-col">
+														<span>{t("Path.Works.Projects.More.title")}</span>
+													</div>
+												</li>
+											</Link>
 									</ul>
 								</div>
 								<div className="my-9">

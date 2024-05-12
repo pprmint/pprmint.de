@@ -15,31 +15,27 @@ export const Pages = [
 ];
 export const Projects = [
 	{
-		link: "/project/minttriangles",
+		link: "/projects/minttriangles",
 		strings: "Triangles",
 	},
 	{
-		link: "/project/icons",
+		link: "/projects/icons",
 		strings: "Icons",
 	},
 	{
-		link: "/project/ytdg",
-		strings: "YtDlpGui",
-	},
-	{
-		link: "/project/mintcraft",
+		link: "/projects/mintcraft",
 		strings: "Mintcraft",
 	},
 	{
-		link: "/project/mintbit",
+		link: "/projects/mintbit",
 		strings: "Mintbit",
 	},
 	{
-		link: "/project/mintsans",
+		link: "/projects/mintsans",
 		strings: "Mintsans",
 	},
 	{
-		link: "/project/appicons",
+		link: "/projects/appicons",
 		strings: "AppIcons",
 	},
 ];

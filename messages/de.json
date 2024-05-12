@@ -650,6 +650,9 @@
 					"AppIcons": {
 						"description": "App-Symbole im Windows-11-Stil.",
 						"title": "App-Symbole"
+					},
+					"More": {
+						"title": "Mehr ansehen..."
 					}
 				}
 			},
@@ -719,6 +722,18 @@
 			"dpaOf": "Data Processing Addendum von {provider}",
 			"privacyPolicyOf": "Datenschutzerklärung von {provider}",
 			"lastUpdated": "Zuletzt aktualisiert: {revisionDate, date, ::yyyyMMMMd}"
+		}
+	},
+	"PROJECTS": {
+		"Head": {
+			"description": "Krams von mir den du verwenden kannst.",
+			"title": "Projekte"
+		},
+		"Tag": {
+			"font": "Schriftart",
+			"design": "Design-Ding",
+			"software": "Software",
+			"customization": "Personalisierung"
 		}
 	},
 	"YTDG": {

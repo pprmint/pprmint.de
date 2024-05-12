@@ -650,6 +650,9 @@
 					"AppIcons": {
 						"description": "Windows-11-style app icons.",
 						"title": "App icons"
+					},
+					"More": {
+						"title": "Show more..."
 					}
 				}
 			},
@@ -719,6 +722,18 @@
 			"dpaOf": "Data Processing Addendum of {provider}",
 			"privacyPolicyOf": "Privacy policy of {provider}",
 			"lastUpdated": "Last updated: {revisionDate, date, ::yyyyMMMMd}"
+		}
+	},
+	"PROJECTS": {
+		"Head": {
+			"description": "Stuff I made that you can use.",
+			"title": "Projects"
+		},
+		"Tag": {
+			"font": "Font",
+			"design": "Design thing",
+			"software": "Software",
+			"customization": "Customization"
 		}
 	},
 	"YTDG": {

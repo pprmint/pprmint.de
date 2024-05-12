@@ -22,6 +22,7 @@ import FanartRules from "./rules";
 import Download from "src/icons/Download";
 import Discord from "src/icons/Discord";
 import Twitter from "src/icons/Twitter";
+import FlipCharacter from "src/components/ui/FlipCharacter";
 
 type Props = {
 	params: { locale: string };
@@ -62,7 +63,7 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 			<main>
 				<section
 					id="gallery"
-					className="mb-20 md:mb-28 xl:mb-32 pt-20 md:pt-28 xl:pt-32 max-w-7xl mx-auto px-3 xl:px-9"
+					className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-3 xl:px-9"
 				>
 					<Suspense fallback={<GallerySkeleton />}>
 						<GallerySuspense p={currentPage} artist={artist} nsfw={nsfw} />

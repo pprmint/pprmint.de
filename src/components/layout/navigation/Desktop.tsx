@@ -8,10 +8,7 @@ import Copyright from "./Socials";
 import ChevronDown from "src/icons/ChevronDown";
 
 const Caret = (
-	<ChevronDown
-		className="group-data-[state='open']/root:translate-y-0.5 duration-250 ease-out ml-auto"
-		aria-hidden
-	/>
+	<ChevronDown className="group-data-[state='open']/root:translate-y-0.5 duration-250 ease-out ml-auto" aria-hidden />
 );
 
 export default function DesktopNavigation() {
@@ -56,7 +53,9 @@ export default function DesktopNavigation() {
 												<span className="text-neutral-50 font-display font-semibold text-xl pb-0.5">
 													{t(`Path.General.${Page.strings}.title`)}
 												</span>
-												<p className="ListItemText">{t(`Path.General.${Page.strings}.description`)}</p>
+												<p className="ListItemText">
+													{t(`Path.General.${Page.strings}.description`)}
+												</p>
 											</Link>
 										</NavigationMenu.Link>
 									</li>
@@ -105,11 +104,28 @@ export default function DesktopNavigation() {
 												<span className="text-neutral-50 font-display font-semibold text-xl pb-0.5">
 													{t(`Path.Works.Projects.${Project.strings}.title`)}
 												</span>
-												<p className="ListItemText">{t(`Path.Works.Projects.${Project.strings}.description`)}</p>
+												<p className="ListItemText">
+													{t(`Path.Works.Projects.${Project.strings}.description`)}
+												</p>
 											</Link>
 										</NavigationMenu.Link>
 									</li>
 								))}
+								<li className="col-span-2">
+									<NavigationMenu.Link
+										asChild
+										className={`group block px-3 py-2.5 text-center rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75 ${
+											pathname === "/projects" &&
+											"bg-gradient-to-b from-neutral-950/30 to-neutral-950/15 shadow-inner pointer-events-none"
+										}`}
+									>
+										<Link href="/projects">
+											<span className="text-neutral-50 font-display font-semibold pb-0.5">
+												{t("Path.Works.Projects.More.title")}
+											</span>
+										</Link>
+									</NavigationMenu.Link>
+								</li>
 							</ul>
 						</NavigationMenu.Content>
 					</NavigationMenu.Item>
