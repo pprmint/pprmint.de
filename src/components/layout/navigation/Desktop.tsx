@@ -136,8 +136,8 @@ export default function DesktopNavigation() {
 								{Caret}
 							</span>
 						</NavigationMenu.Trigger>
-						<NavigationMenu.Content className={`${NavMenuContent} w-[400px] lg:w-[500px]`}>
-							<ul className="grid gap-1 grid-flow-row">
+						<NavigationMenu.Content className={`${NavMenuContent} w-[500px] lg:w-[600px]`}>
+							<ul className="grid gap-1 grid-flow-row grid-cols-2">
 								<li>
 									<NavigationMenu.Link
 										asChild
@@ -152,8 +152,26 @@ export default function DesktopNavigation() {
 											</span>
 											<p className="ListItemText">
 												{t.rich("Path.Other.Privacy.description", {
-													s: (chunks) => <span className="text-xs opacity-20">{chunks}</span>,
+													s: (chunks) => <><br /><span className="text-xs opacity-20">{chunks}</span></>,
 												})}
+											</p>
+										</Link>
+									</NavigationMenu.Link>
+								</li>
+								<li>
+									<NavigationMenu.Link
+										asChild
+										className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75 ${
+											pathname === "/ai" &&
+											"bg-gradient-to-b from-neutral-950/30 to-neutral-950/15 shadow-inner pointer-events-none"
+										}`}
+									>
+										<Link href="/ai">
+											<span className="text-neutral-50 font-display font-semibold text-xl pb-0.5">
+												{t("Path.Other.AI.title")}
+											</span>
+											<p className="ListItemText">
+												{t("Path.Other.AI.description")}
 											</p>
 										</Link>
 									</NavigationMenu.Link>

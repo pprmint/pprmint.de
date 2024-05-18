@@ -10,6 +10,34 @@
 			"title": "Seite nicht gefunden"
 		}
 	},
+	"AI": {
+		"Content": {
+			"Intro": {
+				"heading": "Ich erstelle gerne Zeug",
+				"text1": "Der Welt meine Arbeiten zu zeigen und zu sehen, dass anderen Leuten irgendwo auf dieser Welt meine Arbeit gefällt, bereitet mir viel Freude und motiviert mich, weiter an meinen Werken zu arbeiten und mich zu verbessern.",
+				"text2": "Die meisten meiner Kreationen wurden nur aus Spaß sowie unter Vorbehalt aller Rechte erstellt. Eine besondere Ausnahme gilt für die Verwendung von 3D-Rendern als Hintergrundbilder für Desktops oder Telefone im persönlichen Gebrauch.",
+				"text3": "Manche glauben jedoch, sowie etwas im Internet veröffentlicht wird, steht es jedermann automatisch zur freien Verfügung und man kann damit tun, was man will.",
+				"text4": "Und damit habe ich ein Problem."
+			},
+			"Copyright": {
+				"heading": "Ich mag mein Urheberrecht",
+				"text1": "Wie schon in der <gallery>Galerie-Seite</gallery> und im FAQ auf der <contact>Kontakt-Seite</contact> beschrieben bin ich eher restriktiv, was die Nutzung meiner Werke von Anderen angeht. Generell kann man sagen: Wenn es keinen Download-Knopf unten auf der Seite hat, wie z.B. viele meiner Schriftarten, darfst du es ohne mein Einverständnis nicht wiederverwenden, verkaufen oder weiterverteilen, egal ob für private oder kommerzielle Zwecke.",
+				"text2": "Bisher dachte ich, es wäre selbstverständlich, dass du die Werke Anderer nicht ohne deren Zustimmung wiederverwenden darfst. Für diese ganzen KI-Unternehmen und Data-Scrapern ist hier nochmal meine explizite Erklärung, was die Verwendung meiner Werke angeht:"
+			},
+			"Disallow": {
+				"heading": "Hiermit untersage ich jegliche Form von Data-Mining, Scraping sowie sonstige Reproduktion meiner Werke",
+				"text": "Sofern in besonderen Lizenzbedingungen nicht anders beschrieben, dürfen meine Werke (einschließlich, jedoch nicht beschränkt auf geschriebenen Text, 2D- und 3D-Grafiken, Animationen und Motion-Graphics, sowie andere herunterladbare Inhalte auf dieser Website, sowie Websites Dritter, auf welchen ich meine Inhalte bereitstelle) nicht ohne meine vorherige schriftliche Zustimmung für persönliche oder kommerzielle Zwecke verwendet werden. Dies beinhaltet außerdem Zwecke im Zusammenhang mit dem Training oder der Entwicklung von künstlicher Intelligenz (KI oder AI) jeglicher Art, soweit dies nach geltendem Recht zulässig ist."
+			},
+			"Ask": {
+				"heading": "Frag einfach",
+				"text": "Falls der obige Text nicht eindeutig genug war, kannst du mir eine Nachricht schreiben und in dieser nach genaueren Erläuterungen sowie nach Erlaubnis zur Verwendung bestimmter Werke fragen. Sicher ist sicher."
+			}
+		},
+		"Head": {
+			"description": "TL;DR: Nein.",
+			"title": "Erklärung bzgl. KI-Training"
+		}
+	},
 	"APPICONS": {
 		"Content": {
 			"Intro": {
@@ -661,6 +689,10 @@
 				"Privacy": {
 					"description": "Weiß ich, wo du wohnst? <s>Schau doch mal durch's Fenster.</s>",
 					"title": "Datenschutzerklärung"
+				},
+				"AI": {
+					"description": "Mein Standpankt zur Verwendung meiner Werke für KI-Training",
+					"title": "Erklärung bzgl. KI-Training"
 				},
 				"SwitchLocale": {
 					"description": "What you're reading doesn't make a lick of sense to you? Click here.",

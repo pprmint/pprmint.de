@@ -22,6 +22,7 @@ export const metadata: Metadata = {
 		creator: "@npprmint",
 		card: "summary_large_image",
 	},
+	robots: "noai"
 };
 
 export const viewport: Viewport = {

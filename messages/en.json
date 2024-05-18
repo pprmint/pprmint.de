@@ -10,6 +10,34 @@
 			"title": "Page not found"
 		}
 	},
+	"AI": {
+		"Content": {
+			"Intro": {
+				"heading": "I like to make stuff",
+				"text1": "Putting my work out there for the world to see and seeing people around the world enjoy what I do brings me lots of joy and motivates me to continue and improve my craft.",
+				"text2": "Most of the things I create are made just made for fun and on an all rights reserved basis, with a very specific exception to allow people to use my 3D renders as wallpapers on personal use desktops or phones.",
+				"text3": "Some people seem to think, though, that if anything is put on the internet that automatically means anyone can do whatever they want with it.",
+				"text4": "And I take issue with that."
+			},
+			"Copyright": {
+				"heading": "I like my copyright",
+				"text1": "As described on the <gallery>Gallery</gallery> page and in the FAQ on the <contact>Contact</contact> page, I'm pretty restrictive in regards to what other people can do with my work. Generally, unless it's something that has a download button at the bottom of the page (like most of my fonts for instance) you're not allowed to reuse, resell or redistribute my work without permission, neither personally or commercially.",
+				"text2": "Until now I thought it should go without saying that you can't just use other people's work without the permission of the original author, but here's my declaration in case it wasn't obvious to all those AI companies and data harvesters out there:"
+			},
+			"Disallow": {
+				"heading": "I hereby prohibit and opt out of any form of data mining, scraping or reproduction of my work",
+				"text": "Unless otherwise specified in any explicit licensing terms, without my prior written permission you are not allowed to use any of my work (including but not limited to any written text, 2D and 3D renders, animations, motion graphics and any other downloadable content on this website, as well as content that I choose to host on third-party websites) for any purposes, both personal or commercial, including purposes related to the training and/or development of artificial intelligence (AI) of any kind, to the extent permitted by applicable law."
+			},
+			"Ask": {
+				"heading": "Just ask",
+				"text": "In case the above wasn't clear enough, you may message me to ask for clarifications or inquire about permission to use some of my work for a specific purpose. Better be safe than sorry."
+			}
+		},
+		"Head": {
+			"description": "TL;DR: Don't.",
+			"title": "AI training declaration"
+		}
+	},
 	"APPICONS": {
 		"Content": {
 			"Intro": {
@@ -661,6 +689,10 @@
 				"Privacy": {
 					"description": "Do I know where you live? <s>Why not check the windows?</s>",
 					"title": "Privacy policy"
+				},
+				"AI": {
+					"description": "My stance on usage of my work for training AI",
+					"title": "AI training declaration"
 				},
 				"SwitchLocale": {
 					"description": "Du verstehst nicht mal Bahnhof? Klick hier.",
