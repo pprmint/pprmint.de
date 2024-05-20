@@ -2,7 +2,6 @@
 import { useLocale, useTranslations } from "next-intl";
 import { Link, locales, usePathname } from "src/navigation";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-
 import { Pages, Projects } from "./Links";
 import Copyright from "./Socials";
 import ChevronDown from "src/icons/ChevronDown";
@@ -13,11 +12,9 @@ const Caret = (
 
 export default function DesktopNavigation() {
 	const t = useTranslations("NAVIGATION");
-
 	const pathname = usePathname();
 	const locale = useLocale();
 	const otherLocale = locales?.find((cur) => cur !== locale);
-
 	// Styles
 	const NavMenuTrigger =
 		"group/root flex items-center gap-3 h-10 px-4 text-neutral-50/80 hover:text-neutral-50 data-[state='open']:text-neutral-50 data-[state='open']:backdrop-blur-md duration-250 rounded-lg";
@@ -25,7 +22,6 @@ export default function DesktopNavigation() {
 		"absolute top-0 left-0 p-3 duration-250 data-[motion='from-start']:animate-enter-from-l data-[motion='from-end']:animate-enter-from-r data-[motion='to-start']:animate-exit-to-l data-[motion='to-end']:animate-exit-to-r";
 	const NavMenuViewport =
 		"relative origin-top-left w-[--radix-navigation-menu-viewport-width] overflow-hidden backdrop-blur-xl bg-gradient-to-b from-[#282828bb] to-[#222222aa] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 text-neutral rounded-xl shadow-[0_6px_22px_#11111166] h-[--radix-navigation-menu-viewport-height] duration-250 ease-out data-[state='open']:animate-enter-from-t data-[state='closed']:animate-exit-to-t";
-
 	return (
 		<>
 			<NavigationMenu.Root className="relative flex justify-center" delayDuration={0}>
@@ -37,7 +33,6 @@ export default function DesktopNavigation() {
 								{Caret}
 							</span>
 						</NavigationMenu.Trigger>
-
 						<NavigationMenu.Content className={`${NavMenuContent} w-[500px] lg:w-[600px]`}>
 							<ul className="grid gap-1 grid-flow-row grid-cols-2">
 								{Pages.map((Page) => (
@@ -63,7 +58,6 @@ export default function DesktopNavigation() {
 							</ul>
 						</NavigationMenu.Content>
 					</NavigationMenu.Item>
-
 					<NavigationMenu.Item>
 						<NavigationMenu.Trigger className={NavMenuTrigger}>
 							<span className="inline-flex items-center gap-3 drop-shadow-[0px_2px_12px_#111a]">
@@ -71,7 +65,6 @@ export default function DesktopNavigation() {
 								{Caret}
 							</span>
 						</NavigationMenu.Trigger>
-
 						<NavigationMenu.Content className={`${NavMenuContent} w-[500px] lg:w-[600px]`}>
 							<ul className="grid gap-1 grid-cols-2 grid-flow-row">
 								<li className="col-span-2">
@@ -152,7 +145,12 @@ export default function DesktopNavigation() {
 											</span>
 											<p className="ListItemText">
 												{t.rich("Path.Other.Privacy.description", {
-													s: (chunks) => <><br /><span className="text-xs opacity-20">{chunks}</span></>,
+													s: (chunks) => (
+														<>
+															<br />
+															<span className="text-xs opacity-20">{chunks}</span>
+														</>
+													),
 												})}
 											</p>
 										</Link>
@@ -170,9 +168,7 @@ export default function DesktopNavigation() {
 											<span className="text-neutral-50 font-display font-semibold text-xl pb-0.5">
 												{t("Path.Other.AI.title")}
 											</span>
-											<p className="ListItemText">
-												{t("Path.Other.AI.description")}
-											</p>
+											<p className="ListItemText">{t("Path.Other.AI.description")}</p>
 										</Link>
 									</NavigationMenu.Link>
 								</li>

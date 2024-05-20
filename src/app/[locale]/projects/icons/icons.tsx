@@ -143,6 +143,7 @@ import Hourglass from "src/icons/Hourglass";
 import HourglassDrained from "src/icons/HourglassDrained";
 import HourglassDraining from "src/icons/HourglassDraining";
 import HourglassFull from "src/icons/HourglassFull";
+import Info from "src/icons/Info";
 import InfoCircle from "src/icons/InfoCircle";
 import InfoOctagon from "src/icons/InfoOctagon";
 import InfoTriangle from "src/icons/InfoTriangle";
@@ -290,6 +291,7 @@ import VolumeLow from "src/icons/VolumeLow";
 import VolumeMedium from "src/icons/VolumeMedium";
 import VolumeMute from "src/icons/VolumeMute";
 import VolumeQuiet from "src/icons/VolumeQuiet";
+import Warning from "src/icons/Warning";
 import WarningCircle from "src/icons/WarningCircle";
 import WarningOctagon from "src/icons/WarningOctagon";
 import WarningTriangle from "src/icons/WarningTriangle";
@@ -422,18 +424,20 @@ export const Icons: Category[] = [
 		category: "symbolic",
 		icons: [
 			{ icon: <QuestionTriangle />, name: "Question triangle" },
-			{ icon: <WarningTriangle />, name: "Warning triangle" },
 			{ icon: <InfoTriangle />, name: "Info triangle" },
+			{ icon: <WarningTriangle />, name: "Warning triangle" },
 			{ icon: <ErrorTriangle />, name: "Error triangle" },
 			{ icon: <QuestionOctagon />, name: "Question octagon" },
-			{ icon: <WarningOctagon />, name: "Warning octagon" },
 			{ icon: <InfoOctagon />, name: "Info octagon" },
+			{ icon: <WarningOctagon />, name: "Warning octagon" },
 			{ icon: <ErrorOctagon />, name: "Error octagon" },
 			{ icon: <QuestionCircle />, name: "Question circle" },
 			{ icon: <InfoCircle />, name: "Info circle" },
 			{ icon: <WarningCircle />, name: "Warning circle" },
 			{ icon: <ErrorCircle />, name: "Error circle" },
 			{ icon: <Question />, name: "Question" },
+			{ icon: <Info />, name: "Info" },
+			{ icon: <Warning />, name: "Warning" },
 			{ icon: <Error />, name: "Error" },
 			{ icon: <Check />, name: "Check" },
 			{ icon: <CheckCircle />, name: "Check circle" },
