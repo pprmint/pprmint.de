@@ -83,6 +83,11 @@ module.exports = withNextIntl({
 				permanent: false,
 			},
 			{
+				source: "/icons",
+				destination: "/projects/icons",
+				permanent: false,
+			},
+			{
 				source: "/minttriangles",
 				destination: "/projects/minttriangles",
 				permanent: false,
