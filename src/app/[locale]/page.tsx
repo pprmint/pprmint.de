@@ -197,7 +197,7 @@ export default async function Page({ params: { locale } }: Props) {
 						</div>
 						<Link
 							href="/mina#gallery"
-							className="relative group my-12 w-4/5 max-w-fit max-h-4/5 rotate-3 hover:rotate-0 hover:scale-[1.02] active:scale-[0.99] active:brightness-90 duration-400 active:duration-75 ease-out-back active:ease-out rounded-xl shadow-[0px_0px_5px_10px_#111]"
+							className="relative group my-12 w-4/5 max-w-fit max-h-4/5 rotate-3 hover:rotate-0 hover:scale-[1.02] active:scale-[0.99] active:brightness-90 duration-400 active:duration-75 ease-out-back active:ease-out rounded-xl"
 						>
 							<FadingImage
 								src={`https://static.pprmint.art${MinaArt.data[0].attributes.artwork.data[0].attributes.url}`}
@@ -206,7 +206,14 @@ export default async function Page({ params: { locale } }: Props) {
 								height={MinaArt.data[0].attributes.artwork.data[0].attributes.height}
 								className="rounded-xl"
 							/>
-							<div className="absolute inset-0 overflow-clip blur-md rounded-xl">
+							<div
+								className="absolute inset-0 overflow-clip blur-md rounded-xl"
+								style={{
+									maskImage: `url(https://static.pprmint.art${MinaArt.data[0].attributes.artwork.data[0].attributes.url})`,
+									maskRepeat: "no-repeat",
+                  maskSize: "100%"
+								}}
+							>
 								<div className="absolute -left-[225%] lg:-left-full group-hover:left-[150%] top-0 bottom-0 skew-x-[30deg] w-64 group-hover:w-0 bg-neutral-50/25 duration-0 group-hover:duration-1000 ease-out-quint" />
 							</div>
 							<Sparkle
