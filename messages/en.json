@@ -730,26 +730,26 @@
 		"Content": {
 			"Tldr": {
 				"heading": "TL;DR:",
-				"text1": "I make use of <b>Contabo</b> for hosting this website, <b>Fastmail</b> for sending and receiving emails, and <b>Cloudflare</b> as a DNS proxy.",
+				"text1": "I make use of <b>Vercel</b> and <b>Contabo</b> for hosting the website and media on it, <b>Fastmail</b> for sending and receiving emails, and <b>Cloudflare</b> as a DNS proxy.",
 				"text2": "The only personally identifiable data I receive and have access to is the data you send to me via the contact form or by email directly, such as name, email address and whatever you write in the message field. Unless we agreed on something else, these messages will automatically be deleted after 60 days.",
-				"text3": "While the webserver does not collect IP addresses, Cloudflare does, as it forwards the requests and filters them where necessary. Firstly, this makes it harder for you to access the origin server and secondly, it protects me against DDoS attacks."
+				"text3": "Vercel and Cloudflare may process and store details such as your public IP address, browser type and the time of request, as is required for the respective service to function and for purposes in their interest. Cloudflare is used as a proxy between your browser and the server I use to host my CMS along with images and videos."
 			},
 			"General": {
 				"heading": "General.",
-				"text1": "This website does not collect any personal data, be it through analytics, advertising, trackers, cookies, fingerprinting or similar. IP addresses are only used for communication between your browser and the website, and are not captured or stored by the server.",
+				"text1": "This website does not collect any personal data, be it through analytics, advertising, trackers, cookies, fingerprinting or similar. IP addresses may be processed and stored by third party providers while accessing this site. More on that in the Hosting section below.",
 				"text2": "The only personal data that I have direct access to is that which you send me via the contact form or directly via email, such as your name, email address and the content of the message. My email inbox is with Fastmail (Fastmail Pty. Ltd., PO Box 234, Collins St West, Victoria 8007, Australia) and emails will be deleted automatically after 60 days unless we agreed on something else in replies.",
 				"text3": "Parts of this website may contain links to external websites, such as social media profiles or websites of artists and other projects. No responsibility is taken for the content on such sites. You will also be subject to their respective privacy policies and not those of pprmint.art."
 			},
 			"Hosting": {
 				"heading": "Hosting.",
-				"text1": "pprmint.art is hosted on a cloud server from Contabo (Contabo GmbH, Aschauer Straße 32a, 81549 Munich, Germany), which is located in an EU data center. No IP addresses are stored to process requests and there are no server logs created with any further details.",
-				"text2": "To protect against DDoS attacks and optimize loading times, I use Cloudflare (Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA), which provide a proxy for DNS requests. Any requests sent to my website first pass through Cloudflare, who may collect the IP address of visitors for analysis and security purposes.",
+				"text1": "The website itself is hosted by Vercel (Vercel, Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA). I also use a CMS hosted on a cloud server from Contabo (Contabo GmbH, Aschauer Straße 32a, 81549 Munich, Germany), which is located in an EU data center and hosts most images and videos on this site.",
+				"text2": "To protect against DDoS attacks and optimize loading times, I use Cloudflare (Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA), which provide a proxy for requests between you and my CMS server. Requests sent to it will first pass through Cloudflare, who may collect the IP address of visitors for analysis and security purposes.",
 				"text3": "The use of these services for their respective purpose is based on my legitimate interest in being able to offer this website as error-free, fast and secure as possible. (Art. 6(1)(f) GDPR)"
 			},
 			"Contact": {
 				"heading": "Contact.",
 				"text1": "If you have any privacy-related questions, please feel free to send an email to <strong>privacy[at]pprmint.art</strong>.",
-				"text2": "Please use this email address only for this purpose and not to send general questions, advers, offers, spam or the like."
+				"text2": "Please use the above email address only for that purpose and not to send general questions, advers, offers, spam or the like."
 			},
 			"dpaOf": "Data Processing Addendum of {provider}",
 			"privacyPolicyOf": "Privacy policy of {provider}",

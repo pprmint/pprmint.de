@@ -730,20 +730,20 @@
 		"Content": {
 			"Tldr": {
 				"heading": "Die Kurzfassung:",
-				"text1": "Ich setze auf <b>Contabo</b> für das Hosting der eigentlichen Website, <b>Fastmail</b> für den Email-Versand und -Empfang, und <b>Cloudflare</b> als DNS-Proxy.",
-				"text2": "Die einzigen personenbezogene Daten die ich erhalte und Zugriff drauf habe, sind die, die du über das Kontaktformular oder per Email direkt an mich sendest, wie Name, Email-Adresse und was immer du ins Nachrichtenfeld schreibst. Sofern nicht anders vereinbart, werden diese Nachrichten nach 60 Tagen automatisch gelöscht.",
-				"text3": "Der Webserver erfasst zwar keine IP-Adressen, dafür jedoch Cloudflare, die Anfragen durchleiten und ggf. filtern. Das dient zum einen dafür, dass du nicht so leicht auf den Ursprungsserver kommst, und zum anderen, um mich gegen DDoS-Angriffe zu schützen."
+				"text1": "Ich setze auf <b>Vercel</b> und <b>Contabo</b> für das Hosting der eigentlichen Website und dessen Medien, <b>Fastmail</b> für den Email-Versand und -Empfang, und <b>Cloudflare</b> als DNS-Proxy.",
+				"text2": "Die einzigen personenbezogene Daten, auf welche ich direkten Zugriff habe, sind jene, die du über das Kontaktformular oder per Email direkt an mich sendest, wie Name, Email-Adresse und was immer du ins Nachrichtenfeld schreibst. Sofern nicht anders vereinbart, werden diese Nachrichten nach 60 Tagen automatisch gelöscht.",
+				"text3": "Vercel und Cloudflare könnten Informationen wie deine öffentliche IP-Adresse, Browser-Typ und Zeit der Anfrage verarbeiten und speichern, sowie es für die Bereitstellung der Dienste von Nöten ist, oder zu sonsigen Zwecken in derem Interesste. Cloudflare dienst als Proxy zwischen deinem Browser und meinem CMS-Server, auf welchem auch viele Bilder und Videos gehostet werden."
 			},
 			"General": {
 				"heading": "Allgemein.",
-				"text1": "Diese Website sammelt keine persönlichen Daten, sei es durch Analysen, Werbung, Tracker, Cookies, Fingerprinting oder ähnlichem. IP-Adressen dienen nur der Kommunikation zwischen deinem Browser und der Website und werden vom Webserver nicht erfasst oder gespeichert.",
+				"text1": "Diese Website sammelt keine persönlichen Daten, sei es durch Analysen, Werbung, Tracker, Cookies, Fingerprinting oder ähnlichem. Beim Besuch dieser Website können IP-Adressen von Drittanbietern erfasst und gespeichert werden. Mehr dazu im Abschnitt \"Hosting\" weiter unten.",
 				"text2": "Die einzigen personenbezogenen Daten, auf die ich direkt Zugriff habe, sind jene, die du mir über das Kontaktformular oder direkt per Email zukommen lässt, wie ggf. Name, Email-Adresse und Inhalt der Nachricht. Mein Email-Postfach befindet sich bei Fastmail (Fastmail Pty. Ltd., PO Box 234, Collins St West, Victoria 8007, Australien) und Emails werden, sofern in Antworten nicht anders vereinbart, nach 60 Tagen automatisch gelöscht.",
 				"text3": "Teile dieser Website können Links zu externen Websites enthalten, wie z.B. Profile auf sozialen Medien oder Websites von Künstlern und anderen Projekten. Für die Inhalte solcher Seiten übernehme ich keine Haftung. Es gelten dann auch die dortigen Datenschutzbestimmungen und nicht weiter die von pprmint.art."
 			},
 			"Hosting": {
 				"heading": "Hosting.",
-				"text1": "pprmint.art wird auf einem Cloud-Server von Contabo (Contabo GmbH, Aschauer Straße 32a, 81549 München, Deutschland) gehostet, welcher sich in einem EU-Rechenzentrum befindet. Es werden keine IP-Adressen zur Verarbeitung der Anfragen gespeichert und auch keine Server-Logs mit weiteren Details angelegt.",
-				"text2": "Zum Schutz vor DDoS-Angriffen und zum Optimieren von Ladezeiten verwende ich Cloudflare (Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA), welche einen Proxy für DNS-Anfragen bereitstellen. Sämtliche Anfragen an meine Website gehen zuerst durch Cloudflare, die in diesem Zuge auch die IP-Adresse von Besuchern zu Analyse- und Sicherheitszwecken erheben.",
+				"text1": "Die Website wird von Vercel (Vercel, Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA) gehostet. Ferner verwende ich für mein CMS einen Cloud-Server von Contabo (Contabo GmbH, Aschauer Straße 32a, 81549 München, Deutschland), welcher sich in einem EU-Rechenzentrum befindet und außerdem Bilder und Videos auf dieser Website bereitstellt.",
+				"text2": "Zum Schutz vor DDoS-Angriffen und zum Optimieren von Ladezeiten verwende ich Cloudflare (Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA), welche einen Proxy für DNS-Anfragen zwischen dir und meinem CMS-Server bereitstellen. Dorthin versandte Anfragen gehen zuerst durch Cloudflare, die in diesem Zuge auch die IP-Adresse von Besuchern zu Analyse- und Sicherheitszwecken erheben.",
 				"text3": "Der Einsatz von Diensten dieser Anbieter zum jeweiligen Zweck beruht auf meinem berechtigten Interesse, diese Website möglichst fehlerfrei, schnell und sicher bereitstellen zu können. (Art. 6 Abs. 1 lit. f DSGVO)"
 			},
 			"Contact": {

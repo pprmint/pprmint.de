@@ -1,12 +1,12 @@
 import { Link } from "src/navigation";
 import { useTranslations } from "next-intl";
-import { useLocale } from "next-intl";
 
 import Title from "src/components/layout/Title";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import ExternalLink from "src/icons/ExternalLink";
 
 type Props = {
-    params: { locale: string };
+	params: { locale: string };
 };
 
 export async function generateMetadata({ params: { locale } }: Props) {
@@ -51,20 +51,22 @@ export default function Page({ params: { locale } }: Props) {
 					<p>{t("Content.General.text3")}</p>
 					<p className="flex gap-6 flex-wrap">
 						<Link
-							className="text-link-external"
+							className="text-link-external inline-flex gap-1 items-center"
 							href="https://www.fastmail.com/about/privacy/"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
 							{t("Content.privacyPolicyOf", { provider: "Fastmail" })}
+							<ExternalLink />
 						</Link>
 						<Link
-							className="text-link-external"
+							className="text-link-external inline-flex gap-1 items-center"
 							href="https://www.fastmail.com/about/dpa/"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
 							{t("Content.dpaOf", { provider: "Fastmail" })}
+							<ExternalLink />
 						</Link>
 					</p>
 				</section>
@@ -76,7 +78,25 @@ export default function Page({ params: { locale } }: Props) {
 					<p>{t("Content.Hosting.text3")}</p>
 					<p className="flex gap-6 flex-wrap">
 						<Link
-							className="text-link-external"
+							className="text-link-external inline-flex gap-1 items-center"
+							href="https://vercel.com/legal/privacy-policy"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							{t("Content.privacyPolicyOf", { provider: "Vercel" })}
+							<ExternalLink />
+						</Link>
+						<Link
+							className="text-link-external inline-flex gap-1 items-center"
+							href="https://vercel.com/legal/dpa"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							{t("Content.dpaOf", { provider: "Vercel" })}
+							<ExternalLink />
+						</Link>
+						<Link
+							className="text-link-external inline-flex gap-1 items-center"
 							href={`https://contabo.com/${locale}/legal/privacy/`}
 							target="_blank"
 							rel="noopener noreferrer"
@@ -84,9 +104,10 @@ export default function Page({ params: { locale } }: Props) {
 							{t("Content.privacyPolicyOf", {
 								provider: "Contabo",
 							})}
+							<ExternalLink />
 						</Link>
 						<Link
-							className="text-link-external"
+							className="text-link-external inline-flex gap-1 items-center"
 							href="https://www.cloudflare.com/privacypolicy/"
 							target="_blank"
 							rel="noopener noreferrer"
@@ -94,9 +115,10 @@ export default function Page({ params: { locale } }: Props) {
 							{t("Content.privacyPolicyOf", {
 								provider: "Cloudflare",
 							})}
+							<ExternalLink />
 						</Link>
 						<Link
-							className="text-link-external"
+							className="text-link-external inline-flex gap-1 items-center"
 							href="https://www.cloudflare.com/cloudflare-customer-dpa/"
 							target="_blank"
 							rel="noopener noreferrer"
@@ -104,6 +126,7 @@ export default function Page({ params: { locale } }: Props) {
 							{t("Content.dpaOf", {
 								provider: "Cloudflare",
 							})}
+							<ExternalLink />
 						</Link>
 					</p>
 				</section>
