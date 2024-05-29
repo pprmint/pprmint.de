@@ -229,7 +229,7 @@ function Chatbox() {
 			{chatTransition((styles, item) =>
 				item ? (
 					<FocusTrap>
-						<Portal.Root className="fixed flex items-center justify-center z-50 inset-0">
+						<Portal.Root className="fixed flex items-center justify-center z-100 inset-0">
 							<a.div
 								onClick={handleChatboxClose}
 								style={{ opacity: styles.opacity }}
