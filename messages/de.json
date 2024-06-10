@@ -356,8 +356,8 @@
 	},
 	"HOME": {
 		"Head": {
-			"description": "Ich mache Dinge mit Vektorpunkten, Polygonen und Code.",
-			"title": "Heya"
+			"description": "Sie werden so schnell erwachsen. *schluchz*",
+			"title": "Alles gute, Mina"
 		},
 		"Content": {
 			"TheThreeThingies": {
@@ -568,6 +568,32 @@
 				"heading": "Willste?",
 				"text": "Lade dir Mintcraft entweder von Modrinth oder den GitHub-Releases herunter."
 			}
+		}
+	},
+	"MINASANS": {
+		"Content": {
+			"Download": {
+				"heading": "Lass dein Laufwerk schreien,",
+				"text": "und deine Augen bluten."
+			},
+			"Tester": {
+				"Weight": {
+					"label": "Gewicht",
+					"extralight": "Extraleicht",
+					"regular": "Normal",
+					"bold": "Breit"
+				},
+				"alignment": "Ausrichtung",
+				"heading": "Probier es aus, oder noch besser: Lass es",
+				"pangram": "Franz jagt im komplett verwahrlosten Taxi quer durch Bayern.",
+				"size": "Größe",
+				"spacing": "Zeichenabstand",
+				"reset": "Einstellungen zurücksetzen"
+			}
+		},
+		"Head": {
+			"description": "Eine bessere serifenlose Schriftart.",
+			"title": "Mina Sans"
 		}
 	},
 	"MINTSANS": {
