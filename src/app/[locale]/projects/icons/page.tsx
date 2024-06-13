@@ -9,7 +9,6 @@ import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import Button from "src/components/ui/Button";
 import ExternalLink from "src/icons/ExternalLink";
-import AllIcons from "./all";
 
 export async function generateMetadata({ params: { locale } }: Props) {
 	const t = await getTranslations({ locale, namespace: "ICONS" });
@@ -50,10 +49,6 @@ export default function Page({ params: { locale } }: Props) {
 							<Button>{t("Content.Disclaimer.button")}<ExternalLink /></Button>
 						</Link>
 					</div>
-				</section>
-				<section className="bg-black p-24 flex gap-3 flex-wrap">
-					<AllIcons />
-					<AllIcons />
 				</section>
 			</main>
 		</>
