@@ -48,6 +48,11 @@ module.exports = withNextIntl({
 				permanent: false,
 			},
 			{
+				source: "/minasans",
+				destination: "/projects/minasans",
+				permanent: false,
+			},
+			{
 				source: "/mintcraft",
 				destination: "/projects/mintcraft",
 				permanent: false,

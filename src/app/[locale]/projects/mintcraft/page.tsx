@@ -1,5 +1,5 @@
 import { Viewport } from "next";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Marquee from "react-fast-marquee";
 

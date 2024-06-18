@@ -571,28 +571,8 @@
 		}
 	},
 	"MINASANS": {
-		"Content": {
-			"Download": {
-				"heading": "Lass dein Laufwerk schreien,",
-				"text": "und deine Augen bluten."
-			},
-			"Tester": {
-				"Weight": {
-					"label": "Gewicht",
-					"extralight": "Extraleicht",
-					"regular": "Normal",
-					"bold": "Breit"
-				},
-				"alignment": "Ausrichtung",
-				"heading": "Probier es aus, oder noch besser: Lass es",
-				"pangram": "Franz jagt im komplett verwahrlosten Taxi quer durch Bayern.",
-				"size": "Größe",
-				"spacing": "Zeichenabstand",
-				"reset": "Einstellungen zurücksetzen"
-			}
-		},
 		"Head": {
-			"description": "Eine bessere serifenlose Schriftart.",
+			"description": "Eine bessere serifenlose Schriftart. In Arbeit.",
 			"title": "Mina Sans"
 		}
 	},

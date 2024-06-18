@@ -15,10 +15,16 @@ import MintbitImage from "./mintbit/twitter-image.png";
 import MintcraftImage from "./mintcraft/twitter-image.png";
 import MintsansImage from "./mintsans/twitter-image.png";
 import MinttrianglesImage from "./minttriangles/twitter-image.png";
+import MinasansImage from "./minasans/twitter-image.png";
 import YtdgImage from "./ytdg/twitter-image.png";
 import { useState } from "react";
 
 const ProjectsList = [
+	{
+		name: "minasans",
+		tag: "font",
+		image: MinasansImage,
+	},
 	{
 		name: "minttriangles",
 		tag: "font",

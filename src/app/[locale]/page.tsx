@@ -1,7 +1,6 @@
 import * as React from "react";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getLocale, getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Link from "next/link";
-import { useLocale } from "next-intl";
 import { Sparkle } from "lucide-react";
 
 import Button from "src/components/ui/Button";
@@ -242,7 +241,7 @@ export default async function Page({ params: { locale } }: Props) {
 
 async function GetAnnouncements() {
 	const pageSize = 4;
-	const locale = useLocale();
+	const locale = await getLocale();
 	const res = await fetch(
 		`${process.env.STRAPI_API_URL}/announcements?pagination[pageSize]=${pageSize}&populate=media&locale=${locale}&sort=id:desc`,
 		{

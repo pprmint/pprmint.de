@@ -1,5 +1,5 @@
 import { Link } from "src/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Selector from "./icons";
 
