@@ -17,15 +17,15 @@ export default function DesktopNavigation() {
 	const otherLocale = locales?.find((cur) => cur !== locale);
 	// Styles
 	const NavMenuTrigger =
-		"group/root flex items-center gap-3 h-10 px-4 text-neutral-50/80 hover:text-neutral-50 data-[state='open']:text-neutral-50 data-[state='open']:backdrop-blur-md duration-250 rounded-lg";
+		"group/root flex items-center gap-3 h-10 px-4 text-neutral-50/80 hover:text-neutral-50 data-[state='open']:text-neutral-50 duration-250 rounded-lg";
 	const NavMenuContent =
 		"absolute top-0 left-0 p-3 duration-250 data-[motion='from-start']:animate-enter-from-l data-[motion='from-end']:animate-enter-from-r data-[motion='to-start']:animate-exit-to-l data-[motion='to-end']:animate-exit-to-r";
 	const NavMenuViewport =
 		"relative origin-top-left w-[--radix-navigation-menu-viewport-width] overflow-hidden backdrop-blur-xl bg-gradient-to-b from-[#282828bb] to-[#222222aa] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 text-neutral rounded-xl shadow-[0_6px_22px_#11111166] h-[--radix-navigation-menu-viewport-height] duration-250 ease-out data-[state='open']:animate-enter-from-t data-[state='closed']:animate-exit-to-t";
 	return (
 		<>
-			<NavigationMenu.Root className="relative flex justify-center" delayDuration={0}>
-				<NavigationMenu.List className="flex py-3 pr-6">
+			<NavigationMenu.Root className="relative flex justify-center items-center" delayDuration={0}>
+				<NavigationMenu.List className="flex py-2">
 					<NavigationMenu.Item>
 						<NavigationMenu.Trigger className={NavMenuTrigger}>
 							<span className="inline-flex items-center gap-3 drop-shadow-[0px_2px_12px_#111a]">
@@ -185,28 +185,15 @@ export default function DesktopNavigation() {
 										</Link>
 									</NavigationMenu.Link>
 								</li>
-								<li>
-									<NavigationMenu.Link
-										asChild
-										className="group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75"
-									>
-										<Link href={pathname} locale={otherLocale} scroll={false}>
-											<span className="text-neutral-50 font-display font-semibold text-xl pb-0.5">
-												{t("Path.Other.SwitchLocale.title")}
-											</span>
-											<p className="ListItemText">{t("Path.Other.SwitchLocale.description")}</p>
-										</Link>
-									</NavigationMenu.Link>
-								</li>
 							</ul>
 							<Copyright className="pl-3 pt-1 items-center" />
 						</NavigationMenu.Content>
 					</NavigationMenu.Item>
-					<NavigationMenu.Indicator className="flex items-end justify-center h-3 top-12 -z-10 duration-250 ease-out data-[state='visible']:animate-fade-in data-[state='hidden']:animate-fade-out">
-						<div className="relative bg-neutral-900/75 shadow-inner -top-2 w-full h-10 rounded-lg duration-250" />
+					<NavigationMenu.Indicator className="flex items-end justify-center h-2 top-12 -z-10 duration-250 ease-out data-[state='visible']:animate-fade-in data-[state='hidden']:animate-fade-out">
+						<div className="relative bg-neutral-50/10 -top-2 w-full h-10 rounded-lg duration-250" />
 					</NavigationMenu.Indicator>
 				</NavigationMenu.List>
-				<div className="absolute flex justify-center top-[63px] right-6" style={{ perspective: 2000 }}>
+				<div className="absolute flex justify-center top-[55px] left-1/2 -translate-x-1/2" style={{ perspective: 2000 }}>
 					<NavigationMenu.Viewport className={NavMenuViewport} />
 				</div>
 			</NavigationMenu.Root>

@@ -64,7 +64,7 @@ export default function MobileNavigation() {
 	return (
 		<>
 			<button
-				className="relative m-3 text-neutral-50 text-xl size-[39px] rounded-full hover:bg-neutral-50/10 duration-100"
+				className="relative my-3 mr-1 text-neutral-50 text-xl size-[39px] rounded-full hover:bg-neutral-50/10 duration-100"
 				onClick={toggleOpen}
 			>
 				<svg
