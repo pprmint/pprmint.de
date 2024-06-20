@@ -38,6 +38,12 @@
 			"title": "AI training declaration"
 		}
 	},
+	"AUTSELLIA": {
+		"Head": {
+			"title": "Website for Autsellia",
+			"description": "An artist friend and supposedly a fox girl."
+		}
+	},
 	"APPICONS": {
 		"Content": {
 			"Intro": {
@@ -650,8 +656,8 @@
 					"title": "Contact"
 				}
 			},
-			"Works": {
-				"title": "Works",
+			"Work": {
+				"title": "Work",
 				"Gallery": {
 					"description": "Vector graphics, animations and 3D renders.",
 					"title": "Gallery"
@@ -770,8 +776,15 @@
 		"Tag": {
 			"font": "Font",
 			"design": "Design thing",
+			"website": "Website",
 			"software": "Software",
 			"customization": "Customization"
+		}
+	},
+	"TENTATIVE": {
+		"Head": {
+			"title": "Website and branding for Tentative",
+			"description": "A group of indecisive creatives, including yours truly."
 		}
 	},
 	"YTDG": {

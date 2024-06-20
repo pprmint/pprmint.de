@@ -61,7 +61,7 @@ export default function DesktopNavigation() {
 					<NavigationMenu.Item>
 						<NavigationMenu.Trigger className={NavMenuTrigger}>
 							<span className="inline-flex items-center gap-3 drop-shadow-[0px_2px_12px_#111a]">
-								{t("Path.Works.title")}
+								{t("Path.Work.title")}
 								{Caret}
 							</span>
 						</NavigationMenu.Trigger>
@@ -77,9 +77,9 @@ export default function DesktopNavigation() {
 									>
 										<Link href="/gallery">
 											<span className="text-neutral-50 font-display font-semibold text-xl pb-0.5">
-												{t(`Path.Works.Gallery.title`)}
+												{t(`Path.Work.Gallery.title`)}
 											</span>
-											<p className="ListItemText">{t(`Path.Works.Gallery.description`)}</p>
+											<p className="ListItemText">{t(`Path.Work.Gallery.description`)}</p>
 										</Link>
 									</NavigationMenu.Link>
 								</li>
@@ -95,10 +95,10 @@ export default function DesktopNavigation() {
 										>
 											<Link href={Project.link}>
 												<span className="text-neutral-50 font-display font-semibold text-xl pb-0.5">
-													{t(`Path.Works.Projects.${Project.strings}.title`)}
+													{t(`Path.Work.Projects.${Project.strings}.title`)}
 												</span>
 												<p className="ListItemText">
-													{t(`Path.Works.Projects.${Project.strings}.description`)}
+													{t(`Path.Work.Projects.${Project.strings}.description`)}
 												</p>
 											</Link>
 										</NavigationMenu.Link>
@@ -114,7 +114,7 @@ export default function DesktopNavigation() {
 									>
 										<Link href="/projects">
 											<span className="text-neutral-50 font-display font-semibold pb-0.5">
-												{t("Path.Works.Projects.More.title")}
+												{t("Path.Work.Projects.More.title")}
 											</span>
 										</Link>
 									</NavigationMenu.Link>

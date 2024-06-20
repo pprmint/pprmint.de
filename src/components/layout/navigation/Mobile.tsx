@@ -119,7 +119,7 @@ export default function MobileNavigation() {
 									</ul>
 								</div>
 								<div className="my-9">
-									<p className="pl-3 font-display text-neutral-50 font-semibold text-2xl">{t("Path.Works.title")}</p>
+									<p className="pl-3 font-display text-neutral-50 font-semibold text-2xl">{t("Path.Work.title")}</p>
 									<ul>
 										<Link className="group" href="/gallery" onClick={handleClose}>
 											<li
@@ -131,8 +131,8 @@ export default function MobileNavigation() {
 											>
 												{"/gallery" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
 												<div className="flex flex-col">
-													<span>{t(`Path.Works.Gallery.title`)}</span>
-													<span className="text-xs opacity-50">{t(`Path.Works.Gallery.description`)}</span>
+													<span>{t(`Path.Work.Gallery.title`)}</span>
+													<span className="text-xs opacity-50">{t(`Path.Work.Gallery.description`)}</span>
 												</div>
 											</li>
 										</Link>
@@ -147,8 +147,8 @@ export default function MobileNavigation() {
 												>
 													{Project.link === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
 													<div className="flex flex-col">
-														<span>{t(`Path.Works.Projects.${Project.strings}.title`)}</span>
-														<span className="text-xs opacity-50">{t(`Path.Works.Projects.${Project.strings}.description`)}</span>
+														<span>{t(`Path.Work.Projects.${Project.strings}.title`)}</span>
+														<span className="text-xs opacity-50">{t(`Path.Work.Projects.${Project.strings}.description`)}</span>
 													</div>
 												</li>
 											</Link>
@@ -163,7 +163,7 @@ export default function MobileNavigation() {
 												>
 													{"/projects" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
 													<div className="flex flex-col">
-														<span>{t("Path.Works.Projects.More.title")}</span>
+														<span>{t("Path.Work.Projects.More.title")}</span>
 													</div>
 												</li>
 											</Link>

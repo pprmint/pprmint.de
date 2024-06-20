@@ -38,6 +38,12 @@
 			"title": "Erklärung bzgl. KI-Training"
 		}
 	},
+	"AUTSELLIA": {
+		"Head": {
+			"title": "Website für Autsellia",
+			"description": "Eine Künstler-Freundin und angeblich Fuchsmädchen."
+		}
+	},
 	"APPICONS": {
 		"Content": {
 			"Intro": {
@@ -650,7 +656,7 @@
 					"title": "Kontakt"
 				}
 			},
-			"Works": {
+			"Work": {
 				"title": "Werke",
 				"Gallery": {
 					"description": "Vektor-Grafiken, Animationen und 3D-Render.",
@@ -770,8 +776,15 @@
 		"Tag": {
 			"font": "Schriftart",
 			"design": "Design-Ding",
+			"website": "Website",
 			"software": "Software",
 			"customization": "Personalisierung"
+		}
+	},
+	"TENTATIVE": {
+		"Head": {
+			"title": "Website und Branding für Tentative",
+			"description": "Eine Gruppe von unschlüssigen Kreativen, einschließlich meiner Wenigkeit."
 		}
 	},
 	"YTDG": {
