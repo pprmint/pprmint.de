@@ -18,7 +18,7 @@ export default function Title(
 	});
 	const Title = props.title.split("");
 	return (
-		<div className={`relative w-screen ${props.children ? "h-screen max-h-svh" : "h-60 xl:h-96 mb-20 md:mb-32 xl:mb-40"} overflow-hidden`}>
+		<div className={`relative w-screen ${props.children ? "h-screen max-h-svh" : "h-60 xl:h-96 mb-20 md:mb-32 xl:mb-40"} overflow-hidden text-balance`}>
 			{props.children && (
 				<>
 					<a.div className="absolute w-full h-full" style={{ ...fadeIn }}>
