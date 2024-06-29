@@ -297,18 +297,12 @@
 			"Email": {
 				"title": "Email",
 				"text": "Der Klassiker. Wenn du förmlichere Kommunikationsmittel bevorzugst, ist das die richtige Anlaufstelle. Ich prüfe meine Emails recht häufig, also kannst du mit einer zeitnahen Antwort rechnen.",
-				"preferMailto": "Möchtest du lieber deinen eigenen Email-Client verwenden? Sende deine Email an ",
+				"preferMailto": "Möchtest du lieber deinen eigenen Email-Client verwenden? Sende deine Email an <Link>mail@pprmint.art</Link>.",
 				"Form": {
 					"name": "Name",
 					"emailAddress": "Email-Adresse",
 					"message": "Nachricht",
-					"Subject": {
-						"title": "Betreff",
-						"general": "Allgemeine Frage",
-						"terms": "Nutzungsbedingungen",
-						"commission": "Auftragsarbeit",
-						"privacy": "Datenschutz"
-					},
+					"subject": "Betreff",
 					"send": "Absenden",
 					"sending": "Wird gesendet...",
 					"sent": "Gesendet",

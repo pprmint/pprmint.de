@@ -297,18 +297,12 @@
 			"Email": {
 				"title": "Email",
 				"text": "The classic. If you prefer more formal means of communication, this is the way to go. I check my emails fairly frequently, so you can expect a response soon.",
-				"preferMailto": "Prefer to use your own email client? Send your email to ",
+				"preferMailto": "Prefer to use your own email client? Send your email to <Link>mail@pprmint.art</Link>.",
 				"Form": {
 					"name": "Name",
 					"emailAddress": "Email address",
 					"message": "Message",
-					"Subject": {
-						"title": "Subject",
-						"general": "General question",
-						"terms": "Terms of use",
-						"commission": "Commission",
-						"privacy": "Privacy"
-					},
+					"subject": "Subject",
 					"send": "Send",
 					"sending": "Sending...",
 					"sent": "Sent",
