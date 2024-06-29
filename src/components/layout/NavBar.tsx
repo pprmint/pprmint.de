@@ -75,7 +75,7 @@ export default function NavBar() {
 					className="inline-flex p-0.5 hover:bg-neutral-50/10 active:opacity-75 rounded-full border border-neutral-50/10 backdrop-blur-sm duration-100 active:duration-75"
 				>
 					{locales.map((locale, _) => (
-						<span className={`text-sm py-0.5 w-9 text-center uppercase ${currentLocale === locale ? "bg-gradient-to-b from-neutral-50 to-neutral-100 text-neutral-950 shadow-sm" : "text-neutral-50/80"} rounded-full`}>
+						<span key={locale} className={`text-sm py-0.5 w-9 text-center uppercase ${currentLocale === locale ? "bg-gradient-to-b from-neutral-50 to-neutral-100 text-neutral-950 shadow-sm" : "text-neutral-50/80"} rounded-full`}>
 							{locale}
 						</span>
 					))}
