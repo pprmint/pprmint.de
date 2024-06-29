@@ -280,24 +280,24 @@ function Chatbox() {
 												item ? (
 													<a.div
 														style={style}
-														className={`grid grid-cols-2 gap-3 h-full py-3 items-center ${
+														className={`grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-3 h-full py-3 items-center ${
 															answering
 																? "opacity-50 saturate-0 pointer-events-none"
 																: "opacity-100 saturate-100"
 														} duration-200`}
 													>
 														<button
-															className="inline-flex flex-col items-center justify-center gap-3 border hover:border-2 border-green hover:bg-green-950 text-neutral-50 rounded-md h-full duration-100 active:scale-[0.98] active:opacity-75 active:duration-75"
+															className="inline-flex flex-row md:flex-col items-center justify-center gap-3 border hover:border-2 border-green hover:bg-green-950 text-neutral-50 rounded-md size-full duration-100 active:scale-[0.98] active:opacity-75 active:duration-75"
 															onClick={() => handleEndingYes()}
 														>
-															<Heart className="size-9 text-green" />
+															<Heart className="size-6 md:size-9 text-green" />
 															{t("Messages.EndingYes.message")}
 														</button>
 														<button
-															className="inline-flex flex-col items-center justify-center gap-3 border hover:border-2 border-red hover:bg-red-950 text-neutral-50 rounded-md h-full duration-100 active:scale-[0.98] active:opacity-75 active:duration-75"
+															className="inline-flex flex-row md:flex-col items-center justify-center gap-3 border hover:border-2 border-red hover:bg-red-950 text-neutral-50 rounded-md size-full duration-100 active:scale-[0.98] active:opacity-75 active:duration-75"
 															onClick={() => handleEndingNo()}
 														>
-															<HeartBroken className="size-9 text-red" />
+															<HeartBroken className="size-6 md:size-9 text-red" />
 															{t("Messages.EndingNo.message")}
 														</button>
 													</a.div>
