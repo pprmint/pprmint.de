@@ -11,6 +11,8 @@ import { useTransition, a, config } from "@react-spring/web";
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 import ChevronLeft from "src/icons/ChevronLeft";
+import Heart from "src/icons/Heart";
+import HeartBroken from "src/icons/HeartBroken";
 
 const Messages = [
 	"WhoYou",
@@ -168,7 +170,8 @@ function Chatbox() {
 					<div
 						className="absolute w-full aspect-square opacity-0 group-hover:opacity-100 rounded-full animate-slow-spin duration-200"
 						style={{
-							backgroundImage: "conic-gradient(#f44, #f71, #fb0, #9c3, #0c6, #2cf, #29f, #a7e, #e6b, #f44)",
+							backgroundImage:
+								"conic-gradient(#f44, #f71, #fb0, #9c3, #0c6, #2cf, #29f, #a7e, #e6b, #f44)",
 						}}
 					/>
 				</div>
@@ -250,7 +253,9 @@ function Chatbox() {
 										<div className="w-2/5 text-center">
 											<span className="text-neutral-50 font-medium">Mina.</span>
 											<br />
-											<span className="text-sm sm:text-base">{t(noTalky ? "titleAngy" : "title")}</span>
+											<span className="text-sm sm:text-base">
+												{t(noTalky ? "titleAngy" : "title")}
+											</span>
 										</div>
 										<div className="w-1/5 pr-2">
 											<Image
@@ -260,7 +265,10 @@ function Chatbox() {
 											/>
 										</div>
 									</div>
-									<div className="px-3 lg:px-6 h-full overflow-y-scroll pt-14 lg:pt-16" ref={chatboxRef}>
+									<div
+										className="px-3 lg:px-6 h-full overflow-y-scroll pt-14 lg:pt-16"
+										ref={chatboxRef}
+									>
 										<MessageBubble incoming id={noTalky ? "NoTalky" : "Hello"} />
 										{chatMessages.map((message, index) => (
 											<MessageBubble key={index} incoming={message.incoming} id={message.id} />
@@ -272,23 +280,35 @@ function Chatbox() {
 												item ? (
 													<a.div
 														style={style}
-														className={`grid grid-cols-2 gap-3 h-full items-center ${
-															answering ? "opacity-50 saturate-0 pointer-events-none" : "opacity-100 saturate-100"
+														className={`grid grid-cols-2 gap-3 h-full py-3 items-center ${
+															answering
+																? "opacity-50 saturate-0 pointer-events-none"
+																: "opacity-100 saturate-100"
 														} duration-200`}
 													>
-														<Button outlined color="green" noMinWidth onClick={() => handleEndingYes()}>
+														<button
+															className="inline-flex flex-col items-center justify-center gap-3 border hover:border-2 border-green hover:bg-green-950 text-neutral-50 rounded-md h-full duration-100 active:scale-[0.98] active:opacity-75 active:duration-75"
+															onClick={() => handleEndingYes()}
+														>
+															<Heart className="size-9 text-green" />
 															{t("Messages.EndingYes.message")}
-														</Button>
-														<Button outlined color="red" noMinWidth onClick={() => handleEndingNo()}>
+														</button>
+														<button
+															className="inline-flex flex-col items-center justify-center gap-3 border hover:border-2 border-red hover:bg-red-950 text-neutral-50 rounded-md h-full duration-100 active:scale-[0.98] active:opacity-75 active:duration-75"
+															onClick={() => handleEndingNo()}
+														>
+															<HeartBroken className="size-9 text-red" />
 															{t("Messages.EndingNo.message")}
-														</Button>
+														</button>
 													</a.div>
 												) : (
 													<a.div style={style} className="flex flex-col gap-3 items-end py-3">
 														{clickedQuestions.length > 0 && (
 															<button
 																className={`w-fit max-w-[80%] px-3 py-1 border border-neutral-900 hover:bg-neutral-900 hover:text-neutral-50 text-sm text-left rounded-2xl rounded-br-md duration-100 ${
-																	answering ? "opacity-50 pointer-events-none" : "cursor-pointer"
+																	answering
+																		? "opacity-50 pointer-events-none"
+																		: "cursor-pointer"
 																}`}
 																onClick={() => handleEnding("Ending")}
 															>
@@ -299,7 +319,9 @@ function Chatbox() {
 															<button
 																key={index}
 																className={`w-fit max-w-[80%] px-3 py-1 border border-neutral-900 hover:bg-neutral-900 hover:text-neutral-50 text-sm text-left rounded-2xl rounded-br-md duration-100 ${
-																	answering ? "opacity-50 pointer-events-none" : "cursor-pointer"
+																	answering
+																		? "opacity-50 pointer-events-none"
+																		: "cursor-pointer"
 																}`}
 																onClick={() => handleMessageClick(id)}
 															>
