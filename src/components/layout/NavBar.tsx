@@ -55,11 +55,7 @@ export default function NavBar() {
 				) : null
 			)}
 			<Link href="/" className="z-80 my-auto drop-shadow-[0px_2px_12px_#1118]">
-				<Image
-					src={Wordmark}
-					alt="pprmint. logo"
-					className={`h-auto ${floating ? "w-[135px]" : "w-[155px]"} mt-1 duration-250`}
-				/>
+				<Image src={Wordmark} alt="pprmint. logo" className="h-auto w-[150px] mt-1 duration-250" />
 			</Link>
 			<div className="hidden z-80 md:flex">
 				<DesktopNavigation />
@@ -67,7 +63,7 @@ export default function NavBar() {
 			<div className="block z-80 md:hidden">
 				<MobileNavigation />
 			</div>
-			<div className={`hidden md:inline-flex justify-end z-70 ${floating ? "w-[135px]" : "w-[155px]"} duration-250`}>
+			<div className="hidden md:inline-flex justify-end z-70 w-[150px] duration-250">
 				<Link
 					href={pathname}
 					locale={otherLocale}
@@ -75,7 +71,14 @@ export default function NavBar() {
 					className="inline-flex p-0.5 hover:bg-neutral-50/10 active:opacity-75 rounded-full border border-neutral-50/10 backdrop-blur-sm duration-100 active:duration-75"
 				>
 					{locales.map((locale, _) => (
-						<span key={locale} className={`text-sm py-0.5 w-9 text-center uppercase ${currentLocale === locale ? "bg-gradient-to-b from-neutral-50 to-neutral-100 text-neutral-950 shadow-sm" : "text-neutral-50/80"} rounded-full`}>
+						<span
+							key={locale}
+							className={`text-sm py-0.5 w-9 text-center uppercase ${
+								currentLocale === locale
+									? "bg-gradient-to-b from-neutral-50 to-neutral-100 text-neutral-950 shadow-sm"
+									: "text-neutral-50/80"
+							} rounded-full`}
+						>
 							{locale}
 						</span>
 					))}
