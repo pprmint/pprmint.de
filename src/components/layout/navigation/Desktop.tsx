@@ -45,7 +45,7 @@ export default function DesktopNavigation() {
 											}`}
 										>
 											<Link href={Page.link}>
-												<span className="text-neutral-50 font-display font-semibold text-xl pb-0.5">
+												<span className="text-neutral-50 font-display text-xl pb-0.5">
 													{t(`Path.General.${Page.strings}.title`)}
 												</span>
 												<p className="ListItemText">
@@ -76,7 +76,7 @@ export default function DesktopNavigation() {
 										}`}
 									>
 										<Link href="/gallery">
-											<span className="text-neutral-50 font-display font-semibold text-xl pb-0.5">
+											<span className="text-neutral-50 font-display text-xl pb-0.5">
 												{t(`Path.Work.Gallery.title`)}
 											</span>
 											<p className="ListItemText">{t(`Path.Work.Gallery.description`)}</p>
@@ -94,7 +94,7 @@ export default function DesktopNavigation() {
 											}`}
 										>
 											<Link href={Project.link}>
-												<span className="text-neutral-50 font-display font-semibold text-xl pb-0.5">
+												<span className="text-neutral-50 font-display text-xl pb-0.5">
 													{t(`Path.Work.Projects.${Project.strings}.title`)}
 												</span>
 												<p className="ListItemText">
@@ -113,7 +113,7 @@ export default function DesktopNavigation() {
 										}`}
 									>
 										<Link href="/projects">
-											<span className="text-neutral-50 font-display font-semibold pb-0.5">
+											<span className="text-neutral-50 font-display pb-0.5">
 												{t("Path.Work.Projects.More.title")}
 											</span>
 										</Link>
@@ -140,7 +140,7 @@ export default function DesktopNavigation() {
 										}`}
 									>
 										<Link href="/privacy">
-											<span className="text-neutral-50 font-display font-semibold text-xl pb-0.5">
+											<span className="text-neutral-50 font-display text-xl pb-0.5">
 												{t("Path.Other.Privacy.title")}
 											</span>
 											<p className="ListItemText">
@@ -165,7 +165,7 @@ export default function DesktopNavigation() {
 										}`}
 									>
 										<Link href="/ai">
-											<span className="text-neutral-50 font-display font-semibold text-xl pb-0.5">
+											<span className="text-neutral-50 font-display text-xl pb-0.5">
 												{t("Path.Other.AI.title")}
 											</span>
 											<p className="ListItemText">{t("Path.Other.AI.description")}</p>
@@ -178,7 +178,7 @@ export default function DesktopNavigation() {
 										className="group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75"
 									>
 										<Link href={`https://potato.pprmint.art${pathname}`}>
-											<span className="text-neutral-50 font-display font-semibold text-xl pb-0.5">
+											<span className="text-neutral-50 font-display text-xl pb-0.5">
 												{t("Path.Other.Potato.title")}
 											</span>
 											<p className="ListItemText">{t("Path.Other.Potato.description")}</p>

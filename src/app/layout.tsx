@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { Metadata, Viewport } from "next";
 
 import "../styles.css";
+import "../fonts/MinaSans/minasans.css";
 import "../fonts/Silka/silka.css";
 import "../fonts/SilkaMono/silkamono.css";
 import "../fonts/BasierSquare/basiersquare.css";

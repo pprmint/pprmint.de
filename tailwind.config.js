@@ -153,7 +153,7 @@ module.exports = {
 						fontFeatureSettings: '"ss01"',
 					},
 				],
-				display: ["Silka", "Gotham", "Metropolis", "Clarity City", "Montserrat", "sans-serif"],
+				display: ["Mina Sans WEB", "Silka", "Gotham", "Metropolis", "Clarity City", "Montserrat", "sans-serif"],
 				mintbit: "Mintbit, 'Roboto Mono', monospace",
 				minttriangles: "'Mint Triangles', monospace",
 				mono: "'Basier Square Mono', 'Roboto Mono', monospace",

@@ -29,7 +29,7 @@ export default function Title(
 			)}
 			<div className="absolute bottom-0 flex w-full gap-3 p-6 md:p-12 items-end">
 				<div className="flex-grow">
-					<h1 className="relative font-display font-semibold text-neutral-50 text-4xl md:text-5xl lg:text-6xl xl:text-8xl pb-1 md:pb-3">
+					<h1 className="relative font-display text-neutral-50 text-4xl md:text-5xl lg:text-6xl xl:text-8xl pb-1 md:pb-3">
 						{Title.map((character, index) => (
 							<span
 								key={index}
