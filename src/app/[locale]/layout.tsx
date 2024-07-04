@@ -6,6 +6,7 @@ import NavBar from "src/components/layout/NavBar";
 import Footer from "src/components/layout/Footer";
 import ScrollToTopButton from "src/components/layout/ScrollToTopButton";
 import WarningTriangle from "src/icons/WarningTriangle";
+import PotatoRedirect from "src/components/PotatoRedirect";
 
 type Props = {
 	children: ReactNode;
@@ -39,8 +40,8 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
 							<WarningTriangle />
 						</div>
 						<p className="px-3 py-2 text-sm">
-							<span className="font-bold animate-pulse">No JavaScript detected.</span> Some parts of the site won't work
-							properly. Please allow JavaScript on the site or use a more recent browser.
+							<span className="font-bold animate-pulse">No JavaScript detected.</span> Some parts of the
+							site won't work properly. Please allow JavaScript on the site or use a more recent browser.
 						</p>
 					</div>
 				</noscript>
@@ -48,6 +49,7 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
 					<NavBar />
 					{children}
 					<Footer />
+					<PotatoRedirect />
 					<ScrollToTopButton />
 				</NextIntlClientProvider>
 			</body>

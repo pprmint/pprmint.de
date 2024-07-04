@@ -775,6 +775,24 @@
 			"customization": "Personalisierung"
 		}
 	},
+	"REDIRECT": {
+		"Content": {
+			"heading": "Weiterleitung",
+			"text": "Wähle aus, ob du bei Besuch von Links auf pprmint.art stattdessen zu potato.pprmint.art, der Website mit weniger Effekten, weitergeleitet werden möchtest."
+		},
+		"Head": {
+			"description": "Bestimme, ob du auf die Kartoffel-Website weitergeleitet werden möchtest.",
+			"title": "Weiterleitung"
+		},
+		"Toast": {
+			"title": "Etwas ruckelig?",
+			"description1": "Kommt dir diese Website etwas langsam vor, kann ich dich zu einer Version mit weniger Effekten und Eyecandy weiterleiten.",
+			"description2": "Solltest du deine Meinung ändern und doch eine permanente Weiterleitung de/aktivieren wollen, besuche <Link>pprmint.art/redirect</Link>.",
+			"once": "Einmal weiterleiten",
+			"always": "Immer weiterleiten",
+			"never": "Nicht weiterleiten"
+		}
+	},
 	"TENTATIVE": {
 		"Head": {
 			"title": "Website und Branding für Tentative",
