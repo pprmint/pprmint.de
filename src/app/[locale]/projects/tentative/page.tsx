@@ -117,14 +117,14 @@ export default function Page({ params: { locale } }: Props) {
 					</p>
 					<div className="border border-neutral-900 rounded-xl overflow-clip p-1 my-9">
 						<div className="flex items-center mb-1 gap-1">
-							<div className="flex gap-3 p-2">
-								<button className="group bg-red active:bg-red-700 rounded-full duration-50">
+							<div className="group flex gap-3 p-2">
+								<button className="bg-red active:bg-red-700 rounded-full duration-50">
 									<X className="opacity-0 group-hover:opacity-100 duration-100 fill-red-900 stroke-1 stroke-red-900" />
 								</button>
-								<button className="group bg-yellow active:bg-yellow-700 rounded-full duration-50">
+								<button className="bg-yellow active:bg-yellow-700 rounded-full duration-50">
 									<div className="w-[7px] mx-1 h-0.5 opacity-0 group-hover:opacity-100 duration-100 bg-yellow-900" />
 								</button>
-								<button className="group bg-green active:bg-green-700 rounded-full duration-50">
+								<button className="bg-green active:bg-green-700 rounded-full duration-50">
 									<TriangleBottomLeftTopRight className="opacity-0 group-hover:opacity-100 duration-100 fill-green-900 p-0.5" />
 								</button>
 							</div>
@@ -136,7 +136,7 @@ export default function Page({ params: { locale } }: Props) {
 								</p>
 								<Bookmark />
 							</div>
-							<div className="flex gap-3 px-2">
+							<div className="hidden sm:flex gap-3 px-2">
 								<Download />
 								<Jiggy />
 								<Menu />
@@ -197,17 +197,28 @@ export default function Page({ params: { locale } }: Props) {
 					</p>
 				</section>
 				<section className="max-w-7xl mx-auto px-6 md:px-9 my-20">
-					<h2>
-						The website<span className="text-green">.</span>
-					</h2>
-					<p>This page is already long enough, so I'll just talk about the present version of the site.</p>
-					<div className="flex my-9">
-						<p>
-							First of all: Since Tentative has members from various different parts of the world, we
-							thought it would be neat to localize the site into languages that each member can speak and
-							write well.
-						</p>
-						<FadingImage src={WebsiteLocales} alt="" className="rounded-lg w-1/3" />
+					<div className="flex flex-col md:flex-row gap-9 my-9">
+						<div className="w-full">
+							<h2>
+								The website<span className="text-green">.</span>
+							</h2>
+							<p>
+								This page is already long enough, so I'll just talk about the present version of the
+								site.
+							</p>
+							<p>
+								First of all: Since Tentative has members from various different parts of the world, we
+								thought it would be neat to localize the site into languages that each member can speak
+								and write well. That means the site will (eventually) be available in English, German,
+								French, Japanese and Thai.
+							</p>
+							<p>What is translated how is up to each member and the language they take care of.</p>
+						</div>
+						<FadingImage
+							src={WebsiteLocales}
+							alt=""
+							className="rounded-lg md:w-1/2 lg:w-1/3 h-fit mx-auto"
+						/>
 					</div>
 					<p>
 						Every member has their own logo in a different style. To achieve some feeling of uniformity, I
@@ -217,9 +228,18 @@ export default function Page({ params: { locale } }: Props) {
 						scale as they are, or at large scale with other effects like borders and gradients.
 					</p>
 					<div className="flex w-full justify-evenly gap-12 my-9">
-						<FadingImage src={IconWxz} alt="" />
-						<FadingImage src={IconAutsellia} alt="" />
-						<FadingImage src={IconPprmint} alt="" />
+						<div>
+							<FadingImage src={IconWxz} alt="" className="size-full md:size-64" />
+							<p className="text-center mt-6 text-neutral-50 text-xl font-display font-medium">wxsonz</p>
+						</div>
+						<div>
+							<FadingImage src={IconAutsellia} alt="" className="size-full md:size-64" />
+							<p className="text-center mt-6 text-neutral-50 text-xl font-display font-medium">Autsellia</p>
+						</div>
+						<div>
+							<FadingImage src={IconPprmint} alt="" className="size-full md:size-64" />
+							<p className="text-center mt-6 text-neutral-50 text-xl font-display font-medium">Good today.</p>
+						</div>
 					</div>
 					<p>
 						While the landing page isn't fully complete as of writing this, there is a distinct section on
