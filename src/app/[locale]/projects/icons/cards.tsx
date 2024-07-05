@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, PropsWithChildren, ChangeEvent } from "react";
+import { useState, useRef, PropsWithChildren, ChangeEvent, Fragment } from "react";
 import ReactDOMServer from "react-dom/server";
 import * as Toast from "@radix-ui/react-toast";
 import * as Tooltip from "@radix-ui/react-tooltip";
@@ -71,6 +71,25 @@ export default function Cards() {
 			// Fallback to original order.
 			return 0;
 		});
+
+	function highlightMatches(name: string, search: string) {
+		const searchLower = search.toLowerCase();
+		const nameLower = name.toLowerCase();
+		const index = nameLower.indexOf(searchLower);
+		if (index === -1) {
+			return name;
+		}
+		const beforeMatch = name.slice(0, index);
+		const match = name.slice(index, index + search.length);
+		const afterMatch = name.slice(index + search.length);
+		return (
+			<>
+				{beforeMatch}
+				<span className="text-neutral-50 font-medium">{match}</span>
+				{afterMatch}
+			</>
+		);
+	}
 
 	const [large, setLarge] = useState(false);
 
@@ -241,39 +260,13 @@ export default function Cards() {
 										>
 											<div className={large ? "*:size-[30px]" : ""}>{icon.icon}</div>
 											<div className="leading-none text-sm">
-												{icon.names[0]
-													.split(new RegExp(`(${search})`, "i"))
-													.map((part, index) =>
-														part.toLowerCase() === search.toLowerCase() ? (
-															<span key={index} className="text-neutral-50 font-medium">
-																{part}
-															</span>
-														) : (
-															part
-														)
-													)}
-												<div className="leading-none flex gap-x-2 text-[0.6rem] text-neutral-600 flex-wrap">
-													{icon.names.slice(1).map((name, idx) => (
-														<span key={idx}>
-															{name.toLowerCase().includes(search.toLowerCase()) ? (
-																<span>
-																	{name
-																		.split(new RegExp(`(${search})`, "i"))
-																		.map((part, index) =>
-																			part.toLowerCase() ===
-																			search.toLowerCase() ? (
-																				<span key={index} className="text-neutral-300 font-medium">
-																					{part}
-																				</span>
-																			) : (
-																				part
-																			)
-																		)}
-																</span>
-															) : (
-																name
-															)}
-														</span>
+												{highlightMatches(icon.names[0], search)}
+												<div className="leading-none flex gap-x-1 text-[0.6rem] text-neutral-500 flex-wrap">
+													{icon.names.slice(1).map((name, index) => (
+														<Fragment key={index}>
+															{index > 0 && " • "}
+															<span>{highlightMatches(name, search)}</span>
+														</Fragment>
 													))}
 												</div>
 											</div>
