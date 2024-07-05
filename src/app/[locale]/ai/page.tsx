@@ -45,12 +45,12 @@ export default function Page({ params: { locale } }: Props) {
 					</p>
 					<p>{t("Content.Copyright.text2")}</p>
 				</section>
-				<section className="max-w-7xl mx-auto my-20 md:my-32 xl:my-40 p-6 md:p-9 bg-gradient-to-b from-red-900 to-red-950 rounded-xl border-2 border-red">
+				<section className="max-w-7xl mx-auto my-20 md:my-32 xl:my-40 p-6 md:p-9 bg-gradient-to-b from-red-950 rounded-xl border-2 border-red">
 					<h2>
 						{t("Content.Disallow.heading")}
 						<span className="text-red">.</span>
 					</h2>
-					<p className="text-red-200">{t("Content.Disallow.text")}</p>
+					<p className="text-red-100">{t("Content.Disallow.text")}</p>
 				</section>
 				<section className="max-w-7xl mx-auto my-20 md:my-32 xl:my-40 px-6 md:px-9">
 					<h2>
