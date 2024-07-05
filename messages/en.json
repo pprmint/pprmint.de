@@ -264,6 +264,9 @@
 		"visitProfile": "Visit profile",
 		"viewOriginal": "View original",
 		"copied": "Copied to clipboard.",
+		"search": "Search",
+		"searchEnglish": "Search",
+		"noResults": "No results.",
 		"yikes": "Yikes.",
 		"VideoPlayer": {
 			"loop": "Loop",
@@ -415,6 +418,10 @@
 				"media": "Media",
 				"logos": "Logos",
 				"text": "Text"
+			},
+			"Download": {
+				"svgs": "Download SVGs",
+				"font": "Download icon font"
 			},
 			"Disclaimer": {
 				"heading": "Caffeine addiction",

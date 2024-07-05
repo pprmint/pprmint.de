@@ -5,6 +5,17 @@ import VideoPlayer from "src/components/ui/VideoPlayer";
 export default function Page() {
 	return (
 		<main className="min-h-screen max-w-7xl mx-auto pt-48 px-6 md:px-9">
+			<section id="texts" className="mb-48">
+				<h1>The quick brown fox jumps over the lazy dog. 1234567890</h1>
+				<h2>The quick brown fox jumps over the lazy dog. 1234567890</h2>
+				<h3>The quick brown fox jumps over the lazy dog. 1234567890</h3>
+				<h4>The quick brown fox jumps over the lazy dog. 1234567890</h4>
+				<h5>The quick brown fox jumps over the lazy dog. 1234567890</h5>
+				<h6>The quick brown fox jumps over the lazy dog. 1234567890</h6>
+				<p>The quick brown fox jumps over the lazy dog. 1234567890</p>
+				<p className="text-link">Internal link</p>
+				<p className="text-link-external">External link</p>
+			</section>
 			<section id="buttons" className="flex flex-col gap-6 mb-48 flex-wrap">
 				<h2>Buttons</h2>
 				<div className="flex gap-3 flex-wrap">
@@ -143,7 +154,7 @@ export default function Page() {
 			</section>
 			<section className="flex flex-col gap-6 mb-48">
 				<h2>Video player</h2>
-                <VideoPlayer src="https://static.pprmint.art/videos/Takashi.mp4" />
+				<VideoPlayer src="https://static.pprmint.art/videos/Takashi.mp4" />
 			</section>
 		</main>
 	);

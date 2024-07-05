@@ -264,6 +264,9 @@
 		"visitProfile": "Profil besuchen",
 		"viewOriginal": "Original ansehen",
 		"copied": "In Zwischenablage kopiert.",
+		"search": "Suchen",
+		"searchEnglish": "Suchen (nur auf Englisch)",
+		"noResults": "Keine Ergebnisse.",
 		"yikes": "Oh je.",
 		"VideoPlayer": {
 			"loop": "Wiederholen",
@@ -415,6 +418,10 @@
 				"media": "Medien",
 				"logos": "Logos",
 				"text": "Text"
+			},
+			"Download": {
+				"svgs": "SVGs herunterladen",
+				"font": "Icon-Schriftart herunterladen"
 			},
 			"Disclaimer": {
 				"heading": "Koffeinsucht",
