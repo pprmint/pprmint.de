@@ -210,7 +210,7 @@ export default async function Page({ params: { locale } }: Props) {
 								style={{
 									maskImage: `url(https://static.pprmint.art${MinaArt.data[0].attributes.artwork.data[0].attributes.url})`,
 									maskRepeat: "no-repeat",
-                  maskSize: "100%"
+									maskSize: "100%",
 								}}
 							>
 								<div className="absolute -left-[225%] lg:-left-full group-hover:left-[150%] top-0 bottom-0 skew-x-[30deg] w-64 group-hover:w-0 bg-neutral-50/25 duration-0 group-hover:duration-1000 ease-out-quint" />
@@ -229,7 +229,7 @@ export default async function Page({ params: { locale } }: Props) {
 					<Link href="/contact">
 						<h1 className="group inline-flex text-nowrap items-center gap-3 hover:gap-6 lg:hover:gap-3 duration-200 ease-out-quint">
 							{t("Content.Contact.answers")}
-							<span className="text-green group-hover:translate-x-0 lg:group-hover:translate-x-3 duration-200 ease-out-quint">{"->"}</span>
+							<ArrowRight className="text-green size-[1em] group-hover:translate-x-0 lg:group-hover:translate-x-3 duration-200 ease-out-quint" />
 						</h1>
 					</Link>
 				</section>
