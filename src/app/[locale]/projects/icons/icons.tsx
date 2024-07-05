@@ -611,7 +611,7 @@ export const Icons: Category[] = [
 			{ icon: <CreditCardBack />, names: ["Credit card back", "Money", "Debit card"] },
 			{ icon: <Clapperboard />, names: ["Clapperboard", "Movie", "Film"] },
 			{ icon: <Bomb />, names: ["Bomb"] },
-			{ icon: <Jiggy />, names: ["Jiggy", "Puzzle", "Puzzle piece", "Extension", "Add-on"] },
+			{ icon: <Jiggy />, names: ["Jiggy", "Puzzle piece", "Extension", "Add-on"] },
 		],
 	},
 	{
