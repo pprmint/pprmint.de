@@ -231,7 +231,6 @@ export default function Cards() {
 						{search ? <X /> : <Search />}
 					</div>
 					<input
-						required
 						type="text"
 						placeholder={t("COMMON.searchEnglish")}
 						name="search"
