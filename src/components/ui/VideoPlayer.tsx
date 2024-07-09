@@ -382,7 +382,7 @@ function VideoPlayer(props: {
 								className="absolute flex flex-col justify-end bottom-0 left-0 right-0 p-3 h-28 z-20 bg-gradient-to-t from-neutral-950/90 duration-500 ease-out-expo"
 							>
 								<div className="absolute flex items-center gap-5 top-10 inset-x-5 font-mono font-medium text-neutral-50 text-xs">
-									<span >{formattedTime(currentTime)}</span>
+									<span>{formattedTime(currentTime)}</span>
 									<Slider.Root
 										value={[currentTime]}
 										onValueChange={(newTime) => handleSeek(newTime)}
