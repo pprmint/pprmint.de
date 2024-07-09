@@ -7,24 +7,22 @@ import { a, useTransition, easings } from "@react-spring/web";
 import * as Slider from "@radix-ui/react-slider";
 import * as ContextMenu from "@radix-ui/react-context-menu";
 import * as Progress from "@radix-ui/react-progress";
-import {
-	Check,
-	ChevronRight,
-	Download,
-	Gauge,
-	LinkIcon,
-	Maximize,
-	Minimize,
-	Pause,
-	Play,
-	Repeat,
-	SkipBack,
-	Volume,
-	Volume1,
-	Volume2,
-	VolumeX,
-} from "lucide-react";
 import { useTranslations } from "next-intl";
+import Play from "src/icons/Play";
+import SkipPrevious from "src/icons/SkipPrevious";
+import Pause from "src/icons/Pause";
+import VolumeMute from "src/icons/VolumeMute";
+import VolumeLow from "src/icons/VolumeLow";
+import VolumeMedium from "src/icons/VolumeMedium";
+import VolumeHigh from "src/icons/VolumeHigh";
+import FullscreenExit from "src/icons/FullscreenExit";
+import Fullscreen from "src/icons/Fullscreen";
+import Reload from "src/icons/Reload";
+import Check from "src/icons/Check";
+import LinkDiagonal from "src/icons/LinkDiagonal";
+import Speed75 from "src/icons/Speed75";
+import ChevronRight from "src/icons/ChevronRight";
+import Download from "src/icons/Download";
 
 function VideoPlayer(props: {
 	src: string;
@@ -320,7 +318,7 @@ function VideoPlayer(props: {
 							className="absolute flex items-center justify-center w-full h-full z-10"
 						>
 							<button className="flex items-center justify-center z-10 size-24 md:size-32 bg-neutral-950/30 hover:bg-neutral-950/40 text-neutral-50 rounded-full cursor-pointer duration-100">
-								<Play size={64} />
+								<Play className="size-16 ml-2" />
 							</button>
 						</a.div>
 					)
@@ -344,7 +342,10 @@ function VideoPlayer(props: {
 				{downloadingTransition(
 					(style, item) =>
 						item && (
-							<a.div style={style} className="absolute top-0 left-0 right-0 z-30">
+							<a.div
+								style={style}
+								className="absolute top-0 left-0 right-0 z-30 bg-gradient-to-b from-neutral-950/90"
+							>
 								<Progress.Root
 									className="relative overflow-hidden bg-neutral-50/30 w-full h-1"
 									style={{ transform: "translateZ(0)" }}
@@ -355,8 +356,8 @@ function VideoPlayer(props: {
 										style={{ transform: `translateX(-${100 - progress}%)` }}
 									/>
 								</Progress.Root>
-								<p className="text-neutral-50 text-xs text-right my-1 mr-2 drop-shadow-md">
-									{t("downloading")}: {progress}%
+								<p className="text-neutral-50 text-xs text-right mt-1 mb-2 mr-2 drop-shadow-md">
+									{t("downloading")}: <span className="font-semibold">{progress}%</span>
 								</p>
 							</a.div>
 						)
@@ -367,7 +368,7 @@ function VideoPlayer(props: {
 							item && (
 								<a.div
 									style={style}
-									className="absolute top-0 left-0 right-0 p-6 z-20 h-20 bg-gradient-to-b from-[#111c] duration-500 ease-out-expo"
+									className="absolute top-0 left-0 right-0 p-6 z-20 h-20 bg-gradient-to-b from-neutral-950/90 duration-500 ease-out-expo"
 								>
 									<p className="font-display font-medium text-2xl text-neutral-50">{props.title}</p>
 								</a.div>
@@ -378,49 +379,39 @@ function VideoPlayer(props: {
 						item && (
 							<a.div
 								style={style}
-								className="absolute flex flex-col justify-end bottom-0 left-0 right-0 p-3 h-28 z-20 bg-gradient-to-t from-[#111c] duration-500 ease-out-expo"
+								className="absolute flex flex-col justify-end bottom-0 left-0 right-0 p-3 h-28 z-20 bg-gradient-to-t from-neutral-950/90 duration-500 ease-out-expo"
 							>
-								<div className="absolute flex top-6 left-6 right-6 justify-between font-mono font-medium text-neutral-50 text-xs">
-									<p>{formattedTime(currentTime)}</p>
-									<p onClick={toggleRemaining} className="text-right cursor-pointer">
-										{showRemaining ? `-${formattedTime(duration - currentTime)}` : formattedTime(duration)}
-									</p>
-								</div>
-								<div className="px-3">
+								<div className="absolute flex items-center gap-5 top-10 inset-x-5 font-mono font-medium text-neutral-50 text-xs">
+									<span >{formattedTime(currentTime)}</span>
 									<Slider.Root
 										value={[currentTime]}
 										onValueChange={(newTime) => handleSeek(newTime)}
 										min={0}
 										max={duration}
 										step={0.001}
-										className="group/videoslider relative flex items-center select-none touch-none w-full h-4 cursor-pointer"
+										className="group/videoslider relative flex items-center select-none touch-none w-full h-6 cursor-pointer"
 									>
-										<Slider.Track className="bg-neutral-50/30 relative grow h-0.5 duration-100">
-											<Slider.Range className="absolute bg-neutral-50 h-full" />
+										<Slider.Track className="bg-neutral-50/30 relative grow h-px group-hover/videoslider:h-[3px] rounded-full duration-100">
+											<Slider.Range className="absolute bg-neutral-50 h-[3px] -top-px group-hover/videoslider:top-0 rounded-full duration-100" />
 										</Slider.Track>
-										<Slider.Thumb
-											className="block w-0 h-0 group-hover/videoslider:w-3 group-hover/videoslider:h-3 focus:w-3 focus:h-3 bg-neutral-50 focus:shadow-md rounded-full duration-100 focus:outline-none"
-											aria-label="Progress"
-										/>
 									</Slider.Root>
+									<span onClick={toggleRemaining} className="mb-0 text-right cursor-pointer">
+										{showRemaining
+											? `-${formattedTime(duration - currentTime)}`
+											: formattedTime(duration)}
+									</span>
 								</div>
-								<div className="flex pt-1 justify-between">
+								<div className="flex justify-between items-center">
 									<button
-										className="size-10 inline-flex items-center justify-center bg-neutral-50/0 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-neutral-50 text-2xl duration-100"
+										className="p-2 bg-neutral-50/0 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-neutral-50 text-2xl duration-100"
 										onClick={handlePlay}
 										aria-label="pause/play"
 									>
-										{currentTime === duration ? (
-											<SkipBack size={20} />
-										) : playing ? (
-											<Pause size={20} />
-										) : (
-											<Play size={20} />
-										)}
+										{currentTime === duration ? <SkipPrevious /> : playing ? <Pause /> : <Play />}
 									</button>
-									<div className="flex gap-3">
+									<div className="flex gap-2">
 										{!props.noSound && (
-											<div className="flex gap-3 flex-nowrap items-center justify-end w-10 hover:w-40 h-10 bg-neutral-50/0 hover:bg-neutral-50/10 duration-300 ease-out-expo overflow-hidden rounded-full">
+											<div className="flex gap-3 flex-nowrap items-center justify-end w-[31px] hover:w-40 h-[31px] bg-neutral-50/0 hover:bg-neutral-50/10 duration-300 ease-out-expo overflow-hidden rounded-full">
 												<div>
 													<Slider.Root
 														value={[volume]}
@@ -428,42 +419,38 @@ function VideoPlayer(props: {
 														min={0}
 														max={1}
 														step={0.1}
-														className="group/volumeslider relative flex items-center select-none touch-none w-24 h-4 cursor-pointer"
+														className="group/videoslider relative flex items-center select-none touch-none w-24 h-4 cursor-pointer"
 													>
-														<Slider.Track className="bg-neutral-50/30 relative grow h-0.5 duration-100">
-															<Slider.Range className="absolute bg-neutral-50 rounded-full h-full" />
+														<Slider.Track className="bg-neutral-50/30 relative grow h-px group-hover/videoslider:h-[3px] rounded-full duration-100">
+															<Slider.Range className="absolute bg-neutral-50 h-[3px] -top-px group-hover/videoslider:top-0 rounded-full duration-100" />
 														</Slider.Track>
-														<Slider.Thumb
-															className="block w-0 h-0 group-hover/volumeslider:w-3 group-hover/volumeslider:h-3 focus:w-3 focus:h-3 bg-neutral-50 focus:shadow-md rounded-full duration-100 focus:outline-none"
-															aria-label="Progress"
-														/>
 													</Slider.Root>
 												</div>
 												<div>
 													<button
-														className={`ml-auto size-10 inline-flex items-center justify-center hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-neutral-50 text-xl duration-100`}
+														className={`ml-auto p-2 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-neutral-50 text-xl duration-100`}
 														onClick={handleMute}
 														aria-label="mute/unmute"
 													>
 														{volume > 0.66 ? (
-															<Volume2 size={20} />
+															<VolumeHigh />
 														) : volume > 0.33 ? (
-															<Volume1 size={20} />
+															<VolumeMedium />
 														) : volume > 0 ? (
-															<Volume size={20} />
+															<VolumeLow />
 														) : (
-															<VolumeX size={20} />
+															<VolumeMute />
 														)}
 													</button>
 												</div>
 											</div>
 										)}
 										<button
-											className="size-10 inline-flex items-center justify-center hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-neutral-50 text-xl duration-100"
+											className="p-2 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-neutral-50 text-xl duration-100"
 											onClick={handleFullscreen}
 											aria-label="enter/exit fullscreen"
 										>
-											{fullscreen ? <Minimize size={20} /> : <Maximize size={20} />}
+											{fullscreen ? <FullscreenExit /> : <Fullscreen />}
 										</button>
 									</div>
 								</div>
@@ -477,27 +464,27 @@ function VideoPlayer(props: {
 							checked={loopEnabled}
 							onCheckedChange={setLoopEnabled}
 						>
-							<Repeat size={16} />
+							<Reload />
 							{t("VideoPlayer.loop")}
 							<ContextMenu.ItemIndicator className="absolute right-0 w-[25px] inline-flex items-center justify-center">
-								<Check size={16} />
+								<Check />
 							</ContextMenu.ItemIndicator>
 						</ContextMenu.CheckboxItem>
 						<ContextMenu.Item
 							className="group relative flex items-center gap-3 pr-2 pl-2 data-[highlighted]:pl-3 h-7 rounded-sm leading-none select-none outline-none data-[disabled]:text-neutral data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-50 data-[highlighted]:bg-neutral-50/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-none"
 							onClick={copyVideoUrl}
 						>
-							<LinkIcon size={16} />
+							<LinkDiagonal />
 							{t("VideoPlayer.copyVideoUrl")}
 						</ContextMenu.Item>
 
 						<ContextMenu.Sub>
 							<ContextMenu.SubTrigger className="group relative flex items-center gap-3 pr-2 pl-2 data-[highlighted]:pl-3 data-[state='open']:pl-3 h-7 rounded-sm leading-none select-none outline-none data-[disabled]:text-neutral data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-50 data-[state='open']:text-neutral-50 data-[highlighted]:bg-neutral-50/10 active:opacity-75 data-[state='open']:bg-neutral-50/10 duration-100 cursor-pointer focus-visible:outline-none">
-								<Gauge size={16} />
+								<Speed75 />
 								{t("VideoPlayer.playbackSpeed")}
 								<div className="flex items-center ml-auto">
 									<span className="text-xs">{playbackSpeed}x</span>
-									<ChevronRight size={16} />
+									<ChevronRight />
 								</div>
 							</ContextMenu.SubTrigger>
 							<ContextMenu.Portal>
@@ -506,7 +493,10 @@ function VideoPlayer(props: {
 									sideOffset={4}
 									alignOffset={-89}
 								>
-									<ContextMenu.RadioGroup value={playbackSpeed} onValueChange={handlePlaybackSpeedChange}>
+									<ContextMenu.RadioGroup
+										value={playbackSpeed}
+										onValueChange={handlePlaybackSpeedChange}
+									>
 										{PlaybackSpeeds.map((speed) => (
 											<ContextMenu.RadioItem
 												key={speed}
@@ -514,7 +504,7 @@ function VideoPlayer(props: {
 												value={speed}
 											>
 												<ContextMenu.ItemIndicator className="absolute left-2 group-data-[highlighted]:left-3 duration-100">
-													<Check size={16} />
+													<Check />
 												</ContextMenu.ItemIndicator>
 												<span className="absolute left-8 group-data-[highlighted]:left-9 duration-100">{`${speed}x`}</span>
 											</ContextMenu.RadioItem>
@@ -530,7 +520,7 @@ function VideoPlayer(props: {
 								onClick={downloadVideo}
 								disabled={downloading}
 							>
-								<Download size={16} />
+								<Download />
 								{downloading ? `${t("downloading")}...` : t("download")}
 							</ContextMenu.Item>
 						)}

@@ -5,6 +5,10 @@ import VideoPlayer from "src/components/ui/VideoPlayer";
 export default function Page() {
 	return (
 		<main className="min-h-screen max-w-7xl mx-auto pt-48 px-6 md:px-9">
+			<section className="flex flex-col gap-6 mb-48">
+				<h2>Video player</h2>
+				<VideoPlayer src="https://static.pprmint.art/videos/Takashi.mp4" />
+			</section>
 			<section id="texts" className="mb-48">
 				<h1>The quick brown fox jumps over the lazy dog. 1234567890</h1>
 				<h2>The quick brown fox jumps over the lazy dog. 1234567890</h2>
@@ -151,10 +155,6 @@ export default function Page() {
 					<Checkbox checked color="pink" />
 					<Checkbox checked disabled />
 				</div>
-			</section>
-			<section className="flex flex-col gap-6 mb-48">
-				<h2>Video player</h2>
-				<VideoPlayer src="https://static.pprmint.art/videos/Takashi.mp4" />
 			</section>
 		</main>
 	);
