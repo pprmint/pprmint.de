@@ -55,20 +55,12 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 						className="absolute right-0 top-1/2 -translate-y-1/2 z-100 px-1 py-2 rounded-l-md text-xs text-neutral-50 bg-neutral-950/75 backdrop-blur-md"
 						style={{ writingMode: "vertical-rl" }}
 					>
-						<Twitter className="inline fill-blue rotate-90" /> @108sketches
+						<Twitter className="inline fill-blue0" /> @108sketches
 					</p>
 					<FadingImage src={TitleMina} alt="" fill className="object-cover object-top" quality={90} />
 				</div>
 			</Title>
 			<main>
-				<section
-					id="gallery"
-					className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-3 xl:px-9"
-				>
-					<Suspense fallback={<GallerySkeleton />}>
-						<GallerySuspense p={currentPage} artist={artist} nsfw={nsfw} />
-					</Suspense>
-				</section>
 				<section id="lore" className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9">
 					<h2>
 						{t("Content.About.heading")}
@@ -116,9 +108,14 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 						</div>
 					</div>
 				</section>
+				<section id="gallery" className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-3 xl:px-9">
+					<Suspense fallback={<GallerySkeleton />}>
+						<GallerySuspense p={currentPage} artist={artist} nsfw={nsfw} />
+					</Suspense>
+				</section>
 				<FanartRules />
-				<section className="relative flex items-end justify-center overflow-clip my-20 md:my-32 xl:my-40 max-w-screen-3xl mx-auto px-6 md:px-9 min-h-[500px]">
-					<div className="absolute inset-0 -z-10 overflow-clip">
+				<section className="relative flex items-end justify-center my-20 md:my-32 xl:my-40 max-w-screen-3xl mx-auto px-6 md:px-9 min-h-[500px]">
+					<div className="absolute inset-0 -z-10">
 						<FadingImage
 							src={Stickers}
 							alt="Discord sticker menu, showing a few Mina stickers."
@@ -127,22 +124,26 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 						<FadingImage
 							src={StickerSeyana}
 							alt=""
-							className="hidden md:block absolute w-2/12 max-w-72 h-auto top-[30%] left-[4%] rotate-3"
+							className="hidden md:block absolute w-2/12 max-w-72 h-auto top-[30%] left-[4%] animate-float-rotate-l"
+							style={{ animationDelay: "0s" }}
 						/>
 						<FadingImage
 							src={StickerWhat}
 							alt=""
-							className="hidden md:block absolute w-2/12 max-w-72 h-auto top-[6%] left-[12%] xl:left-[18%] -rotate-6"
+							className="hidden md:block absolute w-2/12 max-w-72 h-auto top-[6%] left-[12%] xl:left-[18%] animate-float-rotate-r"
+							style={{ animationDelay: "0.4s" }}
 						/>
 						<FadingImage
 							src={StickerStare}
 							alt=""
-							className="hidden md:block absolute w-2/12 max-w-72 h-auto top-[8%] right-[12%] xl:right-[18%] rotate-6"
+							className="hidden md:block absolute w-2/12 max-w-72 h-auto top-[8%] right-[12%] xl:right-[18%] animate-float-rotate-l"
+							style={{ animationDelay: "0.8s" }}
 						/>
 						<FadingImage
 							src={StickerYippie}
 							alt=""
-							className="hidden md:block absolute w-2/12 max-w-72 h-auto top-[25%] right-[4%] -rotate-3"
+							className="hidden md:block absolute w-2/12 max-w-72 h-auto top-[25%] right-[4%] animate-float-rotate-r"
+							style={{ animationDelay: "1.2s" }}
 						/>
 						<div
 							style={{

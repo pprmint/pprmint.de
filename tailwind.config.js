@@ -368,6 +368,21 @@ module.exports = {
 					"50%": { transform: "scale(1) rotate(0deg)", opacity: 1, filter: "blur(0px)" },
 					"100%": { transform: "scale(0) rotate(45deg)", opacity: 0, filter: "blur(5px)" },
 				},
+				float: {
+					"0%": { transform: "translateY(10px)" },
+					"50%": { transform: "translateY(-10px)" },
+					"100%": { transform: "translateY(10px)" },
+				},
+				floatRotateL: {
+					"0%": { transform: "translateY(10px) rotate(3deg)" },
+					"50%": { transform: "translateY(-10px) rotate(1deg)" },
+					"100%": { transform: "translateY(10px) rotate(-3deg)" },
+				},
+				floatRotateR: {
+					"0%": { transform: "translateY(10px) rotate(-3deg)" },
+					"50%": { transform: "translateY(-10px) rotate(-1deg)" },
+					"100%": { transform: "translateY(10px) rotate(3deg)" },
+				},
 			},
 			animation: {
 				"slow-spin": "spin 3s linear infinite;",
@@ -405,6 +420,9 @@ module.exports = {
 				"skeleton-pulse": "skeletonPulse 3s cubic-bezier(0.7, 0, 0.3, 1) 2s infinite",
 				"lucide-check-draw-in": "lucideCheckDrawIn 0.25s cubic-bezier(0.33, 1, 0.68, 1) forwards",
 				"lucide-sparkle": "lucideSparkle 0.75s linear 0.25s forwards",
+				"float": "float 4s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite",
+				"float-rotate-l": "floatRotateL 6s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite",
+				"float-rotate-r": "floatRotateR 6s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite",
 			},
 			transitionDuration: {
 				25: "25ms",
