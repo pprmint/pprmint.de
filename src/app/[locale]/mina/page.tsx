@@ -114,35 +114,35 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 					</Suspense>
 				</section>
 				<FanartRules />
-				<section className="relative flex items-end justify-center my-20 md:my-32 xl:my-40 max-w-screen-3xl mx-auto px-6 md:px-9 min-h-[500px]">
+				<section className="relative flex items-end justify-center my-20 md:my-32 xl:my-40 xl:pt-10 max-w-screen-3xl mx-auto px-6 md:px-9 min-h-[500px]">
 					<div className="absolute inset-0 -z-10">
 						<FadingImage
 							src={Stickers}
 							alt="Discord sticker menu, showing a few Mina stickers."
-							className="absolute w-4/5 md:w-1/2 xl:w-1/3 h-auto top-0 left-1/2 -translate-x-1/2"
+							className="absolute w-5/6 sm:w-2/3 md:w-7/12 lg:w-1/2 max-w-2xl h-auto bottom-10 md:bottom-px left-1/2 -translate-x-1/2"
 						/>
 						<FadingImage
 							src={StickerSeyana}
 							alt=""
-							className="hidden md:block absolute w-2/12 max-w-72 h-auto top-[30%] left-[4%] animate-float-rotate-l"
+							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[30%] left-[-4%] md:left-[4%] xl:left-[10%] animate-float-rotate-l drop-shadow-[0px_4px_20px_#111]"
 							style={{ animationDelay: "0s" }}
 						/>
 						<FadingImage
 							src={StickerWhat}
 							alt=""
-							className="hidden md:block absolute w-2/12 max-w-72 h-auto top-[6%] left-[12%] xl:left-[18%] animate-float-rotate-r"
+							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[6%] lg:top-0 left-[15%] md:left-[12%] xl:left-[20%] animate-float-rotate-r drop-shadow-[0px_4px_20px_#111]"
 							style={{ animationDelay: "0.4s" }}
 						/>
 						<FadingImage
 							src={StickerStare}
 							alt=""
-							className="hidden md:block absolute w-2/12 max-w-72 h-auto top-[8%] right-[12%] xl:right-[18%] animate-float-rotate-l"
+							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[8%] lg:top-0 right-[15%] md:right-[12%] xl:right-[20%] animate-float-rotate-l drop-shadow-[0px_4px_20px_#111]"
 							style={{ animationDelay: "0.8s" }}
 						/>
 						<FadingImage
 							src={StickerYippie}
 							alt=""
-							className="hidden md:block absolute w-2/12 max-w-72 h-auto top-[25%] right-[4%] animate-float-rotate-r"
+							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[25%] right-[-4%] md:right-[4%] xl:right-[10%] animate-float-rotate-r drop-shadow-[0px_4px_20px_#111]"
 							style={{ animationDelay: "1.2s" }}
 						/>
 						<div
