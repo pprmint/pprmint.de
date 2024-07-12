@@ -3,11 +3,11 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import FadingImage from "src/components/ui/FadingImage";
+import Error from "src/icons/Error";
 import EyeDisabled from "src/icons/EyeDisabled";
 import Globe from "src/icons/Globe";
 import Instagram from "src/icons/Instagram";
 import Twitter from "src/icons/Twitter";
-import X from "src/icons/X";
 import YouTube from "src/icons/YouTube";
 import { Link } from "src/navigation";
 import { MinaArtworks } from "src/types/mina-artwork";
@@ -48,7 +48,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 							/>
 							{art.attributes.nsfw && (
 								<div className="absolute inset-0 backdrop-blur-lg group-focus-visible/button:backdrop-blur-sm bg-neutral-950/75 group-focus-visible/button:bg-transparent group-hover/button:opacity-0 duration-300 ease-out-quint pointer-events-none">
-									<EyeDisabled className="size-9 fill-neutral-50 opacity-75 ri-eye-off-line absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+									<EyeDisabled className="p-2.5 fill-neutral-50 opacity-75 ri-eye-off-line absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 								</div>
 							)}
 						</button>
@@ -66,8 +66,8 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 								className="max-h-svh max-w-[90vw] w-auto py-16"
 								unoptimized
 							/>
-							<div className="absolute flex items-center top-0 inset-x-0 h-16 text-xl font-display">
-								<div className="flex items-center flex-grow gap-3">
+							<div className="absolute flex items-center top-4 inset-x-0">
+								<div className="flex items-center flex-grow gap-3 text-xl font-display">
 									<Dialog.Title asChild>
 										<p>
 											{t("Content.Artworks.drawnBy")}
@@ -86,7 +86,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 										>
 											<button
 												tabIndex={-1}
-												className="text-neutral-50 inline-flex items-center justify-center size-9 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
+												className="text-neutral-50 p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
 											>
 												{art.attributes.artist.data.attributes.creditUrl!.startsWith(
 													"https://twitter.com/"
@@ -108,8 +108,8 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 									)}
 								</div>
 								<Dialog.Close asChild>
-									<button className="text-neutral-50 inline-flex items-center justify-center size-9 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
-										<X className="size-6" />
+									<button className="text-neutral-50 p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
+										<Error />
 									</button>
 								</Dialog.Close>
 							</div>
