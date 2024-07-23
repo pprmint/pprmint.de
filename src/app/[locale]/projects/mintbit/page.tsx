@@ -43,7 +43,7 @@ export default function Page({ params: { locale } }: Props) {
 					<h2>{t("MINTBIT.Content.Download.heading")}</h2>
 					<p>{t("MINTBIT.Content.Download.text")}</p>
 					<br />
-					<Link href="https://static.pprmint.art/download/Mintbit/Mintbit_1.1.zip">
+					<Link href="https://static.pprmint.de/download/Mintbit/Mintbit_1.1.zip">
 						<Button color="green" tabIndex={-1}>
 							<Download />
 							{t("COMMON.download")}

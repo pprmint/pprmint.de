@@ -13,13 +13,13 @@ import "../fonts/MintTriangles/minttriangles.css";
 import "../fonts/MintSans/mintsans.css";
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://pprmint.art"),
+	metadataBase: new URL("https://pprmint.de"),
 	keywords: ["art, design, graphic design, after effects, development, webdev, cinema 4d, 2d, 3d"],
 	openGraph: {
-		siteName: "pprmint.art",
+		siteName: "pprmint.de",
 	},
 	twitter: {
-		site: "pprmint.art",
+		site: "pprmint.de",
 		creator: "@npprmint",
 		card: "summary_large_image",
 	},

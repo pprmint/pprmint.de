@@ -36,6 +36,6 @@ export default function robots(): MetadataRoute.Robots {
 				disallow: ["/"],
 			},
 		],
-		sitemap: "https://pprmint.art/sitemap.xml",
+		sitemap: "https://pprmint.de/sitemap.xml",
 	};
 }

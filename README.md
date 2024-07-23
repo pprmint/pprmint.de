@@ -4,7 +4,7 @@
     </picture>
 </p>
 
-# pprmint.art (Next.js)
+# pprmint.de (Next.js)
 
 ## Setup
 

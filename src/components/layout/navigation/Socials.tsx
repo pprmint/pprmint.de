@@ -17,7 +17,7 @@ export default function Copyright(props: { className?: string }) {
 					<Heart className="inline fill-red mx-0.5" />
 					{t("and")}
 					<Link
-						href="https://github.com/pprmint/pprmint.art/blob/main/package.json"
+						href="https://github.com/pprmint/pprmint.de/blob/main/package.json"
 						target="_blank"
 						rel="noopener noreferrer"
 					>

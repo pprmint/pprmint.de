@@ -420,7 +420,7 @@ export default function Selector() {
 		setLoading(true);
 		const zip = new JSZip();
 		for (const icon of selectedIcons) {
-			const response = await fetch(`https://static.pprmint.art/download/AppIcons${icon.link}`);
+			const response = await fetch(`https://static.pprmint.de/download/AppIcons${icon.link}`);
 			const blob = await response.blob();
 			zip.file(`${icon.name}.ico`, blob);
 		}

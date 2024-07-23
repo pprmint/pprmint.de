@@ -27,7 +27,7 @@ export default function Page() {
 			</section>
 			<section className="mb-48">
 				<h2>Video player</h2>
-				<VideoPlayer src="https://static.pprmint.art/videos/Takashi.mp4" />
+				<VideoPlayer src="https://static.pprmint.de/videos/Takashi.mp4" />
 			</section>
 			<section id="texts" className="mb-48">
 				<h1>The quick brown fox jumps over the lazy dog. 1234567890</h1>

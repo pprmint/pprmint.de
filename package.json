@@ -1,6 +1,6 @@
 {
-	"name": "pprmint.art",
-	"version": "4.0.0",
+	"name": "pprmint.de",
+	"version": "4.0.1",
 	"private": true,
 	"scripts": {
 		"dev": "next dev",

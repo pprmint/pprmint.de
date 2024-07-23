@@ -20,19 +20,19 @@ function PotatoRedirect() {
 					setOpen(true);
 				}, 5000);
 			} else if (redirectPotato === "always") {
-				router.push(`https://potato.pprmint.art${pathname}`);
+				router.push(`https://potato.pprmint.de${pathname}`);
 			}
 		}
 	}, []);
 	function handleOnce() {
 		setOpen(false);
 		localStorage.setItem("redirectPotato", "once");
-		router.push(`https://potato.pprmint.art${pathname}`);
+		router.push(`https://potato.pprmint.de${pathname}`);
 	}
 	function handleAlways() {
 		setOpen(false);
 		localStorage.setItem("redirectPotato", "always");
-		router.push(`https://potato.pprmint.art${pathname}`);
+		router.push(`https://potato.pprmint.de${pathname}`);
 	}
 	function handleClose() {
 		setOpen(false);

@@ -39,7 +39,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
     							hover:scale-[1.03] focus-visible:scale-[1.03] active:scale-[1.015] hover:z-10 focus-visible:z-10 justify ring-1 ring-inset ring-neutral-50/10 hover:shadow-2xl hover:shadow-neutral-950/50 focus-visible:shadow-2xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-square"
 						>
 							<FadingImage
-								src={`https://static.pprmint.art${art.attributes.artwork.data[0].attributes.url}`}
+								src={`https://static.pprmint.de${art.attributes.artwork.data[0].attributes.url}`}
 								width={art.attributes.artwork.data[0].attributes.width}
 								height={art.attributes.artwork.data[0].attributes.height}
 								alt=""
@@ -59,7 +59,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 							className={`fixed z-100 flex flex-col gap-12 items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-svh w-screen max-w-max data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-top-left overflow-clip duration-200 focus-visible:outline-none`}
 						>
 							<FadingImage
-								src={`https://static.pprmint.art${art.attributes.artwork.data[selectedVariant]?.attributes.url}`}
+								src={`https://static.pprmint.de${art.attributes.artwork.data[selectedVariant]?.attributes.url}`}
 								width={art.attributes.artwork.data[selectedVariant]?.attributes.width}
 								height={art.attributes.artwork.data[selectedVariant]?.attributes.height}
 								alt=""

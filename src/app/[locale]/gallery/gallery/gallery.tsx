@@ -30,7 +30,7 @@ export default function Gallery(works: { works: Works }) {
     							hover:scale-[1.02] focus-visible:scale-[1.02] active:scale-[1.01] hover:z-10 focus-visible:z-10 justify hover:ring-1 ring-neutral-50/10 hover:shadow-2xl hover:shadow-neutral-950/50 focus-visible:shadow-2xl duration-250 ease-out-quint active:duration-75 cursor-pointer aspect-video"
 						>
 							<FadingImage
-								src={`https://static.pprmint.art${work.attributes.cover.data.attributes.url}`}
+								src={`https://static.pprmint.de${work.attributes.cover.data.attributes.url}`}
 								width={work.attributes.cover.data.attributes.width}
 								height={work.attributes.cover.data.attributes.height}
 								alt=""
@@ -64,7 +64,7 @@ export default function Gallery(works: { works: Works }) {
 							</button>
 							<div className="relative overflow-hidden h-80 md:h-1/3-screen">
 								<FadingImage
-									src={`https://static.pprmint.art${work.attributes.cover.data.attributes.formats.thumbnail.url}`}
+									src={`https://static.pprmint.de${work.attributes.cover.data.attributes.formats.thumbnail.url}`}
 									alt={work.attributes.title}
 									fill
 									className={`object-cover ${work.attributes.coverFocus} h-full min-w-full contrast-[0.87] blur-lg`}
@@ -103,7 +103,7 @@ export default function Gallery(works: { works: Works }) {
 								media.attributes.mime.startsWith("image") ? (
 									<FadingImage
 										key={media.id.toString()}
-										src={`https://static.pprmint.art${media.attributes.url}`}
+										src={`https://static.pprmint.de${media.attributes.url}`}
 										alt={media.attributes.alternativeText}
 										width={media.attributes.width}
 										height={media.attributes.height}
@@ -116,7 +116,7 @@ export default function Gallery(works: { works: Works }) {
 											controls
 											key={media.id.toString()}
 											className="w-full h-auto"
-											src={`https://static.pprmint.art${media.attributes.url}`}
+											src={`https://static.pprmint.de${media.attributes.url}`}
 										/>
 									)
 								)

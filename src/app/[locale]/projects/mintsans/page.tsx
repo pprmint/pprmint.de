@@ -56,7 +56,7 @@ export default function Page({ params: { locale } }: Props) {
 					<h2>{t("MINTSANS.Content.Download.heading")}</h2>
 					<p>{t("MINTSANS.Content.Download.text")}</p>
 					<br />
-					<Link href="https://static.pprmint.art/download/mintsans_2.0.zip">
+					<Link href="https://static.pprmint.de/download/mintsans_2.0.zip">
 						<Button color="green" tabIndex={-1}>
 							<Download />
 							{t("COMMON.download")}

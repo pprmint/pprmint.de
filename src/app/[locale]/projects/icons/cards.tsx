@@ -205,13 +205,13 @@ export default function Cards() {
 						<label htmlFor="large">{t("ICONS.Content.largeIcons")}</label>
 					</div>
 					<div className="flex gap-3 flex-wrap">
-						<Link href="https://static.pprmint.art/download/minticons/MintIcons.zip" download>
+						<Link href="https://static.pprmint.de/download/minticons/MintIcons.zip" download>
 							<Button>
 								<Zip />
 								{t("ICONS.Content.Download.svgs")}
 							</Button>
 						</Link>
-						<Link href="https://static.pprmint.art/download/minticons/MintIcons1.1.otf" download>
+						<Link href="https://static.pprmint.de/download/minticons/MintIcons1.1.otf" download>
 							<Button>
 								<Text />
 								{t("ICONS.Content.Download.font")}

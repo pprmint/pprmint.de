@@ -96,7 +96,7 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 						<div className="flex flex-col lg:items-end">
 							<p className="mb-3">{t("Content.Reference.Download.text")}</p>
 							<Link
-								href="https://static.pprmint.art/download/Mina/Mina_ref_sheet_(by_nekomimi).png"
+								href="https://static.pprmint.de/download/Mina/Mina_ref_sheet_(by_nekomimi).png"
 								target="_blank"
 								download
 							>

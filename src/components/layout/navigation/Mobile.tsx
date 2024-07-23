@@ -196,7 +196,7 @@ export default function MobileNavigation() {
 												{t("Path.Other.AI.title")}
 											</li>
 										</Link>
-										<Link className="group" href={`https://potato.pprmint.art${pathname}`}>
+										<Link className="group" href={`https://potato.pprmint.de${pathname}`}>
 											<li
 												className={`flex items-center ${
 													"/privacy" === pathname

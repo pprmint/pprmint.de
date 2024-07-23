@@ -300,7 +300,7 @@
 			"Email": {
 				"title": "Email",
 				"text": "The classic. If you prefer more formal means of communication, this is the way to go. I check my emails fairly frequently, so you can expect a response soon.",
-				"preferMailto": "Prefer to use your own email client? Send your email to <Link>mail@pprmint.art</Link>.",
+				"preferMailto": "Prefer to use your own email client? Send your email to <Link>mail@pprmint.de</Link>.",
 				"Form": {
 					"name": "Name",
 					"emailAddress": "Email address",
@@ -390,7 +390,7 @@
 			},
 			"Mina": {
 				"heading": "More into anime girls?",
-				"text1": "The official pprmint.art website's got you covered. Long live the Internet.",
+				"text1": "The official pprmint.de website's got you covered. Long live the Internet.",
 				"text2": "Here's the latest* artwork of Mina, my OC, drawn by <link>{artist}</link>.",
 				"text3": "* Latest <i>SFW</i> artwork. Don't really wanna show the other stuff right on the home page.",
 				"button": "I love her."
@@ -751,7 +751,7 @@
 				"heading": "General.",
 				"text1": "This website does not collect any personal data, be it through analytics, advertising, trackers, cookies, fingerprinting or similar. IP addresses may be processed and stored by third party providers while accessing this site. More on that in the Hosting section below.",
 				"text2": "The only personal data that I have direct access to is that which you send me via the contact form or directly via email, such as your name, email address and the content of the message. My email inbox is with Fastmail (Fastmail Pty. Ltd., PO Box 234, Collins St West, Victoria 8007, Australia) and emails will be deleted automatically after 60 days unless we agreed on something else in replies.",
-				"text3": "Parts of this website may contain links to external websites, such as social media profiles or websites of artists and other projects. No responsibility is taken for the content on such sites. You will also be subject to their respective privacy policies and not those of pprmint.art."
+				"text3": "Parts of this website may contain links to external websites, such as social media profiles or websites of artists and other projects. No responsibility is taken for the content on such sites. You will also be subject to their respective privacy policies and not those of pprmint.de."
 			},
 			"Hosting": {
 				"heading": "Hosting.",
@@ -761,7 +761,7 @@
 			},
 			"Contact": {
 				"heading": "Contact.",
-				"text1": "If you have any privacy-related questions, please feel free to send an email to <strong>privacy[at]pprmint.art</strong>.",
+				"text1": "If you have any privacy-related questions, please feel free to send an email to <strong>privacy[at]pprmint.de</strong>.",
 				"text2": "Please use the above email address only for that purpose and not to send general questions, advers, offers, spam or the like."
 			},
 			"dpaOf": "Data Processing Addendum of {provider}",
@@ -785,7 +785,7 @@
 	"REDIRECT": {
 		"Content": {
 			"heading": "Redirection",
-			"text": "Choose whether you want to be redirected to pages on potato.pprmint.art, the site with less fancy effects, when visiting any link to the main site, pprmint.art."
+			"text": "Choose whether you want to be redirected to pages on potato.pprmint.de, the site with less fancy effects, when visiting any link to the main site, pprmint.de."
 		},
 		"Head": {
 			"description": "Change whether to redirect to the potato site.",
@@ -794,7 +794,7 @@
 		"Toast": {
 			"title": "Too laggy?",
 			"description1": "If you feel like this site runs a bit slow for you, I can redirect you to a version with less effects and eyecandy.",
-			"description2": "Should you change your mind and want to enable or disable a permanent redirect, visit <Link>pprmint.art/redirect</Link>.",
+			"description2": "Should you change your mind and want to enable or disable a permanent redirect, visit <Link>pprmint.de/redirect</Link>.",
 			"once": "Redirect once",
 			"always": "Always redirect",
 			"never": "Don't redirect"

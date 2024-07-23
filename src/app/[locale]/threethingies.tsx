@@ -100,7 +100,7 @@ export default function ThreeThingies() {
 						item == "vectors" ? (
 							<a.div style={style}>
 								<FadingImage
-									src="https://static.pprmint.art/uploads/dark2_80a3e41e9f.png"
+									src="https://static.pprmint.de/uploads/dark2_80a3e41e9f.png"
 									fill
 									className="object-cover"
 									alt=""
@@ -109,7 +109,7 @@ export default function ThreeThingies() {
 						) : item == "polygons" ? (
 							<a.div style={style}>
 								<FadingImage
-									src="https://static.pprmint.art/uploads/Crystal_Cave_light_c60ed75104.png"
+									src="https://static.pprmint.de/uploads/Crystal_Cave_light_c60ed75104.png"
 									fill
 									className="object-cover"
 									alt=""
@@ -118,7 +118,7 @@ export default function ThreeThingies() {
 						) : item == "code" ? (
 							<a.div style={style}>
 								<FadingImage
-									src="https://static.pprmint.art/uploads/Zoompaper_aecb0eee13.png"
+									src="https://static.pprmint.de/uploads/Zoompaper_aecb0eee13.png"
 									fill
 									className="object-cover"
 									alt=""

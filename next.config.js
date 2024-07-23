@@ -31,7 +31,7 @@ module.exports = withNextIntl({
 		remotePatterns: [
 			{
 				protocol: "https",
-				hostname: "**.pprmint.art",
+				hostname: "**.pprmint.de",
 			},
 		],
 	},

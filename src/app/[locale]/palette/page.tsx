@@ -46,14 +46,14 @@ export default function Page({ params: { locale } }: Props) {
 					<p>{t("Content.Usage.text1")}</p>
 					<p>{t("Content.Usage.text2")}</p>
 					<div className="flex flex-wrap gap-3 pt-6">
-						<Link href="https://static.pprmint.art/download/pprmint.2024.afpalette" download>
+						<Link href="https://static.pprmint.de/download/pprmint.2024.afpalette" download>
 							<Button tabIndex={-1}>
 								<SwatchBook />
 								{t("Content.Usage.affinity")}
 							</Button>
 						</Link>
 						<Link
-							href="https://github.com/pprmint/pprmint.art/blob/main/tailwind.config.js#L7"
+							href="https://github.com/pprmint/pprmint.de/blob/main/tailwind.config.js#L7"
 							target="_blank"
 							rel="noopener noreferrer"
 						>

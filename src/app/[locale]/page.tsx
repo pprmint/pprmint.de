@@ -5,6 +5,7 @@ import { Sparkle } from "lucide-react";
 
 import Button from "src/components/ui/Button";
 import Title from "src/components/layout/Title";
+import HeroImage from "public/assets/home/hero.webp";
 
 import { Announcements } from "src/types/announcement";
 import FadingImage from "src/components/ui/FadingImage";
@@ -26,21 +27,14 @@ export default async function Page({ params: { locale } }: Props) {
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
-				<video
-					src="https://static.pprmint.art/videos/home.mp4"
-					autoPlay
-					playsInline
-					muted
-					loop
-					className="absolute w-full h-full object-cover"
-				/>
+				<FadingImage src={HeroImage} alt="" fill className="object-cover origin-bottom-left" />
 			</Title>
 			<main>
 				<ThreeThingies />
 				<section className="my-20 md:my-32 xl:my-40 relative overflow-clip">
 					<div className="relative w-full h-full -z-10">
 						<FadingImage
-							src={`https://static.pprmint.art${Announcements.data[0].attributes.media.data.attributes.formats.thumbnail.url}`}
+							src={`https://static.pprmint.de${Announcements.data[0].attributes.media.data.attributes.formats.thumbnail.url}`}
 							alt={Announcements.data[0].attributes.media.data.attributes.alternativeText}
 							quality={90}
 							width={Announcements.data[0].attributes.media.data.attributes.formats.thumbnail.width}
@@ -58,7 +52,7 @@ export default async function Page({ params: { locale } }: Props) {
 					</div>
 					<h2 className="h-24 w-full text-center">{t("Content.News.heading")}</h2>
 					<FadingImage
-						src={`https://static.pprmint.art${Announcements.data[0].attributes.media.data.attributes.url}`}
+						src={`https://static.pprmint.de${Announcements.data[0].attributes.media.data.attributes.url}`}
 						alt={Announcements.data[0].attributes.media.data.attributes.alternativeText}
 						quality={90}
 						width={Announcements.data[0].attributes.media.data.attributes.width}
@@ -102,7 +96,7 @@ export default async function Page({ params: { locale } }: Props) {
 								index > 0 && (
 									<div key={announcement.id} className="flex flex-col gap-3">
 										<FadingImage
-											src={`https://static.pprmint.art${announcement.attributes.media.data.attributes.url}`}
+											src={`https://static.pprmint.de${announcement.attributes.media.data.attributes.url}`}
 											alt={announcement.attributes.media.data.attributes.alternativeText}
 											quality={90}
 											width={announcement.attributes.media.data.attributes.width}
@@ -141,7 +135,7 @@ export default async function Page({ params: { locale } }: Props) {
 				<section className="my-20 md:my-32 xl:my-40 relative flex items-center px-6 md:px-9 w-screen min-h-[500px] overflow-clip">
 					<div className="absolute inset-0 -z-10">
 						<FadingImage
-							src={`https://static.pprmint.art${MinaArt.data[0].attributes.artwork.data[0].attributes.formats.thumbnail.url}`}
+							src={`https://static.pprmint.de${MinaArt.data[0].attributes.artwork.data[0].attributes.formats.thumbnail.url}`}
 							fill
 							alt=""
 							className="object-cover blur-xl"
@@ -199,7 +193,7 @@ export default async function Page({ params: { locale } }: Props) {
 							className="relative group my-12 w-4/5 max-w-fit max-h-4/5 rotate-3 hover:rotate-0 hover:scale-[1.02] active:scale-[0.99] active:brightness-90 duration-400 active:duration-75 ease-out-back active:ease-out rounded-xl"
 						>
 							<FadingImage
-								src={`https://static.pprmint.art${MinaArt.data[0].attributes.artwork.data[0].attributes.url}`}
+								src={`https://static.pprmint.de${MinaArt.data[0].attributes.artwork.data[0].attributes.url}`}
 								alt={MinaArt.data[0].attributes.artwork.data[0].attributes.alternativeText}
 								width={MinaArt.data[0].attributes.artwork.data[0].attributes.width}
 								height={MinaArt.data[0].attributes.artwork.data[0].attributes.height}
@@ -208,7 +202,7 @@ export default async function Page({ params: { locale } }: Props) {
 							<div
 								className="absolute inset-0 overflow-clip blur-md rounded-xl"
 								style={{
-									maskImage: `url(https://static.pprmint.art${MinaArt.data[0].attributes.artwork.data[0].attributes.url})`,
+									maskImage: `url(https://static.pprmint.de${MinaArt.data[0].attributes.artwork.data[0].attributes.url})`,
 									maskRepeat: "no-repeat",
 									maskSize: "100%",
 								}}

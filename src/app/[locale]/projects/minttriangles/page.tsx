@@ -118,7 +118,7 @@ export default function Page({ params: { locale } }: Props) {
 						<span className="text-pink">.</span>
 					</h2>
 					<p className="pb-6">{t("Content.Download.text")}</p>
-					<Link href="https://static.pprmint.art/download/mint_triangles_1.0.zip" download>
+					<Link href="https://static.pprmint.de/download/mint_triangles_1.0.zip" download>
 						<Button color="pink" tabIndex={-1}>
 							<Download />
 							{t("Content.Download.button")}

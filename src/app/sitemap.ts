@@ -3,168 +3,168 @@ import { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
 	return [
 		{
-			url: "https://pprmint.art",
+			url: "https://pprmint.de",
 			lastModified: new Date(),
 			changeFrequency: "monthly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.art",
-					de: "https://pprmint.art/de",
+					en: "https://pprmint.de",
+					de: "https://pprmint.de/de",
 				},
 			},
 		},
 		{
-			url: "https://pprmint.art/mina",
+			url: "https://pprmint.de/mina",
 			lastModified: new Date(),
 			changeFrequency: "weekly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.art/mina",
-					de: "https://pprmint.art/de/mina",
+					en: "https://pprmint.de/mina",
+					de: "https://pprmint.de/de/mina",
 				},
 			},
 		},
 		{
-			url: "https://pprmint.art/contact",
+			url: "https://pprmint.de/contact",
 			lastModified: new Date(),
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.art/contact",
-					de: "https://pprmint.art/de/contact",
+					en: "https://pprmint.de/contact",
+					de: "https://pprmint.de/de/contact",
 				},
 			},
 		},
 		{
-			url: "https://pprmint.art/gallery",
+			url: "https://pprmint.de/gallery",
 			lastModified: new Date(),
 			changeFrequency: "monthly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.art/gallery",
-					de: "https://pprmint.art/de/gallery",
+					en: "https://pprmint.de/gallery",
+					de: "https://pprmint.de/de/gallery",
 				},
 			},
 		},
 		{
-			url: "https://pprmint.art/privacy",
+			url: "https://pprmint.de/privacy",
 			lastModified: new Date(),
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.art/privacy",
-					de: "https://pprmint.art/de/privacy",
+					en: "https://pprmint.de/privacy",
+					de: "https://pprmint.de/de/privacy",
 				},
 			},
 		},
 		{
-			url: "https://pprmint.art/ai",
+			url: "https://pprmint.de/ai",
 			lastModified: new Date(),
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.art/ai",
-					de: "https://pprmint.art/de/ai",
+					en: "https://pprmint.de/ai",
+					de: "https://pprmint.de/de/ai",
 				},
 			},
 		},
 		{
-			url: "https://pprmint.art/projects/appicons",
+			url: "https://pprmint.de/projects/appicons",
 			lastModified: new Date(),
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.art/projects/appicons",
-					de: "https://pprmint.art/de/projects/appicons",
+					en: "https://pprmint.de/projects/appicons",
+					de: "https://pprmint.de/de/projects/appicons",
 				},
 			},
 		},
 		{
-			url: "https://pprmint.art/projects/mintcraft",
+			url: "https://pprmint.de/projects/mintcraft",
 			lastModified: new Date(),
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.art/projects/mintcraft",
-					de: "https://pprmint.art/de/projects/mintcraft",
+					en: "https://pprmint.de/projects/mintcraft",
+					de: "https://pprmint.de/de/projects/mintcraft",
 				},
 			},
 		},
 		{
-			url: "https://pprmint.art/projects/ytdg",
+			url: "https://pprmint.de/projects/ytdg",
 			lastModified: new Date(),
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.art/projects/ytdg",
-					de: "https://pprmint.art/de/projects/ytdg",
+					en: "https://pprmint.de/projects/ytdg",
+					de: "https://pprmint.de/de/projects/ytdg",
 				},
 			},
 		},
 		{
-			url: "https://pprmint.art/projects/mintbit",
+			url: "https://pprmint.de/projects/mintbit",
 			lastModified: new Date(),
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.art/projects/mintbit",
-					de: "https://pprmint.art/de/projects/mintbit",
+					en: "https://pprmint.de/projects/mintbit",
+					de: "https://pprmint.de/de/projects/mintbit",
 				},
 			},
 		},
 		// Still unfinished.
     // {
-		// 	url: "https://pprmint.art/projects/tentative",
+		// 	url: "https://pprmint.de/projects/tentative",
 		// 	lastModified: new Date(),
 		// 	changeFrequency: "yearly",
 		// 	alternates: {
 		// 		languages: {
-		// 			en: "https://pprmint.art/projects/tentative",
-		// 			de: "https://pprmint.art/de/projects/tentative",
+		// 			en: "https://pprmint.de/projects/tentative",
+		// 			de: "https://pprmint.de/de/projects/tentative",
 		// 		},
 		// 	},
 		// },
 		{
-			url: "https://pprmint.art/projects/icons",
+			url: "https://pprmint.de/projects/icons",
 			lastModified: new Date(),
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.art/projects/icons",
-					de: "https://pprmint.art/de/projects/icons",
+					en: "https://pprmint.de/projects/icons",
+					de: "https://pprmint.de/de/projects/icons",
 				},
 			},
 		},
 		{
-			url: "https://pprmint.art/projects/minttriangles",
+			url: "https://pprmint.de/projects/minttriangles",
 			lastModified: new Date(),
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.art/projects/minttriangles",
-					de: "https://pprmint.art/de/projects/minttriangles",
+					en: "https://pprmint.de/projects/minttriangles",
+					de: "https://pprmint.de/de/projects/minttriangles",
 				},
 			},
 		},
 		{
-			url: "https://pprmint.art/projects/autsellia",
+			url: "https://pprmint.de/projects/autsellia",
 			lastModified: new Date(),
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.art/projects/autsellia",
-					de: "https://pprmint.art/de/projects/autsellia",
+					en: "https://pprmint.de/projects/autsellia",
+					de: "https://pprmint.de/de/projects/autsellia",
 				},
 			},
 		},
 		{
-			url: "https://pprmint.art/projects/minasans",
+			url: "https://pprmint.de/projects/minasans",
 			lastModified: new Date(),
 			changeFrequency: "monthly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.art/projects/minasans",
-					de: "https://pprmint.art/de/projects/minasans",
+					en: "https://pprmint.de/projects/minasans",
+					de: "https://pprmint.de/de/projects/minasans",
 				},
 			},
 		},

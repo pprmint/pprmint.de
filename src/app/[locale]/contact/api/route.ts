@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
 		from: process.env.EMAIL_RECIPIENT,
 		replyTo: sanitizedEmail,
 		to: process.env.EMAIL_RECIPIENT,
-		subject: `"${sanitizedSubject}" via pprmint.art`,
+		subject: `"${sanitizedSubject}" via pprmint.de`,
 		text: `Name:\n${sanitizedName}\n\nEmail address:\n${sanitizedEmail}\n\n${sanitizedMessage}`,
 		html: `<p>Message from <b>${sanitizedName}</b> <a href="mailto:${sanitizedEmail}">&lt;${sanitizedEmail}&gt;</a></p><hr><h1>${sanitizedSubject}</h1><p>${sanitizedMessage}</p><hr>`,
 	};

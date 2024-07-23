@@ -40,7 +40,7 @@ export default async function Page({ searchParams, params: { locale } }: Props) 
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
 				<FadingImage
-					src={`https://static.pprmint.art${Latest.data[0].attributes.cover.data.attributes.url}`}
+					src={`https://static.pprmint.de${Latest.data[0].attributes.cover.data.attributes.url}`}
 					alt=""
 					fill
 					className="object-cover"
