@@ -8,10 +8,8 @@
 
 ## Setup
 
-`npm install pnpm` because pnpm is cool.
+`pnpm i` to get a fuckton of packages.
 
-`pnpm install` to get a fuckton of packages.
+`pnpm dev` to look at the site on [localhost:3000](http://localhost:3000).
 
-`pnpm dev` to look at the site on localhost:3000.
-
-Note the [.env.example](.env.example) file. If you decide to clone this repo, run the site locally, and want to try out my manky contact form, make sure to provide your own details (host, port, username and password for the SMTP user, and the email address of the message recipient) in a `.env` file.
+The [.env.example](.env.example) file contains the API endpoint and key to access a Strapi instance used to manage content on some pages. It also contains SMTP details for the contact form.
