@@ -142,7 +142,7 @@ export default function Page({ params: { locale } }: Props) {
 								<Menu />
 							</div>
 						</div>
-						<Carousel images={[OldWebsite1, OldWebsite2, OldWebsite3]} className="rounded-md" />
+						<Carousel images={[OldWebsite1, OldWebsite2, OldWebsite3]} className="rounded-md w-full aspect-video" />
 					</div>
 					<p>
 						There wasn't really much rhyme or reason behind the decisions I made here. I just saw this as an
