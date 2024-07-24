@@ -119,7 +119,7 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 						<FadingImage
 							src={Stickers}
 							alt="Discord sticker menu, showing a few Mina stickers."
-							className="absolute w-5/6 sm:w-2/3 md:w-7/12 lg:w-1/2 max-w-2xl h-auto bottom-10 md:bottom-px left-1/2 -translate-x-1/2"
+							className="absolute w-5/6 sm:w-2/3 md:w-7/12 lg:w-1/2 max-w-2xl h-auto bottom-1/4 md:bottom-px left-1/2 -translate-x-1/2"
 						/>
 						<FadingImage
 							src={StickerSeyana}
