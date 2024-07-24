@@ -1,6 +1,6 @@
 "use client";
-import { useLocale, useTranslations } from "next-intl";
-import { Link, locales, usePathname } from "src/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "src/navigation";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { Pages, Projects } from "./Links";
 import Copyright from "./Socials";
@@ -13,15 +13,13 @@ const Caret = (
 export default function DesktopNavigation() {
 	const t = useTranslations("NAVIGATION");
 	const pathname = usePathname();
-	const locale = useLocale();
-	const otherLocale = locales?.find((cur) => cur !== locale);
 	// Styles
 	const NavMenuTrigger =
 		"group/root flex items-center gap-3 h-10 px-4 text-neutral-50/80 hover:text-neutral-50 data-[state='open']:text-neutral-50 duration-250 rounded-lg";
 	const NavMenuContent =
 		"absolute top-0 left-0 p-3 duration-250 data-[motion='from-start']:animate-enter-from-l data-[motion='from-end']:animate-enter-from-r data-[motion='to-start']:animate-exit-to-l data-[motion='to-end']:animate-exit-to-r";
 	const NavMenuViewport =
-		"relative origin-top-left w-[--radix-navigation-menu-viewport-width] overflow-hidden backdrop-blur-xl bg-gradient-to-b from-[#282828bb] to-[#222222aa] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 text-neutral rounded-xl shadow-[0_6px_22px_#11111166] h-[--radix-navigation-menu-viewport-height] duration-250 ease-out data-[state='open']:animate-enter-from-t data-[state='closed']:animate-exit-to-t";
+		"relative origin-top-left w-[--radix-navigation-menu-viewport-width] overflow-hidden backdrop-blur-xl bg-gradient-to-b from-[#282828bb] to-[#222222aa] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 text-neutral rounded-2xl shadow-[0_6px_22px_#11111166] h-[--radix-navigation-menu-viewport-height] duration-250 ease-out data-[state='open']:animate-enter-from-t data-[state='closed']:animate-exit-to-t";
 	return (
 		<>
 			<NavigationMenu.Root className="relative flex justify-center items-center" delayDuration={0}>
@@ -193,7 +191,7 @@ export default function DesktopNavigation() {
 						<div className="relative bg-neutral-50/10 -top-2 w-full h-10 rounded-lg duration-250" />
 					</NavigationMenu.Indicator>
 				</NavigationMenu.List>
-				<div className="absolute flex justify-center top-[55px] left-1/2 -translate-x-1/2" style={{ perspective: 2000 }}>
+				<div className="absolute flex justify-center top-[59px] left-1/2 -translate-x-1/2" style={{ perspective: 2000 }}>
 					<NavigationMenu.Viewport className={NavMenuViewport} />
 				</div>
 			</NavigationMenu.Root>
