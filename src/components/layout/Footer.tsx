@@ -3,6 +3,12 @@ import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { useTransition, a } from "@react-spring/web";
+import Image from "next/image";
+
+import FooterCursor from "public/assets/footer/cursor.svg";
+import FooterCube from "public/assets/footer/cube.svg";
+import FooterBrackets from "public/assets/footer/brackets.svg";
+import FooterLeaf from "public/assets/footer/leaf.svg";
 
 function Footer() {
 	const t = useTranslations("COMMON");
@@ -66,11 +72,11 @@ function Footer() {
 	const counterFadeIn = useTransition(counterVisible, {
 		from: {
 			opacity: 0,
-			bottom: 112,
+			bottom: 100,
 		},
 		enter: {
 			opacity: 1,
-			bottom: 124,
+			bottom: 112,
 		},
 		leave: {
 			opacity: 0,
@@ -79,9 +85,17 @@ function Footer() {
 
 	return (
 		<footer className="relative mt-24">
+			<div className="w-full flex items-center px-6 gap-6">
+				<div className="w-full h-0.5 bg-gradient-to-l from-neutral-900" />
+				<Image src={FooterCursor} alt="" />
+				<Image src={FooterCube} alt="" />
+				<Image src={FooterBrackets} alt="" />
+				<Image src={FooterLeaf} alt="" />
+				<div className="w-full h-0.5 bg-gradient-to-r from-neutral-900" />
+			</div>
 			{textFadeIn((style, item) =>
 				item ? (
-					<a.p className="absolute top-0 w-full text-center text-xs" style={style}>
+					<a.p className="absolute top-9 w-full text-center text-xs" style={style}>
 						{t(
 							`Mina.${
 								clicks == Number.MAX_SAFE_INTEGER + 1
@@ -111,7 +125,7 @@ function Footer() {
 						)}
 					</a.p>
 				) : (
-					<a.p className="text-neutral-800 absolute top-0 w-full text-center" style={style}>
+					<a.p className="text-neutral-800 absolute top-9 w-full text-center" style={style}>
 						{"© "}
 						{new Date().getFullYear()} pprmint.
 					</a.p>
@@ -127,7 +141,7 @@ function Footer() {
 					</a.div>
 				) : null
 			)}
-			<div className="h-44 pt-4 overflow-clip">
+			<div className="h-44 pt-9 overflow-clip">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 160 160"
