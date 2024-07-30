@@ -1,12 +1,8 @@
-<p align="center">
-    <picture>
-        <img width="150" alt="My logo, which is an encircled leaf." src="/public/assets/logo_with_background.svg">
-    </picture>
-</p>
+# pprmint.de <a href="https://pprmint.de" target="_blank"><img align="right" height="40" src="/public/assets/logo_with_background.svg"></a>
 
-# pprmint.de (Next.js)
+My personal website, built with [Next.js](https://nextjs.org/) and [Tailwind](https://tailwindcss.com/), hosted on [Vercel](https://vercel.com/).
 
-## Setup
+## Getting started.
 
 `pnpm i` to get a fuckton of packages.
 
