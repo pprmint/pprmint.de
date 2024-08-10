@@ -55,9 +55,9 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 						className="absolute right-0 top-1/2 -translate-y-1/2 z-100 px-1 py-2 rounded-l-md text-xs text-neutral-50 bg-neutral-950/75 backdrop-blur-md"
 						style={{ writingMode: "vertical-rl" }}
 					>
-						<Twitter className="inline fill-blue0" /> @108sketches
+						<Twitter className="inline fill-blue rotate-90" /> @108sketches
 					</p>
-					<FadingImage src={TitleMina} alt="" fill className="object-cover object-top" quality={90} />
+					<FadingImage src={TitleMina} alt="" fill className="object-cover object-center" quality={90} />
 				</div>
 			</Title>
 			<main>
