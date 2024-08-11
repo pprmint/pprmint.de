@@ -131,8 +131,8 @@ export default function NotFound() {
 									</a.div>
 									<a.p style={styles} className="md:absolute pt-6 bottom-3 md:bottom-5 left-0 right-0 text-xs text-center">
 										Detective Mina was drawn by{" "}
-										<Link href="https://twitter.com/108sketches" target="_blank" className="text-link-external">
-											Layer (@108sketches)
+										<Link href="https://twitter.com/DIVAOFDESPAlR" target="_blank" className="text-link-external">
+											Layer (@DIVAOFDESPAlR)
 										</Link>
 										.
 									</a.p>
@@ -161,8 +161,8 @@ export default function NotFound() {
 									</a.div>
 									<a.p style={styles} className="md:absolute pt-6 bottom-3 md:bottom-5 left-0 right-0 text-xs text-center">
 										Detektiv Mina wurde von{" "}
-										<Link href="https://twitter.com/108sketches" target="_blank" className="text-link-external">
-											Layer (@108sketches)
+										<Link href="https://twitter.com/DIVAOFDESPAlR" target="_blank" className="text-link-external">
+											Layer (@DIVAOFDESPAlR)
 										</Link>{" "}
 										gezeichnet.
 									</a.p>
