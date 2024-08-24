@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Mina Sans Digits';
+    src: url('MinaSansDigitsRegular.eot');
+    src: url('MinaSansDigitsRegular.eot?#iefix') format('embedded-opentype'),
+        url('MinaSansDigitsRegular.woff2') format('woff2'),
+        url('MinaSansDigitsRegular.woff') format('woff'),
+        url('MinaSansDigitsRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
