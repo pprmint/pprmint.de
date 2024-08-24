@@ -114,7 +114,7 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 					</Suspense>
 				</section>
 				<FanartRules />
-				<section className="relative flex items-end justify-center my-20 md:my-32 xl:my-40 xl:pt-10 max-w-screen-3xl mx-auto px-6 md:px-9 min-h-[500px]">
+				<section className="relative flex items-end justify-center my-20 md:my-32 xl:my-40 xl:pt-10 max-w-screen-3xl mx-auto px-6 md:px-9 min-h-[500px] overflow-x-clip">
 					<div className="absolute inset-0 -z-10">
 						<FadingImage
 							src={Stickers}
