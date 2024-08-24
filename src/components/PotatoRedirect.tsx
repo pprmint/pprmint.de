@@ -18,7 +18,7 @@ function PotatoRedirect() {
 			if (!redirectPotato) {
 				setTimeout(() => {
 					setOpen(true);
-				}, 5000);
+				}, 10000);
 			} else if (redirectPotato === "always") {
 				router.push(`https://potato.pprmint.de${pathname}`);
 			}
