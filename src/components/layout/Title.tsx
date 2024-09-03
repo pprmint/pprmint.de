@@ -8,17 +8,22 @@ export default function Title(
 		title: string;
 		description: string;
 		accentColor?: string;
+		noDelay?: boolean;
 	}>
 ) {
 	const { accentColor = "text-green" } = props;
 	const fadeIn = useSpring({
 		from: { opacity: 0, scale: 1.05 },
 		to: { opacity: 0.75, scale: 1 },
-		delay: 250,
+		delay: props.noDelay ? 0 : 250,
 	});
 	const Title = props.title.split("");
 	return (
-		<div className={`relative w-screen ${props.children ? "h-screen max-h-svh" : "h-60 xl:h-96 mb-20 md:mb-32 xl:mb-40"} overflow-hidden text-balance`}>
+		<div
+			className={`relative w-screen ${
+				props.children ? "h-screen max-h-svh" : "h-60 xl:h-96 mb-20 md:mb-32 xl:mb-40"
+			} overflow-hidden text-balance`}
+		>
 			{props.children && (
 				<>
 					<a.div className="absolute w-full h-full" style={{ ...fadeIn }}>
@@ -34,21 +39,27 @@ export default function Title(
 							<span
 								key={index}
 								className="animate-title-fade-in"
-								style={{ animationDelay: `${index / 50 + 0.25}s`, animationFillMode: "backwards" }}
+								style={{
+									animationDelay: `${index / 50 + (props.noDelay ? 0 : 0.25)}s`,
+									animationFillMode: "backwards",
+								}}
 							>
 								{character}
 							</span>
 						))}
 						<span
 							className={`animate-title-fade-in ${accentColor}`}
-							style={{ animationDelay: `${Title.length * 0.02 + 0.27}s`, animationFillMode: "backwards" }}
+							style={{
+								animationDelay: `${Title.length * 0.02 + (props.noDelay ? 0.02 : 0.27)}s`,
+								animationFillMode: "backwards",
+							}}
 						>
 							.
 						</span>
 					</h1>
 					<p
 						className="animate-title-fade-in text-neutral text-xl md:text-2xl xl:text-3xl"
-						style={{ animationDelay: "0.25s", animationFillMode: "backwards" }}
+						style={{ animationDelay: props.noDelay ? "0.05s" : "0.25s", animationFillMode: "backwards" }}
 					>
 						{props.description}
 					</p>
