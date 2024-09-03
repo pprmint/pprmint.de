@@ -76,7 +76,7 @@ export default function NotFound() {
 	return (
 		<html lang="en">
 			<body className="bg-neutral-950 selection:bg-green selection:text-neutral-950 text-neutral focus-visible:outline-none focus-visible:ring-2 overflow-x-hidden">
-				<Link href="/" className="fixed top-0 left-0 z-50 pl-3 md:pl-6 h-16 flex items-center">
+				<Link href="/" className="fixed top-0 left-0 z-50 pl-6 md:pl-9 h-16 flex items-center">
 					<Image src={Wordmark} alt="pprmint. logo" className="h-auto w-[150px] mt-1" />
 				</Link>
 				<main className="relative w-screen h-screen overflow-clip">
