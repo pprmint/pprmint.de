@@ -12,7 +12,7 @@ import Cube from "src/icons/Cube";
 import FilterFilled from "src/icons/FilterFilled";
 
 export default function Filters(props: { type: string; dimension: string }) {
-	const t = useTranslations("GALLERY");
+	const t = useTranslations("GRAPHICS");
 	const searchParams = useSearchParams();
 	const [filtersOpen, setFiltersOpen] = useState(false);
 	const pathname = usePathname();

@@ -20,7 +20,7 @@ export default function Page({ params: { locale } }: Props) {
 	const t = useTranslations("");
 	return (
 		<>
-			<Title title={t("PROJECTS.Head.title")} description={t("PROJECTS.Head.description")} />
+			<Title title={t("PROJECTS.Head.title")} description={t("PROJECTS.Head.description")} noDelay />
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
 				<Grid />
 			</main>

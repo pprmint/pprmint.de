@@ -10,8 +10,8 @@ import FullscreenExit from "src/icons/FullscreenExit";
 import X from "src/icons/X";
 import { Works } from "src/types/work";
 
-export default function Gallery(works: { works: Works }) {
-	const t = useTranslations("GALLERY");
+export default function GalleryGrid(works: { works: Works }) {
+	const t = useTranslations("GRAPHICS");
 	const [fullscreen, setFullscreen] = useState(false);
 	return (
 		<div className="group mb-10 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5">

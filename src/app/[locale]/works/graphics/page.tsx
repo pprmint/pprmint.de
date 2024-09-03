@@ -2,17 +2,15 @@ import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { Suspense } from "react";
 
 import Title from "src/components/layout/Title";
-import FadingImage from "src/components/ui/FadingImage";
 
 import GallerySkeleton from "./gallery/gallerySkeleton";
 import GallerySuspense from "./gallery/gallerySuspense";
 
-import { Works } from "src/types/work";
 import { Link } from "src/navigation";
 import WarningOctagon from "src/icons/WarningOctagon";
 
 export async function generateMetadata({ params: { locale } }: Props) {
-	const t = await getTranslations({ locale, namespace: "GALLERY" });
+	const t = await getTranslations({ locale, namespace: "GRAPHICS" });
 	return {
 		title: t("Head.title"),
 		description: t("Head.description"),
@@ -31,22 +29,13 @@ type Props = {
 
 export default async function Page({ searchParams, params: { locale } }: Props) {
 	unstable_setRequestLocale(locale);
-	const t = await getTranslations("GALLERY");
+	const t = await getTranslations("GRAPHICS");
 	const currentPage = Number(searchParams?.p) || 1;
 	const type = String(searchParams?.type) || "undefined";
 	const dimension = String(searchParams?.dimension) || "undefined";
-	const Latest: Works = await getLatest();
 	return (
 		<>
-			<Title title={t("Head.title")} description={t("Head.description")}>
-				<FadingImage
-					src={`https://static.pprmint.de${Latest.data[0].attributes.cover.data.attributes.url}`}
-					alt=""
-					fill
-					className="object-cover"
-					quality={90}
-				/>
-			</Title>
+			<Title title={t("Head.title")} description={t("Head.description")} noDelay />
 			<main>
 				<section className="flex flex-col lg:flex-row items-center justify-center gap-9 my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9">
 					<div>
@@ -82,21 +71,4 @@ export default async function Page({ searchParams, params: { locale } }: Props) 
 			</main>
 		</>
 	);
-}
-
-async function getLatest() {
-	const res = await fetch(
-		`${process.env.STRAPI_API_URL}/works?pagination[limit]=1&populate=*&sort=creationDate:desc`,
-		{
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
-			},
-			next: { revalidate: 60 },
-		}
-	);
-	if (!res.ok) {
-		throw new Error("Failed to fetch latest.");
-	}
-	return res.json();
 }
