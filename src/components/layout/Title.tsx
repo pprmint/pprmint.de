@@ -21,7 +21,7 @@ export default function Title(
 	return (
 		<div
 			className={`relative w-screen ${
-				props.children ? "h-screen max-h-svh" : "h-60 xl:h-96 mb-20 md:mb-32 xl:mb-40"
+				props.children ? "h-screen max-h-svh" : "h-60 xl:h-96 mb-20 md:mb-32 xl:mb-40 text-center"
 			} overflow-hidden text-balance`}
 		>
 			{props.children && (
