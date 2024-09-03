@@ -806,6 +806,12 @@
 			"description": "A group of indecisive creatives, including yours truly."
 		}
 	},
+	"WORKS": {
+		"Head": {
+			"description": "Take a look at (almost) all my creations.",
+			"title": "Works"
+		}
+	},
 	"YTDG": {
 		"Content": {
 			"About": {

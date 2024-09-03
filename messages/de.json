@@ -806,6 +806,12 @@
 			"description": "Eine Gruppe von unschlüssigen Kreativen, einschließlich meiner Wenigkeit."
 		}
 	},
+	"WORKS": {
+		"Head": {
+			"description": "Schau dir (fast) alle meiner Kreationen an.",
+			"title": "Werke"
+		}
+	},
 	"YTDG": {
 		"Content": {
 			"About": {
