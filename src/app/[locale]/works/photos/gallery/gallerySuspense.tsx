@@ -17,7 +17,7 @@ async function getPhotos(page: number) {
 	const res = await fetch(
 		`${
 			process.env.STRAPI_API_URL
-		}/photos?sort[0]=dateTime:asc&populate[photo][fields][0]=url&populate[photo][fields][1]=width&populate[photo][fields][2]=height&populate[camera][fields][0]=name&populate[camera][populate][logo][fields][0]=url&populate[camera][populate][logo][fields][1]=width&populate[camera][populate][logo][fields][2]=height&populate[lens][fields][0]=name&fields[0]=dateTime&fields[1]=iso&fields[2]=zoom&fields[3]=aperture&fields[4]=shutter&pagination[pageSize]=20&pagination[page]=${Number(
+		}/photos?sort[0]=dateTime:desc&populate[photo][fields][0]=url&populate[photo][fields][1]=width&populate[photo][fields][2]=height&populate[camera][fields][0]=name&populate[camera][populate][logo][fields][0]=url&populate[camera][populate][logo][fields][1]=width&populate[camera][populate][logo][fields][2]=height&populate[lens][fields][0]=name&fields[0]=dateTime&fields[1]=iso&fields[2]=focalLength&fields[3]=aperture&fields[4]=shutter&pagination[pageSize]=20&pagination[page]=${Number(
 			page
 		)}`,
 		{

@@ -10,7 +10,7 @@ import { Link } from "src/navigation";
 import WarningOctagon from "src/icons/WarningOctagon";
 
 export async function generateMetadata({ params: { locale } }: Props) {
-	const t = await getTranslations({ locale, namespace: "GRAPHICS" });
+	const t = await getTranslations({ locale, namespace: "PHOTOS" });
 	return {
 		title: t("Head.title"),
 		description: t("Head.description"),

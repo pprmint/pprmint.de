@@ -735,6 +735,26 @@
 			}
 		}
 	},
+	"PHOTOS": {
+		"Head": {
+			"description": "Vacation photos and other snapshots.",
+			"title": "Photos"
+		},
+		"Content": {
+			"Disclaimer": {
+				"heading": "All rights reserved unless otherwise specified",
+				"text1": "Special permission is granted for using photos on this page as phone or desktop backgrounds on your personal device(s).",
+				"text2": "Usage for any other purposes, be it commercial or personal, is <b>not permitted</b> without my prior written consent.",
+				"text3": "Please <Link>send me a message</Link> if you have any inquiries."
+			},
+			"Camera": {
+				"iso": "ISO",
+				"aperture": "Aperture",
+				"shutterSpeed": "Shutter speed",
+				"focalLength": "Focal length <small>(35 mm equivalent)</small>"
+			}
+		}
+	},
 	"PRIVACY": {
 		"Head": {
 			"description": "Learn about what data is processed upon your visit.",

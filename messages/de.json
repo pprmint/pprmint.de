@@ -735,6 +735,26 @@
 			}
 		}
 	},
+	"PHOTOS": {
+		"Head": {
+			"description": "Urlaubsfotos und andere Schnappschüsse.",
+			"title": "Fotos"
+		},
+		"Content": {
+			"Disclaimer": {
+				"heading": "Alle Reche vorbehalten, sofern nicht anders angegeben",
+				"text1": "Die Verwendung von Fotos auf dieser Seite als Desktop- oder Handy-Hintergrundbilder ist auf deinen persönlichen Geräten erlaubt.",
+				"text2": "Davon abgesehen ist jegliche Wiederverwendung, ganz gleich ob für kommerzielle oder persönliche Zwecke, ohne meine schriftliche Erlaubnis <b>untersagt</b>.",
+				"text3": "<Link>Schreibe mir eine Nachricht</Link>, wenn du Fragen dazu hast."
+			},
+			"Camera": {
+				"iso": "ISO",
+				"aperture": "Blende",
+				"shutterSpeed": "Belichtungszeit",
+				"focalLength": "Brennweite <small>(35 mm äquivalent)</small>"
+			}
+		}
+	},
 	"PRIVACY": {
 		"Head": {
 			"description": "Erfahre, welche Daten bei deinem Besuch verarbeitet werden.",

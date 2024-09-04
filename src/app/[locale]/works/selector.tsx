@@ -49,11 +49,12 @@ export default function GallerySelector() {
 					<ArrowRight className="absolute h-full w-max top-0 right-3 opacity-0 group-hover:opacity-100 -translate-x-1/2 group-hover:translate-x-0 p-20 fill-neutral-50 stroke-0 group-hover:stroke-1 stroke-neutral-50 duration-400 ease-in-out-custom drop-shadow-2xl" />
 					<div className="absolute inset-0 flex items-center p-6 md:p-9 lg:p-20 bg-gradient-to-r from-neutral-950">
 						<h1 className="mt-4">
-							{t("GRAPHICS.Head.title")}<span className="text-green">.</span>
+							{t("GRAPHICS.Head.title")}
+							<span className="text-green">.</span>
 						</h1>
 					</div>
 				</button>
-				<button className="group relative grow overflow-clip pointer-events-none opacity-25">
+				<button className="group relative grow overflow-clip" onClick={() => setCurrent("photos")}>
 					<FadingImage
 						src="https://cms.pprmint.de/uploads/DSC_00277_42c3e63529.jpg"
 						alt=""
@@ -63,7 +64,8 @@ export default function GallerySelector() {
 					<ArrowRight className="absolute h-full w-max top-0 right-3 opacity-0 group-hover:opacity-100 -translate-x-1/2 group-hover:translate-x-0 p-20 fill-neutral-50 stroke-0 group-hover:stroke-1 stroke-neutral-50 duration-400 ease-in-out-custom drop-shadow-2xl" />
 					<div className="absolute inset-0 flex items-center p-6 md:p-9 lg:p-20 bg-gradient-to-r from-neutral-950">
 						<h1 className="mt-4">
-							soon
+							{t("PHOTOS.Head.title")}
+							<span className="text-red">.</span>
 						</h1>
 					</div>
 				</button>
@@ -77,7 +79,8 @@ export default function GallerySelector() {
 					<ArrowRight className="absolute h-full w-max top-0 right-3 opacity-0 group-hover:opacity-100 -translate-x-1/2 group-hover:translate-x-0 p-20 fill-neutral-50 stroke-0 group-hover:stroke-1 stroke-neutral-50 duration-400 ease-in-out-custom drop-shadow-2xl" />
 					<div className="absolute inset-0 flex items-center p-6 md:p-9 lg:p-20 bg-gradient-to-r from-neutral-950">
 						<h1 className="mt-4">
-						{t("PROJECTS.Head.title")}<span className="text-yellow">.</span>
+							{t("PROJECTS.Head.title")}
+							<span className="text-yellow">.</span>
 						</h1>
 					</div>
 				</button>
