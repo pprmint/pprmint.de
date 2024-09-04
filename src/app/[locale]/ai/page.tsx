@@ -39,7 +39,7 @@ export default function Page({ params: { locale } }: Props) {
 					</h2>
 					<p>
 						{t.rich("Content.Copyright.text1", {
-							gallery: (chunks) => <Link className="text-link" href="/gallery">{chunks}</Link>,
+							gallery: (chunks) => <Link className="text-link" href="/works/graphics">{chunks}</Link>,
 							contact: (chunks) => <Link className="text-link" href="/contact">{chunks}</Link>,
 						})}
 					</p>

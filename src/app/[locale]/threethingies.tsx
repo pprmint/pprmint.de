@@ -31,7 +31,7 @@ export default function ThreeThingies() {
 			<Link
 				onFocus={() => setFocused("vectors")}
 				onMouseEnter={() => setFocused("vectors")}
-				href="/gallery?dimension=2d"
+				href="/works/graphics?dimension=2d"
 				className="z-20 group relative flex p-6 md:p-9 pb-20 size-full lg:items-center lg:justify-center bg-neutral-950/90 hover:bg-neutral-950/75 active:hover:bg-neutral-950/90 focus-visible:bg-neutral-950/75 backdrop-blur-lg hover:backdrop-blur-none focus-visible:backdrop-blur-none duration-300 active:duration-75"
 			>
 				<div className="lg:text-center lg:translate-y-1/3 lg:group-hover:translate-y-0 lg:group-focus-visible:translate-y-0 duration-500 ease-out-quint xl:h-64 2xl:h-52">
@@ -52,7 +52,7 @@ export default function ThreeThingies() {
 			<Link
 				onFocus={() => setFocused("polygons")}
 				onMouseEnter={() => setFocused("polygons")}
-				href="/gallery?dimension=3d"
+				href="/works/graphics?dimension=3d"
 				className="z-20 group relative flex p-6 md:p-9 pb-20 size-full lg:items-center lg:justify-center bg-neutral-950/90 hover:bg-neutral-950/75 active:hover:bg-neutral-950/90 focus-visible:bg-neutral-950/75 backdrop-blur-lg hover:backdrop-blur-none focus-visible:backdrop-blur-none duration-300 active:duration-75"
 			>
 				<div className="lg:text-center lg:translate-y-1/3 lg:group-hover:translate-y-0 lg:group-focus-visible:translate-y-0 duration-500 ease-out-quint xl:h-64 2xl:h-52">

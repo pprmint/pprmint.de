@@ -47,7 +47,7 @@ function MessageBubble(props: { incoming?: boolean; id: string }) {
 			>
 				{t.rich(`Messages.${props.id}.${props.incoming ? "answer" : "message"}`, {
 					gallery: (chunks) => (
-						<Link href="/gallery" target="_blank" className="text-link">
+						<Link href="/works/graphics" target="_blank" className="text-link">
 							{chunks}
 						</Link>
 					),

@@ -69,11 +69,11 @@ export default function DesktopNavigation() {
 									<NavigationMenu.Link
 										asChild
 										className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75 ${
-											pathname === "/gallery" &&
+											pathname === "/works/graphics" &&
 											"bg-gradient-to-b from-neutral-950/30 to-neutral-950/15 shadow-inner pointer-events-none"
 										}`}
 									>
-										<Link href="/gallery">
+										<Link href="/works/graphics">
 											<span className="text-neutral-50 font-display text-xl pb-0.5">
 												{t(`Path.Work.Gallery.title`)}
 											</span>
@@ -106,11 +106,11 @@ export default function DesktopNavigation() {
 									<NavigationMenu.Link
 										asChild
 										className={`group block px-3 py-2.5 text-center rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75 ${
-											pathname === "/projects" &&
+											pathname === "/works/projects" &&
 											"bg-gradient-to-b from-neutral-950/30 to-neutral-950/15 shadow-inner pointer-events-none"
 										}`}
 									>
-										<Link href="/projects">
+										<Link href="/works/projects">
 											<span className="text-neutral-50 font-display pb-0.5">
 												{t("Path.Work.Projects.More.title")}
 											</span>
