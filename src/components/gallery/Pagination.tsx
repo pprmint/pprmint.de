@@ -4,7 +4,7 @@ import ChevronLeft from "src/icons/ChevronLeft";
 import ChevronRight from "src/icons/ChevronRight";
 import { usePathname, useRouter } from "src/navigation";
 
-export default function Pagination({ page, pageCount }: { page: number; pageCount: number }) {
+export default function Pagination({ page, pageCount, top }: { page: number; pageCount: number; top?: number }) {
 	const searchParams = useSearchParams();
 	const pathname = usePathname();
 	const { replace } = useRouter();
@@ -16,6 +16,7 @@ export default function Pagination({ page, pageCount }: { page: number; pageCoun
 			params.delete("p");
 		}
 		replace(`${pathname}?${params.toString()}`, { scroll: false });
+		top && scrollTo({ top: top });
 	}
 
 	return (
@@ -25,7 +26,7 @@ export default function Pagination({ page, pageCount }: { page: number; pageCoun
 				disabled={page == 1}
 				onClick={() => handlePagination(String(page - 1))}
 			>
-				<ChevronLeft className={`${page != 1 &&"group-active:-translate-x-0.5"} duration-50`} />
+				<ChevronLeft className={`${page != 1 && "group-active:-translate-x-0.5"} duration-50`} />
 			</button>
 			{[...Array(pageCount)].map((_, index) => (
 				<button
@@ -45,7 +46,7 @@ export default function Pagination({ page, pageCount }: { page: number; pageCoun
 				disabled={page == pageCount}
 				onClick={() => handlePagination(String(page + 1))}
 			>
-				<ChevronRight className={`${page != pageCount &&"group-active:translate-x-0.5"} duration-50`} />
+				<ChevronRight className={`${page != pageCount && "group-active:translate-x-0.5"} duration-50`} />
 			</button>
 		</div>
 	);
