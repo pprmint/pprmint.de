@@ -35,6 +35,11 @@ export default async function Page({ searchParams, params: { locale } }: Props) 
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} noDelay />
 			<main>
+				<section className="my-20 md:my-32 xl:my-40">
+					<Suspense fallback={<GallerySkeleton />}>
+						<GallerySuspense p={currentPage} />
+					</Suspense>
+				</section>
 				<section className="flex flex-col lg:flex-row items-center justify-center gap-9 my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9">
 					<div>
 						<WarningOctagon className="size-24 fill-red" />
@@ -60,11 +65,6 @@ export default async function Page({ searchParams, params: { locale } }: Props) 
 							})}
 						</p>
 					</div>
-				</section>
-				<section className="my-20 md:my-32 xl:my-40">
-					<Suspense fallback={<GallerySkeleton />}>
-						<GallerySuspense p={currentPage} />
-					</Suspense>
 				</section>
 			</main>
 		</>
