@@ -2,9 +2,9 @@
 
 @font-face {
 	font-family: "Mina Sans WEB";
-	src: url("minasansregularweb.eot");
-	src: url("minasansregularweb.eot?#iefix") format("embedded-opentype"),
-		url("minasansregularweb.woff2") format("woff2"), url("minasansregularweb.woff") format("woff");
+	src: url("MinaSansRegular.eot");
+	src: url("MinaSansRegular.eot?#iefix") format("embedded-opentype"),
+		url("MinaSansRegular.woff2") format("woff2"), url("MinaSansRegular.woff") format("woff");
 	font-weight: normal;
 	font-style: normal;
 }

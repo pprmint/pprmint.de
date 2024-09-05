@@ -43,3 +43,7 @@ p:not(:last-of-type) {
 img {
 	user-select: none;
 }
+
+body {
+	font-variation-settings: "liga";
+}
