@@ -55,7 +55,7 @@ export default function Gallery(photos: { photos: Photos }) {
 									unoptimized
 								/>
 								<div className="absolute flex items-center top-4 inset-x-0">
-									<div className="flex items-center justify-between flex-grow gap-3 text-xl font-display">
+									<div className="flex justify-between flex-grow gap-3 text-xl font-display">
 										<Dialog.Title asChild>
 											<p className="text-neutral-50">
 												{format.dateTime(new Date(photo.attributes.dateTime), {
@@ -79,21 +79,25 @@ export default function Gallery(photos: { photos: Photos }) {
 								</div>
 								<div className="absolute flex flex-col md:flex-row items-center bottom-4 inset-x-0 h-9 gap-1">
 									<div className="flex items-center flex-grow gap-6">
-										<Image
-											src={`https://static.pprmint.de${photo.attributes.camera.data.attributes.logo.data.attributes.url}`}
-											width={photo.attributes.camera.data.attributes.logo.data.attributes.width}
-											height={photo.attributes.camera.data.attributes.logo.data.attributes.height}
-											alt={photo.attributes.camera.data.attributes.name}
-											unoptimized
-											className="invert h-4 md:h-6 w-auto"
-										/>
+										{photo.attributes.camera.data.attributes.logo.data ? (
+											<Image
+												src={`https://static.pprmint.de${photo.attributes.camera.data.attributes.logo.data.attributes.url}`}
+												width={photo.attributes.camera.data.attributes.logo.data.attributes.width}
+												height={photo.attributes.camera.data.attributes.logo.data.attributes.height}
+												alt={photo.attributes.camera.data.attributes.name}
+												unoptimized
+												className="invert h-4 md:h-6 w-auto"
+											/>
+										) : (
+											<p className="font-medium text-lg text-neutral-50">{photo.attributes.camera.data.attributes.name}</p>
+										)}
 										{photo.attributes.lens.data && photo.attributes.lens.data.attributes.name}
 									</div>
 									<div className="flex gap-6 select-none">
 										<Tooltip.Root delayDuration={0}>
 											<Tooltip.Trigger asChild>
 												<div className="flex gap-1 items-center">
-													<CameraIso />
+													<CameraIso className="h-4" />
 													<span className="font-mono text-sm">{photo.attributes.iso}</span>
 												</div>
 											</Tooltip.Trigger>
@@ -110,7 +114,7 @@ export default function Gallery(photos: { photos: Photos }) {
 										<Tooltip.Root delayDuration={0}>
 											<Tooltip.Trigger asChild>
 												<div className="flex gap-1 items-center">
-													<CameraAperture />
+													<CameraAperture className="h-4" />
 													<span className="font-mono text-sm">
 														<i>f</i>/{photo.attributes.aperture}
 													</span>
@@ -129,10 +133,8 @@ export default function Gallery(photos: { photos: Photos }) {
 										<Tooltip.Root delayDuration={0}>
 											<Tooltip.Trigger asChild>
 												<div className="flex gap-1 items-center">
-													<CameraShutterSpeed />
-													<span className="font-mono text-sm">
-														{photo.attributes.shutter}s
-													</span>
+													<CameraShutterSpeed className="h-4" />
+													<span className="font-mono text-sm">{photo.attributes.shutter}s</span>
 												</div>
 											</Tooltip.Trigger>
 											<Tooltip.Content
@@ -148,10 +150,8 @@ export default function Gallery(photos: { photos: Photos }) {
 										<Tooltip.Root delayDuration={0}>
 											<Tooltip.Trigger asChild>
 												<div className="flex gap-1 items-center">
-													<CameraFocalLength />
-													<span className="font-mono text-sm">
-														{photo.attributes.focalLength}mm
-													</span>
+													<CameraFocalLength className="h-4" />
+													<span className="font-mono text-sm">{photo.attributes.focalLength}mm</span>
 												</div>
 											</Tooltip.Trigger>
 											<Tooltip.Content

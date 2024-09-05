@@ -22,7 +22,7 @@ export interface Photo {
 				attributes: {
 					name: string;
 					logo: {
-						data: {
+						data?: {
 							id: number;
 							attributes: {
 								url: string;
