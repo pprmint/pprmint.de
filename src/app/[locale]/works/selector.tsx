@@ -56,7 +56,7 @@ export default function GallerySelector() {
 				</button>
 				<button className="group relative grow overflow-clip" onClick={() => setCurrent("photos")}>
 					<FadingImage
-						src="https://cms.pprmint.de/uploads/DSC_00277_42c3e63529.jpg"
+						src="https://cms.pprmint.de/uploads/DSC_00277_abd6347464.webp"
 						alt=""
 						fill
 						className="object-cover saturate-0 group-hover:saturate-100 group-hover:scale-105 duration-400 ease-in-out-custom"
