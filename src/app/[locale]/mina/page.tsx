@@ -21,8 +21,8 @@ import GallerySkeleton from "./gallery/gallerySkeleton";
 import FanartRules from "./rules";
 import Download from "src/icons/Download";
 import Discord from "src/icons/Discord";
-import Twitter from "src/icons/Twitter";
-import FlipCharacter from "src/components/ui/FlipCharacter";
+import Instagram from "src/icons/Instagram";
+import ArtCreditButton from "src/components/ui/ArtCreditButton";
 
 type Props = {
 	params: { locale: string };
@@ -50,16 +50,18 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
-				<div className="relative w-screen h-screen max-h-svh">
-					<p
-						className="absolute right-0 top-1/2 -translate-y-1/2 z-100 px-1 py-2 rounded-l-md text-xs text-neutral-50 bg-neutral-950/75 backdrop-blur-md"
-						style={{ writingMode: "vertical-rl" }}
-					>
-						<Twitter className="inline fill-blue rotate-90" /> @DIVAOFDESPAlR
-					</p>
-					<FadingImage src={TitleMina} alt="" fill className="object-cover object-center" quality={90} />
-				</div>
+				<FadingImage
+					src="https://cms.pprmint.de/uploads/nano_2_261f0fd248.webp"
+					alt=""
+					fill
+					className="object-cover object-[50%_65%]"
+					quality={90}
+				/>
 			</Title>
+			<ArtCreditButton link="https://www.instagram.com/nogonagon">
+				<Instagram />
+				@nogonagon
+			</ArtCreditButton>
 			<main>
 				<section id="lore" className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9">
 					<h2>

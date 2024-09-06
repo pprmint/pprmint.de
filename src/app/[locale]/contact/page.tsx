@@ -14,6 +14,7 @@ import Bubbles from "public/assets/contact/bubbles.svg";
 
 import Chatbox from "./chatbox";
 import Form from "./form";
+import ArtCreditButton from "src/components/ui/ArtCreditButton";
 
 type Props = {
 	params: { locale: string };
@@ -33,22 +34,18 @@ export default function Page({ params: { locale } }: Props) {
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
-				<div className="relative w-screen h-screen max-h-svh">
-					<p
-						className="absolute right-0 top-1/2 -translate-y-1/2 z-100 px-1 py-2 rounded-l-md text-xs text-neutral-50 bg-neutral-950/75 backdrop-blur-md"
-						style={{ writingMode: "vertical-rl" }}
-					>
-						<Twitter className="inline fill-blue rotate-90" /> @neko__draws
-					</p>
-					<FadingImage
-						src={locale == "de" ? TitleBackgroundDe : TitleBackgroundEn}
-						alt=""
-						quality={100}
-						fill
-						className="object-cover object-top xl:object-[0%_15%]"
-					/>
-				</div>
+				<FadingImage
+					src={locale == "de" ? TitleBackgroundDe : TitleBackgroundEn}
+					alt=""
+					quality={100}
+					fill
+					className="object-cover object-top xl:object-[0%_15%]"
+				/>
 			</Title>
+			<ArtCreditButton link="https://twitter.com/neko__draws">
+				<Twitter />
+				@neko__draws
+			</ArtCreditButton>
 			<main>
 				<section className="max-w-7xl mx-auto my-20 md:my-32 xl:my-40 px-6 md:px-9 flex flex-col items-center justify-center">
 					<h2>{t("Content.Mina.heading")}</h2>

@@ -64,7 +64,6 @@ export default function Title(
 						{props.description}
 					</p>
 				</div>
-				{props.children && <ArrowDown className={`${accentColor} size-9 animate-arrow-fade-down opacity-0`} />}
 			</div>
 		</div>
 	);
