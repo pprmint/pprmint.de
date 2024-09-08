@@ -60,7 +60,7 @@ export default function Gallery(photos: { photos: Photos }) {
 											/>
 										</div>
 									</TransformComponent>
-									<div className="absolute flex justify-between items-center top-0 px-6 h-16 bg-gradient-to-b from-neutral-950/50 inset-x-0 text-neutral-50">
+									<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 bg-gradient-to-b from-neutral-950/50 inset-x-0 text-neutral-50">
 										<Dialog.Title asChild>
 											<p className="font-display text-xl drop-shadow-[0px_2px_6px_#111]">
 												{format.dateTime(new Date(photo.attributes.dateTime), {
