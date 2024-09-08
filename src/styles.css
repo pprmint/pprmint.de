@@ -47,3 +47,7 @@ img {
 body {
 	font-variation-settings: "liga";
 }
+
+.pixelated {
+	image-rendering: pixelated;
+}
