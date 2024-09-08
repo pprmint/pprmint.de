@@ -57,7 +57,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 					<Dialog.Portal>
 						<Dialog.Overlay className="bg-neutral-950 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
 						<Dialog.Content
-							className={`fixed inset-0 z-100 h-screen max-h-svh w-screen max-w-max data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center overflow-clip duration-200 focus-visible:outline-none`}
+							className={`fixed inset-0 z-100 h-screen max-h-svh w-screen max-w-max data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center duration-200 focus-visible:outline-none`}
 						>
 							<TransformWrapper disablePadding>
 								<TransformComponent>
