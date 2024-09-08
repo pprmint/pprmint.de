@@ -45,7 +45,7 @@ export default function Gallery(photos: { photos: Photos }) {
 						<Dialog.Portal>
 							<Dialog.Overlay className="bg-neutral-950 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
 							<Dialog.Content
-								className={`fixed inset-0 z-100 max-h-svh w-screen data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center duration-200 focus-visible:outline-none`}
+								className={`text-neutral-50 fixed inset-0 z-100 max-h-svh w-screen data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center duration-200 focus-visible:outline-none`}
 							>
 								<TransformWrapper disablePadding>
 									<TransformComponent>
@@ -60,9 +60,9 @@ export default function Gallery(photos: { photos: Photos }) {
 											/>
 										</div>
 									</TransformComponent>
-									<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 bg-gradient-to-b from-neutral-950/50 inset-x-0 text-neutral-50">
+									<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 bg-gradient-to-b from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
 										<Dialog.Title asChild>
-											<p className="font-display text-xl drop-shadow-[0px_2px_6px_#111]">
+											<p className="font-display text-xl">
 												{format.dateTime(new Date(photo.attributes.dateTime), {
 													day: "numeric",
 													month: "long",
@@ -76,35 +76,47 @@ export default function Gallery(photos: { photos: Photos }) {
 											</p>
 										</Dialog.Title>
 										<Dialog.Close asChild>
-											<button className="text-neutral-50 p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
+											<button className="p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
 												<Error />
 											</button>
 										</Dialog.Close>
 									</div>
-									<div className="absolute flex flex-col md:flex-row gap-2 items-center justify-end pb-3 md:pb-0 bottom-0 px-6 h-20 md:h-16 bg-gradient-to-t from-neutral-950/50 inset-x-0">
-										<div className="flex items-center md:flex-grow gap-3 md:gap-6 drop-shadow-[0px_2px_6px_#111] mx-auto">
+									<div className="absolute flex flex-col md:flex-row gap-2 items-center justify-end pb-3 md:pb-0 bottom-0 px-6 h-20 md:h-16 bg-gradient-to-t from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
+										<div className="flex items-center md:flex-grow gap-3 md:gap-6 mx-auto">
 											{photo.attributes.camera.data.attributes.logo.data ? (
 												<Image
 													src={`https://static.pprmint.de${photo.attributes.camera.data.attributes.logo.data.attributes.url}`}
-													width={photo.attributes.camera.data.attributes.logo.data.attributes.width}
-													height={photo.attributes.camera.data.attributes.logo.data.attributes.height}
+													width={
+														photo.attributes.camera.data.attributes.logo.data.attributes
+															.width
+													}
+													height={
+														photo.attributes.camera.data.attributes.logo.data.attributes
+															.height
+													}
 													alt={photo.attributes.camera.data.attributes.name}
 													unoptimized
 													className="invert h-4 md:h-6 w-auto"
 												/>
 											) : (
-												<p className="font-medium text-lg text-neutral-50">
+												<p className="font-medium text-lg">
 													{photo.attributes.camera.data.attributes.name}
 												</p>
 											)}
-											{photo.attributes.lens.data && <p className="hidden sm:block text-sm">{photo.attributes.lens.data.attributes.name}</p>}
+											{photo.attributes.lens.data && (
+												<p className="hidden sm:block text-sm text-neutral-50/70">
+													{photo.attributes.lens.data.attributes.name}
+												</p>
+											)}
 										</div>
-										<div className="flex gap-3 md:gap-6 select-none drop-shadow-[0px_2px_6px_#111] mx-auto">
+										<div className="flex gap-3 md:gap-6 select-none mx-auto text-neutral-50/70">
 											<Tooltip.Root delayDuration={0}>
 												<Tooltip.Trigger asChild>
 													<div className="flex gap-1 items-center">
 														<CameraIso />
-														<span className="font-mono text-sm">{photo.attributes.iso}</span>
+														<span className="font-mono text-sm">
+															{photo.attributes.iso}
+														</span>
 													</div>
 												</Tooltip.Trigger>
 												<Tooltip.Content
@@ -140,7 +152,9 @@ export default function Gallery(photos: { photos: Photos }) {
 												<Tooltip.Trigger asChild>
 													<div className="flex gap-1 items-center">
 														<CameraShutterSpeed />
-														<span className="font-mono text-sm">{photo.attributes.shutter}s</span>
+														<span className="font-mono text-sm">
+															{photo.attributes.shutter}s
+														</span>
 													</div>
 												</Tooltip.Trigger>
 												<Tooltip.Content
@@ -157,7 +171,9 @@ export default function Gallery(photos: { photos: Photos }) {
 												<Tooltip.Trigger asChild>
 													<div className="flex gap-1 items-center">
 														<CameraFocalLength />
-														<span className="font-mono text-sm">{photo.attributes.focalLength}mm</span>
+														<span className="font-mono text-sm">
+															{photo.attributes.focalLength}mm
+														</span>
 													</div>
 												</Tooltip.Trigger>
 												<Tooltip.Content

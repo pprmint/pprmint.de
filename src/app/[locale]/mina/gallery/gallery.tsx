@@ -57,7 +57,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 					<Dialog.Portal>
 						<Dialog.Overlay className="bg-neutral-950 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
 						<Dialog.Content
-							className={`fixed inset-0 z-100 h-screen max-h-svh w-screen max-w-max data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center duration-200 focus-visible:outline-none`}
+							className={`text-neutral-50 fixed inset-0 z-100 h-screen max-h-svh w-screen max-w-max data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center duration-200 focus-visible:outline-none`}
 						>
 							<TransformWrapper disablePadding>
 								<TransformComponent>
@@ -67,19 +67,19 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 											width={art.attributes.artwork.data[selectedVariant]?.attributes.width}
 											height={art.attributes.artwork.data[selectedVariant]?.attributes.height}
 											alt=""
-											className={`max-h-svh w-auto mx-auto py-16 ${art.attributes.pixelart && "pixelated"}`}
+											className={`max-h-svh w-auto mx-auto py-16 ${
+												art.attributes.pixelart && "pixelated"
+											}`}
 											unoptimized
 										/>
 									</div>
 								</TransformComponent>
-								<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 bg-gradient-to-b from-neutral-950/50 inset-x-0">
+								<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 bg-gradient-to-b from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
 									<div className="flex items-center flex-grow gap-3 text-xl font-display">
 										<Dialog.Title asChild>
 											<p>
-												{t("Content.Artworks.drawnBy")}
-												<span className="text-neutral-50">
-													{art.attributes.artist.data.attributes.name}
-												</span>
+												<span className="text-neutral-50/70">{t("Content.Artworks.drawnBy")}</span>
+												{art.attributes.artist.data.attributes.name}
 												{art.attributes.heart && <span className="text-red"> ♥</span>}
 											</p>
 										</Dialog.Title>
@@ -92,7 +92,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 											>
 												<button
 													tabIndex={-1}
-													className="text-neutral-50 p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
+													className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
 												>
 													{art.attributes.artist.data.attributes.creditUrl!.startsWith(
 														"https://twitter.com/"
@@ -114,13 +114,13 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 										)}
 									</div>
 									<Dialog.Close asChild>
-										<button className="text-neutral-50 p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
+										<button className="p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
 											<Error />
 										</button>
 									</Dialog.Close>
 								</div>
 								{art.attributes.artwork.data.length >= 2 && (
-									<div className="absolute flex flex-row items-center justify-center pb-3 md:pb-0 bottom-0 px-6 h-20 md:h-16 bg-gradient-to-t from-neutral-950/50 inset-x-0">
+									<div className="absolute flex flex-row items-center justify-center bottom-0 px-6 h-16 bg-gradient-to-t from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
 										{art.attributes.artwork.data.map((variant, index) => (
 											<button
 												key={index}
