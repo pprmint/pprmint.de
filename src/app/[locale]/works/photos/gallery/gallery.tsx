@@ -48,7 +48,7 @@ export default function Gallery(photos: { photos: Photos }) {
 									width={photo.attributes.photo.data.attributes.width}
 									height={photo.attributes.photo.data.attributes.height}
 									alt=""
-									className={`h-full min-w-full object-cover [.group:hover_&:not(:hover)]:opacity-50 active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
+									className={`h-full min-w-full object-cover active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
 									unoptimized={photo.attributes.photo.data.attributes.url.includes(".gif")}
 								/>
 							</button>

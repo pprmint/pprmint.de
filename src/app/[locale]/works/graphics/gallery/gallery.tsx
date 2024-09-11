@@ -44,7 +44,7 @@ export default function GalleryGrid(works: { works: Works }) {
 								width={work.attributes.cover.data.attributes.width}
 								height={work.attributes.cover.data.attributes.height}
 								alt=""
-								className={`h-full min-w-full object-cover ${work.attributes.coverFocus} [.group:hover_&:not(:hover)]:opacity-50 active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
+								className={`h-full min-w-full object-cover ${work.attributes.coverFocus} active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
 							/>
 						</button>
 					</Dialog.Trigger>

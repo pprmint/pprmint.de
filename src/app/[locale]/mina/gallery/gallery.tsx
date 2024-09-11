@@ -61,7 +61,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 								width={art.attributes.artwork.data[0].attributes.width}
 								height={art.attributes.artwork.data[0].attributes.height}
 								alt=""
-								className={`h-full min-w-full object-cover ${art.attributes.focus} [.group:hover_&:not(:hover)]:opacity-50 active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
+								className={`h-full min-w-full object-cover ${art.attributes.focus} active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
 							/>
 							{art.attributes.nsfw && (
 								<div className="absolute inset-0 backdrop-blur-lg group-focus-visible/button:backdrop-blur-sm bg-neutral-950/75 group-focus-visible/button:bg-transparent group-hover/button:opacity-0 duration-300 ease-out-quint pointer-events-none">
