@@ -8,7 +8,7 @@ export default async function GallerySuspense({ p }: { p: number }) {
 	return (
 		<>
 			{Photos.data.length === 0 ? <OutOfBounds /> : <Gallery photos={Photos} />}
-			<Pagination page={p} pageCount={Photos.meta.pagination.pageCount} top={250} />
+			<Pagination page={p} pageCount={Photos.meta.pagination.pageCount} />
 		</>
 	);
 }
