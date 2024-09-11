@@ -2,7 +2,7 @@ import { Works } from "src/types/work";
 import Filters from "../filters";
 import Pagination from "src/components/gallery/Pagination";
 import OutOfBounds from "src/components/gallery/OutOfBounds";
-import Gallery from "./galleryGrid";
+import Gallery from "./gallery";
 
 export default async function GallerySuspense({
 	locale,
@@ -20,7 +20,7 @@ export default async function GallerySuspense({
 		<>
 			<Filters type={type} dimension={dimension} />
 			{Works.data.length == 0 ? <OutOfBounds /> : <Gallery works={Works} />}
-			<Pagination page={p} pageCount={Works.meta.pagination.pageCount} top={250} />
+			<Pagination page={p} pageCount={Works.meta.pagination.pageCount}  />
 		</>
 	);
 }

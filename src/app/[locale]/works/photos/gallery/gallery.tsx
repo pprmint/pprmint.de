@@ -11,13 +11,24 @@ import CameraFocalLength from "src/icons/CameraFocalLength";
 import Error from "src/icons/Error";
 import { Photos } from "src/types/photo";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import { useEffect, useRef, useState } from "react";
 
 export default function Gallery(photos: { photos: Photos }) {
 	const t = useTranslations("PHOTOS");
 	const format = useFormatter();
+
+	const galleryRef = useRef<HTMLDivElement>(null);
+	const [init, setInit] = useState(false);
+	useEffect(() => {
+		if (init && galleryRef.current) {
+			scrollTo({ top: galleryRef.current?.getBoundingClientRect().top + scrollY - 105 });
+		}
+		setInit(true);
+	}, [photos]);
+
 	return (
 		<Tooltip.Provider>
-			<div className="group mb-10 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5">
+			<div ref={galleryRef} className="group mb-10 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5">
 				{photos.photos.data.map((photo) => (
 					<Dialog.Root key={photo.id}>
 						<Dialog.Trigger asChild>
@@ -86,22 +97,14 @@ export default function Gallery(photos: { photos: Photos }) {
 											{photo.attributes.camera.data.attributes.logo.data ? (
 												<Image
 													src={`https://static.pprmint.de${photo.attributes.camera.data.attributes.logo.data.attributes.url}`}
-													width={
-														photo.attributes.camera.data.attributes.logo.data.attributes
-															.width
-													}
-													height={
-														photo.attributes.camera.data.attributes.logo.data.attributes
-															.height
-													}
+													width={photo.attributes.camera.data.attributes.logo.data.attributes.width}
+													height={photo.attributes.camera.data.attributes.logo.data.attributes.height}
 													alt={photo.attributes.camera.data.attributes.name}
 													unoptimized
 													className="invert h-4 md:h-6 w-auto"
 												/>
 											) : (
-												<p className="font-medium text-lg">
-													{photo.attributes.camera.data.attributes.name}
-												</p>
+												<p className="font-medium text-lg">{photo.attributes.camera.data.attributes.name}</p>
 											)}
 											{photo.attributes.lens.data && (
 												<p className="hidden sm:block text-sm text-neutral-50/70">
@@ -114,9 +117,7 @@ export default function Gallery(photos: { photos: Photos }) {
 												<Tooltip.Trigger asChild>
 													<div className="flex gap-1 items-center">
 														<CameraIso />
-														<span className="font-mono text-sm">
-															{photo.attributes.iso}
-														</span>
+														<span className="font-mono text-sm">{photo.attributes.iso}</span>
 													</div>
 												</Tooltip.Trigger>
 												<Tooltip.Content
@@ -152,9 +153,7 @@ export default function Gallery(photos: { photos: Photos }) {
 												<Tooltip.Trigger asChild>
 													<div className="flex gap-1 items-center">
 														<CameraShutterSpeed />
-														<span className="font-mono text-sm">
-															{photo.attributes.shutter}s
-														</span>
+														<span className="font-mono text-sm">{photo.attributes.shutter}s</span>
 													</div>
 												</Tooltip.Trigger>
 												<Tooltip.Content
@@ -171,9 +170,7 @@ export default function Gallery(photos: { photos: Photos }) {
 												<Tooltip.Trigger asChild>
 													<div className="flex gap-1 items-center">
 														<CameraFocalLength />
-														<span className="font-mono text-sm">
-															{photo.attributes.focalLength}mm
-														</span>
+														<span className="font-mono text-sm">{photo.attributes.focalLength}mm</span>
 													</div>
 												</Tooltip.Trigger>
 												<Tooltip.Content
