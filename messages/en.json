@@ -365,23 +365,18 @@
 		},
 		"Content": {
 			"TheThreeThingies": {
-				"Vectors": {
-					"heading": "Vectors",
-					"text1": "Math was never particularly my strong suit. So instead, I just let a few programs flip some numbers around in order to make pretty pixels on my screen.",
-					"text2": "Much less scary than numbers, indeed."
+				"Graphics": {
+					"heading": "Graphics",
+					"text": "Stimulate your senses like no chewing gum can."
 				},
-				"Polygons": {
-					"heading": "Polygons",
-					"text1": "Some of these could actually exist. Most of them would require you to either toss glass cubes into a blender or to exist in a dimension where the laws of physics don't apply.",
-					"text2": "And which has oxygen, but you already knew that."
+				"Photos": {
+					"heading": "Photos",
+					"text": "Vacation photos and other snapshots."
 				},
-				"Code": {
-					"heading": "Code",
-					"text1": "When I was around 10 or 11 years old I wrote some weird programs in C#. Fast forward a couple years and now I write weird websites <i>and</i> programs in C#.",
-					"text2": "Don't worry about my git commits. I'm doing splendid."
-				},
-				"moreOnGallery": "More on the gallery page",
-				"moreOnGitHub": "More on GitHub"
+				"Projects": {
+					"heading": "Projects",
+					"text": "Other stuff I've worked on, like websites or programs."
+				}
 			},
 			"News": {
 				"heading": "I've come to make an announcement:"
@@ -660,9 +655,13 @@
 			},
 			"Work": {
 				"title": "Work",
-				"Gallery": {
-					"description": "Vector graphics, animations and 3D renders.",
-					"title": "Gallery"
+				"Graphics": {
+					"description": "2D/3D renders and animations.",
+					"title": "Graphics"
+				},
+				"Photos": {
+					"description": "A few snapshots.",
+					"title": "Photos"
 				},
 				"Projects": {
 					"Triangles": {
@@ -694,7 +693,7 @@
 						"title": "App icons"
 					},
 					"More": {
-						"title": "Show more..."
+						"title": "View more projects..."
 					}
 				}
 			},

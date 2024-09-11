@@ -65,19 +65,35 @@ export default function DesktopNavigation() {
 						</NavigationMenu.Trigger>
 						<NavigationMenu.Content className={`${NavMenuContent} w-[500px] lg:w-[600px]`}>
 							<ul className="grid gap-1 grid-cols-2 grid-flow-row">
-								<li className="col-span-2">
+								<li>
 									<NavigationMenu.Link
 										asChild
 										className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75 ${
-											pathname === "/works/graphics" &&
+											pathname === "/graphics" &&
 											"bg-gradient-to-b from-neutral-950/30 to-neutral-950/15 shadow-inner pointer-events-none"
 										}`}
 									>
-										<Link href="/works/graphics">
+										<Link href="/graphics">
 											<span className="text-neutral-50 font-display text-xl pb-0.5">
-												{t(`Path.Work.Gallery.title`)}
+												{t(`Path.Work.Graphics.title`)}
 											</span>
-											<p className="ListItemText">{t(`Path.Work.Gallery.description`)}</p>
+											<p className="ListItemText">{t(`Path.Work.Graphics.description`)}</p>
+										</Link>
+									</NavigationMenu.Link>
+								</li>
+								<li>
+									<NavigationMenu.Link
+										asChild
+										className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75 ${
+											pathname === "/photos" &&
+											"bg-gradient-to-b from-neutral-950/30 to-neutral-950/15 shadow-inner pointer-events-none"
+										}`}
+									>
+										<Link href="/photos">
+											<span className="text-neutral-50 font-display text-xl pb-0.5">
+												{t(`Path.Work.Photos.title`)}
+											</span>
+											<p className="ListItemText">{t(`Path.Work.Photos.description`)}</p>
 										</Link>
 									</NavigationMenu.Link>
 								</li>
@@ -106,11 +122,11 @@ export default function DesktopNavigation() {
 									<NavigationMenu.Link
 										asChild
 										className={`group block px-3 py-2.5 text-center rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75 ${
-											pathname === "/works/projects" &&
+											pathname === "/projects" &&
 											"bg-gradient-to-b from-neutral-950/30 to-neutral-950/15 shadow-inner pointer-events-none"
 										}`}
 									>
-										<Link href="/works/projects">
+										<Link href="/projects">
 											<span className="text-neutral-50 font-display pb-0.5">
 												{t("Path.Work.Projects.More.title")}
 											</span>

@@ -38,23 +38,33 @@ module.exports = withNextIntl({
 	async redirects() {
 		return [
 			{
-				source: "/gallery",
-				destination: "/works/graphics",
+				source: "/works",
+				destination: "/graphics",
 				permanent: false,
 			},
 			{
-				source: "/photos",
-				destination: "/works/photos",
+				source: "/gallery",
+				destination: "/graphics",
+				permanent: false,
+			},
+			{
+				source: "/works/gallery",
+				destination: "/graphics",
+				permanent: false,
+			},
+			{
+				source: "/works/graphics",
+				destination: "/graphics",
+				permanent: false,
+			},
+			{
+				source: "/works/photos",
+				destination: "/photos",
 				permanent: false,
 			},
 			{
 				source: "/project/:slug*",
 				destination: "/projects/:slug*",
-				permanent: false,
-			},
-			{
-				source: "/projects",
-				destination: "/works/projects",
 				permanent: false,
 			},
 			{

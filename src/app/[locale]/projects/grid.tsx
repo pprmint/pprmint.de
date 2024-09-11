@@ -10,16 +10,16 @@ import ArrowRight from "src/icons/ArrowRight";
 import Globe from "src/icons/Globe";
 import { Link } from "src/navigation";
 
-import AutselliaImage from "../../projects/autsellia/twitter-image.png";
-import AppiconsImage from "../../projects/appicons/twitter-image.png";
-import IconsImage from "../../projects/icons/twitter-image.png";
-import MintbitImage from "../../projects/mintbit/twitter-image.png";
-import MintcraftImage from "../../projects/mintcraft/twitter-image.png";
-import MintsansImage from "../../projects/mintsans/twitter-image.png";
-import MinttrianglesImage from "../../projects/minttriangles/twitter-image.png";
-import MinasansImage from "../../projects/minasans/twitter-image.png";
-import TentativeImage from "../../projects/tentative/twitter-image.png";
-import YtdgImage from "../../projects/ytdg/twitter-image.png";
+import AutselliaImage from "../projects/autsellia/twitter-image.png";
+import AppiconsImage from "../projects/appicons/twitter-image.png";
+import IconsImage from "../projects/icons/twitter-image.png";
+import MintbitImage from "../projects/mintbit/twitter-image.png";
+import MintcraftImage from "../projects/mintcraft/twitter-image.png";
+import MintsansImage from "../projects/mintsans/twitter-image.png";
+import MinttrianglesImage from "../projects/minttriangles/twitter-image.png";
+import MinasansImage from "../projects/minasans/twitter-image.png";
+import TentativeImage from "../projects/tentative/twitter-image.png";
+import YtdgImage from "../projects/ytdg/twitter-image.png";
 import { useState } from "react";
 
 const ProjectsList = [

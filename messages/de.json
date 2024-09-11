@@ -365,23 +365,18 @@
 		},
 		"Content": {
 			"TheThreeThingies": {
-				"Vectors": {
-					"heading": "Vektoren",
-					"text1": "Mathe war nie wirklich meine Stärke. Also lasse ich stattdessen verschiedene Programme einige Zahlen verdrehen, um die Pixel auf meinem Bildschirm schick aussehen zu lassen.",
-					"text2": "Weitaus weniger gruselig als Zahlen."
+				"Graphics": {
+					"heading": "Grafiken",
+					"text": "Stimuliere deine Sinne, wie es kein Kaugummi kann."
 				},
-				"Polygons": {
-					"heading": "Polygone",
-					"text1": "Einige von diesen könnten real existieren. Für die meisten müsstest du aber entweder Glaswürfel in einen Mixer werfen oder in einer Dimension leben, in der die Gesetze der Physik nicht gelten.",
-					"text2": "Und wo es Sauerstoff gibt, aber das wusstest du schon."
+				"Photos": {
+					"heading": "Fotos",
+					"text": "Urlaubsfotos und andere Schnappschüsse."
 				},
-				"Code": {
-					"heading": "Code",
-					"text1": "Mit 10 oder 11 Jahren schrieb ich komische C#-Programme. Seither sind einige Jahre vergangen und nun schreibe ich komische Websites <i>und</i> C#-Programme.",
-					"text2": "Ignoriere meine Git-Commits. Mir geht's prima."
-				},
-				"moreOnGallery": "Mehr auf der Galerie-Seite",
-				"moreOnGitHub": "Mehr auf GitHub"
+				"Projects": {
+					"heading": "Projekte",
+					"text": "Weitere Dinge, an denen ich gearbeitet habe, wie Websites oder Programme."
+				}
 			},
 			"News": {
 				"heading": "Das Neueste vom Neuesten:"
@@ -660,9 +655,13 @@
 			},
 			"Work": {
 				"title": "Werke",
-				"Gallery": {
-					"description": "Vektor-Grafiken, Animationen und 3D-Render.",
-					"title": "Galerie"
+				"Graphics": {
+					"description": "2D/3D Render und Animationen.",
+					"title": "Grafiken"
+				},
+				"Photos": {
+					"description": "Einige Schnappschüsse.",
+					"title": "Fotos"
 				},
 				"Projects": {
 					"Triangles": {
@@ -694,7 +693,7 @@
 						"title": "App-Symbole"
 					},
 					"More": {
-						"title": "Mehr ansehen..."
+						"title": "Weitere Projekte ansehen..."
 					}
 				}
 			},
