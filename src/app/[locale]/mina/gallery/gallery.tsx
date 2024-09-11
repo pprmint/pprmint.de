@@ -1,7 +1,7 @@
 "use client";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FadingImage from "src/components/ui/FadingImage";
 import Error from "src/icons/Error";
 import EyeDisabled from "src/icons/EyeDisabled";
@@ -23,8 +23,21 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 			setSelectedVariant(0);
 		}, 200);
 	}
+
+	const galleryRef = useRef<HTMLDivElement>(null);
+	const [init, setInit] = useState(false);
+	useEffect(() => {
+		if (init && galleryRef.current) {
+			scrollTo({ top: galleryRef.current?.getBoundingClientRect().top + scrollY - 230 });
+		}
+		setInit(true);
+	}, [artworks]);
+
 	return (
-		<div className="group mb-10 grid md:gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+		<div
+			ref={galleryRef}
+			className="group mb-10 grid md:gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+		>
 			{artworks.artworks.data.map((art) => (
 				<Dialog.Root key={art.id} onOpenChange={handleClose}>
 					<Dialog.Trigger asChild>
@@ -40,12 +53,15 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
     							hover:scale-[1.03] focus-visible:scale-[1.03] active:scale-[1.015] hover:z-10 focus-visible:z-10 justify ring-1 ring-inset ring-neutral-50/10 hover:shadow-2xl hover:shadow-neutral-950/50 focus-visible:shadow-2xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-square"
 						>
 							<FadingImage
-								src={`https://static.pprmint.de${art.attributes.artwork.data[0].attributes.url}`}
+								src={`https://static.pprmint.de${
+									art.attributes.artwork.data[0].attributes.formats.small
+										? art.attributes.artwork.data[0].attributes.formats.small.url
+										: art.attributes.artwork.data[0].attributes.url
+								}`}
 								width={art.attributes.artwork.data[0].attributes.width}
 								height={art.attributes.artwork.data[0].attributes.height}
 								alt=""
 								className={`h-full min-w-full object-cover ${art.attributes.focus} [.group:hover_&:not(:hover)]:opacity-50 active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
-								unoptimized={art.attributes.artwork.data[0].attributes.url.includes(".gif")}
 							/>
 							{art.attributes.nsfw && (
 								<div className="absolute inset-0 backdrop-blur-lg group-focus-visible/button:backdrop-blur-sm bg-neutral-950/75 group-focus-visible/button:bg-transparent group-hover/button:opacity-0 duration-300 ease-out-quint pointer-events-none">
@@ -67,9 +83,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 											width={art.attributes.artwork.data[selectedVariant]?.attributes.width}
 											height={art.attributes.artwork.data[selectedVariant]?.attributes.height}
 											alt=""
-											className={`max-h-svh w-auto mx-auto py-16 ${
-												art.attributes.pixelart && "pixelated"
-											}`}
+											className={`max-h-svh w-auto mx-auto py-16 ${art.attributes.pixelart && "pixelated"}`}
 											unoptimized
 										/>
 									</div>
@@ -94,9 +108,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 													tabIndex={-1}
 													className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
 												>
-													{art.attributes.artist.data.attributes.creditUrl!.startsWith(
-														"https://twitter.com/"
-													) ? (
+													{art.attributes.artist.data.attributes.creditUrl!.startsWith("https://twitter.com/") ? (
 														<Twitter />
 													) : art.attributes.artist.data.attributes.creditUrl!.startsWith(
 															"https://www.instagram.com/"

@@ -47,6 +47,7 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 	const currentPage = Number(searchParams?.p) || 1;
 	const nsfw = String(searchParams?.nsfw) || "hide";
 	const artist = String(searchParams?.artist) || "undefined";
+
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
@@ -83,7 +84,7 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 						})}
 					</p>
 				</section>
-				<section id="design" className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-3 xl:px-9">
+				<section id="design" className="mt-20 md:mt-32 xl:mt-40 max-w-7xl mx-auto px-3 xl:px-9">
 					<Ref />
 					<div className="flex flex-col lg:flex-row lg:justify-between gap-6 mt-6 px-3 md:px-6 xl:px-0">
 						<p>
@@ -110,7 +111,10 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 						</div>
 					</div>
 				</section>
-				<section id="gallery" className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-3 xl:px-9">
+				<section
+					id="gallery"
+					className="pt-20 md:pt-32 xl:pt-40 mb-20 md:mb-32 xl:mb-40 max-w-7xl mx-auto px-3 xl:px-9"
+				>
 					<Suspense fallback={<GallerySkeleton />}>
 						<GallerySuspense p={currentPage} artist={artist} nsfw={nsfw} />
 					</Suspense>

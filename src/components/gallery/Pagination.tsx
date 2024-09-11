@@ -4,7 +4,15 @@ import ChevronLeft from "src/icons/ChevronLeft";
 import ChevronRight from "src/icons/ChevronRight";
 import { usePathname, useRouter } from "src/navigation";
 
-export default function Pagination({ page, pageCount, top }: { page: number; pageCount: number; top?: number }) {
+export default function Pagination({
+	page,
+	pageCount,
+	onPageChange,
+}: {
+	page: number;
+	pageCount: number;
+	onPageChange?: () => void;
+}) {
 	const searchParams = useSearchParams();
 	const pathname = usePathname();
 	const { replace } = useRouter();
@@ -16,7 +24,7 @@ export default function Pagination({ page, pageCount, top }: { page: number; pag
 			params.delete("p");
 		}
 		replace(`${pathname}?${params.toString()}`, { scroll: false });
-		top && scrollTo({ top: top });
+		onPageChange;
 	}
 
 	return (
