@@ -223,7 +223,7 @@ export default async function Page({ params: { locale } }: Props) {
 					<Link href="/contact">
 						<h1 className="group inline-flex text-nowrap items-center gap-3 hover:gap-6 lg:hover:gap-3 duration-200 ease-out-quint">
 							{t("Content.Contact.answers")}
-							<ArrowRight className="text-green size-[1em] group-hover:translate-x-0 lg:group-hover:translate-x-3 duration-200 ease-out-quint" />
+							<span className="text-green mt-3 group-hover:translate-x-0 lg:group-hover:translate-x-3 duration-200 ease-out-quint">-{">"}</span>
 						</h1>
 					</Link>
 				</section>
