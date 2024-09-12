@@ -31,7 +31,7 @@ export default function ThreeThingies() {
 				onFocus={() => setFocused("graphics")}
 				onMouseEnter={() => setFocused("graphics")}
 				href="/graphics"
-				className="z-20 group relative flex p-6 md:p-9 xl:px-16 size-full lg:items-center bg-neutral-950/90 hover:bg-neutral-950/75 active:bg-neutral-950/85 focus-visible:bg-neutral-950/75 backdrop-saturate-0 hover:backdrop-saturate-100 duration-300 active:duration-75"
+				className="z-20 group relative flex p-6 md:p-9 xl:px-16 size-full lg:items-center bg-neutral-950/90 hover:bg-neutral-950/75 active:bg-neutral-950/85 focus-visible:bg-neutral-950/75 duration-300 active:duration-75"
 			>
 				<div className="md:translate-y-4 lg:group-hover:translate-y-0 lg:group-focus-visible:translate-y-0 duration-500 ease-out-quint">
 					<h1>
@@ -48,7 +48,7 @@ export default function ThreeThingies() {
 				onFocus={() => setFocused("photos")}
 				onMouseEnter={() => setFocused("photos")}
 				href="/photos"
-				className="z-20 group relative flex p-6 md:p-9 xl:px-16 size-full lg:items-center bg-neutral-950/90 hover:bg-neutral-950/75 active:bg-neutral-950/85 focus-visible:bg-neutral-950/75 backdrop-saturate-0 hover:backdrop-saturate-100 duration-300 active:duration-75"
+				className="z-20 group relative flex p-6 md:p-9 xl:px-16 size-full lg:items-center bg-neutral-950/90 hover:bg-neutral-950/75 active:bg-neutral-950/85 focus-visible:bg-neutral-950/75 duration-300 active:duration-75"
 			>
 				<div className="md:translate-y-4 lg:group-hover:translate-y-0 lg:group-focus-visible:translate-y-0 duration-500 ease-out-quint">
 					<h1>
@@ -65,12 +65,12 @@ export default function ThreeThingies() {
 				onFocus={() => setFocused("projects")}
 				onMouseEnter={() => setFocused("projects")}
 				href="/projects"
-				className="z-20 group relative flex p-6 md:p-9 xl:px-16 size-full lg:items-center bg-neutral-950/90 hover:bg-neutral-950/75 active:bg-neutral-950/85 focus-visible:bg-neutral-950/75 backdrop-saturate-0 hover:backdrop-saturate-100 duration-300 active:duration-75"
+				className="z-20 group relative flex p-6 md:p-9 xl:px-16 size-full lg:items-center bg-neutral-950/90 hover:bg-neutral-950/75 active:bg-neutral-950/85 focus-visible:bg-neutral-950/75 duration-300 active:duration-75"
 			>
 				<div className="md:translate-y-4 lg:group-hover:translate-y-0 lg:group-focus-visible:translate-y-0 duration-500 ease-out-quint">
 					<h1>
 						{t("Content.TheThreeThingies.Projects.heading")}
-						<span className="text-yellow">.</span>
+						<span className="text-blue">.</span>
 					</h1>
 					<div className="lg:opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 text-balance lg:w-full duration-300">
 						<p>{t("Content.TheThreeThingies.Projects.text")}</p>
@@ -103,7 +103,7 @@ export default function ThreeThingies() {
 						) : item == "projects" ? (
 							<a.div style={style}>
 								<FadingImage
-									src="https://cms.pprmint.de/uploads/Mintcraft_3_D_788687b08d.png"
+									src="https://cms.pprmint.de/uploads/DSC_00439_42db6e3811.webp"
 									fill
 									className="object-cover"
 									alt=""
