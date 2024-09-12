@@ -1,4 +1,8 @@
 export default interface Work {
+	data: WorkData;
+}
+
+export interface WorkData {
 	id: number;
 	attributes: {
 		title: string;
@@ -162,6 +166,6 @@ export interface WorksMeta {
 }
 
 export interface Works {
-	data: Work[];
+	data: WorkData[];
 	meta: WorksMeta;
 }

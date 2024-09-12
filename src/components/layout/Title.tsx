@@ -6,7 +6,7 @@ import ArrowDown from "src/icons/ArrowDown";
 export default function Title(
 	props: React.PropsWithChildren<{
 		title: string;
-		description: string;
+		description: string | React.ReactNode;
 		accentColor?: string;
 		noDelay?: boolean;
 	}>
@@ -57,12 +57,12 @@ export default function Title(
 							.
 						</span>
 					</h1>
-					<p
+					<div
 						className="animate-title-fade-in text-neutral text-xl md:text-2xl xl:text-3xl"
 						style={{ animationDelay: props.noDelay ? "0.05s" : "0.25s", animationFillMode: "backwards" }}
 					>
 						{props.description}
-					</p>
+					</div>
 				</div>
 			</div>
 		</div>
