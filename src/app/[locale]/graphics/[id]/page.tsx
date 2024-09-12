@@ -2,7 +2,6 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Title from "src/components/layout/Title";
 import FadingImage from "src/components/ui/FadingImage";
-import VideoPlayer from "src/components/ui/VideoPlayer";
 import Work from "src/types/work";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
@@ -24,6 +23,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 					fill
 					className={`object-cover ${Work.data.attributes.coverFocus} h-full min-w-full contrast-[0.87] blur-lg`}
 				/>
+				<div className="bg-gradient-to-t from-neutral-950 to-neutral-950/75 absolute inset-0" />
 				<div
 					className="absolute inset-0"
 					style={{
@@ -32,7 +32,6 @@ export default async function Page({ params }: { params: { id: string } }) {
 						backgroundPosition: "top",
 					}}
 				/>
-				<div className="bg-gradient-to-t from-neutral-950 to-neutral-950/50 absolute inset-0" />
 			</div>
 			<Title
 				title={Work.data.attributes.title}
