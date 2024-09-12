@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { useSpring, easings, a } from "@react-spring/web";
 import * as Dialog from "@radix-ui/react-dialog";
 
