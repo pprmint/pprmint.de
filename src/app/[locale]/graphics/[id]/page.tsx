@@ -5,6 +5,14 @@ import FadingImage from "src/components/ui/FadingImage";
 import VideoPlayer from "src/components/ui/VideoPlayer";
 import Work from "src/types/work";
 
+export async function generateMetadata({ params }: { params: { id: string } }) {
+	const Work: Work = await getWork(params.id);
+	return {
+		title: Work.data.attributes.title,
+		description: Work.data.attributes.text,
+	};
+}
+
 export default async function Page({ params }: { params: { id: string } }) {
 	const Work: Work = await getWork(params.id);
 	return (
