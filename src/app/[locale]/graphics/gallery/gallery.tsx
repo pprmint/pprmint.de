@@ -1,19 +1,12 @@
 "use client";
-import * as Dialog from "@radix-ui/react-dialog";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import FadingImage from "src/components/ui/FadingImage";
-import Fullscreen from "src/icons/Fullscreen";
-import FullscreenExit from "src/icons/FullscreenExit";
-import X from "src/icons/X";
 import { Link } from "src/navigation";
 import { Works } from "src/types/work";
 
 export default function GalleryGrid(works: { works: Works }) {
 	const t = useTranslations("GRAPHICS");
-	const [fullscreen, setFullscreen] = useState(false);
 
 	const galleryRef = useRef<HTMLDivElement>(null);
 	const [init, setInit] = useState(false);

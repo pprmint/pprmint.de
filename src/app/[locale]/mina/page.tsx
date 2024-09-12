@@ -6,7 +6,6 @@ import FadingImage from "src/components/ui/FadingImage";
 
 import Ref from "./ref";
 
-import TitleMina from "public/assets/mina/title.webp";
 import Stickers from "public/assets/mina/stickers.svg";
 import StickerSeyana from "public/assets/mina/sticker_seyana.webp";
 import StickerStare from "public/assets/mina/sticker_stare.webp";

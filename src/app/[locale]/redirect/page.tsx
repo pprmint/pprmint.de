@@ -2,7 +2,6 @@ import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Title from "src/components/layout/Title";
 import RedirectToggle from "./toggle";
-import { Link } from "src/navigation";
 
 type Props = {
 	params: { locale: string };

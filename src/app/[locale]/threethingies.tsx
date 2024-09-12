@@ -6,7 +6,6 @@ import { useTranslations } from "next-intl";
 
 import FadingImage from "src/components/ui/FadingImage";
 import ArrowRight from "src/icons/ArrowRight";
-import ArrowUpRight from "src/icons/ArrowUpRight";
 
 export default function ThreeThingies() {
 	const t = useTranslations("HOME");

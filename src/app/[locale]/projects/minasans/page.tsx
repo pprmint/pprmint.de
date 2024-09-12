@@ -1,12 +1,8 @@
 import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
-import { Link } from "src/navigation";
-import Tester from "./tester";
-import Download from "src/icons/Download";
 
 import Title from "src/components/layout/Title";
 import FadingImage from "src/components/ui/FadingImage";
-import Button from "src/components/ui/Button";
 
 import TitleImage from "public/assets/minasans/title.webp";
 import Alphabet from "public/assets/minasans/Alphabet.png";

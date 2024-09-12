@@ -1,7 +1,6 @@
 "use client";
 import * as React from "react";
 import { useSpring, a } from "@react-spring/web";
-import ArrowDown from "src/icons/ArrowDown";
 
 export default function Title(
 	props: React.PropsWithChildren<{
