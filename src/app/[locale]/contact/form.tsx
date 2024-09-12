@@ -5,7 +5,7 @@ import { Check, Loader2 } from "lucide-react";
 import Button from "src/components/ui/Button";
 import WarningTriangle from "src/icons/WarningTriangle";
 import { useTranslations } from "next-intl";
-import FadingImage from "src/components/ui/FadingImage";
+import Image from "next/image";
 
 import PixelMina from "public/assets/mina64.gif";
 
@@ -119,7 +119,7 @@ export default function Form() {
 							style={style}
 							className="absolute inset-0 z-20 bg-neutral-950/75 flex items-center justify-center"
 						>
-							<FadingImage
+							<Image
 								src={PixelMina}
 								alt=""
 								className="size-32"

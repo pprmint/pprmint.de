@@ -2,7 +2,7 @@
 import * as Collapsible from "@radix-ui/react-collapsible";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { useTranslations } from "next-intl";
-import FadingImage from "src/components/ui/FadingImage";
+import Image from "next/image";
 
 // An identifier or keyword cannot immediately follow a numeric literal.ts(1351)
 // Fine then, lemme give it a shitty name, see if I care.
@@ -80,7 +80,7 @@ export default function Overview(data: { data: Commission }) {
 										{service.price}
 									</p>
 								</div>
-								<FadingImage src={service.image} alt="" className="size-32" />
+								<Image src={service.image} alt="" className="size-32" />
 							</div>
 						</Collapsible.Trigger>
 						<Collapsible.Content className="data-[state=open]:animate-collapsible-vertical-open data-[state=closed]:animate-collapsible-vertical-close">

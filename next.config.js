@@ -39,7 +39,27 @@ module.exports = withNextIntl({
 		return [
 			{
 				source: "/works",
-				destination: "/gallery",
+				destination: "/graphics",
+				permanent: false,
+			},
+			{
+				source: "/gallery",
+				destination: "/graphics",
+				permanent: false,
+			},
+			{
+				source: "/works/gallery",
+				destination: "/graphics",
+				permanent: false,
+			},
+			{
+				source: "/works/graphics",
+				destination: "/graphics",
+				permanent: false,
+			},
+			{
+				source: "/works/photos",
+				destination: "/photos",
 				permanent: false,
 			},
 			{

@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { Link } from "src/navigation";
 import Title from "src/components/layout/Title";
-import FadingImage from "src/components/ui/FadingImage";
+import Image from "next/image";
 import Carousel from "src/components/ui/Carousel";
 
 import NamesImage from "public/assets/tentative/names.svg";
@@ -66,7 +66,7 @@ export default function Page({ params: { locale } }: Props) {
 						That wasn't meant to be the final name at first. It just served as a stop-gap name until we came
 						up with something better, just so we wouldn't need to refer to it as just "the group".
 					</p>
-					<FadingImage
+					<Image
 						src={NamesImage}
 						className="w-full h-auto"
 						alt="Crossed out name ideas, scattered around the word 'Tentative' in the center."
@@ -155,7 +155,7 @@ export default function Page({ params: { locale } }: Props) {
 						69 days later<span className="text-green">.</span>
 					</h2>
 					<p>I threw it all out the window.</p>
-					<FadingImage src={BrandingRev0} alt="" className="my-9 rounded-xl" />
+					<Image src={BrandingRev0} alt="" className="my-9 rounded-xl" />
 					<p>
 						I found the{" "}
 						<Link
@@ -214,7 +214,7 @@ export default function Page({ params: { locale } }: Props) {
 							</p>
 							<p>What is translated how is up to each member and the language they take care of.</p>
 						</div>
-						<FadingImage
+						<Image
 							src={WebsiteLocales}
 							alt=""
 							className="rounded-lg md:w-1/2 lg:w-1/3 h-fit mx-auto"
@@ -229,15 +229,15 @@ export default function Page({ params: { locale } }: Props) {
 					</p>
 					<div className="grid grid-cols-2 md:grid-cols-3 w-full items-center justify-between gap-12 my-9">
 						<div>
-							<FadingImage src={IconWxz} alt="" className="size-full md:size-64" />
+							<Image src={IconWxz} alt="" className="size-full md:size-64" />
 							<p className="text-center mt-6 text-neutral-50 text-xl font-display font-medium">wxsonz</p>
 						</div>
 						<div>
-							<FadingImage src={IconAutsellia} alt="" className="size-full md:size-64" />
+							<Image src={IconAutsellia} alt="" className="size-full md:size-64" />
 							<p className="text-center mt-6 text-neutral-50 text-xl font-display font-medium">Autsellia</p>
 						</div>
 						<div>
-							<FadingImage src={IconPprmint} alt="" className="size-full md:size-64" />
+							<Image src={IconPprmint} alt="" className="size-full md:size-64" />
 							<p className="text-center mt-6 text-neutral-50 text-xl font-display font-medium">Good today.</p>
 						</div>
 					</div>
@@ -246,7 +246,7 @@ export default function Page({ params: { locale } }: Props) {
 						it that features every Tentative member. Prominently displayed is a drawing of their respective
 						OCs, their logo and their respective icons in the background visible on hover.
 					</p>
-					<FadingImage src={WebsiteMembers} alt="" className="my-9 rounded-lg" />
+					<Image src={WebsiteMembers} alt="" className="my-9 rounded-lg" />
 				</section>
 			</main>
 		</>

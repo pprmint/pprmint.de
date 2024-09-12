@@ -4,7 +4,7 @@
 			"title": "She looked everywhere",
 			"info": "There's no page here. Maybe it was moved or it never existed. That's how it is sometimes.",
 			"returnHome": "Go to home page",
-			"credit": "Detective Mina was drawn by <Link>Layer (@108sketches)</Link>."
+			"credit": "Detective Mina was drawn by <Link>Layer (@DIVAOFDESPAlR)</Link>."
 		},
 		"Head": {
 			"title": "Page not found"
@@ -268,6 +268,7 @@
 		"searchEnglish": "Search",
 		"noResults": "No results.",
 		"yikes": "Yikes.",
+		"artDrawnBy": "Art by ",
 		"VideoPlayer": {
 			"loop": "Loop",
 			"copyVideoUrl": "Copy video URL",
@@ -330,10 +331,10 @@
 			}
 		}
 	},
-	"GALLERY": {
+	"GRAPHICS": {
 		"Head": {
 			"description": "Stimulate your visual senses like no chewing gum can.",
-			"title": "Gallery"
+			"title": "Graphics"
 		},
 		"Content": {
 			"Filters": {
@@ -364,23 +365,18 @@
 		},
 		"Content": {
 			"TheThreeThingies": {
-				"Vectors": {
-					"heading": "Vectors",
-					"text1": "Math was never particularly my strong suit. So instead, I just let a few programs flip some numbers around in order to make pretty pixels on my screen.",
-					"text2": "Much less scary than numbers, indeed."
+				"Graphics": {
+					"heading": "Graphics",
+					"text": "Stimulate your senses like no chewing gum can."
 				},
-				"Polygons": {
-					"heading": "Polygons",
-					"text1": "Some of these could actually exist. Most of them would require you to either toss glass cubes into a blender or to exist in a dimension where the laws of physics don't apply.",
-					"text2": "And which has oxygen, but you already knew that."
+				"Photos": {
+					"heading": "Photos",
+					"text": "Vacation photos and other snapshots."
 				},
-				"Code": {
-					"heading": "Code",
-					"text1": "When I was around 10 or 11 years old I wrote some weird programs in C#. Fast forward a couple years and now I write weird websites <i>and</i> programs in C#.",
-					"text2": "Don't worry about my git commits. I'm doing splendid."
-				},
-				"moreOnGallery": "More on the gallery page",
-				"moreOnGitHub": "More on GitHub"
+				"Projects": {
+					"heading": "Projects",
+					"text": "Other stuff I've worked on, like websites or programs."
+				}
 			},
 			"News": {
 				"heading": "I've come to make an announcement:"
@@ -659,9 +655,13 @@
 			},
 			"Work": {
 				"title": "Work",
-				"Gallery": {
-					"description": "Vector graphics, animations and 3D renders.",
-					"title": "Gallery"
+				"Graphics": {
+					"description": "2D/3D renders and animations.",
+					"title": "Graphics"
+				},
+				"Photos": {
+					"description": "A few snapshots.",
+					"title": "Photos"
 				},
 				"Projects": {
 					"Triangles": {
@@ -693,7 +693,7 @@
 						"title": "App icons"
 					},
 					"More": {
-						"title": "Show more..."
+						"title": "View more projects..."
 					}
 				}
 			},
@@ -732,6 +732,26 @@
 				"text2": "Maybe these will be helpful to you as well:",
 				"tailwind": "View Tailwind config",
 				"affinity": "Download Affinity swatches"
+			}
+		}
+	},
+	"PHOTOS": {
+		"Head": {
+			"description": "Vacation photos and other snapshots.",
+			"title": "Photos"
+		},
+		"Content": {
+			"Disclaimer": {
+				"heading": "All rights reserved unless otherwise specified",
+				"text1": "Special permission is granted for using photos on this page as phone or desktop backgrounds on your personal device(s).",
+				"text2": "Usage for any other purposes, be it commercial or personal, is <b>not permitted</b> without my prior written consent.",
+				"text3": "Please <Link>send me a message</Link> if you have any inquiries."
+			},
+			"Camera": {
+				"iso": "ISO",
+				"aperture": "Aperture",
+				"shutterSpeed": "Shutter speed",
+				"focalLength": "Focal length <small>(35 mm equivalent)</small>"
 			}
 		}
 	},
@@ -804,6 +824,12 @@
 		"Head": {
 			"title": "Website and branding for Tentative",
 			"description": "A group of indecisive creatives, including yours truly."
+		}
+	},
+	"WORKS": {
+		"Head": {
+			"description": "Take a look at (almost) all my creations.",
+			"title": "Works"
 		}
 	},
 	"YTDG": {

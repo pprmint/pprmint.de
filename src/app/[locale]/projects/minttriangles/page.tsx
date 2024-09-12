@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
 import Title from "src/components/layout/Title";
-import FadingImage from "src/components/ui/FadingImage";
+import Image from "next/image";
 
 import { Link } from "src/navigation";
 import Button from "src/components/ui/Button";
@@ -37,7 +37,7 @@ export default function Page({ params: { locale } }: Props) {
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} accentColor="text-pink">
 				<div className="relative w-screen h-screen max-h-svh">
-					<FadingImage src={TitleBg} alt="" fill className="object-cover object-center opacity-50 z-0" />
+					<Image src={TitleBg} alt="" fill className="object-cover object-center opacity-50 z-0" />
 					<CountUp />
 				</div>
 			</Title>
@@ -57,7 +57,7 @@ export default function Page({ params: { locale } }: Props) {
 						})}
 					</p>
 					<div className="relative mb-12">
-						<FadingImage src={Monitor} alt="" />
+						<Image src={Monitor} alt="" />
 						<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
 							<span className="font-minttriangles text-neutral-50/10" aria-hidden>
 								**:**:**

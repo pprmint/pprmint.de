@@ -8,8 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "monthly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.de",
-					de: "https://pprmint.de/de",
+					en: "https://pprmint.de/en",
+					de: "https://pprmint.de",
 				},
 			},
 		},
@@ -19,8 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "weekly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.de/mina",
-					de: "https://pprmint.de/de/mina",
+					en: "https://pprmint.de/en/mina",
+					de: "https://pprmint.de/mina",
 				},
 			},
 		},
@@ -30,19 +30,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.de/contact",
-					de: "https://pprmint.de/de/contact",
+					en: "https://pprmint.de/en/contact",
+					de: "https://pprmint.de/contact",
 				},
 			},
 		},
 		{
-			url: "https://pprmint.de/gallery",
+			url: "https://pprmint.de/works/graphics",
 			lastModified: new Date(),
 			changeFrequency: "monthly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.de/gallery",
-					de: "https://pprmint.de/de/gallery",
+					en: "https://pprmint.de/en/works/graphics",
+					de: "https://pprmint.de/works/graphics",
 				},
 			},
 		},
@@ -52,8 +52,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.de/privacy",
-					de: "https://pprmint.de/de/privacy",
+					en: "https://pprmint.de/en/privacy",
+					de: "https://pprmint.de/privacy",
 				},
 			},
 		},
@@ -63,8 +63,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.de/ai",
-					de: "https://pprmint.de/de/ai",
+					en: "https://pprmint.de/en/ai",
+					de: "https://pprmint.de/ai",
 				},
 			},
 		},
@@ -74,8 +74,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.de/projects/appicons",
-					de: "https://pprmint.de/de/projects/appicons",
+					en: "https://pprmint.de/en/projects/appicons",
+					de: "https://pprmint.de/projects/appicons",
 				},
 			},
 		},
@@ -85,8 +85,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.de/projects/mintcraft",
-					de: "https://pprmint.de/de/projects/mintcraft",
+					en: "https://pprmint.de/en/projects/mintcraft",
+					de: "https://pprmint.de/projects/mintcraft",
 				},
 			},
 		},
@@ -96,8 +96,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.de/projects/ytdg",
-					de: "https://pprmint.de/de/projects/ytdg",
+					en: "https://pprmint.de/en/projects/ytdg",
+					de: "https://pprmint.de/projects/ytdg",
 				},
 			},
 		},
@@ -107,8 +107,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.de/projects/mintbit",
-					de: "https://pprmint.de/de/projects/mintbit",
+					en: "https://pprmint.de/en/projects/mintbit",
+					de: "https://pprmint.de/projects/mintbit",
 				},
 			},
 		},
@@ -119,8 +119,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		// 	changeFrequency: "yearly",
 		// 	alternates: {
 		// 		languages: {
-		// 			en: "https://pprmint.de/projects/tentative",
-		// 			de: "https://pprmint.de/de/projects/tentative",
+		// 			en: "https://pprmint.de/en/projects/tentative",
+		// 			de: "https://pprmint.de/projects/tentative",
 		// 		},
 		// 	},
 		// },
@@ -130,8 +130,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.de/projects/icons",
-					de: "https://pprmint.de/de/projects/icons",
+					en: "https://pprmint.de/en/projects/icons",
+					de: "https://pprmint.de/projects/icons",
 				},
 			},
 		},
@@ -141,8 +141,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.de/projects/minttriangles",
-					de: "https://pprmint.de/de/projects/minttriangles",
+					en: "https://pprmint.de/en/projects/minttriangles",
+					de: "https://pprmint.de/projects/minttriangles",
 				},
 			},
 		},
@@ -152,8 +152,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "yearly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.de/projects/autsellia",
-					de: "https://pprmint.de/de/projects/autsellia",
+					en: "https://pprmint.de/en/projects/autsellia",
+					de: "https://pprmint.de/projects/autsellia",
 				},
 			},
 		},
@@ -163,8 +163,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "monthly",
 			alternates: {
 				languages: {
-					en: "https://pprmint.de/projects/minasans",
-					de: "https://pprmint.de/de/projects/minasans",
+					en: "https://pprmint.de/en/projects/minasans",
+					de: "https://pprmint.de/projects/minasans",
 				},
 			},
 		},

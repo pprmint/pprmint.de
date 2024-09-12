@@ -5,7 +5,7 @@ import Tester from "./tester";
 import Download from "src/icons/Download";
 
 import Title from "src/components/layout/Title";
-import FadingImage from "src/components/ui/FadingImage";
+import Image from "next/image";
 import Button from "src/components/ui/Button";
 
 import TitleImage from "public/assets/minasans/title.webp";
@@ -35,17 +35,17 @@ export default function Page({ params: { locale } }: Props) {
 	return (
 		<>
 			<Title title={t("MINASANS.Head.title")} description={t("MINASANS.Head.description")}>
-				<FadingImage src={TitleImage} alt="" fill className="object-cover" />
+				<Image src={TitleImage} alt="" fill className="object-cover" />
 			</Title>
 			<main>
 				<section className="my-20 md:my-32 xl:my-40">
-					<FadingImage src={Cover} unoptimized alt="Slide 2" className="w-full" />
-					<FadingImage src={Alphabet} alt="Slide 1" className="w-full" />
-					<FadingImage src={faktor} alt="Slide 3" className="w-full" />
-					<FadingImage src={StVO} alt="Slide 6" className="w-full" />
-					<FadingImage src={NondescriptPhone} alt="Slide 5" className="w-full" />
-					<FadingImage src={ReleaseDate} alt="Slide 6" className="w-full" />
-					<FadingImage src={Mina} alt="Slide 4" className="w-full" />
+					<Image src={Cover} unoptimized alt="Slide 2" className="w-full" />
+					<Image src={Alphabet} alt="Slide 1" className="w-full" />
+					<Image src={faktor} alt="Slide 3" className="w-full" />
+					<Image src={StVO} alt="Slide 6" className="w-full" />
+					<Image src={NondescriptPhone} alt="Slide 5" className="w-full" />
+					<Image src={ReleaseDate} alt="Slide 6" className="w-full" />
+					<Image src={Mina} alt="Slide 4" className="w-full" />
 				</section>
 			</main>
 		</>

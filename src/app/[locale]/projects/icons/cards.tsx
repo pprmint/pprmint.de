@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl";
 import { Category, Icon, Icons } from "./icons";
 import X from "src/icons/X";
 import { useTransition, a, config } from "@react-spring/web";
-import FadingImage from "src/components/ui/FadingImage";
+import Image from "next/image";
 
 import JiggyGif from "public/assets/icons/Jiggy.gif";
 import Search from "src/icons/Search";
@@ -305,7 +305,7 @@ export default function Cards() {
 							style={style}
 							className="fixed flex items-center justify-center gap-6 z-100 bottom-0 inset-x-0 py-6"
 						>
-							<FadingImage src={JiggyGif} alt="A jiggy!" className="size-32" />
+							<Image src={JiggyGif} alt="A jiggy!" className="size-32" />
 							<span className="bg-clip-text bg-gradient-to-b from-orange-100 to-orange text-8xl font-bold font-mono text-transparent">
 								{jiggies}
 							</span>

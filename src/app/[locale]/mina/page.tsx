@@ -22,8 +22,8 @@ import GallerySkeleton from "./gallery/gallerySkeleton";
 import FanartRules from "./rules";
 import Download from "src/icons/Download";
 import Discord from "src/icons/Discord";
-import Twitter from "src/icons/Twitter";
-import FlipCharacter from "src/components/ui/FlipCharacter";
+import Instagram from "src/icons/Instagram";
+import ArtCreditButton from "src/components/ui/ArtCreditButton";
 
 type Props = {
 	params: { locale: string };
@@ -48,19 +48,22 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 	const currentPage = Number(searchParams?.p) || 1;
 	const nsfw = String(searchParams?.nsfw) || "hide";
 	const artist = String(searchParams?.artist) || "undefined";
+
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
-				<div className="relative w-screen h-screen max-h-svh">
-					<p
-						className="absolute right-0 top-1/2 -translate-y-1/2 z-100 px-1 py-2 rounded-l-md text-xs text-neutral-50 bg-neutral-950/75 backdrop-blur-md"
-						style={{ writingMode: "vertical-rl" }}
-					>
-						<Twitter className="inline fill-blue0" /> @108sketches
-					</p>
-					<Image src={TitleMina} alt="" fill className="object-cover object-top" quality={90} />
-				</div>
+				<Image
+					src="https://cms.pprmint.de/uploads/nano_2_261f0fd248.webp"
+					alt=""
+					fill
+					className="object-cover object-[50%_65%]"
+					quality={90}
+				/>
 			</Title>
+			<ArtCreditButton link="https://www.instagram.com/nogonagon">
+				<Instagram />
+				@nogonagon
+			</ArtCreditButton>
 			<main>
 				<section id="lore" className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9">
 					<h2>
@@ -82,7 +85,7 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 						})}
 					</p>
 				</section>
-				<section id="design" className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-3 xl:px-9">
+				<section id="design" className="mt-20 md:mt-32 xl:mt-40 max-w-7xl mx-auto px-3 xl:px-9">
 					<Ref />
 					<div className="flex flex-col lg:flex-row lg:justify-between gap-6 mt-6 px-3 md:px-6 xl:px-0">
 						<p>
@@ -109,13 +112,16 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 						</div>
 					</div>
 				</section>
-				<section id="gallery" className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-3 xl:px-9">
+				<section
+					id="gallery"
+					className="pt-20 md:pt-32 xl:pt-40 mb-20 md:mb-32 xl:mb-40 max-w-7xl mx-auto md:px-3 xl:px-9"
+				>
 					<Suspense fallback={<GallerySkeleton />}>
 						<GallerySuspense p={currentPage} artist={artist} nsfw={nsfw} />
 					</Suspense>
 				</section>
 				<FanartRules />
-				<section className="relative flex items-end justify-center my-20 md:my-32 xl:my-40 xl:pt-10 max-w-screen-3xl mx-auto px-6 md:px-9 min-h-[500px]">
+				<section className="relative flex items-end justify-center my-20 md:my-32 xl:my-40 xl:pt-10 max-w-screen-3xl mx-auto px-6 md:px-9 min-h-[500px] overflow-x-clip">
 					<div className="absolute inset-0 -z-10">
 						<Image
 							src={Stickers}

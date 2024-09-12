@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import FadingImage from "src/components/ui/FadingImage";
+import Image from "next/image";
 import Text from "src/icons/Text";
 import Palette from "src/icons/Palette";
 import Computer from "src/icons/Computer";
@@ -10,16 +10,16 @@ import ArrowRight from "src/icons/ArrowRight";
 import Globe from "src/icons/Globe";
 import { Link } from "src/navigation";
 
-import AutselliaImage from "./autsellia/twitter-image.png";
-import AppiconsImage from "./appicons/twitter-image.png";
-import IconsImage from "./icons/twitter-image.png";
-import MintbitImage from "./mintbit/twitter-image.png";
-import MintcraftImage from "./mintcraft/twitter-image.png";
-import MintsansImage from "./mintsans/twitter-image.png";
-import MinttrianglesImage from "./minttriangles/twitter-image.png";
-import MinasansImage from "./minasans/twitter-image.png";
-import TentativeImage from "./tentative/twitter-image.png";
-import YtdgImage from "./ytdg/twitter-image.png";
+import AutselliaImage from "../projects/autsellia/twitter-image.png";
+import AppiconsImage from "../projects/appicons/twitter-image.png";
+import IconsImage from "../projects/icons/twitter-image.png";
+import MintbitImage from "../projects/mintbit/twitter-image.png";
+import MintcraftImage from "../projects/mintcraft/twitter-image.png";
+import MintsansImage from "../projects/mintsans/twitter-image.png";
+import MinttrianglesImage from "../projects/minttriangles/twitter-image.png";
+import MinasansImage from "../projects/minasans/twitter-image.png";
+import TentativeImage from "../projects/tentative/twitter-image.png";
+import YtdgImage from "../projects/ytdg/twitter-image.png";
 import { useState } from "react";
 
 const ProjectsList = [
@@ -130,7 +130,7 @@ export default function Grid() {
 							"opacity-25 hover:opacity-100 saturate-0 hover:saturate-100"
 						} active:scale-[0.98] active:opacity-75 duration-200 active:duration-75`}
 					>
-						<FadingImage src={project.image} alt="" fill className="object-cover" />
+						<Image src={project.image} alt="" fill className="object-cover" />
 						<div className="absolute flex gap-3 top-[6%] left-[3.3%] p-2 rounded-full bg-neutral-900">
 							{project.tags.map((tag, _) =>
 								tag == "font" ? (
@@ -146,7 +146,7 @@ export default function Grid() {
 								)
 							)}
 						</div>
-						<div className="absolute inset-0 backdrop-blur-md bg-neutral-950/75 opacity-0 group-hover:opacity-100 group-focus:opacity-100 duration-200">
+						<div className="absolute inset-0 bg-neutral-950/90 opacity-0 group-hover:opacity-100 group-focus:opacity-100 duration-200">
 							<div className="absolute inset-0 p-6 translate-y-6 opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-hover:translate-y-0 group-focus:translate-y-0 duration-200 group-hover:duration-400 group-focus:duration-400 ease-in-quad group-hover:ease-out-quint group-focus:ease-out-quint group-hover:delay-100 group-focus:delay-150">
 								<h3>
 									{t(`${project.name.toUpperCase()}.Head.title`)}

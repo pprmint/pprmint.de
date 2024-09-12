@@ -6,6 +6,7 @@ export default interface MinaArtwork {
 		artist: {
 			data: Artist;
 		};
+		pixelart: boolean;
 		nsfw: boolean;
 		heart: boolean;
 		creationDate: string;

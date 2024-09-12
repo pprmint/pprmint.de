@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Title from "src/components/layout/Title";
-import FadingImage from "src/components/ui/FadingImage";
+import Image from "next/image";
 
 import HomePageScreenshot from "public/assets/autsellia/homepage.webp";
 
@@ -23,7 +23,7 @@ export default function Page({ params: { locale } }: Props) {
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
-				<FadingImage src={HomePageScreenshot} alt="" fill className="object-cover object-top" />
+				<Image src={HomePageScreenshot} alt="" fill className="object-cover object-top" />
 			</Title>
 			<main className="max-w-7xl mx-auto px-6 md:px-9">soon™</main>
 		</>

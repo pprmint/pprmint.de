@@ -119,18 +119,33 @@ export default function MobileNavigation() {
 								<div className="my-9">
 									<p className="pl-3 font-display text-neutral-50 font-semibold text-2xl">{t("Path.Work.title")}</p>
 									<ul>
-										<Link className="group" href="/gallery" onClick={handleClose}>
+										<Link className="group" href="/graphics" onClick={handleClose}>
 											<li
 												className={`flex items-center ${
-													"/gallery" === pathname
+													"/graphics" === pathname
 														? "text-neutral-50"
 														: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
 												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 											>
-												{"/gallery" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
+												{"/graphics" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
 												<div className="flex flex-col">
-													<span>{t(`Path.Work.Gallery.title`)}</span>
-													<span className="text-xs opacity-50">{t(`Path.Work.Gallery.description`)}</span>
+													<span>{t(`Path.Work.Graphics.title`)}</span>
+													<span className="text-xs opacity-50">{t(`Path.Work.Graphics.description`)}</span>
+												</div>
+											</li>
+										</Link>
+										<Link className="group" href="/photos" onClick={handleClose}>
+											<li
+												className={`flex items-center ${
+													"/photos" === pathname
+														? "text-neutral-50"
+														: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
+												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
+											>
+												{"/photos" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
+												<div className="flex flex-col">
+													<span>{t(`Path.Work.Photos.title`)}</span>
+													<span className="text-xs opacity-50">{t(`Path.Work.Photos.description`)}</span>
 												</div>
 											</li>
 										</Link>
