@@ -13,6 +13,56 @@ export interface Photo {
 					url: string;
 					width: number;
 					height: number;
+					formats: {
+						thumbnail: {
+							name: string;
+							hash: string;
+							ext: string;
+							mime: string;
+							path: string;
+							width: number;
+							height: number;
+							size: number;
+							sizeInBytes: number;
+							url: string;
+						};
+						large: {
+							name: string;
+							hash: string;
+							ext: string;
+							mime: string;
+							path: string;
+							width: number;
+							height: number;
+							size: number;
+							sizeInBytes: number;
+							url: string;
+						};
+						medium: {
+							name: string;
+							hash: string;
+							ext: string;
+							mime: string;
+							path: string;
+							width: number;
+							height: number;
+							size: number;
+							sizeInBytes: number;
+							url: string;
+						};
+						small: {
+							name: string;
+							hash: string;
+							ext: string;
+							mime: string;
+							path: string;
+							width: number;
+							height: number;
+							size: number;
+							sizeInBytes: number;
+							url: string;
+						};
+					};
 				};
 			};
 		};

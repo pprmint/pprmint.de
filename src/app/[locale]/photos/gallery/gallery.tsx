@@ -44,9 +44,9 @@ export default function Gallery(photos: { photos: Photos }) {
     							hover:scale-[1.02] focus-visible:scale-[1.02] active:scale-[1.01] hover:z-10 focus-visible:z-10 justify hover:ring-1 ring-neutral-50/10 hover:shadow-2xl hover:shadow-neutral-950/50 focus-visible:shadow-2xl duration-250 ease-out-quint active:duration-75 cursor-pointer aspect-[3/2]"
 							>
 								<FadingImage
-									src={`https://static.pprmint.de${photo.attributes.photo.data.attributes.url}`}
-									width={photo.attributes.photo.data.attributes.width}
-									height={photo.attributes.photo.data.attributes.height}
+									src={`https://static.pprmint.de${photo.attributes.photo.data.attributes.formats.small.url}`}
+									width={photo.attributes.photo.data.attributes.formats.small.width}
+									height={photo.attributes.photo.data.attributes.formats.small.height}
 									alt=""
 									className={`h-full min-w-full object-cover active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
 									unoptimized={photo.attributes.photo.data.attributes.url.includes(".gif")}
