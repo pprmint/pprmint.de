@@ -6,7 +6,6 @@ import FocusTrap from "focus-trap-react";
 
 import Mina from "public/assets/mina/nekomimi_smol.webp";
 import Link from "next/link";
-import Button from "../../../components/ui/Button";
 import { useTransition, a, config } from "@react-spring/web";
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";

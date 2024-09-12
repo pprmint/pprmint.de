@@ -1,7 +1,7 @@
 "use client";
 import dynamic from "next/dynamic";
 import { useRef, useState, useEffect, PropsWithChildren } from "react";
-import { a, useTransition, easings } from "@react-spring/web";
+import { useTransition, easings } from "@react-spring/web";
 
 import * as Slider from "@radix-ui/react-slider";
 import { useTranslations } from "next-intl";
@@ -14,7 +14,6 @@ import VolumeHigh from "src/icons/VolumeHigh";
 import SkipPrevious from "src/icons/SkipPrevious";
 import SkipNext from "src/icons/SkipNext";
 import Disc from "src/icons/Disc";
-import Image from "next/image";
 
 function AudioPlayer(props: PropsWithChildren<{ src: string; title?: string; artist?: string }>) {
 	const t = useTranslations("COMMON");

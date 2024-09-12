@@ -7,7 +7,6 @@ import { Works } from "src/types/work";
 
 export default function GalleryGrid(works: { works: Works }) {
 	const t = useTranslations("GRAPHICS");
-	const [fullscreen, setFullscreen] = useState(false);
 
 	const galleryRef = useRef<HTMLDivElement>(null);
 	const [init, setInit] = useState(false);

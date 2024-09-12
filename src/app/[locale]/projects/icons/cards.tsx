@@ -6,7 +6,7 @@ import * as Tooltip from "@radix-ui/react-tooltip";
 import Checkbox from "src/components/ui/Checkbox";
 import { useTranslations } from "next-intl";
 
-import { Category, Icon, Icons } from "./icons";
+import { Icon, Icons } from "./icons";
 import X from "src/icons/X";
 import { useTransition, a, config } from "@react-spring/web";
 import Image from "next/image";
@@ -14,7 +14,6 @@ import Image from "next/image";
 import JiggyGif from "public/assets/icons/Jiggy.gif";
 import Search from "src/icons/Search";
 import Button from "src/components/ui/Button";
-import Download from "src/icons/Download";
 import Text from "src/icons/Text";
 import Zip from "src/icons/Zip";
 import { Link } from "src/navigation";

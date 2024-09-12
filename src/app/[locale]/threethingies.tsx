@@ -4,7 +4,6 @@ import { useTranslations } from "next-intl";
 
 import Image from "next/image";
 import ArrowRight from "src/icons/ArrowRight";
-import ArrowUpRight from "src/icons/ArrowUpRight";
 
 export default function ThreeThingies() {
 	const t = useTranslations("HOME");
