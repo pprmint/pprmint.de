@@ -49,7 +49,7 @@ export default function Filters(props: { type: string; dimension: string }) {
 			<Collapsible.Root
 				open={filtersOpen}
 				onOpenChange={setFiltersOpen}
-				className="sm:flex items-center mb-3 w-full sm:w-fit mx-auto bg-transparent border data-[state=closed]:border-neutral-900 data-[state=open]:border-neutral-800 rounded-lg overflow-hidden duration-100"
+				className="sm:flex items-center mb-3 w-[calc(100%_-_24px)] sm:w-fit mx-3 sm:mx-auto bg-transparent border data-[state=closed]:border-neutral-900 data-[state=open]:border-neutral-800 rounded-lg overflow-hidden duration-100"
 			>
 				<Collapsible.Trigger asChild>
 					<button

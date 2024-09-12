@@ -113,7 +113,7 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 				</section>
 				<section
 					id="gallery"
-					className="pt-20 md:pt-32 xl:pt-40 mb-20 md:mb-32 xl:mb-40 max-w-7xl mx-auto px-3 xl:px-9"
+					className="pt-20 md:pt-32 xl:pt-40 mb-20 md:mb-32 xl:mb-40 max-w-7xl mx-auto md:px-3 xl:px-9"
 				>
 					<Suspense fallback={<GallerySkeleton />}>
 						<GallerySuspense p={currentPage} artist={artist} nsfw={nsfw} />
