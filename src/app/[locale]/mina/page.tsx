@@ -10,7 +10,7 @@ import Stickers from "public/assets/mina/stickers.svg";
 import StickerSeyana from "public/assets/mina/sticker_seyana.webp";
 import StickerStare from "public/assets/mina/sticker_stare.webp";
 import StickerWhat from "public/assets/mina/sticker_what.webp";
-import StickerYippie from "public/assets/mina/sticker_yippie.webp";
+import StickerCool from "public/assets/mina/sticker_cool.png";
 
 import { Link } from "src/navigation";
 import Button from "src/components/ui/Button";
@@ -133,7 +133,7 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 							style={{ animationDelay: "0s" }}
 						/>
 						<FadingImage
-							src={StickerWhat}
+							src={StickerCool}
 							alt=""
 							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[6%] lg:top-0 left-[15%] md:left-[12%] xl:left-[20%] animate-float-rotate-r drop-shadow-[0px_4px_20px_#111]"
 							style={{ animationDelay: "0.4s" }}
@@ -145,7 +145,7 @@ export default function Page({ searchParams, params: { locale } }: Props) {
 							style={{ animationDelay: "0.8s" }}
 						/>
 						<FadingImage
-							src={StickerYippie}
+							src={StickerWhat}
 							alt=""
 							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[25%] right-[-4%] md:right-[4%] xl:right-[10%] animate-float-rotate-r drop-shadow-[0px_4px_20px_#111]"
 							style={{ animationDelay: "1.2s" }}
