@@ -34,9 +34,21 @@ export default function GalleryGrid(works: { works: Works }) {
 				hover:scale-[1.02] focus-visible:scale-[1.02] active:scale-[1.01] hover:z-10 focus-visible:z-10 justify hover:ring-1 ring-neutral-50/10 hover:shadow-2xl hover:shadow-neutral-950/50 focus-visible:shadow-2xl duration-250 ease-out-quint active:duration-75 cursor-pointer aspect-video"
 				>
 					<FadingImage
-						src={`https://static.pprmint.de${work.attributes.cover.data.attributes.formats.medium.url}`}
-						width={work.attributes.cover.data.attributes.formats.medium.width}
-						height={work.attributes.cover.data.attributes.formats.medium.height}
+						src={`https://static.pprmint.de${
+							work.attributes.cover.data.attributes.formats.medium !== undefined
+								? work.attributes.cover.data.attributes.formats.medium.url
+								: work.attributes.cover.data.attributes.url
+						}`}
+						width={
+							work.attributes.cover.data.attributes.formats.medium
+								? work.attributes.cover.data.attributes.formats.medium.width
+								: work.attributes.cover.data.attributes.width
+						}
+						height={
+							work.attributes.cover.data.attributes.formats.medium
+								? work.attributes.cover.data.attributes.formats.medium.height
+								: work.attributes.cover.data.attributes.height
+						}
 						alt=""
 						className={`h-full min-w-full object-cover ${work.attributes.coverFocus} active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
 					/>
