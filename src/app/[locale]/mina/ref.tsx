@@ -198,7 +198,7 @@ export default function RefSheet() {
 							<FadingImage
 								src={ReferenceHand}
 								alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
-								className="max-h-2/3-screen w-auto lg:w-full lg:max-h-[90vh] object-contain"
+								className="max-h-1/2-screen w-auto lg:w-1/2 lg:max-h-[50vh] object-contain"
 							/>
 						}
 					/>
@@ -329,7 +329,7 @@ export default function RefSheet() {
 							<FadingImage
 								src={ReferenceShoes}
 								alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
-								className="max-h-2/3-screen w-auto lg:w-full lg:max-h-[90vh] object-contain"
+								className="max-h-1/3-screen w-auto lg:w-2/3 lg:max-h-[90vh] object-contain"
 							/>
 						}
 					/>
