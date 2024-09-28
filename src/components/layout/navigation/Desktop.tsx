@@ -15,15 +15,15 @@ export default function DesktopNavigation() {
 	const pathname = usePathname();
 	// Styles
 	const NavMenuTrigger =
-		"group/root flex items-center gap-3 h-10 px-4 text-neutral-50/80 hover:text-neutral-50 data-[state='open']:text-neutral-50 duration-250 rounded-lg";
+		"group/root flex items-center gap-3 h-16 px-4 text-neutral-50/80 hover:text-neutral-50 data-[state='open']:text-neutral-50 duration-250 rounded-lg";
 	const NavMenuContent =
 		"absolute top-0 left-0 p-3 duration-250 data-[motion='from-start']:animate-enter-from-l data-[motion='from-end']:animate-enter-from-r data-[motion='to-start']:animate-exit-to-l data-[motion='to-end']:animate-exit-to-r";
 	const NavMenuViewport =
-		"relative origin-top-left w-[--radix-navigation-menu-viewport-width] overflow-hidden backdrop-blur-xl bg-gradient-to-b from-[#282828bb] to-[#222222aa] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 text-neutral rounded-2xl shadow-[0_6px_22px_#11111166] h-[--radix-navigation-menu-viewport-height] duration-250 ease-out data-[state='open']:animate-enter-from-t data-[state='closed']:animate-exit-to-t";
+		"relative top-1 origin-top-left w-[--radix-navigation-menu-viewport-width] overflow-hidden backdrop-blur-xl bg-gradient-to-b from-[#282828bb] to-[#222222aa] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 text-neutral rounded-2xl shadow-[0_6px_22px_#11111166] h-[--radix-navigation-menu-viewport-height] duration-250 ease-out data-[state='open']:animate-enter-from-t data-[state='closed']:animate-exit-to-t";
 	return (
 		<>
 			<NavigationMenu.Root className="relative flex justify-center items-center" delayDuration={0}>
-				<NavigationMenu.List className="flex py-2">
+				<NavigationMenu.List className="flex">
 					<NavigationMenu.Item>
 						<NavigationMenu.Trigger className={NavMenuTrigger}>
 							<span className="inline-flex items-center gap-3 drop-shadow-[0px_2px_12px_#111a]">
@@ -203,8 +203,8 @@ export default function DesktopNavigation() {
 							<Copyright className="pl-3 pt-1 items-center" />
 						</NavigationMenu.Content>
 					</NavigationMenu.Item>
-					<NavigationMenu.Indicator className="flex items-end justify-center h-2 top-12 -z-10 duration-250 ease-out data-[state='visible']:animate-fade-in data-[state='hidden']:animate-fade-out">
-						<div className="relative bg-neutral-50/10 -top-2 w-full h-10 rounded-lg duration-250" />
+					<NavigationMenu.Indicator className="flex items-end justify-center h-2 top-11 -z-10 duration-250 ease-out data-[state='visible']:animate-fade-in data-[state='hidden']:animate-fade-out">
+						<div className="relative bg-neutral-50/10 w-full h-10 rounded-lg duration-250" />
 					</NavigationMenu.Indicator>
 				</NavigationMenu.List>
 				<div className="absolute flex justify-center top-[59px] left-1/2 -translate-x-1/2" style={{ perspective: 2000 }}>

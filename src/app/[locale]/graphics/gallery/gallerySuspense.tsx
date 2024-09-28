@@ -38,7 +38,7 @@ async function getWorks(locale: string, page: number, dimension: string, type: s
 	}
 
 	const res = await fetch(
-		`${process.env.STRAPI_API_URL}/works?locale=${locale}&pagination[page]=${Number(
+		`${process.env.STRAPI_API_URL}/works?pagination[page]=${Number(
 			page
 		)}&pagination[pageSize]=20&${dimensionFilter}${typeFilter}populate=*&sort=creationDate:desc`,
 		{

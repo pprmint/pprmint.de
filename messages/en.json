@@ -356,6 +356,10 @@
 				"text3": "Please <Link>send me a message</Link> if you have any inquiries."
 			},
 			"noHasOwn": "The text above was actually written in Markdown. If you can read this, it's time to update your browser, otherwise any formatting and links won't work for you here."
+		},
+		"Error": {
+			"title": "No result",
+			"description": "Return to the gallery."
 		}
 	},
 	"HOME": {

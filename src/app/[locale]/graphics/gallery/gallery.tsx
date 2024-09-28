@@ -22,7 +22,7 @@ export default function GalleryGrid(works: { works: Works }) {
 			{works.works.data.map((work) => (
 				<Link
 					key={work.id}
-					href={`/graphics/${work.id}`}
+					href={`/graphics/${work.documentId}`}
 					className="group/button relative overflow-clip hover:rounded-lg focus-visible:rounded-lg bg-neutral-950
 				odd:origin-left even:origin-right
 				lg:odd:origin-center lg:even:origin-center
@@ -35,22 +35,12 @@ export default function GalleryGrid(works: { works: Works }) {
 				>
 					<FadingImage
 						src={`https://static.pprmint.de${
-							work.attributes.cover.data.attributes.formats.medium !== undefined
-								? work.attributes.cover.data.attributes.formats.medium.url
-								: work.attributes.cover.data.attributes.url
+							work.cover.formats.medium !== undefined ? work.cover.formats.medium.url : work.cover.url
 						}`}
-						width={
-							work.attributes.cover.data.attributes.formats.medium
-								? work.attributes.cover.data.attributes.formats.medium.width
-								: work.attributes.cover.data.attributes.width
-						}
-						height={
-							work.attributes.cover.data.attributes.formats.medium
-								? work.attributes.cover.data.attributes.formats.medium.height
-								: work.attributes.cover.data.attributes.height
-						}
+						width={work.cover.formats.medium ? work.cover.formats.medium.width : work.cover.width}
+						height={work.cover.formats.medium ? work.cover.formats.medium.height : work.cover.height}
 						alt=""
-						className={`h-full min-w-full object-cover ${work.attributes.coverFocus} active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
+						className={`h-full min-w-full object-cover ${work.coverFocus} active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
 					/>
 				</Link>
 			))}

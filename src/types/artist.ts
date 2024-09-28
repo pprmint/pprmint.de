@@ -1,11 +1,12 @@
 export default interface Artist {
 	id: number;
-	attributes: {
-		name: string;
-		creditUrl?: string;
-		createdAt: string;
-		updatedAt: string;
-	};
+	name: string;
+	creditUrl?: string;
+	createdAt: string;
+	updatedAt: string;
+	documentId: string;
+	locale: string;
+	publishedAt: string;
 }
 
 export interface ArtistsMeta {

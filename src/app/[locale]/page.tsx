@@ -34,11 +34,11 @@ export default async function Page({ params: { locale } }: Props) {
 				<section className="my-20 md:my-32 xl:my-40 relative overflow-clip">
 					<div className="relative w-full h-full -z-10">
 						<FadingImage
-							src={`https://static.pprmint.de${Announcements.data[0].attributes.media.data.attributes.formats.thumbnail.url}`}
-							alt={Announcements.data[0].attributes.media.data.attributes.alternativeText}
+							src={`https://static.pprmint.de${Announcements.data[0].media.formats.thumbnail.url}`}
+							alt={Announcements.data[0].media.alternativeText}
 							quality={90}
-							width={Announcements.data[0].attributes.media.data.attributes.formats.thumbnail.width}
-							height={Announcements.data[0].attributes.media.data.attributes.formats.thumbnail.height}
+							width={Announcements.data[0].media.formats.thumbnail.width}
+							height={Announcements.data[0].media.formats.thumbnail.height}
 							className="absolute w-full max-w-7xl left-1/2 -translate-x-1/2 top-24 blur-3xl rounded-xl contrast-75 opacity-50"
 						/>
 						<div
@@ -52,35 +52,35 @@ export default async function Page({ params: { locale } }: Props) {
 					</div>
 					<h2 className="h-24 w-full text-center">{t("Content.News.heading")}</h2>
 					<FadingImage
-						src={`https://static.pprmint.de${Announcements.data[0].attributes.media.data.attributes.url}`}
-						alt={Announcements.data[0].attributes.media.data.attributes.alternativeText}
+						src={`https://static.pprmint.de${Announcements.data[0].media.url}`}
+						alt={Announcements.data[0].media.alternativeText}
 						quality={90}
-						width={Announcements.data[0].attributes.media.data.attributes.width}
-						height={Announcements.data[0].attributes.media.data.attributes.height}
+						width={Announcements.data[0].media.width}
+						height={Announcements.data[0].media.height}
 						className="w-full max-w-7xl mx-auto xl:rounded-xl shadow-[0px_0px_5px_10px_#111] xl:border border-neutral-900"
 					/>
 					<div className="flex max-w-7xl px-6 md:px-9 2xl:px-0 mx-auto my-12 flex-col md:flex-row items-end md:items-center gap-6 md:gap-9">
 						<div className="w-full">
-							<h2>{Announcements.data[0].attributes.title}</h2>
-							<p>{Announcements.data[0].attributes.description}</p>
+							<h2>{Announcements.data[0].title}</h2>
+							<p>{Announcements.data[0].description}</p>
 						</div>
-						{Announcements.data[0].attributes.link ? (
-							Announcements.data[0].attributes.link.startsWith("/") ? (
-								<Link href={Announcements.data[0].attributes.link} className="w-fit">
-									<Button color={Announcements.data[0].attributes.buttonColor} large>
-										{Announcements.data[0].attributes.linkText}
+						{Announcements.data[0].link ? (
+							Announcements.data[0].link.startsWith("/") ? (
+								<Link href={Announcements.data[0].link} className="w-fit">
+									<Button color={Announcements.data[0].buttonColor} large>
+										{Announcements.data[0].linkText}
 										<ArrowRight width={20} height={20} />
 									</Button>
 								</Link>
 							) : (
 								<Link
-									href={Announcements.data[0].attributes.link}
+									href={Announcements.data[0].link}
 									target="_blank"
 									rel="noopener noreferrer"
 									className="w-fit"
 								>
-									<Button color={Announcements.data[0].attributes.buttonColor} large>
-										{Announcements.data[0].attributes.linkText}
+									<Button color={Announcements.data[0].buttonColor} large>
+										{Announcements.data[0].linkText}
 										<ArrowUpRight width={20} height={20} />
 									</Button>
 								</Link>
@@ -96,32 +96,32 @@ export default async function Page({ params: { locale } }: Props) {
 								index > 0 && (
 									<div key={announcement.id} className="flex flex-col gap-3">
 										<FadingImage
-											src={`https://static.pprmint.de${announcement.attributes.media.data.attributes.url}`}
-											alt={announcement.attributes.media.data.attributes.alternativeText}
+											src={`https://static.pprmint.de${announcement.media.url}`}
+											alt={announcement.media.alternativeText}
 											quality={90}
-											width={announcement.attributes.media.data.attributes.width}
-											height={announcement.attributes.media.data.attributes.height}
+											width={announcement.media.width}
+											height={announcement.media.height}
 											className="relative rounded-xl border border-neutral-900 mb-3"
 										/>
-										<h3>{announcement.attributes.title}</h3>
-										<p>{announcement.attributes.description}</p>
-										{announcement.attributes.link ? (
-											announcement.attributes.link.startsWith("/") ? (
-												<Link href={announcement.attributes.link} className="w-fit">
-													<Button color={announcement.attributes.buttonColor} outlined>
-														{announcement.attributes.linkText}
+										<h3>{announcement.title}</h3>
+										<p>{announcement.description}</p>
+										{announcement.link ? (
+											announcement.link.startsWith("/") ? (
+												<Link href={announcement.link} className="w-fit">
+													<Button color={announcement.buttonColor} outlined>
+														{announcement.linkText}
 														<ArrowRight />
 													</Button>
 												</Link>
 											) : (
 												<Link
-													href={announcement.attributes.link}
+													href={announcement.link}
 													target="_blank"
 													rel="noopener noreferrer"
 													className="w-fit"
 												>
-													<Button color={announcement.attributes.buttonColor} outlined>
-														{announcement.attributes.linkText}
+													<Button color={announcement.buttonColor} outlined>
+														{announcement.linkText}
 														<ArrowUpRight />
 													</Button>
 												</Link>
@@ -135,7 +135,7 @@ export default async function Page({ params: { locale } }: Props) {
 				<section className="my-20 md:my-32 xl:my-40 relative flex items-center px-6 md:px-9 w-screen min-h-[500px] overflow-clip">
 					<div className="absolute inset-0 -z-10">
 						<FadingImage
-							src={`https://static.pprmint.de${MinaArt.data[0].attributes.artwork.data[0].attributes.formats.thumbnail.url}`}
+							src={`https://static.pprmint.de${MinaArt.data[0].artwork[0].formats.thumbnail.url}`}
 							fill
 							alt=""
 							className="object-cover blur-xl"
@@ -161,11 +161,11 @@ export default async function Page({ params: { locale } }: Props) {
 							<p>{t("Content.Mina.text1")}</p>
 							<p className="mb-6">
 								{t.rich("Content.Mina.text2", {
-									artist: MinaArt.data[0].attributes.artist.data.attributes.name,
+									artist: MinaArt.data[0].artist.name,
 									link: (chunks) =>
-										MinaArt.data[0].attributes.artist.data.attributes.creditUrl ? (
+										MinaArt.data[0].artist.creditUrl ? (
 											<Link
-												href={MinaArt.data[0].attributes.artist.data.attributes.creditUrl}
+												href={MinaArt.data[0].artist.creditUrl}
 												className="text-link-external"
 											>
 												{chunks}
@@ -193,16 +193,16 @@ export default async function Page({ params: { locale } }: Props) {
 							className="relative group my-12 w-4/5 max-w-fit max-h-4/5 rotate-3 hover:rotate-0 hover:scale-[1.02] active:scale-[0.99] active:brightness-90 duration-400 active:duration-75 ease-out-back active:ease-out rounded-xl"
 						>
 							<FadingImage
-								src={`https://static.pprmint.de${MinaArt.data[0].attributes.artwork.data[0].attributes.url}`}
-								alt={MinaArt.data[0].attributes.artwork.data[0].attributes.alternativeText}
-								width={MinaArt.data[0].attributes.artwork.data[0].attributes.width}
-								height={MinaArt.data[0].attributes.artwork.data[0].attributes.height}
+								src={`https://static.pprmint.de${MinaArt.data[0].artwork[0].url}`}
+								alt={MinaArt.data[0].artwork[0].alternativeText}
+								width={MinaArt.data[0].artwork[0].width}
+								height={MinaArt.data[0].artwork[0].height}
 								className="rounded-xl"
 							/>
 							<div
 								className="absolute inset-0 overflow-clip blur-md rounded-xl"
 								style={{
-									maskImage: `url(https://static.pprmint.de${MinaArt.data[0].attributes.artwork.data[0].attributes.url})`,
+									maskImage: `url(https://static.pprmint.de${MinaArt.data[0].artwork[0].url})`,
 									maskRepeat: "no-repeat",
 									maskSize: "100%",
 								}}

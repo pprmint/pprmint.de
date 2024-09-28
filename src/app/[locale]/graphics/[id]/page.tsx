@@ -1,27 +1,39 @@
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Title from "src/components/layout/Title";
 import FadingImage from "src/components/ui/FadingImage";
 import Work from "src/types/work";
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
-	const Work: Work = await getWork(params.id);
-	return {
-		title: Work.data.attributes.title,
-		description: Work.data.attributes.text,
-	};
+type Props = {
+	params: { id: string; locale: string };
+};
+
+export async function generateMetadata({ params: { id, locale } }: Props) {
+	const Work: Work = await getWork(id, locale);
+	const t = await getTranslations("GRAPHICS");
+	return Work.data !== null
+		? {
+				title: Work.data.title,
+				description: Work.data.text,
+		  }
+		: {
+				title: t("Error.title"),
+				description: t("Error.description"),
+		  };
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
-	const Work: Work = await getWork(params.id);
+export default async function Page({ params: { id, locale } }: Props) {
+	unstable_setRequestLocale(locale);
+	const Work: Work = await getWork(id, locale);
 	return (
 		<>
 			<div className="absolute top-0 inset-x-0 -z-10 overflow-hidden h-96">
 				<FadingImage
-					src={`https://static.pprmint.de${Work.data.attributes.cover.data.attributes.formats.thumbnail.url}`}
-					alt={Work.data.attributes.title}
+					src={`https://static.pprmint.de${Work.data.cover.formats.thumbnail.url}`}
+					alt={Work.data.title}
 					fill
-					className={`object-cover ${Work.data.attributes.coverFocus} h-full min-w-full contrast-[0.87] blur-lg`}
+					className={`object-cover ${Work.data.coverFocus} h-full min-w-full contrast-[0.87] blur-lg`}
 				/>
 				<div className="bg-gradient-to-t from-neutral-950 to-neutral-950/75 absolute inset-0" />
 				<div
@@ -34,37 +46,37 @@ export default async function Page({ params }: { params: { id: string } }) {
 				/>
 			</div>
 			<Title
-				title={Work.data.attributes.title}
+				title={Work.data.title}
 				description={
 					!!Object.hasOwn ? (
 						<div className="prose-a:text-link-external">
-							<Markdown remarkPlugins={[remarkGfm]}>{Work.data.attributes.text}</Markdown>
+							<Markdown remarkPlugins={[remarkGfm]}>{Work.data.text}</Markdown>
 						</div>
 					) : (
-						Work.data.attributes.text
+						Work.data.text
 					)
 				}
 				noDelay
 			/>
 			<main className="max-w-7xl mx-auto">
-				{Work.data.attributes.gallery.data.map((media) =>
-					media.attributes.mime.startsWith("image") ? (
+				{Work.data.gallery.map((media) =>
+					media.mime.startsWith("image") ? (
 						<FadingImage
 							key={media.id.toString()}
-							src={`https://static.pprmint.de${media.attributes.url}`}
-							alt={media.attributes.alternativeText}
-							width={media.attributes.width}
-							height={media.attributes.height}
+							src={`https://static.pprmint.de${media.url}`}
+							alt={media.alternativeText}
+							width={media.width}
+							height={media.height}
 							quality={100}
 							className="w-full h-auto animate-skeleton-pulse"
 						/>
 					) : (
-						media.attributes.mime.startsWith("video") && (
+						media.mime.startsWith("video") && (
 							<video
 								controls
 								key={media.id.toString()}
 								className="w-full h-auto"
-								src={`https://static.pprmint.de${media.attributes.url}`}
+								src={`https://static.pprmint.de${media.url}`}
 							/>
 						)
 					)
@@ -74,8 +86,8 @@ export default async function Page({ params }: { params: { id: string } }) {
 	);
 }
 
-async function getWork(id: string) {
-	const res = await fetch(`${process.env.STRAPI_API_URL}/works/${id}?populate=*`, {
+async function getWork(id: string, locale: string) {
+	const res = await fetch(`${process.env.STRAPI_API_URL}/works/${id}?locale=${locale}&populate=*`, {
 		headers: {
 			"Content-Type": "application/json",
 			Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
@@ -83,7 +95,7 @@ async function getWork(id: string) {
 		next: { revalidate: 0 },
 	});
 	if (!res.ok) {
-		throw new Error("Failed to fetch works.");
+		throw new Error("Failed to fetch work.");
 	}
 	return res.json();
 }

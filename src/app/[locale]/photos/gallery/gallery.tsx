@@ -47,12 +47,12 @@ export default function Gallery(photos: { photos: Photos }) {
     							hover:scale-[1.02] focus-visible:scale-[1.02] active:scale-[1.01] hover:z-10 focus-visible:z-10 justify hover:ring-1 ring-neutral-50/10 hover:shadow-2xl hover:shadow-neutral-950/50 focus-visible:shadow-2xl duration-250 ease-out-quint active:duration-75 cursor-pointer aspect-[3/2]"
 							>
 								<FadingImage
-									src={`https://static.pprmint.de${photo.attributes.photo.data.attributes.formats.small.url}`}
-									width={photo.attributes.photo.data.attributes.formats.small.width}
-									height={photo.attributes.photo.data.attributes.formats.small.height}
+									src={`https://static.pprmint.de${photo.photo.formats.small.url}`}
+									width={photo.photo.formats.small.width}
+									height={photo.photo.formats.small.height}
 									alt=""
 									className={`h-full min-w-full object-cover active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
-									unoptimized={photo.attributes.photo.data.attributes.url.includes(".gif")}
+									unoptimized={photo.photo.url.includes(".gif")}
 								/>
 							</button>
 						</Dialog.Trigger>
@@ -65,9 +65,9 @@ export default function Gallery(photos: { photos: Photos }) {
 									<TransformComponent>
 										<div className="flex items-center justify-center w-screen h-screen max-h-svh">
 											<FadingImage
-												src={`https://static.pprmint.de${photo.attributes.photo.data?.attributes.url}`}
-												width={photo.attributes.photo.data?.attributes.width}
-												height={photo.attributes.photo.data?.attributes.height}
+												src={`https://static.pprmint.de${photo.photo?.url}`}
+												width={photo.photo?.width}
+												height={photo.photo?.height}
 												alt=""
 												className="max-h-svh w-auto mx-auto py-16"
 												unoptimized
@@ -77,13 +77,13 @@ export default function Gallery(photos: { photos: Photos }) {
 									<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 bg-gradient-to-b from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
 										<Dialog.Title asChild>
 											<p className="font-display text-xl">
-												{format.dateTime(new Date(photo.attributes.dateTime), {
+												{format.dateTime(new Date(photo.dateTime), {
 													day: "numeric",
 													month: "long",
 													year: "numeric",
 												})}
 												,{" "}
-												{format.dateTime(new Date(photo.attributes.dateTime), {
+												{format.dateTime(new Date(photo.dateTime), {
 													hour: "numeric",
 													minute: "2-digit",
 												})}
@@ -97,41 +97,31 @@ export default function Gallery(photos: { photos: Photos }) {
 									</div>
 									<div className="absolute flex flex-col md:flex-row gap-2 items-center justify-end pb-3 md:pb-0 bottom-0 px-6 h-20 md:h-16 bg-gradient-to-t from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
 										<div className="flex items-center md:flex-grow gap-3 md:gap-6 mx-auto">
-											{photo.attributes.camera.data.attributes.logo.data ? (
+											{photo.camera.logo ? (
 												<Image
-													src={`https://static.pprmint.de${photo.attributes.camera.data.attributes.logo.data.attributes.url}`}
-													width={
-														photo.attributes.camera.data.attributes.logo.data.attributes
-															.width
-													}
-													height={
-														photo.attributes.camera.data.attributes.logo.data.attributes
-															.height
-													}
-													alt={photo.attributes.camera.data.attributes.name}
+													src={`https://static.pprmint.de${photo.camera.logo.url}`}
+													width={photo.camera.logo.width}
+													height={photo.camera.logo.height}
+													alt={photo.camera.name}
 													unoptimized
 													className="invert h-4 md:h-6 w-auto"
 												/>
 											) : (
-												<p className="font-medium text-lg">
-													{photo.attributes.camera.data.attributes.name}
-												</p>
+												<p className="font-medium text-lg">{photo.camera.name}</p>
 											)}
-											{photo.attributes.lens.data && (
+											{photo.lens && (
 												<p className="hidden sm:block text-sm text-neutral-50/70">
-													{photo.attributes.lens.data.attributes.name}
+													{photo.lens.name}
 												</p>
 											)}
 										</div>
 										<div className="flex gap-3 md:gap-6 select-none mx-auto text-neutral-50/70">
-											{photo.attributes.iso && (
+											{photo.iso && (
 												<Tooltip.Root delayDuration={0}>
 													<Tooltip.Trigger asChild>
 														<div className="flex gap-1 items-center">
 															<CameraIso />
-															<span className="font-mono text-sm">
-																{photo.attributes.iso}
-															</span>
+															<span className="font-mono text-sm">{photo.iso}</span>
 														</div>
 													</Tooltip.Trigger>
 													<Tooltip.Content
@@ -145,13 +135,13 @@ export default function Gallery(photos: { photos: Photos }) {
 													</Tooltip.Content>
 												</Tooltip.Root>
 											)}
-											{photo.attributes.aperture && (
+											{photo.aperture && (
 												<Tooltip.Root delayDuration={0}>
 													<Tooltip.Trigger asChild>
 														<div className="flex gap-1 items-center">
 															<CameraAperture />
 															<span className="font-mono text-sm">
-																<i>f</i>/{photo.attributes.aperture}
+																<i>f</i>/{photo.aperture}
 															</span>
 														</div>
 													</Tooltip.Trigger>
@@ -166,14 +156,12 @@ export default function Gallery(photos: { photos: Photos }) {
 													</Tooltip.Content>
 												</Tooltip.Root>
 											)}
-											{photo.attributes.shutter && (
+											{photo.shutter && (
 												<Tooltip.Root delayDuration={0}>
 													<Tooltip.Trigger asChild>
 														<div className="flex gap-1 items-center">
 															<CameraShutterSpeed />
-															<span className="font-mono text-sm">
-																{photo.attributes.shutter}s
-															</span>
+															<span className="font-mono text-sm">{photo.shutter}s</span>
 														</div>
 													</Tooltip.Trigger>
 													<Tooltip.Content
@@ -187,13 +175,13 @@ export default function Gallery(photos: { photos: Photos }) {
 													</Tooltip.Content>
 												</Tooltip.Root>
 											)}
-											{photo.attributes.focalLength && (
+											{photo.focalLength && (
 												<Tooltip.Root delayDuration={0}>
 													<Tooltip.Trigger asChild>
 														<div className="flex gap-1 items-center">
 															<CameraFocalLength />
 															<span className="font-mono text-sm">
-																{photo.attributes.focalLength}mm
+																{photo.focalLength}mm
 															</span>
 														</div>
 													</Tooltip.Trigger>

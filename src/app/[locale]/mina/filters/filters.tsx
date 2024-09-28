@@ -98,7 +98,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 
 	const nsfwActive = props.nsfw == "show";
 	const artistFilterActive = props.artist
-		? props.artists.data.some((a) => a.attributes.name === props.artist)
+		? props.artists.data.some((a) => a.name === props.artist)
 		: false;
 
 	return (
@@ -159,13 +159,13 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 											<Select.Group>
 												{props.artists.data
 													.sort((a, b) =>
-														a.attributes.name.localeCompare(b.attributes.name, undefined, {
+														a.name.localeCompare(b.name, undefined, {
 															sensitivity: "base",
 														})
 													)
 													.map((artist) => (
-														<SelectItem key={artist.id} value={artist.attributes.name}>
-															{artist.attributes.name}
+														<SelectItem key={artist.id} value={artist.name}>
+															{artist.name}
 														</SelectItem>
 													))}
 											</Select.Group>

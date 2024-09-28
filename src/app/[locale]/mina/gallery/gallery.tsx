@@ -54,16 +54,16 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 						>
 							<FadingImage
 								src={`https://static.pprmint.de${
-									art.attributes.artwork.data[0].attributes.formats.small
-										? art.attributes.artwork.data[0].attributes.formats.small.url
-										: art.attributes.artwork.data[0].attributes.url
+									art.artwork[0].formats.small
+										? art.artwork[0].formats.small.url
+										: art.artwork[0].url
 								}`}
-								width={art.attributes.artwork.data[0].attributes.width}
-								height={art.attributes.artwork.data[0].attributes.height}
+								width={art.artwork[0].width}
+								height={art.artwork[0].height}
 								alt=""
-								className={`h-full min-w-full object-cover ${art.attributes.focus} active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
+								className={`h-full min-w-full object-cover ${art.focus} active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
 							/>
-							{art.attributes.nsfw && (
+							{art.nsfw && (
 								<div className="absolute inset-0 backdrop-blur-lg group-focus-visible/button:backdrop-blur-sm bg-neutral-950/75 group-focus-visible/button:bg-transparent group-hover/button:opacity-0 duration-300 ease-out-quint pointer-events-none">
 									<EyeDisabled className="p-2.5 fill-neutral-50 opacity-75 ri-eye-off-line absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 								</div>
@@ -79,11 +79,11 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 								<TransformComponent>
 									<div className="flex items-center justify-center w-screen h-screen max-h-svh">
 										<FadingImage
-											src={`https://static.pprmint.de${art.attributes.artwork.data[selectedVariant]?.attributes.url}`}
-											width={art.attributes.artwork.data[selectedVariant]?.attributes.width}
-											height={art.attributes.artwork.data[selectedVariant]?.attributes.height}
+											src={`https://static.pprmint.de${art.artwork[selectedVariant]?.url}`}
+											width={art.artwork[selectedVariant]?.width}
+											height={art.artwork[selectedVariant]?.height}
 											alt=""
-											className={`max-h-svh w-auto mx-auto py-16 ${art.attributes.pixelart && "pixelated"}`}
+											className={`max-h-svh w-auto mx-auto py-16 ${art.pixelart && "pixelated"}`}
 											unoptimized
 										/>
 									</div>
@@ -93,13 +93,13 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 										<Dialog.Title asChild>
 											<p>
 												<span className="text-neutral-50/70">{t("Content.Artworks.drawnBy")}</span>
-												{art.attributes.artist.data.attributes.name}
-												{art.attributes.heart && <span className="text-red"> ♥</span>}
+												{art.artist.name}
+												{art.heart && <span className="text-red"> ♥</span>}
 											</p>
 										</Dialog.Title>
-										{art.attributes.artist.data.attributes.creditUrl && (
+										{art.artist.creditUrl && (
 											<Link
-												href={art.attributes.artist.data.attributes.creditUrl!}
+												href={art.artist.creditUrl!}
 												target="_blank"
 												rel="noopener noreferrer"
 												className="rounded-full"
@@ -108,13 +108,13 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 													tabIndex={-1}
 													className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
 												>
-													{art.attributes.artist.data.attributes.creditUrl!.startsWith("https://twitter.com/") ? (
+													{art.artist.creditUrl!.startsWith("https://twitter.com/") ? (
 														<Twitter />
-													) : art.attributes.artist.data.attributes.creditUrl!.startsWith(
+													) : art.artist.creditUrl!.startsWith(
 															"https://www.instagram.com/"
 													  ) ? (
 														<Instagram />
-													) : art.attributes.artist.data.attributes.creditUrl!.startsWith(
+													) : art.artist.creditUrl!.startsWith(
 															"https://www.youtube.com/"
 													  ) ? (
 														<YouTube />
@@ -131,9 +131,9 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 										</button>
 									</Dialog.Close>
 								</div>
-								{art.attributes.artwork.data.length >= 2 && (
+								{art.artwork.length >= 2 && (
 									<div className="absolute flex flex-row items-center justify-center bottom-0 px-6 h-16 bg-gradient-to-t from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
-										{art.attributes.artwork.data.map((variant, index) => (
+										{art.artwork.map((variant, index) => (
 											<button
 												key={index}
 												className={`group h-full ${
