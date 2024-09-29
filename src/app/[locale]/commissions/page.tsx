@@ -25,7 +25,7 @@ export async function generateMetadata({ params: { locale } }: Props) {
 export default async function Page({ params: { locale } }: Props) {
 	unstable_setRequestLocale(locale);
 	const CommissionData: Commission = await getData();
-	const Data = CommissionData.data.attributes;
+	const Data = CommissionData.data;
 	const t = await getTranslations("COMMISSIONS");
 	return (
 		<>

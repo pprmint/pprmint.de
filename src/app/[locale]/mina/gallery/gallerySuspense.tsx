@@ -42,7 +42,7 @@ async function getArtworks(
         nsfwFilter = `filters[nsfw][$ne]=true&`;
     }
 
-    if (artists.data.find((a) => a.attributes.name === artist)) {
+    if (artists.data.find((a) => a.name === artist)) {
         artistFilter = `filters[artist][name][$eq]=${artist}&`;
     }
 

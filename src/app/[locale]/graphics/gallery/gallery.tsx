@@ -22,15 +22,17 @@ export default function GalleryGrid(works: { works: Works }) {
 			{works.works.data.map((work) => (
 				<Link
 					key={work.id}
-					href={`/graphics/${work.id}`}
+					href={`/graphics/${work.documentId}`}
 					className="group/button relative overflow-clip bg-neutral-950 hover:contrast-75 active:contrast-100 active:opacity-75 duration-200 active:duration-75 cursor-pointer aspect-video"
 				>
 					<Image
-						src={`https://static.pprmint.de${work.attributes.cover.data.attributes.formats.medium.url}`}
-						width={work.attributes.cover.data.attributes.formats.medium.width}
-						height={work.attributes.cover.data.attributes.formats.medium.height}
+						src={`https://static.pprmint.de${
+							work.cover.formats.medium !== undefined ? work.cover.formats.medium.url : work.cover.url
+						}`}
+						width={work.cover.formats.medium ? work.cover.formats.medium.width : work.cover.width}
+						height={work.cover.formats.medium ? work.cover.formats.medium.height : work.cover.height}
 						alt=""
-						className={`h-full min-w-full object-cover ${work.attributes.coverFocus} active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
+						className={`h-full min-w-full object-cover ${work.coverFocus} active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
 					/>
 				</Link>
 			))}

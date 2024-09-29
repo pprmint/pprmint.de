@@ -356,6 +356,10 @@
 				"text3": "<Link>Schreibe mir eine Nachricht</Link>, wenn du Fragen dazu hast."
 			},
 			"noHasOwn": "Der Text oben wurde eigentlich in Markdown geschrieben. Wenn du das hier lesen kannst, solltest du mal deinen Browser aktualisieren, da sonst Formatierungen und Links für dich hier nicht funktionieren werden."
+		},
+		"Error": {
+			"title": "Kein Ergebnis",
+			"description": "Kehre zur Galerie zurück."
 		}
 	},
 	"HOME": {

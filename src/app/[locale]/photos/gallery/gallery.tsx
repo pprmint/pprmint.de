@@ -36,12 +36,12 @@ export default function Gallery(photos: { photos: Photos }) {
 						<Dialog.Trigger asChild>
 							<button className="group/button relative overflow-clip hover:contrast-75 active:contrast-100 active:opacity-75 duration-200 active:duration-75 cursor-pointer aspect-[3/2]">
 								<Image
-									src={`https://static.pprmint.de${photo.attributes.photo.data.attributes.formats.small.url}`}
-									width={photo.attributes.photo.data.attributes.formats.small.width}
-									height={photo.attributes.photo.data.attributes.formats.small.height}
+									src={`https://static.pprmint.de${photo.photo.formats.small.url}`}
+									width={photo.photo.formats.small.width}
+									height={photo.photo.formats.small.height}
 									alt=""
 									className={`h-full min-w-full object-cover active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
-									unoptimized={photo.attributes.photo.data.attributes.url.includes(".gif")}
+									unoptimized={photo.photo.url.includes(".gif")}
 								/>
 							</button>
 						</Dialog.Trigger>
@@ -54,9 +54,9 @@ export default function Gallery(photos: { photos: Photos }) {
 									<TransformComponent>
 										<div className="flex items-center justify-center w-screen h-screen max-h-svh">
 											<Image
-												src={`https://static.pprmint.de${photo.attributes.photo.data?.attributes.url}`}
-												width={photo.attributes.photo.data?.attributes.width}
-												height={photo.attributes.photo.data?.attributes.height}
+												src={`https://static.pprmint.de${photo.photo?.url}`}
+												width={photo.photo?.width}
+												height={photo.photo?.height}
 												alt=""
 												className="max-h-svh w-auto mx-auto py-16"
 												unoptimized
@@ -66,13 +66,13 @@ export default function Gallery(photos: { photos: Photos }) {
 									<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 bg-gradient-to-b from-neutral-950/90 to-neutral-950/75 inset-x-0">
 										<Dialog.Title asChild>
 											<p className="font-display text-xl">
-												{format.dateTime(new Date(photo.attributes.dateTime), {
+												{format.dateTime(new Date(photo.dateTime), {
 													day: "numeric",
 													month: "long",
 													year: "numeric",
 												})}
 												,{" "}
-												{format.dateTime(new Date(photo.attributes.dateTime), {
+												{format.dateTime(new Date(photo.dateTime), {
 													hour: "numeric",
 													minute: "2-digit",
 												})}
@@ -86,111 +86,123 @@ export default function Gallery(photos: { photos: Photos }) {
 									</div>
 									<div className="absolute flex flex-col md:flex-row gap-2 items-center justify-end pb-3 md:pb-0 bottom-0 px-6 h-20 md:h-16 bg-gradient-to-t from-neutral-950/90 to-neutral-950/75 inset-x-0">
 										<div className="flex items-center md:flex-grow gap-3 md:gap-6 mx-auto">
-											{photo.attributes.camera.data.attributes.logo.data ? (
+											{photo.camera.logo ? (
 												<Image
-													src={`https://static.pprmint.de${photo.attributes.camera.data.attributes.logo.data.attributes.url}`}
+													src={`https://static.pprmint.de${photo.camera.logo.url}`}
 													width={
-														photo.attributes.camera.data.attributes.logo.data.attributes
+														photo.camera.logo
 															.width
 													}
 													height={
-														photo.attributes.camera.data.attributes.logo.data.attributes
+														photo.camera.logo
 															.height
 													}
-													alt={photo.attributes.camera.data.attributes.name}
+													alt={photo.camera.name}
 													unoptimized
 													className="invert h-4 md:h-6 w-auto"
 												/>
 											) : (
 												<p className="font-medium text-lg">
-													{photo.attributes.camera.data.attributes.name}
+													{photo.camera.name}
 												</p>
 											)}
-											{photo.attributes.lens.data && (
+											{photo.lens && (
 												<p className="hidden sm:block text-sm text-neutral-50/70">
-													{photo.attributes.lens.data.attributes.name}
+													{photo.lens.name}
 												</p>
 											)}
 										</div>
 										<div className="flex gap-3 md:gap-6 select-none mx-auto text-neutral-50/70">
-											<Tooltip.Root delayDuration={0}>
-												<Tooltip.Trigger asChild>
-													<div className="flex gap-1 items-center">
-														<CameraIso />
-														<span className="font-mono text-sm">
-															{photo.attributes.iso}
+											{photo.iso && (
+												<Tooltip.Root delayDuration={0}>
+													<Tooltip.Trigger asChild>
+														<div className="flex gap-1 items-center">
+															<CameraIso />
+															<span className="font-mono text-sm">
+															{photo.iso}
 														</span>
-													</div>
-												</Tooltip.Trigger>
-												<Tooltip.Content
-													className="data-[state=delayed-open]:animate-tooltip-enter-bottom data-[state=instant-open]:animate-tooltip-enter-bottom
-												data-[state=closed]:animate-tooltip-exit-bottom
-												select-none rounded-full border border-neutral-700 bg-neutral-800 px-3 py-2 text-sm leading-none shadow-xl shadow-neutral-950/50"
-													side="top"
-												>
-													{t("Content.Camera.iso")}
-													<Tooltip.Arrow className="fill-neutral-700" />
-												</Tooltip.Content>
-											</Tooltip.Root>
-											<Tooltip.Root delayDuration={0}>
-												<Tooltip.Trigger asChild>
-													<div className="flex gap-1 items-center">
-														<CameraAperture />
-														<span className="font-mono text-sm">
-															<i>f</i>/{photo.attributes.aperture}
+														</div>
+													</Tooltip.Trigger>
+													<Tooltip.Content
+														className="data-[state=delayed-open]:animate-tooltip-enter-bottom data-[state=instant-open]:animate-tooltip-enter-bottom
+													data-[state=closed]:animate-tooltip-exit-bottom
+													select-none rounded-full border border-neutral-700 bg-neutral-800 px-3 py-2 text-sm leading-none shadow-xl shadow-neutral-950/50"
+														side="top"
+													>
+														{t("Content.Camera.iso")}
+														<Tooltip.Arrow className="fill-neutral-700" />
+													</Tooltip.Content>
+												</Tooltip.Root>
+											)}
+											{photo.aperture && (
+												<Tooltip.Root delayDuration={0}>
+													<Tooltip.Trigger asChild>
+														<div className="flex gap-1 items-center">
+															<CameraAperture />
+															<span className="font-mono text-sm">
+																<i>f</i>/{photo.aperture}
+															</span>
+														</div>
+													</Tooltip.Trigger>
+													<Tooltip.Content
+														className="data-[state=delayed-open]:animate-tooltip-enter-bottom data-[state=instant-open]:animate-tooltip-enter-bottom
+															data-[state=closed]:animate-tooltip-exit-bottom
+															select-none rounded-full border border-neutral-700 bg-neutral-800 px-3 py-2 text-sm leading-none shadow-xl shadow-neutral-950/50"
+														side="top"
+													>
+														{t("Content.Camera.aperture")}
+														<Tooltip.Arrow className="fill-neutral-700" />
+													</Tooltip.Content>
+												</Tooltip.Root>
+											)}
+											{photo.shutter && (
+												<Tooltip.Root delayDuration={0}>
+													<Tooltip.Trigger asChild>
+														<div className="flex gap-1 items-center">
+															<CameraShutterSpeed />
+															<span className="font-mono text-sm">
+															{photo.shutter}s
 														</span>
-													</div>
-												</Tooltip.Trigger>
-												<Tooltip.Content
-													className="data-[state=delayed-open]:animate-tooltip-enter-bottom data-[state=instant-open]:animate-tooltip-enter-bottom
-												data-[state=closed]:animate-tooltip-exit-bottom
-												select-none rounded-full border border-neutral-700 bg-neutral-800 px-3 py-2 text-sm leading-none shadow-xl shadow-neutral-950/50"
-													side="top"
-												>
-													{t("Content.Camera.aperture")}
-													<Tooltip.Arrow className="fill-neutral-700" />
-												</Tooltip.Content>
-											</Tooltip.Root>
-											<Tooltip.Root delayDuration={0}>
-												<Tooltip.Trigger asChild>
-													<div className="flex gap-1 items-center">
-														<CameraShutterSpeed />
-														<span className="font-mono text-sm">
-															{photo.attributes.shutter}s
-														</span>
-													</div>
-												</Tooltip.Trigger>
-												<Tooltip.Content
-													className="data-[state=delayed-open]:animate-tooltip-enter-bottom data-[state=instant-open]:animate-tooltip-enter-bottom
-												data-[state=closed]:animate-tooltip-exit-bottom
-												select-none rounded-full border border-neutral-700 bg-neutral-800 px-3 py-2 text-sm leading-none shadow-xl shadow-neutral-950/50"
-													side="top"
-												>
-													{t("Content.Camera.shutterSpeed")}
-													<Tooltip.Arrow className="fill-neutral-700" />
-												</Tooltip.Content>
-											</Tooltip.Root>
-											<Tooltip.Root delayDuration={0}>
-												<Tooltip.Trigger asChild>
-													<div className="flex gap-1 items-center">
-														<CameraFocalLength />
-														<span className="font-mono text-sm">
-															{photo.attributes.focalLength}mm
-														</span>
-													</div>
-												</Tooltip.Trigger>
-												<Tooltip.Content
-													className="data-[state=delayed-open]:animate-tooltip-enter-bottom data-[state=instant-open]:animate-tooltip-enter-bottom
-												data-[state=closed]:animate-tooltip-exit-bottom
-												select-none rounded-full border border-neutral-700 bg-neutral-800 px-3 py-2 text-sm leading-none shadow-xl shadow-neutral-950/50"
-													side="top"
-												>
-													{t.rich("Content.Camera.focalLength", {
-														small: (chunks) => <span className="text-xs">{chunks}</span>,
-													})}
-													<Tooltip.Arrow className="fill-neutral-700" />
-												</Tooltip.Content>
-											</Tooltip.Root>
+														</div>
+													</Tooltip.Trigger>
+													<Tooltip.Content
+														className="data-[state=delayed-open]:animate-tooltip-enter-bottom data-[state=instant-open]:animate-tooltip-enter-bottom
+															data-[state=closed]:animate-tooltip-exit-bottom
+															select-none rounded-full border border-neutral-700 bg-neutral-800 px-3 py-2 text-sm leading-none shadow-xl shadow-neutral-950/50"
+														side="top"
+													>
+														{t("Content.Camera.shutterSpeed")}
+														<Tooltip.Arrow className="fill-neutral-700" />
+													</Tooltip.Content>
+												</Tooltip.Root>
+											)}
+											{photo.focalLength && (
+												<Tooltip.Root delayDuration={0}>
+													<Tooltip.Trigger asChild>
+														<div className="flex gap-1 items-center">
+															<CameraFocalLength />
+															<span className="font-mono text-sm">
+															
+																{photo.focalLength}mm
+														
+															</span>
+														</div>
+													</Tooltip.Trigger>
+													<Tooltip.Content
+														className="data-[state=delayed-open]:animate-tooltip-enter-bottom data-[state=instant-open]:animate-tooltip-enter-bottom
+															data-[state=closed]:animate-tooltip-exit-bottom
+															select-none rounded-full border border-neutral-700 bg-neutral-800 px-3 py-2 text-sm leading-none shadow-xl shadow-neutral-950/50"
+														side="top"
+													>
+														{t.rich("Content.Camera.focalLength", {
+															small: (chunks) => (
+																<span className="text-xs">{chunks}</span>
+															),
+														})}
+														<Tooltip.Arrow className="fill-neutral-700" />
+													</Tooltip.Content>
+												</Tooltip.Root>
+											)}
 										</div>
 									</div>
 								</TransformWrapper>
