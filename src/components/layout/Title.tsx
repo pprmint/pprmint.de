@@ -6,6 +6,7 @@ export default function Title(
 		title: string;
 		description: string | React.ReactNode;
 		accentColor?: string;
+		noDelay?: boolean;
 	}>
 ) {
 	const { accentColor = "text-green" } = props;
@@ -30,7 +31,7 @@ export default function Title(
 								key={index}
 								className="animate-title-fade-in"
 								style={{
-									animationDelay: `${index / 50}s`,
+									animationDelay: `${index / 50 + (props.noDelay ? 0 : 0.25)}s`,
 									animationFillMode: "backwards",
 								}}
 							>
@@ -40,7 +41,7 @@ export default function Title(
 						<span
 							className={`animate-title-fade-in ${accentColor}`}
 							style={{
-								animationDelay: `${Title.length * 0.04}s`,
+								animationDelay: `${Title.length * 0.02 + (props.noDelay ? 0.02 : 0.27)}s`,
 								animationFillMode: "backwards",
 							}}
 						>
@@ -49,7 +50,7 @@ export default function Title(
 					</h1>
 					<div
 						className="animate-title-fade-in text-neutral text-xl md:text-2xl xl:text-3xl"
-						style={{ animationDelay: "0.05s", animationFillMode: "backwards" }}
+						style={{ animationDelay: props.noDelay ? "0.05s" : "0.25s", animationFillMode: "backwards" }}
 					>
 						{props.description}
 					</div>
