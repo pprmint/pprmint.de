@@ -25,7 +25,7 @@ export default function Error() {
 					}}
 				/>
 			</div>
-			<Title title={t("Error.title")} description={t("Error.description")} noDelay />
+			<Title title={t("Error.title")} description={t("Error.description")} />
 		</div>
 	);
 }

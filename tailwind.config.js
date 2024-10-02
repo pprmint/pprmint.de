@@ -252,6 +252,10 @@ module.exports = {
 					from: { scale: "100%", opacity: 1 },
 					to: { scale: "95%", opacity: 0 },
 				},
+				titleFadeIn: {
+					from: { opacity: 0, filter: "blur(10px)" },
+					to: { opacity: 1, filter: "blur(0px)" },
+				},
 				fadeIn: {
 					from: { opacity: 0 },
 					to: { opacity: 1 },
@@ -406,8 +410,8 @@ module.exports = {
 				"scale-up": "scaleUp .2s cubic-bezier(0, 0, 0.2, 1)",
 				"scale-down": "scaleDown .2s cubic-bezier(0, 0, 0.2, 1)",
 				"fade-in": "fadeIn .25s cubic-bezier(0, 0, 0.2, 1)",
-				"title-fade-in": "fadeIn .3s cubic-bezier(0.45, 0, 0.55, 1)",
-				"fade-out": "fadeOut .25s cubic-bezier(0, 0, 0.2, 1)",
+				"title-fade-in": "titleFadeIn .5s cubic-bezier(0.2, 0, 0.2, 1)",
+				"fade-out": "fadeOut .3s cubic-bezier(0, 0, 0.2, 1)",
 				"fade-out-scale-down": "fadeOutScaleDown .2s cubic-bezier(0, 0, 0.2, 1)",
 				"arrow-fade-down": "arrowFadeDown 1.5s cubic-bezier(0.2, 0.2, .2, 1) 2s infinite",
 				"tooltip-enter-top": "tooltipEnterTop .2s cubic-bezier(0.33, 1, 0.68, 1) forwards",

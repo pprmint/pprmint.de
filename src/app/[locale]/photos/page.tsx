@@ -33,7 +33,7 @@ export default async function Page({ searchParams, params: { locale } }: Props) 
 	const currentPage = Number(searchParams?.p) || 1;
 	return (
 		<>
-			<Title title={t("Head.title")} description={t("Head.description")} noDelay />
+			<Title title={t("Head.title")} description={t("Head.description")} />
 			<main>
 				<section className="my-20 md:my-32 xl:my-40">
 					<Suspense fallback={<GallerySkeleton />}>

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image, { ImageProps } from "next/image";
+import Error from "src/icons/Error";
 
 interface FadingImageProps extends ImageProps {
 	className?: string;

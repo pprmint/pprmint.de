@@ -56,7 +56,6 @@ export default async function Page({ params: { id, locale } }: Props) {
 						Work.data.text
 					)
 				}
-				noDelay
 			/>
 			<main className="max-w-7xl mx-auto">
 				{Work.data.gallery.map((media) =>
