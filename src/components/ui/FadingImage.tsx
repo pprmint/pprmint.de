@@ -9,13 +9,13 @@ interface FadingImageProps extends ImageProps {
 export default function FadingImage({ className, ...rest }: FadingImageProps) {
 	const [loaded, setLoaded] = useState(false);
 	return (
-		/* eslint-disable-next-line jsx-a11y/alt-text */
-		<Image
+        /* eslint-disable-next-line jsx-a11y/alt-text */
+        (<Image
 			onLoad={() => setLoaded(true)}
 			className={`${loaded ? "opacity-100" : "opacity-0"} ${className}`}
 			style={{ transition: "opacity 0.5s" }}
 			draggable={false}
 			{...rest}
-		/>
-	);
+		/>)
+    );
 }

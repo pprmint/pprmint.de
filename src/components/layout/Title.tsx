@@ -1,11 +1,11 @@
 "use client";
-import * as React from "react";
 import { useSpring, a } from "@react-spring/web";
+import { PropsWithChildren, ReactNode } from "react";
 
 export default function Title(
-	props: React.PropsWithChildren<{
+	props: PropsWithChildren<{
 		title: string;
-		description: string | React.ReactNode;
+		description: string | ReactNode;
 		accentColor?: string;
 		noDelay?: boolean;
 	}>
