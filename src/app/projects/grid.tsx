@@ -134,15 +134,15 @@ export default function Grid() {
 						<div className="absolute flex gap-3 top-[6%] left-[3.3%] p-2 rounded-full bg-neutral-900">
 							{project.tags.map((tag, _) =>
 								tag == "font" ? (
-									<Text />
+									<Text key={tag} />
 								) : tag == "design" ? (
-									<Cursor />
+									<Cursor key={tag} />
 								) : tag == "website" ? (
-									<Globe />
+									<Globe key={tag} />
 								) : tag == "software" ? (
-									<Computer />
+									<Computer key={tag} />
 								) : (
-									<Palette />
+									<Palette key={tag} />
 								)
 							)}
 						</div>
