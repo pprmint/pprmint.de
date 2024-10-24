@@ -19,7 +19,7 @@ export default function DesktopNavigation() {
 	const NavMenuContent =
 		"absolute top-0 left-0 p-3 duration-250 data-[motion='from-start']:animate-enter-from-l data-[motion='from-end']:animate-enter-from-r data-[motion='to-start']:animate-exit-to-l data-[motion='to-end']:animate-exit-to-r";
 	const NavMenuViewport =
-		"relative top-1 origin-top-left w-[--radix-navigation-menu-viewport-width] overflow-hidden backdrop-blur-xl bg-gradient-to-b from-[#282828bb] to-[#222222aa] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 text-neutral rounded-2xl shadow-[0_6px_22px_#11111166] h-[--radix-navigation-menu-viewport-height] duration-250 ease-out data-[state='open']:animate-enter-from-t data-[state='closed']:animate-exit-to-t";
+		"relative top-1 origin-top-left w-[--radix-navigation-menu-viewport-width] overflow-hidden backdrop-blur-xl bg-gradient-to-b from-neutral-900/90 to-neutral-900/75 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 text-neutral rounded-2xl shadow-[0_6px_22px_#11111166] h-[--radix-navigation-menu-viewport-height] duration-250 ease-out data-[state='open']:animate-enter-from-t data-[state='closed']:animate-exit-to-t";
 	return (
 		<>
 			<NavigationMenu.Root className="relative flex justify-center items-center" delayDuration={0}>

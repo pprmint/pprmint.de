@@ -1,5 +1,5 @@
 import * as React from "react";
-import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { Sparkle } from "lucide-react";
 
@@ -15,22 +15,11 @@ import ArrowRight from "src/icons/ArrowRight";
 import ArrowUpRight from "src/icons/ArrowUpRight";
 import HeartFilled from "src/icons/HeartFilled";
 
-type Props = {
-	params: Promise<{ locale: string }>;
-};
-
-export default async function Page(props: Props) {
-    const params = await props.params;
-
-    const {
-        locale
-    } = params;
-
-    setRequestLocale(locale);
-    const t = await getTranslations("HOME");
-    const Announcements: Announcements = await GetAnnouncements();
-    const MinaArt: MinaArtworks = await GetArt();
-    return (
+export default async function Page() {
+	const t = await getTranslations("HOME");
+	const Announcements: Announcements = await GetAnnouncements();
+	const MinaArt: MinaArtworks = await GetArt();
+	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
 				<FadingImage src={HeroImage} alt="" fill className="object-cover origin-bottom-left" />
@@ -48,9 +37,9 @@ export default async function Page(props: Props) {
 							className="absolute w-full max-w-7xl left-1/2 -translate-x-1/2 top-24 blur-3xl rounded-xl contrast-75 opacity-50"
 						/>
 						<div
-							className="absolute left-0 right-0 h-[1000px] w-screen"
+							className="absolute left-0 right-0 h-[1000px] w-screen text-neutral-50"
 							style={{
-								backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24" height="24" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23111"/></svg>')`,
+								backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z"/></svg>')`,
 								backgroundRepeat: "repeat",
 								backgroundPosition: "center",
 							}}
@@ -142,7 +131,7 @@ export default async function Page(props: Props) {
 							<div
 								className="absolute inset-0"
 								style={{
-									backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24" height="24" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23111"/></svg>')`,
+									backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" className="fill-neutral-950"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23111"/></svg>')`,
 									backgroundRepeat: "repeat",
 									backgroundPosition: "center",
 								}}

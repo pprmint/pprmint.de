@@ -2,13 +2,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useSpring, a, config, easings, useTransition } from "@react-spring/web";
+import { useSpring, a, easings } from "@react-spring/web";
 
 import Button from "src/components/ui/Button";
 
-import Wordmark from "public/assets/wordmark.svg";
 import DetectiveMina from "public/assets/404/mina_chibi.webp";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Home from "src/icons/Home";
 
 export default function NotFound() {
@@ -56,22 +55,6 @@ export default function NotFound() {
 			mass: 3,
 			friction: 100,
 		},
-	});
-
-	// Cycle between front and back full-body drawing.
-	const [showGerman, setShowGerman] = useState(false);
-	useEffect(() => {
-		const interval = setInterval(() => {
-			setShowGerman(!showGerman);
-		}, 10000);
-		return () => clearInterval(interval);
-	}, [showGerman]);
-
-	const cycleTransition = useTransition(!showGerman, {
-		from: { opacity: 0, y: 20 },
-		enter: { opacity: 1, y: 0, config: { duration: 500, easing: easings.easeOutBack } },
-		leave: { opacity: 0, y: -40, config: { duration: 400, easing: easings.easeInBack } },
-		exitBeforeEnter: true,
 	});
 
 	return (
