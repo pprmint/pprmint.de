@@ -1,6 +1,7 @@
 "use client";
 import { useSpring, a } from "@react-spring/web";
-import { PropsWithChildren, ReactNode } from "react";
+import { PropsWithChildren, ReactNode, useEffect } from "react";
+import { useNavbar } from "./navigation/NavBarContext";
 
 export default function Title(
 	props: PropsWithChildren<{
@@ -17,6 +18,12 @@ export default function Title(
 		delay: 250,
 	});
 	const Title = props.title.split("");
+
+	const { setShowNavbarGradient } = useNavbar();
+	useEffect(() => {
+		setShowNavbarGradient(!!props.children);
+		return () => setShowNavbarGradient(false);
+	}, [props.children, setShowNavbarGradient]);
 	return (
 		<div
 			className={`relative w-screen ${
@@ -25,6 +32,7 @@ export default function Title(
 		>
 			{props.children && (
 				<>
+					{/* @ts-expect-error */}
 					<a.div className="absolute w-full h-full" style={{ ...fadeIn }}>
 						<div className="absolute w-full h-full">{props.children}</div>
 					</a.div>

@@ -3,7 +3,7 @@ import { ThemeProvider } from "next-themes";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 
-import NavBar from "src/components/layout/NavBar";
+import NavBar from "src/components/layout/navigation/NavBar";
 import Footer from "src/components/layout/Footer";
 import ScrollToTopButton from "src/components/layout/ScrollToTopButton";
 import WarningTriangle from "src/icons/WarningTriangle";
@@ -20,6 +20,7 @@ import "../fonts/Mintbit/mintbit.css";
 import "../fonts/MintTriangles/minttriangles.css";
 // yikes
 import "../fonts/MintSans/mintsans.css";
+import { NavbarProvider } from "src/components/layout/navigation/NavBarContext";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://pprmint.de"),
@@ -62,8 +63,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 						</div>
 					</noscript>
 					<NextIntlClientProvider messages={messages}>
-						<NavBar />
-						{children}
+						<NavbarProvider>
+							<NavBar />
+							{children}
+						</NavbarProvider>
 						<Footer />
 						<PotatoRedirect />
 						<ScrollToTopButton />

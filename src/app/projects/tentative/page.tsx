@@ -1,7 +1,7 @@
 import { use } from "react";
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Link } from "src/navigation";
+import Link from "next/link";
 import Title from "src/components/layout/Title";
 import FadingImage from "src/components/ui/FadingImage";
 import Carousel from "src/components/ui/Carousel";

@@ -2,7 +2,7 @@ import { use } from "react";
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Title from "src/components/layout/Title";
-import { Link } from "src/navigation";
+import Link from "next/link";
 
 type Props = {
 	params: Promise<{ locale: string }>;

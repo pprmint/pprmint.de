@@ -1,7 +1,7 @@
 "use client";
 import { ReactNode } from "react";
 import ArrowLeft from "src/icons/ArrowLeft";
-import { Link } from "src/navigation";
+import Link from "next/link";
 
 export default function Layout({ children }: { children: ReactNode }) {
 	return (

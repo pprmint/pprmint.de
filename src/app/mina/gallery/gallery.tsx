@@ -9,7 +9,7 @@ import Globe from "src/icons/Globe";
 import Instagram from "src/icons/Instagram";
 import Twitter from "src/icons/Twitter";
 import YouTube from "src/icons/YouTube";
-import { Link } from "src/navigation";
+import Link from "next/link";
 import { MinaArtworks } from "src/types/mina-artwork";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 

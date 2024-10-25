@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { PropsWithChildren } from "react";
-import { Link } from "src/navigation";
+import Link from "next/link";
 
 export default function ArtCreditButton(props: PropsWithChildren<{ link: string }>) {
 	const t = useTranslations("COMMON");

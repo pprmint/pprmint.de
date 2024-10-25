@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Link } from "src/navigation";
+import Link from "next/link";
 import { useTransition, a } from "@react-spring/web";
 import { useTranslations } from "next-intl";
 
@@ -23,10 +23,7 @@ export default function ThreeThingies() {
 		},
 	});
 	return (
-		<section
-			className="relative grid grid-rows-3 min-h-screen w-screen overflow-clip"
-			onMouseLeave={() => setFocused("")}
-		>
+		<section className="relative grid grid-rows-3 min-h-screen w-screen overflow-clip" onMouseLeave={() => setFocused("")}>
 			<Link
 				onFocus={() => setFocused("graphics")}
 				onMouseEnter={() => setFocused("graphics")}
@@ -83,31 +80,19 @@ export default function ThreeThingies() {
 				{imageTransition((style, item) =>
 					item ? (
 						item == "graphics" ? (
+							// @ts-expect-error
 							<a.div style={style}>
-								<FadingImage
-									src="https://cms.pprmint.de/uploads/Inverted_Exit_Hole_3758e3ddbd.png"
-									fill
-									className="object-cover"
-									alt=""
-								/>
+								<FadingImage src="https://cms.pprmint.de/uploads/Inverted_Exit_Hole_3758e3ddbd.png" fill className="object-cover" alt="" />
 							</a.div>
 						) : item == "photos" ? (
+							// @ts-expect-error
 							<a.div style={style}>
-								<FadingImage
-									src="https://cms.pprmint.de/uploads/DSC_00277_abd6347464.webp"
-									fill
-									className="object-cover"
-									alt=""
-								/>
+								<FadingImage src="https://cms.pprmint.de/uploads/DSC_00277_abd6347464.webp" fill className="object-cover" alt="" />
 							</a.div>
 						) : item == "projects" ? (
+							// @ts-expect-error
 							<a.div style={style}>
-								<FadingImage
-									src="https://cms.pprmint.de/uploads/DSC_00439_42db6e3811.webp"
-									fill
-									className="object-cover"
-									alt=""
-								/>
+								<FadingImage src="https://cms.pprmint.de/uploads/DSC_00439_42db6e3811.webp" fill className="object-cover" alt="" />
 							</a.div>
 						) : null
 					) : null

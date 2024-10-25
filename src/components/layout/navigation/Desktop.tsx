@@ -1,13 +1,14 @@
 "use client";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { Link, usePathname } from "src/navigation";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { Pages, Projects } from "./Links";
 import Copyright from "./Socials";
 import ChevronDown from "src/icons/ChevronDown";
+import { usePathname } from "next/navigation";
 
 const Caret = (
-	<ChevronDown className="group-data-[state='open']/root:translate-y-0.5 duration-250 ease-out ml-auto" aria-hidden />
+	<ChevronDown className="group-data-[state='open']/root:translate-y-0.5 duration-100 ease-out ml-auto" aria-hidden />
 );
 
 export default function DesktopNavigation() {
@@ -15,18 +16,18 @@ export default function DesktopNavigation() {
 	const pathname = usePathname();
 	// Styles
 	const NavMenuTrigger =
-		"group/root flex items-center gap-3 h-16 px-4 text-neutral-50/80 hover:text-neutral-50 data-[state='open']:text-neutral-50 duration-250 rounded-lg";
+		"group/root flex items-center gap-3 h-16 px-4 opacity-80 data-[state='open']:opacity-100 duration-100 rounded-lg";
 	const NavMenuContent =
 		"absolute top-0 left-0 p-3 duration-250 data-[motion='from-start']:animate-enter-from-l data-[motion='from-end']:animate-enter-from-r data-[motion='to-start']:animate-exit-to-l data-[motion='to-end']:animate-exit-to-r";
 	const NavMenuViewport =
-		"relative top-1 origin-top-left w-[--radix-navigation-menu-viewport-width] overflow-hidden backdrop-blur-xl bg-gradient-to-b from-neutral-900/90 to-neutral-900/75 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 text-neutral rounded-2xl shadow-[0_6px_22px_#11111166] h-[--radix-navigation-menu-viewport-height] duration-250 ease-out data-[state='open']:animate-enter-from-t data-[state='closed']:animate-exit-to-t";
+		"relative top-1 origin-top-left w-[--radix-navigation-menu-viewport-width] overflow-hidden backdrop-blur-xl bg-gradient-to-t dark:bg-gradient-to-b from-neutral-900/90 to-neutral-900/75 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 text-neutral rounded-2xl shadow-xl h-[--radix-navigation-menu-viewport-height] duration-250 ease-out data-[state='open']:animate-enter-from-t data-[state='closed']:animate-exit-to-t";
 	return (
 		<>
 			<NavigationMenu.Root className="relative flex justify-center items-center" delayDuration={0}>
 				<NavigationMenu.List className="flex">
 					<NavigationMenu.Item>
 						<NavigationMenu.Trigger className={NavMenuTrigger}>
-							<span className="inline-flex items-center gap-3 drop-shadow-[0px_2px_12px_#111a]">
+							<span className="inline-flex items-center gap-3">
 								{t("Path.General.title")}
 								{Caret}
 							</span>
@@ -37,9 +38,9 @@ export default function DesktopNavigation() {
 									<li key={Page.link}>
 										<NavigationMenu.Link
 											asChild
-											className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75 ${
+											className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
 												pathname === Page.link &&
-												"bg-gradient-to-b from-neutral-950/30 to-neutral-950/15 shadow-inner pointer-events-none"
+												"bg-neutral-50/10 pointer-events-none"
 											}`}
 										>
 											<Link href={Page.link}>
@@ -58,7 +59,7 @@ export default function DesktopNavigation() {
 					</NavigationMenu.Item>
 					<NavigationMenu.Item>
 						<NavigationMenu.Trigger className={NavMenuTrigger}>
-							<span className="inline-flex items-center gap-3 drop-shadow-[0px_2px_12px_#111a]">
+							<span className="inline-flex items-center gap-3">
 								{t("Path.Work.title")}
 								{Caret}
 							</span>
@@ -68,9 +69,9 @@ export default function DesktopNavigation() {
 								<li>
 									<NavigationMenu.Link
 										asChild
-										className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75 ${
+										className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
 											pathname === "/graphics" &&
-											"bg-gradient-to-b from-neutral-950/30 to-neutral-950/15 shadow-inner pointer-events-none"
+											"bg-neutral-50/10 pointer-events-none"
 										}`}
 									>
 										<Link href="/graphics">
@@ -84,9 +85,9 @@ export default function DesktopNavigation() {
 								<li>
 									<NavigationMenu.Link
 										asChild
-										className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75 ${
+										className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
 											pathname === "/photos" &&
-											"bg-gradient-to-b from-neutral-950/30 to-neutral-950/15 shadow-inner pointer-events-none"
+											"bg-neutral-50/10 pointer-events-none"
 										}`}
 									>
 										<Link href="/photos">
@@ -102,9 +103,9 @@ export default function DesktopNavigation() {
 									<li key={Project.link}>
 										<NavigationMenu.Link
 											asChild
-											className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75 ${
+											className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
 												pathname === Project.link &&
-												"bg-gradient-to-b from-neutral-950/30 to-neutral-950/15 shadow-inner pointer-events-none"
+												"bg-neutral-50/10 pointer-events-none"
 											}`}
 										>
 											<Link href={Project.link}>
@@ -121,9 +122,9 @@ export default function DesktopNavigation() {
 								<li className="col-span-2">
 									<NavigationMenu.Link
 										asChild
-										className={`group block px-3 py-2.5 text-center rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75 ${
+										className={`group block px-3 py-2.5 text-center rounded-lg hover:bg-neutral-50/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
 											pathname === "/projects" &&
-											"bg-gradient-to-b from-neutral-950/30 to-neutral-950/15 shadow-inner pointer-events-none"
+											"bg-neutral-50/10 pointer-events-none"
 										}`}
 									>
 										<Link href="/projects">
@@ -138,7 +139,7 @@ export default function DesktopNavigation() {
 					</NavigationMenu.Item>
 					<NavigationMenu.Item>
 						<NavigationMenu.Trigger className={NavMenuTrigger}>
-							<span className="inline-flex items-center gap-3 drop-shadow-[0px_2px_12px_#111a]">
+							<span className="inline-flex items-center gap-3">
 								{t("Path.Other.title")}
 								{Caret}
 							</span>
@@ -148,9 +149,9 @@ export default function DesktopNavigation() {
 								<li>
 									<NavigationMenu.Link
 										asChild
-										className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75 ${
+										className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
 											pathname === "/privacy" &&
-											"bg-gradient-to-b from-neutral-950/30 to-neutral-950/15 shadow-inner pointer-events-none"
+											"bg-neutral-50/10 pointer-events-none"
 										}`}
 									>
 										<Link href="/privacy">
@@ -173,9 +174,9 @@ export default function DesktopNavigation() {
 								<li>
 									<NavigationMenu.Link
 										asChild
-										className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75 ${
+										className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
 											pathname === "/ai" &&
-											"bg-gradient-to-b from-neutral-950/30 to-neutral-950/15 shadow-inner pointer-events-none"
+											"bg-neutral-50/10 pointer-events-none"
 										}`}
 									>
 										<Link href="/ai">
@@ -189,7 +190,7 @@ export default function DesktopNavigation() {
 								<li>
 									<NavigationMenu.Link
 										asChild
-										className="group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75"
+										className="group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75"
 									>
 										<Link href={`https://potato.pprmint.de${pathname}`}>
 											<span className="text-neutral-50 font-display text-xl pb-0.5">

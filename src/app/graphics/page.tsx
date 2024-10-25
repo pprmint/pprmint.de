@@ -6,7 +6,7 @@ import Title from "src/components/layout/Title";
 import GallerySkeleton from "./gallery/gallerySkeleton";
 import GallerySuspense from "./gallery/gallerySuspense";
 
-import { Link } from "src/navigation";
+import Link from "next/link";
 import WarningOctagon from "src/icons/WarningOctagon";
 
 export async function generateMetadata(props: Props) {

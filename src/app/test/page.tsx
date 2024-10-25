@@ -53,6 +53,7 @@ export default function Page() {
 					<Button color="blue">Button</Button>
 					<Button color="violet">Button</Button>
 					<Button color="pink">Button</Button>
+					<Button disabled color="pink">Button</Button>
 				</div>
 				<div className="flex gap-3 flex-wrap">
 					<Button outlined>Button</Button>
@@ -81,6 +82,9 @@ export default function Page() {
 						Button
 					</Button>
 					<Button outlined color="pink">
+						Button
+					</Button>
+					<Button disabled outlined color="pink">
 						Button
 					</Button>
 				</div>
@@ -113,6 +117,9 @@ export default function Page() {
 					<Button large color="pink">
 						Button
 					</Button>
+					<Button disabled large color="pink">
+						Button
+					</Button>
 				</div>
 				<div className="flex gap-3 flex-wrap">
 					<Button large outlined>
@@ -143,6 +150,9 @@ export default function Page() {
 						Button
 					</Button>
 					<Button large outlined color="pink">
+						Button
+					</Button>
+					<Button disabled large outlined color="pink">
 						Button
 					</Button>
 				</div>

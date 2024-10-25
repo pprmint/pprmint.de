@@ -14,10 +14,11 @@ export default function CountUp() {
 
 	return (
 		<div className="absolute inset-0">
-			<p className="font-minttriangles absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] z-10 text-neutral-800">
+			<p className="font-minttriangles absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] z-10 text-white/10">
 				*****
 			</p>
-			<a.p className="font-minttriangles absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] z-10 text-neutral-50 drop-shadow-[0px_0px_30px_#111]">
+			{/* @ts-expect-error */}
+			<a.p className="font-minttriangles absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] z-10 text-white drop-shadow-[0px_0px_30px_#111]">
 				{countUp.val.to((val) => Math.floor(val))}
 			</a.p>
 		</div>

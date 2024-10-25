@@ -2,7 +2,7 @@
 import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { usePathname, useRouter } from "src/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { easings, useTransition, a } from "@react-spring/web";
 import NsfwDialog from "./nsfwDialog";
 import Checkbox from "src/components/ui/Checkbox";

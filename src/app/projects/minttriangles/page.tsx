@@ -6,7 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import Title from "src/components/layout/Title";
 import FadingImage from "src/components/ui/FadingImage";
 
-import { Link } from "src/navigation";
+import Link from "next/link";
 import Button from "src/components/ui/Button";
 
 import TitleBg from "public/assets/triangles/triangles.svg";
@@ -49,7 +49,7 @@ export default function Page(props: Props) {
     return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} accentColor="text-pink">
-				<div className="relative w-screen h-screen max-h-svh">
+				<div className="relative w-screen h-screen max-h-svh bg-neutral-50 dark:bg-neutral-950">
 					<FadingImage src={TitleBg} alt="" fill className="object-cover object-center opacity-50 z-0" />
 					<CountUp />
 				</div>
@@ -72,7 +72,7 @@ export default function Page(props: Props) {
 					<div className="relative mb-12">
 						<FadingImage src={Monitor} alt="" />
 						<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-							<span className="font-minttriangles text-neutral-50/10" aria-hidden>
+							<span className="font-minttriangles text-white/10" aria-hidden>
 								**:**:**
 							</span>
 							<Time />

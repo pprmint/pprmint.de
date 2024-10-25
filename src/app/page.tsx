@@ -37,9 +37,9 @@ export default async function Page() {
 							className="absolute w-full max-w-7xl left-1/2 -translate-x-1/2 top-24 blur-3xl rounded-xl contrast-75 opacity-50"
 						/>
 						<div
-							className="absolute left-0 right-0 h-[1000px] w-screen text-neutral-50"
+							className="absolute left-0 right-0 h-[1000px] w-screen dark:invert-[0.95]"
 							style={{
-								backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z"/></svg>')`,
+								backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23fafafa"/></svg>')`,
 								backgroundRepeat: "repeat",
 								backgroundPosition: "center",
 							}}
@@ -52,7 +52,7 @@ export default async function Page() {
 						quality={90}
 						width={Announcements.data[0].media.width}
 						height={Announcements.data[0].media.height}
-						className="w-full max-w-7xl mx-auto xl:rounded-xl shadow-[0px_0px_5px_10px_#111] xl:border border-neutral-900"
+						className="w-full max-w-7xl mx-auto xl:rounded-xl shadow-[0px_0px_5px_10px_#fafafa] dark:shadow-[0px_0px_5px_10px_#111] xl:border border-neutral-900"
 					/>
 					<div className="flex max-w-7xl px-6 md:px-9 2xl:px-0 mx-auto my-12 flex-col md:flex-row items-end md:items-center gap-6 md:gap-9">
 						<div className="w-full">
@@ -64,14 +64,20 @@ export default async function Page() {
 								<Link href={Announcements.data[0].link} className="w-fit">
 									<Button color={Announcements.data[0].buttonColor} large>
 										{Announcements.data[0].linkText}
-										<ArrowRight width={20} height={20} />
+										<div className="relative size-5 overflow-clip">
+										<ArrowRight width={20} height={20} className="absolute group-hover:translate-x-full group-hover:duration-300 ease-out-quint" />
+										<ArrowRight width={20} height={20} className="absolute -translate-x-full group-hover:translate-x-0 group-hover:duration-300 ease-out-quint" />
+										</div>
 									</Button>
 								</Link>
 							) : (
 								<Link href={Announcements.data[0].link} target="_blank" rel="noopener noreferrer" className="w-fit">
 									<Button color={Announcements.data[0].buttonColor} large>
 										{Announcements.data[0].linkText}
-										<ArrowUpRight width={20} height={20} />
+										<div className="relative size-5 overflow-clip">
+										<ArrowUpRight width={20} height={20} className="absolute group-hover:translate-x-full group-hover:-translate-y-full group-hover:duration-300 ease-out-quint" />
+										<ArrowUpRight width={20} height={20} className="absolute -translate-x-full translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 group-hover:duration-300 ease-out-quint" />
+										</div>
 									</Button>
 								</Link>
 							)
@@ -129,17 +135,17 @@ export default async function Page() {
 								className="object-cover blur-xl"
 							/>
 							<div
-								className="absolute inset-0"
+								className="absolute inset-0 dark:invert-[0.95]"
 								style={{
-									backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" className="fill-neutral-950"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23111"/></svg>')`,
+									backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23fafafa"/></svg>')`,
 									backgroundRepeat: "repeat",
 									backgroundPosition: "center",
 								}}
 							/>
 							<div
-								className="absolute inset-0"
+								className="absolute inset-0 dark:invert-[0.95]"
 								style={{
-									background: `radial-gradient(at right center, #111a 0%, #111 75%)`,
+									background: `radial-gradient(at right center, #fafafaaa 0%, #fafafa 75%)`,
 								}}
 							/>
 						</div>
@@ -192,11 +198,11 @@ export default async function Page() {
 										maskSize: "100%",
 									}}
 								>
-									<div className="absolute -left-[225%] lg:-left-full group-hover:left-[150%] top-0 bottom-0 skew-x-[30deg] w-64 group-hover:w-0 bg-neutral-50/25 duration-0 group-hover:duration-1000 ease-out-quint" />
+									<div className="absolute -left-[225%] lg:-left-full group-hover:left-[150%] top-0 bottom-0 skew-x-[30deg] w-64 group-hover:w-0 bg-white/25 duration-0 group-hover:duration-1000 ease-out-quint" />
 								</div>
 								<Sparkle
 									className="absolute -top-3.5 -right-3.5 group-hover:animate-lucide-sparkle opacity-0"
-									fill="#eee"
+									fill="#fff"
 									stroke="none"
 									size={36}
 								/>

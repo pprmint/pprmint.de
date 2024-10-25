@@ -2,7 +2,7 @@ import { use } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Link } from "src/navigation";
+import Link from "next/link";
 import Title from "src/components/layout/Title";
 import Button from "src/components/ui/Button";
 import FadingImage from "src/components/ui/FadingImage";

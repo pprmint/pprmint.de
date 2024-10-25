@@ -16,7 +16,7 @@ import Search from "src/icons/Search";
 import Button from "src/components/ui/Button";
 import Text from "src/icons/Text";
 import Zip from "src/icons/Zip";
-import { Link } from "src/navigation";
+import Link from "next/link";
 
 export default function Cards() {
 	const t = useTranslations("");

@@ -1,11 +1,11 @@
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import GitHub from "src/icons/GitHub";
 import Heart from "src/icons/Heart";
 import HotCup from "src/icons/HotCup";
 import Kofi from "src/icons/Kofi";
 import Twitter from "src/icons/Twitter";
 import YouTube from "src/icons/YouTube";
-import { Link } from "src/navigation";
 
 export default function Copyright(props: { className?: string }) {
 	const t = useTranslations("NAVIGATION");

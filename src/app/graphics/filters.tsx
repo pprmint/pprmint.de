@@ -1,7 +1,7 @@
 "use client";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { usePathname, useRouter } from "src/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import * as Collapsible from "@radix-ui/react-collapsible";
 import { useTranslations } from "next-intl";
 import Filter from "src/icons/Filter";

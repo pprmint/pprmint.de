@@ -21,7 +21,7 @@ function Time() {
 	}, []);
 
 	return (
-		<span className="font-minttriangles absolute top-[6%] left-0 text-neutral-50">
+		<span className="font-minttriangles absolute top-[6%] left-0 text-white">
 			{time[0]}
 			<span className="text-green">:</span>
 			{time[1]}

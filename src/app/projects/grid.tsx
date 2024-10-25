@@ -8,7 +8,7 @@ import Computer from "src/icons/Computer";
 import Cursor from "src/icons/Cursor";
 import ArrowRight from "src/icons/ArrowRight";
 import Globe from "src/icons/Globe";
-import { Link } from "src/navigation";
+import Link from "next/link";
 
 import AutselliaImage from "./autsellia/twitter-image.png";
 import AppiconsImage from "./appicons/twitter-image.png";

@@ -2,7 +2,7 @@
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import FadingImage from "src/components/ui/FadingImage";
-import { Link } from "src/navigation";
+import Link from "next/link";
 import { Works } from "src/types/work";
 
 export default function GalleryGrid(works: { works: Works }) {

@@ -1,5 +1,5 @@
 import { use } from "react";
-import { Link } from "src/navigation";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 import Title from "src/components/layout/Title";

@@ -1,6 +1,6 @@
 "use client";
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { Link } from "src/navigation";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Toast from "@radix-ui/react-toast";

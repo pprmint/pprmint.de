@@ -49,10 +49,11 @@ export default function ScrollToTopButton() {
 
 	return ButtonTransition((styles, item) =>
 		item ? (
+			// @ts-expect-error
 			<a.button
-				onClick={handleScroll}
 				style={styles}
-				className="group fixed bottom-6 right-6 z-50 size-12 flex items-center justify-center text-neutral-50 bg-neutral-950/75 hover:bg-neutral-900/75 active:bg-neutral-800/75 border border-neutral-50/10 rounded-full backdrop-blur-xl shadow-xl shadow-neutral-950/50 duration-100"
+				onClick={handleScroll}
+				className="group fixed bottom-6 right-6 z-50 size-12 flex items-center justify-center text-neutral-50 bg-neutral-950/75 hover:bg-neutral-900/75 active:bg-neutral-800/75 border border-neutral-50/10 rounded-full backdrop-blur-xl shadow-xl duration-100"
 			>
 				<ChevronUp width={20} height={20} />
 			</a.button>

@@ -59,7 +59,9 @@ export default function NotFound() {
 
 	return (
 		<main className="relative w-screen h-screen overflow-clip">
+			{/* @ts-expect-error */}
 			<a.div className="absolute inset-0" style={{ ...fadeIn }}>
+				{/* @ts-expect-error */}
 				<a.div
 					className={`absolute top-1/2 -translate-y-1/2 ${
 						countFinished ? "text-neutral-800" : "text-green-800"
@@ -69,6 +71,7 @@ export default function NotFound() {
 					{countUp.val.to((val) => Math.floor(val))}
 				</a.div>
 				<div className="absolute flex items-center justify-center top-0 left-0 w-screen h-screen">
+					{/* @ts-expect-error */}
 					<a.div style={{ ...ripple }} className="bg-green-800 aspect-square h-screen md:h-auto md:w-screen rounded-full" />
 				</div>
 				<div
@@ -79,6 +82,7 @@ export default function NotFound() {
 					}}
 				/>
 			</a.div>
+			{/* @ts-expect-error */}
 			<a.div
 				className="z-10 flex flex-col md:flex-row-reverse justify-center items-center gap-3 md:gap-6 h-full px-6 md:px-9"
 				style={{ ...inFromBottom }}
@@ -108,7 +112,6 @@ export default function NotFound() {
 								</Link>
 							),
 						})}
-						
 					</p>
 				</div>
 			</a.div>

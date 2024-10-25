@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useMediaQuery } from "react-responsive";
 import ChevronLeft from "src/icons/ChevronLeft";
 import ChevronRight from "src/icons/ChevronRight";
-import { usePathname, useRouter } from "src/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 function Pagination({ page, pageCount, onPageChange }: { page: number; pageCount: number; onPageChange?: () => void }) {
 	const searchParams = useSearchParams();

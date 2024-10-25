@@ -4,8 +4,8 @@ import * as Toast from "@radix-ui/react-toast";
 import { useEffect, useState } from "react";
 import X from "src/icons/X";
 import Link from "next/link";
-import { usePathname, useRouter } from "src/navigation";
 import { useTranslations } from "next-intl";
+import { usePathname, useRouter } from "next/navigation";
 
 function PotatoRedirect() {
 	const t = useTranslations("REDIRECT");

@@ -14,7 +14,7 @@ export default function Settings() {
 	return (
 		<Dialog.Root>
 			<Dialog.Trigger asChild>
-				<button className="inline-flex z-70 items-center justify-center p-2 hover:bg-neutral-50/10 hover:text-neutral-50 duration-100 rounded-full">
+				<button className="inline-flex items-center justify-center p-2 hover:bg-neutral-50/10 duration-100 rounded-full">
 					<CogWheel />
 				</button>
 			</Dialog.Trigger>
@@ -32,7 +32,7 @@ export default function Settings() {
 							className="relative inline-flex w-20 h-7 hover:bg-neutral-50/10 active:opacity-75 rounded-full border border-neutral-50/10 backdrop-blur-sm duration-100 active:duration-75"
 						>
 							<div
-								className={`absolute w-[36px] h-[22px] top-0.5 text-center uppercase bg-gradient-to-b from-neutral-50 to-neutral-100 text-neutral-950 shadow-sm rounded-full ${
+								className={`absolute w-[36px] h-[22px] top-0.5 text-center uppercase bg-gradient-to-t dark:bg-gradient-to-b from-neutral-50 to-neutral-100 text-neutral-950 shadow-sm rounded-full ${
 									currentLocale === "en" ? "left-0.5" : "left-[40px]"
 								} duration-200 ease-out-cubic`}
 							/>

@@ -12,7 +12,7 @@ import StickerStare from "public/assets/mina/sticker_stare.webp";
 import StickerWhat from "public/assets/mina/sticker_what.webp";
 import StickerCool from "public/assets/mina/sticker_cool.png";
 
-import { Link } from "src/navigation";
+import Link from "next/link";
 import Button from "src/components/ui/Button";
 import GallerySuspense from "./gallery/gallerySuspense";
 import { useTranslations } from "next-intl";
