@@ -540,12 +540,14 @@ export default function Selector() {
 			</section>
 			{selectedPanelTransition((styles, item) =>
 				item ? (
+					// @ts-expect-error
 					<a.div
-						style={styles}
-						className="fixed z-60 flex items-center justify-between left-1/2 bottom-0 xl:bottom-6 w-full xl:max-w-6xl pl-5 pr-3 py-3 backdrop-blur-xl bg-gradient-to-b from-neutral-800/75 to-neutral-900/90 border-neutral-50/10 border-t xl:border border-neutral-950 xl:ring-1 ring-inset ring-neutral-50/10 xl:rounded-2xl shadow-xl shadow-neutral-950/50"
+					style={styles}
+					className="fixed z-60 flex items-center justify-between left-1/2 bottom-0 xl:bottom-6 w-full xl:max-w-6xl pl-5 pr-3 py-3 backdrop-blur-xl bg-gradient-to-b from-neutral-800/75 to-neutral-900/90 border-neutral-50/10 border-t xl:border border-neutral-950 xl:ring-1 ring-inset ring-neutral-50/10 xl:rounded-2xl shadow-xl shadow-neutral-950/50"
 					>
 						<div className="flex items-center">
 							{selectedCountTransition((styles, count) => (
+								// @ts-expect-error
 								<a.div
 									style={styles}
 									className="h-9 text-neutral-50 font-bold font-mono text-3xl text-center"

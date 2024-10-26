@@ -8,7 +8,7 @@ import Button from "src/components/ui/Button";
 
 import HehMina from "public/assets/mina/heh-upscaled.png";
 import FadingImage from "src/components/ui/FadingImage";
-import X from "src/icons/X";
+import Error from "src/icons/Error";
 
 export default function NsfwDialog({ onAccept }: { onAccept: () => void }) {
 	const t = useTranslations("MINA");
@@ -36,7 +36,7 @@ export default function NsfwDialog({ onAccept }: { onAccept: () => void }) {
 		<Dialog.Portal>
 			<Dialog.Overlay className="bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-100" />
 			<Dialog.Content
-				className={`fixed inset-0 lg:inset-auto overflow-auto z-100 flex flex-col lg:flex-row gap-12 items-center lg:top-1/2 lg:left-1/2 w-screen max-w-5xl lg:-translate-x-1/2 lg:-translate-y-1/2 p-6 md:p-9 bg-neutral-950 lg:border border-neutral-900 ring-1 ring-neutral-950 lg:shadow-xl shadow-neutral-950/50 lg:rounded-xl data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down focus:outline-none origin-center lg:origin-top-left`}
+				className="fixed flex flex-col lg:flex-row items-center gap-9 z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen max-w-5xl rounded-xl bg-neutral-950 p-6 md:p-9 outline outline-1 outline-neutral-900 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl"
 			>
 				<FadingImage
 					src={HehMina}
@@ -61,6 +61,7 @@ export default function NsfwDialog({ onAccept }: { onAccept: () => void }) {
 						<Button color="green" onClick={onAccept} disabled={timer < 10}>
 							<svg height={15} width={15} className="-rotate-90">
 								<a.circle
+									// @ts-expect-error
 									cx={7.5}
 									cy={7.5}
 									r={6.75}
@@ -81,10 +82,10 @@ export default function NsfwDialog({ onAccept }: { onAccept: () => void }) {
 				</div>
 				<Dialog.Close asChild>
 					<button
-						className="absolute inline-flex items-center justify-center top-3 md:top-5 right-3 md:right-5 size-10 rounded-full text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800 duration-100"
+						className="absolute top-3 right-3 inline-flex p-2 items-center justify-center hover:bg-neutral-900 hover:text-neutral-50 duration-100 active:opacity-75 active:duration-75 rounded-full"
 						aria-label="Close"
 					>
-						<X className="size-6" />
+						<Error />
 					</button>
 				</Dialog.Close>
 			</Dialog.Content>

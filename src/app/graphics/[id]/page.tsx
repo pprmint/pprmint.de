@@ -47,9 +47,9 @@ export default async function Page(props: Props) {
 				/>
 				<div className="bg-gradient-to-t from-neutral-950 to-neutral-950/75 absolute inset-0" />
 				<div
-					className="absolute inset-0"
+					className="absolute inset-0 dark:invert-[0.95]"
 					style={{
-						backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24" height="24"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23111"/></svg>')`,
+						backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24" height="24"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23fafafa"/></svg>')`,
 						backgroundRepeat: "repeat",
 						backgroundPosition: "top",
 					}}

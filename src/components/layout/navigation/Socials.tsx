@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import Bluesky from "src/icons/Bluesky";
 import GitHub from "src/icons/GitHub";
 import Heart from "src/icons/Heart";
 import HotCup from "src/icons/HotCup";
@@ -26,6 +27,14 @@ export default function Copyright(props: { className?: string }) {
 				</p>
 			</div>
 			<div className="flex text-neutral-50 md:text-xl ml-auto">
+				<Link
+					href="https://bsky.app/profile/pprmint.de"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="size-9 flex items-center justify-center rounded-full hover:bg-neutral-50/10 duration-100 active:duration-75 active:opacity-75 active:scale-95"
+				>
+					<Bluesky />
+				</Link>
 				<Link
 					href="https://twitter.com/npprmint"
 					target="_blank"

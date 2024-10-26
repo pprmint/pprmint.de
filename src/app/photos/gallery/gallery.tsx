@@ -104,7 +104,7 @@ export default function Gallery(photos: { photos: Photos }) {
 													height={photo.camera.logo.height}
 													alt={photo.camera.name}
 													unoptimized
-													className="invert h-4 md:h-6 w-auto"
+													className="dark:invert h-4 md:h-6 w-auto"
 												/>
 											) : (
 												<p className="font-medium text-lg">{photo.camera.name}</p>

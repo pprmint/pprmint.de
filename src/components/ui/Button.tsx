@@ -57,7 +57,7 @@ export default function Button({
 		: color === "pink"
 		? outlined
 			? "text-pink-600 dark:text-pink active:text-pink-700 ring-1 active:ring-[3px] ring-inset ring-pink-200 dark:ring-pink-800 hover:ring-pink dark:hover:ring-pink active:ring-pink/0 dark:active:ring-pink/0 bg-gradient-to-b from-pink/5 to-pink/10 hover:bg-pink/10 active:bg-pink/30"
-			: "text-white bg-gradient-to-b from-pink to-pink-600 border-b border-b-pink-700 border-t border-t-pink-400 active:border-t-pink-700 hover:brightness-110 active:brightness-90 active:shadow-inner"
+			: "text-pink-950 bg-gradient-to-b from-pink to-pink-600 border-b border-b-pink-700 border-t border-t-pink-400 active:border-t-pink-700 hover:brightness-110 active:brightness-90 active:shadow-inner"
 		: outlined
 		? "text-neutral-50 active:text-neutral-400 ring-1 active:ring-[3px] ring-inset ring-neutral-700 hover:ring-neutral-50 active:ring-transparent bg-gradient-to-b from-neutral-400/5 to-neutral-400/10 hover:bg-neutral/10 active:bg-neutral/30"
 		: "text-white dark:text-neutral-950 bg-gradient-to-t dark:bg-gradient-to-b from-neutral-50 to-neutral-200 border-b border-b-neutral-50 dark:border-b-neutral-400 border-t border-t-neutral-400 dark:border-t-neutral-50 active:border-t-neutral-50 dark:active:border-t-neutral-500 hover:brightness-110 active:brightness-90 active:shadow-inner";

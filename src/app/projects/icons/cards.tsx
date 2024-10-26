@@ -300,6 +300,7 @@ export default function Cards() {
 				</div>
 				{JiggyTransition((style, item) =>
 					item ? (
+						// @ts-expect-error
 						<a.div
 							style={style}
 							className="fixed flex items-center justify-center gap-6 z-100 bottom-0 inset-x-0 py-6"

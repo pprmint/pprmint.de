@@ -312,6 +312,7 @@ function VideoPlayer(props: {
 			{playButtonTransition(
 				(style, item) =>
 					item && (
+						// @ts-expect-error
 						<a.div
 							onClick={handlePlay}
 							style={style}
@@ -342,6 +343,7 @@ function VideoPlayer(props: {
 				{downloadingTransition(
 					(style, item) =>
 						item && (
+							// @ts-expect-error
 							<a.div
 								style={style}
 								className="absolute top-0 left-0 right-0 z-30 bg-gradient-to-b from-neutral-950/90"
@@ -366,6 +368,7 @@ function VideoPlayer(props: {
 					topTransition(
 						(style, item) =>
 							item && (
+								// @ts-expect-error
 								<a.div
 									style={style}
 									className="absolute top-0 left-0 right-0 p-6 z-20 h-20 bg-gradient-to-b from-neutral-950/90 duration-500 ease-out-expo"
@@ -377,6 +380,7 @@ function VideoPlayer(props: {
 				{bottomTransition(
 					(style, item) =>
 						item && (
+							// @ts-expect-error
 							<a.div
 								style={style}
 								className="absolute flex flex-col justify-end bottom-0 left-0 right-0 p-3 h-28 z-20 bg-gradient-to-t from-neutral-950/90 duration-500 ease-out-expo"

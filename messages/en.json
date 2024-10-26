@@ -824,6 +824,21 @@
 			"never": "Don't redirect"
 		}
 	},
+		"SETTINGS": {
+		"title": "Settings",
+		"description": "Change the language and color theme used throughout the site.",
+		"Language": {
+			"title": "Language",
+			"en": "English",
+			"de": "Deutsch"
+		},
+		"Theme": {
+			"title": "Theme",
+			"dark": "Dark",
+			"light": "Light",
+			"lightInfo": "The light theme is for accessibility. Use it if you have difficulty reading light text on a dark background."
+		}
+	},
 	"TENTATIVE": {
 		"Head": {
 			"title": "Website and branding for Tentative",

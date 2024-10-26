@@ -112,9 +112,11 @@ export default function Form() {
 
 	return submitTransition((styles, item) =>
 		!item ? (
+			// @ts-expect-error
 			<a.div style={{ ...styles }} className="relative">
 				{sendingTransition((style, item) =>
 					item ? (
+						// @ts-expect-error
 						<a.div
 							style={style}
 							className="absolute inset-0 z-20 bg-neutral-950/75 flex items-center justify-center"
@@ -199,6 +201,7 @@ export default function Form() {
 				</form>
 			</a.div>
 		) : (
+			// @ts-expect-error
 			<a.div
 				style={styles}
 				className="min-h-[396px] md:min-h-[378px] flex flex-col gap-3 items-center justify-center text-center"

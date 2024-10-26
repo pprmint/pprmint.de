@@ -14,6 +14,7 @@ import ReferenceShoes from "public/assets/mina/ref/shoes.webp";
 import ReferenceHairbowFront from "public/assets/mina/ref/head_front.svg";
 import ReferenceHairbowBack from "public/assets/mina/ref/head_back.svg";
 import X from "src/icons/X";
+import Error from "src/icons/Error";
 
 export default function RefSheet() {
 	const t = useTranslations("MINA");
@@ -36,7 +37,7 @@ export default function RefSheet() {
 				<Dialog.Content
 					className={`fixed inset-0 lg:inset-auto overflow-auto lg:overflow-clip z-100 flex flex-col ${
 						!col && "lg:flex-row"
-					} gap-12 items-center lg:top-1/2 lg:left-1/2 max-h-svh lg:max-h-[90vh] w-screen max-w-7xl lg:-translate-x-1/2 lg:-translate-y-1/2 p-6 md:p-9 bg-neutral-950 border border-neutral-900 ring-1 ring-neutral-950 shadow-xl shadow-neutral-950/50 rounded-xl data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down focus:outline-none origin-center lg:origin-top-left`}
+					} gap-12 items-center lg:top-1/2 lg:left-1/2 max-h-svh lg:max-h-[90vh] w-screen max-w-7xl lg:-translate-x-1/2 lg:-translate-y-1/2 p-6 md:p-9 bg-neutral-950 border border-neutral-900 dark:ring-1 ring-neutral-950 shadow-2xl rounded-xl data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit focus:outline-none origin-center`}
 				>
 					{reference}
 					<div>
@@ -50,10 +51,10 @@ export default function RefSheet() {
 					</div>
 					<Dialog.Close asChild>
 						<button
-							className="absolute inline-flex items-center justify-center top-3 md:top-5 right-3 md:right-5 size-10 rounded-full text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800 duration-100"
+							className="absolute top-3 right-3 inline-flex p-2 items-center justify-center hover:bg-neutral-900 hover:text-neutral-50 duration-100 active:opacity-75 active:duration-75 rounded-full"
 							aria-label="Close"
 						>
-							<X className="size-6" />
+							<Error />
 						</button>
 					</Dialog.Close>
 				</Dialog.Content>
@@ -93,24 +94,28 @@ export default function RefSheet() {
 
 		return cycleTransition((styles, item) =>
 			item ? (
+				// @ts-expect-error
 				<a.div className="h-full w-4/5 object-contain" style={styles}>
 					<FadingImage
 						src={ReferenceBack}
 						alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
 						className="h-full max-h-2/3-screen lg:max-h-[80vh] object-contain"
-					/>
+						/>
 					<div className="relative h-1 mt-6 rounded-full overflow-clip bg-neutral-900">
+						{/* @ts-expect-error */}
 						<a.div className="absolute inset-0 rounded-full bg-neutral-50" style={progress} />
 					</div>
 				</a.div>
 			) : (
+				// @ts-expect-error
 				<a.div className="h-full w-4/5 object-contain" style={styles}>
 					<FadingImage
 						src={ReferenceFront}
 						alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
 						className="h-full max-h-2/3-screen lg:max-h-[80vh] object-contain"
-					/>
+						/>
 					<div className="relative h-1 mt-6 rounded-full overflow-clip bg-neutral-900">
+						{/* @ts-expect-error */}
 						<a.div className="absolute inset-0 rounded-full bg-neutral-50" style={progress} />
 					</div>
 				</a.div>
@@ -127,7 +132,7 @@ export default function RefSheet() {
 		return (
 			<Toast.Provider swipeDirection="right" duration={3000}>
 				<Toast.Root
-					className="flex gap-6 items-center p-3 rounded-xl shadow-lg shadow-neutral-950/50 backdrop-blur-xl bg-gradient-to-b from-neutral-800/75 to-neutral-900/90 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
+					className="flex gap-6 items-center p-3 rounded-xl shadow-lg text-neutral-50 backdrop-blur-xl bg-gradient-to-t dark:bg-gradient-to-b from-neutral-800/75 to-neutral-900/90 dark:outline outline-1 outline-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
 					open={props.open}
 					onOpenChange={props.onOpenChange}
 				>
@@ -137,7 +142,7 @@ export default function RefSheet() {
 					/>
 					<Toast.Description>{t("copied")}</Toast.Description>
 					<Toast.Close className="inline-flex items-center justify-center size-6 hover:bg-neutral-50/10 active:bg-neutral-50/5 rounded-full duration-100 active:duration-75">
-						<X className="size-6 fill-neutral-50" />
+						<Error />
 					</Toast.Close>
 				</Toast.Root>
 				<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-[9999] outline-none" />
@@ -188,11 +193,11 @@ export default function RefSheet() {
 					<InfoDialog
 						title={t("Content.Reference.Rings.heading")}
 						description={
-							<>
+							<div>
 								<p>{t("Content.Reference.Rings.text1")}</p>
 								<p>{t("Content.Reference.Rings.text2")}</p>
 								<p>{t("Content.Reference.Rings.text3")}</p>
-							</>
+							</div>
 						}
 						reference={
 							<FadingImage
@@ -220,13 +225,13 @@ export default function RefSheet() {
 					<InfoDialog
 						title={t("Content.Reference.Outfit.heading")}
 						description={
-							<>
+							<div>
 								<p>{t("Content.Reference.Outfit.text1")}</p>
 								<p>{t("Content.Reference.Outfit.text2")}</p>
 								<p>{t("Content.Reference.Outfit.text3")}</p>
 								<p>{t("Content.Reference.Outfit.text4")}</p>
 								<p>{t("Content.Reference.Outfit.text5")}</p>
-							</>
+							</div>
 						}
 						reference={<CyclingFrontBackRef backFirst={false} />}
 					/>
@@ -248,13 +253,13 @@ export default function RefSheet() {
 					<InfoDialog
 						title={t("Content.Reference.Outfit.heading")}
 						description={
-							<>
+							<div>
 								<p>{t("Content.Reference.Outfit.text1")}</p>
 								<p>{t("Content.Reference.Outfit.text2")}</p>
 								<p>{t("Content.Reference.Outfit.text3")}</p>
 								<p>{t("Content.Reference.Outfit.text4")}</p>
 								<p>{t("Content.Reference.Outfit.text5")}</p>
-							</>
+							</div>
 						}
 						reference={<CyclingFrontBackRef backFirst={true} />}
 					/>
@@ -283,10 +288,10 @@ export default function RefSheet() {
 						col
 						title={t("Content.Reference.Hairbow.heading")}
 						description={
-							<>
+							<div>
 								<p>{t("Content.Reference.Hairbow.text1")}</p>
 								<p>{t("Content.Reference.Hairbow.text2")}</p>
-							</>
+							</div>
 						}
 						reference={
 							<div className="flex flex-col items-center md:flex-row w-full lg:w-3/4 max-h-2/3-screen">
@@ -320,10 +325,10 @@ export default function RefSheet() {
 					<InfoDialog
 						title={t("Content.Reference.Shoes.heading")}
 						description={
-							<>
+							<div>
 								<p>{t("Content.Reference.Shoes.text1")}</p>
 								<p>{t("Content.Reference.Shoes.text2")}</p>
-							</>
+							</div>
 						}
 						reference={
 							<FadingImage

@@ -7,7 +7,6 @@ import NavBar from "src/components/layout/navigation/NavBar";
 import Footer from "src/components/layout/Footer";
 import ScrollToTopButton from "src/components/layout/ScrollToTopButton";
 import WarningTriangle from "src/icons/WarningTriangle";
-import PotatoRedirect from "src/components/PotatoRedirect";
 
 import "../styles.css";
 import "../fonts/MinaSans/minasans.css";
@@ -68,7 +67,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 							{children}
 						</NavbarProvider>
 						<Footer />
-						<PotatoRedirect />
 						<ScrollToTopButton />
 					</NextIntlClientProvider>
 				</ThemeProvider>

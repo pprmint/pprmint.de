@@ -183,6 +183,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 			<Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
 				{dialogTransitions((styles, item) =>
 					item ? (
+						// @ts-expect-error
 						<a.div style={styles} className="fixed inset-0 z-100">
 							<NsfwDialog onAccept={handleDialogAccept} />
 						</a.div>

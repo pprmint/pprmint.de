@@ -35,6 +35,7 @@ export default function Glyphs() {
 			>
 				{showAllGlyphsButtonTransition((style, item) =>
 					!item ? (
+						// @ts-expect-error
 						<a.div
 							style={style}
 							className="absolute flex items-center justify-center bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-neutral-950 py-6"

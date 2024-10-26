@@ -64,7 +64,7 @@ export default function NotFound() {
 				{/* @ts-expect-error */}
 				<a.div
 					className={`absolute top-1/2 -translate-y-1/2 ${
-						countFinished ? "text-neutral-800" : "text-green-800"
+						countFinished ? "text-neutral-800" : "text-green dark:text-green-800"
 					} font-digits blur-sm lg:blur-lg w-full text-center -skew-y-6 duration-500`}
 					style={{ fontSize: "50vw" }}
 				>
@@ -72,12 +72,12 @@ export default function NotFound() {
 				</a.div>
 				<div className="absolute flex items-center justify-center top-0 left-0 w-screen h-screen">
 					{/* @ts-expect-error */}
-					<a.div style={{ ...ripple }} className="bg-green-800 aspect-square h-screen md:h-auto md:w-screen rounded-full" />
+					<a.div style={{ ...ripple }} className="bg-green dark:bg-green-800 aspect-square h-screen md:h-auto md:w-screen rounded-full" />
 				</div>
 				<div
-					className="absolute w-full h-full top-0 left-0"
+					className="absolute w-full h-full top-0 left-0 dark:invert-[0.95]"
 					style={{
-						backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24" height="24" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23111"/></svg>')`,
+						backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24" height="24" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23fafafa"/></svg>')`,
 						backgroundRepeat: "repeat",
 					}}
 				/>
