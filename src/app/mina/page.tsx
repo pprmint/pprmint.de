@@ -33,34 +33,25 @@ type Props = {
 };
 
 export async function generateMetadata(props: Props) {
-    const params = await props.params;
+	const params = await props.params;
 
-    const {
-        locale
-    } = params;
+	const { locale } = params;
 
-    const t = await getTranslations({ locale, namespace: "MINA" });
-    return {
+	const t = await getTranslations({ locale, namespace: "MINA" });
+	return {
 		title: t("Head.title"),
 		description: t("Head.description"),
 	};
 }
 
-export default function Page(props: Props) {
-    const params = use(props.params);
-
-    const {
-        locale
-    } = params;
-
-    const searchParams = use(props.searchParams);
-    setRequestLocale(locale);
-    const t = useTranslations("MINA");
-    const currentPage = Number(searchParams?.p) || 1;
-    const nsfw = String(searchParams?.nsfw) || "hide";
-    const artist = String(searchParams?.artist) || "undefined";
-
-    return (
+export default async function Page({
+	searchParams,
+}: {
+	searchParams: Promise<{ p: string; nsfw: string; artist: string | undefined }>;
+}) {
+	const t = await getTranslations("MINA");
+	const { p, nsfw, artist } = await searchParams;
+	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
 				<FadingImage
@@ -128,7 +119,7 @@ export default function Page(props: Props) {
 					className="pt-20 md:pt-32 xl:pt-40 mb-20 md:mb-32 xl:mb-40 max-w-7xl mx-auto md:px-3 xl:px-9"
 				>
 					<Suspense fallback={<GallerySkeleton />}>
-						<GallerySuspense p={currentPage} artist={artist} nsfw={nsfw} />
+						<GallerySuspense p={parseInt(p)} artist={artist} nsfw={nsfw} />
 					</Suspense>
 				</section>
 				<FanartRules />

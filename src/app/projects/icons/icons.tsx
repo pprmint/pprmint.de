@@ -305,10 +305,11 @@ import YouTube from "src/icons/YouTube";
 import ZoomIn from "src/icons/ZoomIn";
 import ZoomOut from "src/icons/ZoomOut";
 import Zip from "src/icons/Zip";
+import { ReactNode } from "react";
 
 export interface Icon {
 	names: string[];
-	icon: JSX.Element;
+	icon: ReactNode;
 }
 
 export interface Category {
