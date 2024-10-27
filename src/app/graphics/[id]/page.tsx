@@ -1,5 +1,4 @@
-import { useLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Title from "src/components/layout/Title";

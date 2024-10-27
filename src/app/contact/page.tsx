@@ -1,7 +1,5 @@
-import { use } from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import Link from "next/link";
 import Title from "src/components/layout/Title";
 import Button from "src/components/ui/Button";
@@ -17,34 +15,18 @@ import Chatbox from "./chatbox";
 import Form from "./form";
 import ArtCreditButton from "src/components/ui/ArtCreditButton";
 
-type Props = {
-	params: Promise<{ locale: string }>;
-};
-
-export async function generateMetadata(props: Props) {
-    const params = await props.params;
-
-    const {
-        locale
-    } = params;
-
-    const t = await getTranslations({ locale, namespace: "CONTACT" });
-    return {
+export async function generateMetadata() {
+	const t = await getTranslations("CONTACT");
+	return {
 		title: t("Head.title"),
 		description: t("Head.description"),
 	};
 }
 
-export default function Page(props: Props) {
-    const params = use(props.params);
-
-    const {
-        locale
-    } = params;
-
-    setRequestLocale(locale);
-    const t = useTranslations("CONTACT");
-    return (
+export default async function Page() {
+	const t = await getTranslations("CONTACT");
+	const locale = await getLocale();
+	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
 				<FadingImage

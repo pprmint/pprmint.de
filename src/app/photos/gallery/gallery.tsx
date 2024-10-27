@@ -44,14 +44,15 @@ export default function Gallery(photos: { photos: Photos }) {
     							xl:[&:nth-child(4n+1)]:origin-left xl:[&:nth-child(4n)]:origin-right
     							3xl:[&:nth-child(4n+1)]:origin-center 3xl:[&:nth-child(4n)]:origin-center
     							3xl:[&:nth-child(5n+1)]:origin-left 3xl:[&:nth-child(5n)]:origin-right
-    							hover:scale-[1.02] focus-visible:scale-[1.02] active:scale-[1.01] hover:z-10 focus-visible:z-10 justify hover:ring-1 ring-neutral-50/10 hover:shadow-2xl hover:shadow-neutral-950/50 focus-visible:shadow-2xl duration-250 ease-out-quint active:duration-75 cursor-pointer aspect-[3/2]"
+									[.group:hover_&:not(:hover)]:opacity-75
+    							hover:scale-[1.02] focus-visible:scale-[1.02] active:scale-[1.01] hover:z-10 focus-visible:z-10 justify hover:ring-1 ring-neutral-50/10 hover:shadow-lg focus-visible:shadow-xl duration-250 ease-out-quint active:duration-75 cursor-pointer aspect-[3/2]"
 							>
 								<FadingImage
 									src={`https://static.pprmint.de${photo.photo.formats.small.url}`}
 									width={photo.photo.formats.small.width}
 									height={photo.photo.formats.small.height}
 									alt=""
-									className={`h-full min-w-full object-cover active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
+									className={`h-full min-w-full object-cover group-focus-visible/button:animate-pulse`}
 									unoptimized={photo.photo.url.includes(".gif")}
 								/>
 							</button>
@@ -69,7 +70,7 @@ export default function Gallery(photos: { photos: Photos }) {
 												width={photo.photo?.width}
 												height={photo.photo?.height}
 												alt=""
-												className="max-h-svh w-auto mx-auto py-16"
+												className="max-h-svh w-auto mx-auto py-16 drop-shadow-2xl dark:drop-shadow-none"
 												unoptimized
 											/>
 										</div>

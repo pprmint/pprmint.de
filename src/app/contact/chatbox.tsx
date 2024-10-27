@@ -2,11 +2,10 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import * as Dialog from "@radix-ui/react-dialog";
-import FocusTrap from "focus-trap-react";
 
 import Mina from "public/assets/mina/nekomimi_smol.webp";
 import Link from "next/link";
-import { useTransition, a, config } from "@react-spring/web";
+import { useTransition, a } from "@react-spring/web";
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 import ChevronLeft from "src/icons/ChevronLeft";
@@ -74,14 +73,6 @@ function MessageBubble(props: { incoming?: boolean; id: string }) {
 
 function Chatbox() {
 	const t = useTranslations("CHAT");
-
-	const [chatVisible, setChatVisible] = useState(false);
-	const chatTransition = useTransition(chatVisible, {
-		from: { opacity: 0, y: 40 },
-		enter: { opacity: 1, y: 0 },
-		leave: { opacity: 0, y: 40 },
-		config: config.stiff,
-	});
 
 	const chatboxRef = useRef<HTMLDivElement>(null);
 	const [chatMessages, setChatMessages] = useState<{ incoming?: boolean; id: string }[]>([]);
@@ -220,7 +211,7 @@ function Chatbox() {
 			</Dialog.Trigger>
 			<Dialog.Portal>
 				<Dialog.Overlay className="bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-100" />
-				<Dialog.Content className="z-100 fixed w-full max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col bg-neutral-950 outline outline-1 outline-neutral-900 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl sm:rounded-xl overflow-clip h-svh md:h-2/3-screen">
+				<Dialog.Content className="z-100 fixed w-full max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col bg-neutral-950 border border-white/10 outline outline-1 outline-black/10 dark:outline-black/50 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl sm:rounded-xl overflow-clip h-svh md:h-2/3-screen">
 					<div className="absolute top-0 left-0 right-0 flex gap-6 items-center justify-between py-2 backdrop-blur-xl bg-gradient-to-b from-[#fafafabb] dark:from-[#282828bb] to-[#eeeeeeaa] dark:to-[#222222aa] shadow-lg shadow-neutral-950/50 z-10">
 						<div className="w-1/5">
 							<Dialog.Close asChild>
@@ -281,7 +272,7 @@ function Chatbox() {
 									<a.div style={style} className="flex flex-col gap-3 items-end py-3">
 										{clickedQuestions.length > 0 && (
 											<button
-												className={`w-fit max-w-[80%] px-3 py-1 border border-neutral-900 hover:bg-neutral-900 hover:text-neutral-50 text-sm text-left rounded-2xl rounded-br-md duration-100 ${
+												className={`w-fit max-w-[80%] px-3 py-1 border border-neutral-900 hover:border-neutral-800 hover:bg-elevate hover:text-neutral-50 text-sm text-left rounded-2xl rounded-br-md duration-100 ${
 													answering ? "opacity-50 pointer-events-none" : "cursor-pointer"
 												}`}
 												onClick={() => handleEnding("Ending")}
@@ -292,7 +283,7 @@ function Chatbox() {
 										{availableMessages.map((id, index) => (
 											<button
 												key={index}
-												className={`w-fit max-w-[80%] px-3 py-1 border border-neutral-900 hover:bg-neutral-900 hover:text-neutral-50 text-sm text-left rounded-2xl rounded-br-md duration-100 ${
+												className={`w-fit max-w-[80%] px-3 py-1 border border-neutral-900 hover:border-neutral-800 hover:bg-elevate hover:text-neutral-50 text-sm text-left rounded-2xl rounded-br-md duration-100 ${
 													answering ? "opacity-50 pointer-events-none" : "cursor-pointer"
 												}`}
 												onClick={() => handleMessageClick(id)}

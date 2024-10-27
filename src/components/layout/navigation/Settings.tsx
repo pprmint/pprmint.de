@@ -24,7 +24,7 @@ export default function Settings() {
 				</Dialog.Trigger>
 				<Dialog.Portal>
 					<Dialog.Overlay className="fixed z-100 inset-0 bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out" />
-					<Dialog.Content className="fixed z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-svh md:h-max w-screen md:max-w-2xl md:rounded-xl bg-neutral-950 p-6 outline outline-1 outline-neutral-900 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl">
+					<Dialog.Content className="fixed z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-svh md:h-max w-screen md:max-w-2xl md:rounded-xl bg-neutral-950 border border-white/10 outline outline-1 outline-black/10 dark:outline-black/50 p-6 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl">
 						<Dialog.Title className="text-2xl pb-0">
 							{t("title")}
 							<span className="text-green">.</span>
@@ -34,11 +34,11 @@ export default function Settings() {
 							<h3 className="text-lg">{t("Language.title")}</h3>
 							<button
 								onClick={() => setUserLocale(otherLocale!)}
-								className="relative inline-flex w-60 h-[34px] hover:bg-neutral-900 active:bg-neutral-800 border border-neutral-900 hover:border-neutral-800 rounded-full duration-100 active:duration-75"
+								className="group relative inline-flex w-60 h-[34px] hover:bg-elevate border border-neutral-900 hover:border-neutral-800 rounded-full duration-100 active:duration-75"
 							>
 								<div
-									className={`absolute w-[116px] h-7 top-0.5 text-center uppercase bg-gradient-to-t dark:bg-gradient-to-b from-neutral-50 to-neutral-100 text-neutral-950 shadow-sm rounded-full ${
-										currentLocale === "en" ? "left-0.5" : "left-1/2"
+									className={`absolute w-[116px] group-active:w-[120px] h-7 top-0.5 text-center uppercase bg-gradient-to-t dark:bg-gradient-to-b from-neutral-50 to-neutral-100 text-neutral-950 shadow-sm rounded-full ${
+										currentLocale === "en" ? "left-0.5" : "left-1/2 group-active:left-[calc(50%_-_4px)]"
 									} duration-200 ease-out-cubic`}
 								/>
 								<div className="absolute inset-0.5 flex items-center">

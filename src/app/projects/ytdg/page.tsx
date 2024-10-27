@@ -1,8 +1,7 @@
-import { use } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import Title from "src/components/layout/Title";
 import Hero from "public/assets/ytdg/hero.png";
@@ -13,32 +12,15 @@ import IsometricScreenshot from "public/assets/ytdg/screenshot_dark_iso.webp";
 import Check from "src/icons/Check";
 import ExternalLink from "src/icons/ExternalLink";
 
-type Props = {
-	params: Promise<{ locale: string }>;
-};
-
-export async function generateMetadata(props: Props) {
-    const params = await props.params;
-
-    const {
-        locale
-    } = params;
-
-    const t = await getTranslations({ locale, namespace: "YTDG" });
+export async function generateMetadata() {
+    const t = await getTranslations("YTDG");
     return {
 		title: t("Head.title"),
 		description: t("Head.description"),
 	};
 }
 
-export default function Page(props: Props) {
-    const params = use(props.params);
-
-    const {
-        locale
-    } = params;
-
-    setRequestLocale(locale);
+export default function Page() {
     const t = useTranslations();
     return (
 		<>

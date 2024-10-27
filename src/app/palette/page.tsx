@@ -1,6 +1,5 @@
-import { use } from "react";
 import { useTranslations } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import Title from "src/components/layout/Title";
 import Palette from "./palette";
@@ -9,32 +8,15 @@ import Link from "next/link";
 import SwatchBook from "src/icons/SwatchBook";
 import ExternalLink from "src/icons/ExternalLink";
 
-type Props = {
-	params: Promise<{ locale: string }>;
-};
-
-export async function generateMetadata(props: Props) {
-    const params = await props.params;
-
-    const {
-        locale
-    } = params;
-
-    const t = await getTranslations({ locale, namespace: "PALETTE" });
+export async function generateMetadata() {
+    const t = await getTranslations("PALETTE");
     return {
 		title: t("Head.title"),
 		description: t("Head.description"),
 	};
 }
 
-export default function Page(props: Props) {
-    const params = use(props.params);
-
-    const {
-        locale
-    } = params;
-
-    setRequestLocale(locale);
+export default function Page() {
     const t = useTranslations("PALETTE");
     return (
 		<>

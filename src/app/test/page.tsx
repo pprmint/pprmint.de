@@ -157,6 +157,123 @@ export default function Page() {
 					</Button>
 				</div>
 			</section>
+			<section id="buttons" className="dark bg-neutral-950 flex flex-col gap-6 mb-48 flex-wrap">
+				<h2>Buttons</h2>
+				<div className="flex gap-3 flex-wrap">
+					<Button>Button</Button>
+					<Button color="red">Button</Button>
+					<Button color="orange">Button</Button>
+					<Button color="yellow">Button</Button>
+					<Button color="lime">Button</Button>
+					<Button color="green">Button</Button>
+					<Button color="cyan">Button</Button>
+					<Button color="blue">Button</Button>
+					<Button color="violet">Button</Button>
+					<Button color="pink">Button</Button>
+					<Button disabled color="pink">Button</Button>
+				</div>
+				<div className="flex gap-3 flex-wrap">
+					<Button outlined>Button</Button>
+					<Button outlined color="red">
+						Button
+					</Button>
+					<Button outlined color="orange">
+						Button
+					</Button>
+					<Button outlined color="yellow">
+						Button
+					</Button>
+					<Button outlined color="lime">
+						Button
+					</Button>
+					<Button outlined color="green">
+						Button
+					</Button>
+					<Button outlined color="cyan">
+						Button
+					</Button>
+					<Button outlined color="blue">
+						Button
+					</Button>
+					<Button outlined color="violet">
+						Button
+					</Button>
+					<Button outlined color="pink">
+						Button
+					</Button>
+					<Button disabled outlined color="pink">
+						Button
+					</Button>
+				</div>
+				<div className="flex gap-3 flex-wrap">
+					<Button large>Button</Button>
+					<Button large color="red">
+						Button
+					</Button>
+					<Button large color="orange">
+						Button
+					</Button>
+					<Button large color="yellow">
+						Button
+					</Button>
+					<Button large color="lime">
+						Button
+					</Button>
+					<Button large color="green">
+						Button
+					</Button>
+					<Button large color="cyan">
+						Button
+					</Button>
+					<Button large color="blue">
+						Button
+					</Button>
+					<Button large color="violet">
+						Button
+					</Button>
+					<Button large color="pink">
+						Button
+					</Button>
+					<Button disabled large color="pink">
+						Button
+					</Button>
+				</div>
+				<div className="flex gap-3 flex-wrap">
+					<Button large outlined>
+						Button
+					</Button>
+					<Button large outlined color="red">
+						Button
+					</Button>
+					<Button large outlined color="orange">
+						Button
+					</Button>
+					<Button large outlined color="yellow">
+						Button
+					</Button>
+					<Button large outlined color="lime">
+						Button
+					</Button>
+					<Button large outlined color="green">
+						Button
+					</Button>
+					<Button large outlined color="cyan">
+						Button
+					</Button>
+					<Button large outlined color="blue">
+						Button
+					</Button>
+					<Button large outlined color="violet">
+						Button
+					</Button>
+					<Button large outlined color="pink">
+						Button
+					</Button>
+					<Button disabled large outlined color="pink">
+						Button
+					</Button>
+				</div>
+			</section>
 			<section className="flex flex-col gap-6 mb-48">
 				<h2>Checkboxes</h2>
 				<div className="flex gap-3">

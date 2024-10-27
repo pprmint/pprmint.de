@@ -633,6 +633,7 @@ module.exports = {
 		require("@tailwindcss/typography"),
 		createThemes({
 			light: {
+				elevate: "#fff",
 				neutral: {
 					DEFAULT: "#777",
 					50: "#111",
@@ -649,6 +650,7 @@ module.exports = {
 				},
 			},
 			dark: {
+				elevate: "#222",
 				neutral: {
 					DEFAULT: "#aaa",
 					50: "#eee",

@@ -16,14 +16,14 @@ function Pagination({ page, pageCount, onPageChange }: { page: number; pageCount
 	const buttonStart = Math.max(1, Math.min(pageCount - buttonRange, page - (buttonRange - buttonOffset)));
 	const buttonEnd = Math.min(pageCount - 1, buttonStart + buttonRange - 1);
 
-	function handlePagination(page: string) {
+	function handlePagination(page: number) {
 		const params = new URLSearchParams(searchParams);
-		if (page) {
-			params.set("p", page);
+		if (page > 1) {
+			params.set("p", page.toString());
 		} else {
 			params.delete("p");
 		}
-		replace(`${pathname}?${params.toString()}`, { scroll: false });
+		replace(`${pathname}?${params}`, { scroll: false });
 		onPageChange;
 	}
 
@@ -32,7 +32,7 @@ function Pagination({ page, pageCount, onPageChange }: { page: number; pageCount
 			<button
 				className={`group inline-flex items-center justify-center size-8 sm:size-10 sm:text-lg rounded-full text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800 disabled:text-neutral-800 disabled:bg-transparent duration-100`}
 				disabled={page == 1}
-				onClick={() => handlePagination(String(page - 1))}
+				onClick={() => handlePagination(page - 1)}
 			>
 				<ChevronLeft className={`${page != 1 && "group-active:-translate-x-0.5"} duration-50`} />
 			</button>
@@ -42,7 +42,7 @@ function Pagination({ page, pageCount, onPageChange }: { page: number; pageCount
 						? "text-neutral-950 bg-neutral-50 pointer-events-none font-bold"
 						: "text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800"
 				}`}
-				onClick={() => handlePagination(String(1))}
+				onClick={() => handlePagination(1)}
 			>
 				1
 			</button>
@@ -56,7 +56,7 @@ function Pagination({ page, pageCount, onPageChange }: { page: number; pageCount
 								? "text-neutral-950 bg-neutral-50 pointer-events-none font-bold"
 								: "text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800"
 						}`}
-						onClick={() => handlePagination(String(index + 1))}
+						onClick={() => handlePagination(index + 1)}
 					>
 						{index + 1}
 					</button>
@@ -68,14 +68,14 @@ function Pagination({ page, pageCount, onPageChange }: { page: number; pageCount
 						? "text-neutral-950 bg-neutral-50 pointer-events-none font-bold"
 						: "text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800"
 				}`}
-				onClick={() => handlePagination(String(pageCount))}
+				onClick={() => handlePagination(pageCount)}
 			>
 				{pageCount}
 			</button>
 			<button
 				className={`group inline-flex items-center justify-center size-8 sm:size-10 sm:text-lg rounded-full text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800 disabled:text-neutral-800 disabled:bg-transparent duration-100`}
 				disabled={page == pageCount}
-				onClick={() => handlePagination(String(page + 1))}
+				onClick={() => handlePagination(page + 1)}
 			>
 				<ChevronRight className={`${page != pageCount && "group-active:translate-x-0.5"} duration-50`} />
 			</button>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import Title from "src/components/layout/Title";
 
@@ -10,32 +10,15 @@ import Services from "./overview";
 import Commission from "src/types/commission";
 import InfoCircle from "src/icons/InfoCircle";
 
-type Props = {
-	params: Promise<{ locale: string }>;
-};
-
-export async function generateMetadata(props: Props) {
-    const params = await props.params;
-
-    const {
-        locale
-    } = params;
-
-    const t = await getTranslations({ locale, namespace: "COMMISSIONS" });
+export async function generateMetadata() {
+    const t = await getTranslations("COMMISSIONS");
     return {
 		title: t("Head.title"),
 		description: t("Head.description"),
 	};
 }
 
-export default async function Page(props: Props) {
-    const params = await props.params;
-
-    const {
-        locale
-    } = params;
-
-    setRequestLocale(locale);
+export default async function Page() {
     const CommissionData: Commission = await getData();
     const Data = CommissionData.data;
     const t = await getTranslations("COMMISSIONS");

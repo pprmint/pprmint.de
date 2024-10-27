@@ -14,7 +14,7 @@ export default function Title(
 	const { accentColor = "text-green" } = props;
 	const fadeIn = useSpring({
 		from: { opacity: 0, scale: 1.05 },
-		to: { opacity: 0.75, scale: 1 },
+		to: { opacity: 1, scale: 1 },
 		delay: 250,
 	});
 	const Title = props.title.split("");
@@ -36,7 +36,7 @@ export default function Title(
 					<a.div className="absolute w-full h-full" style={{ ...fadeIn }}>
 						<div className="absolute w-full h-full">{props.children}</div>
 					</a.div>
-					<div className="absolute w-full h-full bg-gradient-to-t from-neutral-950 via-transparent" />
+					<div className="absolute w-full h-full bg-gradient-to-t from-neutral-950 via-40% via-transparent" />
 				</>
 			)}
 			<div className="absolute bottom-0 flex w-full gap-3 p-6 md:p-12 items-end">

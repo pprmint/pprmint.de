@@ -174,7 +174,7 @@ export default function Palette() {
 
 	return (
 		<Toast.Provider>
-			<div className="flex flex-col lg:flex-row w-full pb-20">
+			<div className="dark flex flex-col lg:flex-row w-full pb-20">
 				{Colors.map((color, colorIndex) => (
 					<div
 						key={colorIndex}

@@ -1,5 +1,5 @@
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Suspense, use } from "react";
+import { getTranslations } from "next-intl/server";
+import { Suspense } from "react";
 
 import Title from "src/components/layout/Title";
 import FadingImage from "src/components/ui/FadingImage";
@@ -15,7 +15,6 @@ import StickerCool from "public/assets/mina/sticker_cool.png";
 import Link from "next/link";
 import Button from "src/components/ui/Button";
 import GallerySuspense from "./gallery/gallerySuspense";
-import { useTranslations } from "next-intl";
 import GallerySkeleton from "./gallery/gallerySkeleton";
 import FanartRules from "./rules";
 import Download from "src/icons/Download";
@@ -23,21 +22,8 @@ import Discord from "src/icons/Discord";
 import Instagram from "src/icons/Instagram";
 import ArtCreditButton from "src/components/ui/ArtCreditButton";
 
-type Props = {
-	params: Promise<{ locale: string }>;
-	searchParams?: Promise<{
-		p?: string;
-		nsfw?: string;
-		artist?: string;
-	}>;
-};
-
-export async function generateMetadata(props: Props) {
-	const params = await props.params;
-
-	const { locale } = params;
-
-	const t = await getTranslations({ locale, namespace: "MINA" });
+export async function generateMetadata() {
+	const t = await getTranslations("MINA");
 	return {
 		title: t("Head.title"),
 		description: t("Head.description"),
@@ -47,10 +33,10 @@ export async function generateMetadata(props: Props) {
 export default async function Page({
 	searchParams,
 }: {
-	searchParams: Promise<{ p: string; nsfw: string; artist: string | undefined }>;
+	searchParams: Promise<{ p: string; nsfw: string; artist: string }>;
 }) {
 	const t = await getTranslations("MINA");
-	const { p, nsfw, artist } = await searchParams;
+	const { p = "1", nsfw, artist = "" } = await searchParams;
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
@@ -133,25 +119,25 @@ export default async function Page({
 						<FadingImage
 							src={StickerSeyana}
 							alt=""
-							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[30%] left-[-4%] md:left-[4%] xl:left-[10%] animate-float-rotate-l drop-shadow-[0px_4px_20px_#111]"
+							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[30%] left-[-4%] md:left-[4%] xl:left-[10%] animate-float-rotate-l drop-shadow-2xl dark:drop-shadow-[0px_4px_20px_#111]"
 							style={{ animationDelay: "0s" }}
 						/>
 						<FadingImage
 							src={StickerCool}
 							alt=""
-							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[6%] lg:top-0 left-[15%] md:left-[12%] xl:left-[20%] animate-float-rotate-r drop-shadow-[0px_4px_20px_#111]"
+							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[6%] lg:top-0 left-[15%] md:left-[12%] xl:left-[20%] animate-float-rotate-r drop-shadow-2xl dark:drop-shadow-[0px_4px_20px_#111]"
 							style={{ animationDelay: "0.4s" }}
 						/>
 						<FadingImage
 							src={StickerStare}
 							alt=""
-							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[8%] lg:top-0 right-[15%] md:right-[12%] xl:right-[20%] animate-float-rotate-l drop-shadow-[0px_4px_20px_#111]"
+							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[8%] lg:top-0 right-[15%] md:right-[12%] xl:right-[20%] animate-float-rotate-l drop-shadow-2xl dark:drop-shadow-[0px_4px_20px_#111]"
 							style={{ animationDelay: "0.8s" }}
 						/>
 						<FadingImage
 							src={StickerWhat}
 							alt=""
-							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[25%] right-[-4%] md:right-[4%] xl:right-[10%] animate-float-rotate-r drop-shadow-[0px_4px_20px_#111]"
+							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[25%] right-[-4%] md:right-[4%] xl:right-[10%] animate-float-rotate-r drop-shadow-2xl dark:drop-shadow-[0px_4px_20px_#111]"
 							style={{ animationDelay: "1.2s" }}
 						/>
 						<div
@@ -165,7 +151,7 @@ export default async function Page({
 						/>
 						<div className="absolute inset-0 bg-gradient-to-t from-neutral-950" />
 					</div>
-					<div className="flex items-center flex-col pt-96 pb-12 text-center text-balance drop-shadow-[0px_2px_8px_#111]">
+					<div className="flex items-center flex-col pt-96 pb-12 text-center text-balance dark:drop-shadow-[0px_2px_8px_#111]">
 						<h2>
 							{t("Content.Discord.heading")}
 							<span className="text-green">.</span>

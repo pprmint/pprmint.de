@@ -1,13 +1,10 @@
 "use client";
-import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import FadingImage from "src/components/ui/FadingImage";
 import Link from "next/link";
 import { Works } from "src/types/work";
 
 export default function GalleryGrid(works: { works: Works }) {
-	const t = useTranslations("GRAPHICS");
-
 	const galleryRef = useRef<HTMLDivElement>(null);
 	const [init, setInit] = useState(false);
 	useEffect(() => {
@@ -24,14 +21,15 @@ export default function GalleryGrid(works: { works: Works }) {
 					key={work.id}
 					href={`/graphics/${work.documentId}`}
 					className="group/button relative overflow-clip hover:rounded-lg focus-visible:rounded-lg bg-neutral-950
-				odd:origin-left even:origin-right
-				lg:odd:origin-center lg:even:origin-center
-				lg:[&:nth-child(3n+1)]:origin-left lg:[&:nth-child(3n)]:origin-right
-				xl:[&:nth-child(3n+1)]:origin-center xl:[&:nth-child(3n)]:origin-center
-				xl:[&:nth-child(4n+1)]:origin-left xl:[&:nth-child(4n)]:origin-right
-				3xl:[&:nth-child(4n+1)]:origin-center 3xl:[&:nth-child(4n)]:origin-center
-				3xl:[&:nth-child(5n+1)]:origin-left 3xl:[&:nth-child(5n)]:origin-right
-				hover:scale-[1.02] focus-visible:scale-[1.02] active:scale-[1.01] hover:z-10 focus-visible:z-10 justify hover:ring-1 ring-neutral-50/10 hover:shadow-2xl hover:shadow-neutral-950/50 focus-visible:shadow-2xl duration-250 ease-out-quint active:duration-75 cursor-pointer aspect-video"
+						odd:origin-left even:origin-right
+						lg:odd:origin-center lg:even:origin-center
+						lg:[&:nth-child(3n+1)]:origin-left lg:[&:nth-child(3n)]:origin-right
+						xl:[&:nth-child(3n+1)]:origin-center xl:[&:nth-child(3n)]:origin-center
+						xl:[&:nth-child(4n+1)]:origin-left xl:[&:nth-child(4n)]:origin-right
+						3xl:[&:nth-child(4n+1)]:origin-center 3xl:[&:nth-child(4n)]:origin-center
+						3xl:[&:nth-child(5n+1)]:origin-left 3xl:[&:nth-child(5n)]:origin-right
+						[.group:hover_&:not(:hover)]:opacity-75
+						hover:scale-[1.02] focus-visible:scale-[1.02] active:scale-[1.01] hover:z-10 focus-visible:z-10 justify hover:ring-1 ring-neutral-50/10 hover:shadow-lg focus-visible:shadow-xl duration-250 ease-out-quint active:duration-75 cursor-pointer aspect-video"
 				>
 					<FadingImage
 						src={`https://static.pprmint.de${
@@ -40,7 +38,7 @@ export default function GalleryGrid(works: { works: Works }) {
 						width={work.cover.formats.medium ? work.cover.formats.medium.width : work.cover.width}
 						height={work.cover.formats.medium ? work.cover.formats.medium.height : work.cover.height}
 						alt=""
-						className={`h-full min-w-full object-cover ${work.coverFocus} active:opacity-75 duration-250 active:duration-75 ease-out-quint group-focus-visible/button:animate-pulse`}
+						className={`h-full min-w-full object-cover ${work.coverFocus} group-focus-visible/button:animate-pulse`}
 					/>
 				</Link>
 			))}

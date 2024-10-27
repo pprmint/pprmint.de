@@ -4,8 +4,6 @@ import Link from "next/link";
 import { Sparkle } from "lucide-react";
 
 import Button from "src/components/ui/Button";
-import Title from "src/components/layout/Title";
-import HeroImage from "public/assets/home/hero.webp";
 
 import { Announcements } from "src/types/announcement";
 import FadingImage from "src/components/ui/FadingImage";
@@ -14,6 +12,7 @@ import { MinaArtworks } from "src/types/mina-artwork";
 import ArrowRight from "src/icons/ArrowRight";
 import ArrowUpRight from "src/icons/ArrowUpRight";
 import HeartFilled from "src/icons/HeartFilled";
+import HomeTitle from "./homeTitle";
 
 export default async function Page() {
 	const t = await getTranslations("HOME");
@@ -21,16 +20,14 @@ export default async function Page() {
 	const MinaArt: MinaArtworks = await GetArt();
 	return (
 		<>
-			<Title title={t("Head.title")} description={t("Head.description")}>
-				<FadingImage src={HeroImage} alt="" fill className="object-cover origin-bottom-left" />
-			</Title>
+			<HomeTitle />
 			<main>
 				<ThreeThingies />
 				<section className="my-20 md:my-32 xl:my-40 relative overflow-clip">
 					<div className="relative w-full h-full -z-10">
 						<FadingImage
 							src={`https://static.pprmint.de${Announcements.data[0].media.formats.thumbnail.url}`}
-							alt={Announcements.data[0].media.alternativeText}
+							alt={Announcements.data[0].media.alternativeText || ""}
 							quality={90}
 							width={Announcements.data[0].media.formats.thumbnail.width}
 							height={Announcements.data[0].media.formats.thumbnail.height}
@@ -48,7 +45,7 @@ export default async function Page() {
 					<h2 className="h-24 w-full text-center">{t("Content.News.heading")}</h2>
 					<FadingImage
 						src={`https://static.pprmint.de${Announcements.data[0].media.url}`}
-						alt={Announcements.data[0].media.alternativeText}
+						alt={Announcements.data[0].media.alternativeText || ""}
 						quality={90}
 						width={Announcements.data[0].media.width}
 						height={Announcements.data[0].media.height}
@@ -65,18 +62,39 @@ export default async function Page() {
 									<Button color={Announcements.data[0].buttonColor} large>
 										{Announcements.data[0].linkText}
 										<div className="relative size-5 overflow-clip">
-										<ArrowRight width={20} height={20} className="absolute group-hover:translate-x-full group-hover:duration-300 ease-out-quint" />
-										<ArrowRight width={20} height={20} className="absolute -translate-x-full group-hover:translate-x-0 group-hover:duration-300 ease-out-quint" />
+											<ArrowRight
+												width={20}
+												height={20}
+												className="absolute group-hover:translate-x-full group-hover:duration-300 ease-out-quint"
+											/>
+											<ArrowRight
+												width={20}
+												height={20}
+												className="absolute -translate-x-full group-hover:translate-x-0 group-hover:duration-300 ease-out-quint"
+											/>
 										</div>
 									</Button>
 								</Link>
 							) : (
-								<Link href={Announcements.data[0].link} target="_blank" rel="noopener noreferrer" className="w-fit">
+								<Link
+									href={Announcements.data[0].link}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="w-fit"
+								>
 									<Button color={Announcements.data[0].buttonColor} large>
 										{Announcements.data[0].linkText}
 										<div className="relative size-5 overflow-clip">
-										<ArrowUpRight width={20} height={20} className="absolute group-hover:translate-x-full group-hover:-translate-y-full group-hover:duration-300 ease-out-quint" />
-										<ArrowUpRight width={20} height={20} className="absolute -translate-x-full translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 group-hover:duration-300 ease-out-quint" />
+											<ArrowUpRight
+												width={20}
+												height={20}
+												className="absolute group-hover:translate-x-full group-hover:-translate-y-full group-hover:duration-300 ease-out-quint"
+											/>
+											<ArrowUpRight
+												width={20}
+												height={20}
+												className="absolute -translate-x-full translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 group-hover:duration-300 ease-out-quint"
+											/>
 										</div>
 									</Button>
 								</Link>
@@ -94,7 +112,7 @@ export default async function Page() {
 										<div key={announcement.id} className="flex flex-col gap-3">
 											<FadingImage
 												src={`https://static.pprmint.de${announcement.media.url}`}
-												alt={announcement.media.alternativeText}
+												alt={announcement.media.alternativeText || ""}
 												quality={90}
 												width={announcement.media.width}
 												height={announcement.media.height}
@@ -111,7 +129,12 @@ export default async function Page() {
 														</Button>
 													</Link>
 												) : (
-													<Link href={announcement.link} target="_blank" rel="noopener noreferrer" className="w-fit">
+													<Link
+														href={announcement.link}
+														target="_blank"
+														rel="noopener noreferrer"
+														className="w-fit"
+													>
 														<Button color={announcement.buttonColor} outlined>
 															{announcement.linkText}
 															<ArrowUpRight />
@@ -158,7 +181,10 @@ export default async function Page() {
 										artist: MinaArt.data[0].artist.name,
 										link: (chunks) =>
 											MinaArt.data[0].artist.creditUrl ? (
-												<Link href={MinaArt.data[0].artist.creditUrl} className="text-link-external">
+												<Link
+													href={MinaArt.data[0].artist.creditUrl}
+													className="text-link-external"
+												>
 													{chunks}
 												</Link>
 											) : (
@@ -185,7 +211,7 @@ export default async function Page() {
 							>
 								<FadingImage
 									src={`https://static.pprmint.de${MinaArt.data[0].artwork[0].url}`}
-									alt={MinaArt.data[0].artwork[0].alternativeText}
+									alt={MinaArt.data[0].artwork[0].alternativeText || ""}
 									width={MinaArt.data[0].artwork[0].width}
 									height={MinaArt.data[0].artwork[0].height}
 									className="rounded-xl"

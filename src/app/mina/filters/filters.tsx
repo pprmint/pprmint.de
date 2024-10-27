@@ -97,9 +97,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 	}
 
 	const nsfwActive = props.nsfw == "show";
-	const artistFilterActive = props.artist
-		? props.artists.data.some((a) => a.name === props.artist)
-		: false;
+	const artistFilterActive = props.artist ? props.artists.data.some((a) => a.name === props.artist) : false;
 
 	return (
 		<>
@@ -130,7 +128,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 								<div className="flex w-full">
 									<Select.Trigger
 										className={`group flex items-center justify-between px-3 h-9 w-full ${
-											props.artist != "undefined" && "rounded-r-none"
+											props.artist != "" && "rounded-r-none"
 										} hover:bg-neutral-900 hover:text-neutral-50 active:shadow-inner duration-100`}
 										aria-label="Artist"
 									>

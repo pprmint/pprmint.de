@@ -19,8 +19,6 @@ export default function DesktopNavigation() {
 		"group/root flex items-center gap-3 h-16 px-4 opacity-80 data-[state='open']:opacity-100 duration-100 rounded-lg";
 	const NavMenuContent =
 		"absolute top-0 left-0 p-3 duration-250 data-[motion='from-start']:animate-enter-from-l data-[motion='from-end']:animate-enter-from-r data-[motion='to-start']:animate-exit-to-l data-[motion='to-end']:animate-exit-to-r";
-	const NavMenuViewport =
-		"relative top-1 origin-top-left w-[--radix-navigation-menu-viewport-width] overflow-hidden backdrop-blur-xl bg-gradient-to-t dark:bg-gradient-to-b from-neutral-900/90 to-neutral-900/75 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 text-neutral rounded-2xl shadow-xl h-[--radix-navigation-menu-viewport-height] duration-250 ease-out data-[state='open']:animate-enter-from-t data-[state='closed']:animate-exit-to-t";
 	return (
 		<>
 			<NavigationMenu.Root className="relative flex justify-center items-center" delayDuration={0}>
@@ -209,7 +207,7 @@ export default function DesktopNavigation() {
 					</NavigationMenu.Indicator>
 				</NavigationMenu.List>
 				<div className="absolute flex justify-center top-[59px] left-1/2 -translate-x-1/2" style={{ perspective: 2000 }}>
-					<NavigationMenu.Viewport className={NavMenuViewport} />
+					<NavigationMenu.Viewport className="relative top-1 origin-top-left w-[--radix-navigation-menu-viewport-width] overflow-hidden backdrop-blur-xl bg-gradient-to-b from-white/90 dark:from-neutral-900/90 to-white/80 dark:to-neutral-900/75 ring-1 ring-black/10 dark:ring-black/50 outline outline-1 outline-white/10 -outline-offset-1 text-neutral rounded-2xl shadow-xl h-[--radix-navigation-menu-viewport-height] duration-250 ease-out data-[state='open']:animate-enter-from-t data-[state='closed']:animate-exit-to-t" />
 				</div>
 			</NavigationMenu.Root>
 		</>

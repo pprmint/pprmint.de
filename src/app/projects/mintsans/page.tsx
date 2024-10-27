@@ -1,6 +1,5 @@
-import { use } from "react";
 import { useTranslations } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import Tester from "./tester";
 import Download from "src/icons/Download";
@@ -17,32 +16,15 @@ import Slide4 from "public/assets/mintsans/slide4.svg";
 import Slide5 from "public/assets/mintsans/slide5.svg";
 import Slide6 from "public/assets/mintsans/slide6.svg";
 
-type Props = {
-    params: Promise<{ locale: string }>;
-};
-
-export async function generateMetadata(props: Props) {
-    const params = await props.params;
-
-    const {
-        locale
-    } = params;
-
-    const t = await getTranslations({ locale, namespace: "MINTSANS" });
+export async function generateMetadata() {
+    const t = await getTranslations("MINTSANS");
     return {
 		title: t("Head.title"),
 		description: t("Head.description"),
 	};
 }
 
-export default function Page(props: Props) {
-    const params = use(props.params);
-
-    const {
-        locale
-    } = params;
-
-    setRequestLocale(locale);
+export default function Page() {
     const t = useTranslations();
     return (
 		<>

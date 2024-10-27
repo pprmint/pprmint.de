@@ -1,7 +1,5 @@
-import { use } from "react";
 import { Viewport } from "next";
-import { useTranslations } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import Title from "src/components/layout/Title";
 import FadingImage from "src/components/ui/FadingImage";
@@ -15,19 +13,9 @@ import CountUp from "./countUp";
 import Time from "./time";
 import Download from "src/icons/Download";
 
-type Props = {
-	params: Promise<{ locale: string }>;
-};
-
-export async function generateMetadata(props: Props) {
-    const params = await props.params;
-
-    const {
-        locale
-    } = params;
-
-    const t = await getTranslations({ locale, namespace: "MINTTRIANGLES" });
-    return {
+export async function generateMetadata() {
+	const t = await getTranslations("MINTTRIANGLES");
+	return {
 		title: t("Head.title"),
 		description: t("Head.description"),
 	};
@@ -37,16 +25,10 @@ export const viewport: Viewport = {
 	themeColor: "#ee66cc",
 };
 
-export default function Page(props: Props) {
-    const params = use(props.params);
-
-    const {
-        locale
-    } = params;
-
-    setRequestLocale(locale);
-    const t = useTranslations("MINTTRIANGLES");
-    return (
+export default async function Page() {
+	const locale = await getLocale();
+	const t = await getTranslations("MINTTRIANGLES");
+	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} accentColor="text-pink">
 				<div className="relative w-screen h-screen max-h-svh bg-neutral-50 dark:bg-neutral-950">
@@ -63,7 +45,12 @@ export default function Page(props: Props) {
 					<p>
 						{t.rich("Content.Intro.text1", {
 							Link: (chunks) => (
-								<Link href="https://youtu.be/7MYYjseY-Do?t=31" target="_blank" rel="noopener noreferrer" className="text-link-external">
+								<Link
+									href="https://youtu.be/7MYYjseY-Do?t=31"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="text-link-external"
+								>
 									{chunks}
 								</Link>
 							),
