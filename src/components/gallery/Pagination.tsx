@@ -62,16 +62,18 @@ function Pagination({ page, pageCount, onPageChange }: { page: number; pageCount
 					</button>
 				);
 			})}
-			<button
-				className={`size-8 sm:size-10 sm:text-lg rounded-full ${
-					pageCount == page
-						? "text-neutral-950 bg-neutral-50 pointer-events-none font-bold"
-						: "text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800"
-				}`}
-				onClick={() => handlePagination(pageCount)}
-			>
-				{pageCount}
-			</button>
+			{pageCount > 1 && (
+				<button
+					className={`size-8 sm:size-10 sm:text-lg rounded-full ${
+						pageCount == page
+							? "text-neutral-950 bg-neutral-50 pointer-events-none font-bold"
+							: "text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800"
+					}`}
+					onClick={() => handlePagination(pageCount)}
+				>
+					{pageCount}
+				</button>
+			)}
 			<button
 				className={`group inline-flex items-center justify-center size-8 sm:size-10 sm:text-lg rounded-full text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800 disabled:text-neutral-800 disabled:bg-transparent duration-100`}
 				disabled={page == pageCount}
