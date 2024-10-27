@@ -36,7 +36,7 @@ export default async function Page({
 	searchParams: Promise<{ p: string; nsfw: string; artist: string }>;
 }) {
 	const t = await getTranslations("MINA");
-	const { p = "1", nsfw, artist = "" } = await searchParams;
+	const { p = "1", nsfw, artist = "undefined" } = await searchParams;
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>

@@ -149,7 +149,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 									)}
 								</div>
 								<Select.Portal>
-									<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl bg-gradient-to-b from-neutral-900/75 to-neutral-900/75 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-xl shadow-neutral-950/50 rounded-lg data-[state=open]:animate-select-open">
+									<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl bg-gradient-to-b from-elevate/90 to-elevate/80 border border-white/10 ring-1 ring-black/10 dark:ring-black/50 shadow-lg rounded-lg data-[state=open]:animate-select-open">
 										<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900/50 text-neutral-50 rounded-t-md">
 											<ChevronUp />
 										</Select.ScrollUpButton>
