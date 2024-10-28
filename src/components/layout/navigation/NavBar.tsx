@@ -38,8 +38,12 @@ export default function NavBar() {
 
 	return (
 		<div
-			className={`z-90 fixed top-0 inset-x-0 h-16 pl-6 md:pl-9 pr-2 md:pr-5 flex items-center justify-between duration-300 ${
-				!showNavbarGradient ? "text-neutral-50" : solid ? "text-neutral-50" : "text-neutral-950 dark:text-neutral-50"
+			className={`z-90 fixed top-0 inset-x-0 h-16 pl-6 md:pl-9 pr-2 md:pr-5 flex items-center md:justify-between duration-300 ${
+				!showNavbarGradient
+					? "text-neutral-50"
+					: solid
+					? "text-neutral-50"
+					: "text-neutral-950 dark:text-neutral-50"
 			}`}
 		>
 			{bgFadeIn((styles, item) =>
@@ -49,15 +53,17 @@ export default function NavBar() {
 						// @ts-expect-error
 						className="fixed top-0 inset-x-0 bg-neutral-950/80 h-16 backdrop-blur-xl border-b border-white/10 ring-1 ring-black/10 dark:ring-black/50 shadow-lg"
 					/>
-				) : showNavbarGradient && (
-					<a.div
-						style={styles}
-						// @ts-expect-error
-						className="fixed top-0 inset-x-0 bg-gradient-to-b from-neutral-50/50 dark:from-neutral-950/60 via-70% via-neutral-50/10 dark:via-neutral-950/10 h-16"
-					/>
+				) : (
+					showNavbarGradient && (
+						<a.div
+							style={styles}
+							// @ts-expect-error
+							className="fixed top-0 inset-x-0 bg-gradient-to-b from-neutral-50/50 dark:from-neutral-950/60 via-70% via-neutral-50/10 dark:via-neutral-950/10 h-16"
+						/>
+					)
 				)
 			)}
-			<Link href="/" className="z-80 my-auto">
+			<Link href="/" className="z-80 my-auto grow md:grow-0">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 282 59" className="h-auto w-[150px] mt-1">
 					<path
 						fill="currentColor"
@@ -102,11 +108,11 @@ export default function NavBar() {
 			<div className="hidden z-80 md:flex">
 				<DesktopNavigation />
 			</div>
-			<div className="block z-80 md:hidden">
-				<MobileNavigation />
-			</div>
-			<div className="hidden z-80 md:flex justify-end w-[150px]">
+			<div className="z-80 flex justify-end md:w-[150px]">
 				<Settings />
+			</div>
+			<div className="block z-90 md:hidden ml-1">
+				<MobileNavigation />
 			</div>
 		</div>
 	);

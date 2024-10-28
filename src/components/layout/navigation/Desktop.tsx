@@ -199,7 +199,7 @@ export default function DesktopNavigation() {
 									</NavigationMenu.Link>
 								</li>
 							</ul>
-							<Copyright className="pl-3 pt-1 items-center" />
+							<Copyright className="pl-3 pt-1 items-center justify-between" />
 						</NavigationMenu.Content>
 					</NavigationMenu.Item>
 					<NavigationMenu.Indicator className="flex items-end justify-center h-2 top-11 -z-10 duration-250 ease-out data-[state='visible']:animate-fade-in data-[state='hidden']:animate-fade-out">

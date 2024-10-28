@@ -11,7 +11,7 @@ import YouTube from "src/icons/YouTube";
 export default function Copyright(props: { className?: string }) {
 	const t = useTranslations("NAVIGATION");
 	return (
-		<div className={`flex flex-row ${props.className}`}>
+		<div className={`flex ${props.className}`}>
 			<div className="text-neutral text-sm">
 				<p className="leading-4">
 					{t("madeWith")}
@@ -26,7 +26,7 @@ export default function Copyright(props: { className?: string }) {
 					</Link>
 				</p>
 			</div>
-			<div className="flex text-neutral-50 md:text-xl ml-auto">
+			<div className="flex text-neutral-50 md:text-xl">
 				<Link
 					href="https://bsky.app/profile/pprmint.de"
 					target="_blank"
