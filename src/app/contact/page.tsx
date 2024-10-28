@@ -75,7 +75,7 @@ export default async function Page() {
 					<Image
 						src={Letter}
 						alt=""
-						className="absolute -z-10 w-1/2 md:w-1/3 h-auto bottom-0 md:top-1/2 md:-translate-y-1/2 right-0 xl:right-12 2xl:right-40 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
+						className="invert dark:invert-0 absolute -z-10 w-1/2 md:w-1/3 h-auto bottom-0 md:top-1/2 md:-translate-y-1/2 right-0 xl:right-12 2xl:right-40 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
 					/>
 				</section>
 				<section className="group relative w-full overflow-clip border-b border-b-neutral-900">
@@ -102,7 +102,7 @@ export default async function Page() {
 					<Image
 						src={Bubbles}
 						alt=""
-						className="absolute -z-10 w-1/2 md:w-1/4 h-auto bottom-0 md:top-1/2 md:-translate-y-1/2 right-0 xl:right-16 2xl:right-48 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
+						className="invert dark:invert-0 absolute -z-10 w-1/2 md:w-1/4 h-auto bottom-0 md:top-1/2 md:-translate-y-1/2 right-0 xl:right-16 2xl:right-48 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
 					/>
 				</section>
 			</main>

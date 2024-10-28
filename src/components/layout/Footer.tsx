@@ -84,14 +84,14 @@ function Footer() {
 	});
 
 	return (
-		<footer className="relative mt-24  select-none">
+		<footer className="relative mt-24 select-none">
 			<div className="w-full flex items-center px-6 gap-6">
-				<div className="w-full h-0.5 bg-gradient-to-l from-neutral-900" />
-				<Image src={FooterCursor} alt="" />
-				<Image src={FooterCube} alt="" />
-				<Image src={FooterBrackets} alt="" />
+				<div className="w-full h-0.5 bg-gradient-to-l from-neutral-800 dark:from-neutral-900" />
+				<Image src={FooterCursor} alt="" className="invert dark:invert-0" />
+				<Image src={FooterCube} alt="" className="invert dark:invert-0" />
+				<Image src={FooterBrackets} alt="" className="invert dark:invert-0" />
 				<Image src={FooterLeaf} alt="" />
-				<div className="w-full h-0.5 bg-gradient-to-r from-neutral-900" />
+				<div className="w-full h-0.5 bg-gradient-to-r from-neutral-800 dark:from-neutral-900" />
 			</div>
 			{textFadeIn((style, item) =>
 				item ? (
