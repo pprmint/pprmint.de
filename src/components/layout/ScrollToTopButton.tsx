@@ -53,7 +53,7 @@ export default function ScrollToTopButton() {
 			<a.button
 				style={styles}
 				onClick={handleScroll}
-				className="group fixed bottom-6 right-6 z-50 size-12 flex items-center justify-center text-neutral-50 bg-neutral-950/75 hover:bg-neutral-900/75 active:bg-neutral-800/75 border border-neutral-50/10 rounded-full backdrop-blur-xl shadow-xl duration-100"
+				className="group fixed bottom-6 right-6 z-50 size-12 flex items-center justify-center text-neutral-50 bg-neutral-950/75 hover:bg-elevate/75 active:bg-neutral-800/75 ring-1 ring-black/10 dark:ring-black/50 border border-white/10 rounded-full backdrop-blur-xl shadow-lg active:shadow-none duration-100"
 			>
 				<ChevronUp width={20} height={20} />
 			</a.button>
