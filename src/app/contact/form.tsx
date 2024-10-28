@@ -206,7 +206,7 @@ export default function Form() {
 				style={styles}
 				className="min-h-[396px] md:min-h-[378px] flex flex-col gap-3 items-center justify-center text-center"
 			>
-				<h1 className="font-display font-medium inline-flex gap-3 items-center">
+				<h1 className="font-display inline-flex gap-3 items-center">
 					<span>
 						{t("sent")}
 						<span className="text-green">.</span>{" "}

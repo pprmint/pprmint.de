@@ -92,7 +92,7 @@ export default function MobileNavigation() {
 							{/* @ts-expect-error */}
 							<a.div className="px-3 w-full h-full pb-3 pt-16 overflow-auto z-80" style={styles}>
 								<div className="my-9">
-									<p className="pl-3 font-display text-neutral-50 font-semibold text-2xl">{t("Path.General.title")}</p>
+									<p className="pl-3 font-display text-neutral-50 text-2xl">{t("Path.General.title")}</p>
 									<ul>
 										{Pages.map((Page) => (
 											<Link className="group" key={Page.link} href={Page.link} onClick={handleClose}>
@@ -111,7 +111,7 @@ export default function MobileNavigation() {
 									</ul>
 								</div>
 								<div className="my-9">
-									<p className="pl-3 font-display text-neutral-50 font-semibold text-2xl">{t("Path.Work.title")}</p>
+									<p className="pl-3 font-display text-neutral-50 text-2xl">{t("Path.Work.title")}</p>
 									<ul>
 										<Link className="group" href="/graphics" onClick={handleClose}>
 											<li
@@ -177,7 +177,7 @@ export default function MobileNavigation() {
 									</ul>
 								</div>
 								<div className="my-9">
-									<p className="pl-3 font-display text-neutral-50 font-semibold text-2xl">{t("Path.Other.title")}</p>
+									<p className="pl-3 font-display text-neutral-50 text-2xl">{t("Path.Other.title")}</p>
 									<ul>
 										<Link className="group" href="/privacy" onClick={handleClose}>
 											<li

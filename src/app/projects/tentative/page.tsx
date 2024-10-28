@@ -225,15 +225,15 @@ export default function Page() {
 					<div className="grid grid-cols-2 md:grid-cols-3 w-full items-center justify-between gap-12 my-9">
 						<div>
 							<FadingImage src={IconWxz} alt="" className="size-full md:size-64" />
-							<p className="text-center mt-6 text-neutral-50 text-xl font-display font-medium">wxsonz</p>
+							<p className="text-center mt-6 text-neutral-50 text-xl font-display">wxsonz</p>
 						</div>
 						<div>
 							<FadingImage src={IconAutsellia} alt="" className="size-full md:size-64" />
-							<p className="text-center mt-6 text-neutral-50 text-xl font-display font-medium">Autsellia</p>
+							<p className="text-center mt-6 text-neutral-50 text-xl font-display">Autsellia</p>
 						</div>
 						<div>
 							<FadingImage src={IconPprmint} alt="" className="size-full md:size-64" />
-							<p className="text-center mt-6 text-neutral-50 text-xl font-display font-medium">Good today.</p>
+							<p className="text-center mt-6 text-neutral-50 text-xl font-display">Good today.</p>
 						</div>
 					</div>
 					<p>
