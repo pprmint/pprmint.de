@@ -1,5 +1,5 @@
 /** @type {import("next").NextConfig} */
-const createNextIntlPlugin = require("next-intl/plugin");
+const createNextIntlPlugin = require('next-intl/plugin');
 const withNextIntl = createNextIntlPlugin();
 
 const securityHeaders = [
@@ -37,6 +37,16 @@ module.exports = withNextIntl({
 	},
 	async redirects() {
 		return [
+			{
+				source: "/en/:slug*",
+				destination: "/:slug*",
+				permanent: true,
+			},
+			{
+				source: "/de/:slug*",
+				destination: "/:slug*",
+				permanent: true,
+			},
 			{
 				source: "/works",
 				destination: "/graphics",

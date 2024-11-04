@@ -1,16 +1,17 @@
 import { useTranslations } from "next-intl";
+import Link from "next/link";
+import Bluesky from "src/icons/Bluesky";
 import GitHub from "src/icons/GitHub";
 import Heart from "src/icons/Heart";
 import HotCup from "src/icons/HotCup";
 import Kofi from "src/icons/Kofi";
 import Twitter from "src/icons/Twitter";
 import YouTube from "src/icons/YouTube";
-import { Link } from "src/navigation";
 
 export default function Copyright(props: { className?: string }) {
 	const t = useTranslations("NAVIGATION");
 	return (
-		<div className={`flex flex-row ${props.className}`}>
+		<div className={`flex ${props.className}`}>
 			<div className="text-neutral text-sm">
 				<p className="leading-4">
 					{t("madeWith")}
@@ -25,7 +26,15 @@ export default function Copyright(props: { className?: string }) {
 					</Link>
 				</p>
 			</div>
-			<div className="flex text-neutral-50 md:text-xl ml-auto">
+			<div className="flex text-neutral-50 md:text-xl">
+				<Link
+					href="https://bsky.app/profile/pprmint.de"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="size-9 flex items-center justify-center rounded-full hover:bg-neutral-50/10 duration-100 active:duration-75 active:opacity-75 active:scale-95"
+				>
+					<Bluesky />
+				</Link>
 				<Link
 					href="https://twitter.com/npprmint"
 					target="_blank"

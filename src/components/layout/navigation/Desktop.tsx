@@ -1,13 +1,14 @@
 "use client";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { Link, usePathname } from "src/navigation";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { Pages, Projects } from "./Links";
 import Copyright from "./Socials";
 import ChevronDown from "src/icons/ChevronDown";
+import { usePathname } from "next/navigation";
 
 const Caret = (
-	<ChevronDown className="group-data-[state='open']/root:translate-y-0.5 duration-250 ease-out ml-auto" aria-hidden />
+	<ChevronDown className="group-data-[state='open']/root:translate-y-0.5 duration-100 ease-out ml-auto" aria-hidden />
 );
 
 export default function DesktopNavigation() {
@@ -15,12 +16,9 @@ export default function DesktopNavigation() {
 	const pathname = usePathname();
 	// Styles
 	const NavMenuTrigger =
-		"group/root flex items-center gap-3 h-16 px-4 text-neutral-50/80 hover:text-neutral-50 data-[state='open']:text-neutral-50 duration-250 rounded-lg";
+		"group/root flex items-center gap-3 h-16 px-4 opacity-80 data-[state='open']:opacity-100 duration-100 rounded-lg";
 	const NavMenuContent =
 		"absolute top-0 left-0 p-3 w-[600px] duration-250 data-[motion='from-start']:animate-enter-from-l data-[motion='from-end']:animate-enter-from-r data-[motion='to-start']:animate-exit-to-l data-[motion='to-end']:animate-exit-to-r";
-	const NavMenuViewport =
-		"relative top-1 origin-top-left w-[--radix-navigation-menu-viewport-width] overflow-hidden bg-neutral-900 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 text-neutral rounded-xl shadow-[0_6px_22px_#11111166] h-[--radix-navigation-menu-viewport-height] duration-250 ease-out data-[state='open']:animate-enter-from-t data-[state='closed']:animate-exit-to-t";
-
 	return (
 		<>
 			<NavigationMenu.Root className="relative flex justify-center items-center" delayDuration={0}>
@@ -183,7 +181,7 @@ export default function DesktopNavigation() {
 								<li className="col-span-2">
 									<NavigationMenu.Link
 										asChild
-										className="group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/10 active:scale-[0.98] active:opacity-75 duration-250 ease-out active:duration-75"
+										className="group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75"
 									>
 										<Link href="https://pprmint.de/redirect">
 											<span className="text-neutral-50 font-display text-xl pb-0.5">
@@ -194,18 +192,15 @@ export default function DesktopNavigation() {
 									</NavigationMenu.Link>
 								</li>
 							</ul>
-							<Copyright className="pl-3 pt-1 items-center" />
+							<Copyright className="pl-3 pt-1 items-center justify-between" />
 						</NavigationMenu.Content>
 					</NavigationMenu.Item>
 					<NavigationMenu.Indicator className="flex items-end justify-center h-2 top-11 -z-10 duration-250 ease-out data-[state='visible']:animate-fade-in data-[state='hidden']:animate-fade-out">
-						<div className="relative bg-neutral-900 w-full h-10 rounded-lg duration-250" />
+						<div className="relative bg-neutral/20 w-full h-10 rounded-lg duration-250" />
 					</NavigationMenu.Indicator>
 				</NavigationMenu.List>
-				<div
-					className="absolute flex justify-center top-[58px] left-1/2 -translate-x-1/2"
-					style={{ perspective: 2000 }}
-				>
-					<NavigationMenu.Viewport className={NavMenuViewport} />
+				<div className="absolute flex justify-center top-[59px] left-1/2 -translate-x-1/2" style={{ perspective: 2000 }}>
+					<NavigationMenu.Viewport className="relative top-1 origin-top-left w-[--radix-navigation-menu-viewport-width] overflow-hidden bg-elevate ring-1 ring-black/10 dark:ring-black/50 outline outline-1 outline-white/10 -outline-offset-1 text-neutral rounded-xl shadow-xl h-[--radix-navigation-menu-viewport-height] duration-250 ease-out data-[state='open']:animate-enter-from-t data-[state='closed']:animate-exit-to-t" />
 				</div>
 			</NavigationMenu.Root>
 		</>

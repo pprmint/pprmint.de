@@ -74,6 +74,7 @@ export default function Carousel({ images, className }: { images: StaticImageDat
 				))}
 			</div>
 			{imageTransition((styles, image) => (
+				// @ts-expect-error
 				<a.div
 					key={image}
 					style={styles}

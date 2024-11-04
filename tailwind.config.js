@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+const { createThemes } = require("tw-colors");
 module.exports = {
+	darkMode: "class",
 	content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
 	safelist: ["object-top", "object-center", "object-bottom", "object-left", "object-right"],
 	theme: {
@@ -131,20 +133,6 @@ module.exports = {
 					900: "#62154e",
 					950: "#3c002c",
 				},
-				neutral: {
-					DEFAULT: "#aaa",
-					50: "#eee",
-					100: "#ddd",
-					200: "#ccc",
-					300: "#bbb",
-					400: "#999",
-					500: "#777",
-					600: "#555",
-					700: "#444",
-					800: "#333",
-					900: "#222",
-					950: "#111",
-				},
 			},
 			fontFamily: {
 				sans: [
@@ -251,6 +239,10 @@ module.exports = {
 				scaleDown: {
 					from: { scale: "100%", opacity: 1 },
 					to: { scale: "95%", opacity: 0 },
+				},
+				titleFadeIn: {
+					from: { opacity: 0 },
+					to: { opacity: 1 },
 				},
 				fadeIn: {
 					from: { opacity: 0 },
@@ -384,6 +376,28 @@ module.exports = {
 					"50%": { transform: "translateY(-10px) rotate(-1deg)" },
 					"100%": { transform: "translateY(10px) rotate(3deg)" },
 				},
+				dialogEnter: {
+					from: {
+						transform: "translateY(calc(-50% + 30px)) translateX(-50%) scale(0.98)",
+						boxShadow: "0 0px 10px -12px rgb(0 0 0 / 0.25)",
+						opacity: 0,
+					},
+					to: {
+						transform: "translateY(-50%) translateX(-50%) scale(1)",
+						boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+						opacity: 1,
+					},
+				},
+				dialogExit: {
+					from: {
+						transform: "translateY(-50%) translateX(-50%)",
+						opacity: 1,
+					},
+					to: {
+						transform: "translateY(calc(-50% + 10px)) translateX(-50%)",
+						opacity: 0,
+					},
+				},
 			},
 			animation: {
 				"slow-spin": "spin 3s linear infinite;",
@@ -406,8 +420,8 @@ module.exports = {
 				"scale-up": "scaleUp .2s cubic-bezier(0, 0, 0.2, 1)",
 				"scale-down": "scaleDown .2s cubic-bezier(0, 0, 0.2, 1)",
 				"fade-in": "fadeIn .25s cubic-bezier(0, 0, 0.2, 1)",
-				"title-fade-in": "fadeIn .3s cubic-bezier(0.45, 0, 0.55, 1)",
-				"fade-out": "fadeOut .25s cubic-bezier(0, 0, 0.2, 1)",
+				"title-fade-in": "titleFadeIn .5s cubic-bezier(0.2, 0, 0.2, 1)",
+				"fade-out": "fadeOut .3s cubic-bezier(0, 0, 0.2, 1)",
 				"fade-out-scale-down": "fadeOutScaleDown .2s cubic-bezier(0, 0, 0.2, 1)",
 				"arrow-fade-down": "arrowFadeDown 1.5s cubic-bezier(0.2, 0.2, .2, 1) 2s infinite",
 				"tooltip-enter-top": "tooltipEnterTop .2s cubic-bezier(0.33, 1, 0.68, 1) forwards",
@@ -424,6 +438,8 @@ module.exports = {
 				float: "float 4s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite",
 				"float-rotate-l": "floatRotateL 6s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite",
 				"float-rotate-r": "floatRotateR 6s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite",
+				"dialog-enter": "dialogEnter .5s cubic-bezier(0.16, 1, 0.3, 1) .1s normal backwards",
+				"dialog-exit": "dialogExit .15s ease-in",
 			},
 			transitionDuration: {
 				25: "25ms",
@@ -613,5 +629,43 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require("@tailwindcss/typography")],
+	plugins: [
+		require("@tailwindcss/typography"),
+		createThemes({
+			light: {
+				elevate: "#fff",
+				neutral: {
+					DEFAULT: "#777",
+					50: "#111",
+					100: "#222",
+					200: "#333",
+					300: "#444",
+					400: "#555",
+					500: "#aaa",
+					600: "#bbb",
+					700: "#ccc",
+					800: "#ddd",
+					900: "#eee",
+					950: "#fafafa",
+				},
+			},
+			dark: {
+				elevate: "#222",
+				neutral: {
+					DEFAULT: "#aaa",
+					50: "#eee",
+					100: "#ddd",
+					200: "#ccc",
+					300: "#bbb",
+					400: "#999",
+					500: "#777",
+					600: "#555",
+					700: "#444",
+					800: "#333",
+					900: "#222",
+					950: "#111",
+				},
+			},
+		}),
+	],
 };

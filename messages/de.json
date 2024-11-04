@@ -364,7 +364,7 @@
 	},
 	"HOME": {
 		"Head": {
-			"description": "Pixelschubser und Tastenhauer.",
+			"description": "Ich bin Pixelschubser und Tastenhauer.",
 			"title": "Heya"
 		},
 		"Content": {
@@ -822,6 +822,21 @@
 			"once": "Einmal weiterleiten",
 			"always": "Immer weiterleiten",
 			"never": "Nicht weiterleiten"
+		}
+	},
+	"SETTINGS": {
+		"title": "Einstellungen",
+		"description": "Ändere die Sprache und das Design, welches verwendet werden soll.",
+		"Language": {
+			"title": "Sprache",
+			"en": "English",
+			"de": "Deutsch"
+		},
+		"Theme": {
+			"title": "Design",
+			"dark": "Dunkel",
+			"light": "Hell",
+			"lightInfo": "Das helle Design dient der Barrierefreiheit. Verwende es, wenn du Schwierigkeiten hast, hellen Text auf dunklem Hintergrund zu lesen."
 		}
 	},
 	"TENTATIVE": {

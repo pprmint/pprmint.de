@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useTransition, a, easings } from "@react-spring/web";
 import * as Portal from "@radix-ui/react-portal";
-import { Link, locales, usePathname } from "src/navigation";
 import Copyright from "./Socials";
 
 import { Pages, Projects } from "./Links";
 import ChevronRight from "src/icons/ChevronRight";
+import { usePathname } from "next/navigation";
+import { locales } from "src/i18n/config";
+import Link from "next/link";
 
 export default function MobileNavigation() {
 	const t = useTranslations("NAVIGATION");
@@ -54,10 +56,7 @@ export default function MobileNavigation() {
 		};
 	}, []);
 
-	// Language switch
 	const pathname = usePathname();
-	const locale = useLocale();
-	const otherLocale = locales?.find((cur) => cur !== locale);
 
 	return (
 		<>
@@ -72,23 +71,15 @@ export default function MobileNavigation() {
 					className="absolute left-0 top-0 stroke-neutral-50 stroke-1 fill-none"
 					strokeLinecap="butt"
 				>
-					<path
-						d={navOpen ? "M12.5,12.5 19.5,19.5 26.5,12.5" : "M12,12.5 19.5,12.5 27,12.5"}
-						className="duration-400 ease-out-quint"
-					/>
-					<path
-						d={navOpen ? "M19.5,19.5 19.5,19.5" : "M12,19.5 27,19.5"}
-						className="duration-400 ease-out-quint"
-					/>
-					<path
-						d={navOpen ? "M12.5,26.5 19.5,19.5 26.5,26.5" : "M12,26.5 19.5,26.5 27,26.5"}
-						className="duration-400 ease-out-quint"
-					/>
+					<path d={navOpen ? "M14,14 19.5,19.5 25,14" : "M12,14.5 19.5,14.5 27,14.5"} className="duration-400 ease-out-quint" />
+					<path d={navOpen ? "M19.5,19.5 19.5,19.5" : "M12,19.5 27,19.5"} className="duration-400 ease-out-quint" />
+					<path d={navOpen ? "M14,25 19.5,19.5 25,25" : "M12,24.5 19.5,24.5 27,24.5"} className="duration-400 ease-out-quint" />
 				</svg>
 			</button>
 			{transitions((styles, item) =>
 				item ? (
 					<Portal.Root>
+						{/* @ts-expect-error */}
 						<a.div
 							className="fixed inset-0 bg-neutral-950 z-80"
 							style={{
@@ -96,9 +87,10 @@ export default function MobileNavigation() {
 							}}
 						>
 							{/* Main container */}
-							<a.div className="px-3 w-full h-full pb-6 pt-12 overflow-auto z-80" style={styles}>
+							{/* @ts-expect-error */}
+							<a.div className="px-3 w-full h-full pb-3 pt-12 overflow-auto z-80" style={styles}>
 								<div className="my-9">
-									<p className="pl-3 font-display text-neutral-50 font-semibold text-2xl">{t("Path.General.title")}</p>
+									<p className="pl-3 font-display text-neutral-50 text-2xl">{t("Path.General.title")}</p>
 									<ul>
 										{Pages.map((Page) => (
 											<Link className="group" key={Page.link} href={Page.link} onClick={handleClose}>
@@ -117,7 +109,7 @@ export default function MobileNavigation() {
 									</ul>
 								</div>
 								<div className="my-9">
-									<p className="pl-3 font-display text-neutral-50 font-semibold text-2xl">{t("Path.Work.title")}</p>
+									<p className="pl-3 font-display text-neutral-50 text-2xl">{t("Path.Work.title")}</p>
 									<ul>
 										<Link className="group" href="/graphics" onClick={handleClose}>
 											<li
@@ -166,24 +158,24 @@ export default function MobileNavigation() {
 												</li>
 											</Link>
 										))}
-											<Link className="group" href="/projects" onClick={handleClose}>
-												<li
-													className={`flex items-center ${
-														"/projects" === pathname
-															? "text-neutral-50"
-															: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
-													} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
-												>
-													{"/projects" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
-													<div className="flex flex-col">
-														<span>{t("Path.Work.Projects.More.title")}</span>
-													</div>
-												</li>
-											</Link>
+										<Link className="group" href="/projects" onClick={handleClose}>
+											<li
+												className={`flex items-center ${
+													"/projects" === pathname
+														? "text-neutral-50"
+														: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
+												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
+											>
+												{"/projects" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
+												<div className="flex flex-col">
+													<span>{t("Path.Work.Projects.More.title")}</span>
+												</div>
+											</li>
+										</Link>
 									</ul>
 								</div>
 								<div className="my-9">
-									<p className="pl-3 font-display text-neutral-50 font-semibold text-2xl">{t("Path.Other.title")}</p>
+									<p className="pl-3 font-display text-neutral-50 text-2xl">{t("Path.Other.title")}</p>
 									<ul>
 										<Link className="group" href="/privacy" onClick={handleClose}>
 											<li
@@ -223,25 +215,9 @@ export default function MobileNavigation() {
 												</div>
 											</li>
 										</Link>
-										<Link className="group" href={pathname} locale={otherLocale} scroll={false} onClick={handleClose}>
-											<li className="flex items-center hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75 px-3 py-1.5 w-full duration-100 rounded-[17px]">
-												<div className="flex flex-col">
-													<span>{t("Path.Other.SwitchLocale.title")}</span>
-													<span className="text-xs opacity-50">{t("Path.Other.SwitchLocale.description")}</span>
-												</div>
-											</li>
-										</Link>
-										<Link className="group" href="https://pprmint.de/redirect" locale={otherLocale} scroll={false} onClick={handleClose}>
-											<li className="flex items-center hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75 px-3 py-1.5 w-full duration-100 rounded-[17px]">
-												<div className="flex flex-col">
-													<span>{t("Path.Other.Potato.title")}</span>
-													<span className="text-xs opacity-50">{t("Path.Other.Potato.description")}</span>
-												</div>
-											</li>
-										</Link>
 									</ul>
 								</div>
-								<Copyright className="pl-3 items-center" />
+								<Copyright className="mb-3 items-center justify-center flex-col gap-1" />
 							</a.div>
 						</a.div>
 					</Portal.Root>

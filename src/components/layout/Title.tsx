@@ -1,16 +1,23 @@
 "use client";
-import * as React from "react";
+import { PropsWithChildren, ReactNode, useEffect } from "react";
+import { useNavbar } from "./navigation/NavBarContext";
 
 export default function Title(
-	props: React.PropsWithChildren<{
+	props: PropsWithChildren<{
 		title: string;
-		description: string | React.ReactNode;
+		description: string | ReactNode;
 		accentColor?: string;
 		noDelay?: boolean;
 	}>
 ) {
 	const { accentColor = "text-green" } = props;
 	const Title = props.title.split("");
+
+	const { setShowNavbarGradient } = useNavbar();
+	useEffect(() => {
+		setShowNavbarGradient(!!props.children);
+		return () => setShowNavbarGradient(false);
+	}, [props.children, setShowNavbarGradient]);
 	return (
 		<div
 			className={`relative w-screen ${
@@ -31,7 +38,7 @@ export default function Title(
 								key={index}
 								className="animate-title-fade-in"
 								style={{
-									animationDelay: `${index / 50 + (props.noDelay ? 0 : 0.25)}s`,
+									animationDelay: `${index / 50 + 0.25}s`,
 									animationFillMode: "backwards",
 								}}
 							>
@@ -41,7 +48,7 @@ export default function Title(
 						<span
 							className={`animate-title-fade-in ${accentColor}`}
 							style={{
-								animationDelay: `${Title.length * 0.02 + (props.noDelay ? 0.02 : 0.27)}s`,
+								animationDelay: `${Title.length * 0.02 + 0.27}s`,
 								animationFillMode: "backwards",
 							}}
 						>

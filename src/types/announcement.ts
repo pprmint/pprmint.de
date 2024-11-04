@@ -13,7 +13,7 @@ export default interface Announcement {
 	media: {
 		id: number;
 		name: string;
-		alternativeText: string;
+		alternativeText: string | "";
 		caption: string;
 		width: number;
 		height: number;
