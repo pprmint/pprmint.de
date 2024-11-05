@@ -63,7 +63,7 @@ export default function NotFound() {
 			<a.div className="absolute inset-0" style={{ ...fadeIn }}>
 				{/* @ts-expect-error */}
 				<a.div
-					className={`absolute top-1/2 -translate-y-1/2 ${
+					className={`absolute top-1/2 translate-y-[-47%] ${
 						countFinished ? "text-neutral-800" : "text-green dark:text-green-800"
 					} font-digits blur-sm lg:blur-lg w-full text-center -skew-y-6 duration-500`}
 					style={{ fontSize: "50vw" }}
