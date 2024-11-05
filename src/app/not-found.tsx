@@ -75,9 +75,9 @@ export default function NotFound() {
 					<a.div style={{ ...ripple }} className="bg-green dark:bg-green-800 aspect-square h-screen md:h-auto md:w-screen rounded-full" />
 				</div>
 				<div
-					className="absolute w-full h-full top-0 left-0 dark:invert-[0.95]"
+					className="absolute w-full h-full top-0 left-0 light:invert light:brightness-[0.33]"
 					style={{
-						backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24" height="24" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23fafafa"/></svg>')`,
+						backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24" height="24" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23111111"/></svg>')`,
 						backgroundRepeat: "repeat",
 					}}
 				/>

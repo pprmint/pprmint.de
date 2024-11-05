@@ -34,9 +34,9 @@ export default async function Page() {
 							className="absolute w-full max-w-7xl left-1/2 -translate-x-1/2 top-24 blur-3xl rounded-xl contrast-75 opacity-50"
 						/>
 						<div
-							className="absolute left-0 right-0 h-[1000px] w-screen dark:invert-[0.95]"
+							className="absolute left-0 right-0 h-[1000px] w-screen light:invert light:brightness-[0.33]"
 							style={{
-								backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23fafafa"/></svg>')`,
+								backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23111111"/></svg>')`,
 								backgroundRepeat: "repeat",
 								backgroundPosition: "center",
 							}}
@@ -49,7 +49,7 @@ export default async function Page() {
 						quality={90}
 						width={Announcements.data[0].media.width}
 						height={Announcements.data[0].media.height}
-						className="w-full max-w-7xl mx-auto xl:rounded-xl shadow-[0px_0px_5px_10px_#fafafa] dark:shadow-[0px_0px_5px_10px_#111] xl:border border-neutral-900"
+						className="w-full max-w-7xl mx-auto xl:rounded-xl shadow-[0px_0px_5px_10px_#111] light:shadow-[0px_0px_5px_10px_#fafafa] xl:border border-neutral-900"
 					/>
 					<div className="flex max-w-7xl px-6 md:px-9 2xl:px-0 mx-auto my-12 flex-col md:flex-row items-end md:items-center gap-6 md:gap-9">
 						<div className="w-full">
@@ -158,17 +158,17 @@ export default async function Page() {
 								className="object-cover blur-xl"
 							/>
 							<div
-								className="absolute inset-0 dark:invert-[0.95]"
+								className="absolute inset-0 light:invert light:brightness-[0.33]"
 								style={{
-									backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23fafafa"/></svg>')`,
+									backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23111111"/></svg>')`,
 									backgroundRepeat: "repeat",
 									backgroundPosition: "center",
 								}}
 							/>
 							<div
-								className="absolute inset-0 dark:invert-[0.95]"
+								className="absolute inset-0 light:invert light:brightness-[0.33]"
 								style={{
-									background: `radial-gradient(at right center, #fafafaaa 0%, #fafafa 75%)`,
+									background: `radial-gradient(at right center, #111111aa 0%, #111111 75%)`,
 								}}
 							/>
 						</div>
