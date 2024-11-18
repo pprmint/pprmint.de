@@ -533,6 +533,9 @@
 		"Head": {
 			"description": "A better sans-serif font. In the works.",
 			"title": "Mina Sans"
+		},
+		"Content": {
+			"deal": "Fancy a deal?"
 		}
 	},
 	"MINTBIT": {

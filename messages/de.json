@@ -586,6 +586,9 @@
 		"Head": {
 			"description": "Eine bessere serifenlose Schriftart. In Arbeit.",
 			"title": "Mina Sans"
+		},
+		"Content": {
+			"deal": "Lust auf ein Geschäft?"
 		}
 	},
 	"MINTSANS": {
