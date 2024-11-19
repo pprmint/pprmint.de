@@ -122,6 +122,7 @@ export default function BrowserWindow() {
 				<div className="flex bg-neutral-950 light:bg-neutral-900">
 					{Tabs.map((item, index) => (
 						<button
+							key={index}
 							className={`py-1.5 flex items-center justify-center grow gap-2 ${index === tab && "bg-elevate"}`}
 							onClick={() => setTab(index)}
 						>
