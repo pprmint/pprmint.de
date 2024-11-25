@@ -31,7 +31,7 @@ export default function HomeTitle() {
 	return (
 		<section className="relative w-screen h-screen overflow-clip">
 			<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full px-9">
-				<h1 className="relative font-display text-neutral-50 text-4xl md:text-5xl lg:text-6xl xl:text-8xl pb-1 md:pb-3">
+				<h1 className="relative font-display font-bold text-neutral-50 text-4xl md:text-5xl lg:text-6xl xl:text-8xl pb-1 md:pb-3">
 					{t("Head.title")
 						.split("")
 						.map((character, index) => (
@@ -59,7 +59,7 @@ export default function HomeTitle() {
 					</span>
 				</h1>
 				<p
-					className="animate-title-fade-in text-neutral text-xl md:text-2xl xl:text-3xl"
+					className="animate-fade-in text-neutral text-xl md:text-2xl xl:text-3xl"
 					style={{ animationDelay: "0.5s", animationFillMode: "backwards", animationDuration: "1s" }}
 				>
 					{t("Head.description")}

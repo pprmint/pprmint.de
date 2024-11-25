@@ -31,7 +31,7 @@ export default function ThreeThingies() {
 				className="z-20 group relative flex p-6 md:p-9 xl:px-16 size-full lg:items-center bg-neutral-950/90 hover:bg-neutral-950/75 active:bg-neutral-950/85 focus-visible:bg-neutral-950/75 duration-300 active:duration-75"
 			>
 				<div className="md:translate-y-4 lg:group-hover:translate-y-0 lg:group-focus-visible:translate-y-0 duration-500 ease-out-quint">
-					<h1>
+					<h1 className="text-5xl lg:text-8xl lg:group-hover:text-7xl font-thin group-hover:font-bold duration-500 ease-out-quint">
 						{t("Content.TheThreeThingies.Graphics.heading")}
 						<span className="text-green">.</span>
 					</h1>
@@ -48,7 +48,7 @@ export default function ThreeThingies() {
 				className="z-20 group relative flex p-6 md:p-9 xl:px-16 size-full lg:items-center bg-neutral-950/90 hover:bg-neutral-950/75 active:bg-neutral-950/85 focus-visible:bg-neutral-950/75 duration-300 active:duration-75"
 			>
 				<div className="md:translate-y-4 lg:group-hover:translate-y-0 lg:group-focus-visible:translate-y-0 duration-500 ease-out-quint">
-					<h1>
+					<h1 className="text-6xl lg:text-8xl group-hover:text-5xl lg:group-hover:text-7xl font-thin group-hover:font-bold duration-500 ease-out-quint">
 						{t("Content.TheThreeThingies.Photos.heading")}
 						<span className="text-red">.</span>
 					</h1>
@@ -65,7 +65,7 @@ export default function ThreeThingies() {
 				className="z-20 group relative flex p-6 md:p-9 xl:px-16 size-full lg:items-center bg-neutral-950/90 hover:bg-neutral-950/75 active:bg-neutral-950/85 focus-visible:bg-neutral-950/75 duration-300 active:duration-75"
 			>
 				<div className="md:translate-y-4 lg:group-hover:translate-y-0 lg:group-focus-visible:translate-y-0 duration-500 ease-out-quint">
-					<h1>
+					<h1 className="text-5xl lg:text-8xl lg:group-hover:text-7xl font-thin group-hover:font-bold duration-500 ease-out-quint">
 						{t("Content.TheThreeThingies.Projects.heading")}
 						<span className="text-blue">.</span>
 					</h1>

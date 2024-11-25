@@ -154,7 +154,7 @@ function Chatbox() {
 							}}
 						/>
 					</div>
-					<div className="z-10 flex whitespace-nowrap items-center gap-3 px-3 hover:px-4 font-display text-3xl text-neutral-50 bg-neutral-950 group-focus-visible:bg-neutral-800 rounded-md rounded-tl-xl rounded-br-xl group-hover:rounded-md duration-500 ease-out-expo">
+					<div className="z-10 flex whitespace-nowrap items-center gap-3 px-3 hover:px-4 font-display hover:font-bold text-3xl text-neutral-50 bg-neutral-950 group-focus-visible:bg-neutral-800 rounded-md rounded-tl-xl rounded-br-xl group-hover:rounded-md duration-500 ease-out-expo">
 						<div className="relative h-14 w-16 overflow-clip">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"

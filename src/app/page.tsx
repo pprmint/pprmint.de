@@ -236,14 +236,15 @@ export default async function Page() {
 						</div>
 					</section>
 				)}
-				<section className="my-48 max-w-7xl px-6 md:px-9 2xl:px-0 mx-auto flex flex-col lg:flex-row gap-3 items-center justify-center lg:justify-between">
+				<section className="my-48 max-w-7xl px-6 md:px-9 2xl:px-0 mx-auto flex flex-col lg:flex-row md:gap-3 items-center justify-center lg:justify-between">
 					<h1 className="font-light">{t("Content.Contact.questions")}</h1>
-					<Link href="/contact">
-						<h1 className="group inline-flex text-nowrap items-center gap-3 hover:gap-6 lg:hover:gap-3 duration-200 ease-out-quint">
+					<Link href="/contact" className="group">
+						<h1 className="group inline-flex text-nowrap items-center gap-3 duration-400 ease-out-expo group-hover:font-bold">
 							{t("Content.Contact.answers")}
-							<span className="text-green mt-3 group-hover:translate-x-0 lg:group-hover:translate-x-3 duration-200 ease-out-quint">
-								-{">"}
-							</span>
+							<div className="relative overflow-clip size-[30px] md:size-[45px] xl:size-[60px] mt-2.5 lg:mt-5">
+								<ArrowRight className="size-[30px] md:size-[45px] xl:size-[60px] stroke-1 stroke-green absolute group-hover:translate-x-full group-hover:duration-400 ease-out-expo" />
+								<ArrowRight className="size-[30px] md:size-[45px] xl:size-[60px] stroke-1 stroke-green absolute -translate-x-full group-hover:translate-x-0 group-hover:duration-400 ease-out-expo" />
+							</div>
 						</h1>
 					</Link>
 				</section>

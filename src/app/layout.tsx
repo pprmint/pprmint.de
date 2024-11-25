@@ -9,6 +9,7 @@ import ScrollToTopButton from "src/components/layout/ScrollToTopButton";
 import WarningTriangle from "src/icons/WarningTriangle";
 
 import "../styles.css";
+import "../fonts/Aspekta/aspekta.css";
 import "../fonts/MinaSans/minasans.css";
 import "../fonts/MinaSansDigits/minasansdigits.css";
 import "../fonts/Silka/silka.css";
