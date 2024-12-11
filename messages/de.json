@@ -876,6 +876,18 @@
 				"text5": "Wenn du mir helfen möchtest, Glyphs zu finanzieren, würde ich mich über jede Ko-fi-Spende sehr freuen. Würdest du gerne Mina Sans vor allen anderen ausprobieren, dann würdest du ab 15€ Zugriff auf Vorabversionen erhalten, sowie ich sie erstelle. Außerdem könntest du das finale Design mit deinem Feedback beeinflussen.",
 				"text6": "Mein herzliches Dankeschön samt Download-Links zu den Schriften würden an die Email-Adresse gelagen, die du auch für die Ko-fi-Spende verwendet hast. Sollte ich mich nach 2 Tagen noch nicht gemeldet haben, <Link>schreib mich an</Link>.",
 				"text7": "Um Erwartungen richtig zu setzen: <b>Schriftarten zu erstellen braucht Zeit und Mühe.</b> Wahrscheinlich werde ich nicht allzu häufig Updates bereitstellen. Es kann auch lange dauern, bis eine Version wirklich produktionsreif ist. Ich habe nicht unendlich freie Zeit und möchte Mina Sans perfektionieren, wie es nur geht. Daher bitte ich um Geduld."
+			},
+			"License": {
+				"heading": "Lizenz",
+				"text": "Du erhältst Desktop- und Web-Lizenzen mit den jeweils folgenden Bedingungen (nur auf Englisch verfügbar):",
+				"Desktop": {
+					"heading": "Desktop-Lizenz",
+					"tldr": "Persönliche und kommerzielle Projekte, kein Teilen oder Weiterverkauf, keine Konvertierung in andere Formate."
+				},
+				"Web": {
+					"heading": "Web-Lizenz",
+					"tldr": "Eine Website, unendliche Page-Views, keine zusätzlichen Websites unter Subdomains oder Unterordnern, keine Konvertierung in andere Formate."
+				}
 			}
 		}
 	},

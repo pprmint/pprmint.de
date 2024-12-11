@@ -1,5 +1,6 @@
 import { Viewport } from "next";
-import { useTranslations } from "next-intl";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { getTranslations } from "next-intl/server";
 import KofiWidget from "./widget";
 import FadingImage from "src/components/ui/FadingImage";
@@ -19,8 +20,9 @@ export const viewport: Viewport = {
 	themeColor: "#aa77ee",
 };
 
-export default function Page() {
-	const t = useTranslations("TRADEOFFER");
+export default async function Page() {
+	const t = await getTranslations("TRADEOFFER");
+	const license: LicenseData = await GetLicenses();
 	return (
 		<>
 			<main>
@@ -119,7 +121,58 @@ export default function Page() {
 					</div>
 					<KofiWidget />
 				</section>
+				<section className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9">
+					<h2>{t("Content.License.heading")}<span className="text-violet">.</span></h2>
+					<p>{t("Content.License.text")}</p>
+					<div className="flex flex-col xl:flex-row gap-9 mt-6">
+						<div className="w-full">
+							<Markdown
+								className="prose-headings:font-bold prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-ul:list-disc prose-ul:list-inside prose-hr:my-3 prose-hr:border-neutral-900"
+								remarkPlugins={[remarkGfm]}
+							>
+								{license.data.desktopLicense}
+							</Markdown>
+						</div>
+						<div className="w-full">
+							<Markdown
+								className="prose-headings:font-bold prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-ul:list-disc prose-ul:list-inside prose-hr:my-3 prose-hr:border-neutral-900"
+								remarkPlugins={[remarkGfm]}
+							>
+								{license.data.webLicense}
+							</Markdown>
+						</div>
+					</div>
+				</section>
 			</main>
 		</>
 	);
+}
+
+interface LicenseData {
+	data: {
+		id: 1;
+		documentId: string;
+		desktopLicense: string;
+		webLicense: string;
+		createdAt: string;
+		updatedAt: string;
+		publishedAt: string;
+		locale: "en";
+		localizations: [];
+	};
+	meta: {};
+}
+
+async function GetLicenses() {
+	const res = await fetch(`${process.env.STRAPI_API_URL}/license?populate=*`, {
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
+		},
+		next: { revalidate: 60 },
+	});
+	if (!res.ok) {
+		console.error("Failed to fetch license data.");
+	}
+	return res.json();
 }

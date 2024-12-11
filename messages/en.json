@@ -870,6 +870,18 @@
 				"text5": "If you'd like to help me afford Glyphs I'd greatly appreaciate any Ko-fi donations. If you feel extra generous and would like to try Mina Sans before anyone else, €15 would give you access to early versions as I create them and net you a chance to influence the final design with your feedback.",
 				"text6": "My heartfelt thanks along with links to download the font will be sent to the email address used for your donation. If you don't hear from me after 2 days, please <Link>contact me</Link>.",
 				"text7": "To set expecations straight: <b>Creating fonts takes a lot of time and effort.</b> I might not release updates very frequently and it might take a long time until there's a production-ready version. I only have so much free time and want to make Mina Sans the best it can be, so I ask for your patience."
+			},
+			"License": {
+				"heading": "License",
+				"text": "You'll receive Desktop and Web licenses with the following respective terms:",
+				"Desktop": {
+					"heading": "Desktop-Lizenz",
+					"tldr": "Persönliche und kommerzielle Projekte, kein Teilen oder Weiterverkauf, keine Konvertierung in andere Formate."
+				},
+				"Web": {
+					"heading": "Web-Lizenz",
+					"tldr": "Eine Website, unendliche Page-Views, keine zusätzlichen Websites unter Subdomains oder Unterordnern, keine Konvertierung in andere Formate."
+				}
 			}
 		}
 	},
