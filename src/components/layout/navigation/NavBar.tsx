@@ -63,7 +63,7 @@ export default function NavBar() {
 					)
 				)
 			)}
-			<Link href="/" className="z-80 my-auto grow md:grow-0">
+			<Link href="/" className="z-80 my-auto grow md:grow-0 animate-nav-enter" style={{ animationDelay: ".15s" }}>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 282 59" className="h-auto w-[150px] mt-1">
 					<path
 						fill="currentColor"
@@ -105,13 +105,13 @@ export default function NavBar() {
 					</defs>
 				</svg>
 			</Link>
-			<div className="hidden z-80 md:flex">
+			<div className="hidden z-80 md:flex" >
 				<DesktopNavigation />
 			</div>
-			<div className="z-80 flex justify-end md:w-[150px]">
+			<div className="z-80 flex justify-end md:w-[150px] animate-nav-enter" style={{ animationDelay: ".45s" }}>
 				<Settings />
 			</div>
-			<div className="block z-90 md:hidden ml-1">
+			<div className="block z-90 md:hidden ml-1 animate-nav-enter" style={{ animationDelay: ".45s" }}>
 				<MobileNavigation />
 			</div>
 		</div>

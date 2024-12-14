@@ -398,6 +398,14 @@ module.exports = {
 						opacity: 0,
 					},
 				},
+				navEnter: {
+					from: {
+						transform: "translateY(-64px)",
+					},
+					to: {
+						transform: "translateY(0px)",
+					},
+				},
 			},
 			animation: {
 				"slow-spin": "spin 3s linear infinite;",
@@ -440,6 +448,7 @@ module.exports = {
 				"float-rotate-r": "floatRotateR 6s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite",
 				"dialog-enter": "dialogEnter .5s cubic-bezier(0.16, 1, 0.3, 1) .1s normal backwards",
 				"dialog-exit": "dialogExit .15s ease-in",
+				"nav-enter": "navEnter 1s cubic-bezier(0.16, 1, 0.3, 1) backwards",
 			},
 			transitionDuration: {
 				25: "25ms",

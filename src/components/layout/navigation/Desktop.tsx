@@ -16,7 +16,7 @@ export default function DesktopNavigation() {
 	const pathname = usePathname();
 	// Styles
 	const NavMenuTrigger =
-		"group/root flex items-center gap-3 h-16 px-4 opacity-80 data-[state='open']:opacity-100 duration-100 rounded-lg";
+		"group/root flex items-center gap-3 h-16 px-4 opacity-80 data-[state='open']:opacity-100 duration-100 rounded-lg animate-nav-enter";
 	const NavMenuContent =
 		"absolute top-0 left-0 p-3 duration-250 data-[motion='from-start']:animate-enter-from-l data-[motion='from-end']:animate-enter-from-r data-[motion='to-start']:animate-exit-to-l data-[motion='to-end']:animate-exit-to-r";
 	return (
@@ -24,7 +24,7 @@ export default function DesktopNavigation() {
 			<NavigationMenu.Root className="relative flex justify-center items-center" delayDuration={0}>
 				<NavigationMenu.List className="flex">
 					<NavigationMenu.Item>
-						<NavigationMenu.Trigger className={NavMenuTrigger}>
+						<NavigationMenu.Trigger className={NavMenuTrigger} style={{ animationDelay: ".25s" }}>
 							<span className="inline-flex items-center gap-3">
 								{t("Path.General.title")}
 								{Caret}
@@ -56,7 +56,7 @@ export default function DesktopNavigation() {
 						</NavigationMenu.Content>
 					</NavigationMenu.Item>
 					<NavigationMenu.Item>
-						<NavigationMenu.Trigger className={NavMenuTrigger}>
+						<NavigationMenu.Trigger className={NavMenuTrigger} style={{ animationDelay: ".3s" }}>
 							<span className="inline-flex items-center gap-3">
 								{t("Path.Work.title")}
 								{Caret}
@@ -136,7 +136,7 @@ export default function DesktopNavigation() {
 						</NavigationMenu.Content>
 					</NavigationMenu.Item>
 					<NavigationMenu.Item>
-						<NavigationMenu.Trigger className={NavMenuTrigger}>
+						<NavigationMenu.Trigger className={NavMenuTrigger} style={{ animationDelay: ".35s" }}>
 							<span className="inline-flex items-center gap-3">
 								{t("Path.Other.title")}
 								{Caret}
