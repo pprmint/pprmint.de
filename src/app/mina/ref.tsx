@@ -178,7 +178,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="hand"
-							className="flex items-center justify-center hover:bg-elevate hover:shadow-lg border border-neutral-900 hover:border-neutral-800 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl p-6 cursor-pointer"
+							className="relative flex items-center justify-center hover:bg-elevate hover:shadow-lg border border-neutral-900 hover:border-neutral-800 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl p-6 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceHand}
@@ -209,7 +209,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="front"
-							className="flex items-center justify-center hover:bg-elevate hover:shadow-lg border border-neutral-900 hover:border-neutral-800 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl row-span-2 p-3 cursor-pointer"
+							className="relative flex items-center justify-center hover:bg-elevate hover:shadow-lg border border-neutral-900 hover:border-neutral-800 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl row-span-2 p-3 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceFront}
@@ -237,7 +237,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="back"
-							className="flex items-center justify-center hover:bg-elevate hover:shadow-lg border border-neutral-900 hover:border-neutral-800 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl row-span-2 p-3 cursor-pointer"
+							className="relative flex items-center justify-center hover:bg-elevate hover:shadow-lg border border-neutral-900 hover:border-neutral-800 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl row-span-2 p-3 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceBack}
@@ -265,7 +265,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="hairbow"
-							className="flex md:col-span-2 xl:col-span-1 items-center justify-center gap-6 hover:bg-elevate hover:shadow-lg border border-neutral-900 hover:border-neutral-800 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl p-6 cursor-pointer"
+							className="relative flex md:col-span-2 xl:col-span-1 items-center justify-center gap-6 hover:bg-elevate hover:shadow-lg border border-neutral-900 hover:border-neutral-800 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl p-6 cursor-pointer"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -317,7 +317,7 @@ export default function RefSheet() {
 							</div>
 						}
 						reference={
-							<div className="flex flex-col items-center md:flex-row w-full lg:w-3/4 max-h-2/3-screen">
+							<div className="relative flex flex-col items-center md:flex-row w-full lg:w-3/4 max-h-2/3-screen">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 400 434"
@@ -364,7 +364,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="shoe"
-							className="flex items-center justify-center hover:bg-elevate hover:shadow-lg border border-neutral-900 hover:border-neutral-800 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl p-6 cursor-pointer"
+							className="relative flex items-center justify-center hover:bg-elevate hover:shadow-lg border border-neutral-900 hover:border-neutral-800 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl p-6 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceShoes}
@@ -390,7 +390,7 @@ export default function RefSheet() {
 						}
 					/>
 				</Dialog.Root>
-				<div id="colorpalette" className="flex flex-col justify-between border border-neutral-900 rounded-xl">
+				<div id="colorpalette" className="relative flex flex-col justify-between border border-neutral-900 rounded-xl">
 					<ColorPickerToast color={currentColor} open={toastOpen} onOpenChange={setToastOpen} />
 					<div className="flex flex-col px-3 lg:px-6">
 						<div className="grid grid-cols-4">
