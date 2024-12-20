@@ -368,7 +368,7 @@
 			"title": "Guten Heute"
 		},
 		"Content": {
-			"TheThreeThingies": {
+			"Hero": {
 				"Graphics": {
 					"heading": "Grafiken",
 					"text": "Stimuliere deine Sinne, wie es kein Kaugummi kann."
@@ -379,6 +379,10 @@
 				},
 				"Projects": {
 					"heading": "Projekte",
+					"text": "Weitere Dinge, an denen ich gearbeitet habe, wie Websites oder Programme."
+				},
+				"Contact": {
+					"heading": "Kontakt",
 					"text": "Weitere Dinge, an denen ich gearbeitet habe, wie Websites oder Programme."
 				}
 			},

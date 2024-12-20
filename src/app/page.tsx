@@ -7,7 +7,6 @@ import Button from "src/components/ui/Button";
 
 import { Announcements } from "src/types/announcement";
 import FadingImage from "src/components/ui/FadingImage";
-import ThreeThingies from "./threethingies";
 import { MinaArtworks } from "src/types/mina-artwork";
 import ArrowRight from "src/icons/ArrowRight";
 import ArrowUpRight from "src/icons/ArrowUpRight";
@@ -23,7 +22,6 @@ export default async function Page() {
 		<>
 			<HomeTitle />
 			<main>
-				<ThreeThingies />
 				<section className="my-20 md:my-32 xl:my-40 relative overflow-clip">
 					<div className="relative w-full h-full -z-10">
 						<FadingImage

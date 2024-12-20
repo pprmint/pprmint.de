@@ -136,12 +136,8 @@ module.exports = {
 			},
 			fontFamily: {
 				sans: ["'Basier Square', Inter, Roboto, Helvetica, Arial, sans-serif"],
-				display: [
-					'"Aspekta Variable", "Silka", "Gotham", "Metropolis", "Clarity City", "Montserrat", "sans-serif"',
-					{
-						fontFeatureSettings: '"ss01", "ss05", "ss06", "ss07", "ss08", "ss09", "ss10"',
-					},
-				],
+				condensed: ["'Basier Square Narrow', 'Roboto Condensed', sans-serif"],
+				display: ['"Roboto Serif", "Silka", "Gotham", "Metropolis", "Clarity City", "Montserrat", "serif"'],
 				digits: ["Mina Sans Digits", "Silka Mono", "Roboto Mono", "monospace"],
 				mintbit: "Mintbit, 'Roboto Mono', monospace",
 				minttriangles: "'Mint Triangles', monospace",
@@ -241,8 +237,8 @@ module.exports = {
 					to: { scale: "95%", opacity: 0 },
 				},
 				titleFadeIn: {
-					from: { opacity: 0, fontWeight: "50" },
-					to: { opacity: 1, fontWeight: "700" },
+					from: { opacity: 0, filter: "blur(5px)" },
+					to: { opacity: 1, filter: "blur(0px)" },
 				},
 				fadeIn: {
 					from: { opacity: 0 },

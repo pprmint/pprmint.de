@@ -368,7 +368,7 @@
 			"title": "Good today"
 		},
 		"Content": {
-			"TheThreeThingies": {
+			"Hero": {
 				"Graphics": {
 					"heading": "Graphics",
 					"text": "Stimulate your senses like no chewing gum can."
@@ -379,6 +379,10 @@
 				},
 				"Projects": {
 					"heading": "Projects",
+					"text": "Other stuff I've worked on, like websites or programs."
+				},
+				"Contact": {
+					"heading": "Contact",
 					"text": "Other stuff I've worked on, like websites or programs."
 				}
 			},

@@ -9,13 +9,13 @@ import ScrollToTopButton from "src/components/layout/ScrollToTopButton";
 import WarningTriangle from "src/icons/WarningTriangle";
 
 import "../styles.css";
-import "../fonts/Aspekta/aspekta.css";
+import "../fonts/RobotoSerif/robotoserif.css";
 import "../fonts/MinaSans/minasans.css";
 import "../fonts/MinaSansDigits/minasansdigits.css";
-import "../fonts/Silka/silka.css";
-import "../fonts/SilkaMono/silkamono.css";
 import "../fonts/BasierSquare/basiersquare.css";
 import "../fonts/BasierSquareMono/basiersquaremono.css";
+import "../fonts/BasierSquare/basiersquare.css";
+import "../fonts/BasierSquareNarrow/basiersquarenarrow.css";
 import "../fonts/Mintbit/mintbit.css";
 import "../fonts/MintTriangles/minttriangles.css";
 // yikes
