@@ -74,7 +74,7 @@ export default function HomeTitle() {
 							theme === "light" ? "mix-blend-darken" : "mix-blend-lighten"
 						}`}
 					>
-						<FadingImage src={theme === "light" ? DotLight : DotDark} alt="" unoptimized fill />
+						<FadingImage hideSpinner src={theme === "light" ? DotLight : DotDark} alt="" unoptimized fill />
 					</a.div>
 					{/* @ts-expect-error */}
 					<a.div
@@ -83,7 +83,7 @@ export default function HomeTitle() {
 							theme === "light" ? "mix-blend-darken" : "mix-blend-lighten"
 						}`}
 					>
-						<FadingImage src={theme === "light" ? DotLight : DotDark} alt="" unoptimized fill />
+						<FadingImage hideSpinner src={theme === "light" ? DotLight : DotDark} alt="" unoptimized fill />
 					</a.div>
 				</NoSSR>
 			</div>

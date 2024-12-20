@@ -75,6 +75,7 @@ export default async function Page() {
 						</div>
 					</div>
 					<FadingImage
+						hideSpinner
 						src="https://cms.pprmint.de/uploads/da_mina_32d26097f7.webp"
 						width={1311}
 						height={1276}

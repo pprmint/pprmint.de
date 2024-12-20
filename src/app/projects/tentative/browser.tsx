@@ -16,6 +16,7 @@ import Add from "src/icons/Add";
 import ChevronLeft from "src/icons/ChevronLeft";
 import RotateCw from "src/icons/RotateCw";
 import ChevronRight from "src/icons/ChevronRight";
+import FadingImage from "src/components/ui/FadingImage";
 
 const Tabs = [
 	{
@@ -135,7 +136,9 @@ export default function BrowserWindow() {
 					</div>
 				</div>
 			</div>
-			<Image src={Tabs[tab].image} alt="" className="aspect-video w-full" />
+			<div className="relative w-full aspect-video">
+				<FadingImage src={Tabs[tab].image} alt="" className="w-full" />
+			</div>
 		</div>
 	);
 }

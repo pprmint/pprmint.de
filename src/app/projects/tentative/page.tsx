@@ -51,11 +51,13 @@ export default function Page() {
 						That wasn't meant to be the final name at first. It just served as a stop-gap name until we came up with something better, just
 						so we wouldn't need to refer to it as just "the group".
 					</p>
-					<FadingImage
-						src={NamesImage}
-						className="w-full h-auto"
-						alt="Crossed out name ideas, scattered around the word 'Tentative' in the center."
-					/>
+					<div className="relative w-full aspect-video">
+						<FadingImage
+							src={NamesImage}
+							className="w-full h-auto"
+							alt="Crossed out name ideas, scattered around the word 'Tentative' in the center."
+						/>
+					</div>
 					<p>
 						Even though the name wasn't finalized at the time, I still felt like playing with it a bit, experimenting with a few design
 						ideas here and there. Initial ideas used the pixely{" "}
@@ -95,7 +97,9 @@ export default function Page() {
 						69 days later<span className="text-green">.</span>
 					</h2>
 					<p>I threw it all out the window.</p>
-					<FadingImage src={BrandingRev0} alt="" className="my-9 rounded-xl" />
+					<div className="relative w-full aspect-video my-9">
+						<FadingImage src={BrandingRev0} alt="" className="w-full rounded-xl" />
+					</div>
 					<p>
 						I found the{" "}
 						<Link
@@ -146,7 +150,7 @@ export default function Page() {
 							</p>
 							<p>What is translated how is up to each member and the language they take care of.</p>
 						</div>
-						<FadingImage src={WebsiteLocales} alt="" className="rounded-lg md:w-1/2 lg:w-1/3 h-fit mx-auto" />
+						<FadingImage hideSpinner src={WebsiteLocales} alt="" className="rounded-xl md:w-1/2 lg:w-1/3 h-fit mx-auto" />
 					</div>
 					<p>
 						Every member has their own logo in a different style. To achieve some feeling of uniformity, I introduced unique icons for each
@@ -155,15 +159,15 @@ export default function Page() {
 						scale as they are, or at large scale with other effects like borders and gradients.
 					</p>
 					<div className="grid grid-cols-2 md:grid-cols-3 w-full items-center justify-between gap-12 my-9">
-						<div>
+						<div className="relative w-full">
 							<FadingImage src={IconWxz} alt="" className="size-full md:size-64" />
 							<p className="text-center mt-6 text-neutral-50 text-xl font-display">wxsonz</p>
 						</div>
-						<div>
+						<div className="relative w-full">
 							<FadingImage src={IconAutsellia} alt="" className="size-full md:size-64" />
 							<p className="text-center mt-6 text-neutral-50 text-xl font-display">Autsellia</p>
 						</div>
-						<div>
+						<div className="relative w-full">
 							<FadingImage src={IconPprmint} alt="" className="size-full md:size-64" />
 							<p className="text-center mt-6 text-neutral-50 text-xl font-display">Good today.</p>
 						</div>
@@ -173,7 +177,9 @@ export default function Page() {
 						member. Prominently displayed is a drawing of their respective OCs, their logo and their respective icons in the background
 						visible on hover.
 					</p>
-					<FadingImage src={WebsiteMembers} alt="" className="my-9 rounded-lg" />
+					<div className="relative w-full aspect-video my-9">
+						<FadingImage src={WebsiteMembers} alt="" className="rounded-xl" />
+					</div>
 				</section>
 			</main>
 		</>

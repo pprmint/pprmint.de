@@ -13,6 +13,7 @@ import ArrowRight from "src/icons/ArrowRight";
 import ArrowUpRight from "src/icons/ArrowUpRight";
 import HeartFilled from "src/icons/HeartFilled";
 import HomeTitle from "./homeTitle";
+import Envelope from "src/icons/Envelope";
 
 export default async function Page() {
 	const t = await getTranslations("HOME");
@@ -43,14 +44,15 @@ export default async function Page() {
 						/>
 					</div>
 					<h2 className="h-24 w-full text-center">{t("Content.News.heading")}</h2>
-					<FadingImage
-						src={`https://static.pprmint.de${Announcements.data[0].media.url}`}
-						alt={Announcements.data[0].media.alternativeText || ""}
-						quality={90}
-						width={Announcements.data[0].media.width}
-						height={Announcements.data[0].media.height}
-						className="w-full max-w-7xl mx-auto xl:rounded-xl shadow-[0px_0px_5px_10px_#111] light:shadow-[0px_0px_5px_10px_#fafafa] xl:border border-neutral-900"
-					/>
+					<div className="relative w-full aspect-video max-w-7xl mx-auto xl:rounded-xl shadow-[0px_0px_5px_10px_#111] light:shadow-[0px_0px_5px_10px_#fafafa] xl:outline outline-1 -outline-offset-1 outline-white/10 light:outline-black/10 overflow-clip">
+						<FadingImage
+							src={`https://static.pprmint.de${Announcements.data[0].media.url}`}
+							alt={Announcements.data[0].media.alternativeText || ""}
+							quality={90}
+							width={Announcements.data[0].media.width}
+							height={Announcements.data[0].media.height}
+						/>
+					</div>
 					<div className="flex max-w-7xl px-6 md:px-9 2xl:px-0 mx-auto my-12 flex-col md:flex-row items-end md:items-center gap-6 md:gap-9">
 						<div className="w-full">
 							<h2>{Announcements.data[0].title}</h2>
@@ -76,12 +78,7 @@ export default async function Page() {
 									</Button>
 								</Link>
 							) : (
-								<Link
-									href={Announcements.data[0].link}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="w-fit"
-								>
+								<Link href={Announcements.data[0].link} target="_blank" rel="noopener noreferrer" className="w-fit">
 									<Button color={Announcements.data[0].buttonColor} large>
 										{Announcements.data[0].linkText}
 										<div className="relative size-5 overflow-clip">
@@ -110,14 +107,15 @@ export default async function Page() {
 								(announcement, index) =>
 									index > 0 && (
 										<div key={announcement.id} className="flex flex-col gap-3">
-											<FadingImage
-												src={`https://static.pprmint.de${announcement.media.url}`}
-												alt={announcement.media.alternativeText || ""}
-												quality={90}
-												width={announcement.media.width}
-												height={announcement.media.height}
-												className="relative rounded-xl border border-neutral-900 mb-3"
-											/>
+											<div className="w-full aspect-video relative rounded-xl outline outline-1 -outline-offset-1 outline-white/10 light:outline-black/10 mb-3 overflow-clip">
+												<FadingImage
+													src={`https://static.pprmint.de${announcement.media.url}`}
+													alt={announcement.media.alternativeText || ""}
+													quality={90}
+													width={announcement.media.width}
+													height={announcement.media.height}
+												/>
+											</div>
 											<h3>{announcement.title}</h3>
 											<p>{announcement.description}</p>
 											{announcement.link ? (
@@ -129,12 +127,7 @@ export default async function Page() {
 														</Button>
 													</Link>
 												) : (
-													<Link
-														href={announcement.link}
-														target="_blank"
-														rel="noopener noreferrer"
-														className="w-fit"
-													>
+													<Link href={announcement.link} target="_blank" rel="noopener noreferrer" className="w-fit">
 														<Button color={announcement.buttonColor} outlined>
 															{announcement.linkText}
 															<ArrowUpRight />
@@ -181,10 +174,7 @@ export default async function Page() {
 										artist: MinaArt.data[0].artist.name,
 										link: (chunks) =>
 											MinaArt.data[0].artist.creditUrl ? (
-												<Link
-													href={MinaArt.data[0].artist.creditUrl}
-													className="text-link-external"
-												>
+												<Link href={MinaArt.data[0].artist.creditUrl} className="text-link-external">
 													{chunks}
 												</Link>
 											) : (
@@ -207,7 +197,7 @@ export default async function Page() {
 							</div>
 							<Link
 								href="/mina#gallery"
-								className="relative group my-12 w-4/5 max-w-fit max-h-4/5 rotate-3 hover:rotate-0 hover:scale-[1.02] active:scale-[0.99] active:brightness-90 duration-400 active:duration-75 ease-out-back active:ease-out rounded-xl"
+								className="relative group my-12 w-4/5 max-w-fit max-h-4/5 rotate-3 hover:rotate-0 hover:scale-[1.02] active:scale-[0.99] active:brightness-90 duration-400 active:duration-75 ease-out-back active:ease-out rounded-xl outline outline-1 -outline-offset-1 outline-white/10 light:outline-black/10"
 							>
 								<FadingImage
 									src={`https://static.pprmint.de${MinaArt.data[0].artwork[0].url}`}
@@ -236,17 +226,15 @@ export default async function Page() {
 						</div>
 					</section>
 				)}
-				<section className="my-48 max-w-7xl px-6 md:px-9 2xl:px-0 mx-auto flex flex-col lg:flex-row md:gap-3 items-center justify-center lg:justify-between">
-					<h1 className="font-light">{t("Content.Contact.questions")}</h1>
-					<Link href="/contact" className="group">
-						<h1 className="group inline-flex text-nowrap items-center gap-3 duration-400 ease-out-expo group-hover:font-bold">
+				<section className="relative my-48 max-w-7xl px-6 md:px-9 2xl:px-0 mx-auto">
+					<h2 className="font-extralight text-3xl md:text-4xl lg:text-5xl xl:text-6xl">{t("Content.Contact.questions")}</h2>
+					<Link href="/contact" className="group peer">
+						<h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl group inline-flex text-nowrap gap-3 duration-400 ease-out-expo font-extralight group-hover:font-bold group-active:scale-[0.97]">
 							{t("Content.Contact.answers")}
-							<div className="relative overflow-clip size-[30px] md:size-[45px] xl:size-[60px] mt-2.5 lg:mt-5">
-								<ArrowRight className="size-[30px] md:size-[45px] xl:size-[60px] stroke-1 stroke-green absolute group-hover:translate-x-full group-hover:duration-400 ease-out-expo" />
-								<ArrowRight className="size-[30px] md:size-[45px] xl:size-[60px] stroke-1 stroke-green absolute -translate-x-full group-hover:translate-x-0 group-hover:duration-400 ease-out-expo" />
-							</div>
-						</h1>
+							<ArrowRight className="size-[30px] md:size-[45px] xl:size-[60px] stroke-0 group-hover:stroke-1 fill-green stroke-green duration-400 ease-out-expo mt-2.5 lg:mt-4" />
+						</h3>
 					</Link>
+					<Envelope className="size-96 absolute opacity-0 peer-hover:opacity-100 text-elevate right-[10%] peer-hover:right-0 top-1/2 -translate-y-1/2 peer-hover:-rotate-6 duration-500 ease-in-out peer-hover:ease-out-expo pointer-events-none -z-10" />
 				</section>
 				<p className="px-6 md:px-9 text-center text-xs">{t("Content.Contact.pronunciation")}</p>
 			</main>

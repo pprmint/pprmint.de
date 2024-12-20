@@ -524,6 +524,7 @@ export default function Selector() {
 										<Check />
 									</div>
 									<FadingImage
+										hideSpinner
 										src={icon.image}
 										alt={icon.name}
 										className={

@@ -17,28 +17,40 @@ import Slide5 from "public/assets/mintsans/slide5.svg";
 import Slide6 from "public/assets/mintsans/slide6.svg";
 
 export async function generateMetadata() {
-    const t = await getTranslations("MINTSANS");
-    return {
+	const t = await getTranslations("MINTSANS");
+	return {
 		title: t("Head.title"),
 		description: t("Head.description"),
 	};
 }
 
 export default function Page() {
-    const t = useTranslations();
-    return (
+	const t = useTranslations();
+	return (
 		<>
 			<Title title={t("MINTSANS.Head.title")} description={t("MINTSANS.Head.description")}>
 				<FadingImage src={TitleImage} alt="" fill className="object-contain" />
 			</Title>
 			<main>
 				<section className="my-20 md:my-32 xl:my-40">
-					<FadingImage src={Slide1} alt="Slide 1" className="w-full" />
-					<FadingImage src={Slide2} alt="Slide 2" className="w-full" />
-					<FadingImage src={Slide3} alt="Slide 3" className="w-full" />
-					<FadingImage src={Slide4} alt="Slide 4" className="w-full" />
-					<FadingImage src={Slide5} alt="Slide 5" className="w-full" />
-					<FadingImage src={Slide6} alt="Slide 6" className="w-full" />
+					<div className="relative w-full aspect-video">
+						<FadingImage src={Slide1} alt="Slide 1" className="w-full" />
+					</div>
+					<div className="relative w-full aspect-video">
+						<FadingImage src={Slide2} alt="Slide 2" className="w-full" />
+					</div>
+					<div className="relative w-full aspect-video">
+						<FadingImage src={Slide3} alt="Slide 3" className="w-full" />
+					</div>
+					<div className="relative w-full aspect-video">
+						<FadingImage src={Slide4} alt="Slide 4" className="w-full" />
+					</div>
+					<div className="relative w-full aspect-video">
+						<FadingImage src={Slide5} alt="Slide 5" className="w-full" />
+					</div>
+					<div className="relative w-full aspect-video">
+						<FadingImage src={Slide6} alt="Slide 6" className="w-full" />
+					</div>
 				</section>
 				<section className="my-20 md:my-32 xl:my-40 px-6 md:px-9 py-5">
 					<h2 className="max-w-7xl mx-auto">

@@ -66,18 +66,19 @@ export default async function Page(props: Props) {
 					)
 				}
 			/>
-			<main className="max-w-7xl mx-auto">
+			<main>
 				{Work.data.gallery.map((media) =>
 					media.mime.startsWith("image") ? (
-						<FadingImage
-							key={media.id.toString()}
-							src={`https://static.pprmint.de${media.url}`}
-							alt={media.alternativeText}
-							width={media.width}
-							height={media.height}
-							quality={100}
-							className="w-full h-auto animate-skeleton-pulse"
-						/>
+						<div key={media.id.toString()} className="relative w-full min-h-12">
+							<FadingImage
+								src={`https://static.pprmint.de${media.url}`}
+								alt={media.alternativeText}
+								width={media.width}
+								height={media.height}
+								quality={100}
+								className="w-full h-auto animate-skeleton-pulse"
+							/>
+						</div>
 					) : (
 						media.mime.startsWith("video") && (
 							<video controls key={media.id.toString()} className="w-full h-auto" src={`https://static.pprmint.de${media.url}`} />

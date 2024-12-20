@@ -30,11 +30,7 @@ export async function generateMetadata() {
 	};
 }
 
-export default async function Page({
-	searchParams,
-}: {
-	searchParams: Promise<{ p: string; nsfw: string; artist: string }>;
-}) {
+export default async function Page({ searchParams }: { searchParams: Promise<{ p: string; nsfw: string; artist: string }> }) {
 	const t = await getTranslations("MINA");
 	const { p = "1", nsfw, artist = "undefined" } = await searchParams;
 	return (
@@ -87,11 +83,7 @@ export default async function Page({
 						</p>
 						<div className="flex flex-col lg:items-end">
 							<p className="mb-3">{t("Content.Reference.Download.text")}</p>
-							<Link
-								href="https://static.pprmint.de/download/Mina/Mina_ref_sheet_(by_nekomimi).png"
-								target="_blank"
-								download
-							>
+							<Link href="https://static.pprmint.de/download/Mina/Mina_ref_sheet_(by_nekomimi).png" target="_blank" download>
 								<Button tabIndex={-1}>
 									{t("Content.Reference.Download.button")}
 									<Download />
@@ -100,10 +92,7 @@ export default async function Page({
 						</div>
 					</div>
 				</section>
-				<section
-					id="gallery"
-					className="pt-20 md:pt-32 xl:pt-40 mb-20 md:mb-32 xl:mb-40 max-w-7xl mx-auto md:px-3 xl:px-9"
-				>
+				<section id="gallery" className="pt-20 md:pt-32 xl:pt-40 mb-20 md:mb-32 xl:mb-40 max-w-7xl mx-auto md:px-3 xl:px-9">
 					<Suspense fallback={<GallerySkeleton />}>
 						<GallerySuspense p={parseInt(p)} artist={artist} nsfw={nsfw} />
 					</Suspense>
@@ -112,29 +101,34 @@ export default async function Page({
 				<section className="relative flex items-end justify-center my-20 md:my-32 xl:my-40 xl:pt-10 max-w-screen-3xl mx-auto px-6 md:px-9 min-h-[500px] overflow-x-clip">
 					<div className="absolute inset-0 -z-10">
 						<FadingImage
+							hideSpinner
 							src={Stickers}
 							alt="Discord sticker menu, showing a few Mina stickers."
 							className="absolute w-5/6 sm:w-2/3 md:w-7/12 lg:w-1/2 max-w-2xl h-auto bottom-1/4 md:bottom-px left-1/2 -translate-x-1/2"
 						/>
 						<FadingImage
+							hideSpinner
 							src={StickerSeyana}
 							alt=""
 							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[30%] left-[-4%] md:left-[4%] xl:left-[10%] animate-float-rotate-l drop-shadow-2xl dark:drop-shadow-[0px_4px_20px_#111]"
 							style={{ animationDelay: "0s" }}
 						/>
 						<FadingImage
+							hideSpinner
 							src={StickerCool}
 							alt=""
 							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[6%] lg:top-0 left-[15%] md:left-[12%] xl:left-[20%] animate-float-rotate-r drop-shadow-2xl dark:drop-shadow-[0px_4px_20px_#111]"
 							style={{ animationDelay: "0.4s" }}
 						/>
 						<FadingImage
+							hideSpinner
 							src={StickerStare}
 							alt=""
 							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[8%] lg:top-0 right-[15%] md:right-[12%] xl:right-[20%] animate-float-rotate-l drop-shadow-2xl dark:drop-shadow-[0px_4px_20px_#111]"
 							style={{ animationDelay: "0.8s" }}
 						/>
 						<FadingImage
+							hideSpinner
 							src={StickerWhat}
 							alt=""
 							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[25%] right-[-4%] md:right-[4%] xl:right-[10%] animate-float-rotate-r drop-shadow-2xl dark:drop-shadow-[0px_4px_20px_#111]"
@@ -142,8 +136,7 @@ export default async function Page({
 						/>
 						<div
 							style={{
-								maskImage:
-									"linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 80%, rgba(0,0,0,1) 100%)",
+								maskImage: "linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 80%, rgba(0,0,0,1) 100%)",
 								maskRepeat: "space",
 								backgroundRepeat: "repeat",
 							}}

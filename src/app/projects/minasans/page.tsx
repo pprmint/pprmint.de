@@ -32,13 +32,27 @@ export default function Page() {
 			</Title>
 			<main>
 				<section className="my-20 md:my-32 xl:my-40">
-					<FadingImage src={Cover} unoptimized alt="Slide 2" className="w-full" />
-					<FadingImage src={Alphabet} alt="Slide 1" className="w-full" />
-					<FadingImage src={faktor} alt="Slide 3" className="w-full" />
-					<FadingImage src={StVO} alt="Slide 6" className="w-full" />
-					<FadingImage src={NondescriptPhone} alt="Slide 5" className="w-full" />
-					<FadingImage src={ReleaseDate} alt="Slide 6" className="w-full" />
-					<FadingImage src={Mina} alt="Slide 4" className="w-full" />
+					<div className="relative w-full aspect-video">
+						<FadingImage src={Cover} unoptimized alt="Slide 2" className="w-full" />
+					</div>
+					<div className="relative w-full aspect-video">
+						<FadingImage src={Alphabet} alt="Slide 1" className="w-full" />
+					</div>
+					<div className="relative w-full aspect-video">
+						<FadingImage src={faktor} alt="Slide 3" className="w-full" />
+					</div>
+					<div className="relative w-full aspect-video">
+						<FadingImage src={StVO} alt="Slide 6" className="w-full" />
+					</div>
+					<div className="relative w-full aspect-video">
+						<FadingImage src={NondescriptPhone} alt="Slide 5" className="w-full" />
+					</div>
+					<div className="relative w-full aspect-video">
+						<FadingImage src={ReleaseDate} alt="Slide 6" className="w-full" />
+					</div>
+					<div className="relative w-full aspect-video">
+						<FadingImage src={Mina} alt="Slide 4" className="w-full" />
+					</div>
 				</section>
 				<h2 className="text-center mb-40">
 					<Link href="/tradeoffer" className="group inline-flex items-center gap-3">
