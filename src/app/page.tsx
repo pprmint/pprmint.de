@@ -5,140 +5,25 @@ import { Sparkle } from "lucide-react";
 
 import Button from "src/components/ui/Button";
 
-import { Announcements } from "src/types/announcement";
+import { Announcements as AnnouncementsType } from "src/types/announcement";
 import FadingImage from "src/components/ui/FadingImage";
 import { MinaArtworks } from "src/types/mina-artwork";
 import ArrowRight from "src/icons/ArrowRight";
 import ArrowUpRight from "src/icons/ArrowUpRight";
 import HeartFilled from "src/icons/HeartFilled";
-import HomeTitle from "./homeTitle";
+import HomeTitle from "./home/title";
 import Envelope from "src/icons/Envelope";
+import Announcements from "./home/announcements";
 
 export default async function Page() {
 	const t = await getTranslations("HOME");
-	const Announcements: Announcements = await GetAnnouncements();
+	const announcements: AnnouncementsType = await GetAnnouncements();
 	const MinaArt: MinaArtworks = await GetArt();
 	return (
 		<>
 			<HomeTitle />
 			<main>
-				<section className="my-20 md:my-32 xl:my-40 relative overflow-clip">
-					<div className="relative w-full h-full -z-10">
-						<FadingImage
-							src={`https://static.pprmint.de${Announcements.data[0].media.formats.thumbnail.url}`}
-							alt={Announcements.data[0].media.alternativeText || ""}
-							quality={90}
-							width={Announcements.data[0].media.formats.thumbnail.width}
-							height={Announcements.data[0].media.formats.thumbnail.height}
-							className="absolute w-full max-w-7xl left-1/2 -translate-x-1/2 top-24 blur-3xl rounded-xl contrast-75 opacity-50"
-						/>
-						<div
-							className="absolute left-0 right-0 h-[1000px] w-screen light:invert light:brightness-[0.33]"
-							style={{
-								backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23111111"/></svg>')`,
-								backgroundRepeat: "repeat",
-								backgroundPosition: "center",
-							}}
-						/>
-					</div>
-					<h2 className="h-24 w-full text-center">{t("Content.News.heading")}</h2>
-					<div className="relative w-full aspect-video max-w-7xl mx-auto xl:rounded-xl shadow-[0px_0px_5px_10px_#111] light:shadow-[0px_0px_5px_10px_#fafafa] xl:outline outline-1 -outline-offset-1 outline-white/10 light:outline-black/10 overflow-clip">
-						<FadingImage
-							src={`https://static.pprmint.de${Announcements.data[0].media.url}`}
-							alt={Announcements.data[0].media.alternativeText || ""}
-							quality={90}
-							width={Announcements.data[0].media.width}
-							height={Announcements.data[0].media.height}
-						/>
-					</div>
-					<div className="flex max-w-7xl px-6 md:px-9 2xl:px-0 mx-auto my-12 flex-col md:flex-row items-end md:items-center gap-6 md:gap-9">
-						<div className="w-full">
-							<h2>{Announcements.data[0].title}</h2>
-							<p>{Announcements.data[0].description}</p>
-						</div>
-						{Announcements.data[0].link ? (
-							Announcements.data[0].link.startsWith("/") ? (
-								<Link href={Announcements.data[0].link} className="w-fit">
-									<Button color={Announcements.data[0].buttonColor} large>
-										{Announcements.data[0].linkText}
-										<div className="relative size-5 overflow-clip">
-											<ArrowRight
-												width={20}
-												height={20}
-												className="absolute group-hover:translate-x-full group-hover:duration-300 ease-out-quint"
-											/>
-											<ArrowRight
-												width={20}
-												height={20}
-												className="absolute -translate-x-full group-hover:translate-x-0 group-hover:duration-300 ease-out-quint"
-											/>
-										</div>
-									</Button>
-								</Link>
-							) : (
-								<Link href={Announcements.data[0].link} target="_blank" rel="noopener noreferrer" className="w-fit">
-									<Button color={Announcements.data[0].buttonColor} large>
-										{Announcements.data[0].linkText}
-										<div className="relative size-5 overflow-clip">
-											<ArrowUpRight
-												width={20}
-												height={20}
-												className="absolute group-hover:translate-x-full group-hover:-translate-y-full group-hover:duration-300 ease-out-quint"
-											/>
-											<ArrowUpRight
-												width={20}
-												height={20}
-												className="absolute -translate-x-full translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 group-hover:duration-300 ease-out-quint"
-											/>
-										</div>
-									</Button>
-								</Link>
-							)
-						) : null}
-					</div>
-				</section>
-				{Announcements.data && (
-					<section className="my-20 md:my-32 xl:my-40 px-6 md:px-9 max-w-8xl mx-auto">
-						<h2 className="pb-6">{t("Content.OtherNews.heading")}</h2>
-						<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-9">
-							{Announcements.data.map(
-								(announcement, index) =>
-									index > 0 && (
-										<div key={announcement.id} className="flex flex-col gap-3">
-											<div className="w-full aspect-video relative rounded-xl outline outline-1 -outline-offset-1 outline-white/10 light:outline-black/10 mb-3 overflow-clip">
-												<FadingImage
-													src={`https://static.pprmint.de${announcement.media.url}`}
-													alt={announcement.media.alternativeText || ""}
-													quality={90}
-													width={announcement.media.width}
-													height={announcement.media.height}
-												/>
-											</div>
-											<h3>{announcement.title}</h3>
-											<p>{announcement.description}</p>
-											{announcement.link ? (
-												announcement.link.startsWith("/") ? (
-													<Link href={announcement.link} className="w-fit">
-														<Button color={announcement.buttonColor} outlined>
-															{announcement.linkText}
-															<ArrowRight />
-														</Button>
-													</Link>
-												) : (
-													<Link href={announcement.link} target="_blank" rel="noopener noreferrer" className="w-fit">
-														<Button color={announcement.buttonColor} outlined>
-															{announcement.linkText}
-															<ArrowUpRight />
-														</Button>
-													</Link>
-												)
-											) : null}
-										</div>
-									)
-							)}
-						</div>
-					</section>
-				)}
+				<Announcements data={announcements} />
 				{MinaArt.data && (
 					<section className="my-20 md:my-32 xl:my-40 relative flex items-center px-6 md:px-9 w-screen min-h-[500px] overflow-clip">
 						<div className="absolute inset-0 -z-10">
@@ -241,7 +126,7 @@ export default async function Page() {
 }
 
 async function GetAnnouncements() {
-	const pageSize = 4;
+	const pageSize = 5;
 	const locale = await getLocale();
 	const res = await fetch(
 		`${process.env.STRAPI_API_URL}/announcements?pagination[pageSize]=${pageSize}&populate=media&locale=${locale}&sort=id:desc`,

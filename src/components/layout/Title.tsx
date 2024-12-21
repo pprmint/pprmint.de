@@ -41,7 +41,7 @@ export default function Title(
 			)}
 			<div className="absolute bottom-0 flex w-full gap-3 p-6 md:p-12 items-end">
 				<div className="flex-grow">
-					<h1 className="relative font-display text-neutral-50 text-4xl md:text-5xl lg:text-6xl xl:text-8xl pb-1 md:pb-3">
+					<h1 className="relative font-serif text-neutral-50 text-4xl md:text-5xl lg:text-6xl xl:text-8xl pb-1 md:pb-3">
 						{Title.map((character, index) => (
 							<span
 								key={index}
@@ -65,7 +65,7 @@ export default function Title(
 						</span>
 					</h1>
 					<div
-						className="animate-fade-in text-neutral font-condensed text-xl md:text-2xl xl:text-3xl"
+						className="animate-fade-in text-neutral font-narrow text-xl md:text-2xl xl:text-3xl"
 						style={{ animationDelay: props.noDelay ? "0.05s" : "0.25s", animationFillMode: "backwards" }}
 					>
 						{props.description}

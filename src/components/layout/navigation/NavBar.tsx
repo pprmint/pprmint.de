@@ -51,7 +51,7 @@ export default function NavBar() {
 					<a.div
 						style={styles}
 						// @ts-expect-error
-						className="fixed top-0 inset-x-0 bg-neutral-950/80 h-16 backdrop-blur-xl border-b border-white/10 ring-1 ring-black/10 dark:ring-black/50 shadow-lg"
+						className="fixed top-0 inset-x-0 bg-neutral-950/90 h-16 backdrop-blur-xl border-b border-white/5 ring-1 ring-black/5 dark:ring-black/50"
 					/>
 				) : (
 					showNavbarGradient && (
