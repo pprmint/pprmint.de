@@ -57,7 +57,7 @@ export default function HomeTitle() {
 		<section className="relative w-screen h-screen overflow-clip">
 			<div className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 				<div className="h-screen w-full grid grid-cols-2 border-x border-white/5 light:border-black/5">
-					<div className="relative size-full flex flex-col gap-6 justify-center col-span-2 xl:col-span-1 xl:border-r border-white/5 light:border-black/5 backdrop-blur shadow-2xl shadow-neutral-950/50">
+					<div className="relative size-full flex flex-col gap-6 justify-center col-span-2 xl:col-span-1 xl:border-r border-white/5 light:border-black/5 backdrop-blur shadow-2xl shadow-neutral-950/50 light:shadow-black/5">
 						<div className="drop-shadow-md">
 							<h1 className="relative font-display font-thin text-neutral-50 text-5xl lg:text-6xl xl:text-8xl pb-1 md:pb-3">
 								{t("Head.title")
@@ -103,15 +103,14 @@ export default function HomeTitle() {
 									<m.button
 										initial={{ opacity: 0 }}
 										animate={{ opacity: 1, transition: { duration: 1, delay: 0.5 + index / 10 } }}
-										whileTap={{ scale: 0.97, transition: { duration: 0.075, ease: "easeOut" } }}
 										className="group relative w-full aspect-video bg-neutral-950/50"
 									>
-										<div className="flex items-center justify-center group-hover:shadow-lg size-full duration-200">
-											<span className="text-neutral-50 group-hover:opacity-0 uppercase font-mono font-bold duration-200">
+										<div className="flex items-center justify-center group-hover:shadow-lg group-active:shadow-sm size-full duration-200 active:duration-50">
+											<span className="text-neutral-50 group-hover:opacity-0 group-hover:tracking-widest  uppercase font-mono font-bold duration-200">
 												{t(button.text)}
 											</span>
 										</div>
-										<div className="absolute group-hover:grid grid-cols-16 inset-0 p-2 group-hover:p-0 duration-200">
+										<div className="absolute group-hover:grid grid-cols-16 inset-0 duration-200 drop-shadow-md group-active:drop-shadow-none">
 											{button.matrix.map((dot, index) => (
 												<div
 													key={index}
