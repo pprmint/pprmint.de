@@ -1,9 +1,5 @@
 "use client";
 import { useTranslations } from "next-intl";
-import FadingImage from "src/components/ui/FadingImage";
-import DotDark from "public/assets/dot_dark.webp";
-import DotLight from "public/assets/dot_light.webp";
-import { useTheme } from "next-themes";
 import * as m from "motion/react-client";
 import Link from "next/link";
 
@@ -52,14 +48,13 @@ const Buttons = [
 
 export default function HomeTitle() {
 	const t = useTranslations("HOME");
-	const { theme } = useTheme();
 	return (
-		<section className="relative w-screen h-screen overflow-x-clip">
+		<section className="relative w-screen h-screen overflow-clip">
 			<div className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 				<div className="h-screen w-full grid grid-cols-2 border-x border-white/5 light:border-black/5">
-					<div className="relative size-full flex flex-col gap-6 justify-center col-span-2 lg:col-span-1 xl:border-r border-white/5 light:border-black/5 backdrop-blur bg-neutral-950/25">
+					<div className="relative size-full flex flex-col gap-6 justify-center col-span-2 lg:col-span-1 xl:border-r border-white/5 light:border-black/5">
 						<div>
-							<h1 className="relative font-serif font-thin text-neutral-50 text-5xl lg:text-6xl xl:text-8xl pb-1 md:pb-3">
+							<h1 className="relative pb-1 md:pb-3">
 								{t("Head.title")
 									.split("")
 									.map((character, index) => (
@@ -103,11 +98,15 @@ export default function HomeTitle() {
 									<m.button
 										tabIndex={-1}
 										initial={{ opacity: 0, filter: "blur(5px)" }}
-										animate={{ opacity: 1, filter: "blur(0px)", transition: { duration: 1, delay: 0.85 + index / 10 } }}
-										className="group relative w-full aspect-video bg-neutral-950/50"
+										animate={{
+											opacity: 1,
+											filter: "blur(0px)",
+											transition: { duration: 1, delay: 0.85 + index / 10 },
+										}}
+										className="group relative w-full aspect-video"
 									>
 										<div className="flex items-center justify-center group-hover:shadow-lg group-active:shadow-sm size-full duration-200 active:duration-50">
-											<span className="text-neutral-50 group-hover:opacity-0 group-hover:tracking-widest  uppercase font-mono font-bold duration-200">
+											<span className="text-neutral-50 group-hover:opacity-0 group-hover:tracking-widest uppercase font-mono font-bold duration-200">
 												{t(button.text)}
 											</span>
 										</div>
@@ -116,7 +115,8 @@ export default function HomeTitle() {
 												<div
 													key={index}
 													className={`bg-neutral-50/10 scale-[0.2] rounded-full ${
-														dot === 1 && "group-hover:bg-neutral-50 group-hover:scale-100 group-hover:rounded-none"
+														dot === 1 &&
+														"group-hover:bg-neutral-50 group-hover:scale-[1.05] group-hover:rounded-none"
 													} duration-100`}
 													style={{ transitionDelay: `${index * 0.002}s` }}
 												/>
@@ -127,42 +127,31 @@ export default function HomeTitle() {
 							))}
 						</div>
 					</div>
+					<div className="size-full col-span-2 lg:col-span-1" style={{ perspective: 1000 }}></div>
 				</div>
 			</div>
-			<div className="absolute -z-20 inset-0">
-				<m.div
-					initial={{ opacity: 0, scale: 1.5, x: "40%", y: "-100%", rotate: -60 }}
-					animate={{
-						opacity: 1,
-						scale: 1,
-						x: "20%",
-						y: "-65%",
-						rotate: -40,
-					}}
-					transition={{ type: "spring", duration: 5, bounce: 0, delay: 1.5 }}
-					className={`absolute w-[1100px] lg:w-[1700px] aspect-square top-0 right-0 ${
-						theme === "light" ? "mix-blend-darken" : "mix-blend-lighten"
-					}`}
-				>
-					<FadingImage hideSpinner src={theme === "light" ? DotLight : DotDark} alt="" unoptimized fill />
-				</m.div>
-				<m.div
-					initial={{ opacity: 0, scale: 1.5, x: "70%", y: "65%", rotate: -60 }}
-					animate={{
-						opacity: 1,
-						scale: 1,
-						x: "45%",
-						y: "60%",
-						rotate: -40,
-					}}
-					transition={{ type: "spring", duration: 5, bounce: 0, delay: 1.5 }}
-					className={`absolute w-[1000px] lg:w-[1200px] aspect-square bottom-0 right-0 ${
-						theme === "light" ? "mix-blend-darken" : "mix-blend-lighten"
-					}`}
-				>
-					<FadingImage hideSpinner src={theme === "light" ? DotLight : DotDark} alt="" unoptimized fill />
-				</m.div>
-			</div>
+			<m.div
+				initial={{ opacity: 0 }}
+				animate={{
+					opacity: 1,
+					transition: { duration: 1, delay: 1 },
+				}}
+				className="absolute -z-10 inset-0"
+			>
+				<video
+					src="https://static.pprmint.de/uploads/wavy_ff6ca718a6.webm"
+					className="absolute inset-0 object-fill w-full h-full opacity-20 light:invert light:mix-blend-hard-light"
+					loop
+					autoPlay
+					muted
+					playsInline
+				/>
+			</m.div>
+			<div
+				style={{ background: "url(/assets/noise.png)" }}
+				className="absolute inset-0 opacity-20 mix-blend-multiply light:mix-blend-screen light:opacity-50 -z-10"
+			/>
+			<div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-25% via-transparent -z-10" />
 		</section>
 	);
 }

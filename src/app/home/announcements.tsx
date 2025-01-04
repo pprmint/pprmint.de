@@ -27,7 +27,10 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 	return (
 		<section className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 			<AnimatePresence mode="wait">
-				<m.div key={data.data[current].id} className="grid grid-cols-2 border-x border-neutral-50/5 items-center">
+				<m.div
+					key={data.data[current].id}
+					className="grid grid-cols-2 border-x border-neutral-50/5 items-center"
+				>
 					<div className="flex col-span-2 lg:col-span-1 flex-col justify-center border-r border-neutral-50/5 h-full w-full lg:py-20 backdrop-blur bg-neutral-950/25">
 						<div className="pt-4 border-y border-neutral-50/5">
 							<m.h2
@@ -60,7 +63,7 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 									opacity: 0,
 									transition: { duration: 0.1, ease: "linear" },
 								}}
-                className="flex grow"
+								className="flex grow"
 							>
 								{data.data[current].link ? (
 									data.data[current].link.startsWith("/") ? (
@@ -141,14 +144,16 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 						}}
 						className="col-span-2 lg:col-span-1 relative lg:h-full lg:py-20 backdrop-blur bg-neutral-950/25 lg:backdrop-blur-none lg:bg-transparent"
 					>
-						<FadingImage
-							src={`https://static.pprmint.de${data.data[current].media.url}`}
-							alt={data.data[current].media.alternativeText || ""}
-							quality={90}
-							width={data.data[current].media.width}
-							height={data.data[current].media.height}
-							className="w-full border-y border-neutral-50/5"
-						/>
+						<div className="bg-neutral-950/25 border-y border-neutral-50/5">
+							<FadingImage
+								src={`https://static.pprmint.de${data.data[current].media.url}`}
+								alt={data.data[current].media.alternativeText || ""}
+								quality={90}
+								width={data.data[current].media.width}
+								height={data.data[current].media.height}
+								className="w-full"
+							/>
+						</div>
 					</m.div>
 				</m.div>
 			</AnimatePresence>

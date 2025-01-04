@@ -38,7 +38,7 @@ export default function NavBar() {
 
 	return (
 		<div
-			className={`z-90 fixed top-0 inset-x-0 h-16 pl-6 md:pl-9 pr-2 md:pr-5 flex items-center md:justify-between duration-300 ${
+			className={`z-90 fixed top-0 inset-x-0 h-max pl-6 md:pl-9 pr-2 md:pr-5 flex items-center md:justify-between duration-300 ${
 				!showNavbarGradient
 					? "text-neutral-50"
 					: solid
@@ -51,14 +51,14 @@ export default function NavBar() {
 					<a.div
 						style={styles}
 						// @ts-expect-error
-						className="fixed top-0 inset-x-0 bg-neutral-950/90 h-16 backdrop-blur-xl border-b border-white/5 ring-1 ring-black/5 dark:ring-black/50"
+						className="absolute top-0 inset-x-0 bg-neutral-950/90 h-full backdrop-blur-xl border-b border-white/5 ring-1 ring-black/5 dark:ring-black/50"
 					/>
 				) : (
 					showNavbarGradient && (
 						<a.div
 							style={styles}
 							// @ts-expect-error
-							className="fixed top-0 inset-x-0 bg-gradient-to-b from-neutral-50/50 dark:from-neutral-950/60 via-70% via-neutral-50/10 dark:via-neutral-950/10 h-16"
+							className="absolute top-0 inset-x-0 bg-gradient-to-b from-neutral-50/50 dark:from-neutral-950/60 via-70% via-neutral-50/10 dark:via-neutral-950/10 h-full"
 						/>
 					)
 				)
