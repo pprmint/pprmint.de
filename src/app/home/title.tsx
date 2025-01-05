@@ -64,7 +64,7 @@ const Links = [
 
 export default function HomeTitle() {
 	const t = useTranslations("HOME");
-	const [hovered, setHovered] = useState(3);
+	const [hovered, setHovered] = useState(-1);
 	return (
 		<section className="relative w-screen h-screen overflow-clip">
 			<div className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
