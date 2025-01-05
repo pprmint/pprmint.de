@@ -2,10 +2,13 @@
 import { useTranslations } from "next-intl";
 import * as m from "motion/react-client";
 import Link from "next/link";
+import FadingImage from "src/components/ui/FadingImage";
+import { useState } from "react";
+import { AnimatePresence } from "motion/react";
 
-const Buttons = [
+const Links = [
 	{
-		link: "/graphics",
+		link: "graphics",
 		text: "Content.Hero.Graphics.heading",
 		matrix: [
 			1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1,
@@ -13,9 +16,13 @@ const Buttons = [
 			0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0,
 			1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
 		],
+		images: [
+			"https://cms.pprmint.de/uploads/Mesh_Edit_778967f6fe.webp",
+			"https://cms.pprmint.de/uploads/Solar_System_2_f133addf64.png",
+		],
 	},
 	{
-		link: "/photos",
+		link: "photos",
 		text: "Content.Hero.Photos.heading",
 		matrix: [
 			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0,
@@ -23,9 +30,13 @@ const Buttons = [
 			1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
 			0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		],
+		images: [
+			"https://cms.pprmint.de/uploads/P1070217_09b3fc1981.webp",
+			"https://cms.pprmint.de/uploads/DSC_00275_0b8fa85e3b.webp",
+		],
 	},
 	{
-		link: "/projects",
+		link: "projects",
 		text: "Content.Hero.Projects.heading",
 		matrix: [
 			1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1,
@@ -33,9 +44,13 @@ const Buttons = [
 			0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0,
 			0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0,
 		],
+		images: [
+			"https://cms.pprmint.de/uploads/pomi_moe_cdd8f9992e.png",
+			"https://cms.pprmint.de/uploads/autsellia_com_582c948c0d.png",
+		],
 	},
 	{
-		link: "/contact",
+		link: "contact",
 		text: "Content.Hero.Contact.heading",
 		matrix: [
 			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0,
@@ -43,11 +58,13 @@ const Buttons = [
 			0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 			0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		],
+		images: ["/assets/home/letter.png", "/assets/home/pen.png"],
 	},
 ];
 
 export default function HomeTitle() {
 	const t = useTranslations("HOME");
+	const [hovered, setHovered] = useState(-1);
 	return (
 		<section className="relative w-screen h-screen overflow-clip">
 			<div className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
@@ -92,9 +109,12 @@ export default function HomeTitle() {
 								{t("Head.description")}
 							</p>
 						</div>
-						<div className="grid grid-cols-2 sm:grid-cols-4 divide-x border-y divide-white/5 light:divide-black/5 border-white/5 light:border-black/5">
-							{Buttons.map((button, index) => (
-								<Link href={button.link} key={index}>
+						<div
+							onMouseLeave={() => setHovered(-1)}
+							className="grid grid-cols-2 sm:grid-cols-4 divide-x border-y divide-white/5 light:divide-black/5 border-white/5 light:border-black/5"
+						>
+							{Links.map((button, index) => (
+								<Link href={button.link} key={index} onMouseEnter={() => setHovered(index)}>
 									<m.button
 										tabIndex={-1}
 										initial={{ opacity: 0, filter: "blur(5px)" }}
@@ -127,7 +147,63 @@ export default function HomeTitle() {
 							))}
 						</div>
 					</div>
-					<div className="size-full col-span-2 lg:col-span-1" style={{ perspective: 1000 }}></div>
+					<div className="relative size-full col-span-2 lg:col-span-1">
+						<AnimatePresence mode="wait">
+							{Links[hovered] && (
+								<m.div
+									key={Links[hovered].link}
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+									exit={{ opacity: 0, transition: { duration: 0.15 } }}
+									className="absolute top-1/2 left-[55%] -translate-x-1/2 -translate-y-1/2 w-3/4 h-auto"
+									style={{ perspective: 2000 }}
+								>
+									{Links[hovered].images.map((image, index) => (
+										<m.div
+											key={Links[hovered].images[index]}
+											initial={{
+												x: index * -70,
+												y: (index + 1) * -100 + 60,
+												z: index * 20,
+												rotateX: 6,
+												rotateY: -6,
+												rotateZ: 6 + index * -2,
+												opacity: 0,
+												filter: `blur(${(Links[hovered].images.length - 1 - index) * 2 + 4}px)`,
+											}}
+											animate={{
+												x: index * -100,
+												y: (index + 1) * -100,
+												z: index * 20,
+												rotateX: 12,
+												rotateY: -12,
+												rotateZ: 6 + index * -2,
+												opacity: 1,
+												filter: `blur(${(Links[hovered].images.length - 1 - index) * 2}px)`,
+												transition: { type: "spring", bounce: 0, duration: 0.8, delay: index * 0.2 },
+											}}
+											exit={{
+												x: index * -90,
+												y: (index + 1) * -90,
+												z: index * 10,
+												filter: `blur(${(Links[hovered].images.length - 1 - index) * 2 + 4}px)`,
+												transition: { duration: 0.15 },
+											}}
+											className="absolute"
+										>
+											<FadingImage
+												src={image}
+												width={1920}
+												height={1080}
+												alt=""
+												className="drop-shadow-xl"
+											/>
+										</m.div>
+									))}
+								</m.div>
+							)}
+						</AnimatePresence>
+					</div>
 				</div>
 			</div>
 			<m.div
