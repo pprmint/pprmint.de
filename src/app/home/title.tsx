@@ -64,7 +64,7 @@ const Links = [
 
 export default function HomeTitle() {
 	const t = useTranslations("HOME");
-	const [hovered, setHovered] = useState(-1);
+	const [hovered, setHovered] = useState(3);
 	return (
 		<section className="relative w-screen h-screen overflow-clip">
 			<div className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
@@ -151,6 +151,39 @@ export default function HomeTitle() {
 						<AnimatePresence mode="wait">
 							{Links[hovered] && (
 								<m.div
+									key={Links[hovered].text}
+									initial={{ y: "-40%" }}
+									animate={{
+										y: "-50%",
+										transition: {
+											type: "spring",
+											bounce: 0,
+											duration: 0.8,
+										},
+									}}
+									className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+									style={{ writingMode: "sideways-lr" }}
+								>
+									{t(Links[hovered].text)
+										.split("")
+										.map((character, index) => (
+											<m.span
+												key={index}
+												initial={{ opacity: 0 }}
+												animate={{ opacity: 1, transition: { delay: 0.03 * index } }}
+												exit={{ opacity: 0, transition: { duration: 0.15 } }}
+												className="font-serif font-extra-condensed text-[15vw] font-thin text-neutral-50/5"
+												aria-hidden
+											>
+												{character}
+											</m.span>
+										))}
+								</m.div>
+							)}
+						</AnimatePresence>
+						<AnimatePresence mode="wait">
+							{Links[hovered] && (
+								<m.div
 									key={Links[hovered].link}
 									initial={{ opacity: 0 }}
 									animate={{ opacity: 1 }}
@@ -180,7 +213,12 @@ export default function HomeTitle() {
 												rotateZ: 6 + index * -2,
 												opacity: 1,
 												filter: `blur(${(Links[hovered].images.length - 1 - index) * 2}px)`,
-												transition: { type: "spring", bounce: 0, duration: 0.8, delay: index * 0.2 },
+												transition: {
+													type: "spring",
+													bounce: 0,
+													duration: 0.8,
+													delay: index * 0.2,
+												},
 											}}
 											exit={{
 												x: index * -90,
