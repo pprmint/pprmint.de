@@ -235,6 +235,7 @@ export default function HomeTitle() {
 												height={1080}
 												alt=""
 												className="drop-shadow-xl"
+												hideSpinner
 											/>
 										</m.div>
 									))}

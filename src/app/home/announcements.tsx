@@ -4,8 +4,8 @@ import { useState } from "react";
 import FadingImage from "src/components/ui/FadingImage";
 import ArrowRight from "src/icons/ArrowRight";
 import ArrowUpRight from "src/icons/ArrowUpRight";
-import ChevronDown from "src/icons/ChevronDown";
-import ChevronUp from "src/icons/ChevronUp";
+import ChevronRight from "src/icons/ChevronRight";
+import ChevronLeft from "src/icons/ChevronLeft";
 import { Announcements as AnnouncementsType } from "src/types/announcement";
 import * as m from "motion/react-client";
 import { AnimatePresence } from "motion/react";
@@ -16,21 +16,22 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 
 	const handleNext = () => {
 		setDirection(1);
-		setCurrent((prev) => prev - 1);
+		setTimeout(() => {
+			setCurrent((prev) => prev - 1);
+		}, 1);
 	};
 
 	const handlePrevious = () => {
 		setDirection(-1);
-		setCurrent((prev) => prev + 1);
+		setTimeout(() => {
+			setCurrent((prev) => prev + 1);
+		}, 1);
 	};
 
 	return (
 		<section className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 			<AnimatePresence mode="wait">
-				<m.div
-					key={data.data[current].id}
-					className="grid grid-cols-2 border-x border-neutral-50/5 items-center"
-				>
+				<m.div key={data.data[current].id} className="grid grid-cols-2 border-x border-neutral-50/5 items-center">
 					<div className="flex col-span-2 lg:col-span-1 flex-col justify-center border-r border-neutral-50/5 h-full w-full lg:py-20 backdrop-blur bg-neutral-950/25">
 						<div className="pt-4 border-y border-neutral-50/5">
 							<m.h2
@@ -67,14 +68,9 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 							>
 								{data.data[current].link ? (
 									data.data[current].link.startsWith("/") ? (
-										<Link
-											href={data.data[current].link}
-											className="group size-full font-mono hover:bg-neutral-50"
-										>
+										<Link href={data.data[current].link} className="group size-full font-mono hover:bg-neutral-50">
 											<div className="inline-flex h-full items-center gap-3 group-hover:px-4 duration-200 ease-out">
-												<span className="group-hover:text-neutral-950">
-													{data.data[current].linkText}
-												</span>
+												<span className="group-hover:text-neutral-950">{data.data[current].linkText}</span>
 												<div className="relative size-5 overflow-clip group-hover:text-neutral-950">
 													<ArrowRight
 														width={20}
@@ -97,9 +93,7 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 											className="group size-full font-mono hover:bg-neutral-50"
 										>
 											<div className="inline-flex h-full items-center gap-3 group-hover:px-4 duration-200 ease-out">
-												<span className="group-hover:text-neutral-950">
-													{data.data[current].linkText}
-												</span>
+												<span className="group-hover:text-neutral-950">{data.data[current].linkText}</span>
 												<div className="relative size-5 overflow-clip group-hover:text-neutral-950">
 													<ArrowUpRight
 														width={20}
@@ -117,27 +111,59 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 									)
 								) : null}
 							</m.div>
-							<div className="flex ml-auto border-l border-neutral-50/5 divide-x divide-neutral-50/5">
+							<div className="relative flex ml-auto border-l border-neutral-50/5 divide-x divide-neutral-50/5">
 								<button
 									disabled={current === 0}
-									className="group flex items-center justify-center w-12 text-neutral-50 hover:text-neutral-950 disabled:text-neutral-500 hover:bg-neutral-50 disabled:pointer-events-none"
+									className="relative group w-12 h-full text-neutral-50 hover:text-neutral-950 disabled:text-neutral-500 hover:bg-neutral-50 disabled:pointer-events-none overflow-hidden"
 									onClick={handleNext}
 								>
-									<ChevronUp />
+									<m.div
+										initial={{ x: "100%" }}
+										exit={{ x: direction > 0 ? "0%" : "100%", transition: { type: "spring", duration: 0.2, bounce: 0 } }}
+										className="absolute top-0 inset-0 flex items-center justify-center"
+									>
+										<ChevronLeft />
+									</m.div>
+									<m.div
+										exit={{ x: direction > 0 ? "-100%" : "0%", transition: { type: "spring", duration: 0.2, bounce: 0 } }}
+										className="absolute top-0 inset-0 flex items-center justify-center"
+									>
+										<ChevronLeft />
+									</m.div>
 								</button>
 								<button
 									disabled={current === data.data.length - 1}
-									className="group flex items-center justify-center w-12 text-neutral-50 hover:text-neutral-950 disabled:text-neutral-500 hover:bg-neutral-50 disabled:pointer-events-none"
+									className="relative group w-12 h-full text-neutral-50 hover:text-neutral-950 disabled:text-neutral-500 hover:bg-neutral-50 disabled:pointer-events-none overflow-hidden"
 									onClick={handlePrevious}
 								>
-									<ChevronDown />
+									<m.div
+										initial={{ x: "-100%" }}
+										exit={{ x: direction < 0 ? "0%" : "-100%", transition: { type: "spring", duration: 0.2, bounce: 0 } }}
+										className="absolute top-0 inset-0 flex items-center justify-center"
+									>
+										<ChevronRight />
+									</m.div>
+									<m.div
+										exit={{ x: direction < 0 ? "100%" : "0%", transition: { type: "spring", duration: 0.2, bounce: 0 } }}
+										className="absolute top-0 inset-0 flex items-center justify-center"
+									>
+										<ChevronRight />
+									</m.div>
 								</button>
+								<m.div
+									className="absolute -bottom-px bg-neutral-50 h-px"
+									style={{ width: 100 / data.data.length, left: `${current * (100 / data.data.length)}%` }}
+									exit={{
+										left: `calc(${current * (100 / data.data.length)}% ${direction > 0 ? "-" : "+"} ${100 / data.data.length}%)`,
+										transition: { type: "spring", duration: 0.2, bounce: 0 },
+									}}
+								/>
 							</div>
 						</div>
 					</div>
 					<m.div
-						initial={{ y: direction > 0 ? -20 : 20, opacity: 0 }}
-						animate={{ y: 0, opacity: 1, transition: { type: "spring", bounce: 0, duration: 0.5 } }}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1, transition: { type: "spring", bounce: 0, duration: 0.5 } }}
 						exit={{
 							opacity: 0,
 							transition: { duration: 0.1, ease: "linear" },
