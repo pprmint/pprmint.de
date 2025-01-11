@@ -32,14 +32,16 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 
 	return (
 		<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto overflow-clip">
-			<h2 className="absolute bottom-12 lg:bottom-24 left-0 text-[10rem] lg:text-[21rem] text-neutral-50/5 -z-10 italic">{t("Content.News.heading")}</h2>
+			<h2 className="absolute bottom-12 lg:bottom-24 left-0 text-[10rem] lg:text-[20rem] text-neutral-50/5 -z-10 font-serif font-extralight font-ultra-condensed italic">
+				{t("Content.News.heading")}
+			</h2>
 			<AnimatePresence mode="wait">
 				<m.div
 					key={data.data[current].id}
 					className="grid grid-cols-2 border-x border-neutral-50/5 items-center py-20 lg:py-0"
 				>
 					<div className="flex col-span-2 lg:col-span-1 flex-col justify-center lg:border-r border-neutral-50/5 h-full w-full lg:py-40 backdrop-blur bg-neutral-950/25">
-						<div className="pt-4 border-y border-neutral-50/5">
+						<div className="pt-3 border-y border-neutral-50/5">
 							<m.h2
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1, transition: { duration: 0.3 } }}
@@ -72,17 +74,19 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 								}}
 								className="flex grow"
 							>
-								{data.data[current].link ? (
-									data.data[current].link.startsWith("/") ? (
-										<Link
-											href={data.data[current].link}
-											className="group size-full font-mono hover:bg-neutral-50"
-										>
-											<div className="inline-flex h-full items-center gap-3 group-hover:px-4 duration-200 ease-out">
-												<span className="group-hover:text-neutral-950">
-													{data.data[current].linkText}
-												</span>
-												<div className="relative size-5 overflow-clip group-hover:text-neutral-950">
+								{data.data[current].link && (
+									<Link
+										href={data.data[current].link}
+										target={data.data[current].link.startsWith("/") ? "_self" : "_blank"}
+										rel="noopener noreferrer"
+										className="group size-full hover:bg-neutral-50"
+									>
+										<div className="inline-flex h-full items-center gap-3 group-hover:px-4 duration-200 ease-out">
+											<span className="group-hover:text-neutral-950 group-hover:font-bold duration-0">
+												{data.data[current].linkText}
+											</span>
+											{data.data[current].link.startsWith("/") ? (
+												<div className="relative size-5 overflow-clip duration-0">
 													<ArrowRight
 														width={20}
 														height={20}
@@ -91,23 +95,11 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 													<ArrowRight
 														width={20}
 														height={20}
-														className="absolute -translate-x-full group-hover:translate-x-0 group-hover:duration-300 ease-out-quint"
+														className="text-neutral-950 absolute -translate-x-full group-hover:translate-x-0 group-hover:duration-300 ease-out-quint"
 													/>
 												</div>
-											</div>
-										</Link>
-									) : (
-										<Link
-											href={data.data[current].link}
-											target="_blank"
-											rel="noopener noreferrer"
-											className="group size-full font-mono hover:bg-neutral-50"
-										>
-											<div className="inline-flex h-full items-center gap-3 group-hover:px-4 duration-200 ease-out">
-												<span className="group-hover:text-neutral-950">
-													{data.data[current].linkText}
-												</span>
-												<div className="relative size-5 overflow-clip group-hover:text-neutral-950">
+											) : (
+												<div className="relative size-5 overflow-clip duration-0">
 													<ArrowUpRight
 														width={20}
 														height={20}
@@ -116,13 +108,13 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 													<ArrowUpRight
 														width={20}
 														height={20}
-														className="absolute -translate-x-full translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 group-hover:duration-300 ease-out-quint"
+														className="text-neutral-950 absolute -translate-x-full translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 group-hover:duration-300 ease-out-quint"
 													/>
 												</div>
-											</div>
-										</Link>
-									)
-								) : null}
+											)}
+										</div>
+									</Link>
+								)}
 							</m.div>
 							<div className="relative flex ml-auto border-l border-neutral-50/5 divide-x divide-neutral-50/5">
 								<button

@@ -373,7 +373,7 @@ function VideoPlayer(props: {
 									style={style}
 									className="absolute top-0 left-0 right-0 p-6 z-20 h-20 bg-gradient-to-b from-neutral-950/90 duration-500 ease-out-expo"
 								>
-									<p className="font-serif text-2xl text-neutral-50">{props.title}</p>
+									<p className=" text-2xl text-neutral-50">{props.title}</p>
 								</a.div>
 							)
 					)}

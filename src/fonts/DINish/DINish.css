@@ -1,0 +1,19 @@
+@font-face {
+	font-family: "DINish";
+	font-weight: 300 900;
+	font-stretch: 75% 125%;
+	: swap;
+	font-style: normal;
+	font-variation-settings: "slnt" 0deg;
+	src: url("DINish[slnt,wdth,wght].woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "DINish";
+	font-weight: 300 900;
+	font-stretch: 75% 125%;
+	: swap;
+	font-style: italic;
+	font-variation-settings: "slnt" -12deg;
+	src: url("DINish[slnt,wdth,wght].woff2") format("woff2");
+}

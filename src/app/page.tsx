@@ -25,29 +25,7 @@ export default async function Page() {
 			<main>
 				<Announcements data={announcements} />
 				{MinaArt.data && (
-					<section className="my-20 md:my-32 xl:my-40 relative flex items-center px-6 md:px-9 w-screen min-h-[500px] overflow-clip">
-						<div className="absolute inset-0 -z-10">
-							<FadingImage
-								src={`https://static.pprmint.de${MinaArt.data[0].artwork[0].formats.thumbnail.url}`}
-								fill
-								alt=""
-								className="object-cover blur-xl"
-							/>
-							<div
-								className="absolute inset-0 light:invert light:brightness-[0.33]"
-								style={{
-									backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23111111"/></svg>')`,
-									backgroundRepeat: "repeat",
-									backgroundPosition: "center",
-								}}
-							/>
-							<div
-								className="absolute inset-0 light:invert light:brightness-[0.33]"
-								style={{
-									background: `radial-gradient(at right center, #111111aa 0%, #111111 75%)`,
-								}}
-							/>
-						</div>
+					<section className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto overflow-clip">
 						<div className="flex flex-col gap-9 md:flex-row items-center max-w-7xl h-full mx-auto">
 							<div className="flex flex-col w-full">
 								<h2>{t("Content.Mina.heading")}</h2>

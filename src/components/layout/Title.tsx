@@ -65,7 +65,7 @@ export default function Title(
 						</span>
 					</h1>
 					<div
-						className="animate-fade-in text-neutral font-narrow text-xl md:text-2xl xl:text-3xl"
+						className="animate-fade-in text-neutral text-xl md:text-2xl xl:text-3xl"
 						style={{ animationDelay: props.noDelay ? "0.05s" : "0.25s", animationFillMode: "backwards" }}
 					>
 						{props.description}

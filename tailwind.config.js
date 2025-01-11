@@ -135,13 +135,10 @@ module.exports = {
 				},
 			},
 			fontFamily: {
-				sans: ["'Basier Square', Inter, Roboto, Helvetica, Arial, sans-serif"],
-				serif: ['"Roboto Serif", "New York", "Roboto Slab", "Linux Libertine", "Clarity City", "Montserrat", "serif"'],
-				narrow: ["'Basier Square Narrow', 'Roboto Condensed', sans-serif"],
-				digits: ["Mina Sans Digits", "Silka Mono", "Roboto Mono", "monospace"],
+				sans: "DINish, Inter, Roboto, Helvetica, Arial, sans-serif",
+				serif: '"Roboto Serif", "New York", "Roboto Slab", "Linux Libertine", Georgia, Times, serif',
 				mintbit: "Mintbit, 'Roboto Mono', monospace",
 				minttriangles: "'Mint Triangles', monospace",
-				mono: "'Basier Square Mono', 'Roboto Mono', monospace",
 				lcd: "'LCD 14', 'Roboto Mono', monospace",
 				// yikes
 				mintsans: "MintSans, sans-serif",

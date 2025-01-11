@@ -71,7 +71,7 @@ export default function HomeTitle() {
 				<div className="h-screen w-full grid grid-cols-2 border-x border-white/5 light:border-black/5">
 					<div className="relative size-full flex flex-col gap-6 justify-center col-span-2 lg:col-span-1 xl:border-r border-white/5 light:border-black/5">
 						<div>
-							<h1 className="relative pb-1 md:pb-3">
+							<h1 className="relative pb-1 md:pb-3 font-serif">
 								{t("Head.title")
 									.split("")
 									.map((character, index) => (
@@ -99,7 +99,7 @@ export default function HomeTitle() {
 								</span>
 							</h1>
 							<p
-								className="animate-title-fade-in font-narrow text-xl md:text-2xl xl:text-3xl"
+								className="animate-title-fade-in text-xl md:text-2xl xl:text-3xl"
 								style={{
 									animationDelay: "0.75s",
 									animationFillMode: "backwards",
@@ -126,7 +126,7 @@ export default function HomeTitle() {
 										className="group relative w-full aspect-video"
 									>
 										<div className="flex items-center justify-center group-hover:shadow-lg group-active:shadow-sm size-full duration-200 active:duration-50">
-											<span className="text-neutral-50 group-hover:opacity-0 group-hover:tracking-widest uppercase font-mono font-bold duration-200">
+											<span className="text-neutral-50 group-hover:opacity-0 group-hover:tracking-widest uppercase font-expanded font-light duration-200">
 												{t(button.text)}
 											</span>
 										</div>
@@ -161,7 +161,7 @@ export default function HomeTitle() {
 											duration: 0.8,
 										},
 									}}
-									className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+									className="absolute top-1/2 left-1/2 -translate-y-1/2"
 									style={{ writingMode: "vertical-lr" }}
 								>
 									{t(Links[hovered].text)
@@ -172,7 +172,7 @@ export default function HomeTitle() {
 												initial={{ opacity: 0 }}
 												animate={{ opacity: 1, transition: { delay: 0.03 * index } }}
 												exit={{ opacity: 0, transition: { duration: 0.15 } }}
-												className="font-serif font-extra-condensed text-[15vw] font-thin text-neutral-50/5"
+												className=" text-[11vw] font-thin text-neutral-50/5"
 												aria-hidden
 											>
 												{character}

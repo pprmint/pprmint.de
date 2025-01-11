@@ -2,7 +2,7 @@
 	font-family: "Roboto Serif";
 	font-weight: 100 900;
 	font-stretch: 50% 150%;
-	font-display: swap;
+	: swap;
 	font-style: normal;
 	src: url("RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf") format("truetype");
 }
@@ -11,7 +11,7 @@
 	font-family: "Roboto Serif";
 	font-weight: 100 900;
 	font-stretch: 50% 150%;
-	font-display: swap;
+	: swap;
 	font-style: italic;
 	src: url("RobotoSerif-Italic-VariableFont_GRAD,opsz,wdth,wght.ttf") format("truetype");
 }

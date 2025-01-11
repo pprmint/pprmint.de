@@ -89,7 +89,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 									</div>
 								</TransformComponent>
 								<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 bg-gradient-to-b from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
-									<div className="flex items-center flex-grow gap-3 text-xl font-display">
+									<div className="flex items-center flex-grow gap-3 text-xl ">
 										<Dialog.Title asChild>
 											<p>
 												<span className="text-neutral-50/70">

@@ -4,22 +4,22 @@
 
 @layer base {
 	h1 {
-		@apply text-neutral-50 font-serif font-ultra-condensed font-thin text-4xl md:text-5xl lg:text-6xl xl:text-8xl pb-3;
+		@apply text-neutral-50 font-light font-ultra-condensed text-4xl md:text-5xl lg:text-6xl xl:text-8xl pb-3;
 	}
 	h2 {
-		@apply text-neutral-50 font-serif font-ultra-condensed font-extralight text-3xl md:text-4xl lg:text-5xl pb-3;
+		@apply text-neutral-50 font-light font-ultra-condensed text-3xl md:text-4xl lg:text-5xl pb-3;
 	}
 	h3 {
-		@apply text-neutral-50 font-serif font-ultra-condensed font-light text-2xl md:text-3xl lg:text-4xl pb-1;
+		@apply text-neutral-50 font-light font-ultra-condensed text-2xl md:text-3xl lg:text-4xl pb-1;
 	}
 	h4 {
-		@apply text-neutral-50 font-serif font-extra-condensed font-light text-xl md:text-2xl lg:text-3xl pb-1;
+		@apply text-neutral-50 font-semi-condensed font-light text-xl md:text-2xl lg:text-3xl pb-1;
 	}
 	h5 {
-		@apply text-neutral-50 font-serif font-condensed text-lg md:text-xl lg:text-2xl pb-1;
+		@apply text-neutral-50 font-semi-condensed text-lg md:text-xl lg:text-2xl pb-1;
 	}
 	h6 {
-		@apply text-neutral-50 font-serif md:text-lg lg:text-xl pb-1;
+		@apply text-neutral-50 md:text-lg lg:text-xl pb-1;
 	}
 }
 
@@ -60,6 +60,10 @@
 	.font-ultra-expanded {
 		font-stretch: ultra-expanded;
 	}
+	.italic {
+		font-style: italic;
+		font-variation-settings: "slnt" -12; /* For DINish font. */
+	}
 }
 
 :focus-visible {
@@ -75,7 +79,8 @@ img {
 }
 
 body {
-	font-variation-settings: "liga";
+	font-variant-ligatures: normal;
+	font-feature-settings: "tnum";
 }
 
 .pixelated {

@@ -184,7 +184,7 @@ export default function Palette() {
 							<div
 								key={colorIndex + shadeIndex}
 								style={{ backgroundColor: shade as string }}
-								className={`group flex items-center justify-center h-16 font-display-mono ${
+								className={`group flex items-center justify-center h-16 -mono ${
 									shadeIndex == 5 ? "col-span-2 lg:col-span-1" : "col-span-1"
 								} ${
 									shadeIndex > 5 ? "text-neutral-50" : "text-neutral-950"
