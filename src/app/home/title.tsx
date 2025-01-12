@@ -172,7 +172,7 @@ export default function HomeTitle() {
 												initial={{ opacity: 0 }}
 												animate={{ opacity: 1, transition: { delay: 0.03 * index } }}
 												exit={{ opacity: 0, transition: { duration: 0.15 } }}
-												className=" text-[11vw] font-thin text-neutral-50/5"
+												className="font-serif font-ultra-condensed text-[15vw] font-thin text-neutral-50/5"
 												aria-hidden
 											>
 												{character}
