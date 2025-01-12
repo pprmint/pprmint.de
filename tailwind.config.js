@@ -135,7 +135,7 @@ module.exports = {
 				},
 			},
 			fontFamily: {
-				sans: "DINish, Inter, Roboto, Helvetica, Arial, sans-serif",
+				sans: "DINish, Bahnschrift, D-DIN, Inter, Roboto, Helvetica, Arial, sans-serif",
 				serif: '"Roboto Serif", "New York", "Roboto Slab", "Linux Libertine", Georgia, Times, serif',
 				mintbit: "Mintbit, 'Roboto Mono', monospace",
 				minttriangles: "'Mint Triangles', monospace",

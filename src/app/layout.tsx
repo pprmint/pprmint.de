@@ -5,7 +5,6 @@ import { getLocale, getMessages } from "next-intl/server";
 
 import NavBar from "src/components/layout/navigation/NavBar";
 import Footer from "src/components/layout/Footer";
-import ScrollToTopButton from "src/components/layout/ScrollToTopButton";
 import WarningTriangle from "src/icons/WarningTriangle";
 
 import "../styles.css";
@@ -66,7 +65,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 							</TooltipProvider>
 						</NavbarProvider>
 						<Footer />
-						<ScrollToTopButton />
 					</NextIntlClientProvider>
 				</ThemeProvider>
 			</body>

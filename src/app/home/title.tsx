@@ -66,70 +66,101 @@ export default function HomeTitle() {
 	const t = useTranslations("HOME");
 	const [hovered, setHovered] = useState(-1);
 	return (
-		<section className="relative w-screen h-screen overflow-clip">
-			<div className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+		<section className="relative w-screen h-screen overflow-clip bg-neutral-950">
+			<m.div
+				initial={{ opacity: 0 }}
+				animate={{
+					opacity: 1,
+					transition: { duration: 1, delay: 1 },
+				}}
+				className="absolute inset-0"
+			>
+				<video
+					src="https://static.pprmint.de/uploads/wavy_ff6ca718a6.webm"
+					className="absolute inset-0 object-fill w-full h-full opacity-20 light:invert light:mix-blend-hard-light"
+					loop
+					autoPlay
+					muted
+					playsInline
+				/>
+			</m.div>
+			<div
+				style={{ background: "url(/assets/noise.png)" }}
+				className="absolute inset-0 opacity-20 mix-blend-multiply light:mix-blend-screen light:opacity-50"
+			/>
+			<div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-30% via-transparent" />
+			<div className="absolute w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 				<div className="h-screen w-full grid grid-cols-2 border-x border-white/5 light:border-black/5">
 					<div className="relative size-full flex flex-col gap-6 justify-center col-span-2 lg:col-span-1 xl:border-r border-white/5 light:border-black/5">
 						<div>
-							<h1 className="relative pb-1 md:pb-3 font-serif">
-								{t("Head.title")
+							<h1 className="relative pb-1 md:pb-3 font-serif" aria-label={t("Head.title")}>
+								{String(t("Head.title") + ".")
 									.split("")
 									.map((character, index) => (
-										<span
+										<m.div
+											aria-hidden
 											key={index}
-											className="animate-title-fade-in"
-											style={{
-												animationDelay: `${index / 20 + 0.25}s`,
-												animationFillMode: "backwards",
-												animationDuration: "1s",
+											initial={{ opacity: 0, filter: "blur(5px)", y: 20 }}
+											animate={{
+												opacity: 1,
+												filter: "blur(0px)",
+												y: 0,
+												transition: {
+													type: "spring",
+													bounce: 0,
+													delay: index / 50 + 0.25,
+													duration: 1,
+												},
 											}}
+											className={`inline-block ${character === "." && "text-green"}`}
 										>
-											{character}
-										</span>
+											{character.replace(" ", "\xa0")}
+										</m.div>
 									))}
-								<span
-									className="animate-title-fade-in text-green"
-									style={{
-										animationDelay: `${t("Head.title").length / 20 + 0.25}s`,
-										animationFillMode: "backwards",
-										animationDuration: "1s",
-									}}
-								>
-									.
-								</span>
 							</h1>
-							<p
-								className="animate-title-fade-in text-xl md:text-2xl xl:text-3xl"
-								style={{
-									animationDelay: "0.75s",
-									animationFillMode: "backwards",
-									animationDuration: "1s",
+							<m.p
+								initial={{ opacity: 0, y: 40 }}
+								animate={{
+									opacity: 1,
+									y: 0,
+									transition: {
+										type: "spring",
+										bounce: 0,
+										delay: 1,
+										duration: 1,
+									},
 								}}
+								className="text-xl md:text-2xl xl:text-3xl"
 							>
 								{t("Head.description")}
-							</p>
+							</m.p>
 						</div>
-						<div
-							onMouseLeave={() => setHovered(-1)}
-							className="grid grid-cols-2 sm:grid-cols-4 divide-x border-y divide-white/5 light:divide-black/5 border-white/5 light:border-black/5"
-						>
+						<div onMouseLeave={() => setHovered(-1)} className="grid grid-cols-2 sm:grid-cols-4">
 							{Links.map((button, index) => (
-								<Link href={button.link} key={index} onMouseEnter={() => setHovered(index)}>
+								<Link
+									href={button.link}
+									key={index}
+									onMouseEnter={() => setHovered(index)}
+									className="group"
+								>
 									<m.button
 										tabIndex={-1}
-										initial={{ opacity: 0, filter: "blur(5px)" }}
+										initial={{ opacity: 0, y: 40 }}
 										animate={{
 											opacity: 1,
-											filter: "blur(0px)",
-											transition: { duration: 1, delay: 0.85 + index / 10 },
+											y: 0,
+											transition: {
+												type: "spring",
+												bounce: 0,
+												duration: 1,
+												delay: 1 + (index + 1) / 10,
+											},
 										}}
-										className="group relative w-full aspect-video"
+										className="flex items-center justify-center relative w-full aspect-video border-y odd:border-r border-neutral-50/5 group-last:border-r-0"
 									>
-										<div className="flex items-center justify-center group-hover:shadow-lg group-active:shadow-sm size-full duration-200 active:duration-50">
-											<span className="text-neutral-50 group-hover:opacity-0 group-hover:tracking-widest uppercase font-expanded font-light duration-200">
-												{t(button.text)}
-											</span>
-										</div>
+										<span className="text-neutral-50 group-hover:opacity-0 group-hover:tracking-widest uppercase font-expanded font-light duration-200">
+											{t(button.text)}
+										</span>
 										<div className="absolute group-hover:grid grid-cols-16 inset-0 duration-200 drop-shadow-md group-active:drop-shadow-none">
 											{button.matrix.map((dot, index) => (
 												<div
@@ -245,28 +276,6 @@ export default function HomeTitle() {
 					</div>
 				</div>
 			</div>
-			<m.div
-				initial={{ opacity: 0 }}
-				animate={{
-					opacity: 1,
-					transition: { duration: 1, delay: 1 },
-				}}
-				className="absolute -z-10 inset-0"
-			>
-				<video
-					src="https://static.pprmint.de/uploads/wavy_ff6ca718a6.webm"
-					className="absolute inset-0 object-fill w-full h-full opacity-20 light:invert light:mix-blend-hard-light"
-					loop
-					autoPlay
-					muted
-					playsInline
-				/>
-			</m.div>
-			<div
-				style={{ background: "url(/assets/noise.png)" }}
-				className="absolute inset-0 opacity-20 mix-blend-multiply light:mix-blend-screen light:opacity-50 -z-10"
-			/>
-			<div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-25% via-transparent -z-10" />
 		</section>
 	);
 }
