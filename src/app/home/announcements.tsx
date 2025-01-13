@@ -85,9 +85,7 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 										rel="noopener noreferrer"
 										className="flex gap-3 items-center text-lg group size-full hover:px-4 hover:bg-neutral-50 active:bg-neutral-100 hover:shadow-md active:shadow-inner duration-150 ease-out active:duration-75"
 									>
-										<span className="group-hover:text-neutral-950 group-hover:font-bold duration-0">
-											{data.data[current].linkText}
-										</span>
+										<span className="group-hover:text-neutral-950 group-hover:font-bold duration-0">{data.data[current].linkText}</span>
 										{data.data[current].link.startsWith("/") ? (
 											<div className="relative size-5 overflow-clip duration-0">
 												<ArrowRight width={20} height={20} className="absolute" />
@@ -116,49 +114,57 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 								className="relative group w-12 h-full text-neutral-50 hover:text-neutral-950 disabled:text-neutral-500 hover:bg-neutral-50 active:bg-neutral-100 hover:shadow-md duration-100 active:duration-75 active:shadow-inner overflow-hidden"
 								onClick={handleNext}
 							>
-								<m.div
-									initial={{ x: "100%" }}
-									exit={{
-										x: direction > 0 ? "0%" : "100%",
-										transition: { ease: "easeOut", duration: 0.2 },
-									}}
-									className="absolute top-0 inset-0 flex items-center justify-center"
-								>
-									<ChevronLeft className="group-hover:stroke-current group-hover:stroke-[1.8]" />
-								</m.div>
-								<m.div
-									exit={{
-										x: direction > 0 ? "-100%" : "0%",
-										transition: { ease: "easeOut", duration: 0.2 },
-									}}
-									className="absolute top-0 inset-0 flex items-center justify-center"
-								>
-									<ChevronLeft className="group-hover:stroke-current group-hover:stroke-[1.8]" />
-								</m.div>
+								<AnimatePresence mode="wait">
+									<m.div key={data.data[current].link}>
+										<m.div
+											initial={{ x: "100%" }}
+											exit={{
+												x: direction > 0 ? "0%" : "100%",
+												transition: { ease: "easeOut", duration: 0.2 },
+											}}
+											className="absolute top-0 inset-0 flex items-center justify-center"
+										>
+											<ChevronLeft className="group-hover:stroke-current group-hover:stroke-[1.8]" />
+										</m.div>
+										<m.div
+											exit={{
+												x: direction > 0 ? "-100%" : "0%",
+												transition: { ease: "easeOut", duration: 0.2 },
+											}}
+											className="absolute top-0 inset-0 flex items-center justify-center"
+										>
+											<ChevronLeft className="group-hover:stroke-current group-hover:stroke-[1.8]" />
+										</m.div>
+									</m.div>
+								</AnimatePresence>
 							</button>
 							<button
 								className="relative group w-12 h-full text-neutral-50 hover:text-neutral-950 disabled:text-neutral-500 hover:bg-neutral-50 active:bg-neutral-100 hover:shadow-md duration-100 active:duration-75 active:shadow-inner overflow-hidden"
 								onClick={handlePrevious}
 							>
-								<m.div
-									initial={{ x: "-100%" }}
-									exit={{
-										x: direction < 0 ? "0%" : "-100%",
-										transition: { ease: "easeOut", duration: 0.2 },
-									}}
-									className="absolute top-0 inset-0 flex items-center justify-center"
-								>
-									<ChevronRight className="group-hover:stroke-current group-hover:stroke-[1.8]" />
-								</m.div>
-								<m.div
-									exit={{
-										x: direction < 0 ? "100%" : "0%",
-										transition: { ease: "easeOut", duration: 0.2 },
-									}}
-									className="absolute top-0 inset-0 flex items-center justify-center"
-								>
-									<ChevronRight className="group-hover:stroke-current group-hover:stroke-[1.8]" />
-								</m.div>
+								<AnimatePresence mode="wait">
+									<m.div key={data.data[current].link}>
+										<m.div
+											initial={{ x: "-100%" }}
+											exit={{
+												x: direction < 0 ? "0%" : "-100%",
+												transition: { ease: "easeOut", duration: 0.2 },
+											}}
+											className="absolute top-0 inset-0 flex items-center justify-center"
+										>
+											<ChevronRight className="group-hover:stroke-current group-hover:stroke-[1.8]" />
+										</m.div>
+										<m.div
+											exit={{
+												x: direction < 0 ? "100%" : "0%",
+												transition: { ease: "easeOut", duration: 0.2 },
+											}}
+											className="absolute top-0 inset-0 flex items-center justify-center"
+										>
+											<ChevronRight className="group-hover:stroke-current group-hover:stroke-[1.8]" />
+										</m.div>
+									</m.div>
+								</AnimatePresence>
 							</button>
 							<m.div
 								className="absolute bottom-0 lg:-bottom-px bg-neutral-50 h-px"
@@ -187,20 +193,14 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 							<m.div
 								key={data.data[current].id}
 								initial={{
-									clipPath:
-										direction < 0
-											? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
-											: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
+									clipPath: direction < 0 ? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" : "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
 								}}
 								animate={{
 									clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
 									transition: { type: "spring", duration: 0.5, bounce: 0, delay: 0.05 },
 								}}
 								exit={{
-									clipPath:
-										direction < 0
-											? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
-											: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+									clipPath: direction < 0 ? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)" : "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
 									opacity: 0,
 									transition: { ease: "easeIn", duration: 0.2 },
 								}}
