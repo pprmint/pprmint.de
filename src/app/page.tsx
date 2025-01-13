@@ -14,6 +14,7 @@ import HeartFilled from "src/icons/HeartFilled";
 import HomeTitle from "./home/title";
 import Envelope from "src/icons/Envelope";
 import Announcements from "./home/announcements";
+import * as motion from "motion/react-client";
 
 export default async function Page() {
 	const t = await getTranslations("HOME");
@@ -28,33 +29,55 @@ export default async function Page() {
 					<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 						<div className="w-full border-x border-neutral-50/5 pt-64">
 							<div className="relative">
-								<div aria-hidden className="-z-10 absolute italic leading-none text-[10vw] tracking-tighter text-neutral-500">
+								<motion.div
+									aria-hidden
+									initial={{ x: -40, opacity: 0 }}
+									whileInView={{
+										x: 0,
+										opacity: 1,
+										transition: { delay: 0.2, type: "spring", bounce: 0, duration: 1 },
+									}}
+									viewport={{ once: true }}
+									className="absolute italic leading-none text-[12vw] tracking-tighter font-condensed text-neutral-50"
+								>
 									{t("Content.Mina.heading1")}
-								</div>
+								</motion.div>
 								<FadingImage
 									src={`https://static.pprmint.de${MinaArt.data[0].artwork[0].url}`}
 									alt={MinaArt.data[0].artwork[0].alternativeText || ""}
 									width={MinaArt.data[0].artwork[0].width || 0}
 									height={MinaArt.data[0].artwork[0].height || 0}
-									className="w-auto h-auto max-h-screen mx-auto pt-32 pb-20"
+									className="w-auto h-auto max-h-screen mx-auto pt-[10.5rem] pb-28 drop-shadow-2xl"
 								/>
-								<div
+								<motion.div
+									initial={{ x: 40, opacity: 0 }}
+									whileInView={{
+										x: 0,
+										opacity: 1,
+										transition: { delay: 0.2, type: "spring", bounce: 0, duration: 1 },
+									}}
+									viewport={{ once: true }}
 									aria-hidden
-									className="absolute bottom-0 right-0 text-right italic leading-none text-[10vw] font-serif font-ultra-condensed text-neutral-500"
+									className="absolute bottom-0 right-0 text-right italic leading-none text-[12vw] font-serif font-ultra-condensed text-neutral-50 text-shadow-2xl"
 								>
 									{t("Content.Mina.heading2")}
-								</div>
+								</motion.div>
 							</div>
-							<div className="flex flex-col grow">
-								<h2 className="sr-only">{t("Content.Mina.heading1") + " " + t("Content.Mina.heading2")}</h2>
-								<div className="flex flex-col w-full xl:text-xl 2xl:text-2xl">
-									<p>{t("Content.Mina.text1")}</p>
-									<p className="mb-6">
+							<div className="flex flex-col grow mt-12">
+								<h2 className="sr-only">
+									{t("Content.Mina.heading1") + " " + t("Content.Mina.heading2")}
+								</h2>
+								<div className="flex flex-col w-full text-center">
+									<p className="xl:text-xl 2xl:text-2xl">{t("Content.Mina.text1")}</p>
+									<p className="mb-6 xl:text-xl 2xl:text-2xl">
 										{t.rich("Content.Mina.text2", {
 											artist: MinaArt.data[0].artist.name,
 											link: (chunks) =>
 												MinaArt.data[0].artist.creditUrl ? (
-													<Link href={MinaArt.data[0].artist.creditUrl} className="text-link-external">
+													<Link
+														href={MinaArt.data[0].artist.creditUrl}
+														className="text-link-external"
+													>
 														{chunks}
 													</Link>
 												) : (
@@ -68,10 +91,15 @@ export default async function Page() {
 											})}
 										</span>
 									</p>
-									<Link href="/mina" className="w-max inline-flex gap-3 items-center hover:bg-neutral-50 hover:text-neutral-950 py-2 hover:px-4 duration-200 ease-out">
-										{t("Content.Mina.button")}
-										<HeartFilled />
-									</Link>
+									<div className="w-full border-y border-neutral-50/5 h-12">
+										<Link
+											href="/mina"
+											className="flex gap-3 items-center text-lg hover:text-neutral-950 hover:font-bold group h-full w-max hover:px-4 mx-auto hover:bg-neutral-50 active:bg-neutral-100 hover:shadow-md active:shadow-inner duration-200 ease-out-expo active:duration-75"
+										>
+											{t("Content.Mina.button")}
+											<HeartFilled />
+										</Link>
+									</div>
 								</div>
 							</div>
 						</div>

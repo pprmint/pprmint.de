@@ -83,12 +83,12 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 										href={data.data[current].link}
 										target={data.data[current].link.startsWith("/") ? "_self" : "_blank"}
 										rel="noopener noreferrer"
-										className="flex gap-3 items-center text-lg group size-full hover:px-4 hover:bg-neutral-50 active:bg-neutral-100 hover:shadow-md active:shadow-inner duration-150 ease-out active:duration-75"
+										className="flex gap-3 items-center text-lg hover:text-neutral-950 hover:font-bold group size-full hover:px-4 hover:bg-neutral-50 active:bg-neutral-100 hover:shadow-md active:shadow-inner duration-200 ease-out-expo active:duration-75"
 									>
-										<span className="group-hover:text-neutral-950 group-hover:font-bold duration-0">{data.data[current].linkText}</span>
+										<span>{data.data[current].linkText}</span>
 										{data.data[current].link.startsWith("/") ? (
 											<div className="relative size-5 overflow-clip duration-0">
-												<ArrowRight width={20} height={20} className="absolute" />
+												<ArrowRight width={20} height={20} className="absolute group-hover:translate-x-full" />
 												<ArrowRight
 													width={20}
 													height={20}
@@ -97,7 +97,7 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 											</div>
 										) : (
 											<div className="relative size-5 overflow-clip duration-0">
-												<ArrowUpRight width={20} height={20} className="absolute" />
+												<ArrowUpRight width={20} height={20} className="absolute group-hover:translate-x-full group-hover:-translate-y-full" />
 												<ArrowUpRight
 													width={20}
 													height={20}

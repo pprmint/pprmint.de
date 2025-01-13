@@ -51,7 +51,7 @@ function Pagination({ page, pageCount, onPageChange }: { page: number; pageCount
 				return (
 					<button
 						key={index}
-						className={`size-8 sm:size-10 sm:text-lg rounded-full ${
+						className={`size-8 sm:size-10 sm:text-lg rounded-full font-expanded ${
 							index + 1 == page
 								? "text-neutral-950 bg-neutral-50 pointer-events-none font-bold"
 								: "text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800"
@@ -64,7 +64,7 @@ function Pagination({ page, pageCount, onPageChange }: { page: number; pageCount
 			})}
 			{pageCount > 1 && (
 				<button
-					className={`size-8 sm:size-10 sm:text-lg rounded-full ${
+					className={`size-8 sm:size-10 sm:text-lg rounded-full font-expanded ${
 						pageCount == page
 							? "text-neutral-950 bg-neutral-50 pointer-events-none font-bold"
 							: "text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800"
