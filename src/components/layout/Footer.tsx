@@ -147,22 +147,24 @@ export default function Footer() {
 						{new Date().getFullYear()} pprmint.
 					</p>
 				</div>
-				<Link
-					href={`https://github.com/pprmint/pprmint.de/commit/${process.env.NEXT_PUBLIC_SOURCE_COMMIT}`}
-					className="flex items-center gap-1 text-xs"
-					target="_blank"
-				>
-					SHA
-					<div
-						style={{
-							backgroundColor: `#${process.env.NEXT_PUBLIC_SOURCE_COMMIT?.slice(0, 6)}`,
-							width: 10,
-							height: 10,
-							borderRadius: 5,
-						}}
-					/>
-					{process.env.NEXT_PUBLIC_SOURCE_COMMIT?.slice(0, 6)}
-				</Link>
+				{process.env.NEXT_PUBLIC_SOURCE_COMMIT && (
+					<Link
+						href={`https://github.com/pprmint/pprmint.de/commit/${process.env.NEXT_PUBLIC_SOURCE_COMMIT}`}
+						className="flex items-center gap-1 text-xs"
+						target="_blank"
+					>
+						SHA
+						<div
+							style={{
+								backgroundColor: `#${process.env.NEXT_PUBLIC_SOURCE_COMMIT.slice(0, 6)}`,
+								width: 10,
+								height: 10,
+								borderRadius: 5,
+							}}
+						/>
+						{process.env.NEXT_PUBLIC_SOURCE_COMMIT.slice(0, 6)}
+					</Link>
+				)}
 			</div>
 		</footer>
 	);
