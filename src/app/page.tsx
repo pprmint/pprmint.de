@@ -27,7 +27,7 @@ export default async function Page() {
 				<Announcements data={announcements} />
 				{MinaArt.data && (
 					<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-						<div className="w-full border-x border-neutral-50/5 pt-9 lg:pt-16 xl:pt-32">
+						<div className="w-full border-x border-neutral-50/5 pt-9 lg:pt-16 xl:pt-40">
 							<div className="relative">
 								<motion.div
 									aria-hidden
@@ -50,7 +50,7 @@ export default async function Page() {
 									className="w-auto h-auto max-h-screen mx-auto pt-16 pb-16 md:pt-[4.3rem] lg:pt-24 xl:pt-[9rem] xl:pb-24 drop-shadow-2xl"
 								/>
 								<motion.div
-									initial={{ x: 40, opacity: 0 }}
+									initial={{ x: -40, opacity: 0 }}
 									whileInView={{
 										x: 0,
 										opacity: 1,
