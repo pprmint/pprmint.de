@@ -27,7 +27,7 @@ export default async function Page() {
 				<Announcements data={announcements} />
 				{MinaArt.data && (
 					<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-						<div className="w-full border-x border-neutral-50/5 pt-64">
+						<div className="w-full border-x border-neutral-50/5 pt-9 lg:pt-16 xl:pt-32">
 							<div className="relative">
 								<motion.div
 									aria-hidden
@@ -38,7 +38,7 @@ export default async function Page() {
 										transition: { delay: 0.2, type: "spring", bounce: 0, duration: 1 },
 									}}
 									viewport={{ once: true }}
-									className="absolute italic leading-none text-[12vw] tracking-tighter font-condensed text-neutral-50"
+									className="absolute italic leading-none text-6xl md:text-8xl lg:text-9xl xl:text-[11rem] 2xl:text-[12.5rem] tracking-tighter font-condensed text-neutral-50"
 								>
 									{t("Content.Mina.heading1")}
 								</motion.div>
@@ -47,7 +47,7 @@ export default async function Page() {
 									alt={MinaArt.data[0].artwork[0].alternativeText || ""}
 									width={MinaArt.data[0].artwork[0].width || 0}
 									height={MinaArt.data[0].artwork[0].height || 0}
-									className="w-auto h-auto max-h-screen mx-auto pt-[10.5rem] pb-28 drop-shadow-2xl"
+									className="w-auto h-auto max-h-screen mx-auto pt-16 pb-16 md:pt-[4.3rem] lg:pt-24 xl:pt-[9rem] xl:pb-24 drop-shadow-2xl"
 								/>
 								<motion.div
 									initial={{ x: 40, opacity: 0 }}
@@ -58,7 +58,7 @@ export default async function Page() {
 									}}
 									viewport={{ once: true }}
 									aria-hidden
-									className="absolute bottom-0 right-0 text-right italic leading-none text-[12vw] font-serif font-ultra-condensed text-neutral-50 text-shadow-2xl"
+									className="absolute bottom-0 right-0 text-right italic leading-none text-6xl md:text-8xl lg:text-9xl xl:text-[11rem] 2xl:text-[12.5rem] font-serif font-ultra-condensed text-neutral-50 text-shadow-2xl"
 								>
 									{t("Content.Mina.heading2")}
 								</motion.div>

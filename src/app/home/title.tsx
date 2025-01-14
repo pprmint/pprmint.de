@@ -90,8 +90,8 @@ export default function HomeTitle() {
 			/>
 			<div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-30% via-transparent" />
 			<div className="absolute w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-				<div className="h-screen w-full grid grid-cols-2 border-x border-white/5 light:border-black/5">
-					<div className="relative size-full flex flex-col gap-6 justify-center col-span-2 lg:col-span-1 xl:border-r border-white/5 light:border-black/5">
+				<div className="h-screen w-full md:grid grid-cols-2 border-x border-white/5 light:border-black/5">
+					<div className="relative size-full flex flex-col gap-6 justify-center col-span-2 md:col-span-1 xl:border-r border-white/5 light:border-black/5">
 						<div>
 							<h1 className="relative pb-1 md:pb-3 font-serif" aria-label={t("Head.title")}>
 								{String(t("Head.title") + ".")
@@ -135,7 +135,7 @@ export default function HomeTitle() {
 								{t("Head.description")}
 							</m.p>
 						</div>
-						<div onMouseLeave={() => setHovered(-1)} className="grid grid-cols-2 sm:grid-cols-4">
+						<div onMouseLeave={() => setHovered(-1)} className="grid grid-cols-2 xl:grid-cols-4">
 							{Links.map((button, index) => (
 								<Link
 									href={button.link}
@@ -156,7 +156,7 @@ export default function HomeTitle() {
 												delay: 1 + (index + 1) / 10,
 											},
 										}}
-										className="flex items-center justify-center relative w-full aspect-video border-y odd:border-r border-neutral-50/5 group-last:border-r-0"
+										className="flex items-center justify-center relative w-full aspect-video border-y odd:border-r border-neutral-50/5 even:border-r-0 group-last:border-r-0"
 									>
 										<span className="text-neutral-50 group-hover:opacity-0 group-hover:tracking-widest uppercase font-expanded font-light duration-200">
 											{t(button.text)}
@@ -178,7 +178,7 @@ export default function HomeTitle() {
 							))}
 						</div>
 					</div>
-					<div className="relative size-full col-span-2 lg:col-span-1">
+					<div className="hidden md:block relative size-full col-span-2 md:col-span-1">
 						<AnimatePresence mode="wait">
 							{Links[hovered] && (
 								<m.div
