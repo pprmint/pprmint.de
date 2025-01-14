@@ -57,29 +57,31 @@ export default function HomeTitle() {
 	const t = useTranslations("HOME");
 	const [hovered, setHovered] = useState(-1);
 	return (
-		<section className="relative w-screen h-screen overflow-clip bg-neutral-950">
-			<video
-				src="https://static.pprmint.de/uploads/wavy_ff6ca718a6.webm"
-				className="absolute inset-0 object-fill w-full h-full opacity-20 light:invert light:mix-blend-hard-light"
-				loop
-				autoPlay
-				muted
-				playsInline
-			/>
-			<div
-				style={{ background: "url(/assets/noise.png)" }}
-				className="absolute inset-0 opacity-20 mix-blend-multiply light:mix-blend-screen light:opacity-50"
-			/>
-			<div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-30% via-transparent" />
-			<m.div
-				initial={{ opacity: 1 }}
-				animate={{
-					opacity: 0,
-					transition: { duration: 1, delay: 1 },
-				}}
-				className="absolute inset-0 bg-neutral-950"
-			/>
-			<div className="absolute w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+		<section className="relative w-screen h-screen overflow-clip">
+			<div className="absolute -z-10 inset-0 bg-neutral-950">
+				<video
+					src="https://static.pprmint.de/uploads/wavy_ff6ca718a6.webm"
+					className="absolute inset-0 object-fill w-full h-full opacity-20 light:invert light:mix-blend-hard-light"
+					loop
+					autoPlay
+					muted
+					playsInline
+				/>
+				<div
+					style={{ background: "url(/assets/noise.png)" }}
+					className="absolute inset-0 opacity-20 mix-blend-multiply light:mix-blend-screen light:opacity-50"
+				/>
+				<div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-30% via-transparent" />
+				<m.div
+					initial={{ opacity: 1 }}
+					animate={{
+						opacity: 0,
+						transition: { duration: 1, delay: 1 },
+					}}
+					className="absolute inset-0 bg-neutral-950"
+				/>
+			</div>
+			<div className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 				<div className="h-screen w-full md:grid grid-cols-2 border-x border-white/5 light:border-black/5">
 					<div className="relative size-full flex flex-col gap-6 justify-center col-span-2 md:col-span-1 xl:border-r border-white/5 light:border-black/5">
 						<div>
@@ -187,7 +189,7 @@ export default function HomeTitle() {
 												initial={{ opacity: 0 }}
 												animate={{ opacity: 1, transition: { delay: 0.03 * index } }}
 												exit={{ opacity: 0, transition: { duration: 0.15 } }}
-												className="font-serif font-ultra-condensed text-[15vw] font-thin text-neutral-50/5"
+												className="font-serif font-ultra-condensed text-[15rem] xl:text-[20rem] font-thin text-neutral-50/5"
 												aria-hidden
 											>
 												{character}
