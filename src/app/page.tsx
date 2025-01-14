@@ -21,40 +21,57 @@ export default async function Page() {
 				<Announcements data={announcements} />
 				{MinaArt.data && (
 					<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-						<div className="w-full border-x border-neutral-50/5 pt-9 lg:pt-16 xl:pt-40">
+						<div className="w-full border-x border-neutral-50/5 pt-9 lg:pt-16 xl:pt-48">
 							<div className="relative">
 								<motion.div
-									aria-hidden
-									initial={{ x: -40, opacity: 0 }}
+									initial={{ clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" }}
 									whileInView={{
-										x: 0,
-										opacity: 1,
-										transition: { delay: 0.2, type: "spring", bounce: 0, duration: 1 },
+										clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+										transition: { delay: 0.2, type: "spring", bounce: 0, duration: 0.75 },
 									}}
 									viewport={{ once: true }}
-									className="absolute italic leading-none text-6xl md:text-8xl lg:text-9xl xl:text-[11rem] 2xl:text-[12.5rem] tracking-tighter font-condensed text-neutral-50"
+									className="absolute -z-10 italic pb-[0.1em] text-5xl md:text-8xl lg:text-9xl xl:text-[9rem] tracking-tight font-condensed bg-neutral-50/5 text-neutral-50 overflow-clip"
 								>
-									{t("Content.Mina.heading1")}
+									<motion.div
+										initial={{ padding: "0 0" }}
+										whileInView={{
+											padding: "0 .3em",
+											transition: { delay: 0.2, type: "spring", bounce: 0, duration: 0.75 },
+										}}
+										viewport={{ once: true }}
+										aria-hidden
+									>
+										{t("Content.Mina.heading1")}
+									</motion.div>
 								</motion.div>
 								<FadingImage
 									src={`https://static.pprmint.de${MinaArt.data[0].artwork[0].url}`}
 									alt={MinaArt.data[0].artwork[0].alternativeText || ""}
 									width={MinaArt.data[0].artwork[0].width || 0}
 									height={MinaArt.data[0].artwork[0].height || 0}
-									className="w-auto h-auto max-h-screen mx-auto pt-16 pb-16 md:pt-[4.3rem] lg:pt-24 xl:pt-[9rem] xl:pb-24 drop-shadow-2xl"
+									className="w-auto h-auto max-h-screen mx-auto pt-12 sm:pt-14 md:pt-20 lg:pt-24 xl:pt-28 pb-14 sm:pb-16 md:pb-20 lg:pb-24 xl:pb-32"
 								/>
 								<motion.div
-									initial={{ x: -40, opacity: 0 }}
+									initial={{ clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)" }}
 									whileInView={{
-										x: 0,
-										opacity: 1,
-										transition: { delay: 0.2, type: "spring", bounce: 0, duration: 1 },
+										clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+										transition: { delay: 0.2, type: "spring", bounce: 0, duration: 0.75 },
 									}}
 									viewport={{ once: true }}
 									aria-hidden
-									className="absolute bottom-0 right-0 text-right italic leading-none text-6xl md:text-8xl lg:text-9xl xl:text-[11rem] 2xl:text-[12.5rem] font-serif font-ultra-condensed text-neutral-50 text-shadow-2xl"
+									className="absolute bottom-0 right-0 text-right italic text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-serif font-ultra-condensed bg-neutral-950/50 backdrop-blur-md text-neutral-50"
 								>
-									{t("Content.Mina.heading2")}
+									<motion.div
+										initial={{ padding: "0 0" }}
+										whileInView={{
+											padding: "0 .3em",
+											transition: { delay: 0.2, type: "spring", bounce: 0, duration: 0.75 },
+										}}
+										viewport={{ once: true }}
+										className="bg-neutral-50/5 leading-tight"
+									>
+										{t("Content.Mina.heading2")}
+									</motion.div>
 								</motion.div>
 							</div>
 							<div className="flex flex-col grow mt-12">
