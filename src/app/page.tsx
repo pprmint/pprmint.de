@@ -1,18 +1,12 @@
 import * as React from "react";
 import { getLocale, getTranslations } from "next-intl/server";
 import Link from "next/link";
-import { Sparkle } from "lucide-react";
-
-import Button from "src/components/ui/Button";
 
 import { Announcements as AnnouncementsType } from "src/types/announcement";
 import FadingImage from "src/components/ui/FadingImage";
 import { MinaArtworks } from "src/types/mina-artwork";
-import ArrowRight from "src/icons/ArrowRight";
-import ArrowUpRight from "src/icons/ArrowUpRight";
 import HeartFilled from "src/icons/HeartFilled";
 import HomeTitle from "./home/title";
-import Envelope from "src/icons/Envelope";
 import Announcements from "./home/announcements";
 import * as motion from "motion/react-client";
 
