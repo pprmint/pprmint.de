@@ -3,47 +3,72 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import * as m from "motion/react-client";
-import { useSpring, a, easings } from "@react-spring/web";
-
-import Button from "src/components/ui/Button";
 
 import DetectiveMina from "public/assets/404/mina_chibi.webp";
-import { useState } from "react";
-import Home from "src/icons/Home";
+import { useEffect, useState } from "react";
 import ArrowRight from "src/icons/ArrowRight";
 
 export default function NotFound() {
 	const t = useTranslations("404");
+	const [coords, setCoords] = useState({ x: 0, y: 0 });
+
+	useEffect(() => {
+		const handleWindowMouseMove = (e: MouseEvent) => {
+			setCoords({
+				x: e.clientX / document.documentElement.clientWidth,
+				y: e.clientY / document.documentElement.clientHeight,
+			});
+		};
+		window.addEventListener("mousemove", handleWindowMouseMove);
+
+		return () => {
+			window.removeEventListener("mousemove", handleWindowMouseMove);
+		};
+	}, []);
+
 	return (
 		<main className="relative w-screen xl:h-screen overflow-clip">
 			<div className="absolute inset-0 bottom-[10vh] -z-10">
 				<div
 					aria-hidden
-					className="absolute flex items-center justify-center size-full font-bold font-expanded text-[52vw] text-transparent bg-clip-text opacity-25"
-					style={{ backgroundImage: "url(/assets/noise.webp)", backgroundSize: "150px" }}
+					className="absolute flex items-center justify-center size-full font-expanded text-[52vw] text-transparent bg-clip-text opacity-[0.075] duration-300"
+					style={{
+						fontWeight: 400 + (800 - 400) * coords.y,
+						fontVariationSettings: `'slnt' ${0 + (-12 - 0) * coords.x}`,
+					}}
 				>
 					<m.div
-						initial={{ y: 40, opacity: 0 }}
-						animate={{ y: 0, opacity: 1, transition: { type: "spring", bounce: 0.5, duration: 2 } }}
+						className="bg-clip-text"
+						style={{ backgroundImage: "url(/assets/noise.webp)", backgroundSize: "150px" }}
+						initial={{ y: 60, opacity: 0 }}
+						animate={{
+							y: 0,
+							opacity: 1,
+							transition: { type: "spring", bounce: 0.5, duration: 2, delay: 1.0 },
+						}}
 					>
 						4
 					</m.div>
 					<m.div
-						initial={{ y: 40, opacity: 0 }}
+						className="bg-clip-text"
+						style={{ backgroundImage: "url(/assets/noise.webp)", backgroundSize: "150px" }}
+						initial={{ y: 60, opacity: 0 }}
 						animate={{
 							y: 0,
 							opacity: 1,
-							transition: { type: "spring", bounce: 0.5, duration: 1.5, delay: 0.1 },
+							transition: { type: "spring", bounce: 0.5, duration: 2, delay: 1.1 },
 						}}
 					>
 						0
 					</m.div>
 					<m.div
-						initial={{ y: 40, opacity: 0 }}
+						className="bg-clip-text"
+						style={{ backgroundImage: "url(/assets/noise.webp)", backgroundSize: "150px" }}
+						initial={{ y: 60, opacity: 0 }}
 						animate={{
 							y: 0,
 							opacity: 1,
-							transition: { type: "spring", bounce: 0.5, duration: 1.5, delay: 0.2 },
+							transition: { type: "spring", bounce: 0.5, duration: 2, delay: 1.2 },
 						}}
 					>
 						4
@@ -65,6 +90,7 @@ export default function NotFound() {
 											type: "spring",
 											bounce: 0,
 											duration: 1,
+											delay: 0.25,
 										},
 									}}
 								>
@@ -122,7 +148,11 @@ export default function NotFound() {
 								</Link>
 							</m.div>
 						</div>
-						<p className="md:absolute py-6 bottom-0 left-0 right-0 text-xs text-center">
+						<m.p
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1, transition: { delay: 1, duration: 1 } }}
+							className="md:absolute py-6 bottom-0 left-0 right-0 text-xs text-center"
+						>
 							{t.rich("Content.credit", {
 								Link: (chunks) => (
 									<Link
@@ -134,18 +164,18 @@ export default function NotFound() {
 									</Link>
 								),
 							})}
-						</p>
+						</m.p>
 					</div>
 					<m.div
-						initial={{ opacity: 0, y: 20 }}
+						initial={{ opacity: 0, y: 40 }}
 						animate={{
 							opacity: 1,
 							y: 0,
 							transition: {
 								type: "spring",
-								bounce: 0.5,
-								duration: 1.5,
-								delay: 0.2,
+								bounce: 0,
+								duration: 1,
+								delay: 0.25,
 							},
 						}}
 						className="order-1 xl:order-2 xl:h-screen inline-flex items-center justify-center"

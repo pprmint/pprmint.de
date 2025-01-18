@@ -137,11 +137,11 @@ export default function Footer() {
 			</div>
 			<hr className="border-neutral-900" />
 			<div className="flex flex-col gap-1 items-center justify-center py-6">
-				<div className="flex gap-3">
-					<Image src={FooterCursor} alt="" className="invert dark:invert-0" />
-					<Image src={FooterCube} alt="" className="invert dark:invert-0" />
-					<Image src={FooterBrackets} alt="" className="invert dark:invert-0" />
-					<Image src={FooterLeaf} alt="" />
+				<div className="flex gap-3 items-center">
+					<Image src={FooterCursor} alt="" className="size-4 invert dark:invert-0" />
+					<Image src={FooterCube} alt="" className="size-4 invert dark:invert-0" />
+					<Image src={FooterBrackets} alt="" className="size-4 invert dark:invert-0" />
+					<Image src={FooterLeaf} alt="" className="size-4 " />
 					<p className="text-neutral-50">
 						{"© "}
 						{new Date().getFullYear()} pprmint.
