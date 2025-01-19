@@ -115,7 +115,6 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 								)}
 							</m.div>
 						</AnimatePresence>
-
 						<div className="relative flex ml-auto border-l border-neutral-50/5 divide-x divide-neutral-50/5">
 							<button
 								className="relative group w-12 h-full text-neutral-50 hover:text-neutral-950 disabled:text-neutral-500 hover:bg-neutral-50 active:bg-neutral-100 hover:shadow-md duration-100 active:duration-75 active:shadow-inner overflow-hidden"

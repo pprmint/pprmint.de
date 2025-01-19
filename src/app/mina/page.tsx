@@ -19,8 +19,6 @@ import GallerySkeleton from "./gallery/gallerySkeleton";
 import FanartRules from "./rules";
 import Download from "src/icons/Download";
 import Discord from "src/icons/Discord";
-import Instagram from "src/icons/Instagram";
-import ArtCreditButton from "src/components/ui/ArtCreditButton";
 
 export async function generateMetadata() {
 	const t = await getTranslations("MINA");
@@ -30,24 +28,34 @@ export async function generateMetadata() {
 	};
 }
 
-export default async function Page({ searchParams }: { searchParams: Promise<{ p: string; nsfw: string; artist: string }> }) {
+export default async function Page({
+	searchParams,
+}: {
+	searchParams: Promise<{ p: string; nsfw: string; artist: string }>;
+}) {
 	const t = await getTranslations("MINA");
 	const { p = "1", nsfw, artist = "undefined" } = await searchParams;
 	return (
 		<>
-			<Title title={t("Head.title")} description={t("Head.description")}>
-				<FadingImage
-					src="https://cms.pprmint.de/uploads/nano_2_261f0fd248.webp"
-					alt=""
-					fill
-					className="object-cover object-[50%_65%]"
-					quality={90}
-				/>
+			<Title
+				title={t("Head.title")}
+				description={t("Head.description")}
+				creditName="sunnexo"
+				creditLink="https://sunnexo.moe"
+			>
+				<div className="h-full bg-[#80d5c5]">
+					<div className="h-full w-1/2 ml-auto">
+						<FadingImage
+							src="https://cms.pprmint.de/uploads/sunnexo_1a_774524ebbf.png"
+							alt=""
+							width={1280}
+							height={1280}
+							unoptimized
+							className="h-full w-auto mx-auto"
+						/>
+					</div>
+				</div>
 			</Title>
-			<ArtCreditButton link="https://www.instagram.com/nogonagon">
-				<Instagram />
-				@nogonagon
-			</ArtCreditButton>
 			<main>
 				<section id="lore" className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9">
 					<h2>
@@ -83,7 +91,11 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ p
 						</p>
 						<div className="flex flex-col lg:items-end">
 							<p className="mb-3">{t("Content.Reference.Download.text")}</p>
-							<Link href="https://static.pprmint.de/download/Mina/Mina_ref_sheet_(by_nekomimi).png" target="_blank" download>
+							<Link
+								href="https://static.pprmint.de/download/Mina/Mina_ref_sheet_(by_nekomimi).png"
+								target="_blank"
+								download
+							>
 								<Button tabIndex={-1}>
 									{t("Content.Reference.Download.button")}
 									<Download />
@@ -92,7 +104,10 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ p
 						</div>
 					</div>
 				</section>
-				<section id="gallery" className="pt-20 md:pt-32 xl:pt-40 mb-20 md:mb-32 xl:mb-40 max-w-7xl mx-auto md:px-3 xl:px-9">
+				<section
+					id="gallery"
+					className="pt-20 md:pt-32 xl:pt-40 mb-20 md:mb-32 xl:mb-40 max-w-7xl mx-auto md:px-3 xl:px-9"
+				>
 					<Suspense fallback={<GallerySkeleton />}>
 						<GallerySuspense p={parseInt(p)} artist={artist} nsfw={nsfw} />
 					</Suspense>
@@ -136,7 +151,8 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ p
 						/>
 						<div
 							style={{
-								maskImage: "linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 80%, rgba(0,0,0,1) 100%)",
+								maskImage:
+									"linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 80%, rgba(0,0,0,1) 100%)",
 								maskRepeat: "space",
 								backgroundRepeat: "repeat",
 							}}

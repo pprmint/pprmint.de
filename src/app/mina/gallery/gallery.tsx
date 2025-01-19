@@ -26,12 +26,12 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 
 	const galleryRef = useRef<HTMLDivElement>(null);
 	const [init, setInit] = useState(false);
-	useEffect(() => {
-		if (init && galleryRef.current) {
-			scrollTo({ top: galleryRef.current?.getBoundingClientRect().top + scrollY - 200 });
-		}
-		setInit(true);
-	}, [artworks]);
+	// useEffect(() => {
+	// 	if (init && galleryRef.current) {
+	// 		scrollTo({ top: galleryRef.current?.getBoundingClientRect().top + scrollY - 200 });
+	// 	}
+	// 	setInit(true);
+	// }, [artworks]);
 
 	return (
 		<div

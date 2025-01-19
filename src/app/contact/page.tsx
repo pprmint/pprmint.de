@@ -13,7 +13,6 @@ import Bubbles from "public/assets/contact/bubbles.svg";
 
 import Chatbox from "./chatbox";
 import Form from "./form";
-import ArtCreditButton from "src/components/ui/ArtCreditButton";
 
 export async function generateMetadata() {
 	const t = await getTranslations("CONTACT");
@@ -28,7 +27,12 @@ export default async function Page() {
 	const locale = await getLocale();
 	return (
 		<>
-			<Title title={t("Head.title")} description={t("Head.description")}>
+			<Title
+				title={t("Head.title")}
+				description={t("Head.description")}
+				creditName="@neko__draws"
+				creditLink="https://twitter.com/neko__draws"
+			>
 				<FadingImage
 					src={locale == "de" ? TitleBackgroundDe : TitleBackgroundEn}
 					alt=""
@@ -37,10 +41,6 @@ export default async function Page() {
 					className="object-cover object-top xl:object-[0%_15%]"
 				/>
 			</Title>
-			<ArtCreditButton link="https://twitter.com/neko__draws">
-				<Twitter />
-				@neko__draws
-			</ArtCreditButton>
 			<main>
 				<section className="max-w-7xl mx-auto my-20 md:my-32 xl:my-40 px-6 md:px-9 flex flex-col items-center justify-center">
 					<h2>{t("Content.Mina.heading")}</h2>

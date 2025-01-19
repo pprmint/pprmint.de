@@ -21,7 +21,7 @@ export default function Page() {
     return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
-				<div className="relative w-full h-full overflow-clip">
+				<div className="relative w-full h-full overflow-clip bg-green-950">
 					<div className="absolute top-1/2 inset-x-0 -translate-y-1/2">
 						<div className="w-full h-1/6-screen skew-y-12 bg-green" />
 						<div className="w-full h-1/6-screen -skew-y-12 border-y-2 border-yellow" />
