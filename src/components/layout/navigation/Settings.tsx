@@ -66,7 +66,7 @@ export default function Settings() {
 									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 90">
 										<path d="M0 0h160v90H0z" fill="#111" />
 										<circle cx="152.5" cy="7.5" r="2.5" fill="#eee" />
-										<rect width="20" height="5" x="5" y="5" rx="2.5" ry="2.5" fill="#0c6" />
+										<rect width="20" height="5" x="5" y="5" rx="2.5" ry="2.5" fill="#4b5" />
 										<rect width="70" height="12" x="45" y="21" rx="6" ry="6" fill="#eee" />
 										<rect width="50" height="6" x="55" y="37" rx="3" ry="3" fill="#777" />
 										<rect width="50" height="8" x="5" y="56" rx="4" ry="4" fill="#eee" />
@@ -79,7 +79,7 @@ export default function Settings() {
 										<rect width="10" height="2" x="62" y="6.5" rx="1" ry="1" fill="#777" />
 										<rect width="10" height="2" x="75" y="6.5" rx="1" ry="1" fill="#777" />
 										<rect width="10" height="2" x="88" y="6.5" rx="1" ry="1" fill="#777" />
-										<rect width="23" height="6" x="5" y="79" rx="1" ry="1" fill="#0c6" />
+										<rect width="23" height="6" x="5" y="79" rx="1" ry="1" fill="#4b5" />
 										<rect width="15" height="2" x="11" y="81" rx="1" ry="1" fill="#111" />
 										<circle cx="8" cy="82" r="1.5" fill="#111" />
 									</svg>
@@ -99,7 +99,7 @@ export default function Settings() {
 									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 90">
 										<path d="M0 0h160v90H0z" fill="#eee" />
 										<circle cx="152.5" cy="7.5" r="2.5" fill="#111" />
-										<rect width="20" height="5" x="5" y="5" rx="2.5" ry="2.5" fill="#0c6" />
+										<rect width="20" height="5" x="5" y="5" rx="2.5" ry="2.5" fill="#4b5" />
 										<rect width="70" height="12" x="45" y="21" rx="6" ry="6" fill="#111" />
 										<rect width="50" height="6" x="55" y="37" rx="3" ry="3" fill="#555" />
 										<rect width="50" height="8" x="5" y="56" rx="4" ry="4" fill="#111" />
@@ -112,7 +112,7 @@ export default function Settings() {
 										<rect width="10" height="2" x="62" y="6.5" rx="1" ry="1" fill="#555" />
 										<rect width="10" height="2" x="75" y="6.5" rx="1" ry="1" fill="#555" />
 										<rect width="10" height="2" x="88" y="6.5" rx="1" ry="1" fill="#555" />
-										<rect width="23" height="6" x="5" y="79" rx="1" ry="1" fill="#0c6" />
+										<rect width="23" height="6" x="5" y="79" rx="1" ry="1" fill="#4b5" />
 										<rect width="15" height="2" x="11" y="81" rx="1" ry="1" fill="#111" />
 										<circle cx="8" cy="82" r="1.5" fill="#111" />
 									</svg>

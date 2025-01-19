@@ -150,7 +150,7 @@ function Chatbox() {
 							className="absolute w-full aspect-square opacity-0 group-hover:opacity-100 rounded-full animate-slow-spin duration-200"
 							style={{
 								backgroundImage:
-									"conic-gradient(#f44, #f71, #fb0, #9c3, #0c6, #2cf, #29f, #a7e, #e6b, #f44)",
+									"conic-gradient(#f44, #f71, #fb0, #9c3, #4b5, #2cf, #29f, #a7e, #e6b, #f44)",
 							}}
 						/>
 					</div>

@@ -81,17 +81,17 @@ const Colors: Color[] = [
 	{
 		name: "green",
 		shades: [
-			"#d1ffed",
-			"#b2f6d3",
-			"#8bedbb",
-			"#63e4a3",
-			"#3cda8b",
-			"#0c6",
-			"#00ab56",
-			"#008b45",
-			"#006b35",
-			"#004a25",
-			"#002914",
+			"#e4f7e5",
+			"#c4ebc8",
+			"#a6dfae",
+			"#88d493",
+			"#6ac977",
+			"#4b5",
+			"#3da447",
+			"#32863a",
+			"#27682d",
+			"#1c4a21",
+			"#112c14",
 		],
 	},
 	{
@@ -200,7 +200,7 @@ export default function Palette() {
 								}}
 							>
 								<span
-									className={shadeIndex == 5 ? "text-4xl font-light" : "opacity-0 group-hover:opacity-100 duration-150"}
+									className={shadeIndex == 5 ? "text-4xl font-light font-expanded" : "opacity-0 group-hover:opacity-100 duration-150 font-expanded"}
 								>
 									{shade as string}
 								</span>

@@ -10,6 +10,14 @@ import HomeTitle from "./home/title";
 import Announcements from "./home/announcements";
 import * as motion from "motion/react-client";
 
+export async function generateMetadata() {
+	const t = await getTranslations("HOME");
+	return {
+	title: t("Head.title"),
+	description: t("Head.description"),
+};
+}
+
 export default async function Page() {
 	const t = await getTranslations("HOME");
 	const announcements: AnnouncementsType = await GetAnnouncements();
