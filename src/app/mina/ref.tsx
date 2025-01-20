@@ -48,7 +48,7 @@ export default function RefSheet() {
 					</div>
 					<Dialog.Close asChild>
 						<button
-							className="absolute top-3 right-3 inline-flex p-2 items-center justify-center hover:bg-elevate hover:text-neutral-50 duration-100 active:opacity-75 active:duration-75 rounded-full"
+							className="absolute top-3 right-3 inline-flex p-2 items-center justify-center hover:bg-elevate hover:shadow-lg hover:shadow-black/5 hover:text active:shadow-inner-neutral-50 duration-100 active:duration-75 rounded-full"
 							aria-label="Close"
 						>
 							<Error />
@@ -152,7 +152,7 @@ export default function RefSheet() {
 	const timerRef = useRef(0);
 	const [currentColor, setCurrentColor] = useState("");
 
-	function ColorSwatch({ color }: { color: string }) {
+	function ColorSwatch({ color, height }: { color: string; height: string | number }) {
 		function handleClick() {
 			navigator.clipboard.writeText(color.substring(1));
 			setToastOpen(false);
@@ -164,8 +164,8 @@ export default function RefSheet() {
 		}
 		return (
 			<div
-				className="w-full h-12 md:h-12 xl:h-auto xl:aspect-square active:scale-[0.98] active:opacity-75 duration-100 ease-out cursor-pointer"
-				style={{ backgroundColor: color }}
+				className="w-full active:shadow-inner duration-100 ease-out cursor-pointer"
+				style={{ backgroundColor: color, height: height }}
 				onClick={handleClick}
 			/>
 		);
@@ -173,12 +173,12 @@ export default function RefSheet() {
 
 	return (
 		<>
-			<div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-rows-4 md:grid-rows-3 xl:grid-rows-2 grid-flow-dense gap-3 md:max-h-[800px]">
+			<div className="w-full grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-rows-4 md:grid-rows-3 xl:grid-rows-2 grid-flow-dense md:max-h-[900px] border-x border-white/5 light:border-black/5">
 				<Dialog.Root>
 					<Dialog.Trigger asChild>
 						<div
 							id="hand"
-							className="relative flex items-center justify-center hover:bg-elevate hover:shadow-lg border border-neutral-900 hover:border-neutral-800 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl p-6 cursor-pointer"
+							className="relative flex items-center justify-center border-t border-r border-neutral-50/5 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 active:shadow-inner duration-200 active:duration-75 p-6 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceHand}
@@ -209,7 +209,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="front"
-							className="relative flex items-center justify-center hover:bg-elevate hover:shadow-lg border border-neutral-900 hover:border-neutral-800 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl row-span-2 p-3 cursor-pointer"
+							className="relative flex items-center justify-center border-t md:border-r lg:border-b border-neutral-50/5 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 active:shadow-inner duration-200 active:duration-75 row-span-2 p-3 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceFront}
@@ -237,7 +237,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="back"
-							className="relative flex items-center justify-center hover:bg-elevate hover:shadow-lg border border-neutral-900 hover:border-neutral-800 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl row-span-2 p-3 cursor-pointer"
+							className="relative flex items-center justify-center border-t border-r md:border-r-0 lg:border-r lg:border-b border-neutral-50/5 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 active:shadow-inner duration-200 active:duration-75 row-span-2 p-3 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceBack}
@@ -265,7 +265,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="hairbow"
-							className="relative flex md:col-span-2 xl:col-span-1 items-center justify-center gap-6 hover:bg-elevate hover:shadow-lg border border-neutral-900 hover:border-neutral-800 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl p-6 cursor-pointer"
+							className="relative flex md:col-span-2 xl:col-span-1 items-center justify-center border-t md:border-b lg:border-b-0 md:border-r lg:border-r-0 border-neutral-50/5 gap-6 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 active:shadow-inner duration-200 active:duration-75 p-6 cursor-pointer"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -294,7 +294,7 @@ export default function RefSheet() {
 								<path
 									d="M200.8 89.7c-7.4 7.3-8.6 15.6-8.6 15.6l-2-.3s1.4-9.8 10.4-17.8c-4.3-56.2 58.1-78 58.1-78l1.6-.7-.2 1.7c-5.5 32.8 3.8 53.5 8.7 71.8 23 6.5 34 18.2 40 32 3.2 7.3 5 15.1 6.4 23.2 1.3 7.7 2.3 15.7 3.8 23.4a96.3 96.3 0 0 0 5 18.1c1.6 3.8 3.5 7.5 5.9 11l1 1.3h-1.7s-4.5-.2-10.9-5.8a137.2 137.2 0 0 0 .6 25.2 83 83 0 0 0 12.4 37.1c10 14.8 27.8 24.3 58.8 17.1l1.8-.4-.6 1.8s-2.6 8.2-12.1 13.5a32 32 0 0 1-14.4 4.1c-3 4.1-6.9 7.9-12.6 9.6-5.8 1.7-13.5 1.5-24.6-2.6l.7-1.9c10.5 3.9 17.8 4.2 23.3 2.6 4.7-1.4 7.9-4.3 10.6-7.5-4 0-8.3-.3-13.2-1.3-4.4-.9-9.3-2.3-14.6-4.3a97 97 0 0 0 14.8 3.4c5 .8 9.5 1 13.5.6a40.8 40.8 0 0 0 15.5-4.5c6-3.4 9-8 10.3-10.5-30.9 6.5-48.8-3.4-59-18.4a84.6 84.6 0 0 1-12.7-38.2 136.6 136.6 0 0 1-.6-20.7 97.6 97.6 0 0 0-3.6 30.4c-.7-7.2-.6-13.4-.1-18.6 1-10.5 3.6-16.9 4.2-18.1a64 64 0 0 1-9.8-13 60.7 60.7 0 0 0 12 13.6 25 25 0 0 0 8.6 4.8c-2-3-3.8-6.2-5.2-9.5-2.5-6-4.2-12.1-5.4-18.5-1.6-7.7-2.5-15.7-3.9-23.5A99 99 0 0 0 307 115c-5.7-13.2-16.1-24.3-37.5-30.7 2.2 10.6-1 20-5.6 27.7a69.6 69.6 0 0 1-18.4 19.3l-1.4-.4s-4.8-10.2-8.5-25a146.8 146.8 0 0 1-4-26.6v-9.4c.3-6.9 1.4-13.9 3.4-20.6 2-6.6 4.8-12.9 8.9-18.8-3.8 6-6.3 12.5-8 19a88.4 88.4 0 0 0-2.3 29.7 138.5 138.5 0 0 0 4 26.2c3 11.8 6.5 20.6 7.8 23.5 2.8-2 11-8.5 16.8-18a35.1 35.1 0 0 0 5-27.8c-4.9-18.3-14.2-39-9.3-71.4-10.8 4.3-72.4 32-50.9 96l-1.9.7a88.8 88.8 0 0 1-4.2-18.6Z"
 									className="fill-neutral-400"
-									/>
+								/>
 								<path
 									d="M37.3 374.6c-2.3-1.5-11.5-8-18.9-19.6A61.4 61.4 0 0 1 9 328.9a119 119 0 0 1 3.9-38.4c-5.8-13.2-3-28.4 2.6-41.9a149 149 0 0 1 22.4-36.2c5.8-17.2 11-30.3 16-40.8A109 109 0 0 1 70 147l3.5-3.8a104.3 104.3 0 0 1 10.5-9.2 89 89 0 0 1 6-36.7c4-8.8 10.3-14.6 19.4-15.6a46.4 46.4 0 0 1 33 8.5 75.7 75.7 0 0 1 16.3 15.5h.4a30.4 30.4 0 0 0 12.6 1c7.4-.8 9.8-1.7 13-2.2 2.2-.4 4.6-.5 9-.3 7 .3 27 5.9 47.6 21.8a130 130 0 0 1 33.9 39.8c16 29 24.6 53.9 35 71.6a57.2 57.2 0 0 0 23 24l3.5 1.8-4 .1s-10.9.5-22-9.2a231 231 0 0 1 16.7 31.9 109 109 0 0 1 8.2 28.3c1 9-1.4 16.8-5.3 23.2a66 66 0 0 1-26.8 22.6c-.5 3.3-4.3 20.6-26 34.6-13.2 8.6-33.2 16-63.4 18l-4.8.4 4.4-2s12-5.2 21-16a42.1 42.1 0 0 0 9.6-20 22.8 22.8 0 0 1-12.1 10.1l-3 1.1 2-2.4c1.6-2.4 2.8-6 3.6-10.3a105 105 0 0 0 1.5-16.8c.5-25-4.2-57.3-5.3-65.2a107.2 107.2 0 0 1-44.8-20.3 136 136 0 0 1-30.1-32.9c2.4 5.2 5.5 11.1 9 16.8a66 66 0 0 0 14.2 17.2l7.8 6-9-4.2a109 109 0 0 1-38.3-29.7 90 90 0 0 1-17-34.7 289.5 289.5 0 0 0 7.7 45.5l.5 1.6-1.7-.3c-9-1.9-20-4-29.5-8.5-4.8-2.2-9.1-5-12.6-8.7-3.2 49.3-3.9 88.5-1 110.8 3.3 26.8 9.3 37.8 9.3 37.8l1.7 3.3-3.1-2c-2.5-1.5-5.1-4.4-7.5-7.7-2.7-3.7-5.2-8-7-11.4C86.7 406 104 414 104 414s-42-17.7-64.8-37.7a88 88 0 0 1-2-1.7Zm207.4-3.6c.6-9.7 0-24.5-1-39.9-.8-13.3-2-27-3-38-2.7-.2-5.2-.6-7.8-1 1.3 8.9 5.9 40.3 5.3 64.8-.1 6.3-.6 12.2-1.6 17.1-.6 3.4-1.5 6.2-2.7 8.5a20.8 20.8 0 0 0 10.8-11.5ZM160.5 108l.2.3c4.2 5.7 7.4 11.3 9.5 15.4 2 3.7 3 6.3 3.1 6.8L163 113.8a62.2 62.2 0 0 0-6.2-6.4l-.7-.1c-4.2-1-9-1.6-16.7-.8-17.5 2-33.4 11.1-45.9 20.9-1 13.7.7 30 3.2 45.1a229.3 229.3 0 0 1 0 .2c4.6 27.7 12 52 12 52l1.6 5.1-3.3-4.2c-6-7.6-12-23.3-16.5-41.7-9.3 18.3-11.5 31.5-9.3 41.3 2.4 10.6 10.1 17 19.3 21.2a93.6 93.6 0 0 0 16.1 5.3 32.3 32.3 0 0 1-15.8-25.9 31.8 31.8 0 0 0 16.9 24.1c4.2 2.5 8.2 3.8 10.3 4.4-.6-2.6-1.9-8.1-3.2-15.4a250.2 250.2 0 0 1-3.8-40.4c0-13.4 1.3-27 5.5-38.1A110.5 110.5 0 0 0 122 201a81.5 81.5 0 0 0 11 30.5 105.6 105.6 0 0 0 39.4 37.5c-3.3-3.7-6.4-8.1-9.3-12.7-9-14.5-18.2-40.3-18.2-40.3s17 34.3 42.3 53.7c15.2 11.7 32.8 19 53.2 21.4l-2-18.8-.7-.1-3.2-1.8c-2.4-1.5-5.6-4-9.3-7.2-5.8-5-12.8-11.5-19.7-18.6-11.3-11.8-22.1-25-26-34 4.1 9 15.3 21.7 26.9 33.1 7 7 14.1 13.3 20 18.2a104.1 104.1 0 0 0 11.6 8.3h.3a87.3 87.3 0 0 0 5.2-21.1c1-9 1-20.5-2.1-33.8-3.4-15-10.5-32.5-24-51.4 14 18.6 21.6 36 25.3 51a101.2 101.2 0 0 1 .8 45.9c-1.7 7-3.7 11-3.7 11l-.3.4c.6 5.4 3.7 32.8 5.5 58.8 1 15.4 1.7 30.4 1.1 40-.6 10.3-5 18.7-10.3 25a66 66 0 0 1-17.8 14.7c27.4-2.5 46-9.5 58.4-17.6 23-15 25-33.8 25-33.8v-.6c1-8.3-.2-20.5-2.8-34.8-2-10.8-4.8-22.7-8.1-35a718.9 718.9 0 0 0-23.5-71.6c-4.5-11.3-9-21.4-13.1-29.5 4.4 8 9.2 18 13.9 29.2a564.8 564.8 0 0 1 32.8 106.5c2.6 13.9 3.8 25.8 3 34.2a63.4 63.4 0 0 0 24.8-21.3c3.8-6 6.1-13.3 5.1-21.9-1-9-4-18.8-7.8-28a305.4 305.4 0 0 0-22.3-40.2 50.5 50.5 0 0 1-6.5-13.1 78.6 78.6 0 0 0 14.4 19 36.4 36.4 0 0 0 16.3 8.4 63.8 63.8 0 0 1-19.4-22c-10.4-17.9-19-42.6-35.1-71.7a128 128 0 0 0-33.3-39.2c-20-15.6-39.6-21.2-46.4-21.5a43 43 0 0 0-8.6.3c-3.2.5-5.7 1.4-13 2.2a32.3 32.3 0 0 1-11.4-.6Zm-.2 1.4a79 79 0 0 0-19-17.8 53.2 53.2 0 0 0-12-5.9c-6-2-12.5-2.9-19.7-2-8.4 1-14 6.3-17.8 14.4a88 88 0 0 0-5.8 36.4c.4 30.6 9.3 66.6 19 84-4.7-16.5-15.9-61-13.5-92.3.6-8.1 2.1-15.4 5-21.1 3.4-7.2 9-12 17-13 5.7-.5 10.8-.5 15.5.2a50.7 50.7 0 0 1 31.3 17Zm-82.1 254c.8 1.7 5 10.2 9.9 16.9 1.2 1.7 2.5 3.3 3.8 4.6-2-5.3-5.6-16.4-7.9-34.6-2.6-20.6-2.2-55.5.4-99.4a376.3 376.3 0 0 0-8.3 92.1c.4 7.6 1.1 14.3 2.1 20.3Zm5.7-228s-5 4.2-5.8 5.2l-1.4 1.5-2 2.3-3.3 3.8c-5.6 6.4-10.6 14-15.5 24.2-5 10.5-10.2 23.5-16 40.5-6.5 19.4-16.2 44.8-22.6 68.6a136.3 136.3 0 0 0-6.2 47 59.4 59.4 0 0 0 17.6 36c-2.7-4-4.4-8-5-12.2a198.7 198.7 0 0 1 8.2-77.5A308.8 308.8 0 0 1 53 220.3c2.7-5.6 5.7-11.4 9-17.3a552.8 552.8 0 0 0-23 56.2 304.7 304.7 0 0 0-8.8 31.3c-6.1 27.5-5.9 47.8-4.3 61.6 1.2 9.9 9.7 19.3 22 28.4a317.1 317.1 0 0 0 43.8 25.6c-5.8-7.5-15.7-25.7-17.7-62.8-1.4-25.5 1-60 11.2-106a28 28 0 0 1-5.4-11.9c-2-10 .5-23.6 10.5-42.2a229.6 229.6 0 0 1-6.4-47.7ZM13.7 287l1.5-6c5.8-21.6 14.3-44.5 20.8-63-4.8 6-13.1 17.9-18.7 31.4-5 12-7.7 25.6-3.6 37.6Zm139.8-182.4a50.8 50.8 0 0 0-24.8-10.3 60 60 0 0 0-14.9 0c-7.4.9-12.3 5.2-15.5 11.8-2.5 5-4 11.4-4.6 18.5a95.3 95.3 0 0 1 45.4-20.1c6.3-.8 10.7-.5 14.4.1Z"
 									className="fill-neutral-800"
@@ -345,7 +345,7 @@ export default function RefSheet() {
 									<path
 										d="M200.8 89.7c-7.4 7.3-8.6 15.6-8.6 15.6l-2-.3s1.4-9.8 10.4-17.8c-4.3-56.2 58.1-78 58.1-78l1.6-.7-.2 1.7c-5.5 32.8 3.8 53.5 8.7 71.8 23 6.5 34 18.2 40 32 3.2 7.3 5 15.1 6.4 23.2 1.3 7.7 2.3 15.7 3.8 23.4a96.3 96.3 0 0 0 5 18.1c1.6 3.8 3.5 7.5 5.9 11l1 1.3h-1.7s-4.5-.2-10.9-5.8a137.2 137.2 0 0 0 .6 25.2 83 83 0 0 0 12.4 37.1c10 14.8 27.8 24.3 58.8 17.1l1.8-.4-.6 1.8s-2.6 8.2-12.1 13.5a32 32 0 0 1-14.4 4.1c-3 4.1-6.9 7.9-12.6 9.6-5.8 1.7-13.5 1.5-24.6-2.6l.7-1.9c10.5 3.9 17.8 4.2 23.3 2.6 4.7-1.4 7.9-4.3 10.6-7.5-4 0-8.3-.3-13.2-1.3-4.4-.9-9.3-2.3-14.6-4.3a97 97 0 0 0 14.8 3.4c5 .8 9.5 1 13.5.6a40.8 40.8 0 0 0 15.5-4.5c6-3.4 9-8 10.3-10.5-30.9 6.5-48.8-3.4-59-18.4a84.6 84.6 0 0 1-12.7-38.2 136.6 136.6 0 0 1-.6-20.7 97.6 97.6 0 0 0-3.6 30.4c-.7-7.2-.6-13.4-.1-18.6 1-10.5 3.6-16.9 4.2-18.1a64 64 0 0 1-9.8-13 60.7 60.7 0 0 0 12 13.6 25 25 0 0 0 8.6 4.8c-2-3-3.8-6.2-5.2-9.5-2.5-6-4.2-12.1-5.4-18.5-1.6-7.7-2.5-15.7-3.9-23.5A99 99 0 0 0 307 115c-5.7-13.2-16.1-24.3-37.5-30.7 2.2 10.6-1 20-5.6 27.7a69.6 69.6 0 0 1-18.4 19.3l-1.4-.4s-4.8-10.2-8.5-25a146.8 146.8 0 0 1-4-26.6v-9.4c.3-6.9 1.4-13.9 3.4-20.6 2-6.6 4.8-12.9 8.9-18.8-3.8 6-6.3 12.5-8 19a88.4 88.4 0 0 0-2.3 29.7 138.5 138.5 0 0 0 4 26.2c3 11.8 6.5 20.6 7.8 23.5 2.8-2 11-8.5 16.8-18a35.1 35.1 0 0 0 5-27.8c-4.9-18.3-14.2-39-9.3-71.4-10.8 4.3-72.4 32-50.9 96l-1.9.7a88.8 88.8 0 0 1-4.2-18.6Z"
 										className="fill-neutral-400"
-										/>
+									/>
 									<path
 										d="M37.3 374.6c-2.3-1.5-11.5-8-18.9-19.6A61.4 61.4 0 0 1 9 328.9a119 119 0 0 1 3.9-38.4c-5.8-13.2-3-28.4 2.6-41.9a149 149 0 0 1 22.4-36.2c5.8-17.2 11-30.3 16-40.8A109 109 0 0 1 70 147l3.5-3.8a104.3 104.3 0 0 1 10.5-9.2 89 89 0 0 1 6-36.7c4-8.8 10.3-14.6 19.4-15.6a46.4 46.4 0 0 1 33 8.5 75.7 75.7 0 0 1 16.3 15.5h.4a30.4 30.4 0 0 0 12.6 1c7.4-.8 9.8-1.7 13-2.2 2.2-.4 4.6-.5 9-.3 7 .3 27 5.9 47.6 21.8a130 130 0 0 1 33.9 39.8c16 29 24.6 53.9 35 71.6a57.2 57.2 0 0 0 23 24l3.5 1.8-4 .1s-10.9.5-22-9.2a231 231 0 0 1 16.7 31.9 109 109 0 0 1 8.2 28.3c1 9-1.4 16.8-5.3 23.2a66 66 0 0 1-26.8 22.6c-.5 3.3-4.3 20.6-26 34.6-13.2 8.6-33.2 16-63.4 18l-4.8.4 4.4-2s12-5.2 21-16a42.1 42.1 0 0 0 9.6-20 22.8 22.8 0 0 1-12.1 10.1l-3 1.1 2-2.4c1.6-2.4 2.8-6 3.6-10.3a105 105 0 0 0 1.5-16.8c.5-25-4.2-57.3-5.3-65.2a107.2 107.2 0 0 1-44.8-20.3 136 136 0 0 1-30.1-32.9c2.4 5.2 5.5 11.1 9 16.8a66 66 0 0 0 14.2 17.2l7.8 6-9-4.2a109 109 0 0 1-38.3-29.7 90 90 0 0 1-17-34.7 289.5 289.5 0 0 0 7.7 45.5l.5 1.6-1.7-.3c-9-1.9-20-4-29.5-8.5-4.8-2.2-9.1-5-12.6-8.7-3.2 49.3-3.9 88.5-1 110.8 3.3 26.8 9.3 37.8 9.3 37.8l1.7 3.3-3.1-2c-2.5-1.5-5.1-4.4-7.5-7.7-2.7-3.7-5.2-8-7-11.4C86.7 406 104 414 104 414s-42-17.7-64.8-37.7a88 88 0 0 1-2-1.7Zm207.4-3.6c.6-9.7 0-24.5-1-39.9-.8-13.3-2-27-3-38-2.7-.2-5.2-.6-7.8-1 1.3 8.9 5.9 40.3 5.3 64.8-.1 6.3-.6 12.2-1.6 17.1-.6 3.4-1.5 6.2-2.7 8.5a20.8 20.8 0 0 0 10.8-11.5ZM160.5 108l.2.3c4.2 5.7 7.4 11.3 9.5 15.4 2 3.7 3 6.3 3.1 6.8L163 113.8a62.2 62.2 0 0 0-6.2-6.4l-.7-.1c-4.2-1-9-1.6-16.7-.8-17.5 2-33.4 11.1-45.9 20.9-1 13.7.7 30 3.2 45.1a229.3 229.3 0 0 1 0 .2c4.6 27.7 12 52 12 52l1.6 5.1-3.3-4.2c-6-7.6-12-23.3-16.5-41.7-9.3 18.3-11.5 31.5-9.3 41.3 2.4 10.6 10.1 17 19.3 21.2a93.6 93.6 0 0 0 16.1 5.3 32.3 32.3 0 0 1-15.8-25.9 31.8 31.8 0 0 0 16.9 24.1c4.2 2.5 8.2 3.8 10.3 4.4-.6-2.6-1.9-8.1-3.2-15.4a250.2 250.2 0 0 1-3.8-40.4c0-13.4 1.3-27 5.5-38.1A110.5 110.5 0 0 0 122 201a81.5 81.5 0 0 0 11 30.5 105.6 105.6 0 0 0 39.4 37.5c-3.3-3.7-6.4-8.1-9.3-12.7-9-14.5-18.2-40.3-18.2-40.3s17 34.3 42.3 53.7c15.2 11.7 32.8 19 53.2 21.4l-2-18.8-.7-.1-3.2-1.8c-2.4-1.5-5.6-4-9.3-7.2-5.8-5-12.8-11.5-19.7-18.6-11.3-11.8-22.1-25-26-34 4.1 9 15.3 21.7 26.9 33.1 7 7 14.1 13.3 20 18.2a104.1 104.1 0 0 0 11.6 8.3h.3a87.3 87.3 0 0 0 5.2-21.1c1-9 1-20.5-2.1-33.8-3.4-15-10.5-32.5-24-51.4 14 18.6 21.6 36 25.3 51a101.2 101.2 0 0 1 .8 45.9c-1.7 7-3.7 11-3.7 11l-.3.4c.6 5.4 3.7 32.8 5.5 58.8 1 15.4 1.7 30.4 1.1 40-.6 10.3-5 18.7-10.3 25a66 66 0 0 1-17.8 14.7c27.4-2.5 46-9.5 58.4-17.6 23-15 25-33.8 25-33.8v-.6c1-8.3-.2-20.5-2.8-34.8-2-10.8-4.8-22.7-8.1-35a718.9 718.9 0 0 0-23.5-71.6c-4.5-11.3-9-21.4-13.1-29.5 4.4 8 9.2 18 13.9 29.2a564.8 564.8 0 0 1 32.8 106.5c2.6 13.9 3.8 25.8 3 34.2a63.4 63.4 0 0 0 24.8-21.3c3.8-6 6.1-13.3 5.1-21.9-1-9-4-18.8-7.8-28a305.4 305.4 0 0 0-22.3-40.2 50.5 50.5 0 0 1-6.5-13.1 78.6 78.6 0 0 0 14.4 19 36.4 36.4 0 0 0 16.3 8.4 63.8 63.8 0 0 1-19.4-22c-10.4-17.9-19-42.6-35.1-71.7a128 128 0 0 0-33.3-39.2c-20-15.6-39.6-21.2-46.4-21.5a43 43 0 0 0-8.6.3c-3.2.5-5.7 1.4-13 2.2a32.3 32.3 0 0 1-11.4-.6Zm-.2 1.4a79 79 0 0 0-19-17.8 53.2 53.2 0 0 0-12-5.9c-6-2-12.5-2.9-19.7-2-8.4 1-14 6.3-17.8 14.4a88 88 0 0 0-5.8 36.4c.4 30.6 9.3 66.6 19 84-4.7-16.5-15.9-61-13.5-92.3.6-8.1 2.1-15.4 5-21.1 3.4-7.2 9-12 17-13 5.7-.5 10.8-.5 15.5.2a50.7 50.7 0 0 1 31.3 17Zm-82.1 254c.8 1.7 5 10.2 9.9 16.9 1.2 1.7 2.5 3.3 3.8 4.6-2-5.3-5.6-16.4-7.9-34.6-2.6-20.6-2.2-55.5.4-99.4a376.3 376.3 0 0 0-8.3 92.1c.4 7.6 1.1 14.3 2.1 20.3Zm5.7-228s-5 4.2-5.8 5.2l-1.4 1.5-2 2.3-3.3 3.8c-5.6 6.4-10.6 14-15.5 24.2-5 10.5-10.2 23.5-16 40.5-6.5 19.4-16.2 44.8-22.6 68.6a136.3 136.3 0 0 0-6.2 47 59.4 59.4 0 0 0 17.6 36c-2.7-4-4.4-8-5-12.2a198.7 198.7 0 0 1 8.2-77.5A308.8 308.8 0 0 1 53 220.3c2.7-5.6 5.7-11.4 9-17.3a552.8 552.8 0 0 0-23 56.2 304.7 304.7 0 0 0-8.8 31.3c-6.1 27.5-5.9 47.8-4.3 61.6 1.2 9.9 9.7 19.3 22 28.4a317.1 317.1 0 0 0 43.8 25.6c-5.8-7.5-15.7-25.7-17.7-62.8-1.4-25.5 1-60 11.2-106a28 28 0 0 1-5.4-11.9c-2-10 .5-23.6 10.5-42.2a229.6 229.6 0 0 1-6.4-47.7ZM13.7 287l1.5-6c5.8-21.6 14.3-44.5 20.8-63-4.8 6-13.1 17.9-18.7 31.4-5 12-7.7 25.6-3.6 37.6Zm139.8-182.4a50.8 50.8 0 0 0-24.8-10.3 60 60 0 0 0-14.9 0c-7.4.9-12.3 5.2-15.5 11.8-2.5 5-4 11.4-4.6 18.5a95.3 95.3 0 0 1 45.4-20.1c6.3-.8 10.7-.5 14.4.1Z"
 										className="fill-neutral-800"
@@ -364,7 +364,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="shoe"
-							className="relative flex items-center justify-center hover:bg-elevate hover:shadow-lg border border-neutral-900 hover:border-neutral-800 duration-200 active:duration-75 active:opacity-75 active:scale-[0.98] rounded-xl p-6 cursor-pointer"
+							className="relative flex items-center justify-center border-y md:border-b-0 border-r lg:border-b border-neutral-50/5 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 active:shadow-inner duration-200 active:duration-75 p-6 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceShoes}
@@ -390,27 +390,19 @@ export default function RefSheet() {
 						}
 					/>
 				</Dialog.Root>
-				<div id="colorpalette" className="relative flex flex-col justify-between border border-neutral-900 rounded-xl">
+				<div id="colorpalette" className="relative flex flex-col justify-between border-y border-neutral-50/5">
 					<ColorPickerToast color={currentColor} open={toastOpen} onOpenChange={setToastOpen} />
-					<div className="flex flex-col px-3 lg:px-6">
-						<div className="grid grid-cols-4">
-							<ColorSwatch color="#63e4a3" />
-							<ColorSwatch color="#22ccff" />
-							<ColorSwatch color="#111111" />
-							<ColorSwatch color="#ffeee4" />
+					<div className="flex flex-col h-full p-3 lg:p-6">
+						<ColorSwatch color="#dddddd" height="10%" />
+						<ColorSwatch color="#44bb55" height="30%" />
+						<div className="flex h-[20%]">
+							<ColorSwatch color="#22ccff" height="100%" />
+							<ColorSwatch color="#2299ff" height="100%" />
 						</div>
-						<div className="grid grid-cols-4">
-							<ColorSwatch color="#00cc66" />
-							<ColorSwatch color="#4499ee" />
-							<ColorSwatch color="#222222" />
-						</div>
-						<div className="grid grid-cols-4">
-							<ColorSwatch color="#008b45" />
-							<ColorSwatch color="#196bc0" />
-							<ColorSwatch color="#333333" />
-						</div>
+						<ColorSwatch color="#ffece0" height="20%" />
+						<ColorSwatch color="#222222" height="20%" />
 					</div>
-					<p className="text-xs text-center px-3 pb-3">
+					<p className="text-xs text-center px-3 pb-3 lg:pb-6">
 						{t.rich("Content.Reference.Color.text", {
 							Link: (chunks) => (
 								<Link href="/palette" className="text-link">

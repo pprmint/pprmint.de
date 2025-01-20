@@ -43,43 +43,47 @@ export default async function Page({
 				creditName="sunnexo"
 				creditLink="https://sunnexo.moe"
 			>
-				<div className="h-full bg-[#80d5c5]">
-					<div className="h-full w-1/2 ml-auto">
-						<FadingImage
-							src="https://cms.pprmint.de/uploads/sunnexo_1a_774524ebbf.png"
-							alt=""
-							width={1280}
-							height={1280}
-							unoptimized
-							className="h-full w-auto mx-auto"
-						/>
-					</div>
+				<div className="h-full bg-[#80d5c5] flex items-end justify-end">
+					<FadingImage
+						src="https://cms.pprmint.de/uploads/sunnexo_1a_774524ebbf.png"
+						alt=""
+						width={1280}
+						height={1280}
+						unoptimized
+						className="h-2/3 md:h-3/4 lg:h-full w-auto md:mr-12 lg:mr-24 xl:mr-32"
+					/>
 				</div>
 			</Title>
 			<main>
-				<section id="lore" className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9">
-					<h2>
-						{t("Content.About.heading")}
-						<span className="text-green">.</span>
-					</h2>
-					<p>{t("Content.About.text1")}</p>
-					<p>{t("Content.About.text2")}</p>
-					<p>{t("Content.About.text3")}</p>
-					<p>{t("Content.About.text4")}</p>
-					<p>{t("Content.About.text5")}</p>
-					<p>
-						{t.rich("Content.About.text6", {
-							Link: (chunks) => (
-								<Link href="https://twitter.com/wxsonz" className="text-link-external">
-									{chunks}
-								</Link>
-							),
-						})}
-					</p>
+				<section id="lore" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+					<div className="w-full md:grid grid-cols-2 border-x border-white/5 light:border-black/5">
+						<div className="border-r border-neutral-50/5 pt-12 lg:pt-20 xl:pt-40 md:pr-12">
+							<h2>
+								{t("Content.About.heading")}
+								<span className="text-green">.</span>
+							</h2>
+							<p>{t("Content.About.text1")}</p>
+							<p>{t("Content.About.text2")}</p>
+						</div>
+						<div className="pt-3 md:pt-[6.25rem] lg:pt-[8.75rem] xl:pt-[13.75rem] pb-12 lg:pb-20 xl:pb-40 md:pr-12">
+							<p>{t("Content.About.text3")}</p>
+							<p>{t("Content.About.text4")}</p>
+							<p>{t("Content.About.text5")}</p>
+							<p>
+								{t.rich("Content.About.text6", {
+									Link: (chunks) => (
+										<Link href="https://twitter.com/wxsonz" className="text-link-external">
+											{chunks}
+										</Link>
+									),
+								})}
+							</p>
+						</div>
+					</div>
 				</section>
-				<section id="design" className="mt-20 md:mt-32 xl:mt-40 max-w-7xl mx-auto px-3 xl:px-9">
+				<section id="design" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<Ref />
-					<div className="flex flex-col lg:flex-row lg:justify-between gap-6 mt-6 px-3 md:px-6 xl:px-0">
+					<div className="w-full border-x border-neutral-50/5 flex flex-col lg:flex-row lg:justify-between gap-6 pt-6 px-3 md:px-6 xl:px-0">
 						<p>
 							{t.rich("Content.Reference.credit", {
 								Link: (chunks) => (
