@@ -41,10 +41,10 @@ export default function Title(
 			)}
 			<div className="w-full h-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 				<div className="h-full w-full md:grid grid-cols-2 border-x border-white/5 light:border-black/5">
-					<div className="relative size-full flex flex-col gap-6 xl:justify-center col-span-2 md:col-span-1 xl:border-r border-white/5 light:border-black/5 py-20 lg:py-32">
+					<div className="relative size-full flex flex-col gap-6 xl:justify-center col-span-2 md:col-span-1 xl:border-r border-white/5 light:border-black/5 py-20 md:py-28 lg:py-32 xl:py-40">
 						<div className={props.children ? "drop-shadow-md" : ""}>
 							<h1
-								className={`relative pb-1 md:pb-3 font-serif ${props.children && "light:text-neutral-950"}`}
+								className={`relative pb-1 md:pb-2 lg:pb-3 font-serif ${props.children && "light:text-neutral-950"}`}
 								aria-label={props.title}
 							>
 								{String(props.title)
