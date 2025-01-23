@@ -38,7 +38,7 @@ export default async function Page() {
 					</div>
 					<div className="relative z-10">
 						<div className="w-fit mb-10 px-3 xl:px-6 py-3 xl:py-5 mx-auto bg-red-600 rounded-md md:rounded-lg">
-							<h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl pb-0 leading-none">
+							<h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl pb-1 font-sans font-expanded font-bold">
 								{t("Content.Intro.tradeOffer")}
 							</h1>
 						</div>
