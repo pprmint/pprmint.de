@@ -25,10 +25,10 @@
 
 @layer components {
 	.text-link {
-		@apply font-medium text-neutral-50 underline decoration-2 decoration-dotted hover:decoration-solid decoration-neutral-50/50 hover:decoration-neutral-50 duration-100;
+		@apply font-medium text-neutral-50 underline decoration-1 decoration-dotted hover:decoration-solid decoration-neutral-50/50 hover:decoration-neutral-50 duration-100 underline-offset-2;
 	}
 	.text-link-external {
-		@apply font-medium text-blue underline decoration-2 decoration-dotted hover:decoration-solid decoration-blue/50 hover:decoration-blue duration-100;
+		@apply font-medium text-blue underline decoration-1 decoration-dotted hover:decoration-solid decoration-blue/50 hover:decoration-blue duration-100 underline-offset-2;
 	}
 }
 
