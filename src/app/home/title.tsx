@@ -9,7 +9,7 @@ import { AnimatePresence } from "motion/react";
 const Links = [
 	{
 		link: "graphics",
-		text: "Content.Hero.Graphics.heading",
+		text: "Content.Hero.graphics",
 		matrix: [
 			1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1,
 			0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0,
@@ -20,7 +20,7 @@ const Links = [
 	},
 	{
 		link: "photos",
-		text: "Content.Hero.Photos.heading",
+		text: "Content.Hero.photos",
 		matrix: [
 			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
 			1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0,
@@ -31,7 +31,7 @@ const Links = [
 	},
 	{
 		link: "projects",
-		text: "Content.Hero.Projects.heading",
+		text: "Content.Hero.projects",
 		matrix: [
 			1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
 			1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
@@ -42,7 +42,7 @@ const Links = [
 	},
 	{
 		link: "contact",
-		text: "Content.Hero.Contact.heading",
+		text: "Content.Hero.contact",
 		matrix: [
 			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 			1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0,
@@ -85,8 +85,8 @@ export default function HomeTitle() {
 				<div className="h-screen w-full md:grid grid-cols-2 border-x border-white/5 light:border-black/5">
 					<div className="relative size-full flex flex-col gap-6 justify-center col-span-2 md:col-span-1 xl:border-r border-white/5 light:border-black/5">
 						<div>
-							<h1 className="relative pb-1 md:pb-3 font-serif" aria-label={t("Head.title")}>
-								{String(t("Head.title") + ".")
+							<h1 className="relative pb-1 md:pb-3 font-serif" aria-label={t("Content.Hero.title")}>
+								{String(t("Content.Hero.title") + ".")
 									.split("")
 									.map((character, index) => (
 										<m.div
@@ -124,7 +124,7 @@ export default function HomeTitle() {
 								}}
 								className="text-xl md:text-2xl xl:text-3xl"
 							>
-								{t("Head.description")}
+								{t("Content.Hero.description")}
 							</m.p>
 						</div>
 						<div onMouseLeave={() => setHovered(-1)} className="grid grid-cols-2 xl:grid-cols-4">

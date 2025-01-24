@@ -364,27 +364,17 @@
 	},
 	"HOME": {
 		"Head": {
-			"description": "I'm a pixel pusher and button presser.",
-			"title": "Good today"
+			"description": "I'm a pixel pusher and button presser, or in other words I create graphics and logo designs, write websites and, if there's time, breathe.",
+			"title": "Good today and welcome to pprmint.de."
 		},
 		"Content": {
 			"Hero": {
-				"Graphics": {
-					"heading": "Graphics",
-					"text": "Stimulate your senses like no chewing gum can."
-				},
-				"Photos": {
-					"heading": "Photos",
-					"text": "Vacation photos and other snapshots."
-				},
-				"Projects": {
-					"heading": "Projects",
-					"text": "Other stuff I've worked on, like websites or programs."
-				},
-				"Contact": {
-					"heading": "Contact",
-					"text": "Other stuff I've worked on, like websites or programs."
-				}
+				"title": "Good today",
+				"description": "I'm a pixel pusher and button presser.",
+				"graphics": "Graphics",
+				"photos": "Photos",
+				"projects": "Projects",
+				"contact": "Contact"
 			},
 			"News": {
 				"heading": "News"

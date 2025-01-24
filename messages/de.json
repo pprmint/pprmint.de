@@ -364,27 +364,17 @@
 	},
 	"HOME": {
 		"Head": {
-			"description": "Ich bin Pixelschubser und Tastenhauer.",
-			"title": "Guten Heute"
+			"title": "Guten Heute und Willkommen auf pprmint.de.",
+			"description": "Ich bin Pixelschubser und Tastenhauer, oder mit anderen Worten, ich erstelle Grafiken und Logodesigns, schreibe Websites und, wenn noch Zeit ist, atme."
 		},
 		"Content": {
 			"Hero": {
-				"Graphics": {
-					"heading": "Grafiken",
-					"text": "Stimuliere deine Sinne, wie es kein Kaugummi kann."
-				},
-				"Photos": {
-					"heading": "Fotos",
-					"text": "Urlaubsfotos und andere Schnappschüsse."
-				},
-				"Projects": {
-					"heading": "Projekte",
-					"text": "Weitere Dinge, an denen ich gearbeitet habe, wie Websites oder Programme."
-				},
-				"Contact": {
-					"heading": "Kontakt",
-					"text": "Weitere Dinge, an denen ich gearbeitet habe, wie Websites oder Programme."
-				}
+				"title": "Guten Heute",
+				"description": "Ich bin Pixelschubser und Tastenhauer.",
+				"graphics": "Grafiken",
+				"photos": "Fotos",
+				"projects": "Projekte",
+				"contact": "Kontakt"
 			},
 			"News": {
 				"heading": "Aktuelles"
