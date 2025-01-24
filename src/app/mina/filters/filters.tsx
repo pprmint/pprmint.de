@@ -23,7 +23,6 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 	const t = useTranslations("MINA");
 	const searchParams = useSearchParams();
 	const nsfw = props.nsfw == "show" ? true : false;
-	const [filtersOpen, setFiltersOpen] = useState(false);
 	const pathname = usePathname();
 	const { replace } = useRouter();
 	const seenNsfwDialog = localStorage.getItem("confirmedNsfwDialog");
@@ -101,83 +100,69 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 
 	return (
 		<>
-			<Collapsible.Root
-				open={filtersOpen}
-				onOpenChange={setFiltersOpen}
-				className="sm:flex items-center mb-3 w-[calc(100%_-_24px)] sm:w-fit mx-3 sm:mx-auto bg-transparent border data-[state=closed]:border-neutral-900 data-[state=open]:border-neutral-800 rounded-lg overflow-hidden duration-100"
-			>
-				<Collapsible.Trigger asChild>
-					<button
-						className="h-9 w-full sm:w-max px-4 text-neutral-50 hover:bg-neutral-900 data-[state=open]:bg-neutral-900 data-[state=open]:hover:bg-neutral-800 active:shadow-inner active:opacity-75 disabled:text-neutral-800 disabled:bg-transparent duration-100 focus-visible:bg-neutral-900"
-						onClick={() => setFiltersOpen(!filtersOpen)}
-					>
-						<span className="flex gap-3 items-center justify-center">
-							{nsfwActive || artistFilterActive ? <FilterFilled /> : <Filter />}
-							{t("Content.Artworks.Filters.button")}
-						</span>
-					</button>
-				</Collapsible.Trigger>
-				<Collapsible.Content className="data-[state=open]:animate-collapsible-vertical-open sm:data-[state=open]:animate-collapsible-horizontal-open data-[state=closed]:animate-collapsible-vertical-close sm:data-[state=closed]:animate-collapsible-horizontal-close whitespace-nowrap overflow-clip">
-					<div className="flex items-center border-t sm:border-t-0 border-neutral-800">
-						<div className="flex items-center gap-3 h-9 px-3 border-r border-neutral-800">
-							<Checkbox id="nsfw" checked={nsfw} onCheckedChange={handleNsfw} />
-							<label htmlFor="nsfw">{t("Content.NSFW.checkbox")}</label>
-						</div>
-						<div className="w-full sm:w-48 gap-3">
-							<Select.Root value={props.artist} onValueChange={handleSelectArtist}>
-								<div className="flex w-full">
-									<Select.Trigger
-										className={`group flex items-center justify-between px-3 h-9 w-full ${
-											props.artist != "" && "rounded-r-none"
-										} hover:bg-neutral-900 hover:text-neutral-50 active:shadow-inner duration-100`}
-										aria-label="Artist"
-									>
-										<Select.Value aria-label={props.artist}>
-											{artistFilterActive ? props.artist : t("Content.Artworks.Filters.artist")}
-										</Select.Value>
-										<Select.Icon className="ml-auto group-hover:translate-y-0.5 duration-100">
-											<ChevronDown />
-										</Select.Icon>
-									</Select.Trigger>
-									{artistFilterActive && (
-										<button
-											onClick={handleClearArtist}
-											className="h-9 px-2.5 hover:bg-neutral-900 hover:text-neutral-50 active:shadow-inner active:opacity-75 duration-100"
-										>
-											<X />
-										</button>
-									)}
-								</div>
-								<Select.Portal>
-									<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl bg-gradient-to-b from-elevate/90 to-elevate/80 border border-white/10 ring-1 ring-black/10 dark:ring-black/50 shadow-lg rounded-lg data-[state=open]:animate-select-open">
-										<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900/50 text-neutral-50 rounded-t-md">
-											<ChevronUp />
-										</Select.ScrollUpButton>
-										<Select.Viewport className="p-1">
-											<Select.Group>
-												{props.artists.data
-													.sort((a, b) =>
-														a.name.localeCompare(b.name, undefined, {
-															sensitivity: "base",
-														})
-													)
-													.map((artist) => (
-														<SelectItem key={artist.id} value={artist.name}>
-															{artist.name}
-														</SelectItem>
-													))}
-											</Select.Group>
-										</Select.Viewport>
-										<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-neutral-900/50 text-neutral-50 rounded-b-md">
-											<ChevronDown />
-										</Select.ScrollDownButton>
-									</Select.Content>
-								</Select.Portal>
-							</Select.Root>
-						</div>
+			<div className="flex w-full border-t border-neutral-50/5">
+				<div className="flex items-center grow">
+					<div className="flex items-center gap-3 h-9 px-3 w-max border-r border-neutral-50/5">
+						<Checkbox id="nsfw" checked={nsfw} onCheckedChange={handleNsfw} />
+						<label htmlFor="nsfw">{t("Content.NSFW.checkbox")}</label>
 					</div>
-				</Collapsible.Content>
-			</Collapsible.Root>
+					<div className="w-48 gap-3 border-r border-neutral-50/5">
+						<Select.Root value={props.artist} onValueChange={handleSelectArtist}>
+							<div className="flex w-full">
+								<Select.Trigger
+									className={`group flex items-center justify-between px-3 h-9 w-full ${
+										props.artist != "" && "rounded-r-none"
+									} hover:bg-neutral-900 hover:text-neutral-50 active:shadow-inner duration-100`}
+									aria-label="Artist"
+								>
+									<Select.Value aria-label={props.artist}>
+										{artistFilterActive ? props.artist : t("Content.Artworks.Filters.artist")}
+									</Select.Value>
+									<Select.Icon className="ml-auto group-hover:translate-y-0.5 duration-100">
+										<ChevronDown />
+									</Select.Icon>
+								</Select.Trigger>
+								{artistFilterActive && (
+									<button
+										onClick={handleClearArtist}
+										className="h-9 px-2.5 hover:bg-neutral-900 hover:text-neutral-50 active:shadow-inner active:opacity-75 duration-100"
+									>
+										<X />
+									</button>
+								)}
+							</div>
+							<Select.Portal>
+								<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl bg-gradient-to-b from-elevate/90 to-elevate/80 border border-white/10 ring-1 ring-black/10 dark:ring-black/50 shadow-lg rounded-lg data-[state=open]:animate-select-open">
+									<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900/50 text-neutral-50 rounded-t-md">
+										<ChevronUp />
+									</Select.ScrollUpButton>
+									<Select.Viewport className="p-1">
+										<Select.Group>
+											{props.artists.data
+												.sort((a, b) =>
+													a.name.localeCompare(b.name, undefined, {
+														sensitivity: "base",
+													})
+												)
+												.map((artist) => (
+													<SelectItem key={artist.id} value={artist.name}>
+														{artist.name}
+													</SelectItem>
+												))}
+										</Select.Group>
+									</Select.Viewport>
+									<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-neutral-900/50 text-neutral-50 rounded-b-md">
+										<ChevronDown />
+									</Select.ScrollDownButton>
+								</Select.Content>
+							</Select.Portal>
+						</Select.Root>
+					</div>
+				</div>
+				<div className="hidden sm:flex items-center justify-end px-3 text-sm">
+					Showing X of Y results.
+				</div>
+			</div>
 			<Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
 				{dialogTransitions((styles, item) =>
 					item ? (

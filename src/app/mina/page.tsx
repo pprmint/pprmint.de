@@ -110,7 +110,7 @@ export default async function Page({
 				</section>
 				<section
 					id="gallery"
-					className="pt-20 md:pt-32 xl:pt-40 mb-20 md:mb-32 xl:mb-40 max-w-7xl mx-auto md:px-3 xl:px-9"
+					className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto"
 				>
 					<Suspense fallback={<GallerySkeleton />}>
 						<GallerySuspense p={parseInt(p)} artist={artist} nsfw={nsfw} />
