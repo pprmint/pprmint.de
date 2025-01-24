@@ -48,7 +48,7 @@ export default function RefSheet() {
 					</div>
 					<Dialog.Close asChild>
 						<button
-							className="absolute top-3 right-3 inline-flex p-2 items-center justify-center hover:bg-elevate hover:shadow-lg hover:shadow-black/5 hover:text active:shadow-inner-neutral-50 duration-100 active:duration-75 rounded-full"
+							className="absolute top-3 right-3 inline-flex p-2 items-center justify-center hover:bg-elevate hover:shadow-lg hover:shadow-black/5 hover:text ring-0 ring-elevate hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline-1 hover:outline-offset-8-neutral-50 duration-100 active:duration-75 rounded-full"
 							aria-label="Close"
 						>
 							<Error />
@@ -164,7 +164,7 @@ export default function RefSheet() {
 		}
 		return (
 			<div
-				className="w-full active:shadow-inner duration-100 ease-out cursor-pointer"
+				className="w-full duration-100 ease-out cursor-pointer"
 				style={{ backgroundColor: color, height: height }}
 				onClick={handleClick}
 			/>
@@ -178,7 +178,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="hand"
-							className="relative flex items-center justify-center border-t border-r border-neutral-50/5 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 active:shadow-inner duration-200 active:duration-75 p-6 cursor-pointer"
+							className="relative flex items-center justify-center border-t border-r border-neutral-50/5 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 ring-0 ring-elevate hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline-1 hover:outline-offset-8 outline- duration-200 active:duration-75 p-6 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceHand}
@@ -209,7 +209,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="front"
-							className="relative flex items-center justify-center border-t md:border-r lg:border-b border-neutral-50/5 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 active:shadow-inner duration-200 active:duration-75 row-span-2 p-3 cursor-pointer"
+							className="relative flex items-center justify-center border-t md:border-r lg:border-b border-neutral-50/5 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 ring-0 ring-elevate hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline-1 hover:outline-offset-8 duration-200 active:duration-75 row-span-2 p-3 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceFront}
@@ -237,7 +237,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="back"
-							className="relative flex items-center justify-center border-t border-r md:border-r-0 lg:border-r lg:border-b border-neutral-50/5 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 active:shadow-inner duration-200 active:duration-75 row-span-2 p-3 cursor-pointer"
+							className="relative flex items-center justify-center border-t border-r md:border-r-0 lg:border-r lg:border-b border-neutral-50/5 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 ring-0 ring-elevate hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline-1 hover:outline-offset-8 duration-200 active:duration-75 row-span-2 p-3 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceBack}
@@ -265,7 +265,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="hairbow"
-							className="relative flex md:col-span-2 xl:col-span-1 items-center justify-center border-t md:border-b lg:border-b-0 md:border-r lg:border-r-0 border-neutral-50/5 gap-6 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 active:shadow-inner duration-200 active:duration-75 p-6 cursor-pointer"
+							className="relative flex md:col-span-2 xl:col-span-1 items-center justify-center border-t md:border-b lg:border-b-0 md:border-r lg:border-r-0 border-neutral-50/5 gap-6 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 ring-0 ring-elevate hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline-1 hover:outline-offset-8 duration-200 active:duration-75 p-6 cursor-pointer"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -364,7 +364,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="shoe"
-							className="relative flex items-center justify-center border-y md:border-b-0 border-r lg:border-b border-neutral-50/5 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 active:shadow-inner duration-200 active:duration-75 p-6 cursor-pointer"
+							className="relative flex items-center justify-center border-y md:border-b-0 border-r lg:border-b border-neutral-50/5 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 ring-0 ring-elevate hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline-1 hover:outline-offset-8 duration-200 active:duration-75 p-6 cursor-pointer"
 						>
 							<FadingImage
 								src={ReferenceShoes}

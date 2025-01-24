@@ -34,35 +34,27 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 	// }, [artworks]);
 
 	return (
-		<div
-			ref={galleryRef}
-			className="group mb-10 grid md:gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
-		>
+		<div ref={galleryRef} className="group mb-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 md:p-2 border-y border-neutral-50/5 md:gap-2">
 			{artworks.artworks.data.map((art, index) => (
 				<Dialog.Root key={art.id} onOpenChange={handleClose}>
 					<Dialog.Trigger asChild>
 						<button
-							className="group/button relative overflow-clip md:rounded-lg hover:rounded-lg focus-visible:rounded-lg bg-neutral-950
-    							odd:origin-left even:origin-right
-    							md:odd:origin-center md:even:origin-center
-    							md:[&:nth-child(3n+1)]:origin-left md:[&:nth-child(3n)]:origin-right
-    							lg:[&:nth-child(3n+1)]:origin-center lg:[&:nth-child(3n)]:origin-center
-    							lg:[&:nth-child(4n+1)]:origin-left lg:[&:nth-child(4n)]:origin-right
-    							xl:[&:nth-child(4n+1)]:origin-center xl:[&:nth-child(4n)]:origin-center
-    							xl:[&:nth-child(5n+1)]:origin-left xl:[&:nth-child(5n)]:origin-right
-									[.group:hover_&:not(:hover)]:opacity-75
-    							hover:scale-[1.03] focus-visible:scale-[1.03] active:scale-[1.015] hover:z-10 focus-visible:z-10 justify outline outline-1 -outline-offset-1 outline-neutral-50/10 hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-square"
+							className="group/button overflow-clip bg-neutral-950
+									[.group:hover_&:not(:hover)]:opacity-60
+									outline outline-1 -outline-offset-1 outline-neutral-50/5
+    							hover:z-10 focus-visible:z-10 scale-100 hover:scale-[1.025] active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-square"
 						>
-							<FadingImage
-								src={`https://static.pprmint.de${
-									art.artwork[0].formats.small ? art.artwork[0].formats.small.url : art.artwork[0].url
-								}`}
-								width={art.artwork[0].width}
-								height={art.artwork[0].height}
-								alt=""
-								style={{ transition: "opacity 0.5s", transitionDelay: `opacity ${index * 0.05}s` }}
-								className={`h-full min-w-full object-cover ${art.focus} group-focus-visible/button:animate-pulse`}
-							/>
+							<div className="scale-[1.025] group-hover/button:scale-100 group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
+								<FadingImage
+									src={`https://static.pprmint.de${art.artwork[0].formats.small ? art.artwork[0].formats.small.url : art.artwork[0].url}`}
+									width={art.artwork[0].width}
+									height={art.artwork[0].height}
+									alt=""
+									hideSpinner
+									style={{ transition: "opacity 0.5s", transitionDelay: `opacity ${index * 0.05}s` }}
+									className={`size-full object-cover ${art.focus} group-focus-visible/button:animate-pulse`}
+								/>
+							</div>
 							{art.nsfw && (
 								<div className="absolute inset-0 flex items-center justify-center backdrop-blur-lg group-focus-visible/button:backdrop-blur-sm bg-neutral-950/75 group-focus-visible/button:bg-transparent group-hover/button:opacity-0 duration-300 ease-out-quint pointer-events-none">
 									<EyeDisabled className="size-[30px] fill-neutral-50 opacity-50" />
@@ -92,29 +84,17 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 									<div className="flex items-center flex-grow gap-3 text-xl ">
 										<Dialog.Title asChild>
 											<p>
-												<span className="text-neutral-50/70">
-													{t("Content.Artworks.drawnBy")}
-												</span>
+												<span className="text-neutral-50/70">{t("Content.Artworks.drawnBy")}</span>
 												{art.artist.name}
 												{art.heart && <span className="text-red"> ♥</span>}
 											</p>
 										</Dialog.Title>
 										{art.artist.creditUrl && (
-											<Link
-												href={art.artist.creditUrl!}
-												target="_blank"
-												rel="noopener noreferrer"
-												className="rounded-full"
-											>
-												<button
-													tabIndex={-1}
-													className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
-												>
+											<Link href={art.artist.creditUrl!} target="_blank" rel="noopener noreferrer" className="rounded-full">
+												<button tabIndex={-1} className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
 													{art.artist.creditUrl!.startsWith("https://twitter.com/") ? (
 														<Twitter />
-													) : art.artist.creditUrl!.startsWith(
-															"https://www.instagram.com/"
-													  ) ? (
+													) : art.artist.creditUrl!.startsWith("https://www.instagram.com/") ? (
 														<Instagram />
 													) : art.artist.creditUrl!.startsWith("https://www.youtube.com/") ? (
 														<YouTube />
@@ -136,16 +116,12 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 										{art.artwork.map((variant, index) => (
 											<button
 												key={index}
-												className={`group h-full ${
-													index === selectedVariant ? "w-16" : "w-9"
-												} px-2 duration-200 ease-out-quint`}
+												className={`group h-full ${index === selectedVariant ? "w-16" : "w-9"} px-2 duration-200 ease-out-quint`}
 												onClick={() => setSelectedVariant(index)}
 											>
 												<div
 													className={`h-2 ${
-														index === selectedVariant
-															? "bg-neutral-50"
-															: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
+														index === selectedVariant ? "bg-neutral-50" : "bg-neutral-50/20 group-hover:bg-neutral-50/50"
 													} rounded-full duration-200 ease-out-quint`}
 												/>
 											</button>
