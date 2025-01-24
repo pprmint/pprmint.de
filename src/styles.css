@@ -1,6 +1,55 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@config "../tailwind.config.js";
+
+@utility text-link {
+	@apply font-medium text-neutral-50 underline decoration-1 decoration-dotted hover:decoration-solid decoration-neutral-50/50 hover:decoration-neutral-50 duration-100 underline-offset-2;
+}
+
+@utility text-link-external {
+	@apply font-medium text-blue underline decoration-1 decoration-dotted hover:decoration-solid decoration-blue/50 hover:decoration-blue duration-100 underline-offset-2;
+}
+
+@utility font-ultra-condensed {
+	font-stretch: ultra-condensed;
+}
+
+@utility font-extra-condensed {
+	font-stretch: extra-condensed;
+}
+
+@utility font-condensed {
+	font-stretch: condensed;
+}
+
+@utility font-semi-condensed {
+	font-stretch: semi-condensed;
+}
+
+@utility font-normal {
+	font-stretch: normal;
+}
+
+@utility font-semi-expanded {
+	font-stretch: semi-expanded;
+}
+
+@utility font-expanded {
+	font-stretch: expanded;
+}
+
+@utility font-extra-expanded {
+	font-stretch: extra-expanded;
+}
+
+@utility font-ultra-expanded {
+	font-stretch: ultra-expanded;
+}
+
+@utility italic {
+	font-style: italic;
+	font-variation-settings: "slnt" -12; /* For DINish font. */
+}
 
 @layer base {
 	h1 {
@@ -20,49 +69,6 @@
 	}
 	h6 {
 		@apply text-neutral-50 md:text-lg lg:text-xl pb-1;
-	}
-}
-
-@layer components {
-	.text-link {
-		@apply font-medium text-neutral-50 underline decoration-1 decoration-dotted hover:decoration-solid decoration-neutral-50/50 hover:decoration-neutral-50 duration-100 underline-offset-2;
-	}
-	.text-link-external {
-		@apply font-medium text-blue underline decoration-1 decoration-dotted hover:decoration-solid decoration-blue/50 hover:decoration-blue duration-100 underline-offset-2;
-	}
-}
-
-@layer utilities {
-	.font-ultra-condensed {
-		font-stretch: ultra-condensed;
-	}
-	.font-extra-condensed {
-		font-stretch: extra-condensed;
-	}
-	.font-condensed {
-		font-stretch: condensed;
-	}
-	.font-semi-condensed {
-		font-stretch: semi-condensed;
-	}
-	.font-normal {
-		font-stretch: normal;
-	}
-	.font-semi-expanded {
-		font-stretch: semi-expanded;
-	}
-	.font-expanded {
-		font-stretch: expanded;
-	}
-	.font-extra-expanded {
-		font-stretch: extra-expanded;
-	}
-	.font-ultra-expanded {
-		font-stretch: ultra-expanded;
-	}
-	.italic {
-		font-style: italic;
-		font-variation-settings: "slnt" -12; /* For DINish font. */
 	}
 }
 

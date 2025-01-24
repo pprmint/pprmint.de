@@ -62,7 +62,7 @@ export default function Carousel({ images, className }: { images: StaticImageDat
 			>
 				<ChevronRight className="fill-neutral-50 size-5 group-active:translate-x-1 duration-100" />
 			</button>
-			<div className="absolute z-10 flex items-center justify-center gap-2 -bottom-14 group-hover/container:bottom-0 inset-x-0 bg-gradient-to-t from-neutral-950/50 h-14 duration-300 ease-out">
+			<div className="absolute z-10 flex items-center justify-center gap-2 -bottom-14 group-hover/container:bottom-0 inset-x-0 bg-linear-to-t from-neutral-950/50 h-14 duration-300 ease-out">
 				{images.map((_, index) => (
 					<button
 						onClick={() => handleImage(index)}

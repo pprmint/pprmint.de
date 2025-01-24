@@ -35,13 +35,13 @@ export default function Gallery(photos: { photos: Photos }) {
 							className="group/button relative overflow-clip hover:rounded-lg focus-visible:rounded-lg bg-neutral-950
     							odd:origin-left even:origin-right
     							lg:odd:origin-center lg:even:origin-center
-    							lg:[&:nth-child(3n+1)]:origin-left lg:[&:nth-child(3n)]:origin-right
-    							xl:[&:nth-child(3n+1)]:origin-center xl:[&:nth-child(3n)]:origin-center
-    							xl:[&:nth-child(4n+1)]:origin-left xl:[&:nth-child(4n)]:origin-right
-    							3xl:[&:nth-child(4n+1)]:origin-center 3xl:[&:nth-child(4n)]:origin-center
-    							3xl:[&:nth-child(5n+1)]:origin-left 3xl:[&:nth-child(5n)]:origin-right
+    							lg:nth-[3n+1]:origin-left lg:nth-[3n]:origin-right
+    							xl:nth-[3n+1]:origin-center xl:nth-[3n]:origin-center
+    							xl:nth-[4n+1]:origin-left xl:nth-[4n]:origin-right
+    							3xl:nth-[4n+1]:origin-center 3xl:nth-[4n]:origin-center
+    							3xl:nth-[5n+1]:origin-left 3xl:nth-[5n]:origin-right
 									[.group:hover_&:not(:hover)]:opacity-75
-    							hover:scale-[1.02] focus-visible:scale-[1.02] active:scale-[1.01] hover:z-10 focus-visible:z-10 justify hover:ring-1 ring-neutral-50/10 hover:shadow-lg focus-visible:shadow-xl duration-250 ease-out-quint active:duration-75 cursor-pointer aspect-[3/2]"
+    							hover:scale-[1.02] focus-visible:scale-[1.02] active:scale-[1.01] hover:z-10 focus-visible:z-10 justify hover:ring-1 ring-neutral-50/10 hover:shadow-lg focus-visible:shadow-xl duration-250 ease-out-quint active:duration-75 aspect-3/2"
 						>
 							<FadingImage
 								src={`https://static.pprmint.de${photo.photo.formats.small.url}`}
@@ -56,7 +56,7 @@ export default function Gallery(photos: { photos: Photos }) {
 					<Dialog.Portal>
 						<Dialog.Overlay className="bg-neutral-950 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
 						<Dialog.Content
-							className={`text-neutral-50 fixed inset-0 z-100 max-h-svh w-screen data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center duration-200 focus-visible:outline-none`}
+							className={`text-neutral-50 fixed inset-0 z-100 max-h-svh w-screen data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center duration-200 focus-visible:outline-hidden`}
 						>
 							<TransformWrapper disablePadding>
 								<TransformComponent>
@@ -71,7 +71,7 @@ export default function Gallery(photos: { photos: Photos }) {
 										/>
 									</div>
 								</TransformComponent>
-								<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 bg-gradient-to-b from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
+								<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 bg-linear-to-b from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
 									<Dialog.Title asChild>
 										<p className=" text-xl">
 											{format.dateTime(new Date(photo.dateTime), {
@@ -92,8 +92,8 @@ export default function Gallery(photos: { photos: Photos }) {
 										</button>
 									</Dialog.Close>
 								</div>
-								<div className="absolute flex flex-col md:flex-row gap-2 items-center justify-end pb-3 md:pb-0 bottom-0 px-6 h-20 md:h-16 bg-gradient-to-t from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
-									<div className="flex items-center md:flex-grow gap-3 md:gap-6 mx-auto">
+								<div className="absolute flex flex-col md:flex-row gap-2 items-center justify-end pb-3 md:pb-0 bottom-0 px-6 h-20 md:h-16 bg-linear-to-t from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
+									<div className="flex items-center md:grow gap-3 md:gap-6 mx-auto">
 										{photo.camera.logo ? (
 											<Image
 												src={`https://static.pprmint.de${photo.camera.logo.url}`}

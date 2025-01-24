@@ -34,7 +34,7 @@ export default function RefSheet() {
 				<Dialog.Content
 					className={`fixed inset-0 overflow-auto lg:overflow-clip z-100 flex flex-col ${
 						!col && "lg:flex-row"
-					} gap-12 items-center top-1/2 left-1/2 h-svh lg:h-max lg:max-h-[90vh] w-screen max-w-7xl -translate-x-1/2 -translate-y-1/2 p-6 md:p-9 bg-neutral-950 lg:border border-white/10 lg:outline outline-1 outline-black/10 dark:outline-black/50 shadow-2xl lg:rounded-xl data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit focus:outline-none origin-center`}
+					} gap-12 items-center top-1/2 left-1/2 h-svh lg:h-max lg:max-h-[90vh] w-screen max-w-7xl -translate-x-1/2 -translate-y-1/2 p-6 md:p-9 bg-neutral-950 lg:border border-white/10 lg:outline outline outline-black/10 dark:outline-black/50 shadow-2xl lg:rounded-xl data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit focus:outline-hidden origin-center`}
 				>
 					{reference}
 					<div>
@@ -48,7 +48,7 @@ export default function RefSheet() {
 					</div>
 					<Dialog.Close asChild>
 						<button
-							className="absolute top-3 right-3 inline-flex p-2 items-center justify-center hover:bg-elevate hover:shadow-lg hover:shadow-black/5 hover:text ring-0 ring-elevate hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline-1 hover:outline-offset-8-neutral-50 duration-100 active:duration-75 rounded-full"
+							className="absolute top-3 right-3 inline-flex p-2 items-center justify-center hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 hover:text ring-0 ring-neutral-900 hover:ring-8 outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8-neutral-50 duration-100 active:duration-75 rounded-full"
 							aria-label="Close"
 						>
 							<Error />
@@ -95,7 +95,7 @@ export default function RefSheet() {
 				<a.div className="h-full w-4/5 object-contain" style={styles}>
 					<FadingImage
 						src={ReferenceBack}
-						alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
+						alt="Drawing of a hand with a rectangular ring-3, spanning across the ring-3 and middle finger."
 						className="h-full max-h-2/3-screen lg:max-h-[80vh] object-contain"
 					/>
 					<div className="relative h-1 mt-6 rounded-full overflow-clip bg-neutral-900">
@@ -108,7 +108,7 @@ export default function RefSheet() {
 				<a.div className="h-full w-4/5 object-contain" style={styles}>
 					<FadingImage
 						src={ReferenceFront}
-						alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
+						alt="Drawing of a hand with a rectangular ring-3, spanning across the ring-3 and middle finger."
 						className="h-full max-h-2/3-screen lg:max-h-[80vh] object-contain"
 					/>
 					<div className="relative h-1 mt-6 rounded-full overflow-clip bg-neutral-900">
@@ -129,7 +129,7 @@ export default function RefSheet() {
 		return (
 			<Toast.Provider swipeDirection="right" duration={3000}>
 				<Toast.Root
-					className="flex gap-6 items-center p-3 rounded-xl shadow-lg text-neutral-50 backdrop-blur-xl bg-gradient-to-t dark:bg-gradient-to-b from-neutral-800/75 to-neutral-900/90 dark:outline outline-1 outline-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
+					className="flex gap-6 items-center p-3 rounded-xl shadow-lg text-neutral-50 backdrop-blur-xl bg-linear-to-t dark:bg-linear-to-b from-neutral-800/75 to-neutral-900/90 dark:outline outline outline-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
 					open={props.open}
 					onOpenChange={props.onOpenChange}
 				>
@@ -142,7 +142,7 @@ export default function RefSheet() {
 						<Error />
 					</Toast.Close>
 				</Toast.Root>
-				<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-[9999] outline-none" />
+				<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-9999 outline-hidden" />
 			</Toast.Provider>
 		);
 	}
@@ -164,7 +164,7 @@ export default function RefSheet() {
 		}
 		return (
 			<div
-				className="w-full duration-100 ease-out cursor-pointer"
+				className="w-full duration-100 ease-out"
 				style={{ backgroundColor: color, height: height }}
 				onClick={handleClick}
 			/>
@@ -178,12 +178,12 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="hand"
-							className="relative flex items-center justify-center border-t border-r border-neutral-50/5 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 ring-0 ring-elevate hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline-1 hover:outline-offset-8 outline- duration-200 active:duration-75 p-6 cursor-pointer"
+							className="relative flex items-center justify-center border-t border-r border-neutral-50/5 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 outline- duration-200 active:duration-75 p-6"
 						>
 							<FadingImage
 								src={ReferenceHand}
 								className="w-auto max-h-full object-contain"
-								alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
+								alt="Drawing of a hand with a rectangular ring-3, spanning across the ring-3 and middle finger."
 							/>
 						</div>
 					</Dialog.Trigger>
@@ -199,7 +199,7 @@ export default function RefSheet() {
 						reference={
 							<FadingImage
 								src={ReferenceHand}
-								alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
+								alt="Drawing of a hand with a rectangular ring-3, spanning across the ring-3 and middle finger."
 								className="max-h-1/2-screen w-auto lg:w-1/2 lg:max-h-[50vh] object-contain"
 							/>
 						}
@@ -209,7 +209,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="front"
-							className="relative flex items-center justify-center border-t md:border-r lg:border-b border-neutral-50/5 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 ring-0 ring-elevate hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline-1 hover:outline-offset-8 duration-200 active:duration-75 row-span-2 p-3 cursor-pointer"
+							className="relative flex items-center justify-center border-t md:border-r lg:border-b border-neutral-50/5 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 duration-200 active:duration-75 row-span-2 p-3"
 						>
 							<FadingImage
 								src={ReferenceFront}
@@ -237,7 +237,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="back"
-							className="relative flex items-center justify-center border-t border-r md:border-r-0 lg:border-r lg:border-b border-neutral-50/5 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 ring-0 ring-elevate hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline-1 hover:outline-offset-8 duration-200 active:duration-75 row-span-2 p-3 cursor-pointer"
+							className="relative flex items-center justify-center border-t border-r md:border-r-0 lg:border-r lg:border-b border-neutral-50/5 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 duration-200 active:duration-75 row-span-2 p-3"
 						>
 							<FadingImage
 								src={ReferenceBack}
@@ -265,7 +265,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="hairbow"
-							className="relative flex md:col-span-2 xl:col-span-1 items-center justify-center border-t md:border-b lg:border-b-0 md:border-r lg:border-r-0 border-neutral-50/5 gap-6 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 ring-0 ring-elevate hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline-1 hover:outline-offset-8 duration-200 active:duration-75 p-6 cursor-pointer"
+							className="relative flex md:col-span-2 xl:col-span-1 items-center justify-center border-t md:border-b lg:border-b-0 md:border-r lg:border-r-0 border-neutral-50/5 gap-6 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 duration-200 active:duration-75 p-6"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -364,7 +364,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="shoe"
-							className="relative flex items-center justify-center border-y md:border-b-0 border-r lg:border-b border-neutral-50/5 hover:bg-elevate hover:shadow-lg hover:shadow-black/5 ring-0 ring-elevate hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline-1 hover:outline-offset-8 duration-200 active:duration-75 p-6 cursor-pointer"
+							className="relative flex items-center justify-center border-y md:border-b-0 border-r lg:border-b border-neutral-50/5 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 duration-200 active:duration-75 p-6"
 						>
 							<FadingImage
 								src={ReferenceShoes}
@@ -384,7 +384,7 @@ export default function RefSheet() {
 						reference={
 							<FadingImage
 								src={ReferenceShoes}
-								alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
+								alt="Drawing of a hand with a rectangular ring-3, spanning across the ring-3 and middle finger."
 								className="max-h-1/3-screen w-auto lg:w-2/3 lg:max-h-[90vh] object-contain"
 							/>
 						}

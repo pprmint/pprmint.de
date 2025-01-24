@@ -117,7 +117,7 @@ export default async function Page({
 					</Suspense>
 				</section>
 				<FanartRules />
-				<section className="relative flex items-end justify-center my-20 md:my-32 xl:my-40 xl:pt-10 max-w-screen-3xl mx-auto px-6 md:px-9 min-h-[500px] overflow-x-clip">
+				<section className="relative flex items-end justify-center my-20 md:my-32 xl:my-40 xl:pt-10 max-w-(--breakpoint-3xl) mx-auto px-6 md:px-9 min-h-[500px] overflow-x-clip">
 					<div className="absolute inset-0 -z-10">
 						<FadingImage
 							hideSpinner
@@ -162,7 +162,7 @@ export default async function Page({
 							}}
 							className="absolute inset-0 bottom-0 h-full backdrop-blur-md pointer-events-none"
 						/>
-						<div className="absolute inset-0 bg-gradient-to-t from-neutral-950" />
+						<div className="absolute inset-0 bg-linear-to-t from-neutral-950" />
 					</div>
 					<div className="flex items-center flex-col pt-96 pb-12 text-center text-balance dark:drop-shadow-[0px_2px_8px_#111]">
 						<h2>

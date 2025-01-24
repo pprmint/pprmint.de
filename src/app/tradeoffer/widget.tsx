@@ -26,7 +26,7 @@ export default function KofiWidget() {
 	});
 	return (
 		<div className="w-full max-w-[400px]">
-			<div className="rounded-xl shadow-lg mx-auto w-full max-w-[400px] h-[640px] overflow-clip bg-elevate">
+			<div className="rounded-xl shadow-lg mx-auto w-full max-w-[400px] h-[640px] overflow-clip bg-neutral-900">
 				{transition((style, item) =>
 					item ? (
 						<a.iframe

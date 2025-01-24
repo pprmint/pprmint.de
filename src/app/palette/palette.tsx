@@ -188,7 +188,7 @@ export default function Palette() {
 									shadeIndex == 5 ? "col-span-2 lg:col-span-1" : "col-span-1"
 								} ${
 									shadeIndex > 5 ? "text-neutral-50" : "text-neutral-950"
-								} hover:scale-110 hover:shadow-xl hover:rounded-md duration-100 ease-in-out-custom active:scale-105 cursor-pointer active:duration-75`}
+								} hover:scale-110 hover:shadow-xl hover:rounded-md duration-100 ease-in-out-custom active:scale-105 active:duration-75`}
 								onClick={() => {
 									navigator.clipboard.writeText((shade as string).substring(1));
 									setToastOpen(false);
@@ -210,7 +210,7 @@ export default function Palette() {
 				))}
 			</div>
 			<Toast.Root
-				className="flex gap-6 items-center p-3 rounded-xl shadow-lg shadow-neutral-950/50 backdrop-blur-xl bg-gradient-to-b from-neutral-800/75 to-neutral-900/90 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
+				className="flex gap-6 items-center p-3 rounded-xl shadow-lg shadow-neutral-950/50 backdrop-blur-xl bg-linear-to-b from-neutral-800/75 to-neutral-900/90 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
 				open={toastOpen}
 				onOpenChange={setToastOpen}
                 duration={3000}
@@ -221,7 +221,7 @@ export default function Palette() {
 					<X className="fill-neutral-50" />
 				</Toast.Close>
 			</Toast.Root>
-			<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-60 outline-none" />
+			<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-60 outline-hidden" />
 		</Toast.Provider>
 	);
 }

@@ -77,7 +77,7 @@ export default async function Page() {
 						<p>
 							{t.rich("Content.Wireframe.text", {
 								key: (chunks) => (
-									<span className="px-1 text-neutral-50 bg-gradient-to-b from-neutral-800 to-neutral-900 border border-b-4 border-neutral-800 rounded-sm">
+									<span className="px-1 text-neutral-50 bg-linear-to-b from-neutral-800 to-neutral-900 border border-b-4 border-neutral-800 rounded-xs">
 										{chunks}
 									</span>
 								),

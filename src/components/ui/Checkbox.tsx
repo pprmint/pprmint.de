@@ -30,10 +30,10 @@ export default function Checkbox({ color = "neutral", ...rest }: CheckboxProps) 
 			  "data-[state='checked']:from-neutral-100 data-[state='checked']:to-neutral-200 data-[state='checked']:border-t-neutral-400 dark:data-[state='checked']:border-t-neutral-50 data-[state='checked']:border-neutral-50 dark:data-[state='checked']:border-neutral-400 text-neutral-950";
 	return (
 		<RCheckbox.Root
-			className={`group ${colors} flex items-center justify-center size-6 rounded-md outline-none focus:outline hover:brightness-105 active:brightness-90 active:shadow-inner duration-100 active:duration-75 border ${
+			className={`group ${colors} flex items-center justify-center size-6 rounded-md outline-hidden focus:outline hover:brightness-105 active:brightness-90 active:shadow-inner duration-100 active:duration-75 border ${
 				rest.disabled
 					? "text-neutral-600 bg-transparent border-neutral-900 pointer-events-none"
-					: "bg-gradient-to-t dark:bg-gradient-to-b data-[state='checked']:border-x-0 data-[state='checked']:active:border-0 data-[state='checked']:active:border-transparent data-[state='unchecked']:border-neutral-800 data-[state='unchecked']:from-neutral-950 data-[state='unchecked']:to-neutral-900 "
+					: "bg-linear-to-t dark:bg-linear-to-b data-[state='checked']:border-x-0 data-[state='checked']:active:border-0 data-[state='checked']:active:border-transparent data-[state='unchecked']:border-neutral-800 data-[state='unchecked']:from-neutral-950 data-[state='unchecked']:to-neutral-900 "
 			}`}
 			{...rest}
 		>

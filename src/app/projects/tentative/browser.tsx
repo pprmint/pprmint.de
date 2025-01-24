@@ -92,8 +92,8 @@ const Tabs = [
 export default function BrowserWindow() {
 	const [tab, setTab] = useState(0);
 	return (
-		<div className="border border-black/10 dark:ring-black/50 outline outline-1 outline-white/10 -outline-offset-2 rounded-xl overflow-clip my-9 text-sm shadow-2xl">
-			<div className="bg-elevate">
+		<div className="border border-black/10 dark:ring-black/50 outline outline outline-white/10 -outline-offset-2 rounded-xl overflow-clip my-9 text-sm shadow-2xl">
+			<div className="bg-neutral-900">
 				<div className="flex items-center gap-1">
 					<div className="group flex gap-2 p-3">
 						<button className="bg-red active:bg-red-700 rounded-full duration-50">
@@ -106,9 +106,9 @@ export default function BrowserWindow() {
 							<TriangleTopLeftBottomRight className="opacity-0 group-hover:opacity-100 duration-100 fill-green-900 p-0.5" />
 						</button>
 					</div>
-					<div className="inline-flex items-center gap-3 px-3 bg-neutral-800 light:bg-neutral-900 py-0.5 flex-grow rounded-md">
+					<div className="inline-flex items-center gap-3 px-3 bg-neutral-800 light:bg-neutral-900 py-0.5 grow rounded-md">
 						<Lock />
-						<p className="flex-grow py-0.5">
+						<p className="grow py-0.5">
 							<span className="opacity-50">https://</span>
 							tentative.name
 						</p>
@@ -124,7 +124,7 @@ export default function BrowserWindow() {
 					{Tabs.map((item, index) => (
 						<button
 							key={index}
-							className={`py-1.5 flex items-center justify-center grow gap-2 ${index === tab && "bg-elevate"}`}
+							className={`py-1.5 flex items-center justify-center grow gap-2 ${index === tab && "bg-neutral-900"}`}
 							onClick={() => setTab(index)}
 						>
 							<div className="size-4">{item.favicon}</div>

@@ -41,8 +41,8 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 						<button
 							className="group/button overflow-clip bg-neutral-950
 									[.group:hover_&:not(:hover)]:opacity-60
-									outline outline-1 -outline-offset-1 outline-neutral-50/5
-    							hover:z-10 focus-visible:z-10 scale-100 hover:scale-[1.025] active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-square"
+									outline outline -outline-offset-1 outline-neutral-50/5
+    							hover:z-10 focus-visible:z-10 scale-100 hover:scale-[1.025] active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 aspect-square"
 						>
 							<div className="scale-[1.025] group-hover/button:scale-100 group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
 								<FadingImage
@@ -56,7 +56,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 								/>
 							</div>
 							{art.nsfw && (
-								<div className="absolute inset-0 flex items-center justify-center backdrop-blur-lg group-focus-visible/button:backdrop-blur-sm bg-neutral-950/75 group-focus-visible/button:bg-transparent group-hover/button:opacity-0 duration-300 ease-out-quint pointer-events-none">
+								<div className="absolute inset-0 flex items-center justify-center backdrop-blur-lg group-focus-visible/button:backdrop-blur-xs bg-neutral-950/75 group-focus-visible/button:bg-transparent group-hover/button:opacity-0 duration-300 ease-out-quint pointer-events-none">
 									<EyeDisabled className="size-[30px] fill-neutral-50 opacity-50" />
 								</div>
 							)}
@@ -65,7 +65,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 					<Dialog.Portal>
 						<Dialog.Overlay className="bg-neutral-950 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
 						<Dialog.Content
-							className={`text-neutral-50 fixed inset-0 z-100 h-screen max-h-svh w-screen max-w-max data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center duration-200 focus-visible:outline-none`}
+							className={`text-neutral-50 fixed inset-0 z-100 h-screen max-h-svh w-screen max-w-max data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center duration-200 focus-visible:outline-hidden`}
 						>
 							<TransformWrapper disablePadding>
 								<TransformComponent>
@@ -80,8 +80,8 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 										/>
 									</div>
 								</TransformComponent>
-								<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 bg-gradient-to-b from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
-									<div className="flex items-center flex-grow gap-3 text-xl ">
+								<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 bg-linear-to-b from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
+									<div className="flex items-center grow gap-3 text-xl ">
 										<Dialog.Title asChild>
 											<p>
 												<span className="text-neutral-50/70">{t("Content.Artworks.drawnBy")}</span>
@@ -112,7 +112,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 									</Dialog.Close>
 								</div>
 								{art.artwork.length >= 2 && (
-									<div className="absolute flex flex-row items-center justify-center bottom-0 px-6 h-16 bg-gradient-to-t from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
+									<div className="absolute flex flex-row items-center justify-center bottom-0 px-6 h-16 bg-linear-to-t from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
 										{art.artwork.map((variant, index) => (
 											<button
 												key={index}

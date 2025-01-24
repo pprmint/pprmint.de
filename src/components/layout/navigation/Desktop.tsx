@@ -207,7 +207,7 @@ export default function DesktopNavigation() {
 					</NavigationMenu.Indicator>
 				</NavigationMenu.List>
 				<div className="absolute flex justify-center top-[59px] left-1/2 -translate-x-1/2" style={{ perspective: 2000 }}>
-					<NavigationMenu.Viewport className="relative top-1 origin-top-left w-[--radix-navigation-menu-viewport-width] overflow-hidden backdrop-blur-xl bg-gradient-to-b from-white/90 dark:from-neutral-900/90 to-white/80 dark:to-neutral-900/75 ring-1 ring-black/10 dark:ring-black/50 outline outline-1 outline-white/10 -outline-offset-1 text-neutral rounded-2xl shadow-xl h-[--radix-navigation-menu-viewport-height] duration-250 ease-out data-[state='open']:animate-enter-from-t data-[state='closed']:animate-exit-to-t" />
+					<NavigationMenu.Viewport className="relative top-1 origin-top-left w-(--radix-navigation-menu-viewport-width) overflow-hidden backdrop-blur-xl bg-linear-to-b from-white/90 dark:from-neutral-900/90 to-white/80 dark:to-neutral-900/75 ring-1 ring-black/10 dark:ring-black/50 outline outline outline-white/10 -outline-offset-1 text-neutral rounded-2xl shadow-xl h-(--radix-navigation-menu-viewport-height) duration-250 ease-out data-[state='open']:animate-enter-from-t data-[state='closed']:animate-exit-to-t" />
 				</div>
 			</NavigationMenu.Root>
 		</>

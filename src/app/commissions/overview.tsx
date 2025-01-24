@@ -70,7 +70,7 @@ export default function Overview(data: { data: Commission }) {
 							className={`w-full right-0 group-data-[state=closed]/card:h-0 group-data-[state=open]/card:h-1.5 duration-500 ease-out-quint ${service.color}`}
 						/>
 						<div className="flex flex-col-reverse lg:flex-row px-6 group-data-[state=closed]/card:pb-14 group-data-[state=open]/card:pb-6 items-center text-center lg:text-left duration-500 ease-out-quint">
-							<div className="flex-grow pt-6">
+							<div className="grow pt-6">
 								<h3>{t(`Content.Offers.${service.id}.heading`)}</h3>
 								<p className="text-md">{t(`Content.Offers.${service.id}.description`)}</p>
 								<p className="font-digits text-neutral-50 text-2xl">{service.price}</p>
@@ -106,7 +106,7 @@ export default function Overview(data: { data: Commission }) {
 						aria-hidden
 						tabIndex={-1}
 					>
-						<ChevronDown className="ml-6 group-data-[state=open]/card:rotate-180 group-data-[state=closed]/card:group-hover/card:translate-y-1 group-data-[state=open]/card:group-hover/arrow:-translate-y-1 duration-250 ease-out-cubic" />
+						<ChevronDown className="ml-6 group-data-[state=open]/card:rotate-180 group-hover/card:group-data-[state=closed]/card:translate-y-1 group-hover/arrow:group-data-[state=open]/card:-translate-y-1 duration-250 ease-out-cubic" />
 						<Tooltip
 							text={t("Content.Offers.slotsAvailable", {
 								count: service.totalSlots - service.filledSlots,

@@ -38,7 +38,7 @@ export default function Glyphs() {
 						// @ts-expect-error
 						<a.div
 							style={style}
-							className="absolute flex items-center justify-center bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-neutral-950 py-6"
+							className="absolute flex items-center justify-center bottom-0 left-0 right-0 z-10 bg-linear-to-t from-neutral-950 py-6"
 						>
 							<Button onClick={() => setGlyphsOpen(true)}>{t("MINTBIT.Content.AllGlyphs.showAll")}</Button>
 						</a.div>
@@ -262,7 +262,7 @@ export default function Glyphs() {
 					"ÿ",
 				].map((glyph, index) => (
 					<div
-						className="aspect-square flex items-center justify-center font-mintbit text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl text-neutral-50 hover:bg-neutral-900 hover:scale-110 active:scale-105 active:opacity-75 hover:rounded-md hover:ring-1 ring-neutral-800 hover:shadow-xl hover:shadow-neutral-950/50 duration-200 active:duration-75 ease-out-quint cursor-pointer select-none"
+						className="aspect-square flex items-center justify-center font-mintbit text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl text-neutral-50 hover:bg-neutral-900 hover:scale-110 active:scale-105 active:opacity-75 hover:rounded-md hover:ring-1 ring-neutral-800 hover:shadow-xl hover:shadow-neutral-950/50 duration-200 active:duration-75 ease-out-quint select-none"
 						key={index}
 						onClick={() => {
 							navigator.clipboard.writeText(glyph);
@@ -279,7 +279,7 @@ export default function Glyphs() {
 				))}
 			</section>
 			<Toast.Root
-				className="flex gap-6 items-center p-3 rounded-xl shadow-lg shadow-neutral-950/50 backdrop-blur-xl bg-gradient-to-b from-neutral-800/75 to-neutral-900/90 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
+				className="flex gap-6 items-center p-3 rounded-xl shadow-lg shadow-neutral-950/50 backdrop-blur-xl bg-linear-to-b from-neutral-800/75 to-neutral-900/90 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
 				open={toastOpen}
 				onOpenChange={setToastOpen}
 				duration={3000}
@@ -290,7 +290,7 @@ export default function Glyphs() {
 					<X className="fill-neutral-50" />
 				</Toast.Close>
 			</Toast.Root>
-			<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-60 outline-none" />
+			<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-60 outline-hidden" />
 		</Toast.Provider>
 	);
 }

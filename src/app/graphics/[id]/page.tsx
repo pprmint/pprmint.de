@@ -44,7 +44,7 @@ export default async function Page(props: Props) {
 					fill
 					className={`object-cover ${Work.data.coverFocus} h-full min-w-full contrast-[0.87] blur-lg`}
 				/>
-				<div className="bg-gradient-to-t from-neutral-950 to-neutral-950/75 absolute inset-0" />
+				<div className="bg-linear-to-t from-neutral-950 to-neutral-950/75 absolute inset-0" />
 				<div
 					className="absolute inset-0 light:invert light:brightness-[0.33]"
 					style={{

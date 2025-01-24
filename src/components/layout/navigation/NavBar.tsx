@@ -58,7 +58,7 @@ export default function NavBar() {
 						<a.div
 							style={styles}
 							// @ts-expect-error
-							className="absolute top-0 inset-x-0 bg-gradient-to-b from-neutral-50/50 dark:from-neutral-950/60 via-70% via-neutral-50/10 dark:via-neutral-950/10 h-full"
+							className="absolute top-0 inset-x-0 bg-linear-to-b from-neutral-50/50 dark:from-neutral-950/60 via-70% via-neutral-50/10 dark:via-neutral-950/10 h-full"
 						/>
 					)
 				)

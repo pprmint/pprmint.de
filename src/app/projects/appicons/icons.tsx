@@ -473,8 +473,8 @@ export default function Selector() {
 					onClick={() => setSearch("")}
 					className={`absolute flex right-0 w-10 h-full items-center justify-center text-neutral-50 rounded-r-md ${
 						filteredIcons.length === 0
-							? "hover:bg-red-800 cursor-pointer"
-							: search && "hover:bg-neutral-900 cursor-pointer"
+							? "hover:bg-red-800"
+							: search && "hover:bg-neutral-900"
 					} duration-100`}
 				>
 					{search ? <X /> : <Search />}
@@ -487,7 +487,7 @@ export default function Selector() {
 					className={`w-full rounded-md outline focus:outline ${
 						filteredIcons.length === 0
 							? "outline-2 text-red outline-red-800 focus:outline-red bg-neutral-950"
-							: "outline-1 text-neutral-50 placeholder:text-neutral outline-neutral-900 focus:outline-green bg-transparent hover:bg-neutral-900"
+							: "outline text-neutral-50 placeholder:text-neutral outline-neutral-900 focus:outline-green bg-transparent hover:bg-neutral-900"
 					} focus:bg-transparent px-3 py-2 duration-100`}
 				/>
 			</div>
@@ -544,7 +544,7 @@ export default function Selector() {
 					// @ts-expect-error
 					<a.div
 					style={styles}
-					className="fixed z-60 flex items-center justify-between left-1/2 bottom-0 xl:bottom-6 w-full xl:max-w-6xl pl-5 pr-3 py-3 backdrop-blur-xl bg-gradient-to-b from-neutral-800/75 to-neutral-900/90 border-neutral-50/10 border-t xl:border border-neutral-950 xl:ring-1 ring-inset ring-neutral-50/10 xl:rounded-2xl shadow-xl shadow-neutral-950/50"
+					className="fixed z-60 flex items-center justify-between left-1/2 bottom-0 xl:bottom-6 w-full xl:max-w-6xl pl-5 pr-3 py-3 backdrop-blur-xl bg-linear-to-b from-neutral-800/75 to-neutral-900/90 border-neutral-50/10 border-t xl:border border-neutral-950 xl:ring-1 ring-inset ring-neutral-50/10 xl:rounded-2xl shadow-xl shadow-neutral-950/50"
 					>
 						<div className="flex items-center">
 							{selectedCountTransition((styles, count) => (
@@ -566,7 +566,7 @@ export default function Selector() {
 						</div>
 						{isDesktop ? (
 							<div className="flex gap-6 items-center">
-								<p className="cursor-pointer text-link" onClick={() => setSelectedIcons([])}>
+								<p className="text-link" onClick={() => setSelectedIcons([])}>
 									{t("Content.Panel.deselectAll")}
 								</p>
 								<Button onClick={handleDownloadSelectedIcons} disabled={loading}>

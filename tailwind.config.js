@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const { createThemes } = require("tw-colors");
 module.exports = {
 	darkMode: "class",
 	content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
@@ -7,6 +6,20 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
+				neutral: {
+					DEFAULT: "#aaa",
+					50: "#eee",
+					100: "#ddd",
+					200: "#ccc",
+					300: "#bbb",
+					400: "#999",
+					500: "#777",
+					600: "#555",
+					700: "#444",
+					800: "#333",
+					900: "#222",
+					950: "#111",
+				},
 				red: {
 					DEFAULT: "#f44",
 					50: "#fce3e7",
@@ -632,41 +645,5 @@ module.exports = {
 	},
 	plugins: [
 		require("@tailwindcss/typography"),
-		createThemes({
-			light: {
-				elevate: "#fff",
-				neutral: {
-					DEFAULT: "#777",
-					50: "#111",
-					100: "#222",
-					200: "#333",
-					300: "#444",
-					400: "#555",
-					500: "#aaa",
-					600: "#bbb",
-					700: "#ccc",
-					800: "#ddd",
-					900: "#eee",
-					950: "#fafafa",
-				},
-			},
-			dark: {
-				elevate: "#222",
-				neutral: {
-					DEFAULT: "#aaa",
-					50: "#eee",
-					100: "#ddd",
-					200: "#ccc",
-					300: "#bbb",
-					400: "#999",
-					500: "#777",
-					600: "#555",
-					700: "#444",
-					800: "#333",
-					900: "#222",
-					950: "#111",
-				},
-			},
-		}),
 	],
 };

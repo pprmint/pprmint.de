@@ -36,7 +36,7 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 				{t("Content.News.heading")}
 			</h2>
 			<div className="grid grid-cols-2 border-x border-neutral-50/5 items-center pt-20 lg:pt-0">
-				<div className="order-2 lg:order-1 flex col-span-2 lg:col-span-1 flex-col justify-center lg:border-r border-neutral-50/5 h-full w-full lg:pt-40 backdrop-blur bg-neutral-950/25">
+				<div className="order-2 lg:order-1 flex col-span-2 lg:col-span-1 flex-col justify-center lg:border-r border-neutral-50/5 h-full w-full lg:pt-40 backdrop-blur-sm bg-neutral-950/25">
 					<div className="aspect-video md:aspect-auto md:grow">
 						<AnimatePresence mode="wait">
 							<m.div key={data.data[current].id} className="pt-2 lg:border-t border-neutral-50/5">
@@ -193,7 +193,7 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 						</div>
 					</div>
 				</div>
-				<div className="order-1 lg:order-2 col-span-2 lg:col-span-1 relative lg:h-full lg:pt-40 backdrop-blur bg-neutral-950/25 lg:backdrop-blur-none lg:bg-transparent">
+				<div className="order-1 lg:order-2 col-span-2 lg:col-span-1 relative lg:h-full lg:pt-40 backdrop-blur-sm bg-neutral-950/25 lg:backdrop-blur-none lg:bg-transparent">
 					<div className="bg-neutral-950/25 border-y border-neutral-50/5 aspect-video">
 						<AnimatePresence>
 							<m.div
