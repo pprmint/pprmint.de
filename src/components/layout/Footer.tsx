@@ -10,9 +10,17 @@ import FooterCube from "public/assets/footer/cube.svg";
 import FooterBrackets from "public/assets/footer/brackets.svg";
 import FooterLeaf from "public/assets/footer/leaf.svg";
 import Link from "next/link";
+import Moon from "src/icons/Moon";
+import Computer from "src/icons/Computer";
+import Sun from "src/icons/Sun";
+import { useTheme } from "next-themes";
+import NoSSR from "../NoSSR";
 
 export default function Footer() {
 	const t = useTranslations("COMMON");
+
+	const { theme, setTheme } = useTheme();
+
 	const [clicks, setClicks] = useState(0);
 	const [textVisible, setTextVisible] = useState(false);
 	const [counterVisible, setCounterVisible] = useState(false);
@@ -136,35 +144,56 @@ export default function Footer() {
 				</p>
 			</div>
 			<hr className="border-neutral-900" />
-			<div className="flex flex-col gap-1 items-center justify-center py-6">
-				<div className="flex gap-3 items-center">
+			<div className="flex justify-between p-6">
+				<div className="w-1/3 flex gap-2.5 items-center">
 					<Image src={FooterCursor} alt="" className="size-4 invert dark:invert-0" />
 					<Image src={FooterCube} alt="" className="size-4 invert dark:invert-0" />
 					<Image src={FooterBrackets} alt="" className="size-4 invert dark:invert-0" />
 					<Image src={FooterLeaf} alt="" className="size-4 " />
+				</div>
+				<div className="w-1/3 flex flex-col items-center">
 					<p className="text-neutral-50">
 						{"© "}
 						{new Date().getFullYear()} pprmint.
 					</p>
+					{process.env.NEXT_PUBLIC_SOURCE_COMMIT && (
+						<Link
+							href={`https://github.com/pprmint/pprmint.de/commit/${process.env.NEXT_PUBLIC_SOURCE_COMMIT}`}
+							className="flex items-center gap-1 text-xs"
+							target="_blank"
+						>
+							SHA
+							<div
+								style={{
+									backgroundColor: `#${process.env.NEXT_PUBLIC_SOURCE_COMMIT.slice(0, 6)}`,
+									width: 10,
+									height: 10,
+									borderRadius: 5,
+								}}
+							/>
+							{process.env.NEXT_PUBLIC_SOURCE_COMMIT.slice(0, 6)}
+						</Link>
+					)}
 				</div>
-				{process.env.NEXT_PUBLIC_SOURCE_COMMIT && (
-					<Link
-						href={`https://github.com/pprmint/pprmint.de/commit/${process.env.NEXT_PUBLIC_SOURCE_COMMIT}`}
-						className="flex items-center gap-1 text-xs"
-						target="_blank"
-					>
-						SHA
-						<div
-							style={{
-								backgroundColor: `#${process.env.NEXT_PUBLIC_SOURCE_COMMIT.slice(0, 6)}`,
-								width: 10,
-								height: 10,
-								borderRadius: 5,
-							}}
-						/>
-						{process.env.NEXT_PUBLIC_SOURCE_COMMIT.slice(0, 6)}
-					</Link>
-				)}
+				<div className="w-1/3 flex items-center justify-end">
+					<NoSSR>
+						<div className="relative flex w-max border border-neutral-950/5 dark:border-neutral-50/5">
+							{[
+								{ name: "dark", icon: <Moon /> },
+								{ name: "system", icon: <Computer /> },
+								{ name: "light", icon: <Sun /> },
+							].map((item) => (
+								<button
+									key={item.name}
+									onClick={() => setTheme(item.name)}
+									className={`p-1.5 ${theme === item.name ? "text-neutral-950 dark:text-neutral-50 bg-neutral-950/5 dark:bg-neutral-50/5" : "text-neutral-500 hover:bg-neutral-950/5 hover:dark:bg-neutral-50/5"}`}
+								>
+									{item.icon}
+								</button>
+							))}
+						</div>
+					</NoSSR>
+				</div>
 			</div>
 		</footer>
 	);

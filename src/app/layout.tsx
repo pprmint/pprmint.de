@@ -44,7 +44,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 	const messages = await getMessages();
 	return (
 		<html lang={locale} suppressHydrationWarning>
-			<body className="bg-neutral-950 selection:bg-neutral-50 selection:text-neutral-950 text-neutral-50/75 focus-visible:outline-hidden focus-visible:ring-2 overflow-x-hidden">
+			<body className="bg-neutral-50 dark:bg-neutral-950 selection:bg-neutral-950 dark:selection:bg-neutral-50 selection:text-neutral-50 dark:selection:text-neutral-950 text-neutral-950/75 dark:text-neutral-50/75 focus-visible:outline-hidden focus-visible:ring-2 overflow-x-hidden">
 				<ThemeProvider defaultTheme="dark" themes={["light", "dark", "system"]} attribute="class">
 					<noscript>
 						<div className="selection:bg-red text-white fixed flex z-100 bottom-6 left-1/2 -translate-x-1/2 min-h-9 w-[92vw] max-w-max bg-linear-to-b from-red-800/75 to-red-900/75 ring-inset ring-1 ring-red/10 border border-neutral-950 rounded-[18px] font-sans backdrop-blur-md shadow-xl shadow-neutral-950/50">
