@@ -34,7 +34,7 @@ export default function RefSheet() {
 				<Dialog.Content
 					className={`fixed inset-0 overflow-auto lg:overflow-clip z-100 flex flex-col ${
 						!col && "lg:flex-row"
-					} gap-12 items-center top-1/2 left-1/2 h-svh lg:h-max lg:max-h-[90vh] w-screen max-w-7xl -translate-x-1/2 -translate-y-1/2 p-6 md:p-9 bg-neutral-950 lg:border border-white/10 lg:outline outline outline-black/10 dark:outline-black/50 shadow-2xl lg:rounded-xl data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit focus:outline-hidden origin-center`}
+					} gap-12 items-center top-1/2 left-1/2 h-svh lg:h-max lg:max-h-[90vh] w-screen max-w-7xl -translate-x-1/2 -translate-y-1/2 p-6 md:p-9 bg-neutral-950 lg:border border-white/10 lg:outline outline-black/10 dark:outline-black/50 shadow-2xl lg:rounded-xl data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit focus:outline-hidden origin-center`}
 				>
 					{reference}
 					<div>
@@ -129,7 +129,7 @@ export default function RefSheet() {
 		return (
 			<Toast.Provider swipeDirection="right" duration={3000}>
 				<Toast.Root
-					className="flex gap-6 items-center p-3 rounded-xl shadow-lg text-neutral-50 backdrop-blur-xl bg-linear-to-t dark:bg-linear-to-b from-neutral-800/75 to-neutral-900/90 dark:outline outline outline-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
+					className="flex gap-6 items-center p-3 rounded-xl shadow-lg text-neutral-50 backdrop-blur-xl bg-linear-to-t dark:bg-linear-to-b from-neutral-800/75 to-neutral-900/90 dark:outline outline-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
 					open={props.open}
 					onOpenChange={props.onOpenChange}
 				>
@@ -178,7 +178,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="hand"
-							className="relative flex items-center justify-center border-t border-r border-neutral-50/5 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 outline- duration-200 active:duration-75 p-6"
+							className="relative flex items-center justify-center border-t border-r border-neutral-50/5 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 outline- duration-200 active:duration-75 p-6"
 						>
 							<FadingImage
 								src={ReferenceHand}
@@ -209,7 +209,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="front"
-							className="relative flex items-center justify-center border-t md:border-r lg:border-b border-neutral-50/5 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 duration-200 active:duration-75 row-span-2 p-3"
+							className="relative flex items-center justify-center border-t md:border-r lg:border-b border-neutral-50/5 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 duration-200 active:duration-75 row-span-2 p-3"
 						>
 							<FadingImage
 								src={ReferenceFront}
@@ -237,7 +237,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="back"
-							className="relative flex items-center justify-center border-t border-r md:border-r-0 lg:border-r lg:border-b border-neutral-50/5 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 duration-200 active:duration-75 row-span-2 p-3"
+							className="relative flex items-center justify-center border-t border-r md:border-r-0 lg:border-r lg:border-b border-neutral-50/5 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 duration-200 active:duration-75 row-span-2 p-3"
 						>
 							<FadingImage
 								src={ReferenceBack}
@@ -265,7 +265,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="hairbow"
-							className="relative flex md:col-span-2 xl:col-span-1 items-center justify-center border-t md:border-b lg:border-b-0 md:border-r lg:border-r-0 border-neutral-50/5 gap-6 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 duration-200 active:duration-75 p-6"
+							className="relative flex md:col-span-2 xl:col-span-1 items-center justify-center border-t md:border-b lg:border-b-0 md:border-r lg:border-r-0 border-neutral-50/5 gap-6 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 duration-200 active:duration-75 p-6"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -364,7 +364,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<div
 							id="shoe"
-							className="relative flex items-center justify-center border-y md:border-b-0 border-r lg:border-b border-neutral-50/5 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 duration-200 active:duration-75 p-6"
+							className="relative flex items-center justify-center border-y md:border-b-0 border-r lg:border-b border-neutral-50/5 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 duration-200 active:duration-75 p-6"
 						>
 							<FadingImage
 								src={ReferenceShoes}

@@ -92,7 +92,7 @@ const Tabs = [
 export default function BrowserWindow() {
 	const [tab, setTab] = useState(0);
 	return (
-		<div className="border border-black/10 dark:ring-black/50 outline outline outline-white/10 -outline-offset-2 rounded-xl overflow-clip my-9 text-sm shadow-2xl">
+		<div className="border border-black/10 dark:ring-black/50 outline outline-white/10 -outline-offset-2 rounded-xl overflow-clip my-9 text-sm shadow-2xl">
 			<div className="bg-neutral-900">
 				<div className="flex items-center gap-1">
 					<div className="group flex gap-2 p-3">

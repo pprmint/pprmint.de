@@ -142,7 +142,7 @@ export default function Form() {
 							onChange={(e) => {
 								setFormData({ ...formData, name: e.target.value });
 							}}
-							className="bg-neutral-950 focus:bg-neutral-950 border focus:border-transparent focus:outline outline-green border-neutral-900 hover:border-neutral-800 focus:hover:border-transparent hover:bg-neutral-900 focus:outline-2 text-neutral-50 placeholder:text-neutral rounded-md px-3 py-2 duration-100"
+							className="bg-neutral-950 focus:bg-neutral-950 border focus:border-transparent focus:outline-green border-neutral-900 hover:border-neutral-800 focus:hover:border-transparent hover:bg-neutral-900 focus:outline-2 text-neutral-50 placeholder:text-neutral rounded-md px-3 py-2 duration-100"
 						/>
 					</div>
 					<div className="flex flex-col gap-1 col-span-2 md:col-span-1">
@@ -156,7 +156,7 @@ export default function Form() {
 							onChange={(e) => {
 								setFormData({ ...formData, email: e.target.value });
 							}}
-							className="bg-neutral-950 focus:bg-neutral-950 border focus:border-transparent focus:outline outline-green border-neutral-900 hover:border-neutral-800 focus:hover:border-transparent hover:bg-neutral-900 focus:outline-2 text-neutral-50 placeholder:text-neutral rounded-md px-3 py-2 duration-100"
+							className="bg-neutral-950 focus:bg-neutral-950 border focus:border-transparent focus:outline-green border-neutral-900 hover:border-neutral-800 focus:hover:border-transparent hover:bg-neutral-900 focus:outline-2 text-neutral-50 placeholder:text-neutral rounded-md px-3 py-2 duration-100"
 						/>
 					</div>
 
@@ -171,7 +171,7 @@ export default function Form() {
 							onChange={(e) => {
 								setFormData({ ...formData, subject: e.target.value });
 							}}
-							className="bg-neutral-950 focus:bg-neutral-950 border focus:border-transparent focus:outline outline-green border-neutral-900 hover:border-neutral-800 focus:hover:border-transparent hover:bg-neutral-900 focus:outline-2 text-neutral-50 placeholder:text-neutral rounded-md px-3 py-2 duration-100"
+							className="bg-neutral-950 focus:bg-neutral-950 border focus:border-transparent focus:outline-green border-neutral-900 hover:border-neutral-800 focus:hover:border-transparent hover:bg-neutral-900 focus:outline-2 text-neutral-50 placeholder:text-neutral rounded-md px-3 py-2 duration-100"
 						/>
 					</div>
 					<div className="flex flex-col gap-1 col-span-2">
@@ -185,7 +185,7 @@ export default function Form() {
 							onChange={(e) => {
 								setFormData({ ...formData, message: e.target.value });
 							}}
-							className="bg-neutral-950 focus:bg-neutral-950 border focus:border-transparent focus:outline outline-green border-neutral-900 hover:border-neutral-800 focus:hover:border-transparent hover:bg-neutral-900 focus:outline-2 text-neutral-50 placeholder:text-neutral rounded-md px-3 py-2 duration-100 resize-none"
+							className="bg-neutral-950 focus:bg-neutral-950 border focus:border-transparent focus:outline-green border-neutral-900 hover:border-neutral-800 focus:hover:border-transparent hover:bg-neutral-900 focus:outline-2 text-neutral-50 placeholder:text-neutral rounded-md px-3 py-2 duration-100 resize-none"
 						/>
 					</div>
 					<Button

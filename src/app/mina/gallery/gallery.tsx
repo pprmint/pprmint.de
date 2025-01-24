@@ -41,7 +41,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 						<button
 							className="group/button overflow-clip bg-neutral-950
 									[.group:hover_&:not(:hover)]:opacity-60
-									outline outline -outline-offset-1 outline-neutral-50/5
+									outline -outline-offset-1 outline-neutral-50/5
     							hover:z-10 focus-visible:z-10 scale-100 hover:scale-[1.025] active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 aspect-square"
 						>
 							<div className="scale-[1.025] group-hover/button:scale-100 group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
