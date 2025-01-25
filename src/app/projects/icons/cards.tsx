@@ -84,7 +84,7 @@ export default function Cards() {
 		return (
 			<>
 				{beforeMatch}
-				<span className="text-neutral-50 font-medium">{match}</span>
+				<span className="text-white font-medium">{match}</span>
 				{afterMatch}
 			</>
 		);
@@ -208,7 +208,7 @@ export default function Cards() {
 			<div className="relative w-full mb-6">
 				<div
 					onClick={handleClear}
-					className={`absolute flex right-0 w-10 h-full items-center justify-center text-neutral-50 rounded-tr-lg ${
+					className={`absolute flex right-0 w-10 h-full items-center justify-center text-white rounded-tr-lg ${
 						filteredIcons.length === 0
 							? "hover:bg-red-800"
 							: search && "hover:bg-neutral-900"
@@ -224,7 +224,7 @@ export default function Cards() {
 					maxLength={30}
 					onChange={handleSearchChange}
 					ref={searchRef}
-					className={`w-full bg-neutral-950 focus:bg-neutral-950 border outline-hidden focus:outline-hidden border-neutral-900 hover:border-neutral-800 focus:hover:border-neutral-900 hover:bg-neutral-900 text-neutral-50 placeholder:text-neutral rounded-lg ${
+					className={`w-full bg-neutral-950 focus:bg-neutral-950 border outline-hidden focus:outline-hidden border-neutral-900 hover:border-neutral-800 focus:hover:border-neutral-900 hover:bg-neutral-900 text-white placeholder:text-neutral rounded-lg ${
 						search !== "" && "rounded-b-none"
 					} px-3 py-2 duration-100`}
 				/>
@@ -246,7 +246,7 @@ export default function Cards() {
 										<div className={large ? "*:size-[30px]" : ""}>{icon.icon}</div>
 										<div className="leading-none text-sm">
 											{highlightMatches(icon.names[0], search)}
-											<div className="leading-none flex gap-x-1 text-[0.6rem] text-neutral-500 flex-wrap">
+											<div className="leading-none flex gap-x-1 text-[0.6rem] text-white0 flex-wrap">
 												{icon.names.slice(1).map((name, index) => (
 													<Fragment key={index}>
 														{index > 0 && " • "}

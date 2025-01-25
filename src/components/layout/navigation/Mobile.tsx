@@ -63,7 +63,7 @@ export default function MobileNavigation() {
 	return (
 		<>
 			<button
-				className="relative my-3 mr-1 text-neutral-50 text-xl size-[39px] rounded-full hover:bg-neutral-50/10 duration-100"
+				className="relative my-3 mr-1 text-white text-xl size-[39px] rounded-full hover:bg-neutral-50/10 duration-100"
 				onClick={toggleOpen}
 			>
 				<svg
@@ -92,15 +92,15 @@ export default function MobileNavigation() {
 							{/* @ts-expect-error */}
 							<a.div className="px-3 w-full h-full pb-3 pt-16 overflow-auto z-80" style={styles}>
 								<div className="my-9">
-									<p className="pl-3  text-neutral-50 text-2xl">{t("Path.General.title")}</p>
+									<p className="pl-3  text-white text-2xl">{t("Path.General.title")}</p>
 									<ul>
 										{Pages.map((Page) => (
 											<Link className="group" key={Page.link} href={Page.link} onClick={handleClose}>
 												<li
 													className={`flex items-center ${
 														Page.link === pathname
-															? "text-neutral-50"
-															: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
+															? "text-white"
+															: "hover:text-white group-hover:bg-neutral-50/10 group-active:opacity-75"
 													} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 												>
 													{Page.link === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
@@ -111,14 +111,14 @@ export default function MobileNavigation() {
 									</ul>
 								</div>
 								<div className="my-9">
-									<p className="pl-3  text-neutral-50 text-2xl">{t("Path.Work.title")}</p>
+									<p className="pl-3  text-white text-2xl">{t("Path.Work.title")}</p>
 									<ul>
 										<Link className="group" href="/graphics" onClick={handleClose}>
 											<li
 												className={`flex items-center ${
 													"/graphics" === pathname
-														? "text-neutral-50"
-														: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
+														? "text-white"
+														: "hover:text-white group-hover:bg-neutral-50/10 group-active:opacity-75"
 												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 											>
 												{"/graphics" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
@@ -132,8 +132,8 @@ export default function MobileNavigation() {
 											<li
 												className={`flex items-center ${
 													"/photos" === pathname
-														? "text-neutral-50"
-														: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
+														? "text-white"
+														: "hover:text-white group-hover:bg-neutral-50/10 group-active:opacity-75"
 												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 											>
 												{"/photos" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
@@ -148,8 +148,8 @@ export default function MobileNavigation() {
 												<li
 													className={`flex items-center ${
 														Project.link === pathname
-															? "text-neutral-50"
-															: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
+															? "text-white"
+															: "hover:text-white group-hover:bg-neutral-50/10 group-active:opacity-75"
 													} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 												>
 													{Project.link === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
@@ -164,8 +164,8 @@ export default function MobileNavigation() {
 											<li
 												className={`flex items-center ${
 													"/projects" === pathname
-														? "text-neutral-50"
-														: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
+														? "text-white"
+														: "hover:text-white group-hover:bg-neutral-50/10 group-active:opacity-75"
 												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 											>
 												{"/projects" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
@@ -177,14 +177,14 @@ export default function MobileNavigation() {
 									</ul>
 								</div>
 								<div className="my-9">
-									<p className="pl-3  text-neutral-50 text-2xl">{t("Path.Other.title")}</p>
+									<p className="pl-3  text-white text-2xl">{t("Path.Other.title")}</p>
 									<ul>
 										<Link className="group" href="/privacy" onClick={handleClose}>
 											<li
 												className={`flex items-center ${
 													"/privacy" === pathname
-														? "text-neutral-50"
-														: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
+														? "text-white"
+														: "hover:text-white group-hover:bg-neutral-50/10 group-active:opacity-75"
 												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 											>
 												{"/privacy" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
@@ -195,8 +195,8 @@ export default function MobileNavigation() {
 											<li
 												className={`flex items-center ${
 													"/ai" === pathname
-														? "text-neutral-50"
-														: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
+														? "text-white"
+														: "hover:text-white group-hover:bg-neutral-50/10 group-active:opacity-75"
 												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 											>
 												{"/ai" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
@@ -207,8 +207,8 @@ export default function MobileNavigation() {
 											<li
 												className={`flex items-center ${
 													"/privacy" === pathname
-														? "text-neutral-50"
-														: "hover:text-neutral-50 group-hover:bg-neutral-50/10 group-active:opacity-75"
+														? "text-white"
+														: "hover:text-white group-hover:bg-neutral-50/10 group-active:opacity-75"
 												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 											>
 												<div className="flex flex-col">

@@ -44,7 +44,7 @@ export default function KofiWidget() {
 							style={style}
 							className="flex flex-col items-center justify-center size-full p-6 text-center"
 						>
-							<Kofi className="size-[60px] text-neutral-50" />
+							<Kofi className="size-[60px] text-white" />
 							<p>{t("KOFI.dataInfo")}</p>
 							<Link
 								className="text-sm mt-3 mb-6 text-link-external inline-flex gap-1 items-center"

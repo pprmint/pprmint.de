@@ -43,21 +43,21 @@ export default async function Page({
 				creditName="sunnexo"
 				creditLink="https://sunnexo.moe"
 			>
-				<div className="h-full bg-[#80d5c5] flex items-end justify-end">
+				<div className="h-full bg-conic-[at_0%_-15%] from-25% from-[#80d5c5] to-50% to-[#1a626a] flex items-end justify-end">
 					<FadingImage
-						src="https://cms.pprmint.de/uploads/sunnexo_1a_774524ebbf.png"
+						src="https://cms.pprmint.de/uploads/sunnexo_1x_94556d4017.png"
 						alt=""
-						width={1280}
-						height={1280}
+						width={128}
+						height={128}
 						unoptimized
-						className="h-2/3 md:h-3/4 lg:h-full w-auto md:mr-12 lg:mr-24 xl:mr-32"
+						className="pixelated h-2/3 md:h-3/4 lg:h-full w-auto md:mr-12 lg:mr-24 xl:mr-32"
 					/>
 				</div>
 			</Title>
 			<main>
 				<section id="lore" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-					<div className="w-full md:grid grid-cols-2 border-x border-white/5 light:border-black/5">
-						<div className="border-r border-neutral-50/5 pt-12 lg:pt-20 xl:pt-40 md:pr-12">
+					<div className="w-full md:grid grid-cols-2 border-x border-black/5 dark:border-white/5">
+						<div className="border-r border-black/5 dark:border-white/5 pt-12 lg:pt-20 xl:pt-40 md:pr-12">
 							<h2>
 								{t("Content.About.heading")}
 								<span className="text-green">.</span>
@@ -83,7 +83,7 @@ export default async function Page({
 				</section>
 				<section id="design" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<Ref />
-					<div className="w-full border-x border-neutral-50/5 flex flex-col lg:flex-row lg:justify-between gap-6 pt-6 px-3 md:px-6 xl:px-0">
+					<div className="w-full border-x border-black/5 dark:border-white/5 flex flex-col lg:flex-row lg:justify-between gap-6 pt-6 px-3 md:px-6 xl:px-0">
 						<p>
 							{t.rich("Content.Reference.credit", {
 								Link: (chunks) => (
@@ -108,22 +108,33 @@ export default async function Page({
 						</div>
 					</div>
 				</section>
-				<section
-					id="gallery"
-					className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto"
-				>
+				<section id="gallery" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<Suspense fallback={<GallerySkeleton />}>
 						<GallerySuspense p={parseInt(p)} artist={artist} nsfw={nsfw} />
 					</Suspense>
 				</section>
-				<FanartRules />
-				<section className="relative flex items-end justify-center my-20 md:my-32 xl:my-40 xl:pt-10 max-w-(--breakpoint-3xl) mx-auto px-6 md:px-9 min-h-[500px] overflow-x-clip">
-					<div className="absolute inset-0 -z-10">
+				<section id="gallery" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+					<div className="w-full border-x border-black/5 dark:border-white/5 py-12 lg:py-20 xl:py-40">
+						<h2>
+							{t("Content.Fanart.heading")}
+							<span className="text-green">.</span>
+						</h2>
+						<p>{t("Content.Fanart.text1")}</p>
+						<p>{t("Content.Fanart.text2")}</p>
+						<p>{t("Content.Fanart.text3")}</p>
+						<div className="px-1 py-0.5 max-w-max bg-neutral dark:bg-neutral-900 hover:bg-red-50 dark:hover:bg-red-950 text-transparent hover:text-red-800 dark:hover:text-red-200 rounded-md duration-100 select-none hover:select-text">
+							{t("Content.Fanart.text4")}
+						</div>
+						<p className="text-xs text-neutral-700 pt-1">{t("Content.Fanart.text5")}</p>
+					</div>
+				</section>
+				<section className="relative flex items-end justify-center max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20 min-h-[400px] overflow-clip">
+					<div className="absolute inset-0 mt-10">
 						<FadingImage
 							hideSpinner
 							src={Stickers}
 							alt="Discord sticker menu, showing a few Mina stickers."
-							className="absolute w-5/6 sm:w-2/3 md:w-7/12 lg:w-1/2 max-w-2xl h-auto bottom-1/4 md:bottom-px left-1/2 -translate-x-1/2"
+							className="absolute w-5/6 sm:w-2/3 md:w-7/12 lg:w-1/2 max-w-2xl h-auto top-0 left-1/2 -translate-x-1/2"
 						/>
 						<FadingImage
 							hideSpinner
@@ -162,9 +173,9 @@ export default async function Page({
 							}}
 							className="absolute inset-0 bottom-0 h-full backdrop-blur-md pointer-events-none"
 						/>
-						<div className="absolute inset-0 bg-linear-to-t from-neutral-950" />
+						<div className="absolute inset-0 bg-linear-to-t from-white dark:from-neutral-950" />
 					</div>
-					<div className="flex items-center flex-col pt-96 pb-12 text-center text-balance dark:drop-shadow-[0px_2px_8px_#111]">
+					<div className="relative z-10 border-x border-black/5 dark:border-white/5 w-full max-w-8xl mx-auto flex items-center flex-col pt-96 pb-12 text-center text-balance dark:drop-shadow-[0px_2px_8px_#111]">
 						<h2>
 							{t("Content.Discord.heading")}
 							<span className="text-green">.</span>

@@ -29,7 +29,7 @@ export default async function Page() {
 				<Announcements data={announcements} />
 				{MinaArt.data && (
 					<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-						<div className="w-full border-x border-neutral-50/5 pt-9 lg:pt-16 xl:pt-48">
+						<div className="w-full border-x border-black/5 dark:border-white/5 pt-9 lg:pt-16 xl:pt-48">
 							<div className="relative">
 								<motion.div
 									initial={{ clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" }}
@@ -38,7 +38,7 @@ export default async function Page() {
 										transition: { delay: 0.2, type: "spring", bounce: 0, duration: 0.75 },
 									}}
 									viewport={{ once: true }}
-									className="absolute -z-10 italic pb-[0.1em] text-5xl md:text-8xl lg:text-9xl xl:text-[9rem] tracking-tight font-condensed bg-neutral-50/5 text-neutral-50 overflow-clip"
+									className="absolute -z-10 italic pb-[0.1em] text-5xl md:text-8xl lg:text-9xl xl:text-[9rem] tracking-tight font-stretch-condensed bg-black/5 dark:bg-white/5 text-neutral-950 dark:text-white overflow-clip"
 								>
 									<motion.div
 										initial={{ padding: "0 0" }}
@@ -67,7 +67,7 @@ export default async function Page() {
 									}}
 									viewport={{ once: true }}
 									aria-hidden
-									className="absolute bottom-0 right-0 text-right italic text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-serif font-ultra-condensed bg-neutral-950/50 backdrop-blur-md text-neutral-50"
+									className="absolute bottom-0 right-0 text-right italic text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-serif font-stretch-ultra-condensed bg-neutral-50/50 dark:bg-neutral-950/50 backdrop-blur-md text-neutral-950 dark:text-white"
 								>
 									<motion.div
 										initial={{ padding: "0 0" }}
@@ -76,7 +76,7 @@ export default async function Page() {
 											transition: { delay: 0.2, type: "spring", bounce: 0, duration: 0.75 },
 										}}
 										viewport={{ once: true }}
-										className="bg-neutral-50/5 leading-tight"
+										className="bg-black/5 dark:bg-white/5 leading-tight"
 									>
 										{t("Content.Mina.heading2")}
 									</motion.div>
@@ -110,7 +110,7 @@ export default async function Page() {
 											})}
 										</span>
 									</p>
-									<div className="w-full border-y border-neutral-50/5 h-12">
+									<div className="w-full border-y border-black/5 dark:border-white/5 h-12">
 										<Link
 											href="/mina"
 											className="flex gap-3 items-center text-lg hover:text-neutral-950 hover:font-bold group h-full w-max hover:px-4 mx-auto hover:bg-neutral-50 active:bg-neutral-100 hover:shadow-md active:shadow-inner duration-200 ease-out-expo active:duration-75"

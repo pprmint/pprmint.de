@@ -56,7 +56,7 @@ export default function Gallery(photos: { photos: Photos }) {
 					<Dialog.Portal>
 						<Dialog.Overlay className="bg-neutral-950 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
 						<Dialog.Content
-							className={`text-neutral-50 fixed inset-0 z-100 max-h-svh w-screen data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center duration-200 focus-visible:outline-hidden`}
+							className={`text-white fixed inset-0 z-100 max-h-svh w-screen data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center duration-200 focus-visible:outline-hidden`}
 						>
 							<TransformWrapper disablePadding>
 								<TransformComponent>
@@ -106,9 +106,9 @@ export default function Gallery(photos: { photos: Photos }) {
 										) : (
 											<p className="font-medium text-lg">{photo.camera.name}</p>
 										)}
-										{photo.lens && <p className="hidden sm:block text-sm text-neutral-50/70">{photo.lens.name}</p>}
+										{photo.lens && <p className="hidden sm:block text-sm text-white/70">{photo.lens.name}</p>}
 									</div>
-									<div className="flex gap-3 md:gap-6 select-none mx-auto text-neutral-50/70">
+									<div className="flex gap-3 md:gap-6 select-none mx-auto text-white/70">
 										{photo.iso && (
 											<Tooltip text={t("Content.Camera.iso")} side="top">
 												<div className="flex gap-1 items-center">

@@ -30,17 +30,17 @@ function Pagination({ page, pageCount, onPageChange }: { page: number; pageCount
 	return (
 		<div className="flex gap-1 justify-center items-center w-full">
 			<button
-				className={`group inline-flex items-center justify-center size-8 sm:size-10 sm:text-lg rounded-full text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800 disabled:text-neutral-800 disabled:bg-transparent duration-100`}
-				disabled={page == 1}
+				className={`group inline-flex items-center justify-center size-8 sm:size-10 sm:text-lg rounded-full hover:text-neutral-950 hover:dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-900 active:bg-neutral-100 dark:active:bg-neutral-800 disabled:text-neutral-800 disabled:bg-transparent duration-100`}
+				disabled={page === 1}
 				onClick={() => handlePagination(page - 1)}
 			>
-				<ChevronLeft className={`${page != 1 && "group-active:-translate-x-0.5"} duration-50`} />
+				<ChevronLeft className={`${page !== 1 && "group-active:-translate-x-0.5"} duration-50`} />
 			</button>
 			<button
-				className={`size-8 sm:size-10 sm:text-lg rounded-full ${
-					1 == page
-						? "text-neutral-950 bg-neutral-50 pointer-events-none font-bold"
-						: "text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800"
+				className={`size-8 sm:size-10 sm:text-lg rounded-full font-stretch-expanded ${
+					1 === page
+						? "text-white dark:text-neutral-950 bg-neutral-950 dark:bg-neutral-50 pointer-events-none font-bold"
+						: "hover:text-neutral-950 hover:dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-900 active:bg-neutral-100 dark:active:bg-neutral-800"
 				}`}
 				onClick={() => handlePagination(1)}
 			>
@@ -51,10 +51,10 @@ function Pagination({ page, pageCount, onPageChange }: { page: number; pageCount
 				return (
 					<button
 						key={index}
-						className={`size-8 sm:size-10 sm:text-lg rounded-full font-expanded ${
-							index + 1 == page
-								? "text-neutral-950 bg-neutral-50 pointer-events-none font-bold"
-								: "text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800"
+						className={`size-8 sm:size-10 sm:text-lg rounded-full font-stretch-expanded ${
+							index + 1 === page
+								? "text-white dark:text-neutral-950 bg-neutral-950 dark:bg-neutral-50 pointer-events-none font-bold"
+								: "hover:text-neutral-950 hover:dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-900 active:bg-neutral-100 dark:active:bg-neutral-800"
 						}`}
 						onClick={() => handlePagination(index + 1)}
 					>
@@ -64,10 +64,10 @@ function Pagination({ page, pageCount, onPageChange }: { page: number; pageCount
 			})}
 			{pageCount > 1 && (
 				<button
-					className={`size-8 sm:size-10 sm:text-lg rounded-full font-expanded ${
-						pageCount == page
-							? "text-neutral-950 bg-neutral-50 pointer-events-none font-bold"
-							: "text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800"
+					className={`size-8 sm:size-10 sm:text-lg rounded-full font-stretch-expanded ${
+						pageCount === page
+							? "text-white dark:text-neutral-950 bg-neutral-950 dark:bg-neutral-50 pointer-events-none font-bold"
+							: "hover:text-neutral-950 hover:dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-900 active:bg-neutral-100 dark:active:bg-neutral-800"
 					}`}
 					onClick={() => handlePagination(pageCount)}
 				>
@@ -75,11 +75,11 @@ function Pagination({ page, pageCount, onPageChange }: { page: number; pageCount
 				</button>
 			)}
 			<button
-				className={`group inline-flex items-center justify-center size-8 sm:size-10 sm:text-lg rounded-full text-neutral-50 hover:bg-neutral-900 active:bg-neutral-800 disabled:text-neutral-800 disabled:bg-transparent duration-100`}
-				disabled={page == pageCount}
+				className={`group inline-flex items-center justify-center size-8 sm:size-10 sm:text-lg rounded-full hover:text-neutral-950 hover:dark:text-white hover:bg-neutral-50 dark:hover:bg-neutral-900 active:bg-neutral-100 dark:active:bg-neutral-800 disabled:text-neutral-800 disabled:bg-transparent duration-100`}
+				disabled={page === pageCount}
 				onClick={() => handlePagination(page + 1)}
 			>
-				<ChevronRight className={`${page != pageCount && "group-active:translate-x-0.5"} duration-50`} />
+				<ChevronRight className={`${page !== pageCount && "group-active:translate-x-0.5"} duration-50`} />
 			</button>
 		</div>
 	);

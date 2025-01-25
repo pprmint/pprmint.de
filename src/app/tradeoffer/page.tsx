@@ -38,7 +38,7 @@ export default async function Page() {
 					</div>
 					<div className="relative z-10">
 						<div className="w-fit mb-10 px-3 xl:px-6 py-3 xl:py-5 mx-auto bg-red-600 rounded-md md:rounded-lg">
-							<h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl pb-1 font-sans font-expanded font-bold">
+							<h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl pb-1 font-sans font-stretch-expanded font-bold">
 								{t("Content.Intro.tradeOffer")}
 							</h1>
 						</div>
@@ -53,7 +53,7 @@ export default async function Page() {
 								>
 									{t("Content.Intro.iReceive")}
 								</h2>
-								<ul className="text-neutral-50 sm:text-xl xl:text-2xl">
+								<ul className="text-white sm:text-xl xl:text-2xl">
 									<li>{t("Content.Intro.iReceiveSub")}</li>
 								</ul>
 							</div>
@@ -67,7 +67,7 @@ export default async function Page() {
 								>
 									{t("Content.Intro.youReceive")}
 								</h2>
-								<ul className="text-neutral-50 sm:text-xl xl:text-2xl">
+								<ul className="text-white sm:text-xl xl:text-2xl">
 									<li>{t("Content.Intro.youReceiveSub1")}</li>
 									<li>{t("Content.Intro.youReceiveSub2")}</li>
 								</ul>
@@ -116,7 +116,7 @@ export default async function Page() {
 						<hr className="border-neutral-900 my-6" />
 						<p>
 							{t.rich("Content.How.text7", {
-								b: (chunks) => <span className="text-neutral-50 font-medium">{chunks}</span>,
+								b: (chunks) => <span className="text-white font-medium">{chunks}</span>,
 							})}
 						</p>
 					</div>

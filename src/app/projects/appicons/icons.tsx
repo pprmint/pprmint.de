@@ -471,7 +471,7 @@ export default function Selector() {
 			<div className="relative">
 				<div
 					onClick={() => setSearch("")}
-					className={`absolute flex right-0 w-10 h-full items-center justify-center text-neutral-50 rounded-r-md ${
+					className={`absolute flex right-0 w-10 h-full items-center justify-center text-white rounded-r-md ${
 						filteredIcons.length === 0
 							? "hover:bg-red-800"
 							: search && "hover:bg-neutral-900"
@@ -487,7 +487,7 @@ export default function Selector() {
 					className={`w-full rounded-md outline focus:outline ${
 						filteredIcons.length === 0
 							? "outline-2 text-red outline-red-800 focus:outline-red bg-neutral-950"
-							: "outline text-neutral-50 placeholder:text-neutral outline-neutral-900 focus:outline-green bg-transparent hover:bg-neutral-900"
+							: "outline text-white placeholder:text-neutral outline-neutral-900 focus:outline-green bg-transparent hover:bg-neutral-900"
 					} focus:bg-transparent px-3 py-2 duration-100`}
 				/>
 			</div>
@@ -551,7 +551,7 @@ export default function Selector() {
 								// @ts-expect-error
 								<a.div
 									style={styles}
-									className="h-9 text-neutral-50 font-bold font-mono text-3xl text-center"
+									className="h-9 text-white font-bold font-mono text-3xl text-center"
 								>
 									<p className="absolute text-center">{count}</p>
 								</a.div>
@@ -593,7 +593,7 @@ export default function Selector() {
 							<div className="flex gap-3 items-center">
 								<button
 									onClick={() => setSelectedIcons([])}
-									className="inline-flex items-center justify-center text-neutral-50 w-9 h-9 rounded-full text-lg bg-neutral-50/10 hover:bg-neutral-50/20 duration-100"
+									className="inline-flex items-center justify-center text-white w-9 h-9 rounded-full text-lg bg-neutral-50/10 hover:bg-neutral-50/20 duration-100"
 								>
 									<X />
 								</button>

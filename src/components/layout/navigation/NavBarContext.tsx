@@ -2,16 +2,16 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
 interface NavbarContextType {
-	showNavbarGradient: boolean;
-	setShowNavbarGradient: (value: boolean) => void;
+	inverted: boolean;
+	setInverted: (value: boolean) => void;
 }
 
 const NavbarContext = createContext<NavbarContextType | undefined>(undefined);
 
 export const NavbarProvider = ({ children }: { children: ReactNode }) => {
-	const [showNavbarGradient, setShowNavbarGradient] = useState(false);
+	const [inverted, setInverted] = useState(false);
 
-	return <NavbarContext.Provider value={{ showNavbarGradient, setShowNavbarGradient }}>{children}</NavbarContext.Provider>;
+	return <NavbarContext.Provider value={{ inverted, setInverted }}>{children}</NavbarContext.Provider>;
 };
 
 export const useNavbar = () => {

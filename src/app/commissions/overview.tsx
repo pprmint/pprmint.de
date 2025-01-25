@@ -73,7 +73,7 @@ export default function Overview(data: { data: Commission }) {
 							<div className="grow pt-6">
 								<h3>{t(`Content.Offers.${service.id}.heading`)}</h3>
 								<p className="text-md">{t(`Content.Offers.${service.id}.description`)}</p>
-								<p className="font-digits text-neutral-50 text-2xl">{service.price}</p>
+								<p className="font-digits text-white text-2xl">{service.price}</p>
 							</div>
 							<FadingImage src={service.image} alt="" className="size-32" />
 						</div>

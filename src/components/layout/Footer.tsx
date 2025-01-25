@@ -1,6 +1,6 @@
 "use client";
 import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { AnimatePresence, m } from "motion/react";
 import Image from "next/image";
@@ -12,6 +12,7 @@ import FooterLeaf from "public/assets/footer/leaf.svg";
 import Link from "next/link";
 import Moon from "src/icons/Moon";
 import Computer from "src/icons/Computer";
+import SmartphoneHomeButton from "src/icons/SmartphoneHomeButton";
 import Sun from "src/icons/Sun";
 import { useTheme } from "next-themes";
 import NoSSR from "../NoSSR";
@@ -100,7 +101,7 @@ export default function Footer() {
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 160 160"
-						className="group fill-neutral-900 hover:fill-neutral-800 h-full w-auto mx-auto -rotate-6 hover:rotate-0 translate-y-12 hover:translate-y-9 active:translate-y-10 duration-300 active:duration-75 ease-in-out-custom cursor-grab active:cursor-grabbing"
+						className="group fill-neutral-100 dark:fill-neutral-900 hover:fill-neutral-200 dark:hover:fill-neutral-800 h-full w-auto mx-auto -rotate-6 hover:rotate-0 translate-y-12 hover:translate-y-9 active:translate-y-10 duration-300 active:duration-75 ease-in-out-custom cursor-grab active:cursor-grabbing"
 						onMouseDown={handlePat}
 					>
 						<path
@@ -118,7 +119,7 @@ export default function Footer() {
 						<g className="group-hover:rotate-45 group-active:rotate-[30deg] duration-300 group-active:duration-75 ease-in-out-custom origin-[51.6%_24.4%]">
 							<path
 								d="M378 54c17.022 0 15.506-6.048-2-4s-22.829 13.544-24 26 10.132 60.361 22 68.846c0 0-14-36.846-14-53.846s4.479-37 18-37"
-								className="fill-neutral-950"
+								className="fill-white dark:fill-neutral-950"
 								transform="matrix(.51246 0 0 .51246 -126.696 .933)"
 							/>
 							<path
@@ -143,7 +144,7 @@ export default function Footer() {
 					{clicks}
 				</p>
 			</div>
-			<hr className="border-neutral-900" />
+			<hr className="border-black/5 dark:border-white/5" />
 			<div className="flex justify-between p-6">
 				<div className="w-1/3 flex gap-2.5 items-center">
 					<Image src={FooterCursor} alt="" className="size-4 invert dark:invert-0" />
@@ -152,7 +153,7 @@ export default function Footer() {
 					<Image src={FooterLeaf} alt="" className="size-4 " />
 				</div>
 				<div className="w-1/3 flex flex-col items-center">
-					<p className="text-neutral-50">
+					<p className="text-neutral-950 dark:text-white">
 						{"© "}
 						{new Date().getFullYear()} pprmint.
 					</p>
@@ -177,16 +178,16 @@ export default function Footer() {
 				</div>
 				<div className="w-1/3 flex items-center justify-end">
 					<NoSSR>
-						<div className="relative flex w-max border border-neutral-950/5 dark:border-neutral-50/5">
+						<div className="relative flex w-max border border-black/5 dark:border-white/5">
 							{[
 								{ name: "dark", icon: <Moon /> },
-								{ name: "system", icon: <Computer /> },
+								{ name: "system", icon: <Fragment><Computer className="hidden lg:block" /><SmartphoneHomeButton className="lg:hidden" /></Fragment> },
 								{ name: "light", icon: <Sun /> },
 							].map((item) => (
 								<button
 									key={item.name}
 									onClick={() => setTheme(item.name)}
-									className={`p-1.5 ${theme === item.name ? "text-neutral-950 dark:text-neutral-50 bg-neutral-950/5 dark:bg-neutral-50/5" : "text-neutral-500 hover:bg-neutral-950/5 hover:dark:bg-neutral-50/5"}`}
+									className={`p-1.5 ${theme === item.name ? "text-neutral-950 dark:text-white bg-neutral-950/5 dark:bg-neutral-50/5" : "text-white0 hover:bg-neutral-950/5 hover:dark:bg-neutral-50/5"}`}
 								>
 									{item.icon}
 								</button>

@@ -84,7 +84,7 @@ export default function Settings() {
 										<circle cx="8" cy="82" r="1.5" fill="#111" />
 									</svg>
 								</div>
-								<span aria-hidden className={`${theme === "dark" ? "text-neutral-50" : "group-hover:text-neutral-50"} duration-100`}>
+								<span aria-hidden className={`${theme === "dark" ? "text-white" : "group-hover:text-white"} duration-100`}>
 									{t("Theme.dark")}
 								</span>
 							</button>
@@ -117,7 +117,7 @@ export default function Settings() {
 										<circle cx="8" cy="82" r="1.5" fill="#111" />
 									</svg>
 								</div>
-								<span aria-hidden className={`${theme === "light" ? "text-neutral-50" : "group-hover:text-neutral-50"} duration-100`}>
+								<span aria-hidden className={`${theme === "light" ? "text-white" : "group-hover:text-white"} duration-100`}>
 									<Tooltip text={t("Theme.lightInfo")}>
 										<div className="flex items-center justify-center gap-1">
 											{t("Theme.light")}
@@ -130,7 +130,7 @@ export default function Settings() {
 					</fieldset>
 					<Dialog.Close asChild>
 						<button
-							className="absolute top-3 right-3 inline-flex p-2 items-center justify-center hover:bg-neutral-900 hover:text-neutral-50 duration-100 active:opacity-75 active:duration-75 rounded-full"
+							className="absolute top-3 right-3 inline-flex p-2 items-center justify-center hover:bg-neutral-900 hover:text-white duration-100 active:opacity-75 active:duration-75 rounded-full"
 							aria-label="Close"
 						>
 							<Error />

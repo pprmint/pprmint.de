@@ -187,7 +187,7 @@ export default function Palette() {
 								className={`group flex items-center justify-center h-16 -mono ${
 									shadeIndex == 5 ? "col-span-2 lg:col-span-1" : "col-span-1"
 								} ${
-									shadeIndex > 5 ? "text-neutral-50" : "text-neutral-950"
+									shadeIndex > 5 ? "text-white" : "text-neutral-950"
 								} hover:scale-110 hover:shadow-xl hover:rounded-md duration-100 ease-in-out-custom active:scale-105 active:duration-75`}
 								onClick={() => {
 									navigator.clipboard.writeText((shade as string).substring(1));
@@ -200,7 +200,7 @@ export default function Palette() {
 								}}
 							>
 								<span
-									className={shadeIndex == 5 ? "text-4xl font-light font-expanded" : "opacity-0 group-hover:opacity-100 duration-150 font-expanded"}
+									className={shadeIndex == 5 ? "text-4xl font-light font-stretch-expanded" : "opacity-0 group-hover:opacity-100 duration-150 font-stretch-expanded"}
 								>
 									{shade as string}
 								</span>

@@ -53,7 +53,7 @@ export default function Filters(props: { type: string; dimension: string }) {
 			>
 				<Collapsible.Trigger asChild>
 					<button
-						className="h-9 w-full sm:w-max px-4 text-neutral-50 hover:bg-neutral-900 data-[state=open]:bg-neutral-900 data-[state=open]:hover:bg-neutral-800 active:shadow-inner active:opacity-75 disabled:text-neutral-800 disabled:bg-transparent duration-100 focus-visible:bg-neutral-900"
+						className="h-9 w-full sm:w-max px-4 text-white hover:bg-neutral-900 data-[state=open]:bg-neutral-900 data-[state=open]:hover:bg-neutral-800 active:shadow-inner active:opacity-75 disabled:text-neutral-800 disabled:bg-transparent duration-100 focus-visible:bg-neutral-900"
 						onClick={() => setFiltersOpen(!filtersOpen)}
 					>
 						<span className="flex gap-3 items-center justify-center">
@@ -69,8 +69,8 @@ export default function Filters(props: { type: string; dimension: string }) {
 								onClick={() => handleSelectDimension("2d")}
 								className={`flex gap-3 items-center justify-center w-full h-9 ${
 									props.dimension == "2d"
-										? "font-semibold text-neutral-50 bg-neutral-900 hover:bg-neutral-800"
-										: "hover:bg-neutral-900 hover:text-neutral-50"
+										? "font-semibold text-white bg-neutral-900 hover:bg-neutral-800"
+										: "hover:bg-neutral-900 hover:text-white"
 								} active:shadow-inner active:opacity-75 duration-100`}
 							>
 								<Stop
@@ -84,8 +84,8 @@ export default function Filters(props: { type: string; dimension: string }) {
 								onClick={() => handleSelectDimension("3d")}
 								className={`flex gap-3 items-center justify-center w-full h-9 ${
 									props.dimension == "3d"
-										? "font-semibold text-neutral-50 bg-neutral-900 hover:bg-neutral-800"
-										: "hover:bg-neutral-900 hover:text-neutral-50"
+										? "font-semibold text-white bg-neutral-900 hover:bg-neutral-800"
+										: "hover:bg-neutral-900 hover:text-white"
 								} active:shadow-inner active:opacity-75 duration-100`}
 							>
 								<Cube
@@ -101,8 +101,8 @@ export default function Filters(props: { type: string; dimension: string }) {
 								onClick={() => handleSelectType("static")}
 								className={`flex gap-3 items-center justify-center w-full h-9 ${
 									props.type == "static"
-										? "font-semibold text-neutral-50 bg-neutral-900 hover:bg-neutral-800"
-										: "hover:bg-neutral-900 hover:text-neutral-50"
+										? "font-semibold text-white bg-neutral-900 hover:bg-neutral-800"
+										: "hover:bg-neutral-900 hover:text-white"
 								} active:shadow-inner active:opacity-75 duration-100`}
 							>
 								<Photo
@@ -116,8 +116,8 @@ export default function Filters(props: { type: string; dimension: string }) {
 								onClick={() => handleSelectType("animated")}
 								className={`flex gap-3 items-center justify-center w-full h-9 ${
 									props.type == "animated"
-										? "font-semibold text-neutral-50 bg-neutral-900 hover:bg-neutral-800"
-										: "hover:bg-neutral-900 hover:text-neutral-50"
+										? "font-semibold text-white bg-neutral-900 hover:bg-neutral-800"
+										: "hover:bg-neutral-900 hover:text-white"
 								} active:shadow-inner active:opacity-75 duration-100`}
 							>
 								<Video

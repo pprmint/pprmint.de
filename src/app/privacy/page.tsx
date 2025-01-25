@@ -24,17 +24,17 @@ export default async function Page() {
 						<h2>{t("Content.Tldr.heading")}</h2>
 						<p>
 							{t.rich("Content.Tldr.text1", {
-								b: (chunks) => <b className="text-neutral-50">{chunks}</b>,
+								b: (chunks) => <b className="text-white">{chunks}</b>,
 							})}
 						</p>
 						<p>
 							{t.rich("Content.Tldr.text2", {
-								b: (chunks) => <b className="text-neutral-50">{chunks}</b>,
+								b: (chunks) => <b className="text-white">{chunks}</b>,
 							})}
 						</p>
 						<p>
 							{t.rich("Content.Tldr.text3", {
-								b: (chunks) => <b className="text-neutral-50">{chunks}</b>,
+								b: (chunks) => <b className="text-white">{chunks}</b>,
 							})}
 						</p>
 					</div>

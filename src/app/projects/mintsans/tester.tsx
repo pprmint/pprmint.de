@@ -18,7 +18,7 @@ export default function Tester() {
 		return (
 			<Select.Item
 				value={props.value}
-				className="group relative flex items-center gap-3 pr-2 pl-2 data-highlighted:pl-3 h-8 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-neutral-50 data-[state=checked]:text-neutral-50 data-highlighted:bg-neutral-50/10 active:opacity-75 duration-100 focus-visible:outline-hidden"
+				className="group relative flex items-center gap-3 pr-2 pl-2 data-highlighted:pl-3 h-8 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-white data-[state=checked]:text-white data-highlighted:bg-neutral-50/10 active:opacity-75 duration-100 focus-visible:outline-hidden"
 			>
 				<Select.ItemText className="grow">{props.children}</Select.ItemText>
 				<Select.ItemIndicator className="ml-auto">
@@ -46,7 +46,7 @@ export default function Tester() {
 					<div className="flex flex-col">
 						<Select.Root value={weight} onValueChange={setWeight}>
 							<Select.Trigger
-								className="group flex items-center justify-between px-3 h-9 w-40 rounded-md border border-neutral-900 hover:bg-neutral-900 hover:text-neutral-50 active:shadow-inner duration-100"
+								className="group flex items-center justify-between px-3 h-9 w-40 rounded-md border border-neutral-900 hover:bg-neutral-900 hover:text-white active:shadow-inner duration-100"
 								aria-label="Font weight"
 							>
 								<Select.Value aria-label={weight} />
@@ -56,7 +56,7 @@ export default function Tester() {
 							</Select.Trigger>
 							<Select.Portal>
 								<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl bg-linear-to-b from-neutral-900/90 to-neutral-900/80 border border-white/10 ring-1 ring-black/10 dark:ring-black/50 shadow-lg rounded-lg data-[state=open]:animate-select-open">
-									<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-linear-to-b from-neutral-900/50 text-neutral-50 rounded-t-md">
+									<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-linear-to-b from-neutral-900/50 text-white rounded-t-md">
 										<ChevronUp />
 									</Select.ScrollUpButton>
 									<Select.Viewport className="p-1">
@@ -66,7 +66,7 @@ export default function Tester() {
 											<SelectItem value="700">{t("Content.Tester.Weight.bold")}</SelectItem>
 										</Select.Group>
 									</Select.Viewport>
-									<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-linear-to-t from-neutral-900/50 text-neutral-50 rounded-b-md">
+									<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-linear-to-t from-neutral-900/50 text-white rounded-b-md">
 										<ChevronDown />
 									</Select.ScrollDownButton>
 								</Select.Content>
@@ -86,21 +86,21 @@ export default function Tester() {
 							className="h-9 rounded-md w-max"
 						>
 							<Toolbar.ToggleItem
-								className="size-9 border-y border-l rounded-l-md hover:text-neutral-50 hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
+								className="size-9 border-y border-l rounded-l-md hover:text-white hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
 								value="text-left"
 								aria-label="Left aligned"
 							>
 								<TextAlignLeft className="mx-auto" />
 							</Toolbar.ToggleItem>
 							<Toolbar.ToggleItem
-								className="size-9 border hover:text-neutral-50 hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
+								className="size-9 border hover:text-white hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
 								value="text-center"
 								aria-label="Center aligned"
 							>
 								<TextAlignCenter className="mx-auto" />
 							</Toolbar.ToggleItem>
 							<Toolbar.ToggleItem
-								className="size-9 border-y border-r rounded-r-md hover:text-neutral-50 hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
+								className="size-9 border-y border-r rounded-r-md hover:text-white hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
 								value="text-right"
 								aria-label="Right aligned"
 							>
@@ -157,7 +157,7 @@ export default function Tester() {
 				</div>
 			</Toolbar.Root>
 			<textarea
-				className={`flex w-full p-3 md:p-6 font-mintsans text-neutral placeholder:text-neutral focus:text-neutral-50 bg-transparent focus:outline-hidden rounded-md min-h-[200px] h-1/2-screen ${textAlignment}`}
+				className={`flex w-full p-3 md:p-6 font-mintsans text-neutral placeholder:text-neutral focus:text-white bg-transparent focus:outline-hidden rounded-md min-h-[200px] h-1/2-screen ${textAlignment}`}
 				placeholder={t("Content.Tester.pangram")}
 				style={{
 					fontWeight: weight,

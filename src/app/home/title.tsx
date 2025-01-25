@@ -58,10 +58,10 @@ export default function HomeTitle() {
 	const [hovered, setHovered] = useState(-1);
 	return (
 		<section className="relative w-screen h-screen overflow-clip">
-			<div className="absolute -z-10 inset-0 bg-neutral-950">
+			<div className="absolute -z-10 inset-0 bg-white dark:bg-neutral-950">
 				<video
 					src="https://static.pprmint.de/uploads/wavy_ff6ca718a6.webm"
-					className="absolute inset-0 object-fill w-full h-full opacity-20 light:invert light:mix-blend-hard-light"
+					className="absolute inset-0 object-fill w-full h-full opacity-20 invert dark:invert-0 mix-blend-hard-light dark:mix-blend-normal"
 					loop
 					autoPlay
 					muted
@@ -69,21 +69,21 @@ export default function HomeTitle() {
 				/>
 				<div
 					style={{ background: "url(/assets/noise.png)" }}
-					className="absolute inset-0 opacity-20 mix-blend-multiply light:mix-blend-screen light:opacity-50"
+					className="absolute inset-0 opacity-50 dark:opacity-20 dark:mix-blend-multiply mix-blend-screen"
 				/>
-				<div className="absolute inset-0 bg-linear-to-t from-neutral-950 via-30% via-transparent" />
+				<div className="absolute inset-0 bg-linear-to-t from-white dark:from-neutral-950 via-30% via-transparent" />
 				<m.div
 					initial={{ opacity: 1 }}
 					animate={{
 						opacity: 0,
 						transition: { duration: 1, delay: 1 },
 					}}
-					className="absolute inset-0 bg-neutral-950"
+					className="absolute inset-0 bg-white dark:bg-neutral-950"
 				/>
 			</div>
 			<div className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-				<div className="h-screen w-full md:grid grid-cols-2 border-x border-white/5 light:border-black/5">
-					<div className="relative size-full flex flex-col gap-6 justify-center col-span-2 md:col-span-1 xl:border-r border-white/5 light:border-black/5">
+				<div className="h-screen w-full md:grid grid-cols-2 border-x border-black/5 dark:border-white/5">
+					<div className="relative size-full flex flex-col gap-6 justify-center col-span-2 md:col-span-1 xl:border-r border-black/5 dark:border-white/5">
 						<div>
 							<h1 className="relative pb-1 md:pb-3 font-serif" aria-label={t("Content.Hero.title")}>
 								{String(t("Content.Hero.title") + ".")
@@ -143,9 +143,9 @@ export default function HomeTitle() {
 												delay: 1 + (index + 1) / 10,
 											},
 										}}
-										className="flex items-center justify-center relative w-full aspect-video border-y odd:border-r border-neutral-50/5 even:border-r-0 group-last:border-r-0"
+										className="flex items-center justify-center relative w-full aspect-video border-y odd:border-r border-black/5 dark:border-white/5 even:border-r-0 group-last:border-r-0"
 									>
-										<span className="text-neutral-50 group-hover:opacity-0 group-hover:tracking-widest uppercase font-expanded font-light duration-200">
+										<span className="text-neutral-950 dark:text-white group-hover:opacity-0 group-hover:tracking-widest uppercase font-stretch-expanded font-light duration-200">
 											{t(button.text)}
 										</span>
 										<div className="absolute group-hover:grid grid-cols-16 inset-0 duration-200 drop-shadow-md group-active:drop-shadow-none">
@@ -153,7 +153,7 @@ export default function HomeTitle() {
 												<div
 													key={index}
 													className={`bg-neutral-50/10 scale-[0.2] rounded-full ${
-														dot === 1 && "group-hover:bg-neutral-50 group-hover:scale-[1.05] group-hover:rounded-none"
+														dot === 1 && "group-hover:bg-neutral-950 dark:group-hover:bg-neutral-50 group-hover:scale-[1.05] group-hover:rounded-none"
 													} duration-100`}
 													style={{ transitionDelay: `${index * 0.002}s` }}
 												/>
@@ -189,7 +189,7 @@ export default function HomeTitle() {
 												initial={{ opacity: 0 }}
 												animate={{ opacity: 1, transition: { delay: 0.03 * index } }}
 												exit={{ opacity: 0, transition: { duration: 0.15 } }}
-												className="font-serif font-ultra-condensed text-[15rem] xl:text-[20rem] font-thin text-neutral-50/5"
+												className="font-serif font-stretch-ultra-condensed text-[15rem] xl:text-[20rem] font-thin text-black/5 dark:text-white/5"
 												aria-hidden
 											>
 												{character}

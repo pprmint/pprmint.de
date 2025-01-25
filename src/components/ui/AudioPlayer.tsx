@@ -168,7 +168,7 @@ function AudioPlayer(props: PropsWithChildren<{ src: string; title?: string; art
 					)}
 				</div>
 				<div>
-					<h1 className="text-neutral-50 text-2xl pb-0">{props.title}</h1>
+					<h1 className="text-white text-2xl pb-0">{props.title}</h1>
 					<p>{props.artist}</p>
 				</div>
 			</div>
@@ -220,7 +220,7 @@ function AudioPlayer(props: PropsWithChildren<{ src: string; title?: string; art
 						</Slider.Track>
 					</Slider.Root>
 					<button
-						className={`p-2 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-neutral-50 text-xl duration-100`}
+						className={`p-2 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-white text-xl duration-100`}
 						onClick={handleMute}
 						aria-label="mute/unmute"
 					>

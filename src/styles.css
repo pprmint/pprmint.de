@@ -3,47 +3,11 @@
 @config "../tailwind.config.js";
 
 @utility text-link {
-	@apply font-medium text-neutral-50 underline decoration-1 decoration-dotted hover:decoration-solid decoration-neutral-50/50 hover:decoration-neutral-50 duration-100 underline-offset-2;
+	@apply font-medium text-neutral-950 dark:text-white underline decoration-1 decoration-dotted hover:decoration-solid decoration-neutral-50/50 hover:decoration-neutral-50 duration-100 underline-offset-2;
 }
 
 @utility text-link-external {
 	@apply font-medium text-blue underline decoration-1 decoration-dotted hover:decoration-solid decoration-blue/50 hover:decoration-blue duration-100 underline-offset-2;
-}
-
-@utility font-ultra-condensed {
-	font-stretch: ultra-condensed;
-}
-
-@utility font-extra-condensed {
-	font-stretch: extra-condensed;
-}
-
-@utility font-condensed {
-	font-stretch: condensed;
-}
-
-@utility font-semi-condensed {
-	font-stretch: semi-condensed;
-}
-
-@utility font-normal {
-	font-stretch: normal;
-}
-
-@utility font-semi-expanded {
-	font-stretch: semi-expanded;
-}
-
-@utility font-expanded {
-	font-stretch: expanded;
-}
-
-@utility font-extra-expanded {
-	font-stretch: extra-expanded;
-}
-
-@utility font-ultra-expanded {
-	font-stretch: ultra-expanded;
 }
 
 @utility italic {
@@ -53,22 +17,22 @@
 
 @layer base {
 	h1 {
-		@apply text-neutral-50 font-light font-serif font-ultra-condensed text-4xl md:text-5xl lg:text-6xl xl:text-8xl pb-3;
+		@apply text-neutral-950 dark:text-white font-light font-serif font-stretch-ultra-condensed text-4xl md:text-5xl lg:text-6xl xl:text-8xl pb-3;
 	}
 	h2 {
-		@apply text-neutral-50 font-light text-3xl md:text-4xl lg:text-5xl pb-3;
+		@apply text-neutral-950 dark:text-white font-light text-3xl md:text-4xl lg:text-5xl pb-3;
 	}
 	h3 {
-		@apply text-neutral-50 font-light text-2xl md:text-3xl lg:text-4xl pb-1;
+		@apply text-neutral-950 dark:text-white font-light text-2xl md:text-3xl lg:text-4xl pb-1;
 	}
 	h4 {
-		@apply text-neutral-50 font-light text-xl md:text-2xl lg:text-3xl pb-1;
+		@apply text-neutral-950 dark:text-white font-light text-xl md:text-2xl lg:text-3xl pb-1;
 	}
 	h5 {
-		@apply text-neutral-50 text-lg md:text-xl lg:text-2xl pb-1;
+		@apply text-neutral-950 dark:text-white text-lg md:text-xl lg:text-2xl pb-1;
 	}
 	h6 {
-		@apply text-neutral-50 md:text-lg lg:text-xl pb-1;
+		@apply text-neutral-950 dark:text-white md:text-lg lg:text-xl pb-1;
 	}
 }
 

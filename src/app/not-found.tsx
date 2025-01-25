@@ -31,7 +31,7 @@ export default function NotFound() {
 			<div className="absolute inset-0 bottom-[10vh] -z-10">
 				<div
 					aria-hidden
-					className="absolute flex items-center justify-center size-full font-expanded text-[52vw] text-transparent bg-clip-text opacity-[0.075] duration-300"
+					className="absolute flex items-center justify-center size-full font-stretch-expanded text-[52vw] text-transparent bg-clip-text opacity-[0.075] duration-300"
 					style={{
 						fontWeight: 400 + (800 - 400) * coords.y,
 						fontVariationSettings: `'slnt' ${0 + (-12 - 0) * coords.x}`,
@@ -76,8 +76,8 @@ export default function NotFound() {
 				</div>
 			</div>
 			<div className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-				<div className="h-screen w-full grid xl:grid-cols-2 border-x border-neutral-50/5">
-					<div className="order-2 xl:order-1 relative size-full flex flex-col xl:justify-center border-t xl:border-t-0 xl:border-r border-neutral-50/5 bg-neutral-950/50">
+				<div className="h-screen w-full grid xl:grid-cols-2 border-x border-black/5 dark:border-white/5">
+					<div className="order-2 xl:order-1 relative size-full flex flex-col xl:justify-center border-t xl:border-t-0 xl:border-r border-black/5 dark:border-white/5 bg-white/50 dark:bg-neutral-950/50">
 						<div className="grow xl:grow-0 py-6 xl:py-0">
 							<h1 className="relative pb-1 md:pb-3 font-serif">
 								<m.div
@@ -126,7 +126,7 @@ export default function NotFound() {
 										duration: 1,
 									},
 								}}
-								className="mt-6 h-12 border-y border-neutral-50/5"
+								className="mt-6 h-12 border-y border-black/5 dark:border-white/5"
 							>
 								<Link
 									href="/"

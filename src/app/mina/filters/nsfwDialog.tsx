@@ -83,7 +83,7 @@ export default function NsfwDialog({ onAccept }: { onAccept: () => void }) {
 				</div>
 				<Dialog.Close asChild>
 					<button
-						className="absolute top-3 right-3 inline-flex p-2 items-center justify-center hover:bg-neutral-900 hover:text-neutral-50 duration-100 active:opacity-75 active:duration-75 rounded-full"
+						className="absolute top-3 right-3 inline-flex p-2 items-center justify-center hover:bg-neutral-900 hover:text-white duration-100 active:opacity-75 active:duration-75 rounded-full"
 						aria-label="Close"
 					>
 						<Error />

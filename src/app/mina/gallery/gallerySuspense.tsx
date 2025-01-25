@@ -9,7 +9,7 @@ export default async function GallerySuspense({ p, nsfw, artist }: { p: number; 
 	const Artists: Artists = await getArtists();
 	const Artworks: MinaArtworks = await getArtworks(p, nsfw, Artists, artist);
 	return (
-		<div className="border-x border-neutral-50/5 pt-12 lg:pt-20 xl:pt-40">
+		<div className="border-x border-black/5 dark:border-white/5 pt-12 lg:pt-20 xl:pt-40">
 			<Filters nsfw={nsfw} artist={artist} artists={Artists} />
 			{Artworks.data.length == 0 ? <OutOfBounds /> : <Gallery artworks={Artworks} />}
 			<Pagination page={p} pageCount={Artworks.meta.pagination.pageCount} />

@@ -34,21 +34,21 @@ export default function Tester() {
 							className="h-9 rounded-md w-max"
 						>
 							<Toolbar.ToggleItem
-								className="size-9 border-y border-l rounded-l-md hover:text-neutral-50 hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
+								className="size-9 border-y border-l rounded-l-md hover:text-white hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
 								value="text-left"
 								aria-label="Left aligned"
 							>
 								<TextAlignLeft className="mx-auto" />
 							</Toolbar.ToggleItem>
 							<Toolbar.ToggleItem
-								className="size-9 border hover:text-neutral-50 hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
+								className="size-9 border hover:text-white hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
 								value="text-center"
 								aria-label="Center aligned"
 							>
 								<TextAlignCenter className="mx-auto" />
 							</Toolbar.ToggleItem>
 							<Toolbar.ToggleItem
-								className="size-9 border-y border-r rounded-r-md hover:text-neutral-50 hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
+								className="size-9 border-y border-r rounded-r-md hover:text-white hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
 								value="text-right"
 								aria-label="Right aligned"
 							>
@@ -105,7 +105,7 @@ export default function Tester() {
 				</div>
 			</Toolbar.Root>
 			<textarea
-				className={`flex w-full p-3 md:p-6 font-mintbit text-neutral placeholder:text-neutral focus:text-neutral-50 bg-transparent focus:outline-hidden focus-visible:outline-hidden rounded-md min-h-[200px] h-1/2-screen ${textAlignment}`}
+				className={`flex w-full p-3 md:p-6 font-mintbit text-neutral placeholder:text-neutral focus:text-white bg-transparent focus:outline-hidden focus-visible:outline-hidden rounded-md min-h-[200px] h-1/2-screen ${textAlignment}`}
 				placeholder={t("Content.Tester.pangram")}
 				style={{
 					fontSize: `${fontSize}em`,

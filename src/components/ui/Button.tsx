@@ -20,8 +20,8 @@ export default function Button({
 	const width = noMinWidth ? "justify-center" : "w-fit";
 	const colors = rest.disabled
 		? outlined
-			? "text-neutral-500 bg-neutral/10"
-			: "text-neutral-500 bg-neutral-700"
+			? "text-white0 bg-neutral/10"
+			: "text-white0 bg-neutral-700"
 		: color === "red"
 		? outlined
 			? "text-red-600 dark:text-red active:text-red-700 ring-1 active:ring-[3px] ring-inset ring-red-200 dark:ring-red-800 hover:ring-red dark:hover:ring-red active:ring-red/0 dark:active:ring-red/0 bg-red/10 hover:bg-red/20 active:bg-red/30"
@@ -59,11 +59,11 @@ export default function Button({
 			? "text-pink-600 dark:text-pink active:text-pink-700 ring-1 active:ring-[3px] ring-inset ring-pink-200 dark:ring-pink-800 hover:ring-pink dark:hover:ring-pink active:ring-pink/0 dark:active:ring-pink/0 bg-pink/10 hover:bg-pink/20 active:bg-pink/30"
 			: "text-pink-950 bg-pink hover:bg-pink-400 active:bg-pink-600 active:shadow-inner"
 		: outlined
-		? "text-neutral-50 active:text-neutral-400 ring-1 active:ring-[3px] ring-inset ring-neutral-700 hover:ring-neutral-50 active:ring-transparent bg-neutral/10 hover:bg-neutral/15 active:bg-neutral/30"
+		? "text-white active:text-neutral-400 ring-1 active:ring-[3px] ring-inset ring-neutral-700 hover:ring-neutral-50 active:ring-transparent bg-neutral/10 hover:bg-neutral/15 active:bg-neutral/30"
 		: "text-white dark:text-neutral-950 bg-neutral-100 hover:bg-neutral-50 active:bg-neutral-200 active:shadow-inner";
 	return (
 		<button
-			className={`group flex items-center font-medium duration-200 ease-out ${!outlined && !rest.disabled && "shadow-md"} ${
+			className={`group flex items-center font-medium duration-200 ease-out ${!outlined && !rest.disabled && "hover:shadow-sm"} ${
 				rest.disabled && "pointer-events-none"
 			} select-none active:duration-75 ${size} ${width} ${colors}`}
 			{...rest}

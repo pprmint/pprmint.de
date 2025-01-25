@@ -35,7 +35,7 @@ function MessageBubble(props: { incoming?: boolean; id: string }) {
 			<div
 				className={`w-fit max-w-[80%] px-4 py-2 rounded-3xl ${
 					props.incoming
-						? "rounded-bl-md bg-neutral-800 text-neutral-50"
+						? "rounded-bl-md bg-neutral-800 text-white"
 						: `rounded-br-md bg-linear-to-b ${
 								isAppleDevice
 									? "from-blue to-blue-600 selection:text-blue"
@@ -154,7 +154,7 @@ function Chatbox() {
 							}}
 						/>
 					</div>
-					<div className="z-10 flex whitespace-nowrap items-center gap-3 px-3 hover:px-4  hover:font-bold text-3xl text-neutral-50 bg-neutral-950 group-focus-visible:bg-neutral-800 rounded-md rounded-tl-xl rounded-br-xl group-hover:rounded-md duration-500 ease-out-expo">
+					<div className="z-10 flex whitespace-nowrap items-center gap-3 px-3 hover:px-4  hover:font-bold text-3xl text-white bg-neutral-950 group-focus-visible:bg-neutral-800 rounded-md rounded-tl-xl rounded-br-xl group-hover:rounded-md duration-500 ease-out-expo">
 						<div className="relative h-14 w-16 overflow-clip">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -215,14 +215,14 @@ function Chatbox() {
 					<div className="absolute top-0 left-0 right-0 flex gap-6 items-center justify-between py-2 backdrop-blur-xl bg-linear-to-b from-[#fafafabb] dark:from-[#282828bb] to-[#eeeeeeaa] dark:to-[#222222aa] shadow-lg shadow-neutral-950/50 z-10">
 						<div className="w-1/5">
 							<Dialog.Close asChild>
-								<button className="flex items-center text-neutral-50 hover:opacity-75 duration-100">
+								<button className="flex items-center text-white hover:opacity-75 duration-100">
 									<ChevronLeft className="size-7" />
 									{t("back")}
 								</button>
 							</Dialog.Close>
 						</div>
 						<div className="w-2/5 text-center">
-							<Dialog.Title className="text-neutral-50 font-medium text-sm font-sans pb-0 leading-3">Mina</Dialog.Title>
+							<Dialog.Title className="text-white font-medium text-sm font-sans pb-0 leading-3">Mina</Dialog.Title>
 							<Dialog.Description className="text-sm">{t(noTalky ? "titleAngy" : "title")}</Dialog.Description>
 						</div>
 						<div className="w-1/5 pr-2">
@@ -253,14 +253,14 @@ function Chatbox() {
 										} duration-200`}
 									>
 										<button
-											className="inline-flex flex-row md:flex-col items-center justify-center gap-3 border hover:border-2 border-green hover:bg-green/10 text-neutral-50 rounded-md size-full duration-100 active:scale-[0.98] active:opacity-75 active:duration-75"
+											className="inline-flex flex-row md:flex-col items-center justify-center gap-3 border hover:border-2 border-green hover:bg-green/10 text-white rounded-md size-full duration-100 active:scale-[0.98] active:opacity-75 active:duration-75"
 											onClick={() => handleEndingYes()}
 										>
 											<Heart className="size-6 md:size-9 text-green" />
 											{t("Messages.EndingYes.message")}
 										</button>
 										<button
-											className="inline-flex flex-row md:flex-col items-center justify-center gap-3 border hover:border-2 border-red hover:bg-red/10 text-neutral-50 rounded-md size-full duration-100 active:scale-[0.98] active:opacity-75 active:duration-75"
+											className="inline-flex flex-row md:flex-col items-center justify-center gap-3 border hover:border-2 border-red hover:bg-red/10 text-white rounded-md size-full duration-100 active:scale-[0.98] active:opacity-75 active:duration-75"
 											onClick={() => handleEndingNo()}
 										>
 											<HeartBroken className="size-6 md:size-9 text-red" />
@@ -272,7 +272,7 @@ function Chatbox() {
 									<a.div style={style} className="flex flex-col gap-3 items-end py-3">
 										{clickedQuestions.length > 0 && (
 											<button
-												className={`w-fit max-w-[80%] px-3 py-1 border border-neutral-900 hover:border-neutral-800 hover:bg-neutral-900 hover:text-neutral-50 text-sm text-left rounded-2xl rounded-br-md duration-100 ${
+												className={`w-fit max-w-[80%] px-3 py-1 border border-neutral-900 hover:border-neutral-800 hover:bg-neutral-900 hover:text-white text-sm text-left rounded-2xl rounded-br-md duration-100 ${
 													answering ? "opacity-50 pointer-events-none" : ""
 												}`}
 												onClick={() => handleEnding("Ending")}
@@ -283,7 +283,7 @@ function Chatbox() {
 										{availableMessages.map((id, index) => (
 											<button
 												key={index}
-												className={`w-fit max-w-[80%] px-3 py-1 border border-neutral-900 hover:border-neutral-800 hover:bg-neutral-900 hover:text-neutral-50 text-sm text-left rounded-2xl rounded-br-md duration-100 ${
+												className={`w-fit max-w-[80%] px-3 py-1 border border-neutral-900 hover:border-neutral-800 hover:bg-neutral-900 hover:text-white text-sm text-left rounded-2xl rounded-br-md duration-100 ${
 													answering ? "opacity-50 pointer-events-none" : ""
 												}`}
 												onClick={() => handleMessageClick(id)}

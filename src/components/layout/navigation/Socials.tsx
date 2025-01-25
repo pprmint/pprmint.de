@@ -26,7 +26,7 @@ export default function Copyright(props: { className?: string }) {
 					</Link>
 				</p>
 			</div>
-			<div className="flex text-neutral-50 md:text-xl">
+			<div className="flex text-white md:text-xl">
 				<Link
 					href="https://bsky.app/profile/pprmint.de"
 					target="_blank"

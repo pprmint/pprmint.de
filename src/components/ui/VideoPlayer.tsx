@@ -318,7 +318,7 @@ function VideoPlayer(props: {
 							style={style}
 							className="absolute flex items-center justify-center w-full h-full z-10"
 						>
-							<button className="flex items-center justify-center z-10 size-24 md:size-32 bg-neutral-950/30 hover:bg-neutral-950/40 text-neutral-50 rounded-full duration-100">
+							<button className="flex items-center justify-center z-10 size-24 md:size-32 bg-neutral-950/30 hover:bg-neutral-950/40 text-white rounded-full duration-100">
 								<Play className="size-16 ml-2" />
 							</button>
 						</a.div>
@@ -358,7 +358,7 @@ function VideoPlayer(props: {
 										style={{ transform: `translateX(-${100 - progress}%)` }}
 									/>
 								</Progress.Root>
-								<p className="text-neutral-50 text-xs text-right mt-1 mb-2 mr-2 drop-shadow-md">
+								<p className="text-white text-xs text-right mt-1 mb-2 mr-2 drop-shadow-md">
 									{t("downloading")}: <span className="font-semibold">{progress}%</span>
 								</p>
 							</a.div>
@@ -373,7 +373,7 @@ function VideoPlayer(props: {
 									style={style}
 									className="absolute top-0 left-0 right-0 p-6 z-20 h-20 bg-linear-to-b from-neutral-950/90 duration-500 ease-out-expo"
 								>
-									<p className=" text-2xl text-neutral-50">{props.title}</p>
+									<p className=" text-2xl text-white">{props.title}</p>
 								</a.div>
 							)
 					)}
@@ -385,7 +385,7 @@ function VideoPlayer(props: {
 								style={style}
 								className="absolute flex flex-col justify-end bottom-0 left-0 right-0 p-3 h-28 z-20 bg-linear-to-t from-neutral-950/90 duration-500 ease-out-expo"
 							>
-								<div className="absolute flex items-center gap-5 top-10 inset-x-5 font-mono font-medium text-neutral-50 text-xs">
+								<div className="absolute flex items-center gap-5 top-10 inset-x-5 font-mono font-medium text-white text-xs">
 									<span>{formattedTime(currentTime)}</span>
 									<Slider.Root
 										value={[currentTime]}
@@ -407,7 +407,7 @@ function VideoPlayer(props: {
 								</div>
 								<div className="flex justify-between items-center">
 									<button
-										className="p-2 bg-neutral-50/0 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-neutral-50 text-2xl duration-100"
+										className="p-2 bg-neutral-50/0 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-white text-2xl duration-100"
 										onClick={handlePlay}
 										aria-label="pause/play"
 									>
@@ -432,7 +432,7 @@ function VideoPlayer(props: {
 												</div>
 												<div>
 													<button
-														className={`ml-auto p-2 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-neutral-50 text-xl duration-100`}
+														className={`ml-auto p-2 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-white text-xl duration-100`}
 														onClick={handleMute}
 														aria-label="mute/unmute"
 													>
@@ -450,7 +450,7 @@ function VideoPlayer(props: {
 											</div>
 										)}
 										<button
-											className="p-2 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-neutral-50 text-xl duration-100"
+											className="p-2 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-white text-xl duration-100"
 											onClick={handleFullscreen}
 											aria-label="enter/exit fullscreen"
 										>
@@ -464,7 +464,7 @@ function VideoPlayer(props: {
 				<ContextMenu.Portal>
 					<ContextMenu.Content className="z-50 text-neutral text-sm w-60 p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-lg rounded-lg overflow-hidden origin-[var(--radix-context-menu-content-transform-origin)] data-[state='open']:animate-scale-up data-[state='closed']:animate-scale-down">
 						<ContextMenu.CheckboxItem
-							className="group relative flex items-center gap-3 pr-2 pl-2 data-highlighted:pl-3 h-7 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-neutral-50 data-highlighted:bg-neutral-50/10 active:opacity-75 duration-100 focus-visible:outline-hidden"
+							className="group relative flex items-center gap-3 pr-2 pl-2 data-highlighted:pl-3 h-7 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-white data-highlighted:bg-neutral-50/10 active:opacity-75 duration-100 focus-visible:outline-hidden"
 							checked={loopEnabled}
 							onCheckedChange={setLoopEnabled}
 						>
@@ -475,7 +475,7 @@ function VideoPlayer(props: {
 							</ContextMenu.ItemIndicator>
 						</ContextMenu.CheckboxItem>
 						<ContextMenu.Item
-							className="group relative flex items-center gap-3 pr-2 pl-2 data-highlighted:pl-3 h-7 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-neutral-50 data-highlighted:bg-neutral-50/10 active:opacity-75 duration-100 focus-visible:outline-hidden"
+							className="group relative flex items-center gap-3 pr-2 pl-2 data-highlighted:pl-3 h-7 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-white data-highlighted:bg-neutral-50/10 active:opacity-75 duration-100 focus-visible:outline-hidden"
 							onClick={copyVideoUrl}
 						>
 							<LinkDiagonal />
@@ -483,7 +483,7 @@ function VideoPlayer(props: {
 						</ContextMenu.Item>
 
 						<ContextMenu.Sub>
-							<ContextMenu.SubTrigger className="group relative flex items-center gap-3 pr-2 pl-2 data-highlighted:pl-3 data-[state='open']:pl-3 h-7 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-neutral-50 data-[state='open']:text-neutral-50 data-highlighted:bg-neutral-50/10 active:opacity-75 data-[state='open']:bg-neutral-50/10 duration-100 focus-visible:outline-hidden">
+							<ContextMenu.SubTrigger className="group relative flex items-center gap-3 pr-2 pl-2 data-highlighted:pl-3 data-[state='open']:pl-3 h-7 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-white data-[state='open']:text-white data-highlighted:bg-neutral-50/10 active:opacity-75 data-[state='open']:bg-neutral-50/10 duration-100 focus-visible:outline-hidden">
 								<Speed75 />
 								{t("VideoPlayer.playbackSpeed")}
 								<div className="flex items-center ml-auto">
@@ -504,7 +504,7 @@ function VideoPlayer(props: {
 										{PlaybackSpeeds.map((speed) => (
 											<ContextMenu.RadioItem
 												key={speed}
-												className="group relative flex items-center gap-3 pl-[34px] hover:pl-[38px] h-7 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-neutral-50 data-highlighted:bg-neutral-50/10 active:opacity-75 duration-100 focus-visible:outline-hidden"
+												className="group relative flex items-center gap-3 pl-[34px] hover:pl-[38px] h-7 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-white data-highlighted:bg-neutral-50/10 active:opacity-75 duration-100 focus-visible:outline-hidden"
 												value={speed}
 											>
 												<ContextMenu.ItemIndicator className="absolute left-2 group-data-highlighted:left-3 duration-100">
@@ -520,7 +520,7 @@ function VideoPlayer(props: {
 
 						{!props.noDownload && (
 							<ContextMenu.Item
-								className="group relative flex items-center gap-3 pr-2 pl-2 data-highlighted:pl-3 h-7 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-neutral-50 data-highlighted:bg-neutral-50/10 active:opacity-75 duration-100 focus-visible:outline-hidden"
+								className="group relative flex items-center gap-3 pr-2 pl-2 data-highlighted:pl-3 h-7 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-white data-highlighted:bg-neutral-50/10 active:opacity-75 duration-100 focus-visible:outline-hidden"
 								onClick={downloadVideo}
 								disabled={downloading}
 							>

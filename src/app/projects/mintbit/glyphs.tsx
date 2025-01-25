@@ -262,7 +262,7 @@ export default function Glyphs() {
 					"ÿ",
 				].map((glyph, index) => (
 					<div
-						className="aspect-square flex items-center justify-center font-mintbit text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl text-neutral-50 hover:bg-neutral-900 hover:scale-110 active:scale-105 active:opacity-75 hover:rounded-md hover:ring-1 ring-neutral-800 hover:shadow-xl hover:shadow-neutral-950/50 duration-200 active:duration-75 ease-out-quint select-none"
+						className="aspect-square flex items-center justify-center font-mintbit text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl text-white hover:bg-neutral-900 hover:scale-110 active:scale-105 active:opacity-75 hover:rounded-md hover:ring-1 ring-neutral-800 hover:shadow-xl hover:shadow-neutral-950/50 duration-200 active:duration-75 ease-out-quint select-none"
 						key={index}
 						onClick={() => {
 							navigator.clipboard.writeText(glyph);
@@ -284,7 +284,7 @@ export default function Glyphs() {
 				onOpenChange={setToastOpen}
 				duration={3000}
 			>
-				<Toast.Title className="text-neutral-50 pt-0.5 pl-3 text-3xl font-mintbit leading-none">{currentGlyph}</Toast.Title>
+				<Toast.Title className="text-white pt-0.5 pl-3 text-3xl font-mintbit leading-none">{currentGlyph}</Toast.Title>
 				<Toast.Description>{t("COMMON.copied")}</Toast.Description>
 				<Toast.Close className="inline-flex items-center justify-center size-6 hover:bg-neutral-50/10 active:bg-neutral-50/5 rounded-full duration-100 active:duration-75">
 					<X className="fill-neutral-50" />

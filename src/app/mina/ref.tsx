@@ -48,7 +48,7 @@ export default function RefSheet() {
 					</div>
 					<Dialog.Close asChild>
 						<button
-							className="absolute top-3 right-3 inline-flex p-2 items-center justify-center hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 hover:text ring-0 ring-neutral-900 hover:ring-8 outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8-neutral-50 duration-100 active:duration-75 rounded-full"
+							className="absolute top-3 right-3 inline-flex p-2 items-center justify-center hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 hover:text ring-0 ring-white dark:ring-neutral-900 hover:ring-8 outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8-neutral-50 duration-100 active:duration-75 rounded-full"
 							aria-label="Close"
 						>
 							<Error />
@@ -129,7 +129,7 @@ export default function RefSheet() {
 		return (
 			<Toast.Provider swipeDirection="right" duration={3000}>
 				<Toast.Root
-					className="flex gap-6 items-center p-3 rounded-xl shadow-lg text-neutral-50 backdrop-blur-xl bg-linear-to-t dark:bg-linear-to-b from-neutral-800/75 to-neutral-900/90 dark:outline outline-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
+					className="flex gap-6 items-center p-3 rounded-xl shadow-lg text-white backdrop-blur-xl bg-linear-to-t dark:bg-linear-to-b from-neutral-800/75 to-neutral-900/90 dark:outline outline-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
 					open={props.open}
 					onOpenChange={props.onOpenChange}
 				>
@@ -173,19 +173,19 @@ export default function RefSheet() {
 
 	return (
 		<>
-			<div className="w-full grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-rows-4 md:grid-rows-3 xl:grid-rows-2 grid-flow-dense md:max-h-[900px] border-x border-white/5 light:border-black/5">
+			<div className="w-full grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-rows-4 md:grid-rows-3 xl:grid-rows-2 grid-flow-dense md:max-h-[900px] border-x border-black/5 dark:border-white/5">
 				<Dialog.Root>
 					<Dialog.Trigger asChild>
-						<div
+						<button
 							id="hand"
-							className="relative flex items-center justify-center border-t border-r border-neutral-50/5 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 outline- duration-200 active:duration-75 p-6"
+							className="relative flex items-center justify-center border-t border-r border-black/5 dark:border-white/5 hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 duration-200 active:duration-75 p-6"
 						>
 							<FadingImage
 								src={ReferenceHand}
 								className="w-auto max-h-full object-contain"
 								alt="Drawing of a hand with a rectangular ring-3, spanning across the ring-3 and middle finger."
 							/>
-						</div>
+						</button>
 					</Dialog.Trigger>
 					<InfoDialog
 						title={t("Content.Reference.Rings.heading")}
@@ -207,9 +207,9 @@ export default function RefSheet() {
 				</Dialog.Root>
 				<Dialog.Root>
 					<Dialog.Trigger asChild>
-						<div
+						<button
 							id="front"
-							className="relative flex items-center justify-center border-t md:border-r lg:border-b border-neutral-50/5 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 duration-200 active:duration-75 row-span-2 p-3"
+							className="relative flex items-center justify-center border-t md:border-r lg:border-b border-black/5 dark:border-white/5 hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 duration-200 active:duration-75 row-span-2 p-3"
 						>
 							<FadingImage
 								src={ReferenceFront}
@@ -217,7 +217,7 @@ export default function RefSheet() {
 								alt="Full-body drawing of Mina doing a peace sign, front perspective."
 								priority
 							/>
-						</div>
+						</button>
 					</Dialog.Trigger>
 					<InfoDialog
 						title={t("Content.Reference.Outfit.heading")}
@@ -235,9 +235,9 @@ export default function RefSheet() {
 				</Dialog.Root>
 				<Dialog.Root>
 					<Dialog.Trigger asChild>
-						<div
+						<button
 							id="back"
-							className="relative flex items-center justify-center border-t border-r md:border-r-0 lg:border-r lg:border-b border-neutral-50/5 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 duration-200 active:duration-75 row-span-2 p-3"
+							className="relative flex items-center justify-center border-t border-r md:border-r-0 lg:border-r lg:border-b border-black/5 dark:border-white/5 hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 duration-200 active:duration-75 row-span-2 p-3"
 						>
 							<FadingImage
 								src={ReferenceBack}
@@ -245,7 +245,7 @@ export default function RefSheet() {
 								alt="Full-body drawing of Mina doing a peace sign, back perspective."
 								priority
 							/>
-						</div>
+						</button>
 					</Dialog.Trigger>
 					<InfoDialog
 						title={t("Content.Reference.Outfit.heading")}
@@ -263,9 +263,9 @@ export default function RefSheet() {
 				</Dialog.Root>
 				<Dialog.Root>
 					<Dialog.Trigger asChild>
-						<div
+						<button
 							id="hairbow"
-							className="relative flex md:col-span-2 xl:col-span-1 items-center justify-center border-t md:border-b lg:border-b-0 md:border-r lg:border-r-0 border-neutral-50/5 gap-6 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 duration-200 active:duration-75 p-6"
+							className="relative flex md:col-span-2 xl:col-span-1 items-center justify-center border-t md:border-b lg:border-b-0 md:border-r lg:border-r-0 border-black/5 dark:border-white/5 gap-6 hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 duration-200 active:duration-75 p-6"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -305,7 +305,7 @@ export default function RefSheet() {
 									className="fill-neutral-50"
 								/>
 							</svg>
-						</div>
+						</button>
 					</Dialog.Trigger>
 					<InfoDialog
 						col
@@ -362,16 +362,16 @@ export default function RefSheet() {
 				</Dialog.Root>
 				<Dialog.Root>
 					<Dialog.Trigger asChild>
-						<div
+						<button
 							id="shoe"
-							className="relative flex items-center justify-center border-y md:border-b-0 border-r lg:border-b border-neutral-50/5 hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 ring-0 ring-neutral-900 hover:ring-8 outline-0 outline-neutral-50/5 hover:outline hover:outline-offset-8 duration-200 active:duration-75 p-6"
+							className="relative flex items-center justify-center border-y md:border-b-0 border-r lg:border-b border-black/5 dark:border-white/5 hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 duration-200 active:duration-75 p-6"
 						>
 							<FadingImage
 								src={ReferenceShoes}
 								className="w-auto max-h-full object-contain"
 								alt="Full-body drawing of Mina doing a peace sign, front perspective."
 							/>
-						</div>
+						</button>
 					</Dialog.Trigger>
 					<InfoDialog
 						title={t("Content.Reference.Shoes.heading")}
@@ -390,7 +390,7 @@ export default function RefSheet() {
 						}
 					/>
 				</Dialog.Root>
-				<div id="colorpalette" className="relative flex flex-col justify-between border-y border-neutral-50/5">
+				<div id="colorpalette" className="relative flex flex-col justify-between border-y border-black/5 dark:border-white/5">
 					<ColorPickerToast color={currentColor} open={toastOpen} onOpenChange={setToastOpen} />
 					<div className="flex flex-col h-full p-3 lg:p-6">
 						<ColorSwatch color="#dddddd" height="10%" />
