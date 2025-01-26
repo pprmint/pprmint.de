@@ -84,7 +84,7 @@ export default function Title(
 									href={props.creditLink}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="absolute bottom-0 bg-black/5"
+									className="absolute bottom-0 bg-black/5 dark:bg-white/5"
 								>
 									<button className="inline-flex p-0.5 items-center gap-1 text-xs md:text-sm px-3 py-2 font-medium hover:font-bold text-white hover:text-neutral-950 disabled:text-white0 hover:bg-white active:bg-neutral-50 drop-shadow-md active:drop-shadow-none duration-100 active:duration-75 active:shadow-inner overflow-hidden">
 										{t("artDrawnBy")}
@@ -92,7 +92,7 @@ export default function Title(
 									</button>
 								</Link>
 							) : (
-								<div className="absolute bottom-0 bg-black/5">
+								<div className="absolute bottom-0 bg-black/5 dark:bg-white/5">
 									{t("artDrawnBy")}
 									{props.creditName}
 								</div>
