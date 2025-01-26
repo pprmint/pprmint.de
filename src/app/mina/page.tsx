@@ -40,17 +40,23 @@ export default async function Page({
 			<Title
 				title={t("Head.title")}
 				description={t("Head.description")}
-				creditName="sunnexo"
-				creditLink="https://sunnexo.moe"
+				creditName="Nanogon"
+				creditLink="https://www.instagram.com/nogonagon"
 			>
-				<div className="h-full bg-conic-[at_0%_-15%] from-25% from-[#80d5c5] to-50% to-[#1a626a] flex items-end justify-end">
+				<div className="h-full bg-[#387895] flex items-end justify-end">
 					<FadingImage
-						src="https://cms.pprmint.de/uploads/sunnexo_1x_94556d4017.png"
+						src="https://cms.pprmint.de/uploads/nano_3bg_560c52a096.webp"
 						alt=""
-						width={128}
-						height={128}
-						unoptimized
-						className="pixelated h-2/3 md:h-3/4 lg:h-full w-auto md:mr-12 lg:mr-24 xl:mr-32"
+						fill
+						className="object-cover object-[50%_90%]"
+					/>
+					<div className="absolute inset-0 bg-linear-to-r from-black/25 via-transparent" />
+					<FadingImage
+						src="https://cms.pprmint.de/uploads/nano_3fg_46641b34fc.webp"
+						alt=""
+						width={1500}
+						height={1500}
+						className="relative z-10 h-[75%] sm:h-full w-auto object-cover md:mr-12 lg:mr-24 xl:mr-36 sm:pt-6"
 					/>
 				</div>
 			</Title>
