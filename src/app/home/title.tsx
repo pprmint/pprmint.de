@@ -71,7 +71,7 @@ export default function HomeTitle() {
 					style={{ background: "url(/assets/noise.png)" }}
 					className="absolute inset-0 opacity-50 dark:opacity-20 dark:mix-blend-multiply mix-blend-screen"
 				/>
-				<div className="absolute inset-0 bg-linear-to-t from-white dark:from-neutral-950 via-30% via-transparent" />
+				<div className="absolute inset-0 bg-gradient-to-t from-white dark:from-neutral-950 via-30% via-transparent" />
 				<m.div
 					initial={{ opacity: 1 }}
 					animate={{

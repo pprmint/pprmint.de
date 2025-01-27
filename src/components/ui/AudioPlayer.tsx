@@ -150,7 +150,7 @@ function AudioPlayer(props: PropsWithChildren<{ src: string; title?: string; art
 
 	return (
 		<div
-			className="relative bg-linear-to-t p-4 pb-5 w-full max-w-lg from-neutral-900 border border-neutral-900 rounded-xl overflow-clip"
+			className="relative bg-gradient-to-t p-4 pb-5 w-full max-w-lg from-neutral-900 border border-neutral-900 rounded-xl overflow-clip"
 			ref={audioPlayerRef}
 		>
 			<div className="blur-xl opacity-25 absolute inset-0 -z-10">
@@ -160,7 +160,7 @@ function AudioPlayer(props: PropsWithChildren<{ src: string; title?: string; art
 				<source src={props.src} />
 			</audio>
 			<div className="flex items-center gap-6 p-2">
-				<div className="relative bg-linear-to-t from-neutral-800 to-neutral-900 border border-neutral-50/10 size-20 rounded-md overflow-clip">
+				<div className="relative bg-gradient-to-t from-neutral-800 to-neutral-900 border border-neutral-50/10 size-20 rounded-md overflow-clip">
 					{props.children ? (
 						props.children
 					) : (
@@ -180,13 +180,13 @@ function AudioPlayer(props: PropsWithChildren<{ src: string; title?: string; art
 					min={0}
 					max={duration}
 					step={0.001}
-					className="group/slider relative flex items-center select-none touch-none w-full h-6"
+					className="group/slider relative flex items-center select-none touch-none w-full h-6 cursor-pointer"
 				>
 					<Slider.Track className="bg-neutral-50/30 relative grow h-px group-hover/slider:h-[3px] rounded-full duration-100">
 						<Slider.Range className="absolute bg-neutral-50 h-[3px] -top-px group-hover/slider:top-0 rounded-full duration-100" />
 					</Slider.Track>
 				</Slider.Root>
-				<span onClick={toggleRemaining} className="mb-0 text-right">
+				<span onClick={toggleRemaining} className="mb-0 text-right cursor-pointer">
 					{showRemaining ? `-${formattedTime(duration - currentTime)}` : formattedTime(duration)}
 				</span>
 			</div>
@@ -198,7 +198,7 @@ function AudioPlayer(props: PropsWithChildren<{ src: string; title?: string; art
 					</button>
 					<button
 						onClick={handlePlay}
-						className="p-3 m-0.5 hover:p-3.5 hover:m-0 bg-linear-to-b from-neutral-50 to-neutral-100 border border-neutral-50 border-b-neutral-200 rounded-full text-neutral-950 active:scale-95 active:duration-75 active:shadow-inner duration-200 ease-out-quint"
+						className="p-3 m-0.5 hover:p-3.5 hover:m-0 bg-gradient-to-b from-neutral-50 to-neutral-100 border border-neutral-50 border-b-neutral-200 rounded-full text-neutral-950 active:scale-95 active:duration-75 active:shadow-inner duration-200 ease-out-quint"
 					>
 						{playing ? <Pause className="size-6" /> : <Play className="pl-0.5 size-6" />}
 					</button>
@@ -213,7 +213,7 @@ function AudioPlayer(props: PropsWithChildren<{ src: string; title?: string; art
 						min={0}
 						max={1}
 						step={0.1}
-						className="group/slider relative flex items-center select-none touch-none w-20 h-4"
+						className="group/slider relative flex items-center select-none touch-none w-20 h-4 cursor-pointer"
 					>
 						<Slider.Track className="bg-neutral-50/30 relative grow h-px group-hover/slider:h-[3px] rounded-full duration-100">
 							<Slider.Range className="absolute bg-neutral-50 h-[3px] -top-px group-hover/slider:top-0 rounded-full duration-100" />

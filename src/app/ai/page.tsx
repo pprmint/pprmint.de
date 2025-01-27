@@ -40,7 +40,7 @@ export default function Page() {
 					</p>
 					<p>{t("Content.Copyright.text2")}</p>
 				</section>
-				<section className="max-w-7xl mx-auto my-20 md:my-32 xl:my-40 p-6 md:p-9 bg-linear-to-b from-red-50 dark:from-red-950 rounded-xl border-2 border-red">
+				<section className="max-w-7xl mx-auto my-20 md:my-32 xl:my-40 p-6 md:p-9 bg-gradient-to-b from-red-50 dark:from-red-950 rounded-xl border-2 border-red">
 					<h2>
 						{t("Content.Disallow.heading")}
 						<span className="text-red">.</span>

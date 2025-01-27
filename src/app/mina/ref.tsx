@@ -34,7 +34,7 @@ export default function RefSheet() {
 				<Dialog.Content
 					className={`fixed inset-0 overflow-auto lg:overflow-clip z-100 flex flex-col ${
 						!col && "lg:flex-row"
-					} gap-12 items-center top-1/2 left-1/2 h-svh lg:h-max lg:max-h-[90vh] w-screen max-w-7xl -translate-x-1/2 -translate-y-1/2 p-6 md:p-9 bg-neutral-950 lg:border border-white/10 lg:outline outline-black/10 dark:outline-black/50 shadow-2xl lg:rounded-xl data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit focus:outline-hidden origin-center`}
+					} gap-12 items-center top-1/2 left-1/2 h-svh lg:h-max lg:max-h-[90vh] w-screen max-w-7xl -translate-x-1/2 -translate-y-1/2 p-6 md:p-9 bg-neutral-950 lg:border border-white/10 lg:outline outline-1 outline-black/10 dark:outline-black/50 shadow-2xl lg:rounded-xl data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit focus:outline-none origin-center`}
 				>
 					{reference}
 					<div>
@@ -95,7 +95,7 @@ export default function RefSheet() {
 				<a.div className="h-full w-4/5 object-contain" style={styles}>
 					<FadingImage
 						src={ReferenceBack}
-						alt="Drawing of a hand with a rectangular ring-3, spanning across the ring-3 and middle finger."
+						alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
 						className="h-full max-h-2/3-screen lg:max-h-[80vh] object-contain"
 					/>
 					<div className="relative h-1 mt-6 rounded-full overflow-clip bg-neutral-900">
@@ -108,7 +108,7 @@ export default function RefSheet() {
 				<a.div className="h-full w-4/5 object-contain" style={styles}>
 					<FadingImage
 						src={ReferenceFront}
-						alt="Drawing of a hand with a rectangular ring-3, spanning across the ring-3 and middle finger."
+						alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
 						className="h-full max-h-2/3-screen lg:max-h-[80vh] object-contain"
 					/>
 					<div className="relative h-1 mt-6 rounded-full overflow-clip bg-neutral-900">
@@ -142,7 +142,7 @@ export default function RefSheet() {
 						<Error />
 					</Toast.Close>
 				</Toast.Root>
-				<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-9999 outline-hidden" />
+				<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-[9999] outline-none" />
 			</Toast.Provider>
 		);
 	}
@@ -164,7 +164,7 @@ export default function RefSheet() {
 		}
 		return (
 			<div
-				className="w-full duration-100 ease-out"
+				className="w-full duration-100 ease-out cursor-pointer"
 				style={{ backgroundColor: color, height: height }}
 				onClick={handleClick}
 			/>
@@ -183,7 +183,7 @@ export default function RefSheet() {
 							<FadingImage
 								src={ReferenceHand}
 								className="w-auto max-h-full object-contain"
-								alt="Drawing of a hand with a rectangular ring-3, spanning across the ring-3 and middle finger."
+								alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
 							/>
 						</button>
 					</Dialog.Trigger>
@@ -199,7 +199,7 @@ export default function RefSheet() {
 						reference={
 							<FadingImage
 								src={ReferenceHand}
-								alt="Drawing of a hand with a rectangular ring-3, spanning across the ring-3 and middle finger."
+								alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
 								className="max-h-1/2-screen w-auto lg:w-1/2 lg:max-h-[50vh] object-contain"
 							/>
 						}
@@ -384,7 +384,7 @@ export default function RefSheet() {
 						reference={
 							<FadingImage
 								src={ReferenceShoes}
-								alt="Drawing of a hand with a rectangular ring-3, spanning across the ring-3 and middle finger."
+								alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
 								className="max-h-1/3-screen w-auto lg:w-2/3 lg:max-h-[90vh] object-contain"
 							/>
 						}

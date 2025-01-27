@@ -23,13 +23,13 @@ export default function GalleryGrid(works: { works: Works }) {
 					className="group/button relative overflow-clip hover:rounded-lg focus-visible:rounded-lg bg-neutral-950
 						odd:origin-left even:origin-right
 						lg:odd:origin-center lg:even:origin-center
-						lg:nth-[3n+1]:origin-left lg:nth-[3n]:origin-right
-						xl:nth-[3n+1]:origin-center xl:nth-[3n]:origin-center
-						xl:nth-[4n+1]:origin-left xl:nth-[4n]:origin-right
-						3xl:nth-[4n+1]:origin-center 3xl:nth-[4n]:origin-center
-						3xl:nth-[5n+1]:origin-left 3xl:nth-[5n]:origin-right
+						lg:[&:nth-child(3n+1)]:origin-left lg:[&:nth-child(3n)]:origin-right
+						xl:[&:nth-child(3n+1)]:origin-center xl:[&:nth-child(3n)]:origin-center
+						xl:[&:nth-child(4n+1)]:origin-left xl:[&:nth-child(4n)]:origin-right
+						3xl:[&:nth-child(4n+1)]:origin-center 3xl:[&:nth-child(4n)]:origin-center
+						3xl:[&:nth-child(5n+1)]:origin-left 3xl:[&:nth-child(5n)]:origin-right
 						[.group:hover_&:not(:hover)]:opacity-75
-						hover:scale-[1.02] focus-visible:scale-[1.02] active:scale-[1.01] hover:z-10 focus-visible:z-10 justify hover:ring-1 ring-neutral-50/10 hover:shadow-lg focus-visible:shadow-xl duration-250 ease-out-quint active:duration-75 aspect-video"
+						hover:scale-[1.02] focus-visible:scale-[1.02] active:scale-[1.01] hover:z-10 focus-visible:z-10 justify hover:ring-1 ring-neutral-50/10 hover:shadow-lg focus-visible:shadow-xl duration-250 ease-out-quint active:duration-75 cursor-pointer aspect-video"
 				>
 					<FadingImage
 						src={`https://static.pprmint.de${

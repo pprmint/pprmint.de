@@ -20,7 +20,7 @@ export default async function Page() {
 			<Title title={t("Head.title")} description={t("Head.description")} />
 			<main className="max-w-7xl mx-auto px-6 md:px-9">
 				<section className="my-20 md:my-32 xl:my-40">
-					<div className="bg-neutral-900 border border-neutral-900 rounded-xl p-6">
+					<div className="bg-elevate border border-neutral-900 rounded-xl p-6">
 						<h2>{t("Content.Tldr.heading")}</h2>
 						<p>
 							{t.rich("Content.Tldr.text1", {

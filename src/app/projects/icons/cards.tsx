@@ -165,7 +165,7 @@ export default function Cards() {
 	return (
 		<Toast.Provider>
 			<Toast.Root
-				className="flex gap-6 items-center p-3 rounded-xl shadow-lg shadow-neutral-950/50 backdrop-blur-xl bg-linear-to-b from-neutral-800/75 to-neutral-900/90 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
+				className="flex gap-6 items-center p-3 rounded-xl shadow-lg shadow-neutral-950/50 backdrop-blur-xl bg-gradient-to-b from-neutral-800/75 to-neutral-900/90 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
 				open={toastOpen}
 				onOpenChange={setToastOpen}
 				duration={3000}
@@ -184,9 +184,9 @@ export default function Cards() {
 					<X className="fill-neutral-50" />
 				</Toast.Close>
 			</Toast.Root>
-			<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-60 outline-hidden" />
+			<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-60 outline-none" />
 			<div className="md:flex items-center gap-3 mb-6">
-				<div className="inline-flex whitespace-nowrap gap-3 grow mb-3 md:mb-0">
+				<div className="inline-flex whitespace-nowrap gap-3 flex-grow mb-3 md:mb-0">
 					<Checkbox checked={large} onCheckedChange={() => setLarge(!large)} id="large" />
 					<label htmlFor="large">{t("ICONS.Content.largeIcons")}</label>
 				</div>
@@ -210,8 +210,8 @@ export default function Cards() {
 					onClick={handleClear}
 					className={`absolute flex right-0 w-10 h-full items-center justify-center text-white rounded-tr-lg ${
 						filteredIcons.length === 0
-							? "hover:bg-red-800"
-							: search && "hover:bg-neutral-900"
+							? "hover:bg-red-800 cursor-pointer"
+							: search && "hover:bg-neutral-900 cursor-pointer"
 					} duration-100`}
 				>
 					{search ? <X /> : <Search />}
@@ -224,7 +224,7 @@ export default function Cards() {
 					maxLength={30}
 					onChange={handleSearchChange}
 					ref={searchRef}
-					className={`w-full bg-neutral-950 focus:bg-neutral-950 border outline-hidden focus:outline-hidden border-neutral-900 hover:border-neutral-800 focus:hover:border-neutral-900 hover:bg-neutral-900 text-white placeholder:text-neutral rounded-lg ${
+					className={`w-full bg-neutral-950 focus:bg-neutral-950 border outline-none focus:outline-none border-neutral-900 hover:border-neutral-800 focus:hover:border-neutral-900 hover:bg-neutral-900 text-neutral-50 placeholder:text-neutral rounded-lg ${
 						search !== "" && "rounded-b-none"
 					} px-3 py-2 duration-100`}
 				/>
@@ -289,7 +289,7 @@ export default function Cards() {
 						className="fixed flex items-center justify-center gap-6 z-100 bottom-0 inset-x-0 py-6"
 					>
 						<FadingImage src={JiggyGif} alt="A jiggy!" className="size-32" />
-						<span className="bg-clip-text bg-linear-to-b from-orange-100 to-orange text-8xl font-bold font-mono text-transparent">
+						<span className="bg-clip-text bg-gradient-to-b from-orange-100 to-orange text-8xl font-bold font-mono text-transparent">
 							{jiggies}
 						</span>
 					</a.div>

@@ -36,7 +36,7 @@ export default function NsfwDialog({ onAccept }: { onAccept: () => void }) {
 		<Dialog.Portal>
 			<Dialog.Overlay className="bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-100" />
 			<Dialog.Content
-				className="fixed flex flex-col lg:flex-row items-center gap-9 z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-svh md:h-max w-screen max-w-5xl md:rounded-xl bg-neutral-950 md:border border-white/10 md:outline outline-black/10 dark:outline-black/50 p-6 md:p-9 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl"
+				className="fixed flex flex-col lg:flex-row items-center gap-9 z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-svh md:h-max w-screen max-w-5xl md:rounded-xl bg-neutral-950 md:border border-white/10 md:outline outline-1 outline-black/10 dark:outline-black/50 p-6 md:p-9 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl"
 			>
 				<FadingImage
 					hideSpinner

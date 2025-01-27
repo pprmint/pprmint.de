@@ -5,7 +5,7 @@ export default function GallerySkeleton() {
                 {[...Array(20)].map((_, index) => (
                     <div
                         key={index}
-                        className="bg-neutral-900 rounded-lg w-full aspect-3/2"
+                        className="bg-neutral-900 rounded-lg w-full aspect-[3/2]"
                     />
                 ))}
             </div>

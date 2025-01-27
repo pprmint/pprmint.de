@@ -33,10 +33,10 @@ export default function Settings() {
 						<h3 className="text-lg">{t("Language.title")}</h3>
 						<button
 							onClick={() => setUserLocale(otherLocale!)}
-							className="group relative inline-flex w-60 h-[34px] hover:bg-neutral-900 border border-neutral-900 hover:border-neutral-800 rounded-full duration-100 active:duration-75"
+							className="group relative inline-flex w-60 h-[34px] hover:bg-elevate border border-neutral-900 hover:border-neutral-800 rounded-full duration-100 active:duration-75"
 						>
 							<div
-								className={`absolute w-[116px] group-active:w-[120px] h-7 top-0.5 text-center uppercase bg-linear-to-t dark:bg-linear-to-b from-neutral-50 to-neutral-100 text-neutral-950 shadow-sm rounded-full ${
+								className={`absolute w-[116px] group-active:w-[120px] h-7 top-0.5 text-center uppercase bg-gradient-to-t dark:bg-gradient-to-b from-neutral-50 to-neutral-100 text-neutral-950 shadow-sm rounded-full ${
 									currentLocale === "en" ? "left-0.5" : "left-1/2 group-active:left-[calc(50%_-_4px)]"
 								} duration-200 ease-out-cubic`}
 							/>

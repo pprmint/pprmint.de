@@ -32,9 +32,9 @@ export default async function Page() {
 							src="https://cms.pprmint.de/uploads/bg_f66021cc37.webp"
 							alt=""
 							fill
-							className="object-cover origin-[50%_10%] blur-sm scale-105"
+							className="object-cover origin-[50%_10%] blur scale-105"
 						/>
-						<div className="absolute inset-0 bg-linear-to-t from-neutral-950 via-75% via-transparent" />
+						<div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-75% via-transparent" />
 					</div>
 					<div className="relative z-10">
 						<div className="w-fit mb-10 px-3 xl:px-6 py-3 xl:py-5 mx-auto bg-red-600 rounded-md md:rounded-lg">

@@ -179,7 +179,7 @@ export default async function Page({
 							}}
 							className="absolute inset-0 bottom-0 h-full backdrop-blur-md pointer-events-none"
 						/>
-						<div className="absolute inset-0 bg-linear-to-t from-white dark:from-neutral-950" />
+						<div className="absolute inset-0 bg-gradient-to-t from-white dark:from-neutral-950" />
 					</div>
 					<div className="relative z-10 border-x border-black/5 dark:border-white/5 w-full max-w-8xl mx-auto flex items-center flex-col pt-96 pb-12 text-center text-balance dark:drop-shadow-[0px_2px_8px_#111]">
 						<h2>

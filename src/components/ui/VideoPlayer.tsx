@@ -318,7 +318,7 @@ function VideoPlayer(props: {
 							style={style}
 							className="absolute flex items-center justify-center w-full h-full z-10"
 						>
-							<button className="flex items-center justify-center z-10 size-24 md:size-32 bg-neutral-950/30 hover:bg-neutral-950/40 text-white rounded-full duration-100">
+							<button className="flex items-center justify-center z-10 size-24 md:size-32 bg-neutral-950/30 hover:bg-neutral-950/40 text-white rounded-full cursor-pointer duration-100">
 								<Play className="size-16 ml-2" />
 							</button>
 						</a.div>
@@ -346,7 +346,7 @@ function VideoPlayer(props: {
 							// @ts-expect-error
 							<a.div
 								style={style}
-								className="absolute top-0 left-0 right-0 z-30 bg-linear-to-b from-neutral-950/90"
+								className="absolute top-0 left-0 right-0 z-30 bg-gradient-to-b from-neutral-950/90"
 							>
 								<Progress.Root
 									className="relative overflow-hidden bg-neutral-50/30 w-full h-1"
@@ -371,7 +371,7 @@ function VideoPlayer(props: {
 								// @ts-expect-error
 								<a.div
 									style={style}
-									className="absolute top-0 left-0 right-0 p-6 z-20 h-20 bg-linear-to-b from-neutral-950/90 duration-500 ease-out-expo"
+									className="absolute top-0 left-0 right-0 p-6 z-20 h-20 bg-gradient-to-b from-neutral-950/90 duration-500 ease-out-expo"
 								>
 									<p className=" text-2xl text-white">{props.title}</p>
 								</a.div>
@@ -383,7 +383,7 @@ function VideoPlayer(props: {
 							// @ts-expect-error
 							<a.div
 								style={style}
-								className="absolute flex flex-col justify-end bottom-0 left-0 right-0 p-3 h-28 z-20 bg-linear-to-t from-neutral-950/90 duration-500 ease-out-expo"
+								className="absolute flex flex-col justify-end bottom-0 left-0 right-0 p-3 h-28 z-20 bg-gradient-to-t from-neutral-950/90 duration-500 ease-out-expo"
 							>
 								<div className="absolute flex items-center gap-5 top-10 inset-x-5 font-mono font-medium text-white text-xs">
 									<span>{formattedTime(currentTime)}</span>
@@ -393,13 +393,13 @@ function VideoPlayer(props: {
 										min={0}
 										max={duration}
 										step={0.001}
-										className="group/videoslider relative flex items-center select-none touch-none w-full h-6"
+										className="group/videoslider relative flex items-center select-none touch-none w-full h-6 cursor-pointer"
 									>
 										<Slider.Track className="bg-neutral-50/30 relative grow h-px group-hover/videoslider:h-[3px] rounded-full duration-100">
 											<Slider.Range className="absolute bg-neutral-50 h-[3px] -top-px group-hover/videoslider:top-0 rounded-full duration-100" />
 										</Slider.Track>
 									</Slider.Root>
-									<span onClick={toggleRemaining} className="mb-0 text-right">
+									<span onClick={toggleRemaining} className="mb-0 text-right cursor-pointer">
 										{showRemaining
 											? `-${formattedTime(duration - currentTime)}`
 											: formattedTime(duration)}
@@ -423,7 +423,7 @@ function VideoPlayer(props: {
 														min={0}
 														max={1}
 														step={0.1}
-														className="group/videoslider relative flex items-center select-none touch-none w-24 h-4"
+														className="group/videoslider relative flex items-center select-none touch-none w-24 h-4 cursor-pointer"
 													>
 														<Slider.Track className="bg-neutral-50/30 relative grow h-px group-hover/videoslider:h-[3px] rounded-full duration-100">
 															<Slider.Range className="absolute bg-neutral-50 h-[3px] -top-px group-hover/videoslider:top-0 rounded-full duration-100" />
@@ -464,7 +464,7 @@ function VideoPlayer(props: {
 				<ContextMenu.Portal>
 					<ContextMenu.Content className="z-50 text-neutral text-sm w-60 p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-lg rounded-lg overflow-hidden origin-[var(--radix-context-menu-content-transform-origin)] data-[state='open']:animate-scale-up data-[state='closed']:animate-scale-down">
 						<ContextMenu.CheckboxItem
-							className="group relative flex items-center gap-3 pr-2 pl-2 data-highlighted:pl-3 h-7 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-white data-highlighted:bg-neutral-50/10 active:opacity-75 duration-100 focus-visible:outline-hidden"
+							className="group relative flex items-center gap-3 pr-2 pl-2 data-[highlighted]:pl-3 h-7 rounded-sm leading-none select-none outline-none data-[disabled]:text-neutral data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-50 data-[highlighted]:bg-neutral-50/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-none"
 							checked={loopEnabled}
 							onCheckedChange={setLoopEnabled}
 						>
@@ -475,7 +475,7 @@ function VideoPlayer(props: {
 							</ContextMenu.ItemIndicator>
 						</ContextMenu.CheckboxItem>
 						<ContextMenu.Item
-							className="group relative flex items-center gap-3 pr-2 pl-2 data-highlighted:pl-3 h-7 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-white data-highlighted:bg-neutral-50/10 active:opacity-75 duration-100 focus-visible:outline-hidden"
+							className="group relative flex items-center gap-3 pr-2 pl-2 data-[highlighted]:pl-3 h-7 rounded-sm leading-none select-none outline-none data-[disabled]:text-neutral data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-50 data-[highlighted]:bg-neutral-50/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-none"
 							onClick={copyVideoUrl}
 						>
 							<LinkDiagonal />
@@ -483,7 +483,7 @@ function VideoPlayer(props: {
 						</ContextMenu.Item>
 
 						<ContextMenu.Sub>
-							<ContextMenu.SubTrigger className="group relative flex items-center gap-3 pr-2 pl-2 data-highlighted:pl-3 data-[state='open']:pl-3 h-7 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-white data-[state='open']:text-white data-highlighted:bg-neutral-50/10 active:opacity-75 data-[state='open']:bg-neutral-50/10 duration-100 focus-visible:outline-hidden">
+							<ContextMenu.SubTrigger className="group relative flex items-center gap-3 pr-2 pl-2 data-[highlighted]:pl-3 data-[state='open']:pl-3 h-7 rounded-sm leading-none select-none outline-none data-[disabled]:text-neutral data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-50 data-[state='open']:text-neutral-50 data-[highlighted]:bg-neutral-50/10 active:opacity-75 data-[state='open']:bg-neutral-50/10 duration-100 cursor-pointer focus-visible:outline-none">
 								<Speed75 />
 								{t("VideoPlayer.playbackSpeed")}
 								<div className="flex items-center ml-auto">
@@ -504,13 +504,13 @@ function VideoPlayer(props: {
 										{PlaybackSpeeds.map((speed) => (
 											<ContextMenu.RadioItem
 												key={speed}
-												className="group relative flex items-center gap-3 pl-[34px] hover:pl-[38px] h-7 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-white data-highlighted:bg-neutral-50/10 active:opacity-75 duration-100 focus-visible:outline-hidden"
+												className="group relative flex items-center gap-3 pl-[34px] hover:pl-[38px] h-7 rounded-sm leading-none select-none outline-none data-[disabled]:text-neutral data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-50 data-[highlighted]:bg-neutral-50/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-none"
 												value={speed}
 											>
-												<ContextMenu.ItemIndicator className="absolute left-2 group-data-highlighted:left-3 duration-100">
+												<ContextMenu.ItemIndicator className="absolute left-2 group-data-[highlighted]:left-3 duration-100">
 													<Check />
 												</ContextMenu.ItemIndicator>
-												<span className="absolute left-8 group-data-highlighted:left-9 duration-100">{`${speed}x`}</span>
+												<span className="absolute left-8 group-data-[highlighted]:left-9 duration-100">{`${speed}x`}</span>
 											</ContextMenu.RadioItem>
 										))}
 									</ContextMenu.RadioGroup>
@@ -520,7 +520,7 @@ function VideoPlayer(props: {
 
 						{!props.noDownload && (
 							<ContextMenu.Item
-								className="group relative flex items-center gap-3 pr-2 pl-2 data-highlighted:pl-3 h-7 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-white data-highlighted:bg-neutral-50/10 active:opacity-75 duration-100 focus-visible:outline-hidden"
+								className="group relative flex items-center gap-3 pr-2 pl-2 data-[highlighted]:pl-3 h-7 rounded-sm leading-none select-none outline-none data-[disabled]:text-neutral data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-50 data-[highlighted]:bg-neutral-50/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-none"
 								onClick={downloadVideo}
 								disabled={downloading}
 							>

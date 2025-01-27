@@ -36,7 +36,7 @@ function MessageBubble(props: { incoming?: boolean; id: string }) {
 				className={`w-fit max-w-[80%] px-4 py-2 rounded-3xl ${
 					props.incoming
 						? "rounded-bl-md bg-neutral-800 text-white"
-						: `rounded-br-md bg-linear-to-b ${
+						: `rounded-br-md bg-gradient-to-b ${
 								isAppleDevice
 									? "from-blue to-blue-600 selection:text-blue"
 									: "from-green to-green-600 selection:text-green"
@@ -211,8 +211,8 @@ function Chatbox() {
 			</Dialog.Trigger>
 			<Dialog.Portal>
 				<Dialog.Overlay className="bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-100" />
-				<Dialog.Content className="z-100 fixed w-full max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col bg-neutral-950 border border-white/10 outline outline-black/10 dark:outline-black/50 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl sm:rounded-xl overflow-clip h-svh md:h-2/3-screen">
-					<div className="absolute top-0 left-0 right-0 flex gap-6 items-center justify-between py-2 backdrop-blur-xl bg-linear-to-b from-[#fafafabb] dark:from-[#282828bb] to-[#eeeeeeaa] dark:to-[#222222aa] shadow-lg shadow-neutral-950/50 z-10">
+				<Dialog.Content className="z-100 fixed w-full max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col bg-neutral-950 border border-white/10 outline outline-1 outline-black/10 dark:outline-black/50 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl sm:rounded-xl overflow-clip h-svh md:h-2/3-screen">
+					<div className="absolute top-0 left-0 right-0 flex gap-6 items-center justify-between py-2 backdrop-blur-xl bg-gradient-to-b from-[#fafafabb] dark:from-[#282828bb] to-[#eeeeeeaa] dark:to-[#222222aa] shadow-lg shadow-neutral-950/50 z-10">
 						<div className="w-1/5">
 							<Dialog.Close asChild>
 								<button className="flex items-center text-white hover:opacity-75 duration-100">
@@ -272,8 +272,8 @@ function Chatbox() {
 									<a.div style={style} className="flex flex-col gap-3 items-end py-3">
 										{clickedQuestions.length > 0 && (
 											<button
-												className={`w-fit max-w-[80%] px-3 py-1 border border-neutral-900 hover:border-neutral-800 hover:bg-neutral-900 hover:text-white text-sm text-left rounded-2xl rounded-br-md duration-100 ${
-													answering ? "opacity-50 pointer-events-none" : ""
+												className={`w-fit max-w-[80%] px-3 py-1 border border-neutral-900 hover:border-neutral-800 hover:bg-elevate hover:text-neutral-50 text-sm text-left rounded-2xl rounded-br-md duration-100 ${
+													answering ? "opacity-50 pointer-events-none" : "cursor-pointer"
 												}`}
 												onClick={() => handleEnding("Ending")}
 											>
@@ -283,8 +283,8 @@ function Chatbox() {
 										{availableMessages.map((id, index) => (
 											<button
 												key={index}
-												className={`w-fit max-w-[80%] px-3 py-1 border border-neutral-900 hover:border-neutral-800 hover:bg-neutral-900 hover:text-white text-sm text-left rounded-2xl rounded-br-md duration-100 ${
-													answering ? "opacity-50 pointer-events-none" : ""
+												className={`w-fit max-w-[80%] px-3 py-1 border border-neutral-900 hover:border-neutral-800 hover:bg-elevate hover:text-neutral-50 text-sm text-left rounded-2xl rounded-br-md duration-100 ${
+													answering ? "opacity-50 pointer-events-none" : "cursor-pointer"
 												}`}
 												onClick={() => handleMessageClick(id)}
 											>

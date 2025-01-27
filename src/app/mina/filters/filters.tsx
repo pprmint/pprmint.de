@@ -85,9 +85,9 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 		return (
 			<Select.Item
 				value={props.value}
-				className="group relative flex items-center gap-3 pr-2 pl-2 data-highlighted:pl-3 h-8 rounded-xs leading-none select-none outline-hidden data-disabled:text-neutral data-disabled:pointer-events-none data-highlighted:text-white data-[state=checked]:text-white data-highlighted:bg-neutral-50/10 active:opacity-75 duration-100 focus-visible:outline-hidden"
+				className="group relative flex items-center gap-3 pr-2 pl-2 data-[highlighted]:pl-3 h-8 rounded-sm leading-none select-none outline-none data-[disabled]:text-neutral data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-50 data-[state=checked]:text-neutral-50 data-[highlighted]:bg-neutral-50/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-none"
 			>
-				<Select.ItemText className="grow">{props.children}</Select.ItemText>
+				<Select.ItemText className="flex-grow">{props.children}</Select.ItemText>
 				<Select.ItemIndicator className="ml-auto">
 					<Check />
 				</Select.ItemIndicator>
@@ -132,8 +132,8 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 								)}
 							</div>
 							<Select.Portal>
-								<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl bg-linear-to-b from-neutral-900/90 to-neutral-900/80 border border-white/10 ring-1 ring-black/10 dark:ring-black/50 shadow-lg rounded-lg data-[state=open]:animate-select-open">
-									<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-linear-to-b from-neutral-900/50 text-white rounded-t-md">
+								<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl bg-gradient-to-b from-elevate/90 to-elevate/80 border border-white/10 ring-1 ring-black/10 dark:ring-black/50 shadow-lg rounded-lg data-[state=open]:animate-select-open">
+									<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-neutral-900/50 text-neutral-50 rounded-t-md">
 										<ChevronUp />
 									</Select.ScrollUpButton>
 									<Select.Viewport className="p-1">
@@ -151,7 +151,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 												))}
 										</Select.Group>
 									</Select.Viewport>
-									<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-linear-to-t from-neutral-900/50 text-white rounded-b-md">
+									<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-neutral-900/50 text-neutral-50 rounded-b-md">
 										<ChevronDown />
 									</Select.ScrollDownButton>
 								</Select.Content>

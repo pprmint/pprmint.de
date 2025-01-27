@@ -1,19 +1,6 @@
-@import "tailwindcss";
-
-@config "../tailwind.config.js";
-
-@utility text-link {
-	@apply font-medium text-neutral-950 dark:text-white underline decoration-1 decoration-dotted hover:decoration-solid decoration-neutral-50/50 hover:decoration-neutral-50 duration-100 underline-offset-2;
-}
-
-@utility text-link-external {
-	@apply font-medium text-blue underline decoration-1 decoration-dotted hover:decoration-solid decoration-blue/50 hover:decoration-blue duration-100 underline-offset-2;
-}
-
-@utility italic {
-	font-style: italic;
-	font-variation-settings: "slnt" -12; /* For DINish font. */
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
 	h1 {
@@ -32,7 +19,50 @@
 		@apply text-neutral-950 dark:text-white text-lg md:text-xl lg:text-2xl pb-1;
 	}
 	h6 {
-		@apply text-neutral-950 dark:text-white md:text-lg lg:text-xl pb-1;
+		@apply text-neutral-50 md:text-lg lg:text-xl pb-1;
+	}
+}
+
+@layer components {
+	.text-link {
+		@apply font-medium text-neutral-50 underline decoration-1 decoration-dotted hover:decoration-solid decoration-neutral-50/50 hover:decoration-neutral-50 duration-100 underline-offset-2;
+	}
+	.text-link-external {
+		@apply font-medium text-blue underline decoration-1 decoration-dotted hover:decoration-solid decoration-blue/50 hover:decoration-blue duration-100 underline-offset-2;
+	}
+}
+
+@layer utilities {
+	.font-stretch-ultra-condensed {
+		font-stretch: ultra-condensed;
+	}
+	.font-stretch-extra-condensed {
+		font-stretch: extra-condensed;
+	}
+	.font-stretch-condensed {
+		font-stretch: condensed;
+	}
+	.font-stretch-semi-condensed {
+		font-stretch: semi-condensed;
+	}
+	.font-stretch-normal {
+		font-stretch: normal;
+	}
+	.font-stretch-semi-expanded {
+		font-stretch: semi-expanded;
+	}
+	.font-stretch-expanded {
+		font-stretch: expanded;
+	}
+	.font-stretch-extra-expanded {
+		font-stretch: extra-expanded;
+	}
+	.font-stretch-ultra-expanded {
+		font-stretch: ultra-expanded;
+	}
+	.italic {
+		font-style: italic;
+		font-variation-settings: "slnt" -12; /* For DINish font. */
 	}
 }
 

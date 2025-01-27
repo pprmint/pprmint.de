@@ -72,7 +72,7 @@ export default function Tester() {
 							<Slider.Track className="relative grow rounded-full bg-neutral-900 group-hover:bg-green-700 h-px duration-100">
 								<Slider.Range className="absolute bg-green-700 rounded-full h-1 -translate-y-0.5" />
 							</Slider.Track>
-							<Slider.Thumb className="block size-3 group-hover:size-4 focus-visible:size-4 bg-green ring-2 ring-neutral-950 rounded-full outline-hidden duration-100" />
+							<Slider.Thumb className="block size-3 group-hover:size-4 focus-visible:size-4 bg-green ring-2 ring-neutral-950 rounded-full outline-none duration-100" />
 						</Slider.Root>
 						<sub className="pt-3 pb-2">{t("Content.Tester.size")}</sub>
 					</div>
@@ -89,7 +89,7 @@ export default function Tester() {
 							<Slider.Track className="relative grow rounded-full bg-neutral-900 group-hover:bg-green-700 h-px duration-100">
 								<Slider.Range className="absolute bg-green-700 rounded-full h-1 -translate-y-0.5" />
 							</Slider.Track>
-							<Slider.Thumb className="block size-3 group-hover:size-4 focus-visible:size-4 bg-green ring-2 ring-neutral-950 rounded-full outline-hidden duration-100" />
+							<Slider.Thumb className="block size-3 group-hover:size-4 focus-visible:size-4 bg-green ring-2 ring-neutral-950 rounded-full outline-none duration-100" />
 						</Slider.Root>
 						<sub className="pt-3 pb-2">{t("Content.Tester.spacing")}</sub>
 					</div>
@@ -105,7 +105,7 @@ export default function Tester() {
 				</div>
 			</Toolbar.Root>
 			<textarea
-				className={`flex w-full p-3 md:p-6 font-mintbit text-neutral placeholder:text-neutral focus:text-white bg-transparent focus:outline-hidden focus-visible:outline-hidden rounded-md min-h-[200px] h-1/2-screen ${textAlignment}`}
+				className={`flex w-full p-3 md:p-6 font-mintbit text-neutral placeholder:text-neutral focus:text-neutral-50 bg-transparent focus:outline-none focus-visible:outline-none rounded-md min-h-[200px] h-1/2-screen ${textAlignment}`}
 				placeholder={t("Content.Tester.pangram")}
 				style={{
 					fontSize: `${fontSize}em`,
