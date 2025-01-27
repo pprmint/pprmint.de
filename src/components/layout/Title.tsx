@@ -73,7 +73,7 @@ export default function Title(
 										delay: props.children ? 0.6 : 0.35,
 									},
 								}}
-								className={`text-xl md:text-2xl xl:text-3xl ${props.children && "text-white/75"}`}
+								className={`text-xl md:text-2xl xl:text-3xl ${props.children && "text-white/75"} max-w-64 sm:max-w-none`}
 							>
 								{props.description}
 							</m.p>
@@ -86,7 +86,7 @@ export default function Title(
 									rel="noopener noreferrer"
 									className="absolute bottom-0 bg-black/5 dark:bg-white/5"
 								>
-									<button className="inline-flex p-0.5 items-center gap-1 text-xs md:text-sm px-3 py-2 font-medium hover:font-bold text-white hover:text-neutral-950 disabled:text-white0 hover:bg-white active:bg-neutral-50 drop-shadow-md active:drop-shadow-none duration-100 active:duration-75 active:shadow-inner overflow-hidden">
+									<button className="inline-flex p-0.5 items-center gap-1 text-xs md:text-sm hover:px-3 py-2 font-medium hover:font-bold text-white hover:text-neutral-950 disabled:text-white hover:bg-white active:bg-neutral-50 drop-shadow-md active:drop-shadow-none duration-100 active:duration-75 active:shadow-inner overflow-hidden">
 										{t("artDrawnBy")}
 										{props.creditName}
 									</button>

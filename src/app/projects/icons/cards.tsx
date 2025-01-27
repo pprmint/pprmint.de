@@ -246,7 +246,7 @@ export default function Cards() {
 										<div className={large ? "*:size-[30px]" : ""}>{icon.icon}</div>
 										<div className="leading-none text-sm">
 											{highlightMatches(icon.names[0], search)}
-											<div className="leading-none flex gap-x-1 text-[0.6rem] text-white0 flex-wrap">
+											<div className="leading-none flex gap-x-1 text-[0.6rem] text-white flex-wrap">
 												{icon.names.slice(1).map((name, index) => (
 													<Fragment key={index}>
 														{index > 0 && " • "}
