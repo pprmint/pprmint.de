@@ -113,7 +113,7 @@ export default async function Page() {
 									<div className="w-full border-y border-black/5 dark:border-white/5 h-12">
 										<Link
 											href="/mina"
-											className="flex gap-3 items-center text-lg hover:text-neutral-950 hover:font-bold group h-full w-max hover:px-4 mx-auto hover:bg-neutral-50 active:bg-neutral-100 hover:shadow-md active:shadow-inner duration-200 ease-out-expo active:duration-75"
+											className="flex gap-3 items-center text-lg hover:text-white dark:hover:text-neutral-950 hover:font-bold group h-full w-max hover:px-4 mx-auto hover:bg-neutral-900 dark:hover:bg-white active:bg-neutral-950 dark:active:bg-neutral-100 hover:shadow-md active:shadow-inner duration-200 ease-out-expo active:duration-75"
 										>
 											{t("Content.Mina.button")}
 											<HeartFilled />

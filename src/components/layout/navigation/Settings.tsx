@@ -23,7 +23,7 @@ export default function Settings() {
 			</Dialog.Trigger>
 			<Dialog.Portal>
 				<Dialog.Overlay className="fixed z-100 inset-0 bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out" />
-				<Dialog.Content className="fixed z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-svh md:h-max w-screen md:max-w-2xl md:rounded-xl bg-neutral-950 md:border border-white/10 md:outline outline-black/10 dark:outline-black/50 p-6 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl">
+				<Dialog.Content className="fixed z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-svh md:h-max w-screen md:max-w-2xl md:rounded-xl bg-white dark:bg-neutral-950 md:border border-white/10 md:outline outline-black/10 dark:outline-black/50 p-6 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl">
 					<Dialog.Title className="text-2xl pb-0">
 						{t("title")}
 						<span className="text-green">.</span>

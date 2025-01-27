@@ -30,11 +30,11 @@ export default function RefSheet() {
 	}) {
 		return (
 			<Dialog.Portal>
-				<Dialog.Overlay className="bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
+				<Dialog.Overlay className="bg-white/90 dark:bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
 				<Dialog.Content
 					className={`fixed inset-0 overflow-auto lg:overflow-clip z-100 flex flex-col ${
 						!col && "lg:flex-row"
-					} gap-12 items-center top-1/2 left-1/2 h-svh lg:h-max lg:max-h-[90vh] w-screen max-w-7xl -translate-x-1/2 -translate-y-1/2 p-6 md:p-9 bg-neutral-950 lg:border border-white/10 lg:outline outline-1 outline-black/10 dark:outline-black/50 shadow-2xl lg:rounded-xl data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit focus:outline-none origin-center`}
+					} gap-12 items-center top-1/2 left-1/2 h-svh lg:h-max lg:max-h-[90vh] w-screen max-w-7xl -translate-x-1/2 -translate-y-1/2 p-6 md:p-9 bg-white dark:bg-neutral-950 lg:border border-white/10 lg:outline outline-1 outline-black/10 dark:outline-black/50 shadow-2xl lg:rounded-xl data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit focus:outline-none origin-center`}
 				>
 					{reference}
 					<div>

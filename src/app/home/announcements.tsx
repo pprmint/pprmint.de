@@ -85,7 +85,7 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 										href={data.data[current].link}
 										target={data.data[current].link.startsWith("/") ? "_self" : "_blank"}
 										rel="noopener noreferrer"
-										className="flex gap-3 items-center text-lg hover:text-neutral-950 hover:font-bold group size-full hover:px-4 hover:bg-neutral-50 active:bg-neutral-100 hover:shadow-md active:shadow-inner duration-200 ease-out-expo active:duration-75"
+										className="flex gap-3 items-center text-lg hover:text-white dark:hover:text-neutral-950 hover:font-bold group size-full hover:px-4 hover:bg-neutral-900 dark:hover:bg-neutral-50 active:bg-neutral-950 dark:active:bg-neutral-100 hover:shadow-md active:shadow-inner duration-200 ease-out-expo active:duration-75"
 									>
 										<span>{data.data[current].linkText}</span>
 										{data.data[current].link.startsWith("/") ? (
@@ -94,7 +94,7 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 												<ArrowRight
 													width={20}
 													height={20}
-													className="text-neutral-950 stroke-current stroke-[1.5px] absolute -translate-x-full group-hover:translate-x-0 group-hover:duration-300 ease-out-quint"
+													className="text-white dark:text-neutral-950 stroke-current stroke-[1.5px] absolute -translate-x-full group-hover:translate-x-0 group-hover:duration-300 ease-out-quint"
 												/>
 											</div>
 										) : (
@@ -107,7 +107,7 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 												<ArrowUpRight
 													width={20}
 													height={20}
-													className="text-neutral-950 stroke-current stroke-[1.5px] absolute -translate-x-full translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 group-hover:duration-300 ease-out-quint"
+													className="text-white dark:text-neutral-950 stroke-current stroke-[1.5px] absolute -translate-x-full translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 group-hover:duration-300 ease-out-quint"
 												/>
 											</div>
 										)}
@@ -117,7 +117,7 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 						</AnimatePresence>
 						<div className="relative flex ml-auto border-l border-black/5 dark:border-white/5 divide-x divide-neutral-50/5">
 							<button
-								className="relative group w-12 h-full text-white hover:text-neutral-950 disabled:text-white0 hover:bg-neutral-50 active:bg-neutral-100 hover:shadow-md duration-100 active:duration-75 active:shadow-inner overflow-hidden"
+								className="relative group w-12 h-full text-neutral-950 dark:text-white hover:text-white dark:hover:text-neutral-950 disabled:text-neutral-500/50 hover:bg-neutral-950 dark:hover:bg-white active:bg-neutral-950 dark:active:bg-neutral-100 hover:shadow-md duration-100 active:duration-75 active:shadow-inner overflow-hidden"
 								onClick={handleNext}
 							>
 								<AnimatePresence mode="wait">
@@ -145,7 +145,7 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 								</AnimatePresence>
 							</button>
 							<button
-								className="relative group w-12 h-full text-white hover:text-neutral-950 disabled:text-white0 hover:bg-neutral-50 active:bg-neutral-100 hover:shadow-md duration-100 active:duration-75 active:shadow-inner overflow-hidden"
+								className="relative group w-12 h-full text-neutral-950 dark:text-white hover:text-white dark:hover:text-neutral-950 disabled:text-neutral-500/50 hover:bg-neutral-950 dark:hover:bg-white active:bg-neutral-950 dark:active:bg-neutral-100 hover:shadow-md duration-100 active:duration-75 active:shadow-inner overflow-hidden"
 								onClick={handlePrevious}
 							>
 								<AnimatePresence mode="wait">
@@ -173,7 +173,7 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 								</AnimatePresence>
 							</button>
 							<m.div
-								className="absolute bottom-0 lg:-bottom-px bg-neutral-50 h-px"
+								className="absolute bottom-0 lg:-bottom-px bg-neutral-950 dark:bg-white h-px"
 								style={{
 									width: `${100 / data.data.length}%`,
 									left: `${current * (100 / data.data.length)}%`,
