@@ -59,13 +59,13 @@ export default async function Page() {
 					/>
 				</div>
 			</Title>
-			<main>
-				<section className="max-w-7xl mx-auto my-20 md:my-32 xl:my-40 px-6 md:px-9 flex flex-col items-center justify-center">
+			<main className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+				<section className="w-full mx-auto py-20 md:py-32 xl:py-40 px-6 md:px-9 flex flex-col items-center justify-center border-x border-black/5 dark:border-white/5">
 					<h2>{t("Content.Mina.heading")}</h2>
 					<p className="pb-6">{t("Content.Mina.text")}</p>
 					<Chatbox />
 				</section>
-				<section className="group relative w-full overflow-clip border-y border-y-neutral-900">
+				<section className="group relative w-full overflow-clip border border-black/5 dark:border-white/5">
 					<div className="max-w-7xl mx-auto py-12">
 						<div className="max-w-xl lg:max-w-3xl px-6 md:px-9 py-9 h-full">
 							<h2>
@@ -94,7 +94,7 @@ export default async function Page() {
 						className="invert dark:invert-0 absolute -z-10 w-1/2 md:w-1/3 h-auto bottom-0 md:top-1/2 md:-translate-y-1/2 right-0 xl:right-12 2xl:right-40 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
 					/>
 				</section>
-				<section className="group relative w-full overflow-clip border-b border-b-neutral-900">
+				<section className="group relative w-full overflow-clip border-b border-x border-black/5 dark:border-white/5">
 					<div className="max-w-7xl mx-auto py-12">
 						<div className="max-w-xl lg:max-w-3xl px-6 md:px-9 py-9 h-full">
 							<h2>
