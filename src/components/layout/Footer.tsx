@@ -197,7 +197,7 @@ export default function Footer() {
 								<button
 									key={item.name}
 									onClick={() => setTheme(item.name)}
-									className={`p-1.5 ${theme === item.name ? "text-neutral-950 dark:text-white bg-neutral-950/5 dark:bg-neutral-50/5" : "text-white hover:bg-neutral-950/5 hover:dark:bg-neutral-50/5"}`}
+									className={`p-1.5 ${theme === item.name ? "text-neutral-950 dark:text-white bg-neutral-950/5 dark:bg-neutral-50/5" : "hover:bg-neutral-950/5 hover:dark:bg-neutral-50/5"}`}
 								>
 									{item.icon}
 								</button>
