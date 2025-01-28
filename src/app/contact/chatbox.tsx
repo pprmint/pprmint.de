@@ -12,16 +12,7 @@ import ChevronLeft from "src/icons/ChevronLeft";
 import Heart from "src/icons/Heart";
 import HeartBroken from "src/icons/HeartBroken";
 
-const Messages = [
-	"WhoYou",
-	"WhyPprmint",
-	"WhoWebsite",
-	"UseSelf",
-	"ProjectTerms",
-	"WhatSoftware",
-	"OfferCommissions",
-	"OwnQuestion",
-];
+const Messages = ["WhoYou", "WhyPprmint", "WhoWebsite", "UseSelf", "ProjectTerms", "WhatSoftware", "OfferCommissions", "OwnQuestion"];
 
 function MessageBubble(props: { incoming?: boolean; id: string }) {
 	const t = useTranslations("CHAT");
@@ -37,10 +28,8 @@ function MessageBubble(props: { incoming?: boolean; id: string }) {
 					props.incoming
 						? "rounded-bl-md bg-neutral-800 text-white"
 						: `rounded-br-md bg-gradient-to-b ${
-								isAppleDevice
-									? "from-blue to-blue-600 selection:text-blue"
-									: "from-green to-green-600 selection:text-green"
-						  } text-neutral-950 selection:bg-neutral-950`
+								isAppleDevice ? "from-blue to-blue-600 selection:text-blue" : "from-green to-green-600 selection:text-green"
+							} text-neutral-950 selection:bg-neutral-950`
 				}`}
 			>
 				{t.rich(`Messages.${props.id}.${props.incoming ? "answer" : "message"}`, {
@@ -144,17 +133,11 @@ function Chatbox() {
 	return (
 		<Dialog.Root>
 			<Dialog.Trigger asChild>
-				<button className="group relative flex items-center ring-2 hover:ring-8 ring-neutral hover:ring-transparent rounded-md rounded-tl-xl rounded-br-xl hover:rounded-md duration-500 ease-out-expo">
-					<div className="absolute z-0 flex items-center w-full h-full overflow-hidden group-hover:blur-lg duration-200">
-						<div
-							className="absolute w-full aspect-square opacity-0 group-hover:opacity-100 rounded-full animate-slow-spin duration-200"
-							style={{
-								backgroundImage:
-									"conic-gradient(#f44, #f71, #fb0, #9c3, #4b5, #2cf, #29f, #a7e, #e6b, #f44)",
-							}}
-						/>
-					</div>
-					<div className="z-10 flex whitespace-nowrap items-center gap-3 px-3 hover:px-4  hover:font-bold text-3xl text-white bg-neutral-950 group-focus-visible:bg-neutral-800 rounded-md rounded-tl-xl rounded-br-xl group-hover:rounded-md duration-500 ease-out-expo">
+				<button className="group relative h-14">
+					<div
+						className="relative z-10 flex whitespace-nowrap items-end gap-3 hover:font-bold text-3xl lg:text-4xl xl:text-5xl text-neutral-950 dark:text-white group-focus-visible:bg-neutral-800 group-hover:drop-shadow-md duration-500 ease-out-expo"
+						style={{ lineHeight: "0.76em" }}
+					>
 						<div className="relative h-14 w-16 overflow-clip">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -168,23 +151,23 @@ function Chatbox() {
 								/>
 								<path
 									d="M621.186 253.184c-2.867-3.884-12.016-6.746-12.053-6.853-4.709-13.826 4.858-29.103 23.043-32.89a1.02 1.02 0 0 1 1.167 1.334c-1.363 4.081-4.368 14.726-.943 20.892 4.563 8.214.66 15.407-6.739 21.582-.312.261-3.786-3.766-4.22-7.517a54 54 0 0 1-.331-6.324 72 72 0 0 1 .298-6.318c.122-1.409.278-2.811.481-4.186.453-3.053 1.137-5.963 2.112-8.501 1.193-3.106 2.789-5.651 4.885-7.186-2.055 1.261-3.776 3.401-5.156 6.094-.778 1.518-1.443 3.21-1.995 5.015a42 42 0 0 0-1.24 5.254 44 44 0 0 0-.463 3.567 46 46 0 0 0-.167 3.592 50 50 0 0 0 .242 5.382c.138 1.385.007 2.845 1.079 7.063"
-									className="fill-neutral group-hover:fill-neutral-50 duration-300"
+									className="fill-neutral-950 dark:fill-white"
 									transform="translate(-513.052 -207)"
 								/>
 								<path
 									d="M494.452 269.483c.589-.853 7.255-12.585 6.943-20.893-3.059 18.949-18.026 30.479-21.435 32.391 0 0 5.597-10.872 4.986-21.615C474.237 309.56 436.311 305.386 424 299c0 0 15.037.885 25.146-18.976-9.611 9.007-20.714 10.065-20.714 10.065 27.834-11.204 26.602-53.333 23.559-84.122-.077-.148-30.614-22.644-40.991-44.967 11.628 28.253 37.808 46.1 37.808 46.1S435.409 216.647 426 214c-17.22-4.845-28-26-36-42 0 0 4.669 18.725 17 33-50-29.734-33-90-33-90-10.467 21.224-1.43 70.224-1.43 70.224C371.155 185.015 356 178 352 158c.58 8.792 1.231 17.507 6 26-13.036-4.563-19.999-14.556-20-25-.002-19.199 10.497-31.245 10.497-31.245S335 140.588 335 165c0 5.168-2.485 30.814-1.323 36.99-1.971-.618-4.785-8.036-4.785-8.036-3.468 26.878-4.511 77.617 8.655 89.915 0 0-11.792-9.455-16.419-30.205A154 154 0 0 0 321 260c0 24 13 36 13 36-.128.199-18.786-4.075-32.252-16.191-3.18-2.861-8.388-8.89-8.388-8.89.596 4.13 2.044 7.763 4.171 11.434-6.384-3.582-12.636-14.998-17.394-24.418-6.679-13.223-9.571-24.054-8.5-35.083 1.579-16.261 10.508-27.876 14.252-32.177-6.363 4.592-11.018 14.447-11.018 14.447-.789-6.792.362-20.81 5.371-29.158C285.562 167.097 299.878 148.4 306 140c0 0-6.774 4.973-10.952 4.862 7.825-4.879 20.429-19.029 23.002-22.994C326.322 109.117 335.28 96.36 348 89c18.962-10.972 32.971-15.759 44.981-14.367 7.539.874 13.289 5.773 27.299 4.106 8.422-1.003 19.448 3.225 27.166 7.541 17.113 9.571 28.065 25.146 37.236 42.019 5.128 9.436 8.561 19.78 11.137 30.102 3.029 12.138 11.375 42.074 24.17 47.592 0 0-7.046 1.084-14.052-3.722 1.749 5.153 3.954 10.197 6.581 14.869C517.16 225.395 520 238 516 248c-5.85 14.625-20.804 21.165-21.548 21.483m0 0q-.063.091-.028.012zM321.425 144.862c-3.427 5.311-7.564 13.865-12.14 23.287-2.475 5.096-5.08 10.442-7.783 15.661a296 296 0 0 1-4.421 8.241c-1.566 2.803-3.14 5.51-4.757 8.031a64 64 0 0 0-3.202 5.619c-2.459 4.898-4.012 9.649-4.895 14.217-1.487 7.682-1.077 14.837.058 21.321-.912-6.477-1.063-13.59.642-21.175 1.003-4.465 2.655-9.091 5.182-13.854a65 65 0 0 1 3.247-5.457 135 135 0 0 0 4.887-8.052 199 199 0 0 0 4.385-8.319c2.632-5.268 5.123-10.683 7.462-15.856 4.311-9.536 8.092-18.245 11.335-23.664m116.174-22.994a41 41 0 0 0 .075 6.167c.243 2.903.751 5.991 1.536 9.152a65.5 65.5 0 0 0 3.286 9.792 60 60 0 0 0 1.77 3.739 65 65 0 0 0 3.097 5.371 61 61 0 0 0 3.595 5.041 53 53 0 0 0 6.35 6.725c-2.115-2.147-4.052-4.547-5.834-7.109a70 70 0 0 1-3.261-5.173 81 81 0 0 1-2.821-5.413 104 104 0 0 1-1.671-3.708 103 103 0 0 1-1.535-3.766 85 85 0 0 1-1.981-5.773c-.932-3.081-1.641-6.086-2.076-8.932-.329-2.149-.515-4.198-.53-6.113m42.155 27.045c.031 2.708.46 6.158 1.173 10.122.8 4.445 1.945 9.533 3.264 14.944a530 530 0 0 0 1.654 6.59c.834 3.242 1.702 6.548 2.58 9.852.485 1.825.976 3.649 1.464 5.462.745 2.768 1.482 5.51 2.179 8.193 1.26 4.847 2.391 9.496 3.242 13.74 1.503 7.489 2.15 13.704 1.131 17.475 1.084-3.455.855-9.058-.161-15.85-.486-3.249-1.149-6.769-1.941-10.453a356 356 0 0 0-3.451-14.466 590 590 0 0 0-2.591-9.56c-1.37-4.924-2.748-9.757-3.983-14.302-2.406-8.861-4.286-16.61-4.56-21.747"
-									className="fill-neutral group-hover:fill-neutral-50 duration-300"
+									className="fill-neutral-950 dark:fill-white"
 									transform="matrix(.51246 0 0 .51246 -129.197 -1.568)"
 								/>
 								<g className="group-hover:rotate-45 group-active:rotate-[30deg] duration-300 group-active:duration-75 ease-in-out-custom origin-[51.6%_24.4%]">
 									<path
 										d="M378 54c17.022 0 15.506-6.048-2-4s-22.829 13.544-24 26 10.132 60.361 22 68.846c0 0-14-36.846-14-53.846s4.479-37 18-37"
-										className="fill-neutral-950"
+										className="fill-white dark:fill-neutral-950"
 										transform="matrix(.51246 0 0 .51246 -126.696 .933)"
 									/>
 									<path
 										d="M414 79c-2.127-10.527-20.494-31.048-38-29s-22.829 13.544-24 26 10.132 60.361 22 68.846c0 0-14-36.846-14-53.846s4.479-37 18-37c17.022 0 31.742 21.048 34.768 25.226.165.229.547.603.804.503.27-.105.487-.437.428-.729"
-										className="fill-neutral group-hover:fill-neutral-50 duration-300"
+										className="fill-neutral-950 dark:fill-white"
 										transform="matrix(.51246 0 0 .51246 -129.197 -1.568)"
 									/>
 								</g>
@@ -207,12 +190,23 @@ function Chatbox() {
 						</div>
 						{t("button")}
 					</div>
+					<div className="absolute w-[300%] left-1/2 -translate-x-1/2 h-24 overflow-hidden pointer-events-none">
+					<div className="absolute w-full h-px bg-gradient-to-r from-transparent via-black/5 dark:via-white/5 to-transparent" />
+						<div className="absolute w-full aspect-square -translate-y-[99%]">
+							<div
+								className="absolute w-full aspect-square opacity-0 group-hover:opacity-100 rounded-full animate-slow-spin group-hover:blur-xl duration-300"
+								style={{
+									backgroundImage: "conic-gradient(#f44, #f71, #fb0, #9c3, #4b5, #2cf, #29f, #a7e, #e6b, #f44)",
+								}}
+							/>
+						</div>
+					</div>
 				</button>
 			</Dialog.Trigger>
 			<Dialog.Portal>
 				<Dialog.Overlay className="bg-white/90 dark:bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-100" />
 				<Dialog.Content className="z-100 fixed w-full max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col bg-white dark:bg-neutral-950 border border-white/10 outline outline-1 outline-black/10 dark:outline-black/50 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl sm:rounded-xl overflow-clip h-svh md:h-2/3-screen">
-					<div className="absolute top-0 left-0 right-0 flex gap-6 items-center justify-between py-2 backdrop-blur-xl bg-gradient-to-b from-[#fafafabb] dark:from-[#282828bb] to-[#eeeeeeaa] dark:to-[#222222aa] shadow-lg shadow-neutral-950/50 z-10">
+					<div className="absolute top-0 left-0 right-0 flex gap-6 items-center justify-between py-2 backdrop-blur-xl bg-gradient-to-b from-[#fafafabb] dark:from-[#282828bb] to-[#eeeeeeaa] dark:to-[#222222aa] shadow-lg dark:shadow-neutral-950/50 z-10">
 						<div className="w-1/5">
 							<Dialog.Close asChild>
 								<button className="flex items-center text-neutral-950 dark:text-white hover:opacity-75 duration-100">
@@ -222,15 +216,11 @@ function Chatbox() {
 							</Dialog.Close>
 						</div>
 						<div className="w-2/5 text-center">
-							<Dialog.Title className="text-white font-medium text-sm font-sans pb-0 leading-3">Mina</Dialog.Title>
+							<Dialog.Title className="text-neutral-950 dark:text-white font-medium text-sm font-sans pb-0 leading-3">Mina</Dialog.Title>
 							<Dialog.Description className="text-sm">{t(noTalky ? "titleAngy" : "title")}</Dialog.Description>
 						</div>
 						<div className="w-1/5 pr-2">
-							<Image
-								alt="Mina art by Nekomimi"
-								src={Mina}
-								className="ml-auto size-10 rounded-full overflow-hidden self-end"
-							/>
+							<Image alt="Mina art by Nekomimi" src={Mina} className="ml-auto size-10 rounded-full overflow-hidden self-end" />
 						</div>
 					</div>
 					<div className="px-3 lg:px-6 h-full overflow-y-scroll pt-14 lg:pt-16" ref={chatboxRef}>
@@ -247,9 +237,7 @@ function Chatbox() {
 									<a.div
 										style={style}
 										className={`grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-3 h-full py-3 items-center ${
-											answering
-												? "opacity-50 saturate-0 pointer-events-none"
-												: "opacity-100 saturate-100"
+											answering ? "opacity-50 saturate-0 pointer-events-none" : "opacity-100 saturate-100"
 										} duration-200`}
 									>
 										<button
