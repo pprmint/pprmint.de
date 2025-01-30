@@ -89,7 +89,7 @@ export default async function Page({
 				</section>
 				<section id="design" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<Ref />
-					<div className="w-full border-x border-black/5 dark:border-white/5 flex flex-col lg:flex-row lg:justify-between gap-6 pt-6 px-3 md:px-6 xl:px-0">
+					<div className="w-full border-x border-black/5 dark:border-white/5 flex flex-col lg:flex-row lg:justify-between gap-6 pt-6">
 						<p>
 							{t.rich("Content.Reference.credit", {
 								Link: (chunks) => (
@@ -105,6 +105,7 @@ export default async function Page({
 								href="https://static.pprmint.de/download/Mina/Mina_ref_sheet_(by_nekomimi).png"
 								target="_blank"
 								download
+								className="w-fit"
 							>
 								<Button tabIndex={-1}>
 									{t("Content.Reference.Download.button")}

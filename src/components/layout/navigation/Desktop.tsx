@@ -36,7 +36,7 @@ export default function DesktopNavigation() {
 									<li key={Page.link}>
 										<NavigationMenu.Link
 											asChild
-											className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
+											className={`group block px-3 py-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
 												pathname === Page.link &&
 												"bg-neutral-black/10 dark:bg-white/10 pointer-events-none"
 											}`}
@@ -67,7 +67,7 @@ export default function DesktopNavigation() {
 								<li>
 									<NavigationMenu.Link
 										asChild
-										className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
+										className={`group block px-3 py-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
 											pathname === "/graphics" &&
 											"bg-neutral-black/10 dark:bg-white/10 pointer-events-none"
 										}`}
@@ -83,7 +83,7 @@ export default function DesktopNavigation() {
 								<li>
 									<NavigationMenu.Link
 										asChild
-										className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
+										className={`group block px-3 py-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
 											pathname === "/photos" &&
 											"bg-neutral-black/10 dark:bg-white/10 pointer-events-none"
 										}`}
@@ -101,7 +101,7 @@ export default function DesktopNavigation() {
 									<li key={Project.link}>
 										<NavigationMenu.Link
 											asChild
-											className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
+											className={`group block px-3 py-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
 												pathname === Project.link &&
 												"bg-neutral-black/10 dark:bg-white/10 pointer-events-none"
 											}`}
@@ -120,7 +120,7 @@ export default function DesktopNavigation() {
 								<li className="col-span-2">
 									<NavigationMenu.Link
 										asChild
-										className={`group block px-3 py-2.5 text-center rounded-lg hover:bg-neutral-50/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
+										className={`group block px-3 py-2.5 text-center rounded-lg hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
 											pathname === "/projects" &&
 											"bg-neutral-black/10 dark:bg-white/10 pointer-events-none"
 										}`}
@@ -147,7 +147,7 @@ export default function DesktopNavigation() {
 								<li>
 									<NavigationMenu.Link
 										asChild
-										className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
+										className={`group block px-3 py-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
 											pathname === "/privacy" &&
 											"bg-neutral-black/10 dark:bg-white/10 pointer-events-none"
 										}`}
@@ -172,7 +172,7 @@ export default function DesktopNavigation() {
 								<li>
 									<NavigationMenu.Link
 										asChild
-										className={`group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
+										className={`group block px-3 py-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75 ${
 											pathname === "/ai" &&
 											"bg-neutral-black/10 dark:bg-white/10 pointer-events-none"
 										}`}
@@ -182,19 +182,6 @@ export default function DesktopNavigation() {
 												{t("Path.Other.AI.title")}
 											</span>
 											<p className="ListItemText">{t("Path.Other.AI.description")}</p>
-										</Link>
-									</NavigationMenu.Link>
-								</li>
-								<li>
-									<NavigationMenu.Link
-										asChild
-										className="group block px-3 py-2.5 rounded-lg hover:bg-neutral-50/5 active:scale-[0.98] active:opacity-75 duration-150 ease-out active:duration-75"
-									>
-										<Link href={`https://potato.pprmint.de${pathname}`}>
-											<span className="text-neutral-950 dark:text-white text-xl pb-0.5">
-												{t("Path.Other.Potato.title")}
-											</span>
-											<p className="ListItemText">{t("Path.Other.Potato.description")}</p>
 										</Link>
 									</NavigationMenu.Link>
 								</li>

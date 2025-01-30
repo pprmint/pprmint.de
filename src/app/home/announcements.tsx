@@ -32,14 +32,14 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 
 	return (
 		<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto overflow-x-clip">
-			<h2 className="absolute top-12 lg:top-auto lg:-bottom-16 left-0 text-[10rem] lg:text-[21rem] text-white/5 -z-10 font-serif font-extralight font-stretch-ultra-condensed italic">
+			<h2 className="absolute top-12 lg:top-auto lg:-bottom-16 left-0 text-[10rem] lg:text-[21rem] text-black/5 dark:text-white/5 -z-10 font-serif font-extralight font-stretch-ultra-condensed italic">
 				{t("Content.News.heading")}
 			</h2>
 			<div className="grid grid-cols-2 border-x border-black/5 dark:border-white/5 items-center pt-20 lg:pt-0">
-				<div className="order-2 lg:order-1 flex col-span-2 lg:col-span-1 flex-col justify-center lg:border-r border-black/5 dark:border-white/5 h-full w-full lg:pt-40 backdrop-blur-sm bg-white/25 dark:bg-neutral-950/25">
+				<div className="order-2 lg:order-1 flex col-span-2 lg:col-span-1 flex-col justify-center lg:border-r border-black/5 dark:border-white/5 h-full w-full lg:pt-40 lg:backdrop-blur-sm bg-white/25 dark:bg-neutral-950/25">
 					<div className="aspect-video md:aspect-auto md:grow">
 						<AnimatePresence mode="wait">
-							<m.div key={data.data[current].id} className="pt-2 lg:border-t border-black/5 dark:border-white/5">
+							<m.div key={data.data[current].id} className="pt-3 lg:border-t border-black/5 dark:border-white/5">
 								<m.h3
 									initial={{ opacity: 0 }}
 									animate={{ opacity: 1, transition: { duration: 0.3 } }}
@@ -173,7 +173,7 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 								</AnimatePresence>
 							</button>
 							<m.div
-								className="absolute bottom-0 lg:-bottom-px bg-neutral-950 dark:bg-white h-px"
+								className="absolute -bottom-px bg-neutral-950 dark:bg-white h-px"
 								style={{
 									width: `${100 / data.data.length}%`,
 									left: `${current * (100 / data.data.length)}%`,

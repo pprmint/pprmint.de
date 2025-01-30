@@ -117,77 +117,60 @@ export default function Form() {
 				{sendingTransition((style, item) =>
 					item ? (
 						// @ts-expect-error
-						<a.div
-							style={style}
-							className="absolute inset-0 z-20 bg-neutral-950/75 flex items-center justify-center"
-						>
-							<FadingImage
-								src={PixelMina}
-								alt=""
-								className="size-32"
-								style={{ imageRendering: "pixelated" }}
-							/>
+						<a.div style={style} className="absolute inset-0 z-20 bg-neutral-950/75 flex items-center justify-center">
+							<FadingImage src={PixelMina} alt="" className="size-32" style={{ imageRendering: "pixelated" }} />
 						</a.div>
 					) : null
 				)}
-				<form className="grid grid-cols-2 gap-3 md:gap-6">
-					<div className="flex flex-col gap-1 col-span-2 md:col-span-1">
-						<input
-							required
-							type="text"
-							placeholder={t("name")}
-							name="name"
-							aria-label="name text field"
-							maxLength={30}
-							onChange={(e) => {
-								setFormData({ ...formData, name: e.target.value });
-							}}
-							className="bg-neutral-950 focus:bg-neutral-950 border focus:border-transparent focus:outline-green border-neutral-900 hover:border-neutral-800 focus:hover:border-transparent hover:bg-neutral-900 focus:outline-2 text-white placeholder:text-neutral rounded-md px-3 py-2 duration-100"
-						/>
-					</div>
-					<div className="flex flex-col gap-1 col-span-2 md:col-span-1">
-						<input
-							required
-							type="text"
-							placeholder={t("emailAddress")}
-							name="email"
-							aria-label="email address text field"
-							maxLength={50}
-							onChange={(e) => {
-								setFormData({ ...formData, email: e.target.value });
-							}}
-							className="bg-neutral-950 focus:bg-neutral-950 border focus:border-transparent focus:outline-green border-neutral-900 hover:border-neutral-800 focus:hover:border-transparent hover:bg-neutral-900 focus:outline-2 text-white placeholder:text-neutral rounded-md px-3 py-2 duration-100"
-						/>
-					</div>
-
-					<div className="flex flex-col gap-1 col-span-2">
-						<input
-							required
-							type="text"
-							placeholder={t("subject")}
-							name="subject"
-							aria-label="subject text field"
-							maxLength={100}
-							onChange={(e) => {
-								setFormData({ ...formData, subject: e.target.value });
-							}}
-							className="bg-neutral-950 focus:bg-neutral-950 border focus:border-transparent focus:outline-green border-neutral-900 hover:border-neutral-800 focus:hover:border-transparent hover:bg-neutral-900 focus:outline-2 text-white placeholder:text-neutral rounded-md px-3 py-2 duration-100"
-						/>
-					</div>
-					<div className="flex flex-col gap-1 col-span-2">
-						<textarea
-							required
-							name="message"
-							placeholder={t("message")}
-							aria-label="message field"
-							maxLength={2000}
-							rows={7}
-							onChange={(e) => {
-								setFormData({ ...formData, message: e.target.value });
-							}}
-							className="bg-neutral-950 focus:bg-neutral-950 border focus:border-transparent focus:outline-green border-neutral-900 hover:border-neutral-800 focus:hover:border-transparent hover:bg-neutral-900 focus:outline-2 text-white placeholder:text-neutral rounded-md px-3 py-2 duration-100 resize-none"
-						/>
-					</div>
+				<form className="grid grid-cols-2">
+					<input
+						required
+						type="text"
+						placeholder={t("name")}
+						name="name"
+						aria-label="name text field"
+						maxLength={30}
+						onChange={(e) => {
+							setFormData({ ...formData, name: e.target.value });
+						}}
+						className="box-content col-span-2 md:col-span-1 border-r border-y border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
+					/>
+					<input
+						required
+						type="text"
+						placeholder={t("emailAddress")}
+						name="email"
+						aria-label="email address text field"
+						maxLength={50}
+						onChange={(e) => {
+							setFormData({ ...formData, email: e.target.value });
+						}}
+						className="box-content col-span-2 md:col-span-1 border-y border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
+					/>
+					<input
+						required
+						type="text"
+						placeholder={t("subject")}
+						name="subject"
+						aria-label="subject text field"
+						maxLength={100}
+						onChange={(e) => {
+							setFormData({ ...formData, subject: e.target.value });
+						}}
+						className="box-content col-span-2 border-b border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
+					/>
+					<textarea
+						required
+						name="message"
+						placeholder={t("message")}
+						aria-label="message field"
+						maxLength={2000}
+						rows={7}
+						onChange={(e) => {
+							setFormData({ ...formData, message: e.target.value });
+						}}
+						className="box-content col-span-2 border-b border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100 resize-none"
+					/>
 					<Button
 						onClick={(e) => {
 							handleSubmit(e);
@@ -202,10 +185,7 @@ export default function Form() {
 			</a.div>
 		) : (
 			// @ts-expect-error
-			<a.div
-				style={styles}
-				className="min-h-[396px] md:min-h-[378px] flex flex-col gap-3 items-center justify-center text-center"
-			>
+			<a.div style={styles} className="min-h-[396px] md:min-h-[378px] flex flex-col gap-3 items-center justify-center text-center">
 				<h1 className=" inline-flex gap-3 items-center">
 					<span>
 						{t("sent")}

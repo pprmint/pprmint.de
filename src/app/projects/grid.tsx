@@ -111,7 +111,7 @@ export default function Grid() {
 						className={`flex gap-1.5 items-center px-3 py-1 text-sm border ${
 							filter == tag.name
 								? "border-green hover:border-green-400 active:border-green bg-green hover:bg-green-400 active:bg-green text-neutral-950"
-								: "hover:bg-neutral-900 border-neutral-900"
+								: "hover:bg-neutral-50 border-neutral-50 dark:hover:bg-neutral-900 dark:border-neutral-900"
 						} active:shadow-inner active:opacity-75 rounded-full duration-100 active:duration-75`}
 					>
 						{tag.icon}
@@ -131,7 +131,7 @@ export default function Grid() {
 						} active:scale-[0.98] active:opacity-75 duration-200 active:duration-75`}
 					>
 						<FadingImage src={project.image} alt="" fill className="object-cover" />
-						<div className="absolute flex gap-3 top-[6%] left-[3.3%] p-2 rounded-full bg-neutral-900">
+						<div className="absolute flex gap-3 top-[6%] left-[3.3%] p-2 rounded-full bg-neutral-900 text-white">
 							{project.tags.map((tag, _) =>
 								tag == "font" ? (
 									<Text key={tag} />
@@ -148,11 +148,11 @@ export default function Grid() {
 						</div>
 						<div className="absolute inset-0 backdrop-blur-md bg-neutral-950/75 opacity-0 group-hover:opacity-100 group-focus:opacity-100 duration-200">
 							<div className="absolute inset-0 p-6 translate-y-6 opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-hover:translate-y-0 group-focus:translate-y-0 duration-200 group-hover:duration-400 group-focus:duration-400 ease-in-quad group-hover:ease-out-quint group-focus:ease-out-quint group-hover:delay-100 group-focus:delay-150">
-								<h3>
+								<h3 className="text-white">
 									{t(`${project.name.toUpperCase()}.Head.title`)}
 									<span className="text-green">.</span>
 								</h3>
-								<p className="pb-6">{t(`${project.name.toUpperCase()}.Head.description`)}</p>
+								<p className="pb-6 text-white/75">{t(`${project.name.toUpperCase()}.Head.description`)}</p>
 							</div>
 							<ArrowRight className="absolute bottom-6 right-12 opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-hover:right-6 fill-green stroke-green stroke-1 size-7 duration-200 group-hover:duration-400 group-focus:duration-400 ease-in-quad group-hover:ease-out-quint group-focus:ease-out-quint group-hover:delay-100 group-focus:delay-150" />
 						</div>

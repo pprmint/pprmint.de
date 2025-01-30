@@ -63,14 +63,14 @@ export default function MobileNavigation() {
 	return (
 		<>
 			<button
-				className="relative my-3 mr-1 text-white text-xl size-[39px] rounded-full hover:bg-neutral-50/10 duration-100"
+				className="relative my-3 mr-1 text-xl size-[39px] rounded-full hover:bg-neutral-50/10 duration-100"
 				onClick={toggleOpen}
 			>
 				<svg
 					width="39"
 					height="39"
 					xmlns="http://www.w3.org/2000/svg"
-					className="absolute left-0 top-0 stroke-neutral-50 stroke-1 fill-none"
+					className="absolute left-0 top-0 stroke-current stroke-1 fill-none"
 					strokeLinecap="butt"
 				>
 					<path d={navOpen ? "M14,14 19.5,19.5 25,14" : "M12,14.5 19.5,14.5 27,14.5"} className="duration-400 ease-out-quint" />
@@ -83,7 +83,7 @@ export default function MobileNavigation() {
 					<Portal.Root>
 						{/* @ts-expect-error */}
 						<a.div
-							className="fixed inset-0 bg-neutral-950 z-80"
+							className="fixed inset-0 bg-white dark:bg-neutral-950 z-80"
 							style={{
 								opacity: styles.opacity,
 							}}
@@ -92,15 +92,15 @@ export default function MobileNavigation() {
 							{/* @ts-expect-error */}
 							<a.div className="px-3 w-full h-full pb-3 pt-16 overflow-auto z-80" style={styles}>
 								<div className="my-9">
-									<p className="pl-3  text-white text-2xl">{t("Path.General.title")}</p>
+									<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif font-stretch-ultra-condensed">{t("Path.General.title")}</p>
 									<ul>
 										{Pages.map((Page) => (
 											<Link className="group" key={Page.link} href={Page.link} onClick={handleClose}>
 												<li
 													className={`flex items-center ${
 														Page.link === pathname
-															? "text-white"
-															: "hover:text-white group-hover:bg-neutral-50/10 group-active:opacity-75"
+															? "text-neutral-950 dark:text-white"
+															: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
 													} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 												>
 													{Page.link === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
@@ -111,14 +111,14 @@ export default function MobileNavigation() {
 									</ul>
 								</div>
 								<div className="my-9">
-									<p className="pl-3  text-white text-2xl">{t("Path.Work.title")}</p>
+									<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif font-stretch-ultra-condensed">{t("Path.Work.title")}</p>
 									<ul>
 										<Link className="group" href="/graphics" onClick={handleClose}>
 											<li
 												className={`flex items-center ${
 													"/graphics" === pathname
-														? "text-white"
-														: "hover:text-white group-hover:bg-neutral-50/10 group-active:opacity-75"
+														? "text-neutral-950 dark:text-white"
+														: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
 												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 											>
 												{"/graphics" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
@@ -132,8 +132,8 @@ export default function MobileNavigation() {
 											<li
 												className={`flex items-center ${
 													"/photos" === pathname
-														? "text-white"
-														: "hover:text-white group-hover:bg-neutral-50/10 group-active:opacity-75"
+														? "text-neutral-950 dark:text-white"
+														: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
 												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 											>
 												{"/photos" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
@@ -148,8 +148,8 @@ export default function MobileNavigation() {
 												<li
 													className={`flex items-center ${
 														Project.link === pathname
-															? "text-white"
-															: "hover:text-white group-hover:bg-neutral-50/10 group-active:opacity-75"
+															? "text-neutral-950 dark:text-white"
+															: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
 													} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 												>
 													{Project.link === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
@@ -164,8 +164,8 @@ export default function MobileNavigation() {
 											<li
 												className={`flex items-center ${
 													"/projects" === pathname
-														? "text-white"
-														: "hover:text-white group-hover:bg-neutral-50/10 group-active:opacity-75"
+														? "text-neutral-950 dark:text-white"
+														: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
 												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 											>
 												{"/projects" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
@@ -177,14 +177,14 @@ export default function MobileNavigation() {
 									</ul>
 								</div>
 								<div className="my-9">
-									<p className="pl-3  text-white text-2xl">{t("Path.Other.title")}</p>
+									<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif font-stretch-ultra-condensed">{t("Path.Other.title")}</p>
 									<ul>
 										<Link className="group" href="/privacy" onClick={handleClose}>
 											<li
 												className={`flex items-center ${
 													"/privacy" === pathname
-														? "text-white"
-														: "hover:text-white group-hover:bg-neutral-50/10 group-active:opacity-75"
+														? "text-neutral-950 dark:text-white"
+														: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
 												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 											>
 												{"/privacy" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
@@ -195,8 +195,8 @@ export default function MobileNavigation() {
 											<li
 												className={`flex items-center ${
 													"/ai" === pathname
-														? "text-white"
-														: "hover:text-white group-hover:bg-neutral-50/10 group-active:opacity-75"
+														? "text-neutral-950 dark:text-white"
+														: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
 												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 											>
 												{"/ai" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
@@ -207,8 +207,8 @@ export default function MobileNavigation() {
 											<li
 												className={`flex items-center ${
 													"/privacy" === pathname
-														? "text-white"
-														: "hover:text-white group-hover:bg-neutral-50/10 group-active:opacity-75"
+														? "text-neutral-950 dark:text-white"
+														: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
 												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 											>
 												<div className="flex flex-col">

@@ -60,7 +60,7 @@ export default async function Page() {
 				</div>
 			</Title>
 			<main className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-				<section className="w-full mx-auto py-20 md:py-32 xl:py-40 px-6 md:px-9 flex flex-col items-center justify-center border-x border-black/5 dark:border-white/5">
+				<section className="w-full mx-auto py-20 md:py-32 xl:py-40 flex flex-col items-center justify-center border-x border-black/5 dark:border-white/5 overflow-hidden">
 					<h2>{t("Content.Mina.heading")}</h2>
 					<p className="pb-6">{t("Content.Mina.text")}</p>
 					<Chatbox />

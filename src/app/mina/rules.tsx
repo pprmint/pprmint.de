@@ -26,7 +26,7 @@ export default function FanartRules() {
 				<div
 					onMouseEnter={() => setHovered(true)}
 					onMouseLeave={() => setHovered(false)}
-					className="px-1 py-0.5 max-w-max zbg-neutral-900 hover:bg-red-950 text-transparent hover:text-red-200 rounded-md duration-100 select-none hover:select-text cursor-not-allowed"
+					className="px-1 py-0.5 max-w-max zbg-neutral-900 hover:bg-red-950 text-transparent hover:text-red-200 duration-100 select-none hover:select-text cursor-not-allowed"
 				>
 					{t("Content.Fanart.text4")}
 				</div>
