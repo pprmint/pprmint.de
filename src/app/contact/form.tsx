@@ -133,7 +133,7 @@ export default function Form() {
 						onChange={(e) => {
 							setFormData({ ...formData, name: e.target.value });
 						}}
-						className="box-content col-span-2 md:col-span-1 border-r border-y border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
+						className="box-content col-span-2 sm:col-span-1 sm:border-r border-t sm:border-b border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
 					/>
 					<input
 						required
@@ -145,7 +145,7 @@ export default function Form() {
 						onChange={(e) => {
 							setFormData({ ...formData, email: e.target.value });
 						}}
-						className="box-content col-span-2 md:col-span-1 border-y border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
+						className="box-content col-span-2 sm:col-span-1 border-y border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
 					/>
 					<input
 						required
@@ -157,7 +157,7 @@ export default function Form() {
 						onChange={(e) => {
 							setFormData({ ...formData, subject: e.target.value });
 						}}
-						className="box-content col-span-2 border-b border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
+						className="box-content col-span-2 border-b border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
 					/>
 					<textarea
 						required
@@ -169,7 +169,7 @@ export default function Form() {
 						onChange={(e) => {
 							setFormData({ ...formData, message: e.target.value });
 						}}
-						className="box-content col-span-2 border-b border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100 resize-none"
+						className="box-content col-span-2 border-b border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100 resize-none"
 					/>
 					<Button
 						onClick={(e) => {
@@ -185,7 +185,7 @@ export default function Form() {
 			</a.div>
 		) : (
 			// @ts-expect-error
-			<a.div style={styles} className="min-h-[396px] md:min-h-[378px] flex flex-col gap-3 items-center justify-center text-center">
+			<a.div style={styles} className="min-h-[396px] sm:min-h-[378px] flex flex-col gap-3 items-center justify-center text-center">
 				<h1 className=" inline-flex gap-3 items-center">
 					<span>
 						{t("sent")}

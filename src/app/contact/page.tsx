@@ -39,11 +39,36 @@ export default async function Page() {
 				creditLink="https://twitter.com/neko__draws"
 			>
 				<div className="relative size-full bg-neutral-950">
-					<Image src={LetterSilhouette} alt="" className="absolute w-1/3 h-auto" style={{ left: "-10%", top: "-5%", transform: "rotate(6deg)" }} />
-					<Image src={LetterSilhouette} alt="" className="absolute w-1/3 h-auto" style={{ left: "20%", top: "30%", transform: "rotate(3deg)" }} />
-					<Image src={LetterSilhouette} alt="" className="absolute w-1/3 h-auto" style={{ left: "7%", top: "60%", transform: "rotate(-3deg)" }} />
-					<Image src={LetterSilhouette} alt="" className="absolute w-1/3 h-auto" style={{ left: "40%", top: "50%", transform: "rotate(-6deg)" }} />
-					<Image src={LetterSilhouette} alt="" className="absolute w-1/3 h-auto" style={{ left: "30%", top: "10%", transform: "rotate(-9deg)" }} />
+					<Image
+						src={LetterSilhouette}
+						alt=""
+						className="absolute w-1/3 h-auto"
+						style={{ left: "-10%", top: "-5%", transform: "rotate(6deg)" }}
+					/>
+					<Image
+						src={LetterSilhouette}
+						alt=""
+						className="absolute w-1/3 h-auto"
+						style={{ left: "20%", top: "30%", transform: "rotate(3deg)" }}
+					/>
+					<Image
+						src={LetterSilhouette}
+						alt=""
+						className="absolute w-1/3 h-auto"
+						style={{ left: "7%", top: "60%", transform: "rotate(-3deg)" }}
+					/>
+					<Image
+						src={LetterSilhouette}
+						alt=""
+						className="absolute w-1/3 h-auto"
+						style={{ left: "40%", top: "50%", transform: "rotate(-6deg)" }}
+					/>
+					<Image
+						src={LetterSilhouette}
+						alt=""
+						className="absolute w-1/3 h-auto"
+						style={{ left: "30%", top: "10%", transform: "rotate(-9deg)" }}
+					/>
 					<FadingImage
 						src={locale === "de" ? LetterDE : LetterEN}
 						alt="Postwoman Mina."
@@ -65,61 +90,63 @@ export default async function Page() {
 					<p className="pb-6">{t("Content.Mina.text")}</p>
 					<Chatbox />
 				</section>
-				<section className="group relative w-full overflow-clip border border-black/5 dark:border-white/5">
-					<div className="max-w-7xl mx-auto py-12">
-						<div className="max-w-xl lg:max-w-3xl px-6 md:px-9 py-9 h-full">
-							<h2>
-								{t("Content.Email.title")}
-								<span className="text-green">.</span>
-							</h2>
-							<p className="pb-9">{t("Content.Email.text")}</p>
-							<Form />
-							<p className="mt-9 text-xs">
-								{t.rich("Content.Email.preferMailto", {
-									Link: (chunks) => (
-										<Link
-											href={`mailto:${chunks}?subject=${t("Content.Message.subject")}&body=${t("Content.Message.body")}`}
-											className="text-link"
-										>
-											{chunks}
-										</Link>
-									),
-								})}
-							</p>
-						</div>
-					</div>
-					<Image
-						src={Letter}
-						alt=""
-						className="invert dark:invert-0 absolute -z-10 w-1/2 md:w-1/3 h-auto bottom-0 md:top-1/2 md:-translate-y-1/2 right-0 xl:right-12 2xl:right-40 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
-					/>
-				</section>
-				<section className="group relative w-full overflow-clip border-b border-x border-black/5 dark:border-white/5">
-					<div className="max-w-7xl mx-auto py-12">
-						<div className="max-w-xl lg:max-w-3xl px-6 md:px-9 py-9 h-full">
-							<h2>
-								{t("Content.Twitter.title")}
-								<span className="text-green">.</span>
-							</h2>
-							<p className="pb-9">{t("Content.Twitter.text")}</p>
-							<div className="w-max">
-								<Link
-									href="https://twitter.com/messages/compose?recipient_id=1571518236394397699"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									<Button tabIndex={-1} color="green">
-										{t("Content.Twitter.button")}
-									</Button>
-								</Link>
+				<section className="w-full grid lg:grid-cols-2">
+					<div className="group relative w-full overflow-clip border border-b-0 lg:border-b lg:border-r-0 border-black/5 dark:border-white/5">
+						<div className="w-full py-12 md:py-20 xl:py-40">
+							<div className="w-full h-full">
+								<h2 className="pr-12">
+									{t("Content.Email.title")}
+									<span className="text-green">.</span>
+								</h2>
+								<p className="pb-9 pr-12 text-balance">{t("Content.Email.text")}</p>
+								<Form />
+								<p className="mt-9 pr-12 text-xs">
+									{t.rich("Content.Email.preferMailto", {
+										Link: (chunks) => (
+											<Link
+												href={`mailto:${chunks}?subject=${t("Content.Message.subject")}&body=${t("Content.Message.body")}`}
+												className="text-link"
+											>
+												{chunks}
+											</Link>
+										),
+									})}
+								</p>
 							</div>
 						</div>
+						<Image
+							src={Letter}
+							alt=""
+							className="invert dark:invert-0 absolute -z-10 w-1/2 h-auto -bottom-12 right-0 scale-90 group-hover:scale-100 opacity-15 origin-bottom-right duration-500 ease-in-out"
+						/>
 					</div>
-					<Image
-						src={Bubbles}
-						alt=""
-						className="invert dark:invert-0 absolute -z-10 w-1/2 md:w-1/4 h-auto bottom-0 md:top-1/2 md:-translate-y-1/2 right-0 xl:right-16 2xl:right-48 scale-90 group-hover:scale-100 opacity-25 group-hover:opacity-50 origin-bottom-right duration-500 ease-in-out"
-					/>
+					<div className="group relative w-full overflow-clip border border-black/5 dark:border-white/5">
+						<div className="w-full py-12 md:py-20 xl:py-40">
+							<div className="size-full">
+								<h2 className="pr-12">
+									{t("Content.Twitter.title")}
+									<span className="text-green">.</span>
+								</h2>
+								<p className="pb-9 pr-12 text-balance">{t("Content.Twitter.text")}</p>
+								<div className="w-max">
+									<Link
+										href="https://twitter.com/messages/compose?recipient_id=1571518236394397699"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<Button tabIndex={-1} color="green">
+											{t("Content.Twitter.button")}
+										</Button>
+									</Link>
+								</div>
+							</div>
+						</div>
+						<Image
+							src={Bubbles}
+							alt=""
+							className="invert dark:invert-0 absolute -z-10 w-1/2 h-auto -bottom-12 right-0 scale-90 group-hover:scale-100 opacity-15 origin-bottom-right duration-500 ease-in-out"
+						/>
+					</div>
 				</section>
 			</main>
 		</>

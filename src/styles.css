@@ -70,7 +70,7 @@
 	outline: 2px #4b5 dotted;
 }
 
-p:not(:last-of-type) {
+p {
 	margin-bottom: 0.75rem;
 }
 
