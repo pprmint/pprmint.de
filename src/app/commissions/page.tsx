@@ -27,7 +27,6 @@ export default async function Page() {
 			<Title
 				title={t("Head.title")}
 				description={t(`Content.Status.${Data.status}`)}
-				accentColor={Data.status == "open" ? "text-green" : Data.status == "limited" ? "text-yellow" : "text-red"}
 			>
 				<Image
 					src={Data.status == "open" ? GreenLight : Data.status == "limited" ? YellowLight : RedLight}

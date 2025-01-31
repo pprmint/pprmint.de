@@ -44,7 +44,7 @@ export default function Page() {
 	const t = useTranslations("MINTCRAFT");
 	return (
 		<>
-			<Title title={t("Head.title")} description={t("Head.description")} accentColor="text-yellow">
+			<Title title={t("Head.title")} description={t("Head.description")}>
 				<div style={{ perspective: 2000 }}>
 					<Marquee
 						style={{

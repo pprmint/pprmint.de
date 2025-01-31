@@ -24,7 +24,7 @@ export default function Page() {
     const t = useTranslations();
     return (
 		<>
-			<Title title={t("YTDG.Head.title")} description={t("YTDG.Head.description")} accentColor="text-violet">
+			<Title title={t("YTDG.Head.title")} description={t("YTDG.Head.description")}>
 				<FadingImage src={Hero} alt="" fill className="object-cover" quality={90} />
 			</Title>
 			<main>

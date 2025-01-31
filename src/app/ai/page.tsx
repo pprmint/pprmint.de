@@ -15,7 +15,7 @@ export default function Page() {
     const t = useTranslations("AI");
     return (
 		<>
-			<Title title={t("Head.title")} description={t("Head.description")} accentColor="text-red" />
+			<Title title={t("Head.title")} description={t("Head.description")} />
 			<main>
 				<section className="max-w-7xl mx-auto my-20 md:my-32 xl:my-40 px-6 md:px-9">
 					<h2>

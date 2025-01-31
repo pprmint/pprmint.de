@@ -27,7 +27,7 @@ export default function Page() {
 	const t = useTranslations("TENTATIVE");
 	return (
 		<>
-			<Title title={t("Head.title")} description={t("Head.description")} accentColor="text-violet-500">
+			<Title title={t("Head.title")} description={t("Head.description")}>
 				<video
 					src="/assets/tentative/LogoCollection.mp4"
 					autoPlay

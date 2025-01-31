@@ -30,7 +30,7 @@ export default async function Page() {
 	const t = await getTranslations("MINTTRIANGLES");
 	return (
 		<>
-			<Title title={t("Head.title")} description={t("Head.description")} accentColor="text-pink">
+			<Title title={t("Head.title")} description={t("Head.description")}>
 				<div className="relative w-screen h-screen max-h-svh bg-neutral-50 dark:bg-neutral-950">
 					<FadingImage src={TitleBg} alt="" fill className="object-cover object-center opacity-50 z-0" />
 					<CountUp />
