@@ -9,23 +9,21 @@ export default function Title(
 	props: PropsWithChildren<{
 		title: string;
 		description: string | ReactNode;
-		accentColor?: string;
-		noDelay?: boolean;
 		creditName?: string;
 		creditLink?: string;
+		noAccents?: boolean;
 	}>
 ) {
 	const t = useTranslations("COMMON");
-	const { setInverted } = useNavbar();
+	const { setInverted, setNoAccents } = useNavbar();
 	useEffect(() => {
 		setInverted(!!props.children);
+		setNoAccents(!!props.noAccents);
 		return () => setInverted(false);
 	}, [props.children, setInverted]);
 	return (
 		<div
-			className={`relative w-screen ${
-				props.children ? "h-1/2-screen min-h-max xl:h-2/3-screen" : "h-max"
-			} overflow-hidden text-balance`}
+			className={`relative w-screen ${props.children ? "h-1/2-screen min-h-max xl:h-2/3-screen" : "h-max"} overflow-hidden text-balance`}
 		>
 			{props.children && (
 				<m.div
@@ -59,7 +57,7 @@ export default function Title(
 								}}
 							>
 								{props.title}
-								<span className="text-green">.</span>
+								<span className={props.noAccents ? "text-white" : "text-green"}>.</span>
 							</m.h1>
 							<m.p
 								initial={{ opacity: 0, y: 40 }}

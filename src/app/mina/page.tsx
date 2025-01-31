@@ -42,6 +42,7 @@ export default async function Page({
 				description={t("Head.description")}
 				creditName="Nanogon"
 				creditLink="https://www.instagram.com/nogonagon"
+				noAccents
 			>
 				<div className="h-full bg-[#387895] flex items-end justify-end">
 					<FadingImage
@@ -50,13 +51,13 @@ export default async function Page({
 						fill
 						className="object-cover object-[50%_90%]"
 					/>
-					<div className="absolute inset-0 bg-linear-to-r from-black/25 via-transparent" />
+					<div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent" />
 					<FadingImage
 						src="https://cms.pprmint.de/uploads/nano_3fg_46641b34fc.webp"
 						alt=""
 						width={1500}
 						height={1500}
-						className="relative z-10 h-[75%] sm:h-full w-auto object-cover md:mr-12 lg:mr-24 xl:mr-36 sm:pt-6"
+						className="absolute -right-12 sm:right-0 bottom-0 md:bottom-auto md:top-9 md:right-[9%] w-auto md:w-1/2 lg:w-full max-w-2xl h-full md:h-max"
 					/>
 				</div>
 			</Title>
@@ -68,13 +69,13 @@ export default async function Page({
 								{t("Content.About.heading")}
 								<span className="text-green">.</span>
 							</h2>
-							<p>{t("Content.About.text1")}</p>
+							<p className="mb-3">{t("Content.About.text1")}</p>
 							<p>{t("Content.About.text2")}</p>
 						</div>
 						<div className="pt-3 md:pt-[6.25rem] lg:pt-[8.75rem] xl:pt-[13.75rem] pb-12 lg:pb-20 xl:pb-40 md:pr-12">
-							<p>{t("Content.About.text3")}</p>
-							<p>{t("Content.About.text4")}</p>
-							<p>{t("Content.About.text5")}</p>
+							<p className="mb-3">{t("Content.About.text3")}</p>
+							<p className="mb-3">{t("Content.About.text4")}</p>
+							<p className="mb-3">{t("Content.About.text5")}</p>
 							<p>
 								{t.rich("Content.About.text6", {
 									Link: (chunks) => (

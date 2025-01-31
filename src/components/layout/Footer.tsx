@@ -1,8 +1,6 @@
 "use client";
-import dynamic from "next/dynamic";
 import { Fragment, useEffect, useRef, useState } from "react";
-import { useTranslations } from "next-intl";
-import { AnimatePresence, m } from "motion/react";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 
 import FooterCursor from "public/assets/footer/cursor.svg";
@@ -16,11 +14,15 @@ import SmartphoneHomeButton from "src/icons/SmartphoneHomeButton";
 import Sun from "src/icons/Sun";
 import { useTheme } from "next-themes";
 import NoSSR from "../NoSSR";
+import { locales } from "src/i18n/config";
+import { setUserLocale } from "src/i18n/locale";
 
 export default function Footer() {
 	const t = useTranslations("COMMON");
 
 	const { theme, setTheme } = useTheme();
+	const currentLocale = useLocale();
+	const otherLocale = locales?.find((cur) => cur !== currentLocale);
 
 	const [clicks, setClicks] = useState(0);
 	const [textVisible, setTextVisible] = useState(false);
@@ -131,15 +133,17 @@ export default function Footer() {
 						</svg>
 					</div>
 				</div>
+				{clicks > 2 && (
+					<p
+						className={`absolute bottom-44 inset-x-0 text-center transition-opacity text-xs duration-300 select-none ${
+							textVisible ? "opacity-100" : "opacity-0"
+						}`}
+					>
+						{t(translationKey)}
+					</p>
+				)}
 				<p
-					className={`absolute top-0 w-full text-center transition-opacity text-xs duration-300 ${
-						textVisible ? "opacity-100" : "opacity-0"
-					}`}
-				>
-					{t(translationKey)}
-				</p>
-				<p
-					className={`absolute top-5 -rotate-3 left-1/2 -translate-x-1/2 bg-green text-neutral-950 rounded-md px-2 pb-1 pt-0.5 w-max text-xs transition-opacity duration-300 ${
+					className={`absolute bottom-36 -rotate-3 left-1/2 -translate-x-1/2 bg-green text-white rounded-md px-2 py-1 w-max text-xs transition-opacity duration-300 select-none ${
 						counterVisible ? "opacity-100" : "opacity-0"
 					}`}
 				>
@@ -148,13 +152,13 @@ export default function Footer() {
 			</div>
 			<hr className="border-black/5 dark:border-white/5" />
 			<div className="flex justify-between p-6">
-				<div className="w-1/3 flex gap-2.5 items-center">
+				<div className="hidden md:flex w-1/3 gap-2.5 items-center">
 					<Image src={FooterCursor} alt="" className="size-4 invert dark:invert-0" />
 					<Image src={FooterCube} alt="" className="size-4 invert dark:invert-0" />
 					<Image src={FooterBrackets} alt="" className="size-4 invert dark:invert-0" />
 					<Image src={FooterLeaf} alt="" className="size-4 " />
 				</div>
-				<div className="w-1/3 flex flex-col items-center">
+				<div className="md:w-1/3 flex flex-col md:items-center">
 					<p className="text-neutral-950 dark:text-white">
 						{"© "}
 						{new Date().getFullYear()} pprmint.
@@ -178,7 +182,20 @@ export default function Footer() {
 						</Link>
 					)}
 				</div>
-				<div className="w-1/3 flex items-center justify-end">
+				<div className="w-1/3 flex items-center justify-end gap-6">
+					<button
+						onClick={() => setUserLocale(otherLocale!)}
+						className="relative flex border border-black/5 dark:border-white/5"
+					>
+						{locales.map((locale, _) => (
+							<div
+								key={locale}
+								className={`inline-flex items-center justify-center text-sm w-9 h-[27px] ${currentLocale === locale ? "text-neutral-950 dark:text-white bg-neutral-950/5 dark:bg-neutral-50/5" : "hover:bg-neutral-950/5 hover:dark:bg-neutral-50/5"} duration-100 uppercase`}
+							>
+								{locale}
+							</div>
+						))}
+					</button>
 					<NoSSR>
 						<div className="relative flex w-max border border-black/5 dark:border-white/5">
 							{[

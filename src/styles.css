@@ -64,14 +64,13 @@
 		font-style: italic;
 		font-variation-settings: "slnt" -12; /* For DINish font. */
 	}
+	.pixelated {
+		image-rendering: pixelated;
+	}
 }
 
 :focus-visible {
 	outline: 2px #4b5 dotted;
-}
-
-p {
-	margin-bottom: 0.75rem;
 }
 
 img {
@@ -81,8 +80,4 @@ img {
 body {
 	font-variant-ligatures: normal;
 	font-feature-settings: "tnum";
-}
-
-.pixelated {
-	image-rendering: pixelated;
 }
