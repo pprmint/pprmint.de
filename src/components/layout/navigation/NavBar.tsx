@@ -18,6 +18,7 @@ export default function NavBar() {
 	// Show "solid" background when scrolling.
 	useEffect(() => {
 		const handleScroll = () => {
+			setNavOpen(false);
 			if (window.scrollY > 0) {
 				setSolid(true);
 			} else {
@@ -35,7 +36,6 @@ export default function NavBar() {
 	const handleOpen = () => {
 		setNavOpen(true);
 		setSolid(true);
-		document.body.classList.add("overflow-hidden");
 	};
 	const handleClose = () => {
 		setNavOpen(false);
@@ -44,7 +44,6 @@ export default function NavBar() {
 		} else {
 			setSolid(false);
 		}
-		document.body.classList.remove("overflow-hidden");
 	};
 	const toggleOpen = navOpen ? handleClose : handleOpen;
 	useEffect(() => {
@@ -62,14 +61,15 @@ export default function NavBar() {
 	return (
 		<>
 			<div
-				className={`z-90 fixed top-0 inset-x-0 bg-white/90 dark:bg-neutral-950/90 ${navOpen ? "h-screen md:h-72 shadow-xl shadow-neutral-950/5" : "h-16"} backdrop-blur-xl border-b border-black/5 dark:border-white/5 ${solid || navOpen ? "opacity-100" : "opacity-0"} duration-300 ease-in-out-custom`}
-			/>
-			<div
-				className={`z-90 fixed top-0 inset-x-0 ${navOpen ? "h-screen md:h-72" : "h-16"} pl-6 md:pl-9 pr-2 md:pr-5 flex justify-between duration-300 ${
-					!inverted ? "text-neutral-950 dark:text-white" : solid ? "text-neutral-950 dark:text-white" : "text-white"
+				className={`z-90 fixed flex justify-between top-0 inset-x-0 ${navOpen ? "h-screen md:h-80 shadow-xl shadow-neutral-950/5 dark:shadow-neutral-950/25" : "h-16"} pl-6 md:pl-9 pr-2 md:pr-5 flex justify-between duration-300 overflow-auto border-b ${
+					!inverted
+						? "text-neutral-950 dark:text-white bg-white/90 dark:bg-neutral-950/90 backdrop-blur-xl border-black/5 dark:border-white/5"
+						: solid
+							? "text-neutral-950 dark:text-white bg-white/90 dark:bg-neutral-950/90 backdrop-blur-xl border-black/5 dark:border-white/5"
+							: "text-white border-transparent"
 				}`}
 			>
-				<Link href="/" className="mt-3.5 animate-nav-enter" style={{ animationDelay: ".15s" }}>
+				<Link href="/" className="absolute z-90 left-6 sm:left-7 top-3.5" style={{ animationDelay: ".15s" }}>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 282 59" className="h-auto w-[150px] mt-1">
 						<path
 							fill="currentColor"
@@ -147,7 +147,10 @@ export default function NavBar() {
 						</defs>
 					</svg>
 				</Link>
-				<button className="relative my-3 mr-1 text-xl size-[39px] rounded-full hover:bg-black/5 dark:hover:bg-white/5 duration-100" onClick={toggleOpen}>
+				<button
+					className="absolute z-90 right-3 md:right-5 top-3 text-xl size-[39px] rounded-full hover:bg-black/5 dark:hover:bg-white/5 duration-100"
+					onClick={toggleOpen}
+				>
 					<svg
 						width="39"
 						height="39"
@@ -155,150 +158,194 @@ export default function NavBar() {
 						className="absolute left-0 top-0 stroke-current stroke-1 fill-none"
 						strokeLinecap="butt"
 					>
-						<path d={navOpen ? "M14,14 19.5,19.5 25,14" : "M12,14.5 19.5,14.5 27,14.5"} className="duration-400 ease-out-quint" />
-						<path d={navOpen ? "M19.5,19.5 19.5,19.5" : "M12,19.5 27,19.5"} className="duration-400 ease-out-quint" />
-						<path d={navOpen ? "M14,25 19.5,19.5 25,25" : "M12,24.5 19.5,24.5 27,24.5"} className="duration-400 ease-out-quint" />
+						<path
+							d={navOpen ? "M14,14 19.5,19.5 25,14" : "M12,14.5 19.5,14.5 27,14.5"}
+							className="duration-400 ease-out-quint"
+						/>
+						<path
+							d={navOpen ? "M19.5,19.5 19.5,19.5" : "M12,19.5 27,19.5"}
+							className="duration-400 ease-out-quint"
+						/>
+						<path
+							d={navOpen ? "M14,25 19.5,19.5 25,25" : "M12,24.5 19.5,24.5 27,24.5"}
+							className="duration-400 ease-out-quint"
+						/>
 					</svg>
 				</button>
 				<AnimatePresence>
 					{navOpen && (
-						<m.div className="absolute right-12 top-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-							<m.div className="flex flex-col md:flex-row gap-9 px-3 w-full h-full pb-3 pt-16 overflow-auto z-80">
-								<div>
-									<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif font-stretch-ultra-condensed">
-										{t("Path.General.title")}
-									</p>
-									<ul>
-										{Pages.map((Page) => (
-											<Link className="group" key={Page.link} href={Page.link} onClick={handleClose}>
-												<li
-													className={`flex items-center ${
-														Page.link === pathname
-															? "text-neutral-950 dark:text-white"
-															: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
-													} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
-												>
-													{Page.link === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
-													{t(`Path.General.${Page.strings}.title`)}
-												</li>
-											</Link>
-										))}
-									</ul>
-								</div>
-								<div>
-									<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif font-stretch-ultra-condensed">
-										{t("Path.Work.title")}
-									</p>
-									<ul>
-										<Link className="group" href="/graphics" onClick={handleClose}>
+						<m.div className="grid grid-cols-1 md:grid-cols-4 gap-9 px-3 w-full h-full pb-3 pt-16 md:pt-6 md:max-w-6xl md:mx-auto overflow-auto md:overflow-hidden z-80">
+							<m.div
+								initial={{ opacity: 0, y: 20 }}
+								animate={{
+									opacity: 1,
+									y: 0,
+									transition: { delay: 0.2, duration: 0.5, type: "spring", bounce: 0 },
+								}}
+								exit={{ opacity: 0 }}
+								className="w-full"
+							>
+								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif font-stretch-ultra-condensed">
+									{t("Path.General.title")}
+								</p>
+								<ul>
+									{Pages.map((Page) => (
+										<Link className="group" key={Page.link} href={Page.link} onClick={handleClose}>
 											<li
 												className={`flex items-center ${
-													"/graphics" === pathname
+													Page.link === pathname
 														? "text-neutral-950 dark:text-white"
 														: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
 												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
 											>
-												{"/graphics" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
+												{Page.link === pathname && (
+													<ChevronRight className="inline fill-green mr-1.5" />
+												)}
+												{t(`Path.General.${Page.strings}.title`)}
+											</li>
+										</Link>
+									))}
+								</ul>
+							</m.div>
+							<m.div
+								initial={{ opacity: 0, y: 20 }}
+								animate={{
+									opacity: 1,
+									y: 0,
+									transition: { delay: 0.3, duration: 0.5, type: "spring", bounce: 0 },
+								}}
+								exit={{ opacity: 0 }}
+								className="w-full col-span-2"
+							>
+								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif font-stretch-ultra-condensed">
+									{t("Path.Work.title")}
+								</p>
+								<ul className="md:grid grid-cols-2">
+									<Link className="group" href="/graphics" onClick={handleClose}>
+										<li
+											className={`flex items-center ${
+												"/graphics" === pathname
+													? "text-neutral-950 dark:text-white"
+													: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
+											} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
+										>
+											{"/graphics" === pathname && (
+												<ChevronRight className="inline fill-green mr-1.5" />
+											)}
+											<div className="flex flex-col">
+												<span>{t(`Path.Work.Graphics.title`)}</span>
+												<span className="text-xs opacity-50">
+													{t(`Path.Work.Graphics.description`)}
+												</span>
+											</div>
+										</li>
+									</Link>
+									<Link className="group" href="/photos" onClick={handleClose}>
+										<li
+											className={`flex items-center ${
+												"/photos" === pathname
+													? "text-neutral-950 dark:text-white"
+													: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
+											} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
+										>
+											{"/photos" === pathname && (
+												<ChevronRight className="inline fill-green mr-1.5" />
+											)}
+											<div className="flex flex-col">
+												<span>{t(`Path.Work.Photos.title`)}</span>
+												<span className="text-xs opacity-50">
+													{t(`Path.Work.Photos.description`)}
+												</span>
+											</div>
+										</li>
+									</Link>
+									{Projects.map((Project) => (
+										<Link
+											className="group"
+											key={Project.link}
+											href={Project.link}
+											onClick={handleClose}
+										>
+											<li
+												className={`flex items-center ${
+													Project.link === pathname
+														? "text-neutral-950 dark:text-white"
+														: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
+												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
+											>
+												{Project.link === pathname && (
+													<ChevronRight className="inline fill-green mr-1.5" />
+												)}
 												<div className="flex flex-col">
-													<span>{t(`Path.Work.Graphics.title`)}</span>
-													<span className="text-xs opacity-50">{t(`Path.Work.Graphics.description`)}</span>
+													<span>{t(`Path.Work.Projects.${Project.strings}.title`)}</span>
+													<span className="text-xs opacity-50">
+														{t(`Path.Work.Projects.${Project.strings}.description`)}
+													</span>
 												</div>
 											</li>
 										</Link>
-										<Link className="group" href="/photos" onClick={handleClose}>
-											<li
-												className={`flex items-center ${
-													"/photos" === pathname
-														? "text-neutral-950 dark:text-white"
-														: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
-												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
-											>
-												{"/photos" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
-												<div className="flex flex-col">
-													<span>{t(`Path.Work.Photos.title`)}</span>
-													<span className="text-xs opacity-50">{t(`Path.Work.Photos.description`)}</span>
-												</div>
-											</li>
-										</Link>
-										{Projects.map((Project) => (
-											<Link className="group" key={Project.link} href={Project.link} onClick={handleClose}>
-												<li
-													className={`flex items-center ${
-														Project.link === pathname
-															? "text-neutral-950 dark:text-white"
-															: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
-													} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
-												>
-													{Project.link === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
-													<div className="flex flex-col">
-														<span>{t(`Path.Work.Projects.${Project.strings}.title`)}</span>
-														<span className="text-xs opacity-50">{t(`Path.Work.Projects.${Project.strings}.description`)}</span>
-													</div>
-												</li>
-											</Link>
-										))}
-										<Link className="group" href="/projects" onClick={handleClose}>
-											<li
-												className={`flex items-center ${
-													"/projects" === pathname
-														? "text-neutral-950 dark:text-white"
-														: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
-												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
-											>
-												{"/projects" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
-												<div className="flex flex-col">
-													<span>{t("Path.Work.Projects.More.title")}</span>
-												</div>
-											</li>
-										</Link>
-									</ul>
-								</div>
-								<div>
-									<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif font-stretch-ultra-condensed">
-										{t("Path.Other.title")}
-									</p>
-									<ul>
-										<Link className="group" href="/privacy" onClick={handleClose}>
-											<li
-												className={`flex items-center ${
-													"/privacy" === pathname
-														? "text-neutral-950 dark:text-white"
-														: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
-												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
-											>
-												{"/privacy" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
-												{t("Path.Other.Privacy.title")}
-											</li>
-										</Link>
-										<Link className="group" href="/ai" onClick={handleClose}>
-											<li
-												className={`flex items-center ${
-													"/ai" === pathname
-														? "text-neutral-950 dark:text-white"
-														: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
-												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
-											>
-												{"/ai" === pathname && <ChevronRight className="inline fill-green mr-1.5" />}
-												{t("Path.Other.AI.title")}
-											</li>
-										</Link>
-										<Link className="group" href={`https://potato.pprmint.de${pathname}`}>
-											<li
-												className={`flex items-center ${
-													"/privacy" === pathname
-														? "text-neutral-950 dark:text-white"
-														: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
-												} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
-											>
-												<div className="flex flex-col">
-													<span>{t("Path.Other.Potato.title")}</span>
-													<span className="text-xs opacity-50">{t("Path.Other.Potato.description")}</span>
-												</div>
-											</li>
-										</Link>
-									</ul>
-								</div>
-								<Copyright className="mb-3 items-center justify-center flex-col gap-1" />
+									))}
+									<Link className="group" href="/projects" onClick={handleClose}>
+										<li
+											className={`flex items-center ${
+												"/projects" === pathname
+													? "text-neutral-950 dark:text-white"
+													: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
+											} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
+										>
+											{"/projects" === pathname && (
+												<ChevronRight className="inline fill-green mr-1.5" />
+											)}
+											<div className="flex flex-col">
+												<span>{t("Path.Work.Projects.More.title")}</span>
+											</div>
+										</li>
+									</Link>
+								</ul>
+							</m.div>
+							<m.div
+								initial={{ opacity: 0, y: 20 }}
+								animate={{
+									opacity: 1,
+									y: 0,
+									transition: { delay: 0.4, duration: 0.5, type: "spring", bounce: 0 },
+								}}
+								exit={{ opacity: 0 }}
+								className="w-full"
+							>
+								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif font-stretch-ultra-condensed">
+									{t("Path.Other.title")}
+								</p>
+								<ul>
+									<Link className="group" href="/privacy" onClick={handleClose}>
+										<li
+											className={`flex items-center ${
+												"/privacy" === pathname
+													? "text-neutral-950 dark:text-white"
+													: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
+											} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
+										>
+											{"/privacy" === pathname && (
+												<ChevronRight className="inline fill-green mr-1.5" />
+											)}
+											{t("Path.Other.Privacy.title")}
+										</li>
+									</Link>
+									<Link className="group" href="/ai" onClick={handleClose}>
+										<li
+											className={`flex items-center ${
+												"/ai" === pathname
+													? "text-neutral-950 dark:text-white"
+													: "hover:text-neutral-950 dark:hover:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 group-active:opacity-75"
+											} px-3 py-1.5 w-full duration-100 rounded-[17px]`}
+										>
+											{"/ai" === pathname && (
+												<ChevronRight className="inline fill-green mr-1.5" />
+											)}
+											{t("Path.Other.AI.title")}
+										</li>
+									</Link>
+								</ul>
 							</m.div>
 						</m.div>
 					)}

@@ -3,51 +3,61 @@ import { useTranslations } from "next-intl";
 import * as m from "motion/react-client";
 import Link from "next/link";
 import FadingImage from "src/components/ui/FadingImage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence } from "motion/react";
+import { useNavbar } from "src/components/layout/navigation/NavBarContext";
 
 const Links = [
 	{
 		link: "graphics",
 		text: "Content.Hero.graphics",
 		matrix: [
-			1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1,
-			0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0,
-			1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0,
-			1, 0, 0, 0, 0, 0, 0, 0, 0,
+			1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1,
+			0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1,
+			0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0,
+			1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
 		],
-		images: ["https://cms.pprmint.de/uploads/Mesh_Edit_778967f6fe.webp", "https://cms.pprmint.de/uploads/Solar_System_2_f133addf64.png"],
+		images: [
+			"https://cms.pprmint.de/uploads/Mesh_Edit_778967f6fe.webp",
+			"https://cms.pprmint.de/uploads/Solar_System_2_f133addf64.png",
+		],
 	},
 	{
 		link: "photos",
 		text: "Content.Hero.photos",
 		matrix: [
-			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-			1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0,
-			0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-			0, 0, 0, 0, 0, 0, 0, 0, 0,
+			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0,
+			1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1,
+			1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+			0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		],
-		images: ["https://cms.pprmint.de/uploads/P1070217_09b3fc1981.webp", "https://cms.pprmint.de/uploads/DSC_00275_0b8fa85e3b.webp"],
+		images: [
+			"https://cms.pprmint.de/uploads/P1070217_09b3fc1981.webp",
+			"https://cms.pprmint.de/uploads/DSC_00275_0b8fa85e3b.webp",
+		],
 	},
 	{
 		link: "projects",
 		text: "Content.Hero.projects",
 		matrix: [
-			1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1,
-			1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
-			1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0,
-			1, 0, 0, 0, 0, 0, 1, 0, 0,
+			1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1,
+			1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0,
+			0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0,
+			0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0,
 		],
-		images: ["https://cms.pprmint.de/uploads/pomi_moe_cdd8f9992e.png", "https://cms.pprmint.de/uploads/autsellia_com_582c948c0d.png"],
+		images: [
+			"https://cms.pprmint.de/uploads/pomi_moe_cdd8f9992e.png",
+			"https://cms.pprmint.de/uploads/autsellia_com_582c948c0d.png",
+		],
 	},
 	{
 		link: "contact",
 		text: "Content.Hero.contact",
 		matrix: [
-			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-			1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0,
-			0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
-			1, 1, 1, 1, 1, 1, 1, 1, 1,
+			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0,
+			0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0,
+			0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+			0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 		],
 		images: ["/assets/home/letter.png", "/assets/home/pen.png"],
 	},
@@ -56,6 +66,10 @@ const Links = [
 export default function HomeTitle() {
 	const t = useTranslations("HOME");
 	const [hovered, setHovered] = useState(-1);
+	const { setNoAccents } = useNavbar();
+	useEffect(() => {
+		setNoAccents(false);
+	});
 	return (
 		<section className="relative w-screen h-screen overflow-clip">
 			<div className="absolute -z-10 inset-0 bg-white dark:bg-neutral-950">
@@ -129,7 +143,12 @@ export default function HomeTitle() {
 						</div>
 						<div onMouseLeave={() => setHovered(-1)} className="grid grid-cols-2 xl:grid-cols-4">
 							{Links.map((button, index) => (
-								<Link href={button.link} key={index} onMouseEnter={() => setHovered(index)} className="group">
+								<Link
+									href={button.link}
+									key={index}
+									onMouseEnter={() => setHovered(index)}
+									className="group"
+								>
 									<m.button
 										tabIndex={-1}
 										initial={{ opacity: 0, y: 40 }}
@@ -153,7 +172,8 @@ export default function HomeTitle() {
 												<div
 													key={index}
 													className={`bg-neutral-50/10 scale-[0.2] rounded-full ${
-														dot === 1 && "group-hover:bg-neutral-950 dark:group-hover:bg-neutral-50 group-hover:scale-[1.05] group-hover:rounded-none"
+														dot === 1 &&
+														"group-hover:bg-neutral-950 dark:group-hover:bg-neutral-50 group-hover:scale-[1.05] group-hover:rounded-none"
 													} duration-100`}
 													style={{ transitionDelay: `${index * 0.002}s` }}
 												/>
@@ -246,7 +266,14 @@ export default function HomeTitle() {
 											}}
 											className="absolute"
 										>
-											<FadingImage src={image} width={1920} height={1080} alt="" className="drop-shadow-xl" hideSpinner />
+											<FadingImage
+												src={image}
+												width={1920}
+												height={1080}
+												alt=""
+												className="drop-shadow-xl"
+												hideSpinner
+											/>
 										</m.div>
 									))}
 								</m.div>
