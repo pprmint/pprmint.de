@@ -23,10 +23,6 @@ export const Projects = [
 		strings: "Icons",
 	},
 	{
-		link: "/projects/mintcraft",
-		strings: "Mintcraft",
-	},
-	{
 		link: "/projects/mintbit",
 		strings: "Mintbit",
 	},

@@ -648,15 +648,15 @@
 			"General": {
 				"title": "Allgemein",
 				"Home": {
-					"description": "Die Seite, die du bestimmt bei deiner Landung gesehen hast.",
+					"description": "Hier fing alles an.",
 					"title": "Startseite"
 				},
 				"Mina": {
-					"description": "Die grünste Seite auf dieser Website.",
+					"description": "Mehr Grün geht nicht.",
 					"title": "Mina"
 				},
 				"Contact": {
-					"description": "Schreib eine Nachricht und hoffe, dass ich daran denke, sie zu lesen.",
+					"description": "Für Antworten auf deine Fragen hier entlang.",
 					"title": "Kontakt"
 				}
 			},
@@ -707,7 +707,7 @@
 			"Other": {
 				"title": "Weiteres",
 				"Privacy": {
-					"description": "Weiß ich, wo du wohnst? <s>Schau doch mal durch's Fenster.</s>",
+					"description": "Spoiler: Ich speichere nix besonderes.",
 					"title": "Datenschutzerklärung"
 				},
 				"AI": {

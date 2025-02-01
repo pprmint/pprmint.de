@@ -648,7 +648,7 @@
 			"General": {
 				"title": "General",
 				"Home": {
-					"description": "The page that you most likely saw when you first landed here.",
+					"description": "This is where it all began.",
 					"title": "Home page"
 				},
 				"Mina": {
@@ -656,7 +656,7 @@
 					"title": "Mina"
 				},
 				"Contact": {
-					"description": "Send me a message and pray I remember to check my mail.",
+					"description": "Answers to (almost) all your questions this way.",
 					"title": "Contact"
 				}
 			},
@@ -707,7 +707,7 @@
 			"Other": {
 				"title": "Other",
 				"Privacy": {
-					"description": "Do I know where you live? <s>Why not check the windows?</s>",
+					"description": "Spoiler: I don't store anything special.",
 					"title": "Privacy policy"
 				},
 				"AI": {
