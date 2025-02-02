@@ -35,6 +35,9 @@ module.exports = withNextIntl({
 			},
 		],
 	},
+	devIndicators: {
+		appIsrStatus: false,
+	},
 	async redirects() {
 		return [
 			{
