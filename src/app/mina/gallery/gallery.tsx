@@ -34,15 +34,18 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 	// }, [artworks]);
 
 	return (
-		<div ref={galleryRef} className="group mb-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2">
+		<div
+			ref={galleryRef}
+			className="group mb-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2"
+		>
 			{artworks.artworks.data.map((art, index) => (
 				<Dialog.Root key={art.id} onOpenChange={handleClose}>
 					<Dialog.Trigger asChild>
 						<button
 							className="group/button overflow-clip bg-white dark:bg-neutral-950
-									[.group:hover_&:not(:hover)]:opacity-60
-									outline outline-1 -outline-offset-1 outline-neutral-50/5
-    							hover:z-10 focus-visible:z-10 scale-100 hover:scale-[1.025] active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-square"
+								[.group:hover_&:not(:hover)]:opacity-60
+								outline outline-1 -outline-offset-1 outline-neutral-50/5
+    						hover:z-10 focus-visible:z-10 scale-100 hover:scale-[1.025] active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-square"
 						>
 							<div className="scale-[1.025] group-hover/button:scale-100 group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
 								<FadingImage
@@ -80,7 +83,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 										/>
 									</div>
 								</TransformComponent>
-								<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 bg-gradient-to-b from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
+								<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 inset-x-0">
 									<div className="flex items-center flex-grow gap-3 text-xl ">
 										<Dialog.Title asChild>
 											<p>
@@ -90,11 +93,21 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 											</p>
 										</Dialog.Title>
 										{art.artist.creditUrl && (
-											<Link href={art.artist.creditUrl!} target="_blank" rel="noopener noreferrer" className="rounded-full">
-												<button tabIndex={-1} className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
+											<Link
+												href={art.artist.creditUrl!}
+												target="_blank"
+												rel="noopener noreferrer"
+												className="rounded-full"
+											>
+												<button
+													tabIndex={-1}
+													className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
+												>
 													{art.artist.creditUrl!.startsWith("https://twitter.com/") ? (
 														<Twitter />
-													) : art.artist.creditUrl!.startsWith("https://www.instagram.com/") ? (
+													) : art.artist.creditUrl!.startsWith(
+															"https://www.instagram.com/"
+													  ) ? (
 														<Instagram />
 													) : art.artist.creditUrl!.startsWith("https://www.youtube.com/") ? (
 														<YouTube />
@@ -112,7 +125,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 									</Dialog.Close>
 								</div>
 								{art.artwork.length >= 2 && (
-									<div className="absolute flex flex-row items-center justify-center bottom-0 px-6 h-16 bg-gradient-to-t from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
+									<div className="absolute flex flex-row items-center justify-center bottom-0 px-6 h-16 inset-x-0">
 										{art.artwork.map((variant, index) => (
 											<button
 												key={index}
@@ -121,7 +134,9 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 											>
 												<div
 													className={`h-2 ${
-														index === selectedVariant ? "bg-neutral-50" : "bg-neutral-50/20 group-hover:bg-neutral-50/50"
+														index === selectedVariant
+															? "bg-neutral-50"
+															: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
 													} rounded-full duration-200 ease-out-quint`}
 												/>
 											</button>

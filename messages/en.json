@@ -273,19 +273,6 @@
 			"loop": "Loop",
 			"copyVideoUrl": "Copy video URL",
 			"playbackSpeed": "Playback speed"
-		},
-		"Mina": {
-			"lovePats": "hehe, i love pats ♥",
-			"forgive": "I'll forgive you, if you pat me more.",
-			"tooMany1": "You don't have to go all out and mess up my hair though.",
-			"tooMany2": "STOP",
-			"tooMany3": "AAAAAAAAAAAAAAAAAAAAAA",
-			"tooMany4": "Alright, here's a counter. After 9 quadrillion, it's game over though.",
-			"tooMany5": "...why are you like this?",
-			"tooMany6": "Your mom must be very proud of you.",
-			"tooMany7": "Alright, see you after 9 quadrillion.",
-			"tooMany8": "insanity.",
-			"humanityIsDead": "You've officially surpassed 9.007.199.254.740.992 clicks. Congratulations..."
 		}
 	},
 	"CONTACT": {
@@ -329,6 +316,23 @@
 				"body": "By deliberately replacing the subject and body text of this email with advertising, sponsorship offers or the like, you agree that I may put your email address into my spam filter to have future emails from you take the shortest route straight to the trash.",
 				"subject": "This is absolutely not an ad or a scam. Wink wink."
 			}
+		}
+	},
+	"FOOTER": {
+		"and": " and ",
+		"madeWith": "Made with ",
+		"Mina": {
+			"lovePats": "hehe, i love pats ♥",
+			"forgive": "I'll forgive you, if you pat me more.",
+			"tooMany1": "You don't have to go all out and mess up my hair though.",
+			"tooMany2": "STOP",
+			"tooMany3": "AAAAAAAAAAAAAAAAAAAAAA",
+			"tooMany4": "Alright, here's a counter. After 9 quadrillion, it's game over though.",
+			"tooMany5": "...why are you like this?",
+			"tooMany6": "Your mom must be very proud of you.",
+			"tooMany7": "Alright, see you after 9 quadrillion.",
+			"tooMany8": "insanity.",
+			"humanityIsDead": "You've officially surpassed 9.007.199.254.740.992 clicks. Congratulations..."
 		}
 	},
 	"GRAPHICS": {
@@ -723,9 +727,7 @@
 					"title": "Potato"
 				}
 			}
-		},
-		"and": " and ",
-		"madeWith": "Made with "
+		}
 	},
 	"PALETTE": {
 		"Head": {

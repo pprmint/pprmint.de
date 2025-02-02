@@ -127,13 +127,13 @@ export default async function Page({
 							{t("Content.Fanart.heading")}
 							<span className="text-green">.</span>
 						</h2>
-						<p>{t("Content.Fanart.text1")}</p>
-						<p>{t("Content.Fanart.text2")}</p>
-						<p>{t("Content.Fanart.text3")}</p>
-						<div className="px-1 py-0.5 max-w-max bg-neutral dark:bg-neutral-900 hover:bg-red-50 dark:hover:bg-red-950 text-transparent hover:text-red-800 dark:hover:text-red-200 rounded-md duration-100 select-none hover:select-text">
+						<p className="mb-3">{t("Content.Fanart.text1")}</p>
+						<p className="mb-3">{t("Content.Fanart.text2")}</p>
+						<p className="mb-3">{t("Content.Fanart.text3")}</p>
+						<div className="px-1 py-0.5 max-w-max bg-black/5 dark:bg-white/5 hover:bg-red-50 dark:hover:bg-red-950 text-transparent hover:text-red-800 dark:hover:text-red-200 duration-100 select-none hover:select-text">
 							{t("Content.Fanart.text4")}
 						</div>
-						<p className="text-xs text-neutral-700 pt-1">{t("Content.Fanart.text5")}</p>
+						<p className="text-xs text-neutral-950/25 dark:text-white/25 pt-1">{t("Content.Fanart.text5")}</p>
 					</div>
 				</section>
 				<section className="relative flex items-end justify-center max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20 min-h-[400px] overflow-clip">

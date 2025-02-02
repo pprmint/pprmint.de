@@ -16,9 +16,16 @@ import { useTheme } from "next-themes";
 import NoSSR from "../NoSSR";
 import { locales } from "src/i18n/config";
 import { setUserLocale } from "src/i18n/locale";
+import Heart from "src/icons/Heart";
+import HotCup from "src/icons/HotCup";
+import Bluesky from "src/icons/Bluesky";
+import Twitter from "src/icons/Twitter";
+import YouTube from "src/icons/YouTube";
+import GitHub from "src/icons/GitHub";
+import Kofi from "src/icons/Kofi";
 
 export default function Footer() {
-	const t = useTranslations("COMMON");
+	const t = useTranslations("FOOTER");
 
 	const { theme, setTheme } = useTheme();
 	const currentLocale = useLocale();
@@ -151,38 +158,70 @@ export default function Footer() {
 				</p>
 			</div>
 			<hr className="border-black/5 dark:border-white/5" />
-			<div className="flex justify-between p-6">
-				<div className="hidden md:flex w-1/3 gap-2.5 items-center">
-					<Image src={FooterCursor} alt="" className="size-4 invert dark:invert-0" />
-					<Image src={FooterCube} alt="" className="size-4 invert dark:invert-0" />
-					<Image src={FooterBrackets} alt="" className="size-4 invert dark:invert-0" />
-					<Image src={FooterLeaf} alt="" className="size-4 " />
-				</div>
-				<div className="md:w-1/3 flex flex-col md:items-center">
-					<p className="text-neutral-950 dark:text-white">
+			<div className="flex flex-col sm:flex-row gap-3 justify-between p-6">
+				<div className="sm:w-1/3">
+					<div className="text-sm text-center sm:text-left">
+						<p className="leading-4">
+							{t("madeWith")}
+							<Heart className="inline fill-red mx-0.5" />
+							{t("and")}
+							<Link
+								href="https://github.com/pprmint/pprmint.de/blob/main/package.json"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<HotCup className="inline fill-yellow mx-0.5" />
+							</Link>
+						</p>
+					</div>
+					<p className="text-neutral-950 dark:text-white text-center sm:text-left">
 						{"© "}
 						{new Date().getFullYear()} pprmint.
 					</p>
-					{process.env.NEXT_PUBLIC_SOURCE_COMMIT && (
-						<Link
-							href={`https://github.com/pprmint/pprmint.de/commit/${process.env.NEXT_PUBLIC_SOURCE_COMMIT}`}
-							className="flex items-center gap-1 text-xs"
-							target="_blank"
-						>
-							SHA
-							<div
-								style={{
-									backgroundColor: `#${process.env.NEXT_PUBLIC_SOURCE_COMMIT.slice(0, 6)}`,
-									width: 10,
-									height: 10,
-									borderRadius: 5,
-								}}
-							/>
-							{process.env.NEXT_PUBLIC_SOURCE_COMMIT.slice(0, 6)}
-						</Link>
-					)}
 				</div>
-				<div className="w-1/3 flex items-center justify-end gap-6">
+				<div className="sm:w-1/3 flex justify-center items-center">
+					<Link
+						href="https://bsky.app/profile/pprmint.de"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="size-9 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5 duration-100 active:duration-75 active:opacity-75"
+					>
+						<Bluesky />
+					</Link>
+					<Link
+						href="https://twitter.com/npprmint"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="size-9 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5 duration-100 active:duration-75 active:opacity-75"
+					>
+						<Twitter />
+					</Link>
+					<Link
+						href="https://youtube.com/@pprmint"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="size-9 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5 duration-100 active:duration-75 active:opacity-75"
+					>
+						<YouTube />
+					</Link>
+					<Link
+						href="https://github.com/pprmint"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="size-9 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5 duration-100 active:duration-75 active:opacity-75"
+					>
+						<GitHub />
+					</Link>
+					<Link
+						href="https://ko-fi.com/pprmint"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="size-9 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5 duration-100 active:duration-75 active:opacity-75"
+					>
+						<Kofi />
+					</Link>
+				</div>
+				<div className="sm:w-1/3 flex items-center justify-between sm:justify-end gap-6">
 					<button
 						onClick={() => setUserLocale(otherLocale!)}
 						className="relative flex border border-black/5 dark:border-white/5"
@@ -190,7 +229,7 @@ export default function Footer() {
 						{locales.map((locale, _) => (
 							<div
 								key={locale}
-								className={`inline-flex items-center justify-center text-sm w-9 h-[27px] ${currentLocale === locale ? "text-neutral-950 dark:text-white bg-neutral-950/5 dark:bg-neutral-50/5" : "hover:bg-neutral-950/5 hover:dark:bg-neutral-50/5"} duration-100 uppercase`}
+								className={`inline-flex items-center justify-center text-sm w-9 h-[27px] ${currentLocale === locale ? "text-neutral-950 dark:text-white bg-neutral-950/5 dark:bg-neutral-50/5" : "hover:bg-neutral-950/5 hover:dark:bg-neutral-50/5"} duration-100 active:duration-75 active:opacity-75 uppercase`}
 							>
 								{locale}
 							</div>
@@ -214,7 +253,7 @@ export default function Footer() {
 								<button
 									key={item.name}
 									onClick={() => setTheme(item.name)}
-									className={`p-1.5 ${theme === item.name ? "text-neutral-950 dark:text-white bg-neutral-950/5 dark:bg-neutral-50/5" : "hover:bg-neutral-950/5 hover:dark:bg-neutral-50/5"}`}
+									className={`p-1.5 ${theme === item.name ? "text-neutral-950 dark:text-white bg-neutral-950/5 dark:bg-neutral-50/5" : "hover:bg-neutral-950/5 hover:dark:bg-neutral-50/5"} duration-100 active:duration-75 active:opacity-75`}
 								>
 									{item.icon}
 								</button>

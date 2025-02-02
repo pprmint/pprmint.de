@@ -6,8 +6,6 @@ import { useTranslations } from "next-intl";
 import { Pages, Projects } from "./Links";
 import { useNavbar } from "./NavBarContext";
 import * as m from "motion/react-client";
-import ChevronRight from "src/icons/ChevronRight";
-import Copyright from "./Socials";
 import { AnimatePresence } from "motion/react";
 
 export default function NavBar() {
@@ -77,7 +75,7 @@ export default function NavBar() {
 	return (
 		<nav
 			ref={navRef}
-			className={`z-90 fixed flex justify-between top-0 inset-x-0 ${navOpen ? "h-screen md:h-72 shadow-xl shadow-neutral-950/5 dark:shadow-neutral-950/25" : "h-16"} flex justify-between duration-300 overflow-auto border-b ${
+			className={`z-90 fixed top-0 inset-x-0 ${navOpen ? "h-full md:h-96 xl:h-72 shadow-xl shadow-neutral-950/5 dark:shadow-neutral-950/25" : "h-16"} flex justify-between duration-300 overflow-auto border-b ${
 				!inverted
 					? "text-neutral-950 dark:text-white"
 					: solid
@@ -86,7 +84,7 @@ export default function NavBar() {
 			}
 				${solid || navOpen ? "bg-white/90 dark:bg-neutral-950/90 backdrop-blur-xl border-black/5 dark:border-white/5" : "border-transparent"}`}
 		>
-			<Link href="/" className="absolute z-90 left-6 sm:left-9 top-3.5" style={{ animationDelay: ".15s" }}>
+			<Link className="absolute z-90 left-6 md:left-9 top-3.5" href="/">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 282 59" className="h-auto w-[150px] mt-1">
 					<path
 						fill="currentColor"
@@ -165,42 +163,23 @@ export default function NavBar() {
 				</svg>
 			</Link>
 			<button
-				className="absolute z-90 right-3 md:right-5 top-3 text-xl size-[39px] rounded-full hover:bg-black/5 dark:hover:bg-white/5 duration-100"
+				className="absolute z-90 top-2.5 right-3 md:right-[18px] p-3 rounded-full hover:bg-black/5 dark:hover:bg-white/5"
 				onClick={toggleOpen}
 			>
-				<svg
-					width="39"
-					height="39"
-					xmlns="http://www.w3.org/2000/svg"
-					className="absolute left-0 top-0 stroke-current stroke-1 fill-none"
-					strokeLinecap="butt"
-				>
-					<path
-						d={navOpen ? "M14,14 19.5,19.5 25,14" : "M12,14.5 19.5,14.5 27,14.5"}
-						className="duration-400 ease-out-quint"
-					/>
-					<path
-						d={navOpen ? "M19.5,19.5 19.5,19.5" : "M12,19.5 27,19.5"}
-						className="duration-400 ease-out-quint"
-					/>
-					<path
-						d={navOpen ? "M14,25 19.5,19.5 25,25" : "M12,24.5 19.5,24.5 27,24.5"}
-						className="duration-400 ease-out-quint"
-					/>
-				</svg>
+				<MenuIcon close={navOpen} size={19} xPadding={1} yPadding={3} strokeWidth={1} />
 			</button>
 			<AnimatePresence>
 				{navOpen && (
-					<m.div className="grid grid-cols-1 md:grid-cols-4 gap-9 px-3 w-full h-full pb-3 pt-16 md:pt-6 md:mx-72 overflow-auto md:overflow-hidden z-80">
+					<m.div className="grid grid-cols-1 md:grid-cols-4 md:gap-3 xl:gap-9 px-3 pb-9 w-full 3xl:max-w-7xl md:mx-3 xl:mx-52 3xl:mx-auto overflow-auto md:overflow-hidden z-80">
 						<m.div
-							initial={{ opacity: 0, y: 20 }}
+							initial={{ opacity: 0, y: -20 }}
 							animate={{
 								opacity: 1,
 								y: 0,
 								transition: { delay: 0.15, duration: 0.5, type: "spring", bounce: 0 },
 							}}
-							exit={{ opacity: 0 }}
-							className="w-full"
+							exit={{ opacity: 0, transition: { duration: 0.2 } }}
+							className="w-full h-max pt-20 xl:pt-5"
 						>
 							<div className="flex items-baseline gap-3">
 								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif font-stretch-ultra-condensed">
@@ -233,14 +212,14 @@ export default function NavBar() {
 							</ul>
 						</m.div>
 						<m.div
-							initial={{ opacity: 0, y: 20 }}
+							initial={{ opacity: 0, y: -20 }}
 							animate={{
 								opacity: 1,
 								y: 0,
 								transition: { delay: 0.2, duration: 0.5, type: "spring", bounce: 0 },
 							}}
-							exit={{ opacity: 0 }}
-							className="w-full col-span-2"
+							exit={{ opacity: 0, transition: { duration: 0.2 } }}
+							className="w-full h-max col-span-2 pt-9 md:pt-20 xl:pt-5"
 						>
 							<div className="flex items-baseline gap-3">
 								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif font-stretch-ultra-condensed">
@@ -324,14 +303,14 @@ export default function NavBar() {
 							</ul>
 						</m.div>
 						<m.div
-							initial={{ opacity: 0, y: 20 }}
+							initial={{ opacity: 0, y: -20 }}
 							animate={{
 								opacity: 1,
 								y: 0,
 								transition: { delay: 0.25, duration: 0.5, type: "spring", bounce: 0 },
 							}}
-							exit={{ opacity: 0 }}
-							className="w-full"
+							exit={{ opacity: 0, transition: { duration: 0.2 } }}
+							className="w-full h-max pt-9 md:pt-20 xl:pt-5"
 						>
 							<div className="flex items-baseline gap-3">
 								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif font-stretch-ultra-condensed">
@@ -380,5 +359,55 @@ export default function NavBar() {
 				)}
 			</AnimatePresence>
 		</nav>
+	);
+}
+
+function MenuIcon({
+	close,
+	size,
+	xPadding,
+	yPadding,
+	strokeWidth,
+}: {
+	close: boolean;
+	size: number;
+	xPadding: number;
+	yPadding: number;
+	strokeWidth: number;
+}) {
+	return (
+		<svg
+			width={size}
+			height={size}
+			xmlns="http://www.w3.org/2000/svg"
+			strokeWidth={strokeWidth}
+			className="stroke-current fill-none"
+			strokeLinecap="butt"
+		>
+			<path
+				d={
+					close
+						? `M${yPadding},${yPadding} ${size / 2},${size / 2} ${size - yPadding},${yPadding}`
+						: `M${xPadding},${yPadding + (size % 2 ? 0.5 : 0)} ${size / 2},${yPadding + (size % 2 ? 0.5 : 0)} ${size - xPadding},${yPadding + (size % 2 ? 0.5 : 0)}`
+				}
+				className="duration-400 ease-out-quint"
+			/>
+			<path
+				d={
+					close
+						? `M${size / 2},${size / 2} ${size / 2},${size / 2}`
+						: `M${xPadding},${size / 2} ${size - xPadding},${size / 2}`
+				}
+				className="duration-400 ease-out-quint"
+			/>
+			<path
+				d={
+					close
+						? `M${yPadding},${size - yPadding} ${size / 2},${size / 2} ${size - yPadding},${size - yPadding}`
+						: `M${xPadding},${size - yPadding - (size % 2 ? 0.5 : 0)} ${size / 2},${size - yPadding - (size % 2 ? 0.5 : 0)} ${size - xPadding},${size - yPadding - (size % 2 ? 0.5 : 0)}`
+				}
+				className="duration-400 ease-out-quint"
+			/>
+		</svg>
 	);
 }

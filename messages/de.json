@@ -273,19 +273,6 @@
 			"loop": "Wiederholen",
 			"copyVideoUrl": "Video-URL kopieren",
 			"playbackSpeed": "Geschwindigkeit"
-		},
-		"Mina": {
-			"lovePats": "hehe, ich liebe streicheln ♥",
-			"forgive": "Ich verzeihe dir, wenn du mich weiter streichelst.",
-			"tooMany1": "Du musst aber auch nicht übertreiben und meine Haare ruinieren.",
-			"tooMany2": "HÖR AUF",
-			"tooMany3": "AAAAAAAAAAAAAAAAAAAAAA",
-			"tooMany4": "Okay, hier ist ein Zähler. Nach 9 Billiarden ist aber Schicht im Schacht.",
-			"tooMany5": "...warum bist du so?",
-			"tooMany6": "Deine Mama ist bestimmt ganz stolz.",
-			"tooMany7": "Na gut, wir sehen uns nach 9 Billiarden.",
-			"tooMany8": "du bist wahnsinnig.",
-			"humanityIsDead": "Du hast offiziell 9.007.199.254.740.992 Klicks hinter dir. Herzlichen Glückwunsch..."
 		}
 	},
 	"CONTACT": {
@@ -329,6 +316,23 @@
 				"body": "Indem du mit Absicht den Betreff und Inhalt dieser Email mit Werbung, Sponsorenangeboten oder Ähnlichem ersetzt, bist du damit einverstanden, dass ich deine Email-Adresse in meinen Spam-Filter einpflege, sodass deine Emails künftig auf dem kürzesten Weg in den Papierkorb wandern.",
 				"subject": "Das hier ist absolut keine Abzocke oder so. Zwinker zwinker."
 			}
+		}
+	},
+	"FOOTER": {
+		"madeWith": "Gemacht mit ",
+		"and": " und ",
+		"Mina": {
+			"lovePats": "hehe, ich liebe streicheln ♥",
+			"forgive": "Ich verzeihe dir, wenn du mich weiter streichelst.",
+			"tooMany1": "Du musst aber auch nicht übertreiben und meine Haare ruinieren.",
+			"tooMany2": "HÖR AUF",
+			"tooMany3": "AAAAAAAAAAAAAAAAAAAAAA",
+			"tooMany4": "Okay, hier ist ein Zähler. Nach 9 Billiarden ist aber Schicht im Schacht.",
+			"tooMany5": "...warum bist du so?",
+			"tooMany6": "Deine Mama ist bestimmt ganz stolz.",
+			"tooMany7": "Na gut, wir sehen uns nach 9 Billiarden.",
+			"tooMany8": "du bist wahnsinnig.",
+			"humanityIsDead": "Du hast offiziell 9.007.199.254.740.992 Klicks hinter dir. Herzlichen Glückwunsch..."
 		}
 	},
 	"GRAPHICS": {
@@ -723,9 +727,7 @@
 					"title": "Kartoffel"
 				}
 			}
-		},
-		"and": " und ",
-		"madeWith": "Gemacht mit "
+		}
 	},
 	"PALETTE": {
 		"Head": {

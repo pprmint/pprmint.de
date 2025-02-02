@@ -23,20 +23,9 @@ export default function Title(
 	}, [props.children, setInverted]);
 	return (
 		<div
-			className={`relative w-screen ${props.children ? "h-1/2-screen min-h-max xl:h-2/3-screen" : "h-max"} overflow-hidden text-balance`}
+			className={`relative w-screen ${props.children ? "h-1/2-screen min-h-max xl:h-[700px]" : "h-max"} overflow-hidden text-balance`}
 		>
-			{props.children && (
-				<m.div
-					initial={{ opacity: 0 }}
-					animate={{
-						opacity: 1,
-						transition: { duration: 0.3, delay: 0.2 },
-					}}
-					className="absolute -z-10 inset-0"
-				>
-					<div className="absolute w-full h-full">{props.children}</div>
-				</m.div>
-			)}
+			{props.children && <div className="absolute -z-10 inset-0">{props.children}</div>}
 			<div className="w-full h-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 				<div className="h-full w-full md:grid grid-cols-2 border-x border-black/5 dark:border-white/5">
 					<div className="relative size-full flex flex-col gap-6 xl:justify-center col-span-2 md:col-span-1 xl:border-r border-black/5 dark:border-white/5 py-20 md:py-28 lg:py-32 xl:py-40">
@@ -51,7 +40,7 @@ export default function Title(
 									transition: {
 										type: "spring",
 										bounce: 0,
-										delay: props.children ? 0.5 : 0.25,
+										delay: props.children ? 0.2 : 0,
 										duration: 0.75,
 									},
 								}}
@@ -68,7 +57,7 @@ export default function Title(
 										type: "spring",
 										bounce: 0,
 										duration: 0.75,
-										delay: props.children ? 0.6 : 0.35,
+										delay: props.children ? 0.25 : 0.05,
 									},
 								}}
 								className={`text-xl md:text-2xl xl:text-3xl ${props.children && "text-white/75"} max-w-64 sm:max-w-none`}

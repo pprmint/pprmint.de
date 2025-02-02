@@ -16,6 +16,7 @@ import "../fonts/MintTriangles/minttriangles.css";
 import "../fonts/MintSans/mintsans.css";
 import { NavbarProvider } from "src/components/layout/navigation/NavBarContext";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
+import TransitionProvider from "./transitionProvider";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://pprmint.de"),
@@ -62,10 +63,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 						<NavbarProvider>
 							<TooltipProvider>
 								<NavBar />
-								{children}
+								<TransitionProvider>
+									{children}
+									<Footer />
+								</TransitionProvider>
 							</TooltipProvider>
 						</NavbarProvider>
-						<Footer />
 					</NextIntlClientProvider>
 				</ThemeProvider>
 			</body>
