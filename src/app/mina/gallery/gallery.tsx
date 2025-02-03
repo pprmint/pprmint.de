@@ -12,6 +12,7 @@ import YouTube from "src/icons/YouTube";
 import Link from "next/link";
 import { MinaArtworks } from "src/types/mina-artwork";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import * as m from "motion/react-client";
 
 export default function Gallery(artworks: { artworks: MinaArtworks }) {
 	const t = useTranslations("MINA");
@@ -41,7 +42,11 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 			{artworks.artworks.data.map((art, index) => (
 				<Dialog.Root key={art.id} onOpenChange={handleClose}>
 					<Dialog.Trigger asChild>
-						<button
+						<m.button
+							key={index}
+							layout
+							layoutId={String(art.id)}
+							transition={{ type: "spring", bounce: 0, duration: 1 }}
 							className="group/button overflow-clip bg-white dark:bg-neutral-950
 								[.group:hover_&:not(:hover)]:opacity-60
 								outline outline-1 -outline-offset-1 outline-neutral-50/5
@@ -63,87 +68,78 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 									<EyeDisabled className="size-[30px] fill-neutral-50 opacity-50" />
 								</div>
 							)}
-						</button>
+						</m.button>
 					</Dialog.Trigger>
 					<Dialog.Portal>
 						<Dialog.Overlay className="bg-neutral-950/90 backdrop-blur-xl data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
-						<Dialog.Content
-							className={`text-white fixed inset-0 z-100 h-screen max-h-svh w-screen max-w-max data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center duration-200 focus-visible:outline-none`}
-						>
-							<TransformWrapper disablePadding>
-								<TransformComponent>
-									<div className="flex items-center justify-center w-screen h-screen max-h-svh">
-										<FadingImage
-											src={`https://static.pprmint.de${art.artwork[selectedVariant]?.url}`}
-											width={art.artwork[selectedVariant]?.width}
-											height={art.artwork[selectedVariant]?.height}
-											alt=""
-											className={`max-h-svh w-auto mx-auto py-16 ${art.pixelart && "pixelated"} drop-shadow-2xl dark:drop-shadow-none`}
-											unoptimized
-										/>
-									</div>
-								</TransformComponent>
-								<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 inset-x-0">
-									<div className="flex items-center flex-grow gap-3 text-xl ">
-										<Dialog.Title asChild>
-											<p>
-												<span className="text-white/70">{t("Content.Artworks.drawnBy")}</span>
-												{art.artist.name}
-												{art.heart && <span className="text-red"> ♥</span>}
-											</p>
-										</Dialog.Title>
-										{art.artist.creditUrl && (
-											<Link
-												href={art.artist.creditUrl!}
-												target="_blank"
-												rel="noopener noreferrer"
-												className="rounded-full"
-											>
-												<button
-													tabIndex={-1}
-													className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
-												>
-													{art.artist.creditUrl!.startsWith("https://twitter.com/") ? (
-														<Twitter />
-													) : art.artist.creditUrl!.startsWith(
-															"https://www.instagram.com/"
-													  ) ? (
-														<Instagram />
-													) : art.artist.creditUrl!.startsWith("https://www.youtube.com/") ? (
-														<YouTube />
-													) : (
-														<Globe />
-													)}
-												</button>
-											</Link>
-										)}
-									</div>
-									<Dialog.Close asChild>
-										<button className="p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
-											<Error />
-										</button>
-									</Dialog.Close>
-								</div>
-								{art.artwork.length >= 2 && (
-									<div className="absolute flex flex-row items-center justify-center bottom-0 px-6 h-16 inset-x-0">
-										{art.artwork.map((variant, index) => (
-											<button
-												key={index}
-												className={`group h-full ${index === selectedVariant ? "w-16" : "w-9"} px-2 duration-200 ease-out-quint`}
-												onClick={() => setSelectedVariant(index)}
-											>
-												<div
-													className={`h-2 ${
-														index === selectedVariant
-															? "bg-neutral-50"
-															: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
-													} rounded-full duration-200 ease-out-quint`}
-												/>
+						<Dialog.Content asChild>
+							<m.div layout className={`text-white fixed inset-0 z-100 h-screen max-h-svh w-screen max-w-max data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center duration-200 focus-visible:outline-none`}>
+								<TransformWrapper disablePadding>
+									<TransformComponent>
+										<m.div layoutId={String(art.id)} className="flex items-center justify-center w-screen h-screen max-h-svh">
+											<FadingImage
+												src={`https://static.pprmint.de${art.artwork[selectedVariant]?.url}`}
+												width={art.artwork[selectedVariant]?.width}
+												height={art.artwork[selectedVariant]?.height}
+												alt=""
+												className={`max-h-svh w-auto mx-auto py-16 ${art.pixelart && "pixelated"} drop-shadow-2xl dark:drop-shadow-none`}
+												unoptimized
+											/>
+										</m.div>
+									</TransformComponent>
+									<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 inset-x-0">
+										<div className="flex items-center flex-grow gap-3 text-xl ">
+											<Dialog.Title asChild>
+												<p>
+													<span className="text-white/70">{t("Content.Artworks.drawnBy")}</span>
+													{art.artist.name}
+													{art.heart && <span className="text-red"> ♥</span>}
+												</p>
+											</Dialog.Title>
+											{art.artist.creditUrl && (
+												<Link href={art.artist.creditUrl!} target="_blank" rel="noopener noreferrer" className="rounded-full">
+													<button
+														tabIndex={-1}
+														className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
+													>
+														{art.artist.creditUrl!.startsWith("https://twitter.com/") ? (
+															<Twitter />
+														) : art.artist.creditUrl!.startsWith("https://www.instagram.com/") ? (
+															<Instagram />
+														) : art.artist.creditUrl!.startsWith("https://www.youtube.com/") ? (
+															<YouTube />
+														) : (
+															<Globe />
+														)}
+													</button>
+												</Link>
+											)}
+										</div>
+										<Dialog.Close asChild>
+											<button className="p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
+												<Error />
 											</button>
-										))}
+										</Dialog.Close>
 									</div>
-								)}
-							</TransformWrapper>
+									{art.artwork.length >= 2 && (
+										<div className="absolute flex flex-row items-center justify-center bottom-0 px-6 h-16 inset-x-0">
+											{art.artwork.map((variant, index) => (
+												<button
+													key={index}
+													className={`group h-full ${index === selectedVariant ? "w-16" : "w-9"} px-2 duration-200 ease-out-quint`}
+													onClick={() => setSelectedVariant(index)}
+												>
+													<div
+														className={`h-2 ${
+															index === selectedVariant ? "bg-neutral-50" : "bg-neutral-50/20 group-hover:bg-neutral-50/50"
+														} rounded-full duration-200 ease-out-quint`}
+													/>
+												</button>
+											))}
+										</div>
+									)}
+								</TransformWrapper>
+							</m.div>
 						</Dialog.Content>
 					</Dialog.Portal>
 				</Dialog.Root>
