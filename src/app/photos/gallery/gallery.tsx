@@ -27,30 +27,29 @@ export default function Gallery(photos: { photos: Photos }) {
 	}, [photos]);
 
 	return (
-		<div ref={galleryRef} className="group mb-10 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5">
+		<div
+			ref={galleryRef}
+			className="group mb-10 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2"
+		>
 			{photos.photos.data.map((photo) => (
 				<Dialog.Root key={photo.id}>
 					<Dialog.Trigger asChild>
 						<button
-							className="group/button relative overflow-clip hover:rounded-lg focus-visible:rounded-lg bg-neutral-950
-    							odd:origin-left even:origin-right
-    							lg:odd:origin-center lg:even:origin-center
-    							lg:[&:nth-child(3n+1)]:origin-left lg:[&:nth-child(3n)]:origin-right
-    							xl:[&:nth-child(3n+1)]:origin-center xl:[&:nth-child(3n)]:origin-center
-    							xl:[&:nth-child(4n+1)]:origin-left xl:[&:nth-child(4n)]:origin-right
-    							3xl:[&:nth-child(4n+1)]:origin-center 3xl:[&:nth-child(4n)]:origin-center
-    							3xl:[&:nth-child(5n+1)]:origin-left 3xl:[&:nth-child(5n)]:origin-right
-									[.group:hover_&:not(:hover)]:opacity-75
-    							hover:scale-[1.02] focus-visible:scale-[1.02] active:scale-[1.01] hover:z-10 focus-visible:z-10 justify hover:ring-1 ring-neutral-50/10 hover:shadow-lg focus-visible:shadow-xl duration-250 ease-out-quint active:duration-75 cursor-pointer aspect-[3/2]"
+							className="group/button overflow-clip bg-white dark:bg-neutral-950
+								[.group:hover_&:not(:hover)]:opacity-60
+								outline outline-1 -outline-offset-1 outline-neutral-50/5
+								hover:z-10 focus-visible:z-10 scale-100 hover:scale-[1.025] active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-video"
 						>
-							<FadingImage
-								src={`https://static.pprmint.de${photo.photo.formats.small.url}`}
-								width={photo.photo.formats.small.width}
-								height={photo.photo.formats.small.height}
-								alt=""
-								className={`h-full min-w-full object-cover group-focus-visible/button:animate-pulse`}
-								unoptimized={photo.photo.url.includes(".gif")}
-							/>
+							<div className="scale-[1.025] group-hover/button:scale-100 group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
+								<FadingImage
+									src={`https://static.pprmint.de${photo.photo.formats.small.url}`}
+									width={photo.photo.formats.small.width}
+									height={photo.photo.formats.small.height}
+									alt=""
+									className={`h-full min-w-full object-cover group-focus-visible/button:animate-pulse`}
+									unoptimized={photo.photo.url.includes(".gif")}
+								/>
+							</div>
 						</button>
 					</Dialog.Trigger>
 					<Dialog.Portal>
@@ -71,7 +70,7 @@ export default function Gallery(photos: { photos: Photos }) {
 										/>
 									</div>
 								</TransformComponent>
-								<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 bg-gradient-to-b from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
+								<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 inset-x-0">
 									<Dialog.Title asChild>
 										<p className=" text-xl">
 											{format.dateTime(new Date(photo.dateTime), {
@@ -92,7 +91,7 @@ export default function Gallery(photos: { photos: Photos }) {
 										</button>
 									</Dialog.Close>
 								</div>
-								<div className="absolute flex flex-col md:flex-row gap-2 items-center justify-end pb-3 md:pb-0 bottom-0 px-6 h-20 md:h-16 bg-gradient-to-t from-neutral-950/75 to-neutral-950/50 backdrop-blur-lg inset-x-0">
+								<div className="absolute flex flex-col md:flex-row gap-2 items-center justify-end pb-3 md:pb-0 bottom-0 px-6 h-20 md:h-16 inset-x-0">
 									<div className="flex items-center md:flex-grow gap-3 md:gap-6 mx-auto">
 										{photo.camera.logo ? (
 											<Image
@@ -101,7 +100,7 @@ export default function Gallery(photos: { photos: Photos }) {
 												height={photo.camera.logo.height}
 												alt={photo.camera.name}
 												unoptimized
-												className="dark:invert h-4 md:h-6 w-auto"
+												className="invert h-4 md:h-6 w-auto"
 											/>
 										) : (
 											<p className="font-medium text-lg">{photo.camera.name}</p>

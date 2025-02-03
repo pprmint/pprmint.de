@@ -28,13 +28,13 @@ export default async function Page({
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} />
-			<main>
-				<section className="my-20 md:my-32 xl:my-40">
+			<main className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+				<section className="pb-20 md:pb-32 xl:pb-40 border-x border-black/5 dark:border-white/5">
 					<Suspense fallback={<GallerySkeleton />}>
 						<GallerySuspense locale={locale} p={parseInt(p)} type={type} dimension={dimension} />
 					</Suspense>
 				</section>
-				<section className="flex flex-col lg:flex-row items-center justify-center gap-9 my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9">
+				<section className="flex flex-col lg:flex-row items-center justify-center gap-9 px-6 md:px-9 border-x border-black/5 dark:border-white/5">
 					<div>
 						<WarningOctagon className="size-24 fill-red" />
 					</div>

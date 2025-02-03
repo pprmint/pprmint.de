@@ -67,7 +67,7 @@ export default async function Page() {
 									}}
 									viewport={{ once: true }}
 									aria-hidden
-									className="absolute bottom-0 right-0 text-right italic text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-serif font-stretch-ultra-condensed bg-neutral-50/50 dark:bg-neutral-950/50 backdrop-blur-md text-neutral-950 dark:text-white"
+									className="absolute bottom-0 right-0 text-right italic text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-serif font-stretch-ultra-condensed bg-white/50 dark:bg-neutral-950/50 backdrop-blur-md text-neutral-950 dark:text-white"
 								>
 									<motion.div
 										initial={{ padding: "0 0" }}

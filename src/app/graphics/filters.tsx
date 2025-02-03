@@ -45,92 +45,55 @@ export default function Filters(props: { type: string; dimension: string }) {
 		props.type === "animated";
 
 	return (
-		<>
-			<Collapsible.Root
-				open={filtersOpen}
-				onOpenChange={setFiltersOpen}
-				className="sm:flex items-center mb-3 w-[calc(100%_-_24px)] sm:w-fit mx-3 sm:mx-auto bg-transparent border data-[state=closed]:border-neutral-900 data-[state=open]:border-neutral-800 rounded-lg overflow-hidden duration-100"
-			>
-				<Collapsible.Trigger asChild>
-					<button
-						className="h-9 w-full sm:w-max px-4 text-white hover:bg-neutral-900 data-[state=open]:bg-neutral-900 data-[state=open]:hover:bg-neutral-800 active:shadow-inner active:opacity-75 disabled:text-neutral-800 disabled:bg-transparent duration-100 focus-visible:bg-neutral-900"
-						onClick={() => setFiltersOpen(!filtersOpen)}
-					>
-						<span className="flex gap-3 items-center justify-center">
-							{filtersActive ? <FilterFilled /> : <Filter />}
-							{t("Content.Filters.button")}
-						</span>
-					</button>
-				</Collapsible.Trigger>
-				<Collapsible.Content className="data-[state=open]:animate-collapsible-vertical-open sm:data-[state=open]:animate-collapsible-horizontal-open data-[state=closed]:animate-collapsible-vertical-close sm:data-[state=closed]:animate-collapsible-horizontal-close whitespace-nowrap overflow-clip">
-					<div className="flex flex-col sm:flex-row items-center w-full sm:w-max">
-						<div className="grid grid-cols-2 w-full sm:w-64 border-y sm:border-y-0 sm:border-x border-neutral-800">
-							<button
-								onClick={() => handleSelectDimension("2d")}
-								className={`flex gap-3 items-center justify-center w-full h-9 ${
-									props.dimension == "2d"
-										? "font-semibold text-white bg-neutral-900 hover:bg-neutral-800"
-										: "hover:bg-neutral-900 hover:text-white"
-								} active:shadow-inner active:opacity-75 duration-100`}
-							>
-								<Stop
-									className={`${
-										props.dimension == "2d" ? "fill-neutral-50" : "fill-neutral"
-									} duration-100`}
-								/>
-								2D
-							</button>
-							<button
-								onClick={() => handleSelectDimension("3d")}
-								className={`flex gap-3 items-center justify-center w-full h-9 ${
-									props.dimension == "3d"
-										? "font-semibold text-white bg-neutral-900 hover:bg-neutral-800"
-										: "hover:bg-neutral-900 hover:text-white"
-								} active:shadow-inner active:opacity-75 duration-100`}
-							>
-								<Cube
-									className={`${
-										props.dimension == "3d" ? "fill-neutral-50" : "fill-neutral"
-									} duration-100`}
-								/>
-								3D
-							</button>
-						</div>
-						<div className="grid grid-cols-2 w-full sm:w-64">
-							<button
-								onClick={() => handleSelectType("static")}
-								className={`flex gap-3 items-center justify-center w-full h-9 ${
-									props.type == "static"
-										? "font-semibold text-white bg-neutral-900 hover:bg-neutral-800"
-										: "hover:bg-neutral-900 hover:text-white"
-								} active:shadow-inner active:opacity-75 duration-100`}
-							>
-								<Photo
-									className={`${
-										props.type == "static" ? "fill-neutral-50" : "fill-neutral"
-									} duration-100`}
-								/>
-								{t("Content.Filters.Type.static")}
-							</button>
-							<button
-								onClick={() => handleSelectType("animated")}
-								className={`flex gap-3 items-center justify-center w-full h-9 ${
-									props.type == "animated"
-										? "font-semibold text-white bg-neutral-900 hover:bg-neutral-800"
-										: "hover:bg-neutral-900 hover:text-white"
-								} active:shadow-inner active:opacity-75 duration-100`}
-							>
-								<Video
-									className={`${
-										props.type == "animated" ? "fill-neutral-50" : "fill-neutral"
-									} duration-100`}
-								/>
-								{t("Content.Filters.Type.animated")}
-							</button>
-						</div>
-					</div>
-				</Collapsible.Content>
-			</Collapsible.Root>
-		</>
+		<div className="flex flex-col sm:flex-row items-center w-full border-t border-black/5 dark:border-white/5">
+			<div className="grid grid-cols-2 w-full sm:w-64 border-b sm:border-b-0 sm:border-r border-black/5 dark:border-white/5">
+				<button
+					onClick={() => handleSelectDimension("2d")}
+					className={`flex gap-3 items-center justify-center w-full h-9 ${
+						props.dimension == "2d"
+							? "font-semibold text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10"
+							: "hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white"
+					} active:shadow-inner active:opacity-75 duration-100`}
+				>
+					<Stop className={`${props.dimension == "2d" ? "fill-neutral-950 dark:fill-white" : "fill-current"} duration-100`} />
+					2D
+				</button>
+				<button
+					onClick={() => handleSelectDimension("3d")}
+					className={`flex gap-3 items-center justify-center w-full h-9 ${
+						props.dimension == "3d"
+							? "font-semibold text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10"
+							: "hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white"
+					} active:shadow-inner active:opacity-75 duration-100`}
+				>
+					<Cube className={`${props.dimension == "3d" ? "fill-neutral-950 dark:fill-white" : "fill-current"} duration-100`} />
+					3D
+				</button>
+			</div>
+			<div className="grid grid-cols-2 w-full sm:w-64 sm:border-r border-black/5 dark:border-white/5">
+				<button
+					onClick={() => handleSelectType("static")}
+					className={`flex gap-3 items-center justify-center w-full h-9 ${
+						props.type == "static"
+							? "font-semibold text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10"
+							: "hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white"
+					} active:shadow-inner active:opacity-75 duration-100`}
+				>
+					<Photo className={`${props.type == "static" ? "fill-neutral-950 dark:fill-white" : "fill-current"} duration-100`} />
+					{t("Content.Filters.Type.static")}
+				</button>
+				<button
+					onClick={() => handleSelectType("animated")}
+					className={`flex gap-3 items-center justify-center w-full h-9 ${
+						props.type == "animated"
+							? "font-semibold text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10"
+							: "hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white"
+					} active:shadow-inner active:opacity-75 duration-100`}
+				>
+					<Video className={`${props.type == "animated" ? "fill-neutral-950 dark:fill-white" : "fill-current"} duration-100`} />
+					{t("Content.Filters.Type.animated")}
+				</button>
+			</div>
+		</div>
 	);
 }

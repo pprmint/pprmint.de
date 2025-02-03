@@ -44,9 +44,9 @@ export default async function Page(props: Props) {
 					fill
 					className={`object-cover ${Work.data.coverFocus} h-full min-w-full contrast-[0.87] blur-lg`}
 				/>
-				<div className="bg-gradient-to-t from-neutral-950 to-neutral-950/75 absolute inset-0" />
+				<div className="bg-gradient-to-t from-white dark:from-neutral-950 to-white/75 dark:to-neutral-950/75 absolute inset-0" />
 				<div
-					className="absolute inset-0 light:invert light:brightness-[0.33]"
+					className="absolute inset-0 invert brightness-0 dark:invert-0 dark:brightness-100"
 					style={{
 						backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24" height="24"><path d="M0 10V0h10a2 2 0 0 0 4 0h10v10a2 2 0 0 0 0 4v10H14a2 2 0 0 0-4 0H0V14a2 2 0 0 0 0-4Z" style="fill:%23111"/></svg>')`,
 						backgroundRepeat: "repeat",
@@ -66,13 +66,13 @@ export default async function Page(props: Props) {
 					)
 				}
 			/>
-			<main>
+			<main className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 				{Work.data.gallery.map((media) =>
 					media.mime.startsWith("image") ? (
 						<div key={media.id.toString()} className="relative w-full min-h-12">
 							<FadingImage
 								src={`https://static.pprmint.de${media.url}`}
-								alt={media.alternativeText}
+								alt={media.alternativeText || ""}
 								width={media.width}
 								height={media.height}
 								quality={100}
