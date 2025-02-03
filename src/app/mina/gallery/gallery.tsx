@@ -52,17 +52,15 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 								outline outline-1 -outline-offset-1 outline-neutral-50/5
     						hover:z-10 focus-visible:z-10 scale-100 hover:scale-[1.025] active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-square"
 						>
-							<div className="scale-[1.025] group-hover/button:scale-100 group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
-								<FadingImage
-									src={`https://static.pprmint.de${art.artwork[0].formats.small ? art.artwork[0].formats.small.url : art.artwork[0].url}`}
-									width={art.artwork[0].width}
-									height={art.artwork[0].height}
-									alt=""
-									hideSpinner
-									style={{ transition: "opacity 0.5s", transitionDelay: `opacity ${index * 0.05}s` }}
-									className={`size-full object-cover ${art.focus} group-focus-visible/button:animate-pulse`}
-								/>
-							</div>
+							<FadingImage
+								src={`https://static.pprmint.de${art.artwork[0].formats.small ? art.artwork[0].formats.small.url : art.artwork[0].url}`}
+								width={art.artwork[0].width}
+								height={art.artwork[0].height}
+								alt=""
+								hideSpinner
+								style={{ transition: "opacity 0.5s", transitionDelay: `opacity ${index * 0.05}s` }}
+								className={`size-full object-cover ${art.focus} group-focus-visible/button:animate-pulse`}
+							/>
 							{art.nsfw && (
 								<div className="absolute inset-0 flex items-center justify-center backdrop-blur-lg group-focus-visible/button:backdrop-blur-sm bg-neutral-950/75 group-focus-visible/button:bg-transparent group-hover/button:opacity-0 duration-300 ease-out-quint pointer-events-none">
 									<EyeDisabled className="size-[30px] fill-neutral-50 opacity-50" />
@@ -73,10 +71,20 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 					<Dialog.Portal>
 						<Dialog.Overlay className="bg-neutral-950/90 backdrop-blur-xl data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
 						<Dialog.Content asChild>
-							<m.div layout className={`text-white fixed inset-0 z-100 h-screen max-h-svh w-screen max-w-max data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center duration-200 focus-visible:outline-none`}>
+							<m.div
+								layout
+								className={`text-white fixed inset-0 z-100 h-screen max-h-svh w-screen max-w-max data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center duration-200 focus-visible:outline-none`}
+							>
+								<Dialog.Description className="hidden size-0">
+									{art.artwork[selectedVariant].alternativeText ||
+										t("Content.Artworks.drawnBy") + art.artist.name}
+								</Dialog.Description>
 								<TransformWrapper disablePadding>
 									<TransformComponent>
-										<m.div layoutId={String(art.id)} className="flex items-center justify-center w-screen h-screen max-h-svh">
+										<m.div
+											layoutId={String(art.id)}
+											className="flex items-center justify-center w-screen h-screen max-h-svh"
+										>
 											<FadingImage
 												src={`https://static.pprmint.de${art.artwork[selectedVariant]?.url}`}
 												width={art.artwork[selectedVariant]?.width}
@@ -91,22 +99,33 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 										<div className="flex items-center flex-grow gap-3 text-xl ">
 											<Dialog.Title asChild>
 												<p>
-													<span className="text-white/70">{t("Content.Artworks.drawnBy")}</span>
+													<span className="text-white/70">
+														{t("Content.Artworks.drawnBy")}
+													</span>
 													{art.artist.name}
 													{art.heart && <span className="text-red"> ♥</span>}
 												</p>
 											</Dialog.Title>
 											{art.artist.creditUrl && (
-												<Link href={art.artist.creditUrl!} target="_blank" rel="noopener noreferrer" className="rounded-full">
+												<Link
+													href={art.artist.creditUrl!}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="rounded-full"
+												>
 													<button
 														tabIndex={-1}
 														className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
 													>
 														{art.artist.creditUrl!.startsWith("https://twitter.com/") ? (
 															<Twitter />
-														) : art.artist.creditUrl!.startsWith("https://www.instagram.com/") ? (
+														) : art.artist.creditUrl!.startsWith(
+																"https://www.instagram.com/"
+														  ) ? (
 															<Instagram />
-														) : art.artist.creditUrl!.startsWith("https://www.youtube.com/") ? (
+														) : art.artist.creditUrl!.startsWith(
+																"https://www.youtube.com/"
+														  ) ? (
 															<YouTube />
 														) : (
 															<Globe />
@@ -131,7 +150,9 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 												>
 													<div
 														className={`h-2 ${
-															index === selectedVariant ? "bg-neutral-50" : "bg-neutral-50/20 group-hover:bg-neutral-50/50"
+															index === selectedVariant
+																? "bg-neutral-50"
+																: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
 														} rounded-full duration-200 ease-out-quint`}
 													/>
 												</button>
