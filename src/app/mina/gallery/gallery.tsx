@@ -1,7 +1,7 @@
 "use client";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useTranslations } from "next-intl";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import FadingImage from "src/components/ui/FadingImage";
 import Error from "src/icons/Error";
 import EyeDisabled from "src/icons/EyeDisabled";
@@ -12,12 +12,22 @@ import YouTube from "src/icons/YouTube";
 import Link from "next/link";
 import { MinaArtworks } from "src/types/mina-artwork";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import Image from "next/image";
 import * as m from "motion/react-client";
+import { AnimatePresence } from "motion/react";
 
 export default function Gallery(artworks: { artworks: MinaArtworks }) {
 	const t = useTranslations("MINA");
+	const [direction, setDirection] = useState(-1);
+	const [selectedArt, setSelectedArt] = useState(0);
 	const [selectedVariant, setSelectedVariant] = useState(0);
 
+	function handleSelectArt(id: number) {
+		setDirection(id > selectedArt ? 1 : -1);
+		setTimeout(() => {
+			setSelectedArt(id);
+		}, 1);
+	}
 	// Reset to 0 after the lightbox is closed.
 	function handleClose() {
 		setTimeout(() => {
@@ -39,10 +49,11 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 			ref={galleryRef}
 			className="group mb-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2"
 		>
-			{artworks.artworks.data.map((art, index) => (
-				<Dialog.Root key={art.id} onOpenChange={handleClose}>
-					<Dialog.Trigger asChild>
+			<Dialog.Root onOpenChange={handleClose}>
+				{artworks.artworks.data.map((art, index) => (
+					<Dialog.Trigger key={art.id} asChild>
 						<button
+							onClick={() => handleSelectArt(index)}
 							key={index}
 							className="group/button overflow-clip bg-white dark:bg-neutral-950
 								[.group:hover_&:not(:hover)]:opacity-60
@@ -67,83 +78,142 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 							)}
 						</button>
 					</Dialog.Trigger>
-					<Dialog.Portal>
-						<Dialog.Overlay className="bg-neutral-950/90 backdrop-blur-xl data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
-						<Dialog.Content asChild>
-							<div
-								className={`text-white fixed inset-0 z-100 h-screen max-h-svh w-screen max-w-max data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center duration-200 focus-visible:outline-none`}
-								style={{ animationDuration: "0.3s" }}
-							>
-								<TransformWrapper disablePadding>
-									<TransformComponent>
-										<div className="flex items-center justify-center w-screen h-screen max-h-svh">
-											<FadingImage
-												src={`https://static.pprmint.de${art.artwork[selectedVariant]?.url}`}
-												width={art.artwork[selectedVariant]?.width}
-												height={art.artwork[selectedVariant]?.height}
-												alt=""
-												className={`max-h-svh w-auto mx-auto py-16 ${art.pixelart && "pixelated"} drop-shadow-2xl dark:drop-shadow-none`}
-												unoptimized
-											/>
-										</div>
-									</TransformComponent>
-									<div className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 inset-x-0">
-										<div className="flex items-center flex-grow gap-3 text-xl ">
-											<Dialog.Title asChild>
-												<p>
-													<span className="text-white/70">{t("Content.Artworks.drawnBy")}</span>
-													{art.artist.name}
-													{art.heart && <span className="text-red"> ♥</span>}
-												</p>
-											</Dialog.Title>
-											{art.artist.creditUrl && (
-												<Link href={art.artist.creditUrl!} target="_blank" rel="noopener noreferrer" className="rounded-full">
-													<button
-														tabIndex={-1}
-														className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
-													>
-														{art.artist.creditUrl!.startsWith("https://twitter.com/") ? (
-															<Twitter />
-														) : art.artist.creditUrl!.startsWith("https://www.instagram.com/") ? (
-															<Instagram />
-														) : art.artist.creditUrl!.startsWith("https://www.youtube.com/") ? (
-															<YouTube />
-														) : (
-															<Globe />
-														)}
-													</button>
-												</Link>
-											)}
-										</div>
-										<Dialog.Close asChild>
-											<button className="p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
-												<Error />
-											</button>
-										</Dialog.Close>
-									</div>
-									{art.artwork.length >= 2 && (
-										<div className="absolute flex flex-row items-center justify-center bottom-0 px-6 h-16 inset-x-0">
-											{art.artwork.map((variant, index) => (
-												<button
-													key={index}
-													className={`group h-full ${index === selectedVariant ? "w-16" : "w-9"} px-2 duration-200 ease-out-quint`}
-													onClick={() => setSelectedVariant(index)}
-												>
-													<div
-														className={`h-2 ${
-															index === selectedVariant ? "bg-neutral-50" : "bg-neutral-50/20 group-hover:bg-neutral-50/50"
-														} rounded-full duration-200 ease-out-quint`}
-													/>
+				))}
+				<Dialog.Portal>
+					<Dialog.Overlay className="bg-neutral-950/90 backdrop-blur-xl data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
+					<Dialog.Content asChild>
+						<m.div
+							className={`text-white fixed inset-0 z-100 h-screen max-h-svh w-screen data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-center duration-200 focus-visible:outline-none`}
+							style={{ animationDuration: "0.3s" }}
+						>
+							<AnimatePresence>
+								<m.div
+									key={artworks.artworks.data[selectedArt].id}
+									initial={{
+										x: direction < 0 ? -80 : 80,
+										clipPath: direction < 0 ? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" : "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
+									}}
+									animate={{
+										x: 0,
+										clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+										transition: { type: "spring", duration: 0.5, bounce: 0, delay: 0.05 },
+									}}
+									exit={{
+										x: direction < 0 ? 80 : -80,
+										clipPath: direction < 0 ? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)" : "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+										opacity: 0,
+										transition: { ease: "easeIn", duration: 0.2 },
+									}}
+									className="absolute"
+								>
+									<TransformWrapper disablePadding>
+										<TransformComponent>
+											<div className="flex items-center justify-center w-screen h-screen max-h-svh">
+												<FadingImage
+													src={`https://static.pprmint.de${artworks.artworks.data[selectedArt].artwork[selectedVariant]?.url}`}
+													width={artworks.artworks.data[selectedArt].artwork[selectedVariant]?.width}
+													height={artworks.artworks.data[selectedArt].artwork[selectedVariant]?.height}
+													alt=""
+													className={`max-h-svh w-auto mx-auto py-16 ${artworks.artworks.data[selectedArt].pixelart && "pixelated"} drop-shadow-2xl dark:drop-shadow-none`}
+													unoptimized
+												/>
+											</div>
+										</TransformComponent>
+									</TransformWrapper>
+								</m.div>
+							</AnimatePresence>
+							<AnimatePresence mode="wait">
+								<m.div
+									key={artworks.artworks.data[selectedArt].id}
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1, transition: { duration: 0.2 } }}
+									exit={{ opacity: 0, transition: { duration: 0.2 } }}
+									className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 inset-x-0"
+								>
+									<div className="flex items-center flex-grow gap-3 text-xl ">
+										<Dialog.Title asChild>
+											<p>
+												<span className="text-white/70">{t("Content.Artworks.drawnBy")}</span>
+												{artworks.artworks.data[selectedArt].artist.name}
+												{artworks.artworks.data[selectedArt].heart && <span className="text-red"> ♥</span>}
+											</p>
+										</Dialog.Title>
+										{artworks.artworks.data[selectedArt].artist.creditUrl && (
+											<Link
+												href={artworks.artworks.data[selectedArt].artist.creditUrl!}
+												target="_blank"
+												rel="noopener noreferrer"
+												className="rounded-full"
+											>
+												<button tabIndex={-1} className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
+													{artworks.artworks.data[selectedArt].artist.creditUrl!.startsWith("https://twitter.com/") ? (
+														<Twitter />
+													) : artworks.artworks.data[selectedArt].artist.creditUrl!.startsWith("https://www.instagram.com/") ? (
+														<Instagram />
+													) : artworks.artworks.data[selectedArt].artist.creditUrl!.startsWith("https://www.youtube.com/") ? (
+														<YouTube />
+													) : (
+														<Globe />
+													)}
 												</button>
-											))}
-										</div>
-									)}
-								</TransformWrapper>
+											</Link>
+										)}
+									</div>
+								</m.div>
+							</AnimatePresence>
+							<Dialog.Close asChild>
+								<button className="absolute right-4 top-4 p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
+									<Error />
+								</button>
+							</Dialog.Close>
+							<AnimatePresence mode="wait">
+								{artworks.artworks.data[selectedArt].artwork.length >= 2 && (
+									<m.div
+										key={artworks.artworks.data[selectedArt].id}
+										initial={{ opacity: 0 }}
+										animate={{ opacity: 1 }}
+										exit={{ opacity: 0 }}
+										className="absolute flex flex-row items-center justify-center top-0 px-6 h-16 inset-x-0"
+									>
+										{artworks.artworks.data[selectedArt].artwork.map((variant, index) => (
+											<button
+												key={index}
+												className={`group h-full ${index === selectedVariant ? "w-16" : "w-9"} px-2 duration-200 ease-out-quint`}
+												onClick={() => setSelectedVariant(index)}
+											>
+												<div
+													className={`h-2 ${
+														index === selectedVariant ? "bg-neutral-50" : "bg-neutral-50/20 group-hover:bg-neutral-50/50"
+													} rounded-full duration-200 ease-out-quint`}
+												/>
+											</button>
+										))}
+									</m.div>
+								)}
+							</AnimatePresence>
+							<div
+								className="absolute bottom-2 flex h-12 items-center gap-2 duration-300 ease-out-quart"
+								style={{ left: `calc(50% - ${selectedArt * 48}px - 32px` }}
+							>
+								{artworks.artworks.data.map((artwork, index) => (
+									<button
+										key={index}
+										onClick={() => handleSelectArt(index)}
+										className={`relative ${selectedArt === index ? "h-12 w-16" : "h-10 w-10 saturate-0 hover:saturate-100 opacity-50 hover:opacity-100"} duration-300 ease-out-quart`}
+									>
+										<Image
+											src={`https://static.pprmint.de${artwork.artwork[0].formats.thumbnail.url}`}
+											fill
+											alt={artwork.artwork[0].alternativeText || ""}
+											className={`object-cover ${artwork.focus}`}
+										/>
+									</button>
+								))}
 							</div>
-						</Dialog.Content>
-					</Dialog.Portal>
-				</Dialog.Root>
-			))}
+						</m.div>
+					</Dialog.Content>
+				</Dialog.Portal>
+			</Dialog.Root>
 		</div>
 	);
 }
