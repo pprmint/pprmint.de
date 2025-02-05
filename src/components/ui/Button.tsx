@@ -60,7 +60,7 @@ export default function Button({
 			: "text-pink-950 bg-pink hover:bg-pink-400 active:bg-pink-600 active:shadow-inner"
 		: outlined
 		? "text-neutral-950 dark:text-white ring-1 active:ring-[3px] ring-inset ring-neutral-200 dark:ring-neutral-800 hover:ring-neutral-500 dark:hover:ring-neutral-50 dark:active:ring-transparent active:ring-transparent bg-neutral/10 hover:bg-neutral/15 active:bg-neutral/30"
-		: "text-neutral-950 dark:text-white dark:text-neutral-950 bg-neutral-100 dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-800 active:bg-neutral-200 dark:active:bg-neutral-900 active:shadow-inner";
+		: "text-neutral-950 dark:text-white dark:text-neutral-950 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 active:bg-black/25 dark:active:bg-white/25 active:shadow-inner";
 	return (
 		<button
 			className={`group flex items-center font-medium duration-200 ease-out ${!rest.disabled && "hover:cursor-pointer"} ${!outlined && !rest.disabled && "hover:shadow-sm"} ${

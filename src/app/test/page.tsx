@@ -194,6 +194,84 @@ export default function Page() {
 					<Checkbox checked color="pink" />
 					<Checkbox checked disabled />
 				</div>
+				<div className="flex gap-3">
+					<Checkbox large />
+					<Checkbox large color="red" />
+					<Checkbox large color="orange" />
+					<Checkbox large color="yellow" />
+					<Checkbox large color="lime" />
+					<Checkbox large color="green" />
+					<Checkbox large color="cyan" />
+					<Checkbox large color="blue" />
+					<Checkbox large color="violet" />
+					<Checkbox large color="pink" />
+					<Checkbox large disabled />
+				</div>
+				<div className="flex gap-3">
+					<Checkbox large checked />
+					<Checkbox large checked color="red" />
+					<Checkbox large checked color="orange" />
+					<Checkbox large checked color="yellow" />
+					<Checkbox large checked color="lime" />
+					<Checkbox large checked color="green" />
+					<Checkbox large checked color="cyan" />
+					<Checkbox large checked color="blue" />
+					<Checkbox large checked color="violet" />
+					<Checkbox large checked color="pink" />
+					<Checkbox large checked disabled />
+				</div>
+				<div className="flex gap-3">
+					<Checkbox border />
+					<Checkbox border color="red" />
+					<Checkbox border color="orange" />
+					<Checkbox border color="yellow" />
+					<Checkbox border color="lime" />
+					<Checkbox border color="green" />
+					<Checkbox border color="cyan" />
+					<Checkbox border color="blue" />
+					<Checkbox border color="violet" />
+					<Checkbox border color="pink" />
+					<Checkbox border disabled />
+				</div>
+				<div className="flex gap-3">
+					<Checkbox border checked />
+					<Checkbox border checked color="red" />
+					<Checkbox border checked color="orange" />
+					<Checkbox border checked color="yellow" />
+					<Checkbox border checked color="lime" />
+					<Checkbox border checked color="green" />
+					<Checkbox border checked color="cyan" />
+					<Checkbox border checked color="blue" />
+					<Checkbox border checked color="violet" />
+					<Checkbox border checked color="pink" />
+					<Checkbox border checked disabled />
+				</div>
+				<div className="flex gap-3">
+					<Checkbox border large />
+					<Checkbox border large color="red" />
+					<Checkbox border large color="orange" />
+					<Checkbox border large color="yellow" />
+					<Checkbox border large color="lime" />
+					<Checkbox border large color="green" />
+					<Checkbox border large color="cyan" />
+					<Checkbox border large color="blue" />
+					<Checkbox border large color="violet" />
+					<Checkbox border large color="pink" />
+					<Checkbox border large disabled />
+				</div>
+				<div className="flex gap-3">
+					<Checkbox border large checked />
+					<Checkbox border large checked color="red" />
+					<Checkbox border large checked color="orange" />
+					<Checkbox border large checked color="yellow" />
+					<Checkbox border large checked color="lime" />
+					<Checkbox border large checked color="green" />
+					<Checkbox border large checked color="cyan" />
+					<Checkbox border large checked color="blue" />
+					<Checkbox border large checked color="violet" />
+					<Checkbox border large checked color="pink" />
+					<Checkbox border large checked disabled />
+				</div>
 			</section>
 		</main>
 	);

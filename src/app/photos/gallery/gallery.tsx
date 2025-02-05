@@ -29,7 +29,7 @@ export default function Gallery(photos: { photos: Photos }) {
 	return (
 		<div
 			ref={galleryRef}
-			className="group mb-10 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2"
+			className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2"
 		>
 			{photos.photos.data.map((photo) => (
 				<Dialog.Root key={photo.id}>

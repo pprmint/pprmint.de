@@ -10,9 +10,13 @@ export default async function GallerySuspense({ p, nsfw, artist }: { p: number; 
 	const Artworks: MinaArtworks = await getArtworks(p, nsfw, Artists, artist);
 	return (
 		<div className="border-x border-black/5 dark:border-white/5 pt-12 lg:pt-20 xl:pt-40">
-			<Filters nsfw={nsfw} artist={artist} artists={Artists} />
-			{Artworks.data.length == 0 ? <OutOfBounds /> : <Gallery artworks={Artworks} />}
-			<Pagination page={p} pageCount={Artworks.meta.pagination.pageCount} />
+			{Artworks !== null && (
+				<>
+					<Filters nsfw={nsfw} artist={artist} artists={Artists} />
+					{Artworks.data.length == 0 ? <OutOfBounds /> : <Gallery artworks={Artworks} />}
+					<Pagination page={p} pageCount={Artworks.meta.pagination.pageCount} />
+				</>
+			)}
 		</div>
 	);
 }
@@ -42,7 +46,7 @@ async function getArtworks(page: number, nsfw: string, artists: Artists, artist?
 		}
 	);
 	if (!res.ok) {
-		throw new Error("Failed to fetch artworks.");
+		return null;
 	}
 	return res.json();
 }
@@ -56,7 +60,7 @@ async function getArtists() {
 		next: { revalidate: 0 },
 	});
 	if (!res.ok) {
-		throw new Error("Failed to fetch artists.");
+		return null;
 	}
 	return res.json();
 }

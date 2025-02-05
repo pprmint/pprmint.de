@@ -187,7 +187,7 @@ export default function Cards() {
 			<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-60 outline-none" />
 			<div className="md:flex items-center gap-3 mb-6">
 				<div className="inline-flex whitespace-nowrap gap-3 flex-grow mb-3 md:mb-0">
-					<Checkbox checked={large} onCheckedChange={() => setLarge(!large)} id="large" />
+					<Checkbox border checked={large} onCheckedChange={() => setLarge(!large)} id="large" />
 					<label htmlFor="large">{t("ICONS.Content.largeIcons")}</label>
 				</div>
 				<div className="flex gap-3 flex-wrap">

@@ -50,12 +50,17 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 	return (
 		<div
 			ref={galleryRef}
-			className="group mb-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2"
+			className="group grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2"
 		>
 			<Dialog.Root onOpenChange={handleClose}>
 				{artworks.artworks.data.map((art, index) => (
 					<Dialog.Trigger key={art.id} asChild>
 						<button
+							style={{
+								backgroundImage:
+									'url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%202%202%22%3E%3Cpath%20d%3D%22M2%202V1H0V0h1v2z%22%20fill%3D%22%238881%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E")',
+								backgroundSize: "10%",
+							}}
 							onClick={() => setSelectedArt(index)}
 							key={index}
 							className="group/button overflow-clip bg-white dark:bg-neutral-950
@@ -121,9 +126,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 												exit={{
 													x: direction < 0 ? 60 : -60,
 													clipPath:
-														direction < 0
-															? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
-															: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+														direction < 0 ? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)" : "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
 													opacity: 0,
 													transition: { ease: "easeIn", duration: 0.2 },
 												}}
@@ -131,14 +134,8 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 											>
 												<FadingImage
 													src={`https://static.pprmint.de${artworks.artworks.data[selectedArt].artwork[selectedVariant]?.url}`}
-													width={
-														artworks.artworks.data[selectedArt].artwork[selectedVariant]
-															?.width
-													}
-													height={
-														artworks.artworks.data[selectedArt].artwork[selectedVariant]
-															?.height
-													}
+													width={artworks.artworks.data[selectedArt].artwork[selectedVariant]?.width}
+													height={artworks.artworks.data[selectedArt].artwork[selectedVariant]?.height}
 													alt=""
 													className={`max-h-svh w-auto mx-auto py-16 ${artworks.artworks.data[selectedArt].pixelart && "pixelated"} drop-shadow-2xl dark:drop-shadow-none`}
 													unoptimized
@@ -170,13 +167,9 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 											>
 												<Dialog.Title asChild>
 													<p>
-														<span className="text-white/70">
-															{t("Content.Artworks.drawnBy")}
-														</span>
+														<span className="text-white/70">{t("Content.Artworks.drawnBy")}</span>
 														{artworks.artworks.data[selectedArt].artist.name}
-														{artworks.artworks.data[selectedArt].heart && (
-															<span className="text-red"> ♥</span>
-														)}
+														{artworks.artworks.data[selectedArt].heart && <span className="text-red"> ♥</span>}
 													</p>
 												</Dialog.Title>
 												{artworks.artworks.data[selectedArt].artist.creditUrl && (
@@ -190,21 +183,11 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 															tabIndex={-1}
 															className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
 														>
-															{artworks.artworks.data[
-																selectedArt
-															].artist.creditUrl!.startsWith("https://twitter.com/") ? (
+															{artworks.artworks.data[selectedArt].artist.creditUrl!.startsWith("https://twitter.com/") ? (
 																<Twitter />
-															) : artworks.artworks.data[
-																	selectedArt
-															  ].artist.creditUrl!.startsWith(
-																	"https://www.instagram.com/"
-															  ) ? (
+															) : artworks.artworks.data[selectedArt].artist.creditUrl!.startsWith("https://www.instagram.com/") ? (
 																<Instagram />
-															) : artworks.artworks.data[
-																	selectedArt
-															  ].artist.creditUrl!.startsWith(
-																	"https://www.youtube.com/"
-															  ) ? (
+															) : artworks.artworks.data[selectedArt].artist.creditUrl!.startsWith("https://www.youtube.com/") ? (
 																<YouTube />
 															) : (
 																<Globe />
@@ -223,23 +206,19 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 													exit={{ opacity: 0 }}
 													className="flex flex-row items-center justify-center px-6 h-16 inset-x-0"
 												>
-													{artworks.artworks.data[selectedArt].artwork.map(
-														(variant, index) => (
-															<button
-																key={index}
-																className={`group h-full ${index === selectedVariant ? "w-9" : "w-5"} px-1.5 duration-200 ease-out-quint`}
-																onClick={() => setSelectedVariant(index)}
-															>
-																<div
-																	className={`h-2 ${
-																		index === selectedVariant
-																			? "bg-neutral-50"
-																			: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
-																	} rounded-full duration-200 ease-out-quint`}
-																/>
-															</button>
-														)
-													)}
+													{artworks.artworks.data[selectedArt].artwork.map((variant, index) => (
+														<button
+															key={index}
+															className={`group h-full ${index === selectedVariant ? "w-9" : "w-5"} px-1.5 duration-200 ease-out-quint`}
+															onClick={() => setSelectedVariant(index)}
+														>
+															<div
+																className={`h-2 ${
+																	index === selectedVariant ? "bg-neutral-50" : "bg-neutral-50/20 group-hover:bg-neutral-50/50"
+																} rounded-full duration-200 ease-out-quint`}
+															/>
+														</button>
+													))}
 												</m.div>
 											)}
 										</AnimatePresence>

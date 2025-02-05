@@ -101,8 +101,8 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 		<>
 			<div className="flex w-full border-t border-black/5 dark:border-white/5">
 				<div className="flex items-center grow">
-					<div className="flex items-center gap-3 h-9 px-3 w-max border-r border-black/5 dark:border-white/5">
-						<Checkbox id="nsfw" checked={nsfw} onCheckedChange={handleNsfw} />
+					<div className="flex items-center gap-2 h-9 pl-2 pr-3 w-max border-r border-black/5 dark:border-white/5">
+						<Checkbox border id="nsfw" checked={nsfw} onCheckedChange={handleNsfw} />
 						<label htmlFor="nsfw">{t("Content.NSFW.checkbox")}</label>
 					</div>
 					<div className="w-full sm:w-48 gap-3 sm:border-r border-black/5 dark:border-white/5">
@@ -157,9 +157,6 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 							</Select.Portal>
 						</Select.Root>
 					</div>
-				</div>
-				<div className="hidden sm:flex items-center justify-end px-3 text-sm">
-					Showing X of Y results.
 				</div>
 			</div>
 			<Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
