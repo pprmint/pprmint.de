@@ -287,7 +287,7 @@
 			},
 			"Email": {
 				"title": "Email",
-				"text": "The classic. If you prefer more formal means of communication, this is the way to go. I check my emails fairly frequently, so you can expect a response soon.",
+				"text": "Send spam, get banned.",
 				"preferMailto": "Prefer to use your own email client? Send your email to <Link>mail@pprmint.de</Link>.",
 				"Form": {
 					"name": "Name",
@@ -301,16 +301,6 @@
 					"retry": "Retry",
 					"noCommissions": "Sorry, I don't accept commissions at the time."
 				}
-			},
-			"Telegram": {
-				"title": "Telegram",
-				"text": "Unless I'm asleep, I'll probably reply to your message pretty quickly. Convenient as that may be, please don't use this for any chit-chat.",
-				"button": "Open chat"
-			},
-			"Twitter": {
-				"title": "Twitter",
-				"text": "My DMs are open, however it may take a couple of days for you to get a response. Twitter barely shows me that I got new message requests.",
-				"button": "Send message"
 			},
 			"Message": {
 				"body": "By deliberately replacing the subject and body text of this email with advertising, sponsorship offers or the like, you agree that I may put your email address into my spam filter to have future emails from you take the shortest route straight to the trash.",

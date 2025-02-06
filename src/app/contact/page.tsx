@@ -85,67 +85,33 @@ export default async function Page() {
 				</div>
 			</Title>
 			<main className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-				<section className="w-full mx-auto py-20 md:py-32 xl:py-40 flex flex-col items-center justify-center border-x border-black/5 dark:border-white/5 overflow-hidden">
-					<h2>{t("Content.Mina.heading")}</h2>
-					<p className="pb-6">{t("Content.Mina.text")}</p>
-					<Chatbox />
-				</section>
-				<section className="w-full grid lg:grid-cols-2">
-					<div className="group relative w-full overflow-clip border border-b-0 lg:border-b lg:border-r-0 border-black/5 dark:border-white/5">
-						<div className="w-full py-12 md:py-20 xl:py-40">
-							<div className="w-full h-full">
-								<h2 className="pr-12">
-									{t("Content.Email.title")}
-									<span className="text-green">.</span>
-								</h2>
-								<p className="pb-9 pr-12 text-balance">{t("Content.Email.text")}</p>
-								<Form />
-								<p className="mt-9 pr-12 text-xs">
-									{t.rich("Content.Email.preferMailto", {
-										Link: (chunks) => (
-											<Link
-												href={`mailto:${chunks}?subject=${t("Content.Message.subject")}&body=${t("Content.Message.body")}`}
-												className="text-link"
-											>
-												{chunks}
-											</Link>
-										),
-									})}
-								</p>
-							</div>
+				<section className="relative w-full grid lg:grid-cols-2 border border-black/5 dark:border-white/5">
+					<div className="w-full overflow-clip text-center py-12 md:py-20 xl:py-40 border-r border-black/5 dark:border-white/5">
+						<h2>{t("Content.Mina.heading")}</h2>
+						<p className="pb-6">{t("Content.Mina.text")}</p>
+						<div className="w-fit mx-auto">
+							<Chatbox />
 						</div>
-						<Image
-							src={Letter}
-							alt=""
-							className="invert dark:invert-0 absolute -z-10 w-1/2 h-auto -bottom-12 right-0 scale-90 group-hover:scale-100 opacity-15 origin-bottom-right duration-500 ease-in-out"
-						/>
 					</div>
-					<div className="group relative w-full overflow-clip border border-black/5 dark:border-white/5">
-						<div className="w-full py-12 md:py-20 xl:py-40">
-							<div className="size-full">
-								<h2 className="pr-12">
-									{t("Content.Twitter.title")}
-									<span className="text-green">.</span>
-								</h2>
-								<p className="pb-9 pr-12 text-balance">{t("Content.Twitter.text")}</p>
-								<div className="w-max">
+					<div className="group w-full overflow-clip text-center py-12 md:py-20 xl:py-40 border-r border-black/5 dark:border-white/5">
+						<h2>
+							{t("Content.Email.title")}
+							<span className="text-green">.</span>
+						</h2>
+						<p className="pb-9 text-balance">{t("Content.Email.text")}</p>
+						<Form />
+						<p className="mt-9 text-xs">
+							{t.rich("Content.Email.preferMailto", {
+								Link: (chunks) => (
 									<Link
-										href="https://twitter.com/messages/compose?recipient_id=1571518236394397699"
-										target="_blank"
-										rel="noopener noreferrer"
+										href={`mailto:${chunks}?subject=${t("Content.Message.subject")}&body=${t("Content.Message.body")}`}
+										className="text-link"
 									>
-										<Button tabIndex={-1} color="green">
-											{t("Content.Twitter.button")}
-										</Button>
+										{chunks}
 									</Link>
-								</div>
-							</div>
-						</div>
-						<Image
-							src={Bubbles}
-							alt=""
-							className="invert dark:invert-0 absolute -z-10 w-1/2 h-auto -bottom-12 right-0 scale-90 group-hover:scale-100 opacity-15 origin-bottom-right duration-500 ease-in-out"
-						/>
+								),
+							})}
+						</p>
 					</div>
 				</section>
 			</main>

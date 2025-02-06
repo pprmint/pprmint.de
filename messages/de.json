@@ -287,7 +287,7 @@
 			},
 			"Email": {
 				"title": "Email",
-				"text": "Der Klassiker. Wenn du förmlichere Kommunikationsmittel bevorzugst, ist das die richtige Anlaufstelle. Ich prüfe meine Emails recht häufig, also kannst du mit einer zeitnahen Antwort rechnen.",
+				"text": "Schick Spam und du fliegst.",
 				"preferMailto": "Möchtest du lieber deinen eigenen Email-Client verwenden? Sende deine Email an <Link>mail@pprmint.de</Link>.",
 				"Form": {
 					"name": "Name",
@@ -301,16 +301,6 @@
 					"retry": "Erneut versuchen",
 					"noCommissions": "Sorry, derzeit akzeptiere ich keine Auftragsarbeiten."
 				}
-			},
-			"Telegram": {
-				"title": "Telegram",
-				"text": "Sofern ich nicht gerade schlafe, werde ich wahrscheinlich recht schnell auf deine Nachricht antworten. So bequem das auch sein mag, benutze dies bitte nicht für irgendwelches Geplauder.",
-				"button": "Chat öffnen"
-			},
-			"Twitter": {
-				"title": "Twitter",
-				"text": "Meine DMs sind offen. Es kann jedoch einige Tage dauern, bis du eine Antwort erhältst. Neue Nachrichtenanfragen werden mir fast nie direkt angezeigt.",
-				"button": "Nachricht senden"
 			},
 			"Message": {
 				"body": "Indem du mit Absicht den Betreff und Inhalt dieser Email mit Werbung, Sponsorenangeboten oder Ähnlichem ersetzt, bist du damit einverstanden, dass ich deine Email-Adresse in meinen Spam-Filter einpflege, sodass deine Emails künftig auf dem kürzesten Weg in den Papierkorb wandern.",

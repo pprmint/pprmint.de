@@ -135,7 +135,7 @@ function Chatbox() {
 			<Dialog.Trigger asChild>
 				<button className="group relative h-14">
 					<div
-						className="relative z-10 flex whitespace-nowrap items-end gap-3 hover:font-bold text-3xl lg:text-4xl xl:text-5xl text-neutral-950 dark:text-white group-focus-visible:bg-neutral-800 group-hover:drop-shadow-md duration-500 ease-out-expo"
+						className="relative z-10 flex whitespace-nowrap items-end gap-3 hover:font-bold text-5xl text-neutral-950 dark:text-white group-focus-visible:bg-neutral-800 group-hover:drop-shadow-md duration-500 ease-out-expo"
 						style={{ lineHeight: "0.76em" }}
 					>
 						<div className="relative h-14 w-16 overflow-clip">

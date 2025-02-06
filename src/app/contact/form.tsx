@@ -1,13 +1,14 @@
 "use client";
 import { useState } from "react";
-import { useTransition, a, easings } from "@react-spring/web";
-import { Check, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import Button from "src/components/ui/Button";
 import WarningTriangle from "src/icons/WarningTriangle";
 import { useTranslations } from "next-intl";
 import FadingImage from "src/components/ui/FadingImage";
+import * as m from "motion/react-m";
 
 import PixelMina from "public/assets/mina64.gif";
+import { AnimatePresence } from "motion/react";
 
 export default function Form() {
 	const t = useTranslations("CONTACT.Content.Email.Form");
@@ -67,141 +68,135 @@ export default function Form() {
 		}
 	}
 
-	const submitTransition = useTransition(submitted, {
-		key: submitted,
-		from: {
-			opacity: 0,
-			y: 40,
-			scale: 1,
-		},
-		enter: {
-			opacity: 1,
-			y: 0,
-			scale: 1,
-			config: {
-				duration: 700,
-				easing: easings.easeOutExpo,
-			},
-		},
-		leave: {
-			opacity: 0,
-			y: 0,
-			scale: 0.95,
-			config: {
-				duration: 200,
-				easing: easings.easeInCubic,
-			},
-		},
-		exitBeforeEnter: true,
-	});
-
-	const sendingTransition = useTransition(sending, {
-		from: {
-			opacity: 0,
-		},
-		enter: {
-			opacity: 1,
-		},
-		leave: {
-			opacity: 0,
-		},
-		config: {
-			duration: 200,
-		},
-	});
-
-	return submitTransition((styles, item) =>
-		!item ? (
-			// @ts-expect-error
-			<a.div style={{ ...styles }} className="relative">
-				{sendingTransition((style, item) =>
-					item ? (
-						// @ts-expect-error
-						<a.div style={style} className="absolute inset-0 z-20 bg-neutral-950/75 flex items-center justify-center">
-							<FadingImage src={PixelMina} alt="" className="size-32" style={{ imageRendering: "pixelated" }} />
-						</a.div>
-					) : null
-				)}
-				<form className="grid grid-cols-2">
-					<input
-						required
-						type="text"
-						placeholder={t("name")}
-						name="name"
-						aria-label="name text field"
-						maxLength={30}
-						onChange={(e) => {
-							setFormData({ ...formData, name: e.target.value });
-						}}
-						className="box-content col-span-2 sm:col-span-1 sm:border-r border-t sm:border-b border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
-					/>
-					<input
-						required
-						type="text"
-						placeholder={t("emailAddress")}
-						name="email"
-						aria-label="email address text field"
-						maxLength={50}
-						onChange={(e) => {
-							setFormData({ ...formData, email: e.target.value });
-						}}
-						className="box-content col-span-2 sm:col-span-1 border-y border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
-					/>
-					<input
-						required
-						type="text"
-						placeholder={t("subject")}
-						name="subject"
-						aria-label="subject text field"
-						maxLength={100}
-						onChange={(e) => {
-							setFormData({ ...formData, subject: e.target.value });
-						}}
-						className="box-content col-span-2 border-b border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
-					/>
-					<textarea
-						required
-						name="message"
-						placeholder={t("message")}
-						aria-label="message field"
-						maxLength={2000}
-						rows={7}
-						onChange={(e) => {
-							setFormData({ ...formData, message: e.target.value });
-						}}
-						className="box-content col-span-2 border-b border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100 resize-none"
-					/>
-					<Button
-						onClick={(e) => {
-							handleSubmit(e);
-						}}
-						disabled={invalidInput}
-						color={failed ? "yellow" : "green"}
-					>
-						{sending ? t("sending") : failed ? t("retry") : t("send")}
-						{sending ? <Loader2 size={16} className="animate-spin" /> : failed && <WarningTriangle />}
-					</Button>
-				</form>
-			</a.div>
-		) : (
-			// @ts-expect-error
-			<a.div style={styles} className="min-h-[396px] sm:min-h-[378px] flex flex-col gap-3 items-center justify-center text-center">
-				<h1 className=" inline-flex gap-3 items-center">
-					<span>
-						{t("sent")}
-						<span className="text-green">.</span>{" "}
-					</span>
-					<Check
-						strokeWidth={2}
-						size="1em"
-						strokeLinejoin="miter"
-						strokeLinecap="square"
-						className="animate-lucide-check-draw-in"
-						strokeDasharray={24}
-					/>
-				</h1>
-				<p>{t("sentText")}</p>
-			</a.div>
-		)
+	return (
+		<AnimatePresence mode="wait">
+			{!submitted ? (
+				<m.div
+					key="form"
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1, transition: { ease: "linear", duration: 0.2 } }}
+					exit={{ opacity: 0, transition: { ease: "linear", duration: 0.2 } }}
+					className="relative"
+				>
+					<AnimatePresence>
+						{sending && (
+							<m.div
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1, transition: { ease: "linear", duration: 0.2 } }}
+								exit={{ opacity: 0, transition: { ease: "linear", duration: 0.2 } }}
+								className="absolute inset-0 z-20 bg-neutral-950/75 flex items-center justify-center"
+							>
+								<FadingImage
+									src={PixelMina}
+									alt=""
+									className="size-32"
+									style={{ imageRendering: "pixelated" }}
+								/>
+							</m.div>
+						)}
+					</AnimatePresence>
+					<form className="grid grid-cols-2">
+						<input
+							required
+							type="text"
+							placeholder={t("name")}
+							name="name"
+							aria-label="name text field"
+							maxLength={30}
+							onChange={(e) => {
+								setFormData({ ...formData, name: e.target.value });
+							}}
+							className="box-content col-span-2 sm:col-span-1 sm:border-r border-t sm:border-b border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
+						/>
+						<input
+							required
+							type="text"
+							placeholder={t("emailAddress")}
+							name="email"
+							aria-label="email address text field"
+							maxLength={50}
+							onChange={(e) => {
+								setFormData({ ...formData, email: e.target.value });
+							}}
+							className="box-content col-span-2 sm:col-span-1 border-y border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
+						/>
+						<input
+							required
+							type="text"
+							placeholder={t("subject")}
+							name="subject"
+							aria-label="subject text field"
+							maxLength={100}
+							onChange={(e) => {
+								setFormData({ ...formData, subject: e.target.value });
+							}}
+							className="box-content col-span-2 border-b border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
+						/>
+						<textarea
+							required
+							name="message"
+							placeholder={t("message")}
+							aria-label="message field"
+							maxLength={2000}
+							rows={7}
+							onChange={(e) => {
+								setFormData({ ...formData, message: e.target.value });
+							}}
+							className="box-content col-span-2 border-b border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100 resize-none"
+						/>
+						<Button
+							onClick={(e) => {
+								handleSubmit(e);
+							}}
+							disabled={invalidInput}
+							color={failed ? "yellow" : "green"}
+						>
+							{sending ? t("sending") : failed ? t("retry") : t("send")}
+							{sending ? <Loader2 size={16} className="animate-spin" /> : failed && <WarningTriangle />}
+						</Button>
+					</form>
+				</m.div>
+			) : (
+				<m.div
+					key="confirm"
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1, transition: { ease: "linear", duration: 0.2 } }}
+					exit={{ opacity: 0, transition: { ease: "linear", duration: 0.2 } }}
+					className="min-h-[349px] sm:min-h-[308px] flex flex-col gap-3 items-center justify-center text-center"
+				>
+					<h1 className="pb-0">
+						<span>
+							{t("sent")}
+							<span className="text-green">.</span>{" "}
+						</span>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="1.25"
+							strokeLinecap="butt"
+							strokeLinejoin="miter"
+							className="size-[1em] inline stroke-neutral-950 dark:stroke-white"
+						>
+							<m.path
+								d="M 4 12 L 9 17 L 20 6"
+								initial={{ pathLength: 0 }}
+								animate={{
+									pathLength: 1,
+									transition: {
+										delay: 0.3,
+										type: "spring",
+										duration: 0.5,
+										bounce: 0,
+									},
+								}}
+							/>
+						</svg>
+					</h1>
+					<p>{t("sentText")}</p>
+				</m.div>
+			)}
+		</AnimatePresence>
 	);
 }
