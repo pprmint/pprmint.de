@@ -176,7 +176,7 @@ export default function NavBar() {
 							animate={{
 								opacity: 1,
 								y: 0,
-								transition: { delay: 0.15, duration: 0.5, type: "spring", bounce: 0 },
+								transition: { delay: 0.1, duration: 0.5, type: "spring", bounce: 0 },
 							}}
 							exit={{ opacity: 0, transition: { duration: 0.2 } }}
 							className="w-full h-max pt-20 xl:pt-5"
@@ -216,7 +216,7 @@ export default function NavBar() {
 							animate={{
 								opacity: 1,
 								y: 0,
-								transition: { delay: 0.2, duration: 0.5, type: "spring", bounce: 0 },
+								transition: { delay: 0.15, duration: 0.5, type: "spring", bounce: 0 },
 							}}
 							exit={{ opacity: 0, transition: { duration: 0.2 } }}
 							className="w-full h-max col-span-2 pt-9 md:pt-20 xl:pt-5"
@@ -307,7 +307,7 @@ export default function NavBar() {
 							animate={{
 								opacity: 1,
 								y: 0,
-								transition: { delay: 0.25, duration: 0.5, type: "spring", bounce: 0 },
+								transition: { delay: 0.2, duration: 0.5, type: "spring", bounce: 0 },
 							}}
 							exit={{ opacity: 0, transition: { duration: 0.2 } }}
 							className="w-full h-max pt-9 md:pt-20 xl:pt-5"
