@@ -62,7 +62,7 @@
 			"search": "Search for an app icon by its name",
 			"noResults": "No results",
 			"Panel": {
-				"iconsSelected": "{count, plural, =1 {Icon} other {Icons}} selected.",
+				"iconsSelected": "<em>{count}</em> {count, plural, =1 {icon} other {icons}} selected.",
 				"downloadAll": "Download all",
 				"downloadSelected": "Download selected",
 				"deselectAll": "Deselect all"

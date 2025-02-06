@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState, ChangeEvent } from "react";
 import JSZip from "jszip";
 import FileSaver from "file-saver";
 import * as m from "motion/react-m";
@@ -71,7 +71,6 @@ import FadingImage from "src/components/ui/FadingImage";
 import Button from "src/components/ui/Button";
 import Search from "src/icons/Search";
 import X from "src/icons/X";
-import Check from "src/icons/Check";
 import Download from "src/icons/Download";
 import { AnimatePresence } from "motion/react";
 
@@ -398,7 +397,6 @@ export default function Selector() {
 	const filteredIcons = Icons.filter((icon) => icon.name.toLowerCase().includes(search.toLowerCase()));
 
 	const [selectedIcons, setSelectedIcons] = useState<{ name: string; link: string }[]>([]);
-	const [prevCount, setPrevCount] = useState(0);
 	const [loading, setLoading] = useState(false);
 	const handleIconSelect = (icon: { name: string; link: string }) => {
 		setSelectedIcons((prevSelectedIcons) => {
@@ -412,9 +410,6 @@ export default function Selector() {
 			}
 		});
 	};
-	useEffect(() => {
-		setPrevCount(selectedIcons.length);
-	}, [selectedIcons]);
 	const handleDownloadSelectedIcons = async () => {
 		setLoading(true);
 		const zip = new JSZip();
@@ -432,7 +427,7 @@ export default function Selector() {
 
 	return (
 		<div className="lg:grid grid-cols-3 border-y border-black/5 dark:border-white/5">
-			<div className="col-span-2 border-r border-black/5 dark:border-white/5">
+			<div className="col-span-2 lg:border-r border-black/5 dark:border-white/5">
 				<div className="relative">
 					<div
 						onClick={() => setSearch("")}
@@ -460,30 +455,49 @@ export default function Selector() {
 							</h3>
 						</div>
 					) : (
-						<div className="grid grid-cols-6 md:grid-cols-7 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12 gap-3 md:gap-6 p-6">
+						<div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-7 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12">
 							{filteredIcons.map((icon) => (
 								<button
-									className={`relative group border ${
+									className={`relative group p-2 sm:p-4 ${
 										selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name)
-											? "bg-black/5 dark:bg-white/5 p-2 sm:p-3"
-											: "border-transparent"
+											? "bg-black/5 dark:bg-white/5"
+											: ""
 									} duration-200 ease-out`}
 									key={icon.name}
 									onClick={() => handleIconSelect(icon)}
 								>
-									<div
-										className={`absolute inline-flex items-center justify-center z-10 top-0 right-0 w-7 h-7 rounded-full text-lg text-neutral-950 bg-green shadow-lg ${
-											selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name) ? "opacity-100 scale-100" : "opacity-0 scale-50"
-										} duration-150`}
-										onClick={() => handleIconSelect(icon)}
-									>
-										<Check />
-									</div>
+									{selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name) && (
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											strokeWidth="2"
+											strokeLinecap="butt"
+											strokeLinejoin="miter"
+											className="absolute z-10 inset-6 stroke-neutral-950 dark:stroke-white"
+										>
+											<m.path
+												d="M 4 12 L 9 17 L 20 6"
+												initial={{ pathLength: 0 }}
+												animate={{
+													pathLength: 1,
+													transition: {
+														delay: 0.1,
+														type: "spring",
+														duration: 0.3,
+														bounce: 0,
+													},
+												}}
+											/>
+										</svg>
+									)}
 									<FadingImage
 										hideSpinner
 										src={icon.image}
 										alt={icon.name}
-										className={`${selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name) ? "opacity-50" : "opacity-100"} drop-shadow`}
+										style={{ transition: "opacity 0.2s" }}
+										className={`${selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name) && "opacity-25"} drop-shadow`}
 									/>
 								</button>
 							))}
@@ -492,13 +506,15 @@ export default function Selector() {
 				</div>
 			</div>
 			<div>
-				<div className="flex justify-between">
-					<div className="relative text-2xl">
-						<m.div className="absolute left-0 top-0 font-stretch-expanded font-bold">{selectedIcons.length}</m.div>
-						<div className={`${selectedIcons.length > 9 ? "ml-14" : "ml-5"} duration-200 ease-out`}>
-							{t("Content.Panel.iconsSelected", { count: selectedIcons.length })}
-						</div>
-					</div>
+				<div className="flex justify-between border-y lg:border-t-0 border-black/5 dark:border-white/5">
+					<p className="relative text-2xl mt-0.5 ml-2">
+						{t.rich("Content.Panel.iconsSelected", {
+							count: selectedIcons.length,
+							em: (chunks) => (
+								<span className="text-neutral-950 dark:text-white font-bold">{chunks}</span>
+							),
+						})}
+					</p>
 					<Button onClick={handleDownloadSelectedIcons} disabled={loading || selectedIcons.length === 0}>
 						{t("Content.Panel.downloadSelected")}
 						{loading ? (
@@ -519,24 +535,33 @@ export default function Selector() {
 						)}
 					</Button>
 				</div>
-				<Button onClick={() => setSelectedIcons([])} disabled={loading || selectedIcons.length === 0} outlined>
-					{t("Content.Panel.deselectAll")}
-				</Button>
-				<m.ul>
-					<AnimatePresence mode="sync">
-						{selectedIcons.map((icon) => (
-							<m.li
-								key={icon.name}
-								initial={{ y: 5, opacity: 0 }}
-								animate={{ y: 0, opacity: 1, transition: { type: "spring", duration: 0.5, bounce: 0 } }}
-								exit={{ opacity: 0, transition: { type: "linear", duration: 0.2 } }}
-								layout
-							>
-								{icon.name}
-							</m.li>
-						))}
-					</AnimatePresence>
-				</m.ul>
+				<div>
+					<p
+						onClick={() => setSelectedIcons([])}
+						className={`px-2 ${loading || selectedIcons.length === 0 ? "pointer-events-none text-neutral-950/50 dark:text-white/50" : "text-link cursor-pointer"} duration-100`}
+					>
+						{t("Content.Panel.deselectAll")}
+					</p>
+					<m.ul className="list-disc list-inside px-2">
+						<AnimatePresence mode="sync">
+							{selectedIcons.map((icon) => (
+								<m.li
+									key={icon.name}
+									initial={{ y: 5, opacity: 0 }}
+									animate={{
+										y: 0,
+										opacity: 1,
+										transition: { type: "spring", duration: 0.5, bounce: 0 },
+									}}
+									exit={{ opacity: 0, transition: { type: "linear", duration: 0.2 } }}
+									layout
+								>
+									{icon.name}
+								</m.li>
+							))}
+						</AnimatePresence>
+					</m.ul>
+				</div>
 			</div>
 		</div>
 	);

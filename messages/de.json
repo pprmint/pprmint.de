@@ -62,7 +62,7 @@
 			"search": "Icons nach App-Namen suchen",
 			"noResults": "Keine Ergebnisse",
 			"Panel": {
-				"iconsSelected": "{count, plural, =1 {Icon} other {Icons}} ausgewählt.",
+				"iconsSelected": "<em>{count}</em> {count, plural, =1 {Icon} other {Icons}} ausgewählt.",
 				"downloadAll": "Alle herunterladen",
 				"downloadSelected": "Ausgewählte herunterladen",
 				"deselectAll": "Auswahl zurücksetzen"

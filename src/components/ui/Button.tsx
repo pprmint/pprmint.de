@@ -16,7 +16,7 @@ export default function Button({
 	children,
 	...rest
 }: React.PropsWithChildren<ButtonProps>) {
-	const size = large ? "h-11 px-5 text-lg" : "h-9 px-4";
+	const size = large ? "h-12 px-5 text-lg" : "h-10 px-4";
 	const width = noMinWidth ? "justify-center" : "w-fit";
 	const colors = rest.disabled
 		? outlined
