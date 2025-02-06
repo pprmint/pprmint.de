@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Pages, Projects } from "./Links";
 import { useNavbar } from "./NavBarContext";
-import * as m from "motion/react-client";
+import * as m from "motion/react-m";
 import { AnimatePresence } from "motion/react";
 
 export default function NavBar() {

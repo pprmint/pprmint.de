@@ -104,7 +104,7 @@ export default function Grid() {
 	return (
 		<section className="my-20 md:my-32 xl:my-40">
 			<div className="flex gap-3 pb-6 flex-wrap">
-				{Tags.map((tag, _) => (
+				{Tags.map((tag) => (
 					<button
 						key={tag.name}
 						onClick={() => setFilter(filter == tag.name ? "" : tag.name)}
@@ -132,7 +132,7 @@ export default function Grid() {
 					>
 						<FadingImage src={project.image} alt="" fill className="object-cover" />
 						<div className="absolute flex gap-3 top-[6%] left-[3.3%] p-2 rounded-full bg-neutral-900 text-white">
-							{project.tags.map((tag, _) =>
+							{project.tags.map((tag) =>
 								tag == "font" ? (
 									<Text key={tag} />
 								) : tag == "design" ? (

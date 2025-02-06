@@ -1,5 +1,5 @@
 "use client";
-import * as m from "motion/react-client";
+import * as m from "motion/react-m";
 import { PropsWithChildren, ReactNode, useEffect } from "react";
 import { useNavbar } from "./navigation/NavBarContext";
 import { useTranslations } from "next-intl";
@@ -27,8 +27,8 @@ export default function Title(
 		>
 			{props.children && <div className="absolute -z-10 inset-0">{props.children}</div>}
 			<div className="w-full h-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-				<div className="h-full w-full md:grid grid-cols-2 border-x border-black/5 dark:border-white/5">
-					<div className="relative size-full flex flex-col gap-6 xl:justify-center col-span-2 md:col-span-1 xl:border-r border-black/5 dark:border-white/5 py-20 md:py-28 lg:py-32 xl:py-40">
+				<div className="h-full w-full border-x border-black/5 dark:border-white/5">
+					<div className="relative size-full flex flex-col gap-6 xl:justify-center col-span-2 md:col-span-1 py-20 md:py-28 lg:py-32 xl:py-40">
 						<div className={props.children ? "drop-shadow-md" : ""}>
 							<m.h1
 								className={`relative pb-1 md:pb-2 lg:pb-3 font-serif ${props.children && "text-white"}`}

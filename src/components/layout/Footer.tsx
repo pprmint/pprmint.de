@@ -226,7 +226,7 @@ export default function Footer() {
 						onClick={() => setUserLocale(otherLocale!)}
 						className="relative flex border border-black/5 dark:border-white/5"
 					>
-						{locales.map((locale, _) => (
+						{locales.map((locale) => (
 							<div
 								key={locale}
 								className={`inline-flex items-center justify-center text-sm w-9 h-[27px] ${currentLocale === locale ? "text-neutral-950 dark:text-white bg-neutral-950/5 dark:bg-neutral-50/5" : "hover:bg-neutral-950/5 hover:dark:bg-neutral-50/5"} duration-100 active:duration-75 active:opacity-75 uppercase`}

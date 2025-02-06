@@ -1,9 +1,8 @@
 "use client";
 import { useState, useEffect, ChangeEvent } from "react";
-import { useTransition, a, easings } from "@react-spring/web";
-import { useMediaQuery } from "react-responsive";
 import JSZip from "jszip";
 import FileSaver from "file-saver";
+import * as m from "motion/react-m";
 
 import AcrobatIcon from "../../../../public/assets/appicons/Acrobat.png";
 import AeroIcon from "../../../../public/assets/appicons/Aero.png";
@@ -74,6 +73,7 @@ import Search from "src/icons/Search";
 import X from "src/icons/X";
 import Check from "src/icons/Check";
 import Download from "src/icons/Download";
+import { AnimatePresence } from "motion/react";
 
 const Icons = [
 	{
@@ -390,7 +390,6 @@ const Icons = [
 
 export default function Selector() {
 	const t = useTranslations("APPICONS");
-	const isDesktop = useMediaQuery({ minWidth: 768 });
 
 	const [search, setSearch] = useState("");
 	const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -431,83 +430,42 @@ export default function Selector() {
 		setLoading(false);
 	};
 
-	const selectedPanelTransition = useTransition(selectedIcons.length > 0, {
-		from: { x: "-50%", y: 100 },
-		enter: {
-			x: "-50%",
-			y: 0,
-			config: {
-				tension: 185,
-				friction: 20
-			},
-		},
-		leave: {
-			x: "-50%",
-			y: 100,
-			config: {
-				easing: easings.easeInQuint,
-				duration: 400,
-			},
-		},
-	});
-	const selectedCountTransition = useTransition(selectedIcons.length, {
-		from: {
-			opacity: 0,
-			y: prevCount < selectedIcons.length ? 15 : -15,
-		},
-		enter: { opacity: 1, y: 0 },
-		leave: {
-			opacity: 0,
-			y: prevCount < selectedIcons.length ? -15 : 15,
-		},
-		config: {
-			easing: easings.easeOutBack,
-			duration: 300,
-		},
-	});
-
 	return (
-		<>
-			<div className="relative">
-				<div
-					onClick={() => setSearch("")}
-					className={`absolute flex right-0 w-10 h-full items-center justify-center text-white rounded-r-md ${
-						filteredIcons.length === 0
-							? "hover:bg-red-800 cursor-pointer"
-							: search && "hover:bg-neutral-900 cursor-pointer"
-					} duration-100`}
-				>
-					{search ? <X /> : <Search />}
+		<div className="lg:grid grid-cols-3 border-y border-black/5 dark:border-white/5">
+			<div className="col-span-2 border-r border-black/5 dark:border-white/5">
+				<div className="relative">
+					<div
+						onClick={() => setSearch("")}
+						className={`absolute flex right-0 w-10 h-full items-center justify-center text-neutral-950 dark:text-white ${
+							search && "hover:bg-black/5 dark:hover:bg-white/5 cursor-pointer"
+						} duration-100`}
+					>
+						{search ? <X /> : <Search />}
+					</div>
+					<input
+						type="text"
+						value={search}
+						onChange={handleSearchChange}
+						placeholder={t("Content.search")}
+						className="w-full border-b border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
+					/>
 				</div>
-				<input
-					type="text"
-					value={search}
-					onChange={handleSearchChange}
-					placeholder={t("Content.search")}
-					className={`w-full rounded-md outline focus:outline ${
-						filteredIcons.length === 0
-							? "outline-2 text-red outline-red-800 focus:outline-red bg-neutral-950"
-							: "outline-1 text-neutral-50 placeholder:text-neutral outline-neutral-900 focus:outline-green bg-transparent hover:bg-neutral-900"
-					} focus:bg-transparent px-3 py-2 duration-100`}
-				/>
-			</div>
-			<section className="my-9">
 				<div className="w-full justify-center">
 					{filteredIcons.length === 0 ? (
-						<div className="flex flex-col w-full items-center">
-							<X className="size-24 fill-red" />
+						<div className="flex w-full justify-center items-center py-6">
+							<X className="size-12 fill-red" />
 							<h3>
 								{t("Content.noResults")}
 								<span className="text-red">.</span>
 							</h3>
 						</div>
 					) : (
-						<div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 gap-3 md:gap-6">
+						<div className="grid grid-cols-6 md:grid-cols-7 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12 gap-3 md:gap-6 p-6">
 							{filteredIcons.map((icon) => (
 								<button
 									className={`relative group border ${
 										selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name)
-											? "bg-neutral-900 rounded-2xl p-2 sm:p-3 border-neutral-800"
+											? "bg-black/5 dark:bg-white/5 p-2 sm:p-3"
 											: "border-transparent"
 									} duration-200 ease-out`}
 									key={icon.name}
@@ -515,10 +473,8 @@ export default function Selector() {
 								>
 									<div
 										className={`absolute inline-flex items-center justify-center z-10 top-0 right-0 w-7 h-7 rounded-full text-lg text-neutral-950 bg-green shadow-lg ${
-											selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name)
-												? "opacity-100 scale-100"
-												: "opacity-0 scale-50"
-										} active:backdrop-brightness-75 duration-150`}
+											selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name) ? "opacity-100 scale-100" : "opacity-0 scale-50"
+										} duration-150`}
 										onClick={() => handleIconSelect(icon)}
 									>
 										<Check />
@@ -527,103 +483,61 @@ export default function Selector() {
 										hideSpinner
 										src={icon.image}
 										alt={icon.name}
-										className={
-											selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name)
-												? "opacity-50"
-												: "brightness-100"
-										}
+										className={`${selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name) ? "opacity-50" : "opacity-100"} drop-shadow`}
 									/>
 								</button>
 							))}
 						</div>
 					)}
 				</div>
-			</section>
-			{selectedPanelTransition((styles, item) =>
-				item ? (
-					// @ts-expect-error
-					<a.div
-					style={styles}
-					className="fixed z-60 flex items-center justify-between left-1/2 bottom-0 xl:bottom-6 w-full xl:max-w-6xl pl-5 pr-3 py-3 backdrop-blur-xl bg-gradient-to-b from-neutral-800/75 to-neutral-900/90 border-neutral-50/10 border-t xl:border border-neutral-950 xl:ring-1 ring-inset ring-neutral-50/10 xl:rounded-2xl shadow-xl shadow-neutral-950/50"
-					>
-						<div className="flex items-center">
-							{selectedCountTransition((styles, count) => (
-								// @ts-expect-error
-								<a.div
-									style={styles}
-									className="h-9 text-white font-bold font-mono text-3xl text-center"
-								>
-									<p className="absolute text-center">{count}</p>
-								</a.div>
-							))}
-							<p
-								className={`text-lg ${
-									selectedIcons.length > 9 ? "ml-14" : "ml-9"
-								} duration-200 ease-out`}
-							>
-								{t("Content.Panel.iconsSelected", { count: selectedIcons.length })}
-							</p>
+			</div>
+			<div>
+				<div className="flex justify-between">
+					<div className="relative text-2xl">
+						<m.div className="absolute left-0 top-0 font-stretch-expanded font-bold">{selectedIcons.length}</m.div>
+						<div className={`${selectedIcons.length > 9 ? "ml-14" : "ml-5"} duration-200 ease-out`}>
+							{t("Content.Panel.iconsSelected", { count: selectedIcons.length })}
 						</div>
-						{isDesktop ? (
-							<div className="flex gap-6 items-center">
-								<p className="cursor-pointer text-link" onClick={() => setSelectedIcons([])}>
-									{t("Content.Panel.deselectAll")}
-								</p>
-								<Button onClick={handleDownloadSelectedIcons} disabled={loading}>
-									{t("Content.Panel.downloadSelected")}
-									{loading ? (
-										<svg height={15} width={15} className="animate-spin">
-											<circle
-												cx={7.5}
-												cy={7.5}
-												r={6.75}
-												strokeWidth={1.25}
-												className="stroke-current fill-none"
-												strokeDasharray={43}
-												strokeDashoffset={11}
-												strokeLinecap="butt" // hehe butt
-											/>
-										</svg>
-									) : (
-										<Download />
-									)}
-								</Button>
-							</div>
+					</div>
+					<Button onClick={handleDownloadSelectedIcons} disabled={loading || selectedIcons.length === 0}>
+						{t("Content.Panel.downloadSelected")}
+						{loading ? (
+							<svg height={15} width={15} className="animate-spin">
+								<circle
+									cx={7.5}
+									cy={7.5}
+									r={6.75}
+									strokeWidth={1.25}
+									className="stroke-current fill-none"
+									strokeDasharray={43}
+									strokeDashoffset={11}
+									strokeLinecap="butt" // hehe butt
+								/>
+							</svg>
 						) : (
-							<div className="flex gap-3 items-center">
-								<button
-									onClick={() => setSelectedIcons([])}
-									className="inline-flex items-center justify-center text-white w-9 h-9 rounded-full text-lg bg-neutral-50/10 hover:bg-neutral-50/20 duration-100"
-								>
-									<X />
-								</button>
-								<button
-									onClick={handleDownloadSelectedIcons}
-									disabled={loading}
-									className="inline-flex items-center justify-center text-neutral-950 w-9 h-9 rounded-full text-lg bg-neutral-50 hover:bg-neutral-100 active:bg-neutral"
-								>
-									{loading ? (
-										<svg height={15} width={15} className="animate-spin">
-											<circle
-												cx={7.5}
-												cy={7.5}
-												r={6.75}
-												strokeWidth={1.25}
-												className="stroke-current fill-none"
-												strokeDasharray={43}
-												strokeDashoffset={11}
-												strokeLinecap="butt" // hehe butt
-											/>
-										</svg>
-									) : (
-										<Download />
-									)}
-								</button>
-							</div>
+							<Download />
 						)}
-					</a.div>
-				) : null
-			)}
-		</>
+					</Button>
+				</div>
+				<Button onClick={() => setSelectedIcons([])} disabled={loading || selectedIcons.length === 0} outlined>
+					{t("Content.Panel.deselectAll")}
+				</Button>
+				<m.ul>
+					<AnimatePresence mode="sync">
+						{selectedIcons.map((icon) => (
+							<m.li
+								key={icon.name}
+								initial={{ y: 5, opacity: 0 }}
+								animate={{ y: 0, opacity: 1, transition: { type: "spring", duration: 0.5, bounce: 0 } }}
+								exit={{ opacity: 0, transition: { type: "linear", duration: 0.2 } }}
+								layout
+							>
+								{icon.name}
+							</m.li>
+						))}
+					</AnimatePresence>
+				</m.ul>
+			</div>
+		</div>
 	);
 }

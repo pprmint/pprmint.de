@@ -13,7 +13,7 @@ import Link from "next/link";
 import { MinaArtworks } from "src/types/mina-artwork";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import Image from "next/image";
-import * as m from "motion/react-client";
+import * as m from "motion/react-m";
 import { AnimatePresence } from "motion/react";
 
 export default function Gallery(artworks: { artworks: MinaArtworks }) {

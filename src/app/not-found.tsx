@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import * as m from "motion/react-client";
+import * as m from "motion/react-m";
 
 import DetectiveMina from "public/assets/404/mina_chibi.webp";
 import { useEffect, useState } from "react";

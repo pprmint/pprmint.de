@@ -7,7 +7,7 @@ import ArrowUpRight from "src/icons/ArrowUpRight";
 import ChevronRight from "src/icons/ChevronRight";
 import ChevronLeft from "src/icons/ChevronLeft";
 import { Announcements as AnnouncementsType } from "src/types/announcement";
-import * as m from "motion/react-client";
+import * as m from "motion/react-m";
 import { AnimatePresence } from "motion/react";
 import { useTranslations } from "next-intl";
 

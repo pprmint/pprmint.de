@@ -21,17 +21,19 @@ export default async function Page() {
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
-				<FadingImage src={TitleBackground} alt="" fill className="object-cover bg-neutral-950" />
+				<div className="absolute inset-0 bg-neutral-950" />
+				<FadingImage src={TitleBackground} alt="" fill className="object-cover" />
+				<div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-transparent" />
 			</Title>
-			<main className="max-w-7xl mx-auto px-6 md:px-9">
-				<section className="my-20 md:my-32 xl:my-40">
+			<main className="max-w-8xl mx-auto px-6 md:px-9 xl:px-20">
+				<section className="pt-20 md:pt-32 xl:pt-40 border-x border-black/5 dark:border-white/5">
 					<h2>{t("Content.Intro.title")}</h2>
-					<p>
+					<p className="mb-3">
 						{t.rich("Content.Intro.text1", {
 							i: (chunks) => <i>{chunks}</i>,
 						})}
 					</p>
-					<p>
+					<p className="mb-3">
 						{t.rich("Content.Intro.text2", {
 							a: (chunks) => (
 								<Link
@@ -49,7 +51,7 @@ export default async function Page() {
 					</p>
 					<p>{t("Content.Intro.text3")}</p>
 				</section>
-				<section className="my-20 md:my-32 xl:my-40">
+				<section className="pt-20 md:pt-32 xl:pt-40 border-x border-black/5 dark:border-white/5">
 					<Selector />
 				</section>
 			</main>

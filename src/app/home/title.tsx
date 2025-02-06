@@ -1,6 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
-import * as m from "motion/react-client";
+import * as m from "motion/react-m";
 import Link from "next/link";
 import FadingImage from "src/components/ui/FadingImage";
 import { useEffect, useState } from "react";
