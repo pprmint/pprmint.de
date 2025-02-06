@@ -25,7 +25,7 @@ export default function Cards() {
 	const handleClear = () => {
 		if (searchRef.current) {
 			searchRef.current.value = "";
-			setSearch(""); // Optionally clear the state if needed
+			setSearch("");
 		}
 	};
 	const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -205,10 +205,10 @@ export default function Cards() {
 					</Link>
 				</div>
 			</div>
-			<div className="relative w-full mb-6">
+			<div className="relative w-full">
 				<div
 					onClick={handleClear}
-					className={`absolute flex right-0 w-10 h-full items-center justify-center text-white rounded-tr-lg ${
+					className={`absolute flex right-0 w-10 h-full items-center justify-center text-white ${
 						filteredIcons.length === 0
 							? "hover:bg-red-800 cursor-pointer"
 							: search && "hover:bg-neutral-900 cursor-pointer"
@@ -224,18 +224,16 @@ export default function Cards() {
 					maxLength={30}
 					onChange={handleSearchChange}
 					ref={searchRef}
-					className={`w-full bg-neutral-950 focus:bg-neutral-950 border outline-none focus:outline-none border-neutral-900 hover:border-neutral-800 focus:hover:border-neutral-900 hover:bg-neutral-900 text-neutral-50 placeholder:text-neutral rounded-lg ${
-						search !== "" && "rounded-b-none"
-					} px-3 py-2 duration-100`}
+					className="w-full bg-neutral-950 focus:bg-neutral-950 border-y outline-none focus:outline-none border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 text-neutral-950 dark:text-neutral-50 placeholder:text-neutral px-3 py-2 duration-100"
 				/>
 				{search !== "" ? (
-					<div className="absolute top-[41px] p-1 w-full max-h-80 left-0 bg-neutral-950 border border-neutral-900 rounded-lg rounded-t-none shadow-xl shadow-neutral-950 overflow-auto">
+					<div className="absolute top-[41px] p-1 w-full max-h-80 left-0 bg-neutral-950 border border-neutral-900 shadow-xl shadow-neutral-950 overflow-auto">
 						{filteredIcons.length > 0 ? (
 							<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 								{filteredIcons.map((icon, index) => (
 									<button
 										key={index}
-										className="inline-flex gap-3 px-2 py-1 min-h-9 items-center text-left hover:bg-neutral-50/10 rounded-md duration-100 active:opacity-75 active:duration-75"
+										className="inline-flex gap-3 px-2 py-1 min-h-9 items-center text-left hover:bg-neutral-50/10 duration-100 active:opacity-75 active:duration-75"
 										onClick={() => {
 											navigator.clipboard.writeText(ReactDOMServer.renderToString(icon.icon));
 											if (icon.names.includes("Jiggy")) {
@@ -267,9 +265,11 @@ export default function Cards() {
 					</div>
 				) : null}
 			</div>
-			<div className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6`}>
+			<div
+				className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 divide-x divide-black/5 dark:divide-white/5`}
+			>
 				{Icons.map((category, catIndex) => (
-					<div key={catIndex} className="py-6 rounded-lg border border-neutral-900">
+					<div key={catIndex} className="py-6 border-b border-black/5 dark:border-white/5">
 						<h2 className="pb-6 px-6 text-center">{t(`ICONS.Content.Category.${category.category}`)}</h2>
 						<div className={`grid grid-cols-8 ${large ? "px-1 xl:px-3" : "px-2 md:px-3 gap-1 md:gap-2"}`}>
 							{category.icons.map((icon, icnIndex) => (
