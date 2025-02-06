@@ -12,7 +12,16 @@ import ChevronLeft from "src/icons/ChevronLeft";
 import Heart from "src/icons/Heart";
 import HeartBroken from "src/icons/HeartBroken";
 
-const Messages = ["WhoYou", "WhyPprmint", "WhoWebsite", "UseSelf", "ProjectTerms", "WhatSoftware", "OfferCommissions", "OwnQuestion"];
+const Messages = [
+	"WhoYou",
+	"WhyPprmint",
+	"WhoWebsite",
+	"UseSelf",
+	"ProjectTerms",
+	"WhatSoftware",
+	"OfferCommissions",
+	"OwnQuestion",
+];
 
 function MessageBubble(props: { incoming?: boolean; id: string }) {
 	const t = useTranslations("CHAT");
@@ -26,10 +35,12 @@ function MessageBubble(props: { incoming?: boolean; id: string }) {
 			<div
 				className={`w-fit max-w-[80%] px-4 py-2 rounded-3xl ${
 					props.incoming
-						? "rounded-bl-md bg-neutral-800 text-white"
-						: `rounded-br-md bg-gradient-to-b ${
-								isAppleDevice ? "from-blue to-blue-600 selection:text-blue" : "from-green to-green-600 selection:text-green"
-							} text-neutral-950 selection:bg-neutral-950`
+						? "rounded-bl-md bg-neutral-50 dark:bg-neutral-800 text-neutral-950 dark:text-white"
+						: `rounded-br-md ${
+								isAppleDevice
+									? "bg-blue"
+									: "bg-green"
+							} text-white selection:bg-neutral-950`
 				}`}
 			>
 				{t.rich(`Messages.${props.id}.${props.incoming ? "answer" : "message"}`, {
@@ -191,12 +202,13 @@ function Chatbox() {
 						{t("button")}
 					</div>
 					<div className="absolute w-[300%] left-1/2 -translate-x-1/2 h-24 overflow-hidden pointer-events-none">
-					<div className="absolute w-full h-px bg-gradient-to-r from-transparent via-black/5 dark:via-white/5 to-transparent" />
+						<div className="absolute w-full h-px bg-gradient-to-r from-transparent via-black/5 dark:via-white/5 to-transparent" />
 						<div className="absolute w-full aspect-square -translate-y-[99%]">
 							<div
 								className="absolute w-full aspect-square opacity-0 group-hover:opacity-100 rounded-full animate-slow-spin group-hover:blur-xl duration-300"
 								style={{
-									backgroundImage: "conic-gradient(#f44, #f71, #fb0, #9c3, #4b5, #2cf, #29f, #a7e, #e6b, #f44)",
+									backgroundImage:
+										"conic-gradient(#f44, #f71, #fb0, #9c3, #4b5, #2cf, #29f, #a7e, #e6b, #f44)",
 								}}
 							/>
 						</div>
@@ -216,11 +228,19 @@ function Chatbox() {
 							</Dialog.Close>
 						</div>
 						<div className="w-2/5 text-center">
-							<Dialog.Title className="text-neutral-950 dark:text-white font-medium text-sm font-sans pb-0 leading-3">Mina</Dialog.Title>
-							<Dialog.Description className="text-sm">{t(noTalky ? "titleAngy" : "title")}</Dialog.Description>
+							<Dialog.Title className="text-neutral-950 dark:text-white font-medium text-sm font-sans pb-0 leading-3">
+								Mina
+							</Dialog.Title>
+							<Dialog.Description className="text-sm">
+								{t(noTalky ? "titleAngy" : "title")}
+							</Dialog.Description>
 						</div>
 						<div className="w-1/5 pr-2">
-							<Image alt="Mina art by Nekomimi" src={Mina} className="ml-auto size-10 rounded-full overflow-hidden self-end" />
+							<Image
+								alt="Mina art by Nekomimi"
+								src={Mina}
+								className="ml-auto size-10 rounded-full overflow-hidden self-end"
+							/>
 						</div>
 					</div>
 					<div className="px-3 lg:px-6 h-full overflow-y-scroll pt-14 lg:pt-16" ref={chatboxRef}>
@@ -229,7 +249,7 @@ function Chatbox() {
 							<MessageBubble key={index} incoming={message.incoming} id={message.id} />
 						))}
 					</div>
-					<div className="h-64 overflow-y-auto px-3 border-t border-neutral-900">
+					<div className="h-64 bg-[#fafafa] dark:bg-[#181818] overflow-y-auto px-3 border-t border-black/5 dark:border-white/5">
 						{messageBox &&
 							messageBoxTransition((style, item) =>
 								item ? (
@@ -237,18 +257,20 @@ function Chatbox() {
 									<a.div
 										style={style}
 										className={`grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-3 h-full py-3 items-center ${
-											answering ? "opacity-50 saturate-0 pointer-events-none" : "opacity-100 saturate-100"
+											answering
+												? "opacity-50 saturate-0 pointer-events-none"
+												: "opacity-100 saturate-100"
 										} duration-200`}
 									>
 										<button
-											className="inline-flex flex-row md:flex-col items-center justify-center gap-3 border hover:border-2 border-green hover:bg-green/10 text-white rounded-md size-full duration-100 active:scale-[0.98] active:opacity-75 active:duration-75"
+											className="inline-flex flex-row md:flex-col items-center justify-center gap-3 ring-1 hover:shadow-sm ring-black/5 dark:ring-white/5 hover:ring-green dark:hover:ring-green bg-white dark:bg-neutral-900 hover:bg-green-50 text-neutral-950 dark:text-white rounded-md size-full duration-100 active:scale-[0.98] active:opacity-75 active:duration-75"
 											onClick={() => handleEndingYes()}
 										>
 											<Heart className="size-6 md:size-9 text-green" />
 											{t("Messages.EndingYes.message")}
 										</button>
 										<button
-											className="inline-flex flex-row md:flex-col items-center justify-center gap-3 border hover:border-2 border-red hover:bg-red/10 text-white rounded-md size-full duration-100 active:scale-[0.98] active:opacity-75 active:duration-75"
+											className="inline-flex flex-row md:flex-col items-center justify-center gap-3 ring-1 hover:shadow-sm ring-black/5 dark:ring-white/5 hover:ring-red dark:hover:ring-red bg-white dark:bg-neutral-900 hover:bg-red-50 text-neutral-950 dark:text-white rounded-md size-full duration-100 active:scale-[0.98] active:opacity-75 active:duration-75"
 											onClick={() => handleEndingNo()}
 										>
 											<HeartBroken className="size-6 md:size-9 text-red" />
@@ -260,7 +282,7 @@ function Chatbox() {
 									<a.div style={style} className="flex flex-col gap-3 items-end py-3">
 										{clickedQuestions.length > 0 && (
 											<button
-												className={`w-fit max-w-[80%] px-3 py-1 border border-neutral-900 hover:border-neutral-800 hover:bg-elevate hover:text-neutral-50 text-sm text-left rounded-2xl rounded-br-md duration-100 ${
+												className={`w-fit max-w-[80%] px-3 py-1 bg-white dark:bg-neutral-900 ring-1 ring-black/5 dark:ring-white/5 hover:shadow-sm text-neutral-950 dark:text-white text-sm text-left rounded-2xl rounded-br-md duration-100 ${
 													answering ? "opacity-50 pointer-events-none" : "cursor-pointer"
 												}`}
 												onClick={() => handleEnding("Ending")}
@@ -271,7 +293,7 @@ function Chatbox() {
 										{availableMessages.map((id, index) => (
 											<button
 												key={index}
-												className={`w-fit max-w-[80%] px-3 py-1 border border-neutral-900 hover:border-neutral-800 hover:bg-elevate hover:text-neutral-50 text-sm text-left rounded-2xl rounded-br-md duration-100 ${
+												className={`w-fit max-w-[80%] px-3 py-1 bg-white dark:bg-neutral-900 ring-1 ring-black/5 dark:ring-white/5 hover:shadow-sm text-neutral-950 dark:text-white text-sm text-left rounded-2xl rounded-br-md duration-100 ${
 													answering ? "opacity-50 pointer-events-none" : "cursor-pointer"
 												}`}
 												onClick={() => handleMessageClick(id)}
