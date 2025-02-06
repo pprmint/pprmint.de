@@ -505,9 +505,9 @@ export default function Selector() {
 					)}
 				</div>
 			</div>
-			<div>
-				<div className="flex justify-between border-y lg:border-t-0 border-black/5 dark:border-white/5">
-					<p className="relative text-2xl mt-0.5 ml-2">
+			<div className="flex flex-col border-t lg:border-t-0 border-black/5 dark:border-white/5">
+				<div className="pt-1 lg:pt-3 lg:px-4">
+					<p className="relative text-2xl md:text-3xl mb-2">
 						{t.rich("Content.Panel.iconsSelected", {
 							count: selectedIcons.length,
 							em: (chunks) => (
@@ -515,6 +515,33 @@ export default function Selector() {
 							),
 						})}
 					</p>
+					<p
+						onClick={() => setSelectedIcons([])}
+						className={`mb-2 ${loading || selectedIcons.length === 0 ? "pointer-events-none text-neutral-950/50 dark:text-white/50" : "text-link cursor-pointer"} duration-100`}
+					>
+						{t("Content.Panel.deselectAll")}
+					</p>
+					<m.ul className="list-disc list-inside">
+						<AnimatePresence mode="sync">
+							{selectedIcons.map((icon) => (
+								<m.li
+									key={icon.name}
+									initial={{ y: 5, opacity: 0 }}
+									animate={{
+										y: 0,
+										opacity: 1,
+										transition: { type: "spring", duration: 0.5, bounce: 0 },
+									}}
+									exit={{ opacity: 0, transition: { type: "linear", duration: 0.2 } }}
+									layout
+								>
+									{icon.name}
+								</m.li>
+							))}
+						</AnimatePresence>
+					</m.ul>
+				</div>
+				<div className="mt-auto self-end">
 					<Button onClick={handleDownloadSelectedIcons} disabled={loading || selectedIcons.length === 0}>
 						{t("Content.Panel.downloadSelected")}
 						{loading ? (
@@ -534,33 +561,6 @@ export default function Selector() {
 							<Download />
 						)}
 					</Button>
-				</div>
-				<div>
-					<p
-						onClick={() => setSelectedIcons([])}
-						className={`px-2 ${loading || selectedIcons.length === 0 ? "pointer-events-none text-neutral-950/50 dark:text-white/50" : "text-link cursor-pointer"} duration-100`}
-					>
-						{t("Content.Panel.deselectAll")}
-					</p>
-					<m.ul className="list-disc list-inside px-2">
-						<AnimatePresence mode="sync">
-							{selectedIcons.map((icon) => (
-								<m.li
-									key={icon.name}
-									initial={{ y: 5, opacity: 0 }}
-									animate={{
-										y: 0,
-										opacity: 1,
-										transition: { type: "spring", duration: 0.5, bounce: 0 },
-									}}
-									exit={{ opacity: 0, transition: { type: "linear", duration: 0.2 } }}
-									layout
-								>
-									{icon.name}
-								</m.li>
-							))}
-						</AnimatePresence>
-					</m.ul>
 				</div>
 			</div>
 		</div>
