@@ -47,8 +47,12 @@ export default function Page() {
 				<p className="text-link">Internal link</p>
 				<p className="text-link-external">External link</p>
 			</section>
-			<section id="buttons" className="w-full border-x border-black/5 dark:border-white/5 flex flex-col gap-6 pb-40 flex-wrap">
+			<section
+				id="buttons"
+				className="w-full border-x border-black/5 dark:border-white/5 flex flex-col gap-6 pb-40 flex-wrap"
+			>
 				<h2>Buttons</h2>
+				<h3>Regular (transparent)</h3>
 				<div className="flex gap-3 flex-wrap">
 					<Button>Button</Button>
 					<Button color="red">Button</Button>
@@ -64,104 +68,105 @@ export default function Page() {
 						Button
 					</Button>
 				</div>
+				<h3>Semi-transparent</h3>
 				<div className="flex gap-3 flex-wrap">
-					<Button outlined>Button</Button>
-					<Button outlined color="red">
+					<Button design="semi-transparent">Button</Button>
+					<Button design="semi-transparent" color="red">
 						Button
 					</Button>
-					<Button outlined color="orange">
+					<Button design="semi-transparent" color="orange">
 						Button
 					</Button>
-					<Button outlined color="yellow">
+					<Button design="semi-transparent" color="yellow">
 						Button
 					</Button>
-					<Button outlined color="lime">
+					<Button design="semi-transparent" color="lime">
 						Button
 					</Button>
-					<Button outlined color="green">
+					<Button design="semi-transparent" color="green">
 						Button
 					</Button>
-					<Button outlined color="cyan">
+					<Button design="semi-transparent" color="cyan">
 						Button
 					</Button>
-					<Button outlined color="blue">
+					<Button design="semi-transparent" color="blue">
 						Button
 					</Button>
-					<Button outlined color="violet">
+					<Button design="semi-transparent" color="violet">
 						Button
 					</Button>
-					<Button outlined color="pink">
+					<Button design="semi-transparent" color="pink">
 						Button
 					</Button>
-					<Button disabled outlined color="pink">
+					<Button design="semi-transparent" disabled>
 						Button
 					</Button>
 				</div>
+				<h3>Filled</h3>
 				<div className="flex gap-3 flex-wrap">
-					<Button large>Button</Button>
-					<Button large color="red">
+					<Button design="filled">Button</Button>
+					<Button design="filled" color="red">
 						Button
 					</Button>
-					<Button large color="orange">
+					<Button design="filled" color="orange">
 						Button
 					</Button>
-					<Button large color="yellow">
+					<Button design="filled" color="yellow">
 						Button
 					</Button>
-					<Button large color="lime">
+					<Button design="filled" color="lime">
 						Button
 					</Button>
-					<Button large color="green">
+					<Button design="filled" color="green">
 						Button
 					</Button>
-					<Button large color="cyan">
+					<Button design="filled" color="cyan">
 						Button
 					</Button>
-					<Button large color="blue">
+					<Button design="filled" color="blue">
 						Button
 					</Button>
-					<Button large color="violet">
+					<Button design="filled" color="violet">
 						Button
 					</Button>
-					<Button large color="pink">
+					<Button design="filled" color="pink">
 						Button
 					</Button>
-					<Button disabled large color="pink">
+					<Button design="filled" disabled>
 						Button
 					</Button>
 				</div>
+				<h3>Outlined</h3>
 				<div className="flex gap-3 flex-wrap">
-					<Button large outlined>
+					<Button design="outlined">Button</Button>
+					<Button design="outlined" color="red">
 						Button
 					</Button>
-					<Button large outlined color="red">
+					<Button design="outlined" color="orange">
 						Button
 					</Button>
-					<Button large outlined color="orange">
+					<Button design="outlined" color="yellow">
 						Button
 					</Button>
-					<Button large outlined color="yellow">
+					<Button design="outlined" color="lime">
 						Button
 					</Button>
-					<Button large outlined color="lime">
+					<Button design="outlined" color="green">
 						Button
 					</Button>
-					<Button large outlined color="green">
+					<Button design="outlined" color="cyan">
 						Button
 					</Button>
-					<Button large outlined color="cyan">
+					<Button design="outlined" color="blue">
 						Button
 					</Button>
-					<Button large outlined color="blue">
+					<Button design="outlined" color="violet">
 						Button
 					</Button>
-					<Button large outlined color="violet">
+					<Button design="outlined" color="pink">
 						Button
 					</Button>
-					<Button large outlined color="pink">
-						Button
-					</Button>
-					<Button disabled large outlined color="pink">
+					<Button design="outlined" disabled>
 						Button
 					</Button>
 				</div>

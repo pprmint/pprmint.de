@@ -7,6 +7,7 @@ import * as m from "motion/react-m";
 import DetectiveMina from "public/assets/404/mina_chibi.webp";
 import { useEffect, useState } from "react";
 import ArrowRight from "src/icons/ArrowRight";
+import Button from "src/components/ui/Button";
 
 export default function NotFound() {
 	const t = useTranslations("404");
@@ -128,23 +129,22 @@ export default function NotFound() {
 								}}
 								className="mt-6 h-12 border-y border-black/5 dark:border-white/5"
 							>
-								<Link
-									href="/"
-									className="flex gap-3 items-center text-lg hover:text-neutral-950 hover:font-bold group size-full hover:px-4 hover:bg-neutral-50 active:bg-neutral-100 hover:shadow-md active:shadow-inner duration-200 ease-out-expo active:duration-75"
-								>
-									<span>{t("Content.returnHome")}</span>
-									<div className="relative size-5 overflow-clip duration-0">
-										<ArrowRight
-											width={20}
-											height={20}
-											className="absolute group-hover:translate-x-full"
-										/>
-										<ArrowRight
-											width={20}
-											height={20}
-											className="text-neutral-950 stroke-current stroke-[1.5px] absolute -translate-x-full group-hover:translate-x-0 group-hover:duration-300 ease-out-quint"
-										/>
-									</div>
+								<Link href="/">
+									<Button size="full" noInitialPadding>
+										<span>{t("Content.returnHome")}</span>
+										<div className="relative size-5 overflow-clip duration-0">
+											<ArrowRight
+												width={20}
+												height={20}
+												className="absolute group-hover:translate-x-full"
+											/>
+											<ArrowRight
+												width={20}
+												height={20}
+												className="stroke-current stroke-[1.5px] absolute -translate-x-full group-hover:translate-x-0 group-hover:duration-300 ease-out-quint"
+											/>
+										</div>
+									</Button>
 								</Link>
 							</m.div>
 						</div>

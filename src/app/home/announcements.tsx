@@ -10,6 +10,7 @@ import { Announcements as AnnouncementsType } from "src/types/announcement";
 import * as m from "motion/react-m";
 import { AnimatePresence } from "motion/react";
 import { useTranslations } from "next-intl";
+import Button from "src/components/ui/Button";
 
 export default function Announcements({ data }: { data: AnnouncementsType }) {
 	const t = useTranslations("HOME");
@@ -39,7 +40,10 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 				<div className="order-2 lg:order-1 flex col-span-2 lg:col-span-1 flex-col justify-center lg:border-r border-black/5 dark:border-white/5 h-full w-full lg:pt-40 lg:backdrop-blur-sm bg-white/25 dark:bg-neutral-950/25">
 					<div className="aspect-video md:aspect-auto md:grow">
 						<AnimatePresence mode="wait">
-							<m.div key={data.data[current].id} className="pt-3 lg:border-t border-black/5 dark:border-white/5">
+							<m.div
+								key={data.data[current].id}
+								className="pt-3 lg:border-t border-black/5 dark:border-white/5"
+							>
 								<m.h3
 									initial={{ opacity: 0 }}
 									animate={{ opacity: 1, transition: { duration: 0.3 } }}
@@ -85,39 +89,44 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 										href={data.data[current].link}
 										target={data.data[current].link.startsWith("/") ? "_self" : "_blank"}
 										rel="noopener noreferrer"
-										className="flex gap-3 items-center text-lg hover:text-white dark:hover:text-neutral-950 hover:font-bold group size-full hover:px-4 hover:bg-neutral-900 dark:hover:bg-neutral-50 active:bg-neutral-950 dark:active:bg-neutral-100 hover:shadow-md active:shadow-inner duration-200 ease-out-expo active:duration-75"
+										className="w-full"
 									>
-										<span>{data.data[current].linkText}</span>
-										{data.data[current].link.startsWith("/") ? (
-											<div className="relative size-5 overflow-clip duration-0">
-												<ArrowRight width={20} height={20} className="absolute group-hover:translate-x-full" />
-												<ArrowRight
-													width={20}
-													height={20}
-													className="text-white dark:text-neutral-950 stroke-current stroke-[1.5px] absolute -translate-x-full group-hover:translate-x-0 group-hover:duration-300 ease-out-quint"
-												/>
-											</div>
-										) : (
-											<div className="relative size-5 overflow-clip duration-0">
-												<ArrowUpRight
-													width={20}
-													height={20}
-													className="absolute group-hover:translate-x-full group-hover:-translate-y-full"
-												/>
-												<ArrowUpRight
-													width={20}
-													height={20}
-													className="text-white dark:text-neutral-950 stroke-current stroke-[1.5px] absolute -translate-x-full translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 group-hover:duration-300 ease-out-quint"
-												/>
-											</div>
-										)}
+										<Button size="full" noInitialPadding>
+											<span>{data.data[current].linkText}</span>
+											{data.data[current].link.startsWith("/") ? (
+												<div className="relative size-5 overflow-clip duration-0">
+													<ArrowRight
+														width={20}
+														height={20}
+														className="absolute group-hover:translate-x-full"
+													/>
+													<ArrowRight
+														width={20}
+														height={20}
+														className="text-white dark:text-neutral-950 stroke-current stroke-[1.5px] absolute -translate-x-full group-hover:translate-x-0 group-hover:duration-300 ease-out-quint"
+													/>
+												</div>
+											) : (
+												<div className="relative size-5 overflow-clip duration-0">
+													<ArrowUpRight
+														width={20}
+														height={20}
+														className="absolute group-hover:translate-x-full group-hover:-translate-y-full"
+													/>
+													<ArrowUpRight
+														width={20}
+														height={20}
+														className="text-white dark:text-neutral-950 stroke-current stroke-[1.5px] absolute -translate-x-full translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 group-hover:duration-300 ease-out-quint"
+													/>
+												</div>
+											)}
+										</Button>
 									</Link>
 								)}
 							</m.div>
 						</AnimatePresence>
-						<div className="relative flex ml-auto border-l border-black/5 dark:border-white/5 divide-x divide-neutral-50/5">
-							<button
-								className="relative group w-12 h-full text-neutral-950 dark:text-white hover:text-white dark:hover:text-neutral-950 disabled:text-neutral-500/50 hover:bg-neutral-950 dark:hover:bg-white active:bg-neutral-950 dark:active:bg-neutral-100 hover:shadow-md duration-100 active:duration-75 active:shadow-inner overflow-hidden"
+						<div className="relative flex w-24 ml-auto border-l border-black/5 dark:border-white/5 divide-x divide-neutral-50/5">
+							<Button size="full"
 								onClick={handleNext}
 							>
 								<AnimatePresence mode="wait">
@@ -143,9 +152,8 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 										</m.div>
 									</m.div>
 								</AnimatePresence>
-							</button>
-							<button
-								className="relative group w-12 h-full text-neutral-950 dark:text-white hover:text-white dark:hover:text-neutral-950 disabled:text-neutral-500/50 hover:bg-neutral-950 dark:hover:bg-white active:bg-neutral-950 dark:active:bg-neutral-100 hover:shadow-md duration-100 active:duration-75 active:shadow-inner overflow-hidden"
+							</Button>
+							<Button size="full"
 								onClick={handlePrevious}
 							>
 								<AnimatePresence mode="wait">
@@ -171,7 +179,7 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 										</m.div>
 									</m.div>
 								</AnimatePresence>
-							</button>
+							</Button>
 							<m.div
 								className="absolute -bottom-px bg-neutral-950 dark:bg-white h-px"
 								style={{
@@ -199,14 +207,20 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 							<m.div
 								key={data.data[current].id}
 								initial={{
-									clipPath: direction < 0 ? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" : "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
+									clipPath:
+										direction < 0
+											? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
+											: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
 								}}
 								animate={{
 									clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
 									transition: { type: "spring", duration: 0.5, bounce: 0, delay: 0.05 },
 								}}
 								exit={{
-									clipPath: direction < 0 ? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)" : "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+									clipPath:
+										direction < 0
+											? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
+											: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
 									opacity: 0,
 									transition: { ease: "easeIn", duration: 0.2 },
 								}}

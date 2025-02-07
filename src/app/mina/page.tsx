@@ -108,7 +108,7 @@ export default async function Page({
 								download
 								className="w-fit"
 							>
-								<Button tabIndex={-1}>
+								<Button tabIndex={-1} design="semi-transparent">
 									{t("Content.Reference.Download.button")}
 									<Download />
 								</Button>
@@ -190,7 +190,7 @@ export default async function Page({
 						</h2>
 						<p className="pb-6">{t("Content.Discord.text")}</p>
 						<Link href="https://discord.gg/nTbPhkvrXp" target="_blank" rel="noopener noreferrer">
-							<Button color="green">
+							<Button color="green" design="filled">
 								<Discord />
 								{t("Content.Discord.button")}
 							</Button>

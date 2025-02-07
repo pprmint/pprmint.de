@@ -12,74 +12,40 @@ import Error from "src/icons/Error";
 
 export default function NsfwDialog({ onAccept }: { onAccept: () => void }) {
 	const t = useTranslations("MINA");
-
-	const [timer, setTimer] = useState(0);
-	useEffect(() => {
-		const interval = setInterval(() => {
-			setTimer((prevTimer) => (prevTimer >= 10 ? 10 : prevTimer + 0.1));
-		}, 100);
-		return () => clearInterval(interval);
-	}, []);
-
-	const progressCircle = useSpring({
-		from: { val: 42.5 },
-		to: {
-			val: 0,
-		},
-		config: {
-			duration: 10000,
-			easing: easings.easeInOutQuad,
-		},
-	});
-
 	return (
 		<Dialog.Portal>
-			<Dialog.Overlay className="bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-100" />
-			<Dialog.Content
-				className="fixed flex flex-col lg:flex-row items-center gap-9 z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-svh md:h-max w-screen max-w-5xl md:rounded-xl bg-white dark:bg-neutral-950 md:border border-white/10 md:outline outline-1 outline-black/10 dark:outline-black/50 p-6 md:p-9 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl"
-			>
-				<FadingImage
-					hideSpinner
-					src={HehMina}
-					alt="A smirking Mina."
-					className="h-32 lg:h-44 w-auto rounded-full border-neutral-50"
-				/>
-				<div>
-					<Dialog.Title asChild>
-						<h2 className="lg:text-balance">
-							{t("Content.NSFW.Dialog.title")}
-							<span className="text-green">.</span>
-						</h2>
-					</Dialog.Title>
-					<Dialog.Description asChild>
-						<div>
-							<p>{t("Content.NSFW.Dialog.text1")}</p>
-							<p>{t("Content.NSFW.Dialog.text2")}</p>
-							<p className="font-bold text-red">{t("Content.NSFW.Dialog.text3")}</p>
-						</div>
-					</Dialog.Description>
-					<div className="flex flex-row flex-wrap justify-between sm:justify-normal gap-3 py-9 lg:pb-0">
-						<Button color="green" onClick={onAccept} disabled={timer < 10}>
-							<svg height={15} width={15} className="-rotate-90">
-								<a.circle
-									// @ts-expect-error
-									cx={7.5}
-									cy={7.5}
-									r={6.75}
-									strokeWidth={1.25}
-									className="stroke-current fill-none"
-									strokeDasharray={42.5}
-									strokeDashoffset={progressCircle.val}
-									strokeLinecap="butt" // hehe butt
-								/>
-							</svg>
-							{t("Content.NSFW.Dialog.admitSins")}
-						</Button>
-
-						<Dialog.Close asChild>
-							<Button>{t("Content.NSFW.Dialog.nevermind")}</Button>
-						</Dialog.Close>
+			<Dialog.Overlay className="bg-white/90 dark:bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-100" />
+			<Dialog.Content className="fixed z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-svh md:h-max w-screen max-w-5xl bg-white dark:bg-neutral-950 md:outline outline-1 outline-black/5 dark:outline-white/5 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl">
+				<div className="flex flex-col items-center md:flex-row gap-6 md:gap-9 p-6 md:p-9">
+					<FadingImage
+						hideSpinner
+						src={HehMina}
+						alt="A smirking Mina."
+						className="h-32 lg:h-44 w-auto rounded-full border-neutral-50"
+					/>
+					<div>
+						<Dialog.Title asChild>
+							<h2 className="lg:text-balance">
+								{t("Content.NSFW.Dialog.title")}
+								<span className="text-green">.</span>
+							</h2>
+						</Dialog.Title>
+						<Dialog.Description asChild>
+							<div>
+								<p>{t("Content.NSFW.Dialog.text1")}</p>
+								<p>{t("Content.NSFW.Dialog.text2")}</p>
+								<p className="font-bold text-red-600 dark:text-red">{t("Content.NSFW.Dialog.text3")}</p>
+							</div>
+						</Dialog.Description>
 					</div>
+				</div>
+				<div className="grid grid-cols-2 border-t border-black/5 dark:border-white/5 h-12 divide-x divide-black/5 dark:divide-white/5">
+					<Button size="full" color="red" onClick={onAccept}>
+						{t("Content.NSFW.Dialog.admitSins")}
+					</Button>
+					<Dialog.Close asChild>
+						<Button size="full">{t("Content.NSFW.Dialog.nevermind")}</Button>
+					</Dialog.Close>
 				</div>
 				<Dialog.Close asChild>
 					<button

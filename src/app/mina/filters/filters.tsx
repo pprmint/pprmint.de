@@ -85,7 +85,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 		return (
 			<Select.Item
 				value={props.value}
-				className="group relative flex items-center gap-3 pr-2 pl-2 data-[highlighted]:pl-3 h-8 rounded-sm leading-none select-none outline-none data-[disabled]:text-neutral data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-950 dark:data-[highlighted]:text-white data-[state=checked]:text-neutral-950 dark:data-[state=checked]:text-white data-[highlighted]:bg-black/10 dark:data-[highlighted]:bg-white/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-none"
+				className="group relative flex items-center gap-3 pr-2 pl-2 h-7 leading-none select-none outline-none data-[disabled]:text-black/25 dark:data-[disabled]:text-white/25 data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-950 dark:data-[highlighted]:text-white data-[state=checked]:text-neutral-950 dark:data-[state=checked]:text-white data-[highlighted]:bg-black/10 dark:data-[highlighted]:bg-white/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-none"
 			>
 				<Select.ItemText className="flex-grow">{props.children}</Select.ItemText>
 				<Select.ItemIndicator className="ml-auto">
@@ -117,21 +117,21 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 									<Select.Value aria-label={props.artist}>
 										{artistFilterActive ? props.artist : t("Content.Artworks.Filters.artist")}
 									</Select.Value>
-									<Select.Icon className="ml-auto group-hover:translate-y-0.5 duration-100">
+									<Select.Icon className="ml-auto">
 										<ChevronDown />
 									</Select.Icon>
 								</Select.Trigger>
 								{artistFilterActive && (
 									<button
 										onClick={handleClearArtist}
-										className="h-9 px-2.5 hover:bg-neutral-900 hover:text-white active:shadow-inner active:opacity-75 duration-100"
+										className="h-9 px-2.5 hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 hover:text-neutral-950 dark:hover:text-white duration-100"
 									>
 										<X />
 									</button>
 								)}
 							</div>
 							<Select.Portal>
-								<Select.Content className="z-50 text-neutral p-1 backdrop-blur-xl bg-gradient-to-b from-white/90 dark:from-neutral-900/90 to-white/80 dark:to-bg-neutral-900/80 border border-white/10 ring-1 ring-black/10 dark:ring-black/50 shadow-lg rounded-lg data-[state=open]:animate-select-open">
+								<Select.Content className="z-50 bg-white/90 dark:bg-neutral-950/90 backdrop-blur ring-1 ring-black/5 dark:ring-white/5 shadow-lg data-[state=open]:animate-fade-in">
 									<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-white/50 dark:from-neutral-900/50 text-neutral-950 dark:text-white rounded-t-md">
 										<ChevronUp />
 									</Select.ScrollUpButton>

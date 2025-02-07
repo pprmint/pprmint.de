@@ -9,13 +9,14 @@ import HeartFilled from "src/icons/HeartFilled";
 import HomeTitle from "./home/title";
 import Announcements from "./home/announcements";
 import * as motion from "motion/react-client";
+import Button from "src/components/ui/Button";
 
 export async function generateMetadata() {
 	const t = await getTranslations("HOME");
 	return {
-	title: t("Head.title"),
-	description: t("Head.description"),
-};
+		title: t("Head.title"),
+		description: t("Head.description"),
+	};
 }
 
 export default async function Page() {
@@ -110,14 +111,15 @@ export default async function Page() {
 											})}
 										</span>
 									</p>
-									<div className="w-full border-y border-black/5 dark:border-white/5 h-12">
-										<Link
-											href="/mina"
-											className="flex gap-3 items-center text-lg hover:text-white dark:hover:text-neutral-950 hover:font-bold group h-full w-max hover:px-4 mx-auto hover:bg-neutral-900 dark:hover:bg-white active:bg-neutral-950 dark:active:bg-neutral-100 hover:shadow-md active:shadow-inner duration-200 ease-out-expo active:duration-75"
-										>
-											{t("Content.Mina.button")}
-											<HeartFilled />
-										</Link>
+									<div className="w-full border-y border-black/5 dark:border-white/5">
+										<div className="flex justify-center">
+											<Link href="/mina">
+												<Button noInitialPadding size="large">
+													{t("Content.Mina.button")}
+													<HeartFilled />
+												</Button>
+											</Link>
+										</div>
 									</div>
 								</div>
 							</div>

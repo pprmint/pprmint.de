@@ -4,6 +4,7 @@ import { PropsWithChildren, ReactNode, useEffect } from "react";
 import { useNavbar } from "./navigation/NavBarContext";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import Button from "../ui/Button";
 
 export default function Title(
 	props: PropsWithChildren<{
@@ -23,7 +24,7 @@ export default function Title(
 	}, [props.children, setInverted]);
 	return (
 		<div
-			className={`relative w-screen ${props.children ? "h-1/2-screen min-h-max xl:h-[700px]" : "h-max"} overflow-hidden text-balance`}
+			className={`relative w-screen ${props.children ? "dark h-1/2-screen min-h-max xl:h-[700px]" : "h-max"} overflow-hidden text-balance`}
 		>
 			{props.children && <div className="absolute -z-10 inset-0">{props.children}</div>}
 			<div className="w-full h-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
@@ -71,12 +72,12 @@ export default function Title(
 									href={props.creditLink}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="absolute bottom-0 bg-white/5"
+									className="absolute bottom-0 text-sm"
 								>
-									<button className="inline-flex p-0.5 items-center gap-1 text-xs md:text-sm hover:px-3 py-2 font-medium hover:font-bold text-white hover:text-neutral-950 disabled:text-white hover:bg-white active:bg-neutral-50 drop-shadow-md active:drop-shadow-none duration-100 active:duration-75 active:shadow-inner overflow-hidden">
+									<Button noInitialPadding design="semi-transparent">
 										{t("artDrawnBy")}
 										{props.creditName}
-									</button>
+									</Button>
 								</Link>
 							) : (
 								<div className="absolute bottom-0 bg-white/5">

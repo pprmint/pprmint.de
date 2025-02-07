@@ -2,70 +2,94 @@ import { ButtonHTMLAttributes } from "react";
 import React from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-	large?: boolean;
-	color?: "red" | "orange" | "yellow" | "lime" | "green" | "cyan" | "blue" | "violet" | "pink";
-	outlined?: boolean;
-	noMinWidth?: boolean;
+	size?: "regular" | "large" | "full";
+	color?:
+		| "red"
+		| "orange"
+		| "yellow"
+		| "lime"
+		| "green"
+		| "cyan"
+		| "blue"
+		| "violet"
+		| "pink"
+		| "neutral"
+	design?: "filled" | "semi-transparent" | "transparent" | "outlined";
+	noInitialPadding?: boolean;
 }
 
 export default function Button({
-	large,
-	color,
-	outlined,
-	noMinWidth,
+	size = "regular",
+	color = "neutral",
+	design = "transparent",
+	noInitialPadding,
 	children,
 	...rest
 }: React.PropsWithChildren<ButtonProps>) {
-	const size = large ? "h-11 px-5 text-lg" : "h-9 px-4";
-	const width = noMinWidth ? "justify-center" : "w-fit";
-	const colors = rest.disabled
-		? outlined
-			? "text-neutral/50 bg-neutral-500/20"
-			: "text-neutral/50 bg-neutral-500/20"
-		: color === "red"
-		? outlined
-			? "text-red-600 dark:text-red active:text-red-700 ring-1 active:ring-[3px] ring-inset ring-red-200 dark:ring-red-800 hover:ring-red dark:hover:ring-red active:ring-red/0 dark:active:ring-red/0 bg-red/10 hover:bg-red/20 active:bg-red/30"
-			: "text-red-950 bg-red hover:bg-red-400 active:bg-red-600 active:shadow-inner"
-		: color === "orange"
-		? outlined
-			? "text-orange-600 dark:text-orange active:text-orange-700 ring-1 active:ring-[3px] ring-inset ring-orange-200 dark:ring-orange-800 hover:ring-orange dark:hover:ring-orange active:ring-orange/0 dark:active:ring-orange/0 bg-orange/10 hover:bg-orange/20 active:bg-orange/30"
-			: "text-orange-950 bg-orange hover:bg-orange-400 active:bg-orange-600 active:shadow-inner"
-		: color === "yellow"
-		? outlined
-			? "text-yellow-600 dark:text-yellow active:text-yellow-700 ring-1 active:ring-[3px] ring-inset ring-yellow-200 dark:ring-yellow-800 hover:ring-yellow dark:hover:ring-yellow active:ring-yellow/0 dark:active:ring-yellow/0 bg-yellow/10 hover:bg-yellow/20 active:bg-yellow/30"
-			: "text-yellow-950 bg-yellow hover:bg-yellow-400 active:bg-yellow-600 active:shadow-inner"
-		: color === "lime"
-		? outlined
-			? "text-lime-600 dark:text-lime active:text-lime-700 ring-1 active:ring-[3px] ring-inset ring-lime-200 dark:ring-lime-800 hover:ring-lime dark:hover:ring-lime active:ring-lime/0 dark:active:ring-lime/0 bg-lime/10 hover:bg-lime/20 active:bg-lime/30"
-			: "text-lime-950 bg-lime hover:bg-lime-400 active:bg-lime-600 active:shadow-inner"
-		: color === "green"
-		? outlined
-			? "text-green-600 dark:text-green active:text-green-700 ring-1 active:ring-[3px] ring-inset ring-green-200 dark:ring-green-800 hover:ring-green dark:hover:ring-green active:ring-green/0 dark:active:ring-green/0 bg-green/10 hover:bg-green/20 active:bg-green/30"
-			: "text-green-950 bg-green hover:bg-green-400 active:bg-green-600 active:shadow-inner"
-		: color === "cyan"
-		? outlined
-			? "text-cyan-600 dark:text-cyan active:text-cyan-700 ring-1 active:ring-[3px] ring-inset ring-cyan-200 dark:ring-cyan-800 hover:ring-cyan dark:hover:ring-cyan active:ring-cyan/0 dark:active:ring-cyan/0 bg-cyan/10 hover:bg-cyan/20 active:bg-cyan/30"
-			: "text-cyan-950 bg-cyan hover:bg-cyan-400 active:bg-cyan-600 active:shadow-inner"
-		: color === "blue"
-		? outlined
-			? "text-blue-600 dark:text-blue active:text-blue-700 ring-1 active:ring-[3px] ring-inset ring-blue-200 dark:ring-blue-800 hover:ring-blue dark:hover:ring-blue active:ring-blue/0 dark:active:ring-blue/0 bg-blue/10 hover:bg-blue/20 active:bg-blue/30"
-			: "text-blue-950 bg-blue hover:bg-blue-400 active:bg-blue-600 active:shadow-inner"
-		: color === "violet"
-		? outlined
-			? "text-violet-600 dark:text-violet active:text-violet-700 ring-1 active:ring-[3px] ring-inset ring-violet-200 dark:ring-violet-800 hover:ring-violet dark:hover:ring-violet active:ring-violet/0 dark:active:ring-violet/0 bg-violet/10 hover:bg-violet/20 active:bg-violet/30"
-			: "text-violet-950 bg-violet hover:bg-violet-400 active:bg-violet-600 active:shadow-inner"
-		: color === "pink"
-		? outlined
-			? "text-pink-600 dark:text-pink active:text-pink-700 ring-1 active:ring-[3px] ring-inset ring-pink-200 dark:ring-pink-800 hover:ring-pink dark:hover:ring-pink active:ring-pink/0 dark:active:ring-pink/0 bg-pink/10 hover:bg-pink/20 active:bg-pink/30"
-			: "text-pink-950 bg-pink hover:bg-pink-400 active:bg-pink-600 active:shadow-inner"
-		: outlined
-		? "text-neutral-950 dark:text-white ring-1 active:ring-[3px] ring-inset ring-neutral-200 dark:ring-neutral-800 hover:ring-neutral-500 dark:hover:ring-neutral-50 dark:active:ring-transparent active:ring-transparent bg-neutral/10 hover:bg-neutral/15 active:bg-neutral/30"
-		: "text-neutral-950 dark:text-white dark:text-neutral-950 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 active:bg-black/25 dark:active:bg-white/5 active:shadow-inner";
+	const buttonSize =
+		size === "full" ? "size-full text-lg hover:font-bold" : size === "large" ? "h-11 text-lg" : "h-9";
+	const padding =
+		size === "large" ? (noInitialPadding ? "hover:px-5" : "px-5") : noInitialPadding ? "hover:px-4" : "px-4";
+	const styles =
+		rest.disabled ? 
+			design === "filled" ? "bg-black/5 text-black/25 dark:bg-white/5 dark:text-white/25" :
+			design === "semi-transparent" ? "bg-black/[0.025] text-black/25 dark:bg-white/[0.025] dark:text-white/25" :
+			design === "outlined" ? "ring-1 ring-inset ring-black/5 dark:ring-white/5 text-black/25 dark:text-white/25" :
+			design === "transparent" && "text-black/25 dark:text-white/25" :
+
+		design === "filled" ? 
+			color === "red" ? "bg-red text-red-950 hover:bg-red-400 active:bg-red-600 active:shadow-inner" :
+			color === "orange" ? "bg-orange text-orange-950 hover:bg-orange-400 active:bg-orange-600 active:shadow-inner" :
+			color === "yellow" ? "bg-yellow text-yellow-950 hover:bg-yellow-400 active:bg-yellow-600 active:shadow-inner" :
+			color === "lime" ? "bg-lime text-lime-950 hover:bg-lime-400 active:bg-lime-600 active:shadow-inner" :
+			color === "green" ? "bg-green text-green-950 hover:bg-green-400 active:bg-green-600 active:shadow-inner" :
+			color === "cyan" ? "bg-cyan text-cyan-950 hover:bg-cyan-400 active:bg-cyan-600 active:shadow-inner" :
+			color === "blue" ? "bg-blue text-blue-950 hover:bg-blue-400 active:bg-blue-600 active:shadow-inner" :
+			color === "violet" ? "bg-violet text-violet-950 hover:bg-violet-400 active:bg-violet-600 active:shadow-inner" :
+			color === "pink" ? "bg-pink text-pink-950 hover:bg-pink-400 active:bg-pink-600 active:shadow-inner" :
+			color === "neutral" && "bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 hover:bg-neutral-800 dark:hover:bg-neutral-50 active:bg-neutral-800 dark:active:bg-neutral-100 active:shadow-inner" :
+
+		design === "semi-transparent" ? 
+			color === "red" ? "bg-red/10 text-red hover:bg-red hover:text-red-950 active:bg-red-600 active:shadow-inner" :
+			color === "orange" ? "bg-orange/10 text-orange hover:bg-orange hover:text-orange-950 active:bg-orange-600 active:shadow-inner" :
+			color === "yellow" ? "bg-yellow/10 text-yellow-600 dark:text-yellow hover:bg-yellow hover:text-yellow-950 active:bg-yellow-600 active:shadow-inner" :
+			color === "lime" ? "bg-lime/10 text-lime hover:bg-lime hover:text-lime-950 active:bg-lime-600 active:shadow-inner" :
+			color === "green" ? "bg-green/10 text-green hover:bg-green hover:text-green-950 active:bg-green-600 active:shadow-inner" :
+			color === "cyan" ? "bg-cyan/10 text-cyan hover:bg-cyan hover:text-cyan-950 active:bg-cyan-600 active:shadow-inner" :
+			color === "blue" ? "bg-blue/10 text-blue hover:bg-blue hover:text-blue-950 active:bg-blue-600 active:shadow-inner" :
+			color === "violet" ? "bg-violet/10 text-violet hover:bg-violet hover:text-violet-950 active:bg-violet-600 active:shadow-inner" :
+			color === "pink" ? "bg-pink/10 text-pink hover:bg-pink hover:text-pink-950 active:bg-pink-600 active:shadow-inner" :
+			color === "neutral" && "text-neutral-950 dark:text-white hover:text-white dark:hover:text-neutral-950 bg-black/5 dark:bg-white/5 hover:bg-neutral-950 dark:hover:bg-white active:bg-neutral-800 dark:active:bg-neutral-100 active:shadow-inner" :
+
+		design === "outlined" ?
+			color === "red" ? "ring-1 ring-inset ring-red/10 hover:ring-red text-red hover:bg-red/20 active:bg-red/10 active:ring-4 active:ring-transparent" :
+			color === "orange" ? "ring-1 ring-inset ring-orange/10 hover:ring-orange text-orange hover:bg-orange/20 active:bg-orange/10 active:ring-4 active:ring-transparent" :
+			color === "yellow" ? "ring-1 ring-inset ring-yellow/10 hover:ring-yellow text-yellow-600 dark:text-yellow hover:bg-yellow/20 active:bg-yellow/10 active:ring-4 active:ring-transparent" :
+			color === "lime" ? "ring-1 ring-inset ring-lime/10 hover:ring-lime text-lime hover:bg-lime/20 active:bg-lime/10 active:ring-4 active:ring-transparent" :
+			color === "green" ? "ring-1 ring-inset ring-green/10 hover:ring-green text-green hover:bg-green/20 active:bg-green/10 active:ring-4 active:ring-transparent" :
+			color === "cyan" ? "ring-1 ring-inset ring-cyan/10 hover:ring-cyan text-cyan hover:bg-cyan/20 active:bg-cyan/10 active:ring-4 active:ring-transparent" :
+			color === "blue" ? "ring-1 ring-inset ring-blue/10 hover:ring-blue text-blue hover:bg-blue/20 active:bg-blue/10 active:ring-4 active:ring-transparent" :
+			color === "violet" ? "ring-1 ring-inset ring-violet/10 hover:ring-violet text-violet hover:bg-violet/20 active:bg-violet/10 active:ring-4 active:ring-transparent" :
+			color === "pink" ? "ring-1 ring-inset ring-pink/10 hover:ring-pink text-pink hover:bg-pink/20 active:bg-pink/10 active:ring-4 active:ring-transparent" :
+			color === "neutral" && "ring-1 ring-inset ring-black/5 dark:ring-white/5 hover:ring-neutral-950 dark:hover:ring-white text-neutral-950 dark:text-white hover:bg-black/10 dark:hover:bg-white/10 active:bg-black/5 dark:active:bg-white/5 active:ring-4 active:ring-transparent dark:active:ring-transparent" :
+
+		design === "transparent" &&
+			color === "red" ? "text-red hover:bg-red hover:text-red-950 active:bg-red-600 active:shadow-inner" :
+			color === "orange" ? "text-orange hover:bg-orange hover:text-orange-950 active:bg-orange-600 active:shadow-inner" :
+			color === "yellow" ? "text-yellow-600 dark:text-yellow hover:bg-yellow hover:text-yellow-950 active:bg-yellow-600 active:shadow-inner" :
+			color === "lime" ? "text-lime hover:bg-lime hover:text-lime-950 active:bg-lime-600 active:shadow-inner" :
+			color === "green" ? "text-green hover:bg-green hover:text-green-950 active:bg-green-600 active:shadow-inner" :
+			color === "cyan" ? "text-cyan hover:bg-cyan hover:text-cyan-950 active:bg-cyan-600 active:shadow-inner" :
+			color === "blue" ? "text-blue hover:bg-blue hover:text-blue-950 active:bg-blue-600 active:shadow-inner" :
+			color === "violet" ? "text-violet hover:bg-violet hover:text-violet-950 active:bg-violet-600 active:shadow-inner" :
+			color === "pink" ? "text-pink hover:bg-pink hover:text-pink-950 active:bg-pink-600 active:shadow-inner" :
+			color === "neutral" && "text-neutral-950 dark:text-white hover:text-white dark:hover:text-neutral-950 hover:bg-neutral-950 dark:hover:bg-white active:bg-neutral-800 dark:active:bg-neutral-100 active:shadow-inner"
+
 	return (
 		<button
-			className={`group flex items-center font-medium duration-200 ease-out ${!rest.disabled && "hover:cursor-pointer"} ${!outlined && !rest.disabled && "hover:shadow-sm"} ${
+			className={`group relative flex items-center font-medium duration-200 ease-out ${padding} ${!rest.disabled && "hover:cursor-pointer"} ${!rest.disabled && "hover:shadow-sm"} ${
 				rest.disabled && "pointer-events-none"
-			} select-none active:duration-75 ${size} ${width} ${colors}`}
+			} select-none active:duration-50 ${buttonSize} ${styles} overflow-hidden`}
 			{...rest}
 		>
 			<div className={`flex gap-3 whitespace-nowrap items-center justify-between`}>{children}</div>
