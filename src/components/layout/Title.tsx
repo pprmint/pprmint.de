@@ -27,7 +27,7 @@ export default function Title(
 		>
 			{props.children && <div className="absolute -z-10 inset-0">{props.children}</div>}
 			<div className="w-full h-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-				<div className="h-full w-full border-x border-black/5 dark:border-white/5">
+				<div className={`h-full w-full border-x ${props.children ? "border-white/5" : "border-black/5 dark:border-white/5"}`}>
 					<div className="relative size-full flex flex-col gap-6 xl:justify-center col-span-2 md:col-span-1 py-20 md:py-28 lg:py-32 xl:py-40">
 						<div className={props.children ? "drop-shadow-md" : ""}>
 							<m.h1
@@ -71,7 +71,7 @@ export default function Title(
 									href={props.creditLink}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="absolute bottom-0 bg-black/5 dark:bg-white/5"
+									className="absolute bottom-0 bg-white/5"
 								>
 									<button className="inline-flex p-0.5 items-center gap-1 text-xs md:text-sm hover:px-3 py-2 font-medium hover:font-bold text-white hover:text-neutral-950 disabled:text-white hover:bg-white active:bg-neutral-50 drop-shadow-md active:drop-shadow-none duration-100 active:duration-75 active:shadow-inner overflow-hidden">
 										{t("artDrawnBy")}
@@ -79,7 +79,7 @@ export default function Title(
 									</button>
 								</Link>
 							) : (
-								<div className="absolute bottom-0 bg-black/5 dark:bg-white/5">
+								<div className="absolute bottom-0 bg-white/5">
 									{t("artDrawnBy")}
 									{props.creditName}
 								</div>

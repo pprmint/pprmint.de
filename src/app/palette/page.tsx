@@ -21,7 +21,7 @@ export default function Page() {
     return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
-				<div className="relative w-full h-full overflow-clip bg-green-950">
+				<div className="relative w-full h-full overflow-clip bg-neutral-950">
 					<div className="absolute top-1/2 inset-x-0 -translate-y-1/2">
 						<div className="w-full h-1/6-screen skew-y-12 bg-green" />
 						<div className="w-full h-1/6-screen -skew-y-12 border-y-2 border-yellow" />
@@ -30,10 +30,11 @@ export default function Page() {
 						<div className="w-full h-1/6-screen skew-y-12 border-y-2 border-violet" />
 						<div className="w-full h-1/6-screen -skew-y-12 border-y-2 border-blue" />
 					</div>
+					<div className="absolute inset-0 bg-gradient-to-r from-neutral-950/75 via-transparent"/>
 				</div>
 			</Title>
-			<main>
-				<section className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 lg:px-9">
+			<main className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
+				<section className="py-20 md:py-32 xl:py-40 border-x border-black/5 dark:border-white/5">
 					<h2>
 						{t("Content.Usage.heading")}
 						<span className="text-green">.</span>

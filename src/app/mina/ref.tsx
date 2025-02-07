@@ -173,7 +173,7 @@ export default function RefSheet() {
 
 	return (
 		<>
-			<div className="w-full grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-rows-4 md:grid-rows-3 xl:grid-rows-2 grid-flow-dense md:max-h-[900px] border-x border-black/5 dark:border-white/5">
+			<div className="w-full grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-rows-4 md:grid-rows-3 xl:grid-rows-2 grid-flow-dense md:max-h-[800px] border-x border-black/5 dark:border-white/5">
 				<Dialog.Root>
 					<Dialog.Trigger asChild>
 						<button

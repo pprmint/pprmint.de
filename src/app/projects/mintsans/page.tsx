@@ -29,35 +29,39 @@ export default function Page() {
 	return (
 		<>
 			<Title title={t("MINTSANS.Head.title")} description={t("MINTSANS.Head.description")}>
-				<FadingImage src={TitleImage} alt="" fill className="object-contain" />
+				<div className="absolute inset-0 bg-neutral-950">
+					<FadingImage src={TitleImage} alt="" fill className="object-contain object-right" />
+				</div>
 			</Title>
 			<main>
-				<section className="my-20 md:my-32 xl:my-40">
-					<div className="relative w-full aspect-video">
+				<section>
+					<div className="bg-neutral-950 relative w-full h-auto">
 						<FadingImage src={Slide1} alt="Slide 1" className="w-full" />
 					</div>
-					<div className="relative w-full aspect-video">
+					<div className="relative w-full h-auto">
 						<FadingImage src={Slide2} alt="Slide 2" className="w-full" />
 					</div>
-					<div className="relative w-full aspect-video">
+					<div className="bg-neutral-950 relative w-full h-auto">
 						<FadingImage src={Slide3} alt="Slide 3" className="w-full" />
 					</div>
-					<div className="relative w-full aspect-video">
+					<div className="relative w-full h-auto">
 						<FadingImage src={Slide4} alt="Slide 4" className="w-full" />
 					</div>
-					<div className="relative w-full aspect-video">
+					<div className="bg-neutral-950 relative w-full h-auto">
 						<FadingImage src={Slide5} alt="Slide 5" className="w-full" />
 					</div>
-					<div className="relative w-full aspect-video">
+					<div className="relative w-full h-auto">
 						<FadingImage src={Slide6} alt="Slide 6" className="w-full" />
 					</div>
 				</section>
-				<section className="my-20 md:my-32 xl:my-40 px-6 md:px-9 py-5">
-					<h2 className="max-w-7xl mx-auto">
-						{t("MINTSANS.Content.Tester.heading")}
-						<span className="text-green">.</span>
-					</h2>
-					<Tester />
+				<section className="w-full max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
+					<div className="py-20 md:py-32 xl:py-40 border-x border-black/5 dark:border-white/5">
+						<h2>
+							{t("MINTSANS.Content.Tester.heading")}
+							<span className="text-green">.</span>
+						</h2>
+						<Tester />
+					</div>
 				</section>
 				<section className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9 py-5">
 					<h2>{t("MINTSANS.Content.Download.heading")}</h2>

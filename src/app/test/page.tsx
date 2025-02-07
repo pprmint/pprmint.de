@@ -16,14 +16,14 @@ export async function generateMetadata() {
 
 export default function Page() {
 	return (
-		<main className="min-h-screen max-w-7xl mx-auto pt-48 px-6 md:px-9">
-			<section className="mb-48">
+		<main className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
+			<section className="py-40 w-full border-x border-black/5 dark:border-white/5">
 				<h2>Loading things</h2>
 				<div className="flex flex-wrap justify-between">
 					<Spinner />
 				</div>
 			</section>
-			<section className="mb-48">
+			<section className="pb-40 w-full border-x border-black/5 dark:border-white/5">
 				<h2>Audio player</h2>
 				<div className="flex flex-wrap justify-between">
 					<AudioPlayer src="/sounds/intro.wav" title="New intro sound" artist="pomifuri">
@@ -32,11 +32,11 @@ export default function Page() {
 					<AudioPlayer src="/sounds/Intro_old.wav" title="Old intro sound" artist="pprmint." />
 				</div>
 			</section>
-			<section className="mb-48">
+			<section className="pb-40 w-full border-x border-black/5 dark:border-white/5">
 				<h2>Video player</h2>
 				<VideoPlayer src="https://static.pprmint.de/videos/Takashi.mp4" />
 			</section>
-			<section id="texts" className="mb-48">
+			<section id="texts" className="pb-40 w-full border-x border-black/5 dark:border-white/5">
 				<h1>The quick brown fox jumps over the lazy dog. 1234567890</h1>
 				<h2>The quick brown fox jumps over the lazy dog. 1234567890</h2>
 				<h3>The quick brown fox jumps over the lazy dog. 1234567890</h3>
@@ -47,7 +47,7 @@ export default function Page() {
 				<p className="text-link">Internal link</p>
 				<p className="text-link-external">External link</p>
 			</section>
-			<section id="buttons" className="flex flex-col gap-6 mb-48 flex-wrap">
+			<section id="buttons" className="w-full border-x border-black/5 dark:border-white/5 flex flex-col gap-6 pb-40 flex-wrap">
 				<h2>Buttons</h2>
 				<div className="flex gap-3 flex-wrap">
 					<Button>Button</Button>
@@ -166,7 +166,7 @@ export default function Page() {
 					</Button>
 				</div>
 			</section>
-			<section className="flex flex-col gap-6 mb-48">
+			<section className="w-full border-x border-black/5 dark:border-white/5 flex flex-col gap-6 pb-40">
 				<h2>Checkboxes</h2>
 				<div className="flex gap-3">
 					<Checkbox />

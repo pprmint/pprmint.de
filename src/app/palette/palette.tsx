@@ -188,7 +188,7 @@ export default function Palette() {
 									shadeIndex == 5 ? "col-span-2 lg:col-span-1" : "col-span-1"
 								} ${
 									shadeIndex > 5 ? "text-white" : "text-neutral-950"
-								} hover:scale-110 hover:shadow-xl hover:rounded-md duration-100 ease-in-out-custom active:scale-105 cursor-pointer active:duration-75`}
+								} duration-100 ease-in-out-custom cursor-pointer active:duration-75`}
 								onClick={() => {
 									navigator.clipboard.writeText((shade as string).substring(1));
 									setToastOpen(false);
