@@ -13,7 +13,7 @@ export default async function GallerySuspense({ p, nsfw, artist }: { p: number; 
 			{Artworks !== null && (
 				<>
 					<Filters nsfw={nsfw} artist={artist} artists={Artists} />
-					{Artworks.data.length == 0 ? <OutOfBounds /> : <Gallery artworks={Artworks} />}
+					{Artworks.data.length == 0 ? <OutOfBounds /> : <Gallery artworks={Artworks} page={p} />}
 					<Pagination page={p} pageCount={Artworks.meta.pagination.pageCount} />
 				</>
 			)}
@@ -36,7 +36,7 @@ async function getArtworks(page: number, nsfw: string, artists: Artists, artist?
 	const res = await fetch(
 		`${process.env.STRAPI_API_URL}/mina-artworks?pagination[page]=${Number(
 			page
-		)}&pagination[pageSize]=21&${nsfwFilter}${artistFilter}populate=artwork&populate=artist&sort=creationDate:desc`,
+		)}&pagination[pageSize]=28&${nsfwFilter}${artistFilter}populate=artwork&populate=artist&sort=creationDate:desc`,
 		{
 			headers: {
 				"Content-Type": "application/json",

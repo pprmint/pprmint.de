@@ -1,7 +1,7 @@
 "use client";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useTranslations } from "next-intl";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FadingImage from "src/components/ui/FadingImage";
 import Error from "src/icons/Error";
 import EyeDisabled from "src/icons/EyeDisabled";
@@ -17,8 +17,9 @@ import * as m from "motion/react-m";
 import { AnimatePresence } from "motion/react";
 import Bluesky from "src/icons/Bluesky";
 
-export default function Gallery(artworks: { artworks: MinaArtworks }) {
+export default function Gallery({artworks, page}: { artworks: MinaArtworks, page: number }) {
 	const t = useTranslations("MINA");
+	const [open, setOpen] = useState(false);
 	const [direction, setDirection] = useState(0);
 	const [selectedArt, setSelectedArt] = useState(0);
 	const [selectedVariant, setSelectedVariant] = useState(0);
@@ -31,30 +32,36 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 		}, 1);
 	}
 	// Reset to 0 after the lightbox is closed.
-	function handleClose() {
-		setTimeout(() => {
-			setSelectedVariant(0);
-			setDirection(0);
-			setScale(1);
-		}, 200);
+	function handleDialog() {
+		if (!open) {
+			setOpen(true);
+		} else {
+			setOpen(false);
+			setTimeout(() => {
+				setSelectedVariant(0);
+				setSelectedArt(0);
+				setDirection(0);
+				setScale(1);
+			}, 200);
+		}
 	}
 
 	const galleryRef = useRef<HTMLDivElement>(null);
 	const [init, setInit] = useState(false);
-	// useEffect(() => {
-	// 	if (init && galleryRef.current) {
-	// 		scrollTo({ top: galleryRef.current?.getBoundingClientRect().top + scrollY - 200 });
-	// 	}
-	// 	setInit(true);
-	// }, [artworks]);
+	useEffect(() => {
+		if (init && galleryRef.current) {
+			scrollTo({ top: galleryRef.current?.getBoundingClientRect().top + scrollY - 140 });
+		}
+		setInit(true);
+	}, [page]);
 
 	return (
 		<div
 			ref={galleryRef}
 			className="group grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2"
 		>
-			<Dialog.Root onOpenChange={handleClose}>
-				{artworks.artworks.data.map((art, index) => (
+			<Dialog.Root open={open} onOpenChange={handleDialog}>
+				{artworks.data.map((art, index) => (
 					<Dialog.Trigger key={art.id} asChild>
 						<button
 							style={{
@@ -97,14 +104,14 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 						>
 							<Dialog.Description className="sr-only">
 								{t("Content.Artworks.drawnBy")}
-								{artworks.artworks.data[selectedArt].artist.name}
+								{artworks.data[selectedArt].artist.name}
 							</Dialog.Description>
 							<TransformWrapper disablePadding onTransformed={(e) => setScale(e.state.scale)}>
 								<TransformComponent>
 									<div className="flex items-center justify-center w-screen h-screen max-h-svh">
 										<AnimatePresence>
 											<m.div
-												key={artworks.artworks.data[selectedArt].id}
+												key={artworks.data[selectedArt].id}
 												initial={{
 													x: direction < 0 ? -120 : direction > 0 ? 120 : 0,
 													clipPath:
@@ -136,17 +143,17 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 												className="absolute"
 											>
 												<FadingImage
-													src={`https://static.pprmint.de${artworks.artworks.data[selectedArt].artwork[selectedVariant]?.url}`}
+													src={`https://static.pprmint.de${artworks.data[selectedArt].artwork[selectedVariant]?.url}`}
 													width={
-														artworks.artworks.data[selectedArt].artwork[selectedVariant]
+														artworks.data[selectedArt].artwork[selectedVariant]
 															?.width
 													}
 													height={
-														artworks.artworks.data[selectedArt].artwork[selectedVariant]
+														artworks.data[selectedArt].artwork[selectedVariant]
 															?.height
 													}
 													alt=""
-													className={`max-h-svh w-auto mx-auto py-16 ${artworks.artworks.data[selectedArt].pixelart && "pixelated"} drop-shadow-2xl dark:drop-shadow-none`}
+													className={`max-h-svh w-auto mx-auto py-16 ${artworks.data[selectedArt].pixelart && "pixelated"} drop-shadow-2xl dark:drop-shadow-none`}
 													unoptimized
 												/>
 											</m.div>
@@ -168,7 +175,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 									>
 										<AnimatePresence mode="wait">
 											<m.div
-												key={artworks.artworks.data[selectedArt].artist.name}
+												key={artworks.data[selectedArt].artist.name}
 												initial={{ opacity: 0 }}
 												animate={{ opacity: 1, transition: { duration: 0.2 } }}
 												exit={{ opacity: 0, transition: { duration: 0.2 } }}
@@ -179,15 +186,15 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 														<span className="text-white/70">
 															{t("Content.Artworks.drawnBy")}
 														</span>
-														{artworks.artworks.data[selectedArt].artist.name}
-														{artworks.artworks.data[selectedArt].heart && (
+														{artworks.data[selectedArt].artist.name}
+														{artworks.data[selectedArt].heart && (
 															<span className="text-red"> ♥</span>
 														)}
 													</p>
 												</Dialog.Title>
-												{artworks.artworks.data[selectedArt].artist.creditUrl && (
+												{artworks.data[selectedArt].artist.creditUrl && (
 													<Link
-														href={artworks.artworks.data[selectedArt].artist.creditUrl!}
+														href={artworks.data[selectedArt].artist.creditUrl!}
 														target="_blank"
 														rel="noopener noreferrer"
 														className="rounded-full"
@@ -196,21 +203,21 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 															tabIndex={-1}
 															className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
 														>
-															{artworks.artworks.data[
+															{artworks.data[
 																selectedArt
 															].artist.creditUrl!.startsWith("https://bsky.app/") ? (
 																<Bluesky />
-															) : artworks.artworks.data[
+															) : artworks.data[
 																	selectedArt
 															  ].artist.creditUrl!.startsWith("https://twitter.com/") ? (
 																<Twitter />
-															) : artworks.artworks.data[
+															) : artworks.data[
 																	selectedArt
 															  ].artist.creditUrl!.startsWith(
 																	"https://www.instagram.com/"
 															  ) ? (
 																<Instagram />
-															) : artworks.artworks.data[
+															) : artworks.data[
 																	selectedArt
 															  ].artist.creditUrl!.startsWith(
 																	"https://www.youtube.com/"
@@ -225,15 +232,15 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 											</m.div>
 										</AnimatePresence>
 										<AnimatePresence mode="wait">
-											{artworks.artworks.data[selectedArt].artwork.length >= 2 && (
+											{artworks.data[selectedArt].artwork.length >= 2 && (
 												<m.div
-													key={artworks.artworks.data[selectedArt].id}
+													key={artworks.data[selectedArt].id}
 													initial={{ opacity: 0 }}
 													animate={{ opacity: 1 }}
 													exit={{ opacity: 0 }}
 													className="flex flex-row items-center justify-center px-6 h-16 inset-x-0"
 												>
-													{artworks.artworks.data[selectedArt].artwork.map(
+													{artworks.data[selectedArt].artwork.map(
 														(variant, index) => (
 															<button
 																key={index}
@@ -282,7 +289,7 @@ export default function Gallery(artworks: { artworks: MinaArtworks }) {
 											className={`absolute inset-0 flex w-max items-center gap-2 ${direction !== 0 && "duration-500"} ease-out-quart`}
 											style={{ left: `calc(50% - ${selectedArt * 48}px - 32px` }}
 										>
-											{artworks.artworks.data.map((artwork, index) => (
+											{artworks.data.map((artwork, index) => (
 												<button
 													key={index}
 													onClick={() => handleSelectArt(index)}
