@@ -69,13 +69,13 @@ export default async function Page({
 								{t("Content.About.heading")}
 								<span className="text-green">.</span>
 							</h2>
-							<p className="mb-3">{t("Content.About.text1")}</p>
+							<p>{t("Content.About.text1")}</p>
 							<p>{t("Content.About.text2")}</p>
 						</div>
 						<div className="pt-3 md:pt-[6.25rem] lg:pt-[8.75rem] xl:pt-[13.75rem] pb-12 lg:pb-20 xl:pb-40 md:pr-12">
-							<p className="mb-3">{t("Content.About.text3")}</p>
-							<p className="mb-3">{t("Content.About.text4")}</p>
-							<p className="mb-3">{t("Content.About.text5")}</p>
+							<p>{t("Content.About.text3")}</p>
+							<p>{t("Content.About.text4")}</p>
+							<p>{t("Content.About.text5")}</p>
 							<p>
 								{t.rich("Content.About.text6", {
 									Link: (chunks) => (
@@ -101,7 +101,7 @@ export default async function Page({
 							})}
 						</p>
 						<div className="flex flex-col lg:items-end">
-							<p className="mb-3">{t("Content.Reference.Download.text")}</p>
+							<p>{t("Content.Reference.Download.text")}</p>
 							<Link
 								href="https://static.pprmint.de/download/Mina/Mina_ref_sheet_(by_nekomimi).png"
 								target="_blank"
@@ -127,9 +127,9 @@ export default async function Page({
 							{t("Content.Fanart.heading")}
 							<span className="text-green">.</span>
 						</h2>
-						<p className="mb-3">{t("Content.Fanart.text1")}</p>
-						<p className="mb-3">{t("Content.Fanart.text2")}</p>
-						<p className="mb-3">{t("Content.Fanart.text3")}</p>
+						<p>{t("Content.Fanart.text1")}</p>
+						<p>{t("Content.Fanart.text2")}</p>
+						<p>{t("Content.Fanart.text3")}</p>
 						<div className="px-1 py-0.5 max-w-max bg-black/5 dark:bg-white/5 hover:bg-red-50 dark:hover:bg-red-950 text-transparent hover:text-red-800 dark:hover:text-red-200 duration-100 select-none hover:select-text">
 							{t("Content.Fanart.text4")}
 						</div>

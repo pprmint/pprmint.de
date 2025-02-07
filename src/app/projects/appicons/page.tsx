@@ -28,12 +28,12 @@ export default async function Page() {
 			<main className="max-w-8xl mx-auto px-6 md:px-9 xl:px-20">
 				<section className="pt-20 md:pt-32 xl:pt-40 border-x border-black/5 dark:border-white/5">
 					<h2>{t("Content.Intro.title")}</h2>
-					<p className="mb-3">
+					<p>
 						{t.rich("Content.Intro.text1", {
 							i: (chunks) => <i>{chunks}</i>,
 						})}
 					</p>
-					<p className="mb-3">
+					<p>
 						{t.rich("Content.Intro.text2", {
 							a: (chunks) => (
 								<Link

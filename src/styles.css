@@ -81,3 +81,7 @@ body {
 	font-variant-ligatures: normal;
 	font-feature-settings: "tnum";
 }
+
+p:not(:last-of-type) {
+	margin-bottom: 12px;
+}

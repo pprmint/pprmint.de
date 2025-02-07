@@ -22,12 +22,12 @@ export default async function Page() {
 				<section className="pb-20 md:pb-32 xl:pb-40 border-x border-black/5">
 					<div className="bg-black/5 dark:bg-white/5 p-6 md:p-9">
 						<h2>{t("Content.Tldr.heading")}</h2>
-						<p className="mb-3">
+						<p>
 							{t.rich("Content.Tldr.text1", {
 								b: (chunks) => <b className="text-neutral-950 dark:text-white">{chunks}</b>,
 							})}
 						</p>
-						<p className="mb-3">
+						<p>
 							{t.rich("Content.Tldr.text2", {
 								b: (chunks) => <b className="text-neutral-950 dark:text-white">{chunks}</b>,
 							})}
@@ -41,9 +41,9 @@ export default async function Page() {
 				</section>
 				<section className="pb-20 md:pb-32 xl:pb-40 border-x border-black/5">
 					<h2>{t("Content.General.heading")}</h2>
-					<p className="mb-3">{t("Content.General.text1")}</p>
-					<p className="mb-3">{t("Content.General.text2")}</p>
-					<p className="mb-3">{t("Content.General.text3")}</p>
+					<p>{t("Content.General.text1")}</p>
+					<p>{t("Content.General.text2")}</p>
+					<p>{t("Content.General.text3")}</p>
 					<p className="flex gap-6 flex-wrap">
 						<Link
 							className="text-link-external inline-flex gap-1 items-center"
@@ -67,9 +67,9 @@ export default async function Page() {
 				</section>
 				<section className="pb-20 md:pb-32 xl:pb-40 border-x border-black/5">
 					<h2>{t("Content.Hosting.heading")}</h2>
-					<p className="mb-3">{t("Content.Hosting.text1")}</p>
-					<p className="mb-3">{t("Content.Hosting.text2")}</p>
-					<p className="mb-3">{t("Content.Hosting.text3")}</p>
+					<p>{t("Content.Hosting.text1")}</p>
+					<p>{t("Content.Hosting.text2")}</p>
+					<p>{t("Content.Hosting.text3")}</p>
 					<p className="flex gap-6 flex-wrap">
 						<Link
 							className="text-link-external inline-flex gap-1 items-center"
@@ -126,7 +126,7 @@ export default async function Page() {
 				</section>
 				<section className="border-x border-black/5">
 					<h2>{t("Content.Contact.heading")}</h2>
-					<p className="mb-3">
+					<p>
 						{t.rich("Content.Contact.text1", {
 							strong: (chunks) => <strong>{chunks}</strong>,
 						})}
