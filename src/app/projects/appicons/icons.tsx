@@ -72,7 +72,7 @@ import Button from "src/components/ui/Button";
 import Search from "src/icons/Search";
 import X from "src/icons/X";
 import Download from "src/icons/Download";
-import { AnimatePresence } from "motion/react";
+import { AnimatePresence, delay, LayoutGroup } from "motion/react";
 
 const Icons = [
 	{
@@ -459,9 +459,7 @@ export default function Selector() {
 							{filteredIcons.map((icon) => (
 								<button
 									className={`relative group p-2 sm:p-4 ${
-										selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name)
-											? "bg-black/5 dark:bg-white/5"
-											: ""
+										selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name) ? "bg-black/5 dark:bg-white/5" : ""
 									} duration-200 ease-out`}
 									key={icon.name}
 									onClick={() => handleIconSelect(icon)}
@@ -510,9 +508,7 @@ export default function Selector() {
 					<p className="relative text-2xl md:text-3xl mb-2">
 						{t.rich("Content.Panel.iconsSelected", {
 							count: selectedIcons.length,
-							em: (chunks) => (
-								<span className="text-neutral-950 dark:text-white font-bold">{chunks}</span>
-							),
+							em: (chunks) => <span className="text-neutral-950 dark:text-white font-bold">{chunks}</span>,
 						})}
 					</p>
 					<p
@@ -521,25 +517,25 @@ export default function Selector() {
 					>
 						{t("Content.Panel.deselectAll")}
 					</p>
-					<m.ul className="list-disc list-inside">
+					<ul className="list-disc list-inside flex flex-col">
 						<AnimatePresence mode="sync">
 							{selectedIcons.map((icon) => (
 								<m.li
 									key={icon.name}
-									initial={{ y: 5, opacity: 0 }}
+									initial={{ y: 5, opacity: 0, height: 24 }}
 									animate={{
 										y: 0,
 										opacity: 1,
+										height: 24,
 										transition: { type: "spring", duration: 0.5, bounce: 0 },
 									}}
-									exit={{ opacity: 0, transition: { type: "linear", duration: 0.2 } }}
-									layout
+									exit={{ opacity: 0, height: 0, transition: { type: "linear", duration: 0.2, height: { delay: 0.1 } } }}
 								>
 									{icon.name}
 								</m.li>
 							))}
 						</AnimatePresence>
-					</m.ul>
+					</ul>
 				</div>
 				<div className="mt-auto self-end">
 					<Button onClick={handleDownloadSelectedIcons} disabled={loading || selectedIcons.length === 0}>
