@@ -99,11 +99,11 @@
 			},
 			"WhoYou": {
 				"message": "Wer bist du?",
-				"answer": "Ich bin Mina, quasi das Maskottchen von pprmint. Der Typ, dem diese Website gehört, heißt Nicklas."
+				"answer": "Ich bin Mina, quasi das Maskottchen von pprmint. Der Typ, dem diese Website gehört, heißt eigentlich Nicklas, wird aber auch gerne nur Nick genannt."
 			},
 			"WhyPprmint": {
-				"message": "Warum \"pprmint.\"?",
-				"answer": "Der Name entstand aus Liebe für Dinge mit Pfefferminzgeschmack, und \"peppermint\" sah ohne Vokale bis auf das i recht cool aus. Der Punkt am Ende ist Teil des Namens, da Satzzeichen direkt unter Pfefferminze auf der Liste stehen."
+				"message": "Warum der Name \"pprmint.\"?",
+				"answer": "Er mag Dinge mit Pfefferminzgeschmack und das Wort \"peppermint\" sah in seinen Augen cool aus, wenn man das i drin lässt. Der Punkt am Ende ist Teil des Namens, da Satzzeichen direkt unter Pfefferminze auf der Liste stehen."
 			},
 			"WhoWebsite": {
 				"message": "Wie diese Website entstanden?",
@@ -277,17 +277,17 @@
 	},
 	"CONTACT": {
 		"Head": {
-			"description": "Kontaktiere mich per Email oder Twitter-Nachricht.",
+			"description": "Stelle eine Frage, erhalte (irgendwann) eine Antwort.",
 			"title": "Kontakt"
 		},
 		"Content": {
 			"Mina": {
-				"heading": "Du hast nur eine kurze Frage?",
+				"heading": "Lies ein FAQ, aber in cool",
 				"text": "Spar dir (und vor allem mir) etwas Zeit und:"
 			},
 			"Email": {
-				"title": "Email",
-				"text": "Schick Spam und du fliegst.",
+				"title": "Oder schreib 'ne Email",
+				"text": "Schick Spam und du fliegst raus.",
 				"preferMailto": "Möchtest du lieber deinen eigenen Email-Client verwenden? Sende deine Email an <Link>mail@pprmint.de</Link>.",
 				"Form": {
 					"name": "Name",
@@ -300,11 +300,11 @@
 					"sentText": "Irgendwann kommt vielleicht sogar eine Antwort.",
 					"retry": "Erneut versuchen",
 					"noCommissions": "Sorry, derzeit akzeptiere ich keine Auftragsarbeiten."
+				},
+				"Message": {
+					"body": "Indem du mit Absicht den Betreff und Inhalt dieser Email mit Werbung, Sponsorenangeboten oder Ähnlichem ersetzt, bist du damit einverstanden, dass ich deine Email-Adresse in meinen Spam-Filter einpflege, sodass deine Emails künftig auf dem kürzesten Weg in den Papierkorb wandern.",
+					"subject": "Das hier ist absolut keine Abzocke oder so. Zwinker zwinker."
 				}
-			},
-			"Message": {
-				"body": "Indem du mit Absicht den Betreff und Inhalt dieser Email mit Werbung, Sponsorenangeboten oder Ähnlichem ersetzt, bist du damit einverstanden, dass ich deine Email-Adresse in meinen Spam-Filter einpflege, sodass deine Emails künftig auf dem kürzesten Weg in den Papierkorb wandern.",
-				"subject": "Das hier ist absolut keine Abzocke oder so. Zwinker zwinker."
 			}
 		}
 	},

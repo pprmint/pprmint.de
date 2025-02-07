@@ -228,7 +228,7 @@ function Chatbox() {
 							</Dialog.Close>
 						</div>
 						<div className="w-2/5 text-center">
-							<Dialog.Title className="text-neutral-950 dark:text-white font-medium text-sm font-sans pb-0 leading-3">
+							<Dialog.Title className="text-neutral-950 dark:text-white font-medium text-sm font-sans font-stretch-normal pb-0 leading-3">
 								Mina
 							</Dialog.Title>
 							<Dialog.Description className="text-sm">

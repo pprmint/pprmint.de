@@ -9,9 +9,10 @@ import * as m from "motion/react-m";
 
 import PixelMina from "public/assets/mina64.gif";
 import { AnimatePresence } from "motion/react";
+import { Link } from "next-transition-router";
 
 export default function Form() {
-	const t = useTranslations("CONTACT.Content.Email.Form");
+	const t = useTranslations("CONTACT.Content.Email");
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
@@ -84,14 +85,9 @@ export default function Form() {
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1, transition: { ease: "linear", duration: 0.2 } }}
 								exit={{ opacity: 0, transition: { ease: "linear", duration: 0.2 } }}
-								className="absolute inset-0 z-20 bg-neutral-950/75 flex items-center justify-center"
+								className="absolute inset-0 z-20 bg-white/75 dark:bg-neutral-950/75 flex items-center justify-center"
 							>
-								<FadingImage
-									src={PixelMina}
-									alt=""
-									className="size-32"
-									style={{ imageRendering: "pixelated" }}
-								/>
+								<FadingImage src={PixelMina} alt="" className="size-32" style={{ imageRendering: "pixelated" }} />
 							</m.div>
 						)}
 					</AnimatePresence>
@@ -99,7 +95,7 @@ export default function Form() {
 						<input
 							required
 							type="text"
-							placeholder={t("name")}
+							placeholder={t("Form.name")}
 							name="name"
 							aria-label="name text field"
 							maxLength={30}
@@ -111,7 +107,7 @@ export default function Form() {
 						<input
 							required
 							type="text"
-							placeholder={t("emailAddress")}
+							placeholder={t("Form.emailAddress")}
 							name="email"
 							aria-label="email address text field"
 							maxLength={50}
@@ -123,7 +119,7 @@ export default function Form() {
 						<input
 							required
 							type="text"
-							placeholder={t("subject")}
+							placeholder={t("Form.subject")}
 							name="subject"
 							aria-label="subject text field"
 							maxLength={100}
@@ -135,25 +131,36 @@ export default function Form() {
 						<textarea
 							required
 							name="message"
-							placeholder={t("message")}
+							placeholder={t("Form.message")}
 							aria-label="message field"
 							maxLength={2000}
 							rows={7}
 							onChange={(e) => {
 								setFormData({ ...formData, message: e.target.value });
 							}}
-							className="box-content col-span-2 border-b border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100 resize-none"
+							className="box-content col-span-2 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100 resize-none"
 						/>
-						<Button
-							onClick={(e) => {
-								handleSubmit(e);
-							}}
-							disabled={invalidInput}
-							color={failed ? "yellow" : "green"}
-						>
-							{sending ? t("sending") : failed ? t("retry") : t("send")}
-							{sending ? <Loader2 size={16} className="animate-spin" /> : failed && <WarningTriangle />}
-						</Button>
+						<div className="col-span-2 flex items-center justify-between border-b border-black/5 dark:border-white/5">
+							<p className="text-xs ml-3">
+								{t.rich("preferMailto", {
+									Link: (chunks) => (
+										<Link href={`mailto:${chunks}?subject=${t("Message.subject")}&body=${t("Message.body")}`} className="text-link">
+											{chunks}
+										</Link>
+									),
+								})}
+							</p>
+							<Button
+								onClick={(e) => {
+									handleSubmit(e);
+								}}
+								disabled={invalidInput}
+								color={failed ? "yellow" : "green"}
+							>
+								{sending ? <Loader2 size={16} className="animate-spin" /> : failed && <WarningTriangle />}
+								{sending ? t("Form.sending") : failed ? t("Form.retry") : t("Form.send")}
+							</Button>
+						</div>
 					</form>
 				</m.div>
 			) : (
@@ -166,7 +173,7 @@ export default function Form() {
 				>
 					<h1 className="pb-0">
 						<span>
-							{t("sent")}
+							{t("Form.sent")}
 							<span className="text-green">.</span>{" "}
 						</span>
 						<svg
@@ -194,7 +201,7 @@ export default function Form() {
 							/>
 						</svg>
 					</h1>
-					<p>{t("sentText")}</p>
+					<p>{t("Form.sentText")}</p>
 				</m.div>
 			)}
 		</AnimatePresence>

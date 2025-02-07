@@ -87,31 +87,22 @@ export default async function Page() {
 			<main className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 				<section className="relative w-full grid lg:grid-cols-2 border border-black/5 dark:border-white/5">
 					<div className="w-full overflow-clip text-center py-12 md:py-20 xl:py-40 border-r border-black/5 dark:border-white/5">
-						<h2>{t("Content.Mina.heading")}</h2>
+						<h2>
+							{t("Content.Mina.heading")}
+							<span className="text-green">.</span>
+						</h2>
 						<p className="pb-6">{t("Content.Mina.text")}</p>
 						<div className="w-fit mx-auto">
 							<Chatbox />
 						</div>
 					</div>
-					<div className="group w-full overflow-clip text-center py-12 md:py-20 xl:py-40 border-r border-black/5 dark:border-white/5">
+					<div className="group w-full overflow-clip text-center py-12 md:py-20 xl:py-40">
 						<h2>
 							{t("Content.Email.title")}
 							<span className="text-green">.</span>
 						</h2>
 						<p className="pb-9 text-balance">{t("Content.Email.text")}</p>
 						<Form />
-						<p className="mt-9 text-xs">
-							{t.rich("Content.Email.preferMailto", {
-								Link: (chunks) => (
-									<Link
-										href={`mailto:${chunks}?subject=${t("Content.Message.subject")}&body=${t("Content.Message.body")}`}
-										className="text-link"
-									>
-										{chunks}
-									</Link>
-								),
-							})}
-						</p>
 					</div>
 				</section>
 			</main>

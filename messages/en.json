@@ -99,15 +99,15 @@
 			},
 			"WhoYou": {
 				"message": "Who are you?",
-				"answer": "Name's Mina. I'm basically the mascot of pprmint. The guy who owns this website is called Nicklas, but prefers to be called Nick."
+				"answer": "Name's Mina. I'm basically the mascot of the guy running this website, pprmint. His actual name is Nicklas, but prefers to be called Nick."
 			},
 			"WhyPprmint": {
-				"message": "Why \"pprmint.\"?",
-				"answer": "The name is the result of a love for peppermint-flavored things and \"peppermint\" looked cooler without vowels other than the i. The period at the end is part of the name, as punctuation is right below peppermint in that list."
+				"message": "Why the name \"pprmint.\"?",
+				"answer": "Because he likes peppermint-flavored things and \"peppermint\" looked cooler if you removed all the vowels except for the i. The period at the end is part of the name, as punctuation is right below peppermint in that list."
 			},
 			"WhoWebsite": {
 				"message": "How was this website made?",
-				"answer": "The site was built from the ground up in August of 2022 and has been in continuous development since. Try clicking on the cup in the navigation menu under \"Other\" to see some of the other libraries used."
+				"answer": "This version of the site was built from the ground up using Next.js in August of 2022 and has been in continuous development since then. Try clicking on the cup in the footer to see all the packages used to make all this."
 			},
 			"UseSelf": {
 				"message": "May I use the graphics and animations in my own works?",
@@ -123,11 +123,11 @@
 			},
 			"OfferCommissions": {
 				"message": "Can I request a commission?",
-				"answer": "Not currently, however it is something that's planned."
+				"answer": "Not currently, however it's planned for sometime in the future."
 			},
 			"OwnQuestion": {
 				"message": "Can I ask my own question?",
-				"answer": "Nah."
+				"answer": "Nope."
 			},
 			"Ending": {
 				"message": "Thank you, that's all.",
@@ -277,17 +277,17 @@
 	},
 	"CONTACT": {
 		"Head": {
-			"description": "Get in touch via email or Twitter DMs.",
+			"description": "Ask a question, get a response.",
 			"title": "Contact"
 		},
 		"Content": {
 			"Mina": {
-				"heading": "You just have a short question?",
+				"heading": "Read an FAQ, but in a cool way",
 				"text": "Save yourself (and most importantly me) some time and:"
 			},
 			"Email": {
-				"title": "Email",
-				"text": "Send spam, get banned.",
+				"title": "Alternatively, write an email",
+				"text": "Sending me spam will be your undoing.",
 				"preferMailto": "Prefer to use your own email client? Send your email to <Link>mail@pprmint.de</Link>.",
 				"Form": {
 					"name": "Name",
@@ -300,11 +300,11 @@
 					"sentText": "You might even get a reply one day.",
 					"retry": "Retry",
 					"noCommissions": "Sorry, I don't accept commissions at the time."
+				},
+				"Message": {
+					"body": "By deliberately replacing the subject and body text of this email with advertising, sponsorship offers or the like, you agree that I may put your email address into my spam filter to have future emails from you take the shortest route straight to the trash.",
+					"subject": "This is absolutely not an ad or a scam. Wink wink."
 				}
-			},
-			"Message": {
-				"body": "By deliberately replacing the subject and body text of this email with advertising, sponsorship offers or the like, you agree that I may put your email address into my spam filter to have future emails from you take the shortest route straight to the trash.",
-				"subject": "This is absolutely not an ad or a scam. Wink wink."
 			}
 		}
 	},
