@@ -9,7 +9,7 @@ import Footer from "src/components/layout/Footer";
 import WarningTriangle from "src/icons/WarningTriangle";
 
 import "../styles.css";
-import "../fonts/RobotoSerif/robotoserif.css";
+import "../fonts/NotoSerif/notoserif.css";
 import "../fonts/DINish/DINish.css";
 import "../fonts/Mintbit/mintbit.css";
 import "../fonts/MintTriangles/minttriangles.css";

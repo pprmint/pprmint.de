@@ -149,7 +149,7 @@ module.exports = {
 			},
 			fontFamily: {
 				sans: "DINish, Bahnschrift, D-DIN, Inter, Roboto, Helvetica, Arial, sans-serif",
-				serif: '"Roboto Serif", "New York", "Roboto Slab", "Linux Libertine", Georgia, Times, serif',
+				serif: '"Noto Serif", "New York", "Roboto Slab", "Linux Libertine", Georgia, Times, serif',
 				mintbit: "Mintbit, 'Roboto Mono', monospace",
 				minttriangles: "'Mint Triangles', monospace",
 				lcd: "'LCD 14', 'Roboto Mono', monospace",
@@ -643,7 +643,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [
-		require("@tailwindcss/typography"),
-	],
+	plugins: [require("@tailwindcss/typography")],
 };

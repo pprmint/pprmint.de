@@ -76,7 +76,7 @@ export default async function Page() {
 											transition: { delay: 0.2, type: "spring", bounce: 0, duration: 0.75 },
 										}}
 										viewport={{ once: true }}
-										className="bg-black/5 dark:bg-white/5 leading-tight"
+										className="bg-black/5 dark:bg-white/5 leading-tight tracking-tight font-[350]"
 									>
 										{t("Content.Mina.heading2")}
 									</motion.div>
