@@ -17,7 +17,7 @@ import * as m from "motion/react-m";
 import { AnimatePresence } from "motion/react";
 import Bluesky from "src/icons/Bluesky";
 
-export default function Gallery({artworks, page}: { artworks: MinaArtworks, page: number }) {
+export default function Gallery({ artworks, page }: { artworks: MinaArtworks; page: number }) {
 	const t = useTranslations("MINA");
 	const [open, setOpen] = useState(false);
 	const [direction, setDirection] = useState(0);
@@ -64,17 +64,17 @@ export default function Gallery({artworks, page}: { artworks: MinaArtworks, page
 				{artworks.data.map((art, index) => (
 					<Dialog.Trigger key={art.id} asChild>
 						<button
+							key={art.id}
 							style={{
 								backgroundImage:
 									'url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%202%202%22%3E%3Cpath%20d%3D%22M2%202V1H0V0h1v2z%22%20fill%3D%22%238881%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E")',
 								backgroundSize: "10%",
 							}}
 							onClick={() => setSelectedArt(index)}
-							key={index}
 							className="group/button overflow-clip bg-white dark:bg-neutral-950
-							[.group:hover_&:not(:hover)]:opacity-60
-							outline outline-1 -outline-offset-1 outline-neutral-50/5
-							hover:z-10 focus-visible:z-10 scale-100 hover:scale-[1.025] active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-square"
+								[.group:hover_&:not(:hover)]:opacity-60
+								outline outline-1 -outline-offset-1 outline-neutral-50/5
+								hover:z-10 focus-visible:z-10 scale-100 hover:scale-[1.025] active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-square"
 						>
 							<div className="scale-[1.025] group-hover/button:scale-100 group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
 								<FadingImage
@@ -83,7 +83,10 @@ export default function Gallery({artworks, page}: { artworks: MinaArtworks, page
 									height={art.artwork[0].height}
 									alt=""
 									hideSpinner
-									style={{ transition: "opacity 0.5s", transitionDelay: `opacity ${index * 0.05}s` }}
+									style={{
+										transition: "opacity 0.5s",
+										transitionDelay: `opacity ${index * 0.05}s`,
+									}}
 									className={`size-full object-cover ${art.focus} group-focus-visible/button:animate-pulse`}
 								/>
 							</div>
@@ -144,14 +147,8 @@ export default function Gallery({artworks, page}: { artworks: MinaArtworks, page
 											>
 												<FadingImage
 													src={`https://static.pprmint.de${artworks.data[selectedArt].artwork[selectedVariant]?.url}`}
-													width={
-														artworks.data[selectedArt].artwork[selectedVariant]
-															?.width
-													}
-													height={
-														artworks.data[selectedArt].artwork[selectedVariant]
-															?.height
-													}
+													width={artworks.data[selectedArt].artwork[selectedVariant]?.width}
+													height={artworks.data[selectedArt].artwork[selectedVariant]?.height}
 													alt=""
 													className={`max-h-svh w-auto mx-auto py-16 ${artworks.data[selectedArt].pixelart && "pixelated"} drop-shadow-2xl dark:drop-shadow-none`}
 													unoptimized
@@ -203,23 +200,19 @@ export default function Gallery({artworks, page}: { artworks: MinaArtworks, page
 															tabIndex={-1}
 															className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
 														>
-															{artworks.data[
-																selectedArt
-															].artist.creditUrl!.startsWith("https://bsky.app/") ? (
+															{artworks.data[selectedArt].artist.creditUrl!.startsWith(
+																"https://bsky.app/"
+															) ? (
 																<Bluesky />
-															) : artworks.data[
-																	selectedArt
-															  ].artist.creditUrl!.startsWith("https://twitter.com/") ? (
+															) : artworks.data[selectedArt].artist.creditUrl!.startsWith(
+																	"https://twitter.com/"
+															  ) ? (
 																<Twitter />
-															) : artworks.data[
-																	selectedArt
-															  ].artist.creditUrl!.startsWith(
+															) : artworks.data[selectedArt].artist.creditUrl!.startsWith(
 																	"https://www.instagram.com/"
 															  ) ? (
 																<Instagram />
-															) : artworks.data[
-																	selectedArt
-															  ].artist.creditUrl!.startsWith(
+															) : artworks.data[selectedArt].artist.creditUrl!.startsWith(
 																	"https://www.youtube.com/"
 															  ) ? (
 																<YouTube />
@@ -240,23 +233,21 @@ export default function Gallery({artworks, page}: { artworks: MinaArtworks, page
 													exit={{ opacity: 0 }}
 													className="flex flex-row items-center justify-center px-6 h-16 inset-x-0"
 												>
-													{artworks.data[selectedArt].artwork.map(
-														(variant, index) => (
-															<button
-																key={index}
-																className={`group h-full ${index === selectedVariant ? "w-9" : "w-5"} px-1.5 duration-200 ease-out-quint`}
-																onClick={() => setSelectedVariant(index)}
-															>
-																<div
-																	className={`h-2 ${
-																		index === selectedVariant
-																			? "bg-neutral-50"
-																			: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
-																	} rounded-full duration-200 ease-out-quint`}
-																/>
-															</button>
-														)
-													)}
+													{artworks.data[selectedArt].artwork.map((variant, index) => (
+														<button
+															key={index}
+															className={`group h-full ${index === selectedVariant ? "w-9" : "w-5"} px-1.5 duration-200 ease-out-quint`}
+															onClick={() => setSelectedVariant(index)}
+														>
+															<div
+																className={`h-2 ${
+																	index === selectedVariant
+																		? "bg-neutral-50"
+																		: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
+																} rounded-full duration-200 ease-out-quint`}
+															/>
+														</button>
+													))}
 												</m.div>
 											)}
 										</AnimatePresence>
@@ -293,13 +284,13 @@ export default function Gallery({artworks, page}: { artworks: MinaArtworks, page
 												<button
 													key={index}
 													onClick={() => handleSelectArt(index)}
-													className={`relative ${selectedArt === index ? "h-12 w-16" : "h-10 w-10 saturate-0 hover:saturate-100 opacity-50 hover:opacity-100"} duration-300 ease-out-quart`}
+													className={`relative ${selectedArt === index ? "h-12 w-16" : "h-10 w-10 saturate-0 hover:saturate-100 opacity-50 hover:opacity-100"} duration-300 ease-out-quart overflow-clip`}
 												>
 													<Image
 														src={`https://static.pprmint.de${artwork.artwork[0].formats.thumbnail.url}`}
 														fill
 														alt={artwork.artwork[0].alternativeText || ""}
-														className={`object-cover ${artwork.focus}`}
+														className={`object-cover ${artwork.focus} ${artwork.nsfw && selectedArt !== index && "blur-sm hover:blur-0"}`}
 													/>
 												</button>
 											))}
