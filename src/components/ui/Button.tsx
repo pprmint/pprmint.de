@@ -27,7 +27,7 @@ export default function Button({
 	...rest
 }: React.PropsWithChildren<ButtonProps>) {
 	const buttonSize =
-		size === "full" ? "size-full text-lg hover:font-bold" : size === "large" ? "h-11 text-lg" : "h-9";
+		size === "full" ? "size-full text-lg hover:font-bold" : size === "large" ? "h-11 w-max text-lg" : "h-9 w-max";
 	const padding =
 		size === "large" ? (noInitialPadding ? "hover:px-5" : "px-5") : noInitialPadding ? "hover:px-4" : "px-4";
 	const styles =
