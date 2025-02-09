@@ -9,7 +9,7 @@ import { useNavbar } from "src/components/layout/navigation/NavBarContext";
 
 const Links = [
 	{
-		link: "graphics",
+		link: "/graphics",
 		text: "Content.Hero.graphics",
 		matrix: [
 			1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1,
@@ -23,7 +23,7 @@ const Links = [
 		],
 	},
 	{
-		link: "photos",
+		link: "/photos",
 		text: "Content.Hero.photos",
 		matrix: [
 			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0,
@@ -37,7 +37,7 @@ const Links = [
 		],
 	},
 	{
-		link: "projects",
+		link: "/projects",
 		text: "Content.Hero.projects",
 		matrix: [
 			1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1,
@@ -51,7 +51,7 @@ const Links = [
 		],
 	},
 	{
-		link: "contact",
+		link: "/contact",
 		text: "Content.Hero.contact",
 		matrix: [
 			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0,
