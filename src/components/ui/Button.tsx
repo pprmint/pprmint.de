@@ -16,6 +16,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 		| "neutral"
 	design?: "filled" | "semi-transparent" | "transparent" | "outlined";
 	noInitialPadding?: boolean;
+	align?: "left" | "center" | "right";
 }
 
 export default function Button({
@@ -23,6 +24,7 @@ export default function Button({
 	color = "neutral",
 	design = "transparent",
 	noInitialPadding,
+	align = "left",
 	children,
 	...rest
 }: React.PropsWithChildren<ButtonProps>) {
@@ -87,12 +89,12 @@ export default function Button({
 
 	return (
 		<button
-			className={`group relative flex items-center font-medium duration-200 ease-out ${padding} ${!rest.disabled && "hover:cursor-pointer"} ${!rest.disabled && "hover:shadow-sm"} ${
+			className={`group relative flex gap-3 items-center ${align === "center" ? "justify-center" : align === "right" ? "justify-end" : ""} font-medium duration-200 ease-out ${padding} ${!rest.disabled && "hover:cursor-pointer"} ${!rest.disabled && "hover:shadow-sm"} ${
 				rest.disabled && "pointer-events-none"
 			} select-none active:duration-50 ${buttonSize} ${styles} overflow-hidden`}
 			{...rest}
 		>
-			<div className={`flex gap-3 whitespace-nowrap items-center justify-between`}>{children}</div>
+			{children}
 		</button>
 	);
 }

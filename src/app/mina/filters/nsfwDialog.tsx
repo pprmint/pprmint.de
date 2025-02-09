@@ -40,11 +40,11 @@ export default function NsfwDialog({ onAccept }: { onAccept: () => void }) {
 					</div>
 				</div>
 				<div className="grid grid-cols-2 border-t border-black/5 dark:border-white/5 h-12 divide-x divide-black/5 dark:divide-white/5">
-					<Button size="full" color="red" onClick={onAccept}>
+					<Button align="center" size="full" color="red" onClick={onAccept}>
 						{t("Content.NSFW.Dialog.admitSins")}
 					</Button>
 					<Dialog.Close asChild>
-						<Button size="full">{t("Content.NSFW.Dialog.nevermind")}</Button>
+						<Button align="center" size="full">{t("Content.NSFW.Dialog.nevermind")}</Button>
 					</Dialog.Close>
 				</div>
 				<Dialog.Close asChild>
