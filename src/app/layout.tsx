@@ -50,13 +50,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 				<LazyMotion features={domAnimation}>
 					<ThemeProvider defaultTheme="dark" themes={["light", "dark", "system"]} attribute="class">
 						<noscript>
-							<div className="selection:bg-red text-white fixed flex z-100 bottom-6 left-1/2 -translate-x-1/2 min-h-9 w-[92vw] max-w-max bg-gradient-to-b from-red-800/75 to-red-900/75 ring-inset ring-1 ring-red/10 border border-neutral-950 rounded-[18px] font-sans backdrop-blur-md shadow-xl shadow-neutral-950/50">
-								<div className="inline-flex items-center p-2.5 rounded-3xl bg-gradient-to-b from-red/50 to-red/25">
-									<WarningTriangle />
-								</div>
-								<p className="px-3 py-2 text-sm">
-									<span className="font-bold animate-pulse">No JavaScript detected.</span> Some parts of the site won't work properly.
-									Please allow JavaScript on the site or use a more recent browser.
+							<div className="px-2 py-1 bg-red text-white fixed z-100 top-0 left-1/2 -translate-x-1/2 rounded-b-md w-full max-w-max">
+								<p className="text-sm">
+									<WarningTriangle className="inline mb-1 mr-2" />
+									<span className="font-bold">No JavaScript detected.</span> Parts of the site won't work properly.{" "}
+									<span className="hidden md:inline-block">Please enable JavaScript or use a more recent browser.</span>
 								</p>
 							</div>
 						</noscript>
