@@ -21,7 +21,7 @@ export default function Title(
 		setInverted(!!props.children);
 		setNoAccents(!!props.noAccents);
 		return () => setInverted(false);
-	}, [props.children, setInverted]);
+	}, [props.children, props.noAccents, setInverted, setNoAccents]);
 	return (
 		<div
 			className={`relative w-screen ${props.children ? "dark h-1/2-screen min-h-max xl:h-[700px]" : "h-max"} overflow-hidden text-balance`}
@@ -68,12 +68,7 @@ export default function Title(
 						</div>
 						{props.children && props.creditName ? (
 							props.creditLink ? (
-								<Link
-									href={props.creditLink}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="absolute bottom-0 text-sm"
-								>
+								<Link href={props.creditLink} target="_blank" rel="noopener noreferrer" className="absolute bottom-0 text-sm">
 									<Button noInitialPadding design="semi-transparent">
 										{t("artDrawnBy")}
 										{props.creditName}

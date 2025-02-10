@@ -19,7 +19,7 @@ export default async function GallerySuspense({
 	return (
 		<>
 			<Filters type={type} dimension={dimension} />
-			{Works.data.length == 0 ? <OutOfBounds /> : <Gallery works={Works} />}
+			{Works.data.length == 0 ? <OutOfBounds /> : <Gallery works={Works} page={p} />}
 			<Pagination page={p} pageCount={Works.meta.pagination.pageCount}  />
 		</>
 	);

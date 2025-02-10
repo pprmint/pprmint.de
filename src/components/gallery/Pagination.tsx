@@ -6,7 +6,7 @@ import ChevronLeft from "src/icons/ChevronLeft";
 import ChevronRight from "src/icons/ChevronRight";
 import { usePathname, useRouter } from "next/navigation";
 
-function Pagination({ page, pageCount, onPageChange }: { page: number; pageCount: number; onPageChange?: () => void }) {
+function Pagination({ page, pageCount }: { page: number; pageCount: number }) {
 	const searchParams = useSearchParams();
 	const pathname = usePathname();
 	const { replace } = useRouter();
@@ -24,7 +24,6 @@ function Pagination({ page, pageCount, onPageChange }: { page: number; pageCount
 			params.delete("p");
 		}
 		replace(`${pathname}?${params}`, { scroll: false });
-		onPageChange;
 	}
 
 	return (

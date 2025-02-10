@@ -13,25 +13,26 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import { useEffect, useRef, useState } from "react";
 import Tooltip from "src/components/ui/Tooltip";
 
-export default function Gallery(photos: { photos: Photos }) {
+export default function Gallery({photos, page}: { photos: Photos, page: number }) {
 	const t = useTranslations("PHOTOS");
 	const format = useFormatter();
 
 	const galleryRef = useRef<HTMLDivElement>(null);
-	const [init, setInit] = useState(false);
+	const initRef = useRef(false);
 	useEffect(() => {
-		if (init && galleryRef.current) {
+		if (initRef.current && galleryRef.current) {
 			scrollTo({ top: galleryRef.current?.getBoundingClientRect().top + scrollY - 105 });
+		} else {
+			initRef.current = true;
 		}
-		setInit(true);
-	}, [photos]);
+	}, [page]);
 
 	return (
 		<div
 			ref={galleryRef}
 			className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2"
 		>
-			{photos.photos.data.map((photo) => (
+			{photos.data.map((photo) => (
 				<Dialog.Root key={photo.id}>
 					<Dialog.Trigger asChild>
 						<button

@@ -7,7 +7,7 @@ export default async function GallerySuspense({ p }: { p: number }) {
 	const Photos: Photos = await getPhotos(p);
 	return (
 		<>
-			{Photos.data.length === 0 ? <OutOfBounds /> : <Gallery photos={Photos} />}
+			{Photos.data.length === 0 ? <OutOfBounds /> : <Gallery photos={Photos} page={p} />}
 			<Pagination page={p} pageCount={Photos.meta.pagination.pageCount} />
 		</>
 	);

@@ -1,22 +1,27 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import FadingImage from "src/components/ui/FadingImage";
 import Link from "next/link";
 import { Works } from "src/types/work";
 
-export default function GalleryGrid(works: { works: Works }) {
+export default function GalleryGrid({ works, page }: { works: Works; page: number }) {
 	const galleryRef = useRef<HTMLDivElement>(null);
-	const [init, setInit] = useState(false);
+	const initRef = useRef(false);
+
 	useEffect(() => {
-		if (init && galleryRef.current) {
+		if (initRef.current && galleryRef.current) {
 			scrollTo({ top: galleryRef.current?.getBoundingClientRect().top + scrollY - 168 });
+		} else {
+			initRef.current = true;
 		}
-		setInit(true);
-	}, [works]);
+	}, [page]);
 
 	return (
-		<div ref={galleryRef} className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2">
-			{works.works.data.map((work) => (
+		<div
+			ref={galleryRef}
+			className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2"
+		>
+			{works.data.map((work) => (
 				<Link
 					key={work.id}
 					href={`/graphics/${work.documentId}`}

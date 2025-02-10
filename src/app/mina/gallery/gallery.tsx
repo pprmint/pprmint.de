@@ -47,12 +47,13 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 	}
 
 	const galleryRef = useRef<HTMLDivElement>(null);
-	const [init, setInit] = useState(false);
+	const initRef = useRef(false);
 	useEffect(() => {
-		if (init && galleryRef.current) {
+		if (initRef.current && galleryRef.current) {
 			scrollTo({ top: galleryRef.current?.getBoundingClientRect().top + scrollY - 140 });
+		} else {
+			initRef.current = true;
 		}
-		setInit(true);
 	}, [page]);
 
 	return (

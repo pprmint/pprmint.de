@@ -58,12 +58,12 @@ export default function NavBar() {
 
 	// Handle click outside of nav.
 	const navRef = useRef<HTMLDivElement>(null);
-	const handleClickOutside = (e: MouseEvent) => {
-		if (navRef.current && !navRef.current.contains(e.target as Node)) {
-			handleClose();
-		}
-	};
 	useEffect(() => {
+		const handleClickOutside = (e: MouseEvent) => {
+			if (navRef.current && !navRef.current.contains(e.target as Node)) {
+				handleClose();
+			}
+		};
 		if (navOpen) {
 			document.addEventListener("mousedown", handleClickOutside);
 		}
@@ -76,11 +76,7 @@ export default function NavBar() {
 		<nav
 			ref={navRef}
 			className={`z-90 fixed top-0 inset-x-0 ${navOpen ? "h-full md:h-96 xl:h-72 shadow-xl shadow-neutral-950/5 dark:shadow-neutral-950/25" : "h-16"} flex justify-between duration-300 overflow-auto border-b ${
-				!inverted
-					? "text-neutral-950 dark:text-white"
-					: solid
-						? "text-neutral-950 dark:text-white"
-						: "text-white "
+				!inverted ? "text-neutral-950 dark:text-white" : solid ? "text-neutral-950 dark:text-white" : "text-white "
 			}
 				${solid || navOpen ? "bg-white/90 dark:bg-neutral-950/90 backdrop-blur-xl border-black/5 dark:border-white/5" : "border-transparent"}`}
 		>
@@ -202,9 +198,7 @@ export default function NavBar() {
 										<li>
 											<div className="flex flex-col">
 												<span>{t(`Path.General.${Page.strings}.title`)}</span>
-												<span className="text-xs opacity-75">
-													{t(`Path.General.${Page.strings}.description`)}
-												</span>
+												<span className="text-xs opacity-75">{t(`Path.General.${Page.strings}.description`)}</span>
 											</div>
 										</li>
 									</Link>
@@ -240,9 +234,7 @@ export default function NavBar() {
 									<li>
 										<div className="flex flex-col">
 											<span>{t(`Path.Work.Graphics.title`)}</span>
-											<span className="text-xs opacity-75">
-												{t(`Path.Work.Graphics.description`)}
-											</span>
+											<span className="text-xs opacity-75">{t(`Path.Work.Graphics.description`)}</span>
 										</div>
 									</li>
 								</Link>
@@ -258,9 +250,7 @@ export default function NavBar() {
 									<li>
 										<div className="flex flex-col">
 											<span>{t(`Path.Work.Photos.title`)}</span>
-											<span className="text-xs opacity-75">
-												{t(`Path.Work.Photos.description`)}
-											</span>
+											<span className="text-xs opacity-75">{t(`Path.Work.Photos.description`)}</span>
 										</div>
 									</li>
 								</Link>
@@ -278,9 +268,7 @@ export default function NavBar() {
 										<li>
 											<div className="flex flex-col">
 												<span>{t(`Path.Work.Projects.${Project.strings}.title`)}</span>
-												<span className="text-xs opacity-75">
-													{t(`Path.Work.Projects.${Project.strings}.description`)}
-												</span>
+												<span className="text-xs opacity-75">{t(`Path.Work.Projects.${Project.strings}.description`)}</span>
 											</div>
 										</li>
 									</Link>
@@ -331,9 +319,7 @@ export default function NavBar() {
 									<li>
 										<div className="flex flex-col">
 											<span>{t("Path.Other.Privacy.title")}</span>
-											<span className="text-xs opacity-75">
-												{t("Path.Other.Privacy.description")}
-											</span>
+											<span className="text-xs opacity-75">{t("Path.Other.Privacy.description")}</span>
 										</div>
 									</li>
 								</Link>
@@ -393,11 +379,7 @@ function MenuIcon({
 				className="duration-400 ease-out-quint"
 			/>
 			<path
-				d={
-					close
-						? `M${size / 2},${size / 2} ${size / 2},${size / 2}`
-						: `M${xPadding},${size / 2} ${size - xPadding},${size / 2}`
-				}
+				d={close ? `M${size / 2},${size / 2} ${size / 2},${size / 2}` : `M${xPadding},${size / 2} ${size - xPadding},${size / 2}`}
 				className="duration-400 ease-out-quint"
 			/>
 			<path
