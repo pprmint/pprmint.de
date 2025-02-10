@@ -55,7 +55,7 @@ export default function KofiWidget() {
 								{t("PRIVACY.Content.privacyPolicyOf", { provider: "Ko-fi" })}
 								<ExternalLink />
 							</Link>
-							<Button outlined onClick={() => setVisible(true)}>
+							<Button design="outlined" onClick={() => setVisible(true)}>
 								{t("KOFI.showWidget")}
 							</Button>
 						</a.div>

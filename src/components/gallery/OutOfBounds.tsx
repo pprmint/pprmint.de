@@ -25,7 +25,7 @@ export default function OutOfBounds() {
         <div className="flex flex-col gap-3 items-center z-10 my-20 md:my-32 xl:my-40">
             <Image src={MinaWhat} alt="" className="size-28" />
             <h3>{t("Content.Artworks.outOfBounds")}</h3>
-            <Button outlined onClick={ClipBackInBounds}>
+            <Button design="outlined" onClick={ClipBackInBounds}>
                 {t("Content.Artworks.clipBackIn")}
             </Button>
         </div>
