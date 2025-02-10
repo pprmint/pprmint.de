@@ -17,6 +17,7 @@ export default function FadingImage({ className, hideSpinner, ...rest }: FadingI
 					<Spinner />
 				</div>
 			)}
+			{/* eslint jsx-a11y/alt-text:0 */}
 			<Image
 				onLoad={() => setLoaded(true)}
 				className={`${loaded ? "opacity-100" : "opacity-0"} ${className}`}
