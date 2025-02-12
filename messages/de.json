@@ -376,6 +376,13 @@
 			"OtherNews": {
 				"heading": "Und sonst noch:"
 			},
+			"Featured": {
+				"MinaSans": {
+					"tagline": "Sexy ohne Serifen,",
+					"text": "In der Entwicklung — erscheint eher später als früher auf deinem Computer.",
+					"button": "Zeig mir mehr"
+				}
+			},
 			"Mina": {
 				"heading1": "Doch lieber",
 				"heading2": "Anime-Mädchen?",

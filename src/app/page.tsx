@@ -10,6 +10,7 @@ import HomeTitle from "./home/title";
 import Announcements from "./home/announcements";
 import * as motion from "motion/react-client";
 import Button from "src/components/ui/Button";
+import MinaSansBg from "public/assets/minasans/title.webp";
 
 export async function generateMetadata() {
 	const t = await getTranslations("HOME");
@@ -28,6 +29,37 @@ export default async function Page() {
 			<HomeTitle />
 			<main>
 				<Announcements data={announcements} />
+				<div className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20 h-20 md:h-32 xl:h-40">
+					<div className="size-full border-x border-black/5 dark:border-white/5" />
+				</div>
+				<section className="dark relative bg-neutral-950 overflow-hidden">
+					<div className="relative z-10 max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
+						<div className="py-20 md:py-32 xl:py-40 border-x border-white/5">
+							<p className="text-white text-xl lg:text-2xl xl:text-3xl font-stretch-condensed">{t("Content.Featured.MinaSans.tagline")}</p>
+							<h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+								Mina Sans<span className="text-green">.</span>
+							</h2>
+							<p className="text-white/75 xl:text-xl 2xl:text-2xl mb-6 max-w-[75%] text-balance">
+							{t("Content.Featured.MinaSans.text")}
+							</p>
+							<Link href="/projects/minasans" className="inline-flex w-fit">
+								<Button design="semi-transparent">{t("Content.Featured.MinaSans.button")}</Button>
+							</Link>
+						</div>
+					</div>
+					<FadingImage
+						src="https://cms.pprmint.de/uploads/IMG_0902_2e9636cf91.webp"
+						width={1803}
+						height={1200}
+						alt=""
+						className="absolute right-0 top-1/2 -translate-y-1/2 object-cover xl:object-auto xl:w-3/4 h-full xl:h-auto"
+						style={{
+							maskImage: "linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0))",
+							maskRepeat: "space",
+							backgroundRepeat: "repeat",
+						}}
+					/>
+				</section>
 				{MinaArt.data && (
 					<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 						<div className="w-full border-x border-black/5 dark:border-white/5 pt-9 lg:pt-16 xl:pt-48">
@@ -84,9 +116,7 @@ export default async function Page() {
 								</motion.div>
 							</div>
 							<div className="flex flex-col grow mt-12">
-								<h2 className="sr-only">
-									{t("Content.Mina.heading1") + " " + t("Content.Mina.heading2")}
-								</h2>
+								<h2 className="sr-only">{t("Content.Mina.heading1") + " " + t("Content.Mina.heading2")}</h2>
 								<div className="flex flex-col w-full text-center">
 									<p className="xl:text-xl 2xl:text-2xl">{t("Content.Mina.text1")}</p>
 									<p className="mb-6 xl:text-xl 2xl:text-2xl">
@@ -94,10 +124,7 @@ export default async function Page() {
 											artist: MinaArt.data[0].artist.name,
 											link: (chunks) =>
 												MinaArt.data[0].artist.creditUrl ? (
-													<Link
-														href={MinaArt.data[0].artist.creditUrl}
-														className="text-link-external"
-													>
+													<Link href={MinaArt.data[0].artist.creditUrl} className="text-link-external">
 														{chunks}
 													</Link>
 												) : (

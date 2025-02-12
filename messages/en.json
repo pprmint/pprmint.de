@@ -376,6 +376,13 @@
 			"OtherNews": {
 				"heading": "In other news:"
 			},
+			"Featured": {
+				"MinaSans": {
+					"tagline": "Sexy without serifs,",
+					"text": "Work in progress — coming later rather than sooner to your computer.",
+					"button": "Show me more"
+				}
+			},
 			"Mina": {
 				"heading1": "More into",
 				"heading2": "anime girls?",
