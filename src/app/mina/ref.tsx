@@ -5,13 +5,14 @@ import { useTranslations } from "next-intl";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Toast from "@radix-ui/react-toast";
 import FadingImage from "src/components/ui/FadingImage";
-import { config, useTransition, a, useSpring, easings } from "@react-spring/web";
+import * as m from "motion/react-m";
 
 import ReferenceFront from "public/assets/mina/ref/front.webp";
 import ReferenceBack from "public/assets/mina/ref/back.webp";
 import ReferenceHand from "public/assets/mina/ref/hand.webp";
 import ReferenceShoes from "public/assets/mina/ref/shoes.webp";
 import Error from "src/icons/Error";
+import { AnimatePresence } from "motion/react";
 
 export default function RefSheet() {
 	const t = useTranslations("MINA");
@@ -64,59 +65,55 @@ export default function RefSheet() {
 		useEffect(() => {
 			const interval = setInterval(() => {
 				setShowBack(!showBack);
-			}, 5000);
+			}, 7000);
 			return () => clearInterval(interval);
 		}, [showBack]);
 
-		const cycleTransition = useTransition(showBack, {
-			from: { opacity: 0 },
-			enter: { opacity: 1 },
-			leave: { opacity: 0 },
-			config: config.stiff,
-			exitBeforeEnter: true,
-		});
-
-		const progress = useSpring({
-			from: { x: "-100%" },
-			to: {
-				x: "0%",
-			},
-			config: {
-				duration: 4500,
-				easing: easings.easeInOutSine,
-			},
-			delay: 500,
-			loop: true,
-		});
-
-		return cycleTransition((styles, item) =>
-			item ? (
-				// @ts-expect-error
-				<a.div className="h-full w-4/5 object-contain" style={styles}>
-					<FadingImage
-						src={ReferenceBack}
-						alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
-						className="h-full max-h-2/3-screen lg:max-h-[80vh] object-contain"
-					/>
-					<div className="relative h-1 mt-6 rounded-full overflow-clip bg-neutral-900">
-						{/* @ts-expect-error */}
-						<a.div className="absolute inset-0 rounded-full bg-neutral-50" style={progress} />
-					</div>
-				</a.div>
-			) : (
-				// @ts-expect-error
-				<a.div className="h-full w-4/5 object-contain" style={styles}>
-					<FadingImage
-						src={ReferenceFront}
-						alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
-						className="h-full max-h-2/3-screen lg:max-h-[80vh] object-contain"
-					/>
-					<div className="relative h-1 mt-6 rounded-full overflow-clip bg-neutral-900">
-						{/* @ts-expect-error */}
-						<a.div className="absolute inset-0 rounded-full bg-neutral-50" style={progress} />
-					</div>
-				</a.div>
-			)
+		return (
+			<div>
+				<AnimatePresence mode="wait">
+					{showBack ? (
+						<m.div
+							key="mina.back"
+							className="h-full w-4/5 object-contain mx-auto"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+						>
+							<FadingImage
+								src={ReferenceBack}
+								alt="Full-body drawing of Mina doing a peace sign, seen from the back."
+								className="h-full max-h-2/3-screen lg:max-h-[80vh] object-contain"
+							/>
+						</m.div>
+					) : (
+						<m.div
+							key="mina.front"
+							className="h-full w-4/5 object-contain mx-auto"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+						>
+							<FadingImage
+								src={ReferenceFront}
+								alt="Full-body drawing of Mina doing a peace sign, seen from the front."
+								className="h-full max-h-2/3-screen lg:max-h-[80vh] object-contain"
+							/>
+						</m.div>
+					)}
+				</AnimatePresence>
+				<div className="relative h-px mt-9 overflow-clip bg-black/5 dark:bg-white/5">
+					<AnimatePresence mode="wait">
+						<m.div
+							key={showBack ? "true" : "false"}
+							className="absolute inset-0 bg-neutral-950 dark:bg-white"
+							initial={{ width: "0%" }}
+							animate={{ width: "100%", transition: { duration: 6.5, delay: 0.25, ease: "easeInOut" } }}
+							exit={{ opacity: 0 }}
+						/>
+					</AnimatePresence>
+				</div>
+			</div>
 		);
 	}
 
