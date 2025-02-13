@@ -190,7 +190,7 @@ export default function NavBar() {
 											Page.link === pathname
 												? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
 												: "hover:text-neutral-950 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 active:opacity-75"
-										} px-3 py-1.5 w-full duration-100 rounded-md`}
+										} px-3 py-1.5 w-full duration-100 active:duration-75`}
 										key={Page.link}
 										href={Page.link}
 										onClick={handleClose}
@@ -227,7 +227,7 @@ export default function NavBar() {
 										"/graphics" === pathname
 											? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
 											: "hover:text-neutral-950 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 active:opacity-75"
-									} px-3 py-1.5 w-full duration-100 rounded-md`}
+									} px-3 py-1.5 w-full duration-100 active:duration-75`}
 									href="/graphics"
 									onClick={handleClose}
 								>
@@ -243,7 +243,7 @@ export default function NavBar() {
 										"/photos" === pathname
 											? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
 											: "hover:text-neutral-950 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 active:opacity-75"
-									} px-3 py-1.5 w-full duration-100 rounded-md`}
+									} px-3 py-1.5 w-full duration-100 active:duration-75`}
 									href="/photos"
 									onClick={handleClose}
 								>
@@ -260,7 +260,7 @@ export default function NavBar() {
 											Project.link === pathname
 												? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
 												: "hover:text-neutral-950 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 active:opacity-75"
-										} px-3 py-1.5 w-full duration-100 rounded-md`}
+										} px-3 py-1.5 w-full duration-100 active:duration-75`}
 										key={Project.link}
 										href={Project.link}
 										onClick={handleClose}
@@ -278,7 +278,7 @@ export default function NavBar() {
 										"/projects" === pathname
 											? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
 											: "hover:text-neutral-950 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 active:opacity-75"
-									} px-3 py-1.5 w-full duration-100 rounded-md`}
+									} px-3 py-1.5 w-full duration-100 active:duration-75`}
 									href="/projects"
 									onClick={handleClose}
 								>
@@ -312,7 +312,7 @@ export default function NavBar() {
 										"/privacy" === pathname
 											? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
 											: "hover:text-neutral-950 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 active:opacity-75"
-									} px-3 py-1.5 w-full duration-100 rounded-md`}
+									} px-3 py-1.5 w-full duration-100 active:duration-75`}
 									href="/privacy"
 									onClick={handleClose}
 								>
@@ -328,7 +328,7 @@ export default function NavBar() {
 										"/ai" === pathname
 											? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
 											: "hover:text-neutral-950 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 active:opacity-75"
-									} px-3 py-1.5 w-full duration-100 rounded-md`}
+									} px-3 py-1.5 w-full duration-100 active:duration-75`}
 									href="/ai"
 									onClick={handleClose}
 								>
