@@ -7,14 +7,11 @@ import { easings, useTransition, a } from "@react-spring/web";
 import NsfwDialog from "./nsfwDialog";
 import Checkbox from "src/components/ui/Checkbox";
 import { Dialog } from "@radix-ui/react-dialog";
-import * as Collapsible from "@radix-ui/react-collapsible";
 import * as Select from "@radix-ui/react-select";
 import { useTranslations } from "next-intl";
 
 import { Artists } from "src/types/artist";
 import Check from "src/icons/Check";
-import Filter from "src/icons/Filter";
-import FilterFilled from "src/icons/FilterFilled";
 import ChevronDown from "src/icons/ChevronDown";
 import ChevronUp from "src/icons/ChevronUp";
 import X from "src/icons/X";
@@ -61,24 +58,6 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 	}
 
 	const [dialogOpen, setDialogOpen] = useState(false);
-
-	const dialogTransitions = useTransition(dialogOpen, {
-		from: { opacity: 0 },
-		enter: {
-			opacity: 1,
-			config: {
-				easing: easings.easeOutCubic,
-				duration: 200,
-			},
-		},
-		leave: {
-			opacity: 0,
-			config: {
-				easing: easings.easeOutCubic,
-				duration: 200,
-			},
-		},
-	});
 
 	// For dropdowns.
 	function SelectItem(props: React.PropsWithChildren<{ value: string }>) {
@@ -160,14 +139,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 				</div>
 			</div>
 			<Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-				{dialogTransitions((styles, item) =>
-					item ? (
-						// @ts-expect-error
-						<a.div style={styles} className="fixed inset-0 z-100">
-							<NsfwDialog onAccept={handleDialogAccept} />
-						</a.div>
-					) : null
-				)}
+				<NsfwDialog onAccept={handleDialogAccept} />
 			</Dialog>
 		</>
 	);

@@ -1,7 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { useSpring, easings, a } from "@react-spring/web";
 import * as Dialog from "@radix-ui/react-dialog";
 
 import Button from "src/components/ui/Button";
