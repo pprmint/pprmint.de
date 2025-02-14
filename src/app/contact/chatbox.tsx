@@ -5,42 +5,30 @@ import * as Dialog from "@radix-ui/react-dialog";
 
 import Mina from "public/assets/mina/nekomimi_smol.webp";
 import Link from "next/link";
-import { useTransition, a } from "@react-spring/web";
+import * as m from "motion/react-m";
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 import ChevronLeft from "src/icons/ChevronLeft";
 import Heart from "src/icons/Heart";
 import HeartBroken from "src/icons/HeartBroken";
+import { AnimatePresence } from "motion/react";
 
-const Messages = [
-	"WhoYou",
-	"WhyPprmint",
-	"WhoWebsite",
-	"UseSelf",
-	"ProjectTerms",
-	"WhatSoftware",
-	"OfferCommissions",
-	"OwnQuestion",
-];
+const Messages = ["WhoYou", "WhyPprmint", "WhoWebsite", "UseSelf", "ProjectTerms", "WhatSoftware", "OfferCommissions", "OwnQuestion"];
 
 function MessageBubble(props: { incoming?: boolean; id: string }) {
 	const t = useTranslations("CHAT");
 	const isAppleDevice = /iPhone|Mac/i.test(navigator.userAgent);
 	return (
-		<div
-			className={`flex my-6 w-full animate-scale-up ${
-				props.incoming ? "justify-start origin-bottom-left" : "justify-end origin-bottom-right"
-			}`}
+		<m.div
+			initial={{ opacity: 0, scale: 0.9, y: 15 }}
+			animate={{ opacity: 1, scale: 1, y: 0, transition: { type: "spring", duration: 0.5, bounce: 0.3 } }}
+			className={`flex my-6 w-full ${props.incoming ? "justify-start origin-bottom-left" : "justify-end origin-bottom-right"}`}
 		>
 			<div
 				className={`w-fit max-w-[80%] px-4 py-2 rounded-3xl ${
 					props.incoming
 						? "rounded-bl-md bg-neutral-50 dark:bg-neutral-800 text-neutral-950 dark:text-white"
-						: `rounded-br-md ${
-								isAppleDevice
-									? "bg-blue"
-									: "bg-green"
-							} text-white selection:bg-neutral-950`
+						: `rounded-br-md ${isAppleDevice ? "bg-blue" : "bg-green"} text-white selection:bg-neutral-950`
 				}`}
 			>
 				{t.rich(`Messages.${props.id}.${props.incoming ? "answer" : "message"}`, {
@@ -67,7 +55,7 @@ function MessageBubble(props: { incoming?: boolean; id: string }) {
 					),
 				})}
 			</div>
-		</div>
+		</m.div>
 	);
 }
 
@@ -93,7 +81,7 @@ function Chatbox() {
 		setTimeout(() => {
 			setChatMessages((prevMessages) => [...prevMessages, { id, incoming: true }]);
 			setAnswering(false);
-		}, 750);
+		}, 900);
 	}
 
 	// Filter out questions that have already been asked.
@@ -127,19 +115,6 @@ function Chatbox() {
 		handleMessageClick("EndingNo");
 		localStorage.setItem("pissedOffMina", "sure did");
 	}
-
-	const messageBoxTransition = useTransition(ending, {
-		from: {
-			opacity: 0,
-		},
-		enter: {
-			opacity: 1,
-			delay: 700,
-		},
-		leave: {
-			opacity: 0,
-		},
-	});
 
 	return (
 		<Dialog.Root>
@@ -207,8 +182,7 @@ function Chatbox() {
 							<div
 								className="absolute w-full aspect-square opacity-0 group-hover:opacity-100 rounded-full animate-slow-spin group-hover:blur-xl duration-300"
 								style={{
-									backgroundImage:
-										"conic-gradient(#f44, #f71, #fb0, #9c3, #4b5, #2cf, #29f, #a7e, #e6b, #f44)",
+									backgroundImage: "conic-gradient(#f44, #f71, #fb0, #9c3, #4b5, #2cf, #29f, #a7e, #e6b, #f44)",
 								}}
 							/>
 						</div>
@@ -217,8 +191,8 @@ function Chatbox() {
 			</Dialog.Trigger>
 			<Dialog.Portal>
 				<Dialog.Overlay className="bg-white/90 dark:bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-100" />
-				<Dialog.Content className="z-100 fixed w-full max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col bg-white dark:bg-neutral-950 border border-white/10 outline outline-1 outline-black/10 dark:outline-black/50 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl sm:rounded-xl overflow-clip h-svh md:h-2/3-screen">
-					<div className="absolute top-0 left-0 right-0 flex gap-6 items-center justify-between py-2 backdrop-blur-xl bg-gradient-to-b from-[#fafafabb] dark:from-[#282828bb] to-[#eeeeeeaa] dark:to-[#222222aa] shadow-lg dark:shadow-neutral-950/50 z-10">
+				<Dialog.Content className="z-100 fixed w-full max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col bg-white dark:bg-neutral-950 border border-white/10 outline outline-1 outline-black/10 dark:outline-black/50 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl sm:rounded-xl overflow-clip h-svh md:max-h-[800px]">
+					<div className="absolute top-0 left-0 right-0 flex gap-6 items-center justify-between py-2 backdrop-blur-xl bg-[#eeea] dark:bg-[#222a] z-10 border-b border-black/5 dark:border-white/5">
 						<div className="w-1/5">
 							<Dialog.Close asChild>
 								<button className="flex items-center text-neutral-950 dark:text-white hover:opacity-75 duration-100">
@@ -231,58 +205,57 @@ function Chatbox() {
 							<Dialog.Title className="text-neutral-950 dark:text-white font-medium text-sm font-sans font-stretch-normal pb-0 leading-3">
 								Mina
 							</Dialog.Title>
-							<Dialog.Description className="text-sm">
-								{t(noTalky ? "titleAngy" : "title")}
-							</Dialog.Description>
+							<Dialog.Description className="text-sm">{t(noTalky ? "titleAngy" : "title")}</Dialog.Description>
 						</div>
 						<div className="w-1/5 pr-2">
-							<Image
-								alt="Mina art by Nekomimi"
-								src={Mina}
-								className="ml-auto size-10 rounded-full overflow-hidden self-end"
-							/>
+							<Image alt="Mina art by Nekomimi" src={Mina} className="ml-auto size-10 rounded-full overflow-hidden self-end" />
 						</div>
 					</div>
-					<div className="px-3 lg:px-6 h-full overflow-y-scroll pt-14 lg:pt-16" ref={chatboxRef}>
+					<div className="px-3 lg:px-5 h-full overflow-y-scroll pt-14" ref={chatboxRef}>
 						<MessageBubble incoming id={noTalky ? "NoTalky" : "Hello"} />
 						{chatMessages.map((message, index) => (
 							<MessageBubble key={index} incoming={message.incoming} id={message.id} />
 						))}
 					</div>
 					<div className="h-64 bg-[#fafafa] dark:bg-[#181818] overflow-y-auto px-3 border-t border-black/5 dark:border-white/5">
-						{messageBox &&
-							messageBoxTransition((style, item) =>
-								item ? (
-									// @ts-expect-error
-									<a.div
-										style={style}
+						<AnimatePresence mode="wait">
+							{messageBox ? (
+								ending ? (
+									<m.div
+										key="messages"
+										initial={{ opacity: 0 }}
+										animate={{ opacity: 1, transition: { delay: 0.5 } }}
+										exit={{ opacity: 0 }}
 										className={`grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-3 h-full py-3 items-center ${
-											answering
-												? "opacity-50 saturate-0 pointer-events-none"
-												: "opacity-100 saturate-100"
+											answering ? "opacity-50 saturate-0 pointer-events-none" : "opacity-100 saturate-100"
 										} duration-200`}
 									>
 										<button
-											className="inline-flex flex-row md:flex-col items-center justify-center gap-3 ring-1 hover:shadow-sm ring-black/5 dark:ring-white/5 hover:ring-green dark:hover:ring-green bg-white dark:bg-neutral-900 hover:bg-green-50 text-neutral-950 dark:text-white rounded-md size-full duration-100 active:scale-[0.98] active:opacity-75 active:duration-75"
+											className="inline-flex flex-row md:flex-col items-center justify-center gap-3 ring-1 hover:shadow-sm ring-inset ring-black/5 dark:ring-white/5 hover:ring-green dark:hover:ring-green active:ring-2 active:ring-green/0 dark:active:ring-green/0 bg-white dark:bg-neutral-900 hover:bg-green-50 text-neutral-950 dark:text-white rounded-md size-full duration-100 active:duration-75"
 											onClick={() => handleEndingYes()}
 										>
 											<Heart className="size-6 md:size-9 text-green" />
 											{t("Messages.EndingYes.message")}
 										</button>
 										<button
-											className="inline-flex flex-row md:flex-col items-center justify-center gap-3 ring-1 hover:shadow-sm ring-black/5 dark:ring-white/5 hover:ring-red dark:hover:ring-red bg-white dark:bg-neutral-900 hover:bg-red-50 text-neutral-950 dark:text-white rounded-md size-full duration-100 active:scale-[0.98] active:opacity-75 active:duration-75"
+											className="inline-flex flex-row md:flex-col items-center justify-center gap-3 ring-1 hover:shadow-sm ring-inset ring-black/5 dark:ring-white/5 hover:ring-red dark:hover:ring-red active:ring-2 active:ring-red/0 dark:active:ring-red/0 bg-white dark:bg-neutral-900 hover:bg-red-50 text-neutral-950 dark:text-white rounded-md size-full duration-100 active:duration-75"
 											onClick={() => handleEndingNo()}
 										>
 											<HeartBroken className="size-6 md:size-9 text-red" />
 											{t("Messages.EndingNo.message")}
 										</button>
-									</a.div>
+									</m.div>
 								) : (
-									// @ts-expect-error
-									<a.div style={style} className="flex flex-col gap-3 items-end py-3">
+									<m.div
+										key="ending"
+										initial={{ opacity: 0 }}
+										animate={{ opacity: 1 }}
+										exit={{ opacity: 0 }}
+										className="flex flex-col gap-3 items-end py-3"
+									>
 										{clickedQuestions.length > 0 && (
 											<button
-												className={`w-fit max-w-[80%] px-3 py-1 bg-white dark:bg-neutral-900 ring-1 ring-black/5 dark:ring-white/5 hover:shadow-sm text-neutral-950 dark:text-white text-sm text-left rounded-2xl rounded-br-md duration-100 ${
+												className={`w-fit max-w-[80%] px-3 py-1 bg-white dark:bg-neutral-900 ring-1 ring-black/5 dark:ring-white/5 hover:shadow-sm active:shadow-none active:opacity-75 text-neutral-950 dark:text-white text-sm text-left rounded-2xl rounded-br-md duration-100 active:duration-75 ${
 													answering ? "opacity-50 pointer-events-none" : "cursor-pointer"
 												}`}
 												onClick={() => handleEnding("Ending")}
@@ -293,7 +266,7 @@ function Chatbox() {
 										{availableMessages.map((id, index) => (
 											<button
 												key={index}
-												className={`w-fit max-w-[80%] px-3 py-1 bg-white dark:bg-neutral-900 ring-1 ring-black/5 dark:ring-white/5 hover:shadow-sm text-neutral-950 dark:text-white text-sm text-left rounded-2xl rounded-br-md duration-100 ${
+												className={`w-fit max-w-[80%] px-3 py-1 bg-white dark:bg-neutral-900 ring-1 ring-black/5 dark:ring-white/5 hover:shadow-sm active:shadow-none active:opacity-75 text-neutral-950 dark:text-white text-sm text-left rounded-2xl rounded-br-md duration-100 active:duration-75 ${
 													answering ? "opacity-50 pointer-events-none" : "cursor-pointer"
 												}`}
 												onClick={() => handleMessageClick(id)}
@@ -301,9 +274,10 @@ function Chatbox() {
 												{t(`Messages.${id}.message`)}
 											</button>
 										))}
-									</a.div>
+									</m.div>
 								)
-							)}
+							) : null}
+						</AnimatePresence>
 					</div>
 				</Dialog.Content>
 			</Dialog.Portal>

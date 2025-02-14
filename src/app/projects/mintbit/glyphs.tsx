@@ -1,10 +1,11 @@
 "use client";
-import { config, useTransition, a } from "@react-spring/web";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import * as Toast from "@radix-ui/react-toast";
 import Button from "src/components/ui/Button";
 import X from "src/icons/X";
+import * as m from "motion/react-m";
+import { AnimatePresence } from "motion/react";
 
 export default function Glyphs() {
 	const t = useTranslations();
@@ -19,12 +20,6 @@ export default function Glyphs() {
 	}, []);
 
 	const [glyphsOpen, setGlyphsOpen] = useState(false);
-	const showAllGlyphsButtonTransition = useTransition(glyphsOpen, {
-		from: { opacity: 1 },
-		enter: { opacity: 1 },
-		leave: { opacity: 0 },
-		config: config.stiff,
-	});
 
 	return (
 		<Toast.Provider>
@@ -33,17 +28,19 @@ export default function Glyphs() {
 					glyphsOpen ? "max-h-[999vh]" : "max-h-2/3-screen"
 				} duration-500 ease-in-expo overflow-hidden`}
 			>
-				{showAllGlyphsButtonTransition((style, item) =>
-					!item ? (
-						// @ts-expect-error
-						<a.div
-							style={style}
-							className="absolute flex items-center justify-center bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-neutral-950 py-6"
+				<AnimatePresence>
+					{!glyphsOpen && (
+						<m.div
+							initial={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							className="absolute flex items-center justify-center bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-white dark:from-neutral-950 py-6"
 						>
-							<Button onClick={() => setGlyphsOpen(true)}>{t("MINTBIT.Content.AllGlyphs.showAll")}</Button>
-						</a.div>
-					) : null
-				)}
+							<Button design="filled" color="neutral" onClick={() => setGlyphsOpen(true)}>
+								{t("MINTBIT.Content.AllGlyphs.showAll")}
+							</Button>
+						</m.div>
+					)}
+				</AnimatePresence>
 				{[
 					"!",
 					'"',
@@ -262,7 +259,7 @@ export default function Glyphs() {
 					"ÿ",
 				].map((glyph, index) => (
 					<div
-						className="aspect-square flex items-center justify-center font-mintbit text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl text-neutral-50 hover:bg-neutral-900 hover:scale-110 active:scale-105 active:opacity-75 hover:rounded-md hover:ring-1 ring-neutral-800 hover:shadow-xl hover:shadow-neutral-950/50 duration-200 active:duration-75 ease-out-quint cursor-pointer select-none"
+						className="aspect-square flex items-center justify-center font-mintbit text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl text-neutral-950 dark:text-white  dark:hover:bg-neutral-900 hover:scale-110 active:scale-105 active:opacity-75 hover:rounded-md hover:ring-1 ring-neutral-800 hover:shadow-xl hover:shadow-neutral-950/50 duration-200 active:duration-75 ease-out-quint cursor-pointer select-none"
 						key={index}
 						onClick={() => {
 							navigator.clipboard.writeText(glyph);

@@ -1,7 +1,6 @@
 "use client";
 import dynamic from "next/dynamic";
 import { useRef, useState, useEffect, PropsWithChildren } from "react";
-import { useTransition, easings } from "@react-spring/web";
 
 import * as Slider from "@radix-ui/react-slider";
 import { useTranslations } from "next-intl";
@@ -23,10 +22,8 @@ function AudioPlayer(props: PropsWithChildren<{ src: string; title?: string; art
 
 	// Pause/Play logic
 	const [playing, setPlaying] = useState(false);
-	const [firstPlayPress, setFirstPlayPress] = useState(false);
 
 	function handlePlay() {
-		setFirstPlayPress(true);
 		if (audioRef.current) {
 			if (audioRef.current.paused || audioRef.current.ended) {
 				// If the audio is paused or has ended, play it and set playing to true
@@ -39,19 +36,6 @@ function AudioPlayer(props: PropsWithChildren<{ src: string; title?: string; art
 			}
 		}
 	}
-
-	const playButtonTransition = useTransition(!firstPlayPress, {
-		from: { opacity: 1, scale: 1 },
-		enter: { opacity: 1, scale: 1 },
-		leave: {
-			opacity: 0,
-			scale: 2,
-			config: {
-				duration: 300,
-				easing: easings.easeInCubic,
-			},
-		},
-	});
 
 	// Display of current time and audio duration + seeking logic
 	const [currentTime, setCurrentTime] = useState(0);

@@ -2,7 +2,8 @@
 import dynamic from "next/dynamic";
 import { useRef, useState, useEffect } from "react";
 import saveAs from "file-saver";
-import { a, useTransition, easings } from "@react-spring/web";
+import * as m from "motion/react-m";
+import { AnimatePresence } from "motion/react";
 
 import * as Slider from "@radix-ui/react-slider";
 import * as ContextMenu from "@radix-ui/react-context-menu";
@@ -57,19 +58,6 @@ function VideoPlayer(props: {
 			}
 		}
 	}
-
-	const playButtonTransition = useTransition(!firstPlayPress, {
-		from: { opacity: 1, scale: 1 },
-		enter: { opacity: 1, scale: 1 },
-		leave: {
-			opacity: 0,
-			scale: 2,
-			config: {
-				duration: 300,
-				easing: easings.easeInCubic,
-			},
-		},
-	});
 
 	// Fullscreen logic
 	const [fullscreen, setFullscreen] = useState(document.fullscreenElement ? true : false);
@@ -133,7 +121,7 @@ function VideoPlayer(props: {
 	const formattedTime = (time: number) => {
 		const minutes = Math.floor(time / 60);
 		const seconds = Math.floor(time % 60);
-		return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+		return `${minutes}∶${seconds < 10 ? "0" : ""}${seconds}`;
 	};
 
 	// Volume control logic
@@ -166,9 +154,7 @@ function VideoPlayer(props: {
 	}
 
 	useEffect(() => {
-		// Detect when video metadata has been loaded for duration and update current video time.
 		const currentVideoRef = videoRef.current;
-
 		if (currentVideoRef) {
 			currentVideoRef.addEventListener("timeupdate", handleTimeUpdate);
 			currentVideoRef.addEventListener("loadedmetadata", handleLoadedMetadata);
@@ -213,30 +199,6 @@ function VideoPlayer(props: {
 			clearTimeout(timer);
 		};
 	}, []);
-
-	// Transitions
-	const topTransition = useTransition(showControls, {
-		from: { y: -80 },
-		enter: { y: 0, config: { duration: 200, easing: easings.easeOutExpo } },
-		leave: {
-			y: -80,
-			config: {
-				duration: 300,
-				easing: easings.easeInCubic,
-			},
-		},
-	});
-	const bottomTransition = useTransition(showControls, {
-		from: { y: 112 },
-		enter: { y: 0, config: { duration: 200, easing: easings.easeOutExpo } },
-		leave: {
-			y: 112,
-			config: {
-				duration: 300,
-				easing: easings.easeInCubic,
-			},
-		},
-	});
 
 	// Context menu options
 	function copyVideoUrl() {
@@ -288,50 +250,34 @@ function VideoPlayer(props: {
 			setProgress(0);
 		}, 300);
 	}
-	const downloadingTransition = useTransition(downloading, {
-		from: { y: -24 },
-		enter: { y: 0, config: { duration: 300, easing: easings.easeOutExpo } },
-		leave: {
-			y: -24,
-			config: {
-				duration: 200,
-				easing: easings.easeInCubic,
-			},
-		},
-	});
 	const [loopEnabled, setLoopEnabled] = useState(props.loopDefault ? true : false);
 
 	return (
 		<div
 			key={props.key}
-			className={`relative overflow-hidden ${fullscreen ? "bg-black" : "bg-neutral-900"} ${
-				showControls ? "cursor-auto" : "cursor-none"
-			}`}
+			className={`relative overflow-hidden ${fullscreen ? "bg-black" : "bg-neutral-900"} ${showControls ? "cursor-auto" : "cursor-none"}`}
 			ref={videoPlayerRef}
 		>
-			{playButtonTransition(
-				(style, item) =>
-					item && (
-						// @ts-expect-error
-						<a.div
-							onClick={handlePlay}
-							style={style}
-							className="absolute flex items-center justify-center w-full h-full z-10"
-						>
-							<button className="flex items-center justify-center z-10 size-24 md:size-32 bg-neutral-950/30 hover:bg-neutral-950/40 text-white rounded-full cursor-pointer duration-100">
-								<Play className="size-16 ml-2" />
-							</button>
-						</a.div>
-					)
-			)}
+			<AnimatePresence>
+				{!firstPlayPress && (
+					<m.div
+						initial={{ opacity: 1, scale: 1 }}
+						exit={{ opacity: 0, scale: 2, transition: { duration: 0.2, ease: "circIn" } }}
+						onClick={handlePlay}
+						className="absolute flex items-center justify-center w-full h-full z-10"
+					>
+						<button className="flex items-center justify-center z-10 size-24 md:size-32 bg-neutral-950/30 hover:bg-neutral-950/40 text-white rounded-full cursor-pointer duration-100">
+							<Play className="size-16 ml-2" />
+						</button>
+					</m.div>
+				)}
+			</AnimatePresence>
 			<ContextMenu.Root>
 				<ContextMenu.Trigger>
 					<video
 						ref={videoRef}
 						src={props.src}
-						className={`w-full h-full object-contain duration-500 ease-out-expo ${
-							currentTime === duration && "opacity-50"
-						}`}
+						className={`w-full h-full object-contain duration-500 ease-out-expo ${currentTime === duration && "opacity-50"}`}
 						poster={props.poster}
 						onClick={handlePlay}
 						onEnded={handleEnded}
@@ -340,127 +286,116 @@ function VideoPlayer(props: {
 						loop={loopEnabled}
 					/>
 				</ContextMenu.Trigger>
-				{downloadingTransition(
-					(style, item) =>
-						item && (
-							// @ts-expect-error
-							<a.div
-								style={style}
-								className="absolute top-0 left-0 right-0 z-30 bg-gradient-to-b from-neutral-950/90"
+				<AnimatePresence>
+					{downloading && (
+						<m.div
+							initial={{ y: -24 }}
+							animate={{ y: 0 }}
+							exit={{ y: -24 }}
+							className="absolute top-0 left-0 right-0 z-30 bg-gradient-to-b from-neutral-950/90"
+						>
+							<Progress.Root
+								className="relative overflow-hidden bg-neutral-50/30 w-full h-1"
+								style={{ transform: "translateZ(0)" }}
+								value={progress}
 							>
-								<Progress.Root
-									className="relative overflow-hidden bg-neutral-50/30 w-full h-1"
-									style={{ transform: "translateZ(0)" }}
-									value={progress}
-								>
-									<Progress.Indicator
-										className="bg-white w-full h-full transition-transform duration-300 ease-out-expo"
-										style={{ transform: `translateX(-${100 - progress}%)` }}
-									/>
-								</Progress.Root>
-								<p className="text-white text-xs text-right mt-1 mb-2 mr-2 drop-shadow-md">
-									{t("downloading")}: <span className="font-semibold">{progress}%</span>
-								</p>
-							</a.div>
-						)
-				)}
-				{props.title &&
-					topTransition(
-						(style, item) =>
-							item && (
-								// @ts-expect-error
-								<a.div
-									style={style}
-									className="absolute top-0 left-0 right-0 p-6 z-20 h-20 bg-gradient-to-b from-neutral-950/90 duration-500 ease-out-expo"
-								>
-									<p className=" text-2xl text-white">{props.title}</p>
-								</a.div>
-							)
+								<Progress.Indicator
+									className="bg-white w-full h-full transition-transform duration-300 ease-out-expo"
+									style={{ transform: `translateX(-${100 - progress}%)` }}
+								/>
+							</Progress.Root>
+							<p className="text-white text-xs text-right mt-1 mb-2 mr-2 drop-shadow-md">
+								{t("downloading")}: <span className="font-semibold">{progress}%</span>
+							</p>
+						</m.div>
 					)}
-				{bottomTransition(
-					(style, item) =>
-						item && (
-							// @ts-expect-error
-							<a.div
-								style={style}
-								className="absolute flex flex-col justify-end bottom-0 left-0 right-0 p-3 h-28 z-20 bg-gradient-to-t from-neutral-950/90 duration-500 ease-out-expo"
-							>
-								<div className="absolute flex items-center gap-5 top-10 inset-x-5 font-mono font-medium text-white text-xs">
-									<span>{formattedTime(currentTime)}</span>
-									<Slider.Root
-										value={[currentTime]}
-										onValueChange={(newTime) => handleSeek(newTime)}
-										min={0}
-										max={duration}
-										step={0.001}
-										className="group/videoslider relative flex items-center select-none touch-none w-full h-6 cursor-pointer"
-									>
-										<Slider.Track className="bg-neutral-50/30 relative grow h-px group-hover/videoslider:h-[3px] rounded-full duration-100">
-											<Slider.Range className="absolute bg-neutral-50 h-[3px] -top-px group-hover/videoslider:top-0 rounded-full duration-100" />
-										</Slider.Track>
-									</Slider.Root>
-									<span onClick={toggleRemaining} className="mb-0 text-right cursor-pointer">
-										{showRemaining
-											? `-${formattedTime(duration - currentTime)}`
-											: formattedTime(duration)}
-									</span>
-								</div>
-								<div className="flex justify-between items-center">
-									<button
-										className="p-2 bg-neutral-50/0 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-white text-2xl duration-100"
-										onClick={handlePlay}
-										aria-label="pause/play"
-									>
-										{currentTime === duration ? <SkipPrevious /> : playing ? <Pause /> : <Play />}
-									</button>
-									<div className="flex gap-2">
-										{!props.noSound && (
-											<div className="flex gap-3 flex-nowrap items-center justify-end w-[31px] hover:w-40 h-[31px] bg-neutral-50/0 hover:bg-neutral-50/10 duration-300 ease-out-expo overflow-hidden rounded-full">
-												<div>
-													<Slider.Root
-														value={[volume]}
-														onValueChange={(newVolume) => handleVolumeChange(newVolume)}
-														min={0}
-														max={1}
-														step={0.1}
-														className="group/videoslider relative flex items-center select-none touch-none w-24 h-4 cursor-pointer"
-													>
-														<Slider.Track className="bg-neutral-50/30 relative grow h-px group-hover/videoslider:h-[3px] rounded-full duration-100">
-															<Slider.Range className="absolute bg-neutral-50 h-[3px] -top-px group-hover/videoslider:top-0 rounded-full duration-100" />
-														</Slider.Track>
-													</Slider.Root>
-												</div>
-												<div>
-													<button
-														className={`ml-auto p-2 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-white text-xl duration-100`}
-														onClick={handleMute}
-														aria-label="mute/unmute"
-													>
-														{volume > 0.66 ? (
-															<VolumeHigh />
-														) : volume > 0.33 ? (
-															<VolumeMedium />
-														) : volume > 0 ? (
-															<VolumeLow />
-														) : (
-															<VolumeMute />
-														)}
-													</button>
-												</div>
+				</AnimatePresence>
+				<AnimatePresence>
+					{props.title && showControls && (
+						<m.div
+							initial={{ y: -80 }}
+							animate={{ y: 0 }}
+							exit={{ y: -80 }}
+							className="absolute top-0 left-0 right-0 p-6 z-20 h-20 bg-gradient-to-b from-neutral-950/90 duration-500 ease-out-expo"
+						>
+							<p className=" text-2xl text-white">{props.title}</p>
+						</m.div>
+					)}
+				</AnimatePresence>
+				<AnimatePresence>
+					{showControls && (
+						<m.div
+							initial={{ y: 112 }}
+							animate={{ y: 0 }}
+							exit={{ y: 112 }}
+							className="absolute flex flex-col justify-end bottom-0 left-0 right-0 p-3 h-28 z-20 bg-gradient-to-t from-neutral-950/90 duration-500 ease-out-expo"
+						>
+							<div className="absolute flex items-center gap-5 top-10 inset-x-5 font-stretch-expanded text-white text-xs">
+								<span>{formattedTime(currentTime)}</span>
+								<Slider.Root
+									value={[currentTime]}
+									onValueChange={(newTime) => handleSeek(newTime)}
+									min={0}
+									max={duration}
+									step={0.001}
+									className="group/videoslider relative flex items-center select-none touch-none w-full h-6 cursor-pointer"
+								>
+									<Slider.Track className="bg-neutral-50/30 relative grow h-px group-hover/videoslider:h-[3px] rounded-full duration-100">
+										<Slider.Range className="absolute bg-neutral-50 h-[3px] -top-px group-hover/videoslider:top-0 rounded-full duration-100" />
+									</Slider.Track>
+								</Slider.Root>
+								<span onClick={toggleRemaining} className="mb-0 text-right cursor-pointer">
+									{showRemaining ? `-${formattedTime(duration - currentTime)}` : formattedTime(duration)}
+								</span>
+							</div>
+							<div className="flex justify-between items-center">
+								<button
+									className="p-2 bg-neutral-50/0 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-white text-2xl duration-100"
+									onClick={handlePlay}
+									aria-label="pause/play"
+								>
+									{currentTime === duration ? <SkipPrevious /> : playing ? <Pause /> : <Play />}
+								</button>
+								<div className="flex gap-2">
+									{!props.noSound && (
+										<div className="flex gap-3 flex-nowrap items-center justify-end w-[31px] hover:w-40 h-[31px] bg-neutral-50/0 hover:bg-neutral-50/10 duration-300 ease-out-expo overflow-hidden rounded-full">
+											<div>
+												<Slider.Root
+													value={[volume]}
+													onValueChange={(newVolume) => handleVolumeChange(newVolume)}
+													min={0}
+													max={1}
+													step={0.1}
+													className="group/videoslider relative flex items-center select-none touch-none w-24 h-4 cursor-pointer"
+												>
+													<Slider.Track className="bg-neutral-50/30 relative grow h-px group-hover/videoslider:h-[3px] rounded-full duration-100">
+														<Slider.Range className="absolute bg-neutral-50 h-[3px] -top-px group-hover/videoslider:top-0 rounded-full duration-100" />
+													</Slider.Track>
+												</Slider.Root>
 											</div>
-										)}
-										<button
-											className="p-2 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-white text-xl duration-100"
-											onClick={handleFullscreen}
-											aria-label="enter/exit fullscreen"
-										>
-											{fullscreen ? <FullscreenExit /> : <Fullscreen />}
-										</button>
-									</div>
+											<div>
+												<button
+													className={`ml-auto p-2 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-white text-xl duration-100`}
+													onClick={handleMute}
+													aria-label="mute/unmute"
+												>
+													{volume > 0.66 ? <VolumeHigh /> : volume > 0.33 ? <VolumeMedium /> : volume > 0 ? <VolumeLow /> : <VolumeMute />}
+												</button>
+											</div>
+										</div>
+									)}
+									<button
+										className="p-2 hover:bg-neutral-50/20 active:bg-neutral-50/10 rounded-full text-white text-xl duration-100"
+										onClick={handleFullscreen}
+										aria-label="enter/exit fullscreen"
+									>
+										{fullscreen ? <FullscreenExit /> : <Fullscreen />}
+									</button>
 								</div>
-							</a.div>
-						)
-				)}
+							</div>
+						</m.div>
+					)}
+				</AnimatePresence>
 				<ContextMenu.Portal>
 					<ContextMenu.Content className="z-50 text-neutral text-sm w-60 p-1 backdrop-blur-xl backdrop-brightness-[40%] backdrop-contrast-[77.5%] border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 shadow-lg rounded-lg overflow-hidden origin-[var(--radix-context-menu-content-transform-origin)] data-[state='open']:animate-scale-up data-[state='closed']:animate-scale-down">
 						<ContextMenu.CheckboxItem
@@ -497,10 +432,7 @@ function VideoPlayer(props: {
 									sideOffset={4}
 									alignOffset={-89}
 								>
-									<ContextMenu.RadioGroup
-										value={playbackSpeed}
-										onValueChange={handlePlaybackSpeedChange}
-									>
+									<ContextMenu.RadioGroup value={playbackSpeed} onValueChange={handlePlaybackSpeedChange}>
 										{PlaybackSpeeds.map((speed) => (
 											<ContextMenu.RadioItem
 												key={speed}

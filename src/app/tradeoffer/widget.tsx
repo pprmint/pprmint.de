@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { useTransition, a } from "@react-spring/web";
+import * as m from "motion/react-m";
+import { AnimatePresence } from "motion/react";
 import Button from "src/components/ui/Button";
 import Kofi from "src/icons/Kofi";
 import { useTranslations } from "next-intl";
@@ -10,28 +11,15 @@ import ExternalLink from "src/icons/ExternalLink";
 export default function KofiWidget() {
 	const t = useTranslations("");
 	const [visible, setVisible] = useState(false);
-	const transition = useTransition(visible, {
-		from: {
-			opacity: 0,
-		},
-		enter: {
-			opacity: 1,
-			scale: 1,
-		},
-		leave: {
-			opacity: 0,
-			scale: 0.9,
-		},
-		exitBeforeEnter: true,
-	});
 	return (
 		<div className="w-full max-w-[400px]">
 			<div className="rounded-xl shadow-lg mx-auto w-full max-w-[400px] h-[640px] overflow-clip bg-elevate">
-				{transition((style, item) =>
-					item ? (
-						<a.iframe
-							style={style}
-							// @ts-expect-error
+				<AnimatePresence mode="wait">
+					{visible ? (
+						<m.iframe
+							key="kofi"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
 							id="kofiframe"
 							src="https://ko-fi.com/pprmint/?hidefeed=true&widget=true&embed=true"
 							height="640"
@@ -39,11 +27,7 @@ export default function KofiWidget() {
 							className="w-full"
 						/>
 					) : (
-						// @ts-expect-error
-						<a.div
-							style={style}
-							className="flex flex-col items-center justify-center size-full p-6 text-center"
-						>
+						<m.div key="warn" exit={{ opacity: 0 }} className="flex flex-col items-center justify-center size-full p-6 text-center">
 							<Kofi className="size-[60px] text-white" />
 							<p>{t("KOFI.dataInfo")}</p>
 							<Link
@@ -58,9 +42,9 @@ export default function KofiWidget() {
 							<Button design="outlined" onClick={() => setVisible(true)}>
 								{t("KOFI.showWidget")}
 							</Button>
-						</a.div>
-					)
-				)}
+						</m.div>
+					)}
+				</AnimatePresence>
 			</div>
 			<p className="text-xs text-center mt-1">
 				{t.rich("KOFI.alternative", {

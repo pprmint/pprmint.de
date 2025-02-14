@@ -4,19 +4,20 @@ import ReactDOMServer from "react-dom/server";
 import * as Toast from "@radix-ui/react-toast";
 import Checkbox from "src/components/ui/Checkbox";
 import { useTranslations } from "next-intl";
-
-import { Icon, Icons } from "./icons";
-import X from "src/icons/X";
-import { useTransition, a, config } from "@react-spring/web";
-import FadingImage from "src/components/ui/FadingImage";
-
-import JiggyGif from "public/assets/icons/Jiggy.gif";
-import Search from "src/icons/Search";
-import Button from "src/components/ui/Button";
-import Text from "src/icons/Text";
-import Zip from "src/icons/Zip";
+import Image from "next/image";
 import Link from "next/link";
 import Tooltip from "src/components/ui/Tooltip";
+import * as m from "motion/react-m";
+import { AnimatePresence } from "motion/react";
+
+import { Icon, Icons } from "./icons";
+
+import JiggyGif from "public/assets/icons/Jiggy.gif";
+import Button from "src/components/ui/Button";
+import Search from "src/icons/Search";
+import X from "src/icons/X";
+import Text from "src/icons/Text";
+import Zip from "src/icons/Zip";
 
 export default function Cards() {
 	const t = useTranslations("");
@@ -101,20 +102,6 @@ export default function Cards() {
 	const [showJiggy, setShowJiggy] = useState(false);
 	const [jiggies, setJiggies] = useState(0);
 
-	const JiggyTransition = useTransition(showJiggy, {
-		from: {
-			y: 200,
-		},
-		enter: {
-			y: 0,
-		},
-		leave: {
-			y: 200,
-		},
-		config: config.stiff,
-		delay: 2000,
-	});
-
 	function Icon(props: PropsWithChildren<{ categoryIndex: number; iconIndex: number }>) {
 		return (
 			<Tooltip text={Icons[props.categoryIndex].icons[props.iconIndex].names[0]} side="top">
@@ -126,9 +113,7 @@ export default function Cards() {
 						large && "*:size-[30px]"
 					}`}
 					onClick={() => {
-						navigator.clipboard.writeText(
-							ReactDOMServer.renderToString(Icons[props.categoryIndex].icons[props.iconIndex].icon)
-						);
+						navigator.clipboard.writeText(ReactDOMServer.renderToString(Icons[props.categoryIndex].icons[props.iconIndex].icon));
 						setToastOpen(false);
 						window.clearTimeout(timerRef.current);
 						timerRef.current = window.setTimeout(() => {
@@ -152,13 +137,15 @@ export default function Cards() {
 			localStorage.setItem("gotJiggy", "Guah-huh!");
 			let sound = new Audio("/assets/icons/collect_jiggy.mp3");
 			sound.play();
-			setShowJiggy(true);
+			setTimeout(() => {
+				setShowJiggy(true);
+			}, 2000);
 			setTimeout(() => {
 				setJiggies(jiggies + 1);
 			}, 3000);
 			setTimeout(() => {
 				setShowJiggy(false);
-			}, 3000);
+			}, 5000);
 		}
 	}
 
@@ -170,15 +157,9 @@ export default function Cards() {
 				onOpenChange={setToastOpen}
 				duration={3000}
 			>
-				<div className="*:size-[30px] *:fill-neutral-50">
-					{Icons[current.category].icons[current.icon].icon}
-				</div>
+				<div className="*:size-[30px] *:fill-neutral-50">{Icons[current.category].icons[current.icon].icon}</div>
 				<Toast.Description>
-					{t(
-						Icons[current.category].icons[current.icon].names.includes("Twitter but worse")
-							? "COMMON.yikes"
-							: "COMMON.copied"
-					)}
+					{t(Icons[current.category].icons[current.icon].names.includes("Twitter but worse") ? "COMMON.yikes" : "COMMON.copied")}
 				</Toast.Description>
 				<Toast.Close className="inline-flex items-center justify-center size-6 hover:bg-neutral-50/10 active:bg-neutral-50/5 rounded-full duration-100 active:duration-75">
 					<X className="fill-neutral-50" />
@@ -209,9 +190,7 @@ export default function Cards() {
 				<div
 					onClick={handleClear}
 					className={`absolute flex right-0 w-10 h-full items-center justify-center text-white ${
-						filteredIcons.length === 0
-							? "hover:bg-red-800 cursor-pointer"
-							: search && "hover:bg-neutral-900 cursor-pointer"
+						filteredIcons.length === 0 ? "hover:bg-red-800 cursor-pointer" : search && "hover:bg-neutral-900 cursor-pointer"
 					} duration-100`}
 				>
 					{search ? <X /> : <Search />}
@@ -265,9 +244,7 @@ export default function Cards() {
 					</div>
 				) : null}
 			</div>
-			<div
-				className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 divide-x divide-black/5 dark:divide-white/5`}
-			>
+			<div className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 divide-x divide-black/5 dark:divide-white/5`}>
 				{Icons.map((category, catIndex) => (
 					<div key={catIndex} className="py-6 border-b border-black/5 dark:border-white/5">
 						<h2 className="pb-6 px-6 text-center">{t(`ICONS.Content.Category.${category.category}`)}</h2>
@@ -281,20 +258,21 @@ export default function Cards() {
 					</div>
 				))}
 			</div>
-			{JiggyTransition((style, item) =>
-				item ? (
-					// @ts-expect-error
-					<a.div
-						style={style}
+			<AnimatePresence>
+				{showJiggy && (
+					<m.div
+						initial={{ y: 400 }}
+						animate={{ y: 0, transition: { type: "spring", duration: 0.5, bounce: 0.2 } }}
+						exit={{ y: 400, transition: { duration: 0.5, ease: "anticipate" } }}
 						className="fixed flex items-center justify-center gap-6 z-100 bottom-0 inset-x-0 py-6"
 					>
-						<FadingImage src={JiggyGif} alt="A jiggy!" className="size-32" />
-						<span className="bg-clip-text bg-gradient-to-b from-orange-100 to-orange text-8xl font-bold font-mono text-transparent">
+						<Image src={JiggyGif} alt="A jiggy!" className="size-32" />
+						<span className="bg-clip-text bg-gradient-to-b from-orange-100 to-orange text-8xl font-bold font-stretch-expanded text-transparent">
 							{jiggies}
 						</span>
-					</a.div>
-				) : null
-			)}
+					</m.div>
+				)}
+			</AnimatePresence>
 		</Toast.Provider>
 	);
 }
