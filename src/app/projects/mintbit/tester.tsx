@@ -20,44 +20,32 @@ export default function Tester() {
 	}
 	return (
 		<>
-			<Toolbar.Root className="max-w-7xl mx-auto flex flex-wrap gap-6 border border-neutral-900 rounded-xl p-4 mb-5">
-				<div className="flex w-full md:w-auto gap-6">
-					<div className="flex flex-col">
-						<Toolbar.ToggleGroup
-							type="single"
-							defaultValue="center"
-							value={textAlignment}
-							onValueChange={(textAlignment) => {
-								if (textAlignment) setTextAlignment(textAlignment);
-							}}
-							aria-label={t("Content.Tester.alignment")}
-							className="h-9 rounded-md w-max"
+			<Toolbar.Root className="w-full flex border-y border-black/5 dark:border-white/5">
+				<Toolbar.ToggleGroup
+					type="single"
+					defaultValue="center"
+					value={textAlignment}
+					onValueChange={(textAlignment) => {
+						if (textAlignment) setTextAlignment(textAlignment);
+					}}
+					aria-label={t("Content.Tester.alignment")}
+					className="w-max"
+				>
+					{[
+						{ value: "text-left", ariaLabel: "Left aligned", icon: <TextAlignLeft /> },
+						{ value: "text-center", ariaLabel: "Center aligned", icon: <TextAlignCenter /> },
+						{ value: "text-right", ariaLabel: "Right aligned", icon: <TextAlignRight /> },
+					].map((alignment) => (
+						<Toolbar.ToggleItem
+							key={alignment.value}
+							className="inline-flex items-center justify-center size-9 data-[state=off]:text-neutral-950 dark:data-[state=off]:text-white data-[state=on]:text-white dark:data-[state=on]:text-neutral-950 data-[state=off]:hover:bg-black/5 dark:data-[state=off]:bg-white/5 active:bg-black/10 dark:active:bg-white/10 data-[state=on]:bg-neutral-950 dark:data-[state=on]:bg-white duration-100"
+							value={alignment.value}
+							aria-label={alignment.ariaLabel}
 						>
-							<Toolbar.ToggleItem
-								className="size-9 border-y border-l rounded-l-md hover:text-white hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
-								value="text-left"
-								aria-label="Left aligned"
-							>
-								<TextAlignLeft className="mx-auto" />
-							</Toolbar.ToggleItem>
-							<Toolbar.ToggleItem
-								className="size-9 border hover:text-white hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
-								value="text-center"
-								aria-label="Center aligned"
-							>
-								<TextAlignCenter className="mx-auto" />
-							</Toolbar.ToggleItem>
-							<Toolbar.ToggleItem
-								className="size-9 border-y border-r rounded-r-md hover:text-white hover:bg-neutral-900 data-[state=on]:hover:bg-green-400 data-[state=on]:bg-green border-neutral-900 data-[state=on]:border-green data-[state=on]:hover:border-green-400 data-[state=on]:text-green-950 active:shadow-inner active:opacity-75 duration-100"
-								value="text-right"
-								aria-label="Right aligned"
-							>
-								<TextAlignRight className="mx-auto" />
-							</Toolbar.ToggleItem>
-						</Toolbar.ToggleGroup>
-						<sub className="pt-3 pb-2">{t("Content.Tester.alignment")}</sub>
-					</div>
-				</div>
+							{alignment.icon}
+						</Toolbar.ToggleItem>
+					))}
+				</Toolbar.ToggleGroup>
 				<div className="flex grow flex-col sm:flex-row gap-6">
 					<div className="flex flex-col w-full sm:w-1/2">
 						<Slider.Root
@@ -105,14 +93,13 @@ export default function Tester() {
 				</div>
 			</Toolbar.Root>
 			<textarea
-				className={`flex w-full p-3 md:p-6 font-mintbit text-neutral placeholder:text-neutral focus:text-neutral-50 bg-transparent focus:outline-none focus-visible:outline-none rounded-md min-h-[200px] h-1/2-screen ${textAlignment}`}
+				className={`flex w-full p-3 md:p-6 font-mintbit text-neutral-950 dark:text-white placeholder:text-neutral bg-transparent focus:outline-none focus-visible:outline-none rounded-md min-h-[200px] h-1/2-screen border-b border-black/5 dark:border-white/5 ${textAlignment}`}
 				placeholder={t("Content.Tester.pangram")}
 				style={{
 					fontSize: `${fontSize}em`,
 					letterSpacing: `${tracking}em`,
 				}}
 			/>
-			<hr className="border-green w-1/4 mx-auto" />
 		</>
 	);
 }
