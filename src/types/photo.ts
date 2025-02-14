@@ -60,6 +60,7 @@ export interface Photo {
 				url: string;
 			};
 		};
+		alternativeText: string;
 	};
 	camera: {
 		id: number;
