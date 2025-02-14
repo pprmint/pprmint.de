@@ -131,12 +131,6 @@ export default async function Page() {
 													<span className="font-medium font-neutal-50">{chunks}</span>
 												),
 										})}
-										<br />
-										<span className="text-xs opacity-50">
-											{t.rich("Content.Mina.text3", {
-												i: (chunks) => <i>{chunks}</i>,
-											})}
-										</span>
 									</p>
 									<div className="w-full border-y border-black/5 dark:border-white/5">
 										<div className="flex justify-center">
