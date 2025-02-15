@@ -19,7 +19,7 @@ export default async function Page() {
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} />
 			<main className="max-w-8xl mx-auto px-6 md:px-9 xl:px-20">
-				<section className="pb-20 md:pb-32 xl:pb-40 border-x border-black/5">
+				<section className="pb-20 md:pb-32 xl:pb-40 border-x border-black/5 dark:border-white/5">
 					<div className="bg-black/5 dark:bg-white/5 p-6 md:p-9">
 						<h2>{t("Content.Tldr.heading")}</h2>
 						<p>
@@ -39,7 +39,7 @@ export default async function Page() {
 						</p>
 					</div>
 				</section>
-				<section className="pb-20 md:pb-32 xl:pb-40 border-x border-black/5">
+				<section className="pb-20 md:pb-32 xl:pb-40 border-x border-black/5 dark:border-white/5">
 					<h2>{t("Content.General.heading")}</h2>
 					<p>{t("Content.General.text1")}</p>
 					<p>{t("Content.General.text2")}</p>
@@ -65,7 +65,7 @@ export default async function Page() {
 						</Link>
 					</p>
 				</section>
-				<section className="pb-20 md:pb-32 xl:pb-40 border-x border-black/5">
+				<section className="pb-20 md:pb-32 xl:pb-40 border-x border-black/5 dark:border-white/5">
 					<h2>{t("Content.Hosting.heading")}</h2>
 					<p>{t("Content.Hosting.text1")}</p>
 					<p>{t("Content.Hosting.text2")}</p>
@@ -124,7 +124,7 @@ export default async function Page() {
 						</Link>
 					</p>
 				</section>
-				<section className="border-x border-black/5">
+				<section className="border-x border-black/5 dark:border-white/5">
 					<h2>{t("Content.Contact.heading")}</h2>
 					<p>
 						{t.rich("Content.Contact.text1", {
