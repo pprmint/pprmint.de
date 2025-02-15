@@ -8,14 +8,14 @@ interface TooltipProps {
 
 export default function Tooltip({ text, side = "top", children }: PropsWithChildren<TooltipProps>) {
 	return (
-		<RadixTooltip.Root>
+		<RadixTooltip.Root delayDuration={300}>
 			<RadixTooltip.Trigger asChild>
 				<div className="flex items-center justify-center gap-1">{children}</div>
 			</RadixTooltip.Trigger>
 			<RadixTooltip.Content
 				className="
-				m-1 select-none rounded-2xl bg-elevate/75 backdrop-blur-md px-3 py-2 text-sm max-w-sm leading-none shadow-xl
-				border border-black/10 dark:border-black/50 outline outline-1 outline-white/10 -outline-offset-2
+				m-1 select-none rounded-md text-neutral-950 dark:text-white bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md px-3 pt-1.5 pb-2 text-sm max-w-sm leading-none shadow-xl shadow-neutral-950/5
+				border border-neutral-100 dark:border-neutral-800
 				data-[side=top]:data-[state=delayed-open]:animate-tooltip-enter-top data-[side=top]:data-[state=instant-open]:animate-tooltip-enter-top data-[side=top]:data-[state=closed]:animate-tooltip-exit-top
 				data-[side=bottom]:data-[state=delayed-open]:animate-tooltip-enter-bottom data-[side=bottom]:data-[state=instant-open]:animate-tooltip-enter-bottom data-[side=bottom]:data-[state=closed]:animate-tooltip-exit-bottom
 				data-[side=right]:data-[state=delayed-open]:animate-tooltip-enter-right data-[side=right]:data-[state=instant-open]:animate-tooltip-enter-right data-[side=right]:data-[state=closed]:animate-tooltip-exit-right
@@ -23,7 +23,7 @@ export default function Tooltip({ text, side = "top", children }: PropsWithChild
 				side={side}
 			>
 				{text}
-				<RadixTooltip.Arrow className="fill-white/15 light:fill-elevate/80" />
+				<RadixTooltip.Arrow className="fill-neutral-100 dark:fill-neutral-800" />
 			</RadixTooltip.Content>
 		</RadixTooltip.Root>
 	);
