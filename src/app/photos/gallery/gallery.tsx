@@ -59,7 +59,7 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 			ref={galleryRef}
 			className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2"
 		>
-			<Dialog.Root>
+			<Dialog.Root open={open} onOpenChange={handleDialog}>
 				{photos.data.map((photo, index) => (
 					<Dialog.Trigger key={photo.id} asChild>
 						<button
@@ -151,7 +151,7 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 											transition: { duration: 0.4, type: "spring", bounce: 0 },
 										}}
 										exit={{ y: -48, opacity: 0 }}
-										className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 inset-x-0"
+										className="absolute flex justify-between items-start top-0 pl-6 pr-4 pt-4 min-h-16 inset-x-0"
 									>
 										<AnimatePresence mode="wait">
 											<m.div
@@ -159,105 +159,104 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 												initial={{ opacity: 0 }}
 												animate={{ opacity: 1, transition: { duration: 0.2 } }}
 												exit={{ opacity: 0, transition: { duration: 0.2 } }}
-												className="flex items-center flex-grow gap-3 text-xl"
+												className="flex md:items-center flex-grow flex-col md:flex-row gap-3 md:gap-6"
 											>
-												<div className="flex gap-6">
-													<div className="flex items-center gap-3">
-														<div className="hidden md:block">
-															{photos.data[selectedPhoto].camera.logo ? (
-																<Image
-																	src={`https://static.pprmint.de${photos.data[selectedPhoto].camera.logo.url}`}
-																	width={photos.data[selectedPhoto].camera.logo.width}
-																	height={
-																		photos.data[selectedPhoto].camera.logo.height
+												<div className="flex items-center gap-3">
+													<div>
+														{photos.data[selectedPhoto].camera.logo ? (
+															<Image
+																src={`https://static.pprmint.de${photos.data[selectedPhoto].camera.logo.url}`}
+																width={photos.data[selectedPhoto].camera.logo.width}
+																height={photos.data[selectedPhoto].camera.logo.height}
+																alt={photos.data[selectedPhoto].camera.name}
+																unoptimized
+																className="invert h-4 md:h-6 w-auto"
+															/>
+														) : (
+															<p className="font-medium text-lg">
+																{photos.data[selectedPhoto].camera.name}
+															</p>
+														)}
+													</div>
+													<div className="flex flex-col items-start justify-start">
+														<Dialog.Title asChild>
+															<span className="text-sm" style={{ lineHeight: 1 }}>
+																{format.dateTime(
+																	new Date(photos.data[selectedPhoto].dateTime),
+																	{
+																		day: "numeric",
+																		month: "long",
+																		year: "numeric",
 																	}
-																	alt={photos.data[selectedPhoto].camera.name}
-																	unoptimized
-																	className="invert h-4 md:h-6 w-auto"
-																/>
-															) : (
-																<p className="font-medium text-lg">
-																	{photos.data[selectedPhoto].camera.name}
-																</p>
-															)}
-														</div>
-														<div className="flex flex-col items-start justify-start">
-															<Dialog.Title asChild>
-																<span className="text-xl md:text-sm leading-none block">
-																	{format.dateTime(
-																		new Date(photos.data[selectedPhoto].dateTime),
-																		{
-																			day: "numeric",
-																			month: "long",
-																			year: "numeric",
-																		}
-																	)}
-																	,{" "}
-																	{format.dateTime(
-																		new Date(photos.data[selectedPhoto].dateTime),
-																		{
-																			hour: "numeric",
-																			minute: "2-digit",
-																		}
-																	)}
-																</span>
-															</Dialog.Title>
-															{photos.data[selectedPhoto].lens && (
-																<span className="text-sm text-white/70 leading-none">
-																	{photos.data[selectedPhoto].lens.name}
-																</span>
-															)}
-														</div>
-													</div>
-													<div className="hidden md:flex gap-3 md:gap-6 select-none mx-auto text-white/70">
-														{photos.data[selectedPhoto].iso && (
-															<Tooltip text={t("Content.Camera.iso")} side="top">
-																<div className="flex gap-1 items-center">
-																	<CameraIso />
-																	<span className="font-mono text-sm">
-																		{photos.data[selectedPhoto].iso}
-																	</span>
-																</div>
-															</Tooltip>
-														)}
-														{photos.data[selectedPhoto].aperture && (
-															<Tooltip text={t("Content.Camera.aperture")} side="top">
-																<div className="flex gap-1 items-center">
-																	<CameraAperture />
-																	<span className="font-mono text-sm">
-																		<i>f</i>/{photos.data[selectedPhoto].aperture}
-																	</span>
-																</div>
-															</Tooltip>
-														)}
-														{photos.data[selectedPhoto].shutter && (
-															<Tooltip text={t("Content.Camera.shutterSpeed")} side="top">
-																<div className="flex gap-1 items-center">
-																	<CameraShutterSpeed />
-																	<span className="font-mono text-sm">
-																		{photos.data[selectedPhoto].shutter}s
-																	</span>
-																</div>
-															</Tooltip>
-														)}
-														{photos.data[selectedPhoto].focalLength && (
-															<Tooltip
-																text={t.rich("Content.Camera.focalLength", {
-																	small: (chunks) => (
-																		<span className="text-xs">{chunks}</span>
-																	),
-																})}
-																side="top"
+																)}
+																,{" "}
+																{format.dateTime(
+																	new Date(photos.data[selectedPhoto].dateTime),
+																	{
+																		hour: "numeric",
+																		minute: "2-digit",
+																	}
+																)}
+															</span>
+														</Dialog.Title>
+														{photos.data[selectedPhoto].lens && (
+															<span
+																className="text-sm text-white/70"
+																style={{ lineHeight: 1 }}
 															>
-																<div className="flex gap-1 items-center">
-																	<CameraFocalLength />
-																	<span className="font-mono text-sm">
-																		{photos.data[selectedPhoto].focalLength}mm
-																	</span>
-																</div>
-															</Tooltip>
+																{photos.data[selectedPhoto].lens.name}
+															</span>
 														)}
 													</div>
+												</div>
+												<div className="dark flex gap-3 md:gap-6 select-none text-white/70">
+													{photos.data[selectedPhoto].iso && (
+														<Tooltip text={t("Content.Camera.iso")} side="top">
+															<div className="flex gap-1 items-center">
+																<CameraIso />
+																<span className="text-sm">
+																	{photos.data[selectedPhoto].iso}
+																</span>
+															</div>
+														</Tooltip>
+													)}
+													{photos.data[selectedPhoto].aperture && (
+														<Tooltip text={t("Content.Camera.aperture")} side="top">
+															<div className="flex gap-1 items-center">
+																<CameraAperture />
+																<span className="text-sm">
+																	<i>f</i>/{photos.data[selectedPhoto].aperture}
+																</span>
+															</div>
+														</Tooltip>
+													)}
+													{photos.data[selectedPhoto].shutter && (
+														<Tooltip text={t("Content.Camera.shutterSpeed")} side="top">
+															<div className="flex gap-1 items-center">
+																<CameraShutterSpeed />
+																<span className="text-sm">
+																	{photos.data[selectedPhoto].shutter}s
+																</span>
+															</div>
+														</Tooltip>
+													)}
+													{photos.data[selectedPhoto].focalLength && (
+														<Tooltip
+															text={t.rich("Content.Camera.focalLength", {
+																small: (chunks) => (
+																	<span className="text-xs">{chunks}</span>
+																),
+															})}
+															side="top"
+														>
+															<div className="flex gap-1 items-center">
+																<CameraFocalLength />
+																<span className="text-sm">
+																	{photos.data[selectedPhoto].focalLength}mm
+																</span>
+															</div>
+														</Tooltip>
+													)}
 												</div>
 											</m.div>
 										</AnimatePresence>
