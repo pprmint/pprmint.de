@@ -426,7 +426,7 @@ export const Icons: Category[] = [
 			{ icon: <Bookmark />, names: ["Bookmark", "Remember"] },
 			{ icon: <BookmarkFilled />, names: ["Bookmark filled", "Bookmarked", "Remembered"] },
 			{ icon: <BookmarkAdd />, names: ["Bookmark add"] },
-			{ icon: <BookmarkAddFilled />, names: ["Bookmar add filled"] },
+			{ icon: <BookmarkAddFilled />, names: ["Bookmark add filled"] },
 			{ icon: <BookmarkRemove />, names: ["Bookmark remove"] },
 			{ icon: <BookmarkRemoveFilled />, names: ["Bookmark remove filled"] },
 			{ icon: <Fullscreen />, names: ["Fullscreen", "Maximize"] },

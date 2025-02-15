@@ -19,7 +19,7 @@ import X from "src/icons/X";
 import Text from "src/icons/Text";
 import Zip from "src/icons/Zip";
 
-export default function Cards() {
+export default function Main() {
 	const t = useTranslations("");
 	const [search, setSearch] = useState("");
 	const searchRef = useRef<HTMLInputElement>(null);
@@ -85,7 +85,7 @@ export default function Cards() {
 		return (
 			<>
 				{beforeMatch}
-				<span className="text-white font-medium">{match}</span>
+				<span className="text-neutral-950 dark:text-white font-medium">{match}</span>
 				{afterMatch}
 			</>
 		);
@@ -107,13 +107,13 @@ export default function Cards() {
 			<Tooltip text={Icons[props.categoryIndex].icons[props.iconIndex].names[0]} side="top">
 				<button
 					aria-label={"Icon: " + Icons[props.categoryIndex].icons[props.iconIndex].names[0]}
-					className={`inline-flex items-center justify-center mx-auto ${
-						large ? "size-11" : "size-9"
-					} hover:bg-neutral-900 duration-100 *:duration-100 active:duration-75 active:scale-95 active:opacity-75 rounded-full ${
+					className={`inline-flex items-center justify-center mx-auto w-full aspect-square hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 active:shadow-inner duration-100 active:duration-75 ${
 						large && "*:size-[30px]"
 					}`}
 					onClick={() => {
-						navigator.clipboard.writeText(ReactDOMServer.renderToString(Icons[props.categoryIndex].icons[props.iconIndex].icon));
+						navigator.clipboard.writeText(
+							ReactDOMServer.renderToString(Icons[props.categoryIndex].icons[props.iconIndex].icon)
+						);
 						setToastOpen(false);
 						window.clearTimeout(timerRef.current);
 						timerRef.current = window.setTimeout(() => {
@@ -157,40 +157,48 @@ export default function Cards() {
 				onOpenChange={setToastOpen}
 				duration={3000}
 			>
-				<div className="*:size-[30px] *:fill-neutral-50">{Icons[current.category].icons[current.icon].icon}</div>
+				<div className="*:size-[30px] *:fill-neutral-50">
+					{Icons[current.category].icons[current.icon].icon}
+				</div>
 				<Toast.Description>
-					{t(Icons[current.category].icons[current.icon].names.includes("Twitter but worse") ? "COMMON.yikes" : "COMMON.copied")}
+					{t(
+						Icons[current.category].icons[current.icon].names.includes("Twitter but worse")
+							? "COMMON.yikes"
+							: "COMMON.copied"
+					)}
 				</Toast.Description>
 				<Toast.Close className="inline-flex items-center justify-center size-6 hover:bg-neutral-50/10 active:bg-neutral-50/5 rounded-full duration-100 active:duration-75">
 					<X className="fill-neutral-50" />
 				</Toast.Close>
 			</Toast.Root>
 			<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-60 outline-none" />
-			<div className="md:flex items-center gap-3 mb-6">
-				<div className="inline-flex whitespace-nowrap gap-3 flex-grow mb-3 md:mb-0">
-					<Checkbox border checked={large} onCheckedChange={() => setLarge(!large)} id="large" />
-					<label htmlFor="large">{t("ICONS.Content.largeIcons")}</label>
+			<section className="pt-12 md:pt-20 xl:pt-40 pb-9 border-x border-black/5 dark:border-white/5">
+				<div className="md:flex items-center gap-3">
+					<div className="inline-flex whitespace-nowrap gap-3 flex-grow mb-3 md:mb-0">
+						<Checkbox border checked={large} onCheckedChange={() => setLarge(!large)} id="large" />
+						<label htmlFor="large">{t("ICONS.Content.largeIcons")}</label>
+					</div>
+					<div className="flex flex-wrap">
+						<Link href="https://static.pprmint.de/download/minticons/MintIcons.zip" download>
+							<Button>
+								<Zip />
+								{t("ICONS.Content.Download.svgs")}
+							</Button>
+						</Link>
+						<Link href="https://static.pprmint.de/download/minticons/MintIcons1.1.otf" download>
+							<Button design="semi-transparent">
+								<Text />
+								{t("ICONS.Content.Download.font")}
+							</Button>
+						</Link>
+					</div>
 				</div>
-				<div className="flex gap-3 flex-wrap">
-					<Link href="https://static.pprmint.de/download/minticons/MintIcons.zip" download>
-						<Button>
-							<Zip />
-							{t("ICONS.Content.Download.svgs")}
-						</Button>
-					</Link>
-					<Link href="https://static.pprmint.de/download/minticons/MintIcons1.1.otf" download>
-						<Button>
-							<Text />
-							{t("ICONS.Content.Download.font")}
-						</Button>
-					</Link>
-				</div>
-			</div>
+			</section>
 			<div className="relative w-full">
 				<div
 					onClick={handleClear}
-					className={`absolute flex right-0 w-10 h-full items-center justify-center text-white ${
-						filteredIcons.length === 0 ? "hover:bg-red-800 cursor-pointer" : search && "hover:bg-neutral-900 cursor-pointer"
+					className={`absolute flex right-0 w-10 h-full items-center justify-center text-neutral-950 dark:text-white ${
+						search && "hover:bg-black/5 active:bg-black/10 dark:hover:bg-white/5 dark:active:bg-white/10 cursor-pointer"
 					} duration-100`}
 				>
 					{search ? <X /> : <Search />}
@@ -203,16 +211,16 @@ export default function Cards() {
 					maxLength={30}
 					onChange={handleSearchChange}
 					ref={searchRef}
-					className="w-full bg-neutral-950 focus:bg-neutral-950 border-y outline-none focus:outline-none border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 text-neutral-950 dark:text-neutral-50 placeholder:text-neutral px-3 py-2 duration-100"
+					className="w-full border border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent dark:hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
 				/>
 				{search !== "" ? (
-					<div className="absolute top-[41px] p-1 w-full max-h-80 left-0 bg-neutral-950 border border-neutral-900 shadow-xl shadow-neutral-950 overflow-auto">
+					<div className="absolute top-[41px] p-1 w-full max-h-80 left-0 bg-white dark:bg-neutral-950 border border-black/5 dark:border-white/5 shadow-xl shadow-neutral-950/5 dark:shadow-neutral-950 overflow-auto">
 						{filteredIcons.length > 0 ? (
-							<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+							<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 								{filteredIcons.map((icon, index) => (
 									<button
 										key={index}
-										className="inline-flex gap-3 px-2 py-1 min-h-9 items-center text-left hover:bg-neutral-50/10 duration-100 active:opacity-75 active:duration-75"
+										className="inline-flex gap-3 px-2 py-1 min-h-9 items-center text-left hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-100 active:opacity-75 active:duration-75"
 										onClick={() => {
 											navigator.clipboard.writeText(ReactDOMServer.renderToString(icon.icon));
 											if (icon.names.includes("Jiggy")) {
@@ -223,7 +231,7 @@ export default function Cards() {
 										<div className={large ? "*:size-[30px]" : ""}>{icon.icon}</div>
 										<div className="leading-none text-sm">
 											{highlightMatches(icon.names[0], search)}
-											<div className="leading-none flex gap-x-1 text-[0.6rem] text-white flex-wrap">
+											<div className="leading-none flex gap-x-1 text-[0.6rem] text-neutral-950 dark:text-white flex-wrap">
 												{icon.names.slice(1).map((name, index) => (
 													<Fragment key={index}>
 														{index > 0 && " • "}
@@ -244,11 +252,15 @@ export default function Cards() {
 					</div>
 				) : null}
 			</div>
-			<div className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 divide-x divide-black/5 dark:divide-white/5`}>
+			<div
+				className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 md:even:border-r border-black/5 dark:border-white/5 md:divide-x divide-black/5 dark:divide-white/5`}
+			>
 				{Icons.map((category, catIndex) => (
-					<div key={catIndex} className="py-6 border-b border-black/5 dark:border-white/5">
-						<h2 className="pb-6 px-6 text-center">{t(`ICONS.Content.Category.${category.category}`)}</h2>
-						<div className={`grid grid-cols-8 ${large ? "px-1 xl:px-3" : "px-2 md:px-3 gap-1 md:gap-2"}`}>
+					<div key={catIndex} className="md:first:border-l border-b border-black/5 dark:border-white/5">
+						<p className="font-stretch-condensed text-2xl md:text-3xl px-4 pt-3 pb-2 text-neutral-950 dark:text-white">
+							{t(`ICONS.Content.Category.${category.category}`)}
+						</p>
+						<div className="grid grid-cols-8">
 							{category.icons.map((icon, icnIndex) => (
 								<Icon key={icnIndex} categoryIndex={catIndex} iconIndex={icnIndex}>
 									{icon.icon}
