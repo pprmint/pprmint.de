@@ -32,18 +32,11 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 		}, 1);
 	}
 	// Reset to 0 after the lightbox is closed.
-	function handleDialog() {
-		if (!open) {
-			setOpen(true);
-		} else {
-			setOpen(false);
-			setTimeout(() => {
-				setSelectedVariant(0);
-				setSelectedArt(0);
-				setDirection(0);
-				setScale(1);
-			}, 200);
-		}
+	function reset() {
+		setTimeout(() => {
+			setDirection(0);
+			setScale(1);
+		}, 200);
 	}
 
 	const galleryRef = useRef<HTMLDivElement>(null);
@@ -61,9 +54,9 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 			ref={galleryRef}
 			className="group grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2"
 		>
-			<Dialog.Root open={open} onOpenChange={handleDialog}>
-				{artworks.data.map((art, index) => (
-					<Dialog.Trigger key={art.id} asChild>
+			{artworks.data.map((art, index) => (
+				<Dialog.Root key={art.id} onOpenChange={reset}>
+					<Dialog.Trigger asChild>
 						<button
 							key={art.id}
 							style={{
@@ -98,211 +91,222 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 							)}
 						</button>
 					</Dialog.Trigger>
-				))}
-				<Dialog.Portal>
-					<Dialog.Overlay className="bg-neutral-950/90 backdrop-blur-xl data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
-					<Dialog.Content asChild>
-						<m.div
-							className={`text-white fixed inset-0 z-100 h-screen max-h-svh w-screen focus-visible:outline-none`}
-							style={{ animationDuration: "0.3s" }}
-						>
-							<Dialog.Description className="sr-only">
-								{t("Content.Artworks.drawnBy")}
-								{artworks.data[selectedArt].artist.name}
-							</Dialog.Description>
-							<TransformWrapper disablePadding onTransformed={(e) => setScale(e.state.scale)}>
-								<TransformComponent>
-									<div className="flex items-center justify-center w-screen h-screen max-h-svh">
-										<AnimatePresence>
-											<m.div
-												key={artworks.data[selectedArt].id}
-												initial={{
-													x: direction < 0 ? -120 : direction > 0 ? 120 : 0,
-													clipPath:
-														direction < 0
-															? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
-															: direction > 0
-																? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
-																: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-												}}
-												animate={{
-													x: 0,
-													clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-													transition: {
-														type: "spring",
-														duration: 0.5,
-														bounce: 0,
-														delay: 0.05,
-													},
-												}}
-												exit={{
-													x: direction < 0 ? 60 : -60,
-													clipPath:
-														direction < 0
-															? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
-															: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
-													opacity: 0,
-													transition: { ease: "easeIn", duration: 0.2 },
-												}}
-												className="absolute"
-											>
-												<FadingImage
-													src={`https://static.pprmint.de${artworks.data[selectedArt].artwork[selectedVariant]?.url}`}
-													width={artworks.data[selectedArt].artwork[selectedVariant]?.width}
-													height={artworks.data[selectedArt].artwork[selectedVariant]?.height}
-													alt=""
-													className={`max-h-svh w-auto mx-auto py-16 ${artworks.data[selectedArt].pixelart && "pixelated"} drop-shadow-2xl dark:drop-shadow-none`}
-													unoptimized
-												/>
-											</m.div>
-										</AnimatePresence>
-									</div>
-								</TransformComponent>
-							</TransformWrapper>
-							<AnimatePresence>
-								{scale === 1 && (
-									<m.div
-										initial={{ y: -48, opacity: 0 }}
-										animate={{
-											y: 0,
-											opacity: 1,
-											transition: { duration: 0.4, type: "spring", bounce: 0 },
-										}}
-										exit={{ y: -48, opacity: 0 }}
-										className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 inset-x-0"
-									>
-										<AnimatePresence mode="wait">
-											<m.div
-												key={artworks.data[selectedArt].artist.name}
-												initial={{ opacity: 0 }}
-												animate={{ opacity: 1, transition: { duration: 0.2 } }}
-												exit={{ opacity: 0, transition: { duration: 0.2 } }}
-												className="flex items-center flex-grow gap-3 text-xl"
-											>
-												<Dialog.Title asChild>
-													<p>
-														<span className="text-white/70">
-															{t("Content.Artworks.drawnBy")}
-														</span>
-														{artworks.data[selectedArt].artist.name}
-														{artworks.data[selectedArt].heart && (
-															<span className="text-red"> ♥</span>
-														)}
-													</p>
-												</Dialog.Title>
-												{artworks.data[selectedArt].artist.creditUrl && (
-													<Link
-														href={artworks.data[selectedArt].artist.creditUrl!}
-														target="_blank"
-														rel="noopener noreferrer"
-														className="rounded-full"
-													>
-														<button
-															tabIndex={-1}
-															className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
-														>
-															{artworks.data[selectedArt].artist.creditUrl!.startsWith(
-																"https://bsky.app/"
-															) ? (
-																<Bluesky />
-															) : artworks.data[selectedArt].artist.creditUrl!.startsWith(
-																	"https://twitter.com/"
-															  ) ? (
-																<Twitter />
-															) : artworks.data[selectedArt].artist.creditUrl!.startsWith(
-																	"https://www.instagram.com/"
-															  ) ? (
-																<Instagram />
-															) : artworks.data[selectedArt].artist.creditUrl!.startsWith(
-																	"https://www.youtube.com/"
-															  ) ? (
-																<YouTube />
-															) : (
-																<Globe />
-															)}
-														</button>
-													</Link>
-												)}
-											</m.div>
-										</AnimatePresence>
-										<AnimatePresence mode="wait">
-											{artworks.data[selectedArt].artwork.length >= 2 && (
+					<Dialog.Portal>
+						<Dialog.Overlay className="bg-neutral-950/90 backdrop-blur-xl fixed inset-0 z-90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out" />
+						<Dialog.Content asChild>
+							<div
+								className={`text-white fixed inset-0 z-100 h-screen max-h-svh w-screen focus-visible:outline-none data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out`}
+							>
+								<Dialog.Description className="sr-only">
+									{t("Content.Artworks.drawnBy")}
+									{artworks.data[selectedArt].artist.name}
+								</Dialog.Description>
+								<TransformWrapper disablePadding onTransformed={(e) => setScale(e.state.scale)}>
+									<TransformComponent>
+										<div className="flex items-center justify-center w-screen h-screen max-h-svh">
+											<AnimatePresence>
 												<m.div
 													key={artworks.data[selectedArt].id}
-													initial={{ opacity: 0 }}
-													animate={{ opacity: 1 }}
-													exit={{ opacity: 0 }}
-													className="flex flex-row items-center justify-center px-6 h-16 inset-x-0"
+													initial={{
+														position: "relative",
+														x: direction < 0 ? -120 : direction > 0 ? 120 : 0,
+														clipPath:
+															direction < 0
+																? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
+																: direction > 0
+																	? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
+																	: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+													}}
+													animate={{
+														x: 0,
+														position: "relative",
+														clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+														transition: {
+															type: "spring",
+															duration: 0.5,
+															bounce: 0,
+															delay: 0.05,
+														},
+													}}
+													exit={{
+														position: "absolute",
+														x: direction < 0 ? 60 : -60,
+														clipPath:
+															direction < 0
+																? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
+																: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+														opacity: 0,
+														transition: { ease: "easeIn", duration: 0.2 },
+													}}
 												>
-													{artworks.data[selectedArt].artwork.map((variant, index) => (
-														<button
-															key={index}
-															className={`group h-full ${index === selectedVariant ? "w-9" : "w-5"} px-1.5 duration-200 ease-out-quint`}
-															onClick={() => setSelectedVariant(index)}
-														>
-															<div
-																className={`h-2 ${
-																	index === selectedVariant
-																		? "bg-neutral-50"
-																		: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
-																} rounded-full duration-200 ease-out-quint`}
-															/>
-														</button>
-													))}
-												</m.div>
-											)}
-										</AnimatePresence>
-										<Dialog.Close asChild>
-											<button className="p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
-												<Error />
-											</button>
-										</Dialog.Close>
-									</m.div>
-								)}
-							</AnimatePresence>
-							<AnimatePresence>
-								{scale === 1 && (
-									<m.div
-										initial={{ y: 48, opacity: 0 }}
-										animate={{
-											y: 0,
-											opacity: 1,
-											transition: { duration: 0.4, type: "spring", bounce: 0 },
-										}}
-										exit={{ y: 48, opacity: 0 }}
-										className="absolute bottom-2 inset-x-0 h-12"
-										style={{
-											maskImage:
-												"linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)",
-											maskRepeat: "space",
-										}}
-									>
-										<div
-											className={`absolute inset-0 flex w-max items-center gap-2 ${direction !== 0 && "duration-500"} ease-out-quart`}
-											style={{ left: `calc(50% - ${selectedArt * 48}px - 32px` }}
-										>
-											{artworks.data.map((artwork, index) => (
-												<button
-													key={index}
-													onClick={() => handleSelectArt(index)}
-													className={`relative ${selectedArt === index ? "h-12 w-16" : "h-10 w-10 saturate-0 hover:saturate-100 opacity-50 hover:opacity-100"} duration-300 ease-out-quart overflow-clip`}
-												>
-													<Image
-														src={`https://static.pprmint.de${artwork.artwork[0].formats.thumbnail.url}`}
-														fill
-														alt={artwork.artwork[0].alternativeText || ""}
-														className={`object-cover ${artwork.focus} ${artwork.nsfw && selectedArt !== index && "blur-sm hover:blur-0"}`}
+													<FadingImage
+														src={`https://static.pprmint.de${artworks.data[selectedArt].artwork[selectedVariant]?.url}`}
+														width={
+															artworks.data[selectedArt].artwork[selectedVariant]?.width
+														}
+														height={
+															artworks.data[selectedArt].artwork[selectedVariant]?.height
+														}
+														alt=""
+														className={`max-h-svh w-auto mx-auto py-16 ${artworks.data[selectedArt].pixelart && "pixelated"} drop-shadow-2xl dark:drop-shadow-none`}
+														unoptimized
 													/>
-												</button>
-											))}
+												</m.div>
+											</AnimatePresence>
 										</div>
-									</m.div>
-								)}
-							</AnimatePresence>
-						</m.div>
-					</Dialog.Content>
-				</Dialog.Portal>
-			</Dialog.Root>
+									</TransformComponent>
+								</TransformWrapper>
+								<AnimatePresence>
+									{scale === 1 && (
+										<m.div
+											initial={{ y: -48, opacity: 0 }}
+											animate={{
+												y: 0,
+												opacity: 1,
+												transition: { duration: 0.4, type: "spring", bounce: 0 },
+											}}
+											exit={{ y: -48, opacity: 0 }}
+											className="absolute flex justify-between items-center top-0 pl-6 pr-4 h-16 inset-x-0"
+										>
+											<AnimatePresence mode="wait">
+												<m.div
+													key={artworks.data[selectedArt].artist.name}
+													initial={{ opacity: 0 }}
+													animate={{ opacity: 1, transition: { duration: 0.2 } }}
+													exit={{ opacity: 0, transition: { duration: 0.2 } }}
+													className="flex items-center flex-grow gap-3 text-xl"
+												>
+													<Dialog.Title asChild>
+														<p>
+															<span className="text-white/70">
+																{t("Content.Artworks.drawnBy")}
+															</span>
+															{artworks.data[selectedArt].artist.name}
+															{artworks.data[selectedArt].heart && (
+																<span className="text-red"> ♥</span>
+															)}
+														</p>
+													</Dialog.Title>
+													{artworks.data[selectedArt].artist.creditUrl && (
+														<Link
+															href={artworks.data[selectedArt].artist.creditUrl!}
+															target="_blank"
+															rel="noopener noreferrer"
+															className="rounded-full"
+														>
+															<button
+																tabIndex={-1}
+																className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
+															>
+																{artworks.data[
+																	selectedArt
+																].artist.creditUrl!.startsWith("https://bsky.app/") ? (
+																	<Bluesky />
+																) : artworks.data[
+																		selectedArt
+																  ].artist.creditUrl!.startsWith(
+																		"https://twitter.com/"
+																  ) ? (
+																	<Twitter />
+																) : artworks.data[
+																		selectedArt
+																  ].artist.creditUrl!.startsWith(
+																		"https://www.instagram.com/"
+																  ) ? (
+																	<Instagram />
+																) : artworks.data[
+																		selectedArt
+																  ].artist.creditUrl!.startsWith(
+																		"https://www.youtube.com/"
+																  ) ? (
+																	<YouTube />
+																) : (
+																	<Globe />
+																)}
+															</button>
+														</Link>
+													)}
+												</m.div>
+											</AnimatePresence>
+											<AnimatePresence mode="wait">
+												{artworks.data[selectedArt].artwork.length >= 2 && (
+													<m.div
+														key={artworks.data[selectedArt].id}
+														initial={{ opacity: 0 }}
+														animate={{ opacity: 1 }}
+														exit={{ opacity: 0 }}
+														className="flex flex-row items-center justify-center px-6 h-16 inset-x-0"
+													>
+														{artworks.data[selectedArt].artwork.map((variant, index) => (
+															<button
+																key={index}
+																className={`group h-full ${index === selectedVariant ? "w-9" : "w-5"} px-1.5 duration-200 ease-out-quint`}
+																onClick={() => setSelectedVariant(index)}
+															>
+																<div
+																	className={`h-2 ${
+																		index === selectedVariant
+																			? "bg-neutral-50"
+																			: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
+																	} rounded-full duration-200 ease-out-quint`}
+																/>
+															</button>
+														))}
+													</m.div>
+												)}
+											</AnimatePresence>
+											<Dialog.Close asChild>
+												<button className="p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
+													<Error />
+												</button>
+											</Dialog.Close>
+										</m.div>
+									)}
+								</AnimatePresence>
+								<AnimatePresence>
+									{scale === 1 && (
+										<m.div
+											initial={{ y: 48, opacity: 0 }}
+											animate={{
+												y: 0,
+												opacity: 1,
+												transition: { duration: 0.4, type: "spring", bounce: 0 },
+											}}
+											exit={{ y: 48, opacity: 0 }}
+											className="absolute bottom-2 inset-x-0 h-12"
+											style={{
+												maskImage:
+													"linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)",
+												maskRepeat: "space",
+											}}
+										>
+											<div
+												className={`absolute inset-0 flex w-max items-center gap-2 ${direction !== 0 && "duration-500"} ease-out-quart`}
+												style={{ left: `calc(50% - ${selectedArt * 48}px - 32px` }}
+											>
+												{artworks.data.map((artwork, index) => (
+													<button
+														key={index}
+														onClick={() => handleSelectArt(index)}
+														className={`relative ${selectedArt === index ? "h-12 w-16" : "h-10 w-10 saturate-0 hover:saturate-100 opacity-50 hover:opacity-100"} duration-300 ease-out-quart overflow-clip`}
+													>
+														<Image
+															src={`https://static.pprmint.de${artwork.artwork[0].formats.thumbnail.url}`}
+															fill
+															alt={artwork.artwork[0].alternativeText || ""}
+															className={`object-cover ${artwork.focus} ${artwork.nsfw && selectedArt !== index && "blur-sm hover:blur-0"}`}
+														/>
+													</button>
+												))}
+											</div>
+										</m.div>
+									)}
+								</AnimatePresence>
+							</div>
+						</Dialog.Content>
+					</Dialog.Portal>
+				</Dialog.Root>
+			))}
 		</div>
 	);
 }
