@@ -16,7 +16,6 @@ import Link from "next/link";
 import Button from "src/components/ui/Button";
 import GallerySuspense from "./gallery/gallerySuspense";
 import GallerySkeleton from "./gallery/gallerySkeleton";
-import FanartRules from "./rules";
 import Download from "src/icons/Download";
 import Discord from "src/icons/Discord";
 
@@ -52,13 +51,15 @@ export default async function Page({
 						className="object-cover object-[50%_90%]"
 					/>
 					<div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent" />
-					<FadingImage
-						src="https://cms.pprmint.de/uploads/nano_3fg_46641b34fc.webp"
-						alt=""
-						width={1500}
-						height={1500}
-						className="absolute -right-12 sm:right-0 bottom-0 md:bottom-auto md:top-9 md:right-[9%] w-auto md:w-1/2 lg:w-full max-w-2xl h-full md:h-max"
-					/>
+					<div className="absolute h-full w-full max-w-8xl left-1/2 -translate-x-1/2 flex items-end justify-end pt-12 px-9 md:px-24 xl:px-48">
+						<FadingImage
+							src="https://cms.pprmint.de/uploads/nano_3fg_52f352de52.webp"
+							alt=""
+							width={815}
+							height={1500}
+							className="w-fit h-full"
+						/>
+					</div>
 				</div>
 			</Title>
 			<main>
@@ -133,7 +134,9 @@ export default async function Page({
 						<div className="px-1 py-0.5 max-w-max bg-black/5 dark:bg-white/5 hover:bg-red-50 dark:hover:bg-red-950 text-transparent hover:text-red-800 dark:hover:text-red-200 duration-100 select-none hover:select-text">
 							{t("Content.Fanart.text4")}
 						</div>
-						<p className="text-xs text-neutral-950/25 dark:text-white/25 pt-1">{t("Content.Fanart.text5")}</p>
+						<p className="text-xs text-neutral-950/25 dark:text-white/25 pt-1">
+							{t("Content.Fanart.text5")}
+						</p>
 					</div>
 				</section>
 				<section className="relative flex items-end justify-center max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20 min-h-[400px] overflow-clip">
