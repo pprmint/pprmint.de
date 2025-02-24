@@ -31,7 +31,7 @@ export default function Page() {
 				</section>
 				<section className="px-6 md:px-9 lg:px-12 xl:px-20">
 					<div className="pb-20 md:pb-32 xl:pb-40 text-center border-x border-black/5 dark:border-white/5">
-						<h2 className="max-w-7xl mx-auto">
+						<h2 className="mb-6">
 							{t("MINTBIT.Content.Tester.heading")}
 							<span className="text-green">.</span>
 						</h2>

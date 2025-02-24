@@ -7,6 +7,7 @@ import TextAlignLeft from "src/icons/TextAlignLeft";
 import TextAlignCenter from "src/icons/TextAlignCenter";
 import TextAlignRight from "src/icons/TextAlignRight";
 import RotateCcw from "src/icons/RotateCcw";
+import Button from "src/components/ui/Button";
 
 export default function Tester() {
 	const t = useTranslations("MINTBIT");
@@ -20,7 +21,7 @@ export default function Tester() {
 	}
 	return (
 		<>
-			<Toolbar.Root className="w-full flex border-y border-black/5 dark:border-white/5">
+			<Toolbar.Root className="w-full md:flex border-t border-black/5 dark:border-white/5">
 				<Toolbar.ToggleGroup
 					type="single"
 					defaultValue="center"
@@ -29,7 +30,7 @@ export default function Tester() {
 						if (textAlignment) setTextAlignment(textAlignment);
 					}}
 					aria-label={t("Content.Tester.alignment")}
-					className="w-max"
+					className="w-full md:w-max md:border-r border-b border-black/5 dark:border-white/5"
 				>
 					{[
 						{ value: "text-left", ariaLabel: "Left aligned", icon: <TextAlignLeft /> },
@@ -38,7 +39,7 @@ export default function Tester() {
 					].map((alignment) => (
 						<Toolbar.ToggleItem
 							key={alignment.value}
-							className="inline-flex items-center justify-center size-9 data-[state=off]:text-neutral-950 dark:data-[state=off]:text-white data-[state=on]:text-white dark:data-[state=on]:text-neutral-950 data-[state=off]:hover:bg-black/5 dark:data-[state=off]:bg-white/5 active:bg-black/10 dark:active:bg-white/10 data-[state=on]:bg-neutral-950 dark:data-[state=on]:bg-white duration-100"
+							className="inline-flex items-center justify-center size-9 data-[state=off]:text-neutral-950 dark:data-[state=off]:text-white data-[state=on]:text-white dark:data-[state=on]:text-neutral-950 data-[state=off]:hover:bg-black/5 dark:data-[state=off]:hover:bg-white/5 data-[state=off]:active:bg-black/10 data-[state=off]:dark:active:bg-white/10 data-[state=on]:bg-neutral-950 dark:data-[state=on]:bg-white duration-100"
 							value={alignment.value}
 							aria-label={alignment.ariaLabel}
 						>
@@ -46,10 +47,10 @@ export default function Tester() {
 						</Toolbar.ToggleItem>
 					))}
 				</Toolbar.ToggleGroup>
-				<div className="flex grow flex-col sm:flex-row gap-6">
-					<div className="flex flex-col w-full sm:w-1/2">
+				<div className="flex grow flex-col sm:flex-row">
+					<div className="flex flex-col w-full sm:w-1/2 border-b border-black/5 dark:border-white/5">
 						<Slider.Root
-							className="group relative flex items-center select-none touch-none w-full h-9 self-center"
+							className="group relative flex items-center select-none touch-none w-full h-9 self-center border-r border-black/5 dark:border-white/5"
 							value={fontSize}
 							onValueChange={setFontSize}
 							min={0.5}
@@ -57,16 +58,24 @@ export default function Tester() {
 							step={0.05}
 							aria-label={t("Content.Tester.size")}
 						>
-							<Slider.Track className="relative grow rounded-full bg-neutral-900 group-hover:bg-green-700 h-px duration-100">
-								<Slider.Range className="absolute bg-green-700 rounded-full h-1 -translate-y-0.5" />
+							<div
+								aria-hidden
+								className="absolute inset-0 flex justify-between items-center px-3 pointer-events-none"
+							>
+								<span className="font-stretch-condensed">{t("Content.Tester.size")}</span>
+								<span className="text-neutral-950 dark:text-white font-stretch-condensed">
+									{fontSize}em
+								</span>
+							</div>
+							<Slider.Track className="relative grow h-9">
+								<Slider.Range className="absolute bg-gradient-to-l from-black/5 dark:from-white/5 h-9" />
 							</Slider.Track>
-							<Slider.Thumb className="block size-3 group-hover:size-4 focus-visible:size-4 bg-green ring-2 ring-neutral-950 rounded-full outline-none duration-100" />
+							<Slider.Thumb className="block h-9 w-px group-hover:w-4 active:w-4 bg-neutral-950 dark:bg-white outline-none focus-visible:outline-none duration-100" />
 						</Slider.Root>
-						<sub className="pt-3 pb-2">{t("Content.Tester.size")}</sub>
 					</div>
-					<div className="flex flex-col w-full sm:w-1/2">
+					<div className="flex flex-col w-full sm:w-1/2 border-b border-black/5 dark:border-white/5">
 						<Slider.Root
-							className="group relative flex items-center select-none touch-none w-full h-9 self-center"
+							className="group relative flex items-center select-none touch-none w-full h-9 self-center border-r border-black/5 dark:border-white/5"
 							value={tracking}
 							onValueChange={setTracking}
 							min={-0.25}
@@ -74,26 +83,35 @@ export default function Tester() {
 							step={0.01}
 							aria-label={t("Content.Tester.spacing")}
 						>
-							<Slider.Track className="relative grow rounded-full bg-neutral-900 group-hover:bg-green-700 h-px duration-100">
-								<Slider.Range className="absolute bg-green-700 rounded-full h-1 -translate-y-0.5" />
+							<div
+								aria-hidden
+								className="absolute inset-0 flex justify-between items-center px-3 pointer-events-none"
+							>
+								<span className="font-stretch-condensed">{t("Content.Tester.spacing")}</span>
+								<span className="text-neutral-950 dark:text-white font-stretch-condensed">
+									{tracking}em
+								</span>
+							</div>
+							<Slider.Track className="relative grow h-9">
+								<Slider.Range className="absolute bg-gradient-to-l from-black/5 dark:from-white/5 h-9" />
 							</Slider.Track>
-							<Slider.Thumb className="block size-3 group-hover:size-4 focus-visible:size-4 bg-green ring-2 ring-neutral-950 rounded-full outline-none duration-100" />
+							<Slider.Thumb className="block h-9 w-px group-hover:w-4 active:w-4 bg-neutral-950 dark:bg-white outline-none focus-visible:outline-none duration-100" />
 						</Slider.Root>
-						<sub className="pt-3 pb-2">{t("Content.Tester.spacing")}</sub>
 					</div>
-					<div className="flex flex-col">
-						<button
+					<div className="border-b border-black/5 dark:border-white/5 inline-flex justify-center">
+						<Button
+							design="transparent"
 							aria-label={t("Content.Tester.reset")}
-							className="group text-center size-9 border-l-neutral-900 hover:border-red text-neutral hover:bg-red active:shadow-inner active:opacity-75 hover:text-neutral-950 duration-100 rounded-md"
 							onClick={resetFont}
 						>
-							<RotateCcw className="mx-auto" />
-						</button>
+							<RotateCcw className="group-hover:rotate-[-360deg] group-hover:duration-300" />
+							{t("Content.Tester.reset")}
+						</Button>
 					</div>
 				</div>
 			</Toolbar.Root>
 			<textarea
-				className={`flex w-full p-3 md:p-6 font-mintbit text-neutral-950 dark:text-white placeholder:text-neutral bg-transparent focus:outline-none focus-visible:outline-none rounded-md min-h-[200px] h-1/2-screen border-b border-black/5 dark:border-white/5 ${textAlignment}`}
+				className={`flex w-full p-3 md:p-6 font-mintbit text-neutral-950 dark:text-white placeholder:text-neutral-950 dark:placeholder:text-white focus:placeholder:text-black/10 dark:focus:placeholder:text-white/10 bg-transparent focus:outline-none focus-visible:outline-none rounded-md min-h-[200px] h-1/2-screen border-b border-black/5 dark:border-white/5 ${textAlignment}`}
 				placeholder={t("Content.Tester.pangram")}
 				style={{
 					fontSize: `${fontSize}em`,

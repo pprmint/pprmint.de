@@ -27,14 +27,14 @@ export default function Glyphs() {
 				<div
 					className={`relative grid grid-cols-8 md:grid-cols-10 lg:grid-cols-12 xl:grid-cols-16 ${
 						glyphsOpen ? "max-h-[999vh]" : "max-h-2/3-screen"
-					} duration-500 ease-in-expo overflow-hidden`}
+					} border-y border-black/5 dark:border-white/5 duration-500 ease-in-expo overflow-hidden`}
 				>
 					<AnimatePresence>
 						{!glyphsOpen && (
 							<m.div
 								initial={{ opacity: 1 }}
 								exit={{ opacity: 0 }}
-								className="absolute flex items-center justify-center bottom-0 left-px right-px z-10 bg-gradient-to-t from-white dark:from-neutral-950 py-6"
+								className="absolute flex items-center justify-center bottom-0 left-px right-px z-10 bg-gradient-to-t from-white dark:from-neutral-950 pb-6 pt-12"
 							>
 								<Button design="filled" color="neutral" onClick={() => setGlyphsOpen(true)}>
 									{t("MINTBIT.Content.AllGlyphs.showAll")}
