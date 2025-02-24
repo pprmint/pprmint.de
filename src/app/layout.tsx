@@ -48,7 +48,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 		<html lang={locale} suppressHydrationWarning>
 			<body className="bg-white dark:bg-neutral-950 max-w-screen overflow-x-hidden selection:bg-neutral-950 dark:selection:bg-neutral-50 selection:text-white dark:selection:text-neutral-950 text-neutral-950/75 dark:text-white/75 focus-visible:outline-hidden focus-visible:ring-2">
 				<LazyMotion features={domAnimation}>
-					<ThemeProvider defaultTheme="dark" themes={["light", "dark", "system"]} attribute="class">
+					<ThemeProvider themes={["light", "dark", "system"]} attribute="class">
 						<noscript>
 							<div className="px-2 py-1 bg-red text-white fixed z-100 top-0 left-1/2 -translate-x-1/2 rounded-b-md w-full max-w-max">
 								<p className="text-sm">
