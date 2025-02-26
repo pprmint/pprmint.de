@@ -121,7 +121,7 @@ function Chatbox() {
 			<Dialog.Trigger asChild>
 				<button className="group relative h-14">
 					<div
-						className="relative z-10 flex whitespace-nowrap items-end gap-3 hover:font-bold text-5xl text-neutral-950 dark:text-white group-focus-visible:bg-neutral-800 group-hover:drop-shadow-md duration-500 ease-out-expo"
+						className="relative z-10 flex whitespace-nowrap items-end gap-3 hover:font-bold text-5xl text-neutral-950 dark:text-white group-hover:drop-shadow-md duration-500 ease-out-expo"
 						style={{ lineHeight: "0.76em" }}
 					>
 						<div className="relative h-14 w-16 overflow-clip">
@@ -191,7 +191,7 @@ function Chatbox() {
 			</Dialog.Trigger>
 			<Dialog.Portal>
 				<Dialog.Overlay className="bg-white/90 dark:bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-100" />
-				<Dialog.Content className="z-100 fixed w-full max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col bg-white dark:bg-neutral-950 border border-white/10 outline outline-1 outline-black/10 dark:outline-black/50 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl sm:rounded-xl overflow-clip h-svh md:max-h-[800px]">
+				<Dialog.Content className="z-100 fixed w-full max-w-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col bg-white dark:bg-neutral-950 outline outline-1 outline-black/5 dark:outline-white/5 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl overflow-clip h-svh md:max-h-[800px]">
 					<div className="absolute top-0 left-0 right-0 flex gap-6 items-center justify-between py-2 backdrop-blur-xl bg-[#eeea] dark:bg-[#222a] z-10 border-b border-black/5 dark:border-white/5">
 						<div className="w-1/5">
 							<Dialog.Close asChild>

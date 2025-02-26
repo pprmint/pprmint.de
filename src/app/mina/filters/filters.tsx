@@ -83,13 +83,11 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 						<Checkbox border id="nsfw" checked={nsfw} onCheckedChange={handleNsfw} />
 						<label htmlFor="nsfw">{t("Content.NSFW.checkbox")}</label>
 					</div>
-					<div className="w-full sm:w-48 gap-3 sm:border-r border-black/5 dark:border-white/5">
+					<div className="grow sm:grow-0 sm:w-48 gap-3 sm:border-r border-black/5 dark:border-white/5">
 						<Select.Root value={props.artist} onValueChange={handleSelectArtist}>
 							<div className="flex w-full">
 								<Select.Trigger
-									className={`group flex items-center justify-between px-3 h-9 w-full ${
-										props.artist != "" && "rounded-r-none"
-									} hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white active:shadow-inner duration-100`}
+									className="group flex items-center justify-between px-3 h-9 w-full hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white active:shadow-inner duration-100"
 									aria-label="Artist"
 								>
 									<Select.Value aria-label={props.artist}>

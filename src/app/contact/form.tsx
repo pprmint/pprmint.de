@@ -87,7 +87,12 @@ export default function Form() {
 								exit={{ opacity: 0, transition: { ease: "linear", duration: 0.2 } }}
 								className="absolute inset-0 z-20 bg-white/75 dark:bg-neutral-950/75 flex items-center justify-center"
 							>
-								<FadingImage src={PixelMina} alt="" className="size-32" style={{ imageRendering: "pixelated" }} />
+								<FadingImage
+									src={PixelMina}
+									alt=""
+									className="size-32"
+									style={{ imageRendering: "pixelated" }}
+								/>
 							</m.div>
 						)}
 					</AnimatePresence>
@@ -140,26 +145,34 @@ export default function Form() {
 							}}
 							className="box-content col-span-2 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100 resize-none"
 						/>
-						<div className="col-span-2 flex items-center justify-between border-b border-black/5 dark:border-white/5">
-							<p className="text-xs ml-3">
-								{t.rich("preferMailto", {
-									Link: (chunks) => (
-										<Link href={`mailto:${chunks}?subject=${t("Message.subject")}&body=${t("Message.body")}`} className="text-link">
-											{chunks}
-										</Link>
-									),
-								})}
-							</p>
+						<div className="col-span-2 flex flex-col sm:flex-row-reverse items-center justify-between">
 							<Button
 								onClick={(e) => {
 									handleSubmit(e);
 								}}
 								disabled={invalidInput}
+								design="filled"
 								color={failed ? "yellow" : "green"}
 							>
-								{sending ? <Loader2 size={16} className="animate-spin" /> : failed && <WarningTriangle />}
+								{sending ? (
+									<Loader2 size={16} className="animate-spin" />
+								) : (
+									failed && <WarningTriangle />
+								)}
 								{sending ? t("Form.sending") : failed ? t("Form.retry") : t("Form.send")}
 							</Button>
+							<p className="text-xs ml-3 my-3 sm:my-0">
+								{t.rich("preferMailto", {
+									Link: (chunks) => (
+										<Link
+											href={`mailto:${chunks}?subject=${t("Message.subject")}&body=${t("Message.body")}`}
+											className="text-link"
+										>
+											{chunks}
+										</Link>
+									),
+								})}
+							</p>
 						</div>
 					</form>
 				</m.div>
@@ -169,7 +182,7 @@ export default function Form() {
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1, transition: { ease: "linear", duration: 0.2 } }}
 					exit={{ opacity: 0, transition: { ease: "linear", duration: 0.2 } }}
-					className="min-h-[349px] sm:min-h-[308px] flex flex-col gap-3 items-center justify-center text-center"
+					className="min-h-[349px] sm:min-h-[303px] flex flex-col gap-3 items-center justify-center text-center"
 				>
 					<h1 className="pb-0">
 						<span>

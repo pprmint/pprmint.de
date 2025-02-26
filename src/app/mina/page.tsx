@@ -102,7 +102,7 @@ export default async function Page({
 							})}
 						</p>
 						<div className="flex flex-col lg:items-end">
-							<p>{t("Content.Reference.Download.text")}</p>
+							<p className="mb-3">{t("Content.Reference.Download.text")}</p>
 							<Link
 								href="https://static.pprmint.de/download/Mina/Mina_ref_sheet_(by_nekomimi).png"
 								target="_blank"

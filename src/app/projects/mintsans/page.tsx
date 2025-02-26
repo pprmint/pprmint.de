@@ -54,25 +54,27 @@ export default function Page() {
 						<FadingImage src={Slide6} alt="Slide 6" className="w-full" />
 					</div>
 				</section>
-				<section className="w-full max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
-					<div className="py-20 md:py-32 xl:py-40 border-x border-black/5 dark:border-white/5">
-						<h2>
+				<section className="px-6 md:px-9 lg:px-12 xl:px-20">
+					<div className="py-20 md:py-32 xl:py-40 text-center border-x border-black/5 dark:border-white/5">
+						<h2 className="mb-6">
 							{t("MINTSANS.Content.Tester.heading")}
 							<span className="text-green">.</span>
 						</h2>
 						<Tester />
 					</div>
 				</section>
-				<section className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9 py-5">
-					<h2>{t("MINTSANS.Content.Download.heading")}</h2>
-					<p>{t("MINTSANS.Content.Download.text")}</p>
-					<br />
-					<Link href="https://static.pprmint.de/download/mintsans_2.0.zip">
-						<Button color="green" tabIndex={-1}>
-							<Download />
-							{t("COMMON.download")}
-						</Button>
-					</Link>
+				<section className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
+					<div className="text-center border-x border-black/5 dark:border-white/5">
+						<h2>{t("MINTSANS.Content.Download.heading")}</h2>
+						<p>{t("MINTSANS.Content.Download.text")}</p>
+						<br />
+						<Link className="flex w-max mx-auto" href="https://static.pprmint.de/download/mintsans_2.0.zip">
+							<Button design="filled" color="green" tabIndex={-1}>
+								<Download />
+								{t("COMMON.download")}
+							</Button>
+						</Link>
+					</div>
 				</section>
 			</main>
 		</>

@@ -85,7 +85,7 @@ export default async function Page() {
 				</div>
 			</Title>
 			<main className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-				<section className="relative w-full grid lg:grid-cols-2 border border-black/5 dark:border-white/5">
+				<section className="relative w-full grid lg:grid-cols-2 border border-t-0 border-black/5 dark:border-white/5">
 					<div className="w-full overflow-clip text-center py-12 md:py-20 xl:py-40 border-r border-black/5 dark:border-white/5">
 						<h2>
 							{t("Content.Mina.heading")}
@@ -96,7 +96,7 @@ export default async function Page() {
 							<Chatbox />
 						</div>
 					</div>
-					<div className="group w-full overflow-clip text-center py-12 md:py-20 xl:py-40">
+					<div className="group w-full overflow-clip text-center pt-12 md:pt-20 xl:pt-40">
 						<h2>
 							{t("Content.Email.title")}
 							<span className="text-green">.</span>

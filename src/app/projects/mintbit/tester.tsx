@@ -111,7 +111,7 @@ export default function Tester() {
 				</div>
 			</Toolbar.Root>
 			<textarea
-				className={`flex w-full p-3 md:p-6 font-mintbit text-neutral-950 dark:text-white placeholder:text-neutral-950 dark:placeholder:text-white focus:placeholder:text-black/10 dark:focus:placeholder:text-white/10 bg-transparent focus:outline-none focus-visible:outline-none rounded-md min-h-[200px] h-1/2-screen border-b border-black/5 dark:border-white/5 ${textAlignment}`}
+				className={`flex w-full p-3 md:p-6 font-mintbit text-neutral-950 dark:text-white placeholder:text-neutral-950 dark:placeholder:text-white focus:placeholder:text-black/10 dark:focus:placeholder:text-white/10 bg-transparent focus:outline-none focus-visible:outline-none min-h-[200px] h-1/2-screen border-b border-black/5 dark:border-white/5 ${textAlignment}`}
 				placeholder={t("Content.Tester.pangram")}
 				style={{
 					fontSize: `${fontSize}em`,

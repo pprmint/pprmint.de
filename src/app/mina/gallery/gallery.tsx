@@ -52,7 +52,7 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 	return (
 		<div
 			ref={galleryRef}
-			className="group grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2"
+			className="group grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 sm:p-2 border-y border-black/5 dark:border-white/5 sm:gap-2"
 		>
 			{artworks.data.map((art, index) => (
 				<Dialog.Root key={art.id} onOpenChange={reset}>
@@ -66,11 +66,11 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 							}}
 							onClick={() => setSelectedArt(index)}
 							className="group/button overflow-clip bg-white dark:bg-neutral-950
-								[.group:hover_&:not(:hover)]:opacity-60
+								sm:[.group:hover_&:not(:hover)]:opacity-60
 								outline outline-1 -outline-offset-1 outline-neutral-50/5
-								hover:z-10 focus-visible:z-10 scale-100 hover:scale-[1.025] active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-square"
+								focus-visible:z-10 scale-100 sm:hover:scale-[1.025] sm:active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 sm:hover:shadow-lg active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-square"
 						>
-							<div className="scale-[1.025] group-hover/button:scale-100 group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
+							<div className="scale-[1.025] sm:group-hover/button:scale-100 group-active/button:scale-100 sm:group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
 								<FadingImage
 									src={`https://static.pprmint.de${art.artwork[0].formats.small ? art.artwork[0].formats.small.url : art.artwork[0].url}`}
 									width={art.artwork[0].width}

@@ -11,12 +11,6 @@ const Links = [
 	{
 		link: "/graphics",
 		text: "Content.Hero.graphics",
-		matrix: [
-			1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1,
-			0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1,
-			0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0,
-			1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
-		],
 		images: [
 			"https://cms.pprmint.de/uploads/Mesh_Edit_778967f6fe.webp",
 			"https://cms.pprmint.de/uploads/Solar_System_2_f133addf64.png",
@@ -25,12 +19,6 @@ const Links = [
 	{
 		link: "/photos",
 		text: "Content.Hero.photos",
-		matrix: [
-			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0,
-			1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1,
-			1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-			0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		],
 		images: [
 			"https://cms.pprmint.de/uploads/P1070217_09b3fc1981.webp",
 			"https://cms.pprmint.de/uploads/DSC_00275_0b8fa85e3b.webp",
@@ -39,12 +27,6 @@ const Links = [
 	{
 		link: "/projects",
 		text: "Content.Hero.projects",
-		matrix: [
-			1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1,
-			1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0,
-			0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0,
-			0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0,
-		],
 		images: [
 			"https://cms.pprmint.de/uploads/pomi_moe_cdd8f9992e.png",
 			"https://cms.pprmint.de/uploads/autsellia_com_582c948c0d.png",
@@ -53,12 +35,6 @@ const Links = [
 	{
 		link: "/contact",
 		text: "Content.Hero.contact",
-		matrix: [
-			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0,
-			0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0,
-			0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-			0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-		],
 		images: ["/assets/home/letter.png", "/assets/home/pen.png"],
 	},
 ];
@@ -162,23 +138,12 @@ export default function HomeTitle() {
 												delay: 1 + (index + 1) / 10,
 											},
 										}}
-										className="flex items-center justify-center relative w-full aspect-video border-y odd:border-r border-black/5 dark:border-white/5 even:border-r-0 group-last:border-r-0"
+										className="relative w-full aspect-video border-y odd:border-r border-black/5 dark:border-white/5 even:border-r-0 group-last:border-r-0"
 									>
-										<span className="text-neutral-950 dark:text-white group-hover:opacity-0 group-hover:tracking-widest uppercase font-stretch-expanded font-light duration-200">
+										<div className="absolute inset-y-0 left-0 w-0 group-hover:w-full bg-neutral-950 dark:bg-white duration-200" />
+										<span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-neutral-950 dark:text-white group-hover:text-neutral-white dark:group-hover:text-neutral-950 uppercase font-stretch-expanded font-light group-hover:font-bold duration-200">
 											{t(button.text)}
 										</span>
-										<div className="absolute group-hover:grid grid-cols-16 inset-0 duration-200 drop-shadow-md group-active:drop-shadow-none">
-											{button.matrix.map((dot, index) => (
-												<div
-													key={index}
-													className={`bg-neutral-50/10 scale-[0.2] rounded-full ${
-														dot === 1 &&
-														"group-hover:bg-neutral-950 dark:group-hover:bg-neutral-50 group-hover:scale-[1.05] group-hover:rounded-none"
-													} duration-100`}
-													style={{ transitionDelay: `${index * 0.002}s` }}
-												/>
-											))}
-										</div>
 									</m.button>
 								</Link>
 							))}

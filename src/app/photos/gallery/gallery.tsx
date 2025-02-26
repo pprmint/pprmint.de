@@ -35,6 +35,7 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 		setTimeout(() => {
 			setDirection(0);
 			setScale(1);
+			setSelectedPhoto(0);
 		}, 200);
 	}
 
@@ -51,7 +52,7 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 	return (
 		<div
 			ref={galleryRef}
-			className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2"
+			className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 sm:p-2 border-y border-black/5 dark:border-white/5 sm:gap-2"
 		>
 			{photos.data.map((photo, index) => (
 				<Dialog.Root key={photo.id} onOpenChange={reset}>
@@ -59,11 +60,11 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 						<button
 							onClick={() => setSelectedPhoto(index)}
 							className="group/button overflow-clip bg-white dark:bg-neutral-950
-								[.group:hover_&:not(:hover)]:opacity-60
+								sm:[.group:hover_&:not(:hover)]:opacity-60
 								outline outline-1 -outline-offset-1 outline-neutral-50/5
-								hover:z-10 focus-visible:z-10 scale-100 hover:scale-[1.025] active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-video"
+								focus-visible:z-10 scale-100 sm:hover:scale-[1.025] sm:active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 sm:hover:shadow-lg active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-video"
 						>
-							<div className="scale-[1.025] group-hover/button:scale-100 group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
+							<div className="scale-[1.025] sm:group-hover/button:scale-100 group-active/button:scale-100 sm:group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
 								<FadingImage
 									src={`https://static.pprmint.de${photo.photo.formats.small.url}`}
 									width={photo.photo.formats.small.width}
@@ -78,7 +79,7 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 						<Dialog.Overlay className="bg-neutral-950/90 backdrop-blur-xl data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
 						<Dialog.Content asChild>
 							<div
-								className={`text-white fixed inset-0 z-100 h-screen max-h-svh w-screen focus-visible:outline-none`}
+								className={`text-white fixed inset-0 z-100 h-screen max-h-svh w-screen data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out focus-visible:outline-none`}
 							>
 								<Dialog.Description className="sr-only">
 									{photos.data[selectedPhoto].photo.alternativeText ||

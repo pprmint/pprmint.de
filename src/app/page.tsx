@@ -10,7 +10,6 @@ import HomeTitle from "./home/title";
 import Announcements from "./home/announcements";
 import * as motion from "motion/react-client";
 import Button from "src/components/ui/Button";
-import MinaSansBg from "public/assets/minasans/title.webp";
 
 export async function generateMetadata() {
 	const t = await getTranslations("HOME");
