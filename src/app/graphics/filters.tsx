@@ -51,22 +51,22 @@ export default function Filters(props: { type: string; dimension: string }) {
 					onClick={() => handleSelectDimension("2d")}
 					className={`flex gap-3 items-center justify-center w-full h-9 ${
 						props.dimension == "2d"
-							? "font-semibold text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10"
+							? "font-semibold text-white dark:text-neutral-950 bg-neutral-950 dark:bg-white hover:bg-neutral-900 dark:hover:bg-neutral-50 active:bg-neutral-800 dark:active:bg-neutral-100"
 							: "hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white"
-					} active:shadow-inner active:opacity-75 duration-100`}
+					} active:shadow-inner duration-100`}
 				>
-					<Stop className={`${props.dimension == "2d" ? "fill-neutral-950 dark:fill-white" : "fill-current"} duration-100`} />
+					<Stop className="duration-100" />
 					2D
 				</button>
 				<button
 					onClick={() => handleSelectDimension("3d")}
 					className={`flex gap-3 items-center justify-center w-full h-9 ${
 						props.dimension == "3d"
-							? "font-semibold text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10"
+							? "font-semibold text-white dark:text-neutral-950 bg-neutral-950 dark:bg-white hover:bg-neutral-900 dark:hover:bg-neutral-50 active:bg-neutral-800 dark:active:bg-neutral-100"
 							: "hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white"
-					} active:shadow-inner active:opacity-75 duration-100`}
+					} active:shadow-inner duration-100`}
 				>
-					<Cube className={`${props.dimension == "3d" ? "fill-neutral-950 dark:fill-white" : "fill-current"} duration-100`} />
+					<Cube className="duration-100" />
 					3D
 				</button>
 			</div>
@@ -75,22 +75,22 @@ export default function Filters(props: { type: string; dimension: string }) {
 					onClick={() => handleSelectType("static")}
 					className={`flex gap-3 items-center justify-center w-full h-9 ${
 						props.type == "static"
-							? "font-semibold text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10"
+							? "font-semibold text-white dark:text-neutral-950 bg-neutral-950 dark:bg-white hover:bg-neutral-900 dark:hover:bg-neutral-50 active:bg-neutral-800 dark:active:bg-neutral-100"
 							: "hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white"
-					} active:shadow-inner active:opacity-75 duration-100`}
+					} active:shadow-inner duration-100`}
 				>
-					<Photo className={`${props.type == "static" ? "fill-neutral-950 dark:fill-white" : "fill-current"} duration-100`} />
+					<Photo className="duration-100" />
 					{t("Content.Filters.Type.static")}
 				</button>
 				<button
 					onClick={() => handleSelectType("animated")}
 					className={`flex gap-3 items-center justify-center w-full h-9 ${
 						props.type == "animated"
-							? "font-semibold text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10"
+							? "font-semibold text-white dark:text-neutral-950 bg-neutral-950 dark:bg-white hover:bg-neutral-900 dark:hover:bg-neutral-50 active:bg-neutral-800 dark:active:bg-neutral-100"
 							: "hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white"
-					} active:shadow-inner active:opacity-75 duration-100`}
+					} active:shadow-inner duration-100`}
 				>
-					<Video className={`${props.type == "animated" ? "fill-neutral-950 dark:fill-white" : "fill-current"} duration-100`} />
+					<Video className="duration-100" />
 					{t("Content.Filters.Type.animated")}
 				</button>
 			</div>
