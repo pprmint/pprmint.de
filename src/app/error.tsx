@@ -15,7 +15,7 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
 							{error.name}
 						</h1>
 						<p className="w-full">{error.message}</p>
-						{error.digest && <div className="text-xs">Code: {error.digest}</div>}
+						{error.digest && <div className="text-xs mt-3">Code: {error.digest}</div>}
 					</div>
 					<Button noInitialPadding color="red" onClick={() => reset()}>
 						<RotateCw />
