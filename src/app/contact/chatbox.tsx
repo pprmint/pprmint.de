@@ -180,8 +180,9 @@ function Chatbox() {
 						<div className="absolute w-full h-px bg-gradient-to-r from-transparent via-black/5 dark:via-white/5 to-transparent" />
 						<div className="absolute w-full aspect-square -translate-y-[99%]">
 							<div
-								className="absolute w-full aspect-square opacity-0 group-hover:opacity-100 rounded-full animate-slow-spin group-hover:blur-xl duration-300"
+								className="absolute w-full aspect-square opacity-0 group-hover:opacity-100 rounded-full animate-spin group-hover:blur-xl duration-300"
 								style={{
+									animationDuration: "5s",
 									backgroundImage: "conic-gradient(#f44, #f71, #fb0, #9c3, #4b5, #2cf, #29f, #a7e, #e6b, #f44)",
 								}}
 							/>

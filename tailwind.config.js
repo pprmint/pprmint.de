@@ -157,30 +157,6 @@ module.exports = {
 				mintsans: "MintSans, sans-serif",
 			},
 			keyframes: {
-				enterFromLeft: {
-					from: { opacity: 0, transform: "translateX(-290px)" },
-					to: { opacity: 1, transform: "translateX(0px)" },
-				},
-				enterFromRight: {
-					from: { opacity: 0, transform: "translateX(290px)" },
-					to: { opacity: 1, transform: "translateX(0px)" },
-				},
-				enterFromTop: {
-					from: { opacity: 0, transform: "rotateX(-20deg)" },
-					to: { opacity: 1, transform: "rotateX(0deg)" },
-				},
-				exitToLeft: {
-					from: { opacity: 1, transform: "translateX(0px)" },
-					to: { opacity: 0, transform: "translateX(-290px)" },
-				},
-				exitToRight: {
-					from: { opacity: 1, transform: "translateX(0px)" },
-					to: { opacity: 0, transform: "translateX(290px)" },
-				},
-				exitToTop: {
-					from: { opacity: 1, transform: "rotateX(0deg)" },
-					to: { opacity: 0, transform: "rotateX(-10deg)" },
-				},
 				accordionSlideDown: {
 					from: { height: 0, opacity: 0 },
 					to: { height: "var(--radix-accordion-content-height)", opacity: 1 },
@@ -413,13 +389,6 @@ module.exports = {
 				},
 			},
 			animation: {
-				"slow-spin": "spin 5s linear infinite;",
-				"enter-from-l": "enterFromLeft .25s cubic-bezier(.15,0,.35,1)",
-				"enter-from-r": "enterFromRight .25s cubic-bezier(.15,0,.35,1)",
-				"enter-from-t": "enterFromTop .25s cubic-bezier(.15,0,.35,1)",
-				"exit-to-l": "exitToLeft .25s cubic-bezier(.15,0,.35,1)",
-				"exit-to-r": "exitToRight .25s cubic-bezier(.15,0,.35,1)",
-				"exit-to-t": "exitToTop .25s cubic-bezier(.15,0,.35,1)",
 				"accordion-slide-down": "accordionSlideDown .4s cubic-bezier(0.5, 0, 0.1, 1);",
 				"accordion-slide-up": "accordionSlideUp .4s cubic-bezier(0.5, 0, 0.1, 1);",
 				"collapsible-horizontal-open": "collapsibleHorizontalOpen .3s cubic-bezier(0.5, 0, 0.17, 1);",
