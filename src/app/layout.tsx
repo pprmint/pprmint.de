@@ -46,7 +46,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 	const messages = await getMessages();
 	return (
 		<html lang={locale} suppressHydrationWarning>
-			<body className="bg-white dark:bg-neutral-950 max-w-screen overflow-x-hidden selection:bg-neutral-950 dark:selection:bg-neutral-50 selection:text-white dark:selection:text-neutral-950 text-neutral-950/75 dark:text-white/75 focus-visible:outline-hidden focus-visible:ring-2">
+			<body className="bg-white dark:bg-neutral-950 max-w-screen overflow-x-hidden selection:bg-green/50 text-neutral-950/75 dark:text-white/75 focus-visible:outline-hidden focus-visible:ring-2">
 				<LazyMotion features={domAnimation}>
 					<ThemeProvider themes={["light", "dark", "system"]} attribute="class">
 						<noscript>
