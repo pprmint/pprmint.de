@@ -140,8 +140,28 @@ export default function HomeTitle() {
 										}}
 										className="relative w-full aspect-video border-y odd:border-r border-black/5 dark:border-white/5 even:border-r-0 group-last:border-r-0"
 									>
-										<div className="absolute inset-y-0 left-0 w-0 group-hover:w-full bg-neutral-950 dark:bg-white duration-200" />
-										<span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-neutral-950 dark:text-white group-hover:text-neutral-white dark:group-hover:text-neutral-950 uppercase font-stretch-expanded font-light group-hover:font-bold duration-200">
+										<div className="absolute flex items-center justify-center z-10 inset-x-0 bottom-0 h-0 group-hover:h-full bg-neutral-950 dark:bg-white group-active:active:bg-neutral-800 dark:group-active:bg-neutral-100 text-white dark:text-neutral-950 group-active:shadow-inner text-2xl uppercase font-stretch-expanded font-bold duration-400 ease-out-quint overflow-clip">
+											<div className="flex opacity-0 group-hover:opacity-100 duration-100">
+												{t(button.text)
+													.split("")
+													.map((char, index) => (
+														<div
+															className="group-hover:animate-tooltip-enter-bottom"
+															style={{
+																animationDuration: "0.5s",
+																animationTimingFunction:
+																	"cubic-bezier(0.25, 1, 0.5, 1)",
+																animationDelay: `${index * 0.025}s`,
+																animationFillMode: "backwards",
+															}}
+															key={index}
+														>
+															{char}
+														</div>
+													))}
+											</div>
+										</div>
+										<span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-neutral-950 dark:text-white uppercase font-stretch-expanded font-light">
 											{t(button.text)}
 										</span>
 									</m.button>
