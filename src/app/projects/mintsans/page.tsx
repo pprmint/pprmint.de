@@ -8,7 +8,7 @@ import Title from "src/components/layout/Title";
 import FadingImage from "src/components/ui/FadingImage";
 import Button from "src/components/ui/Button";
 
-import TitleImage from "public/assets/mintsans/MintSans_V2.jpg";
+import TitleImage from "public/assets/mintsans/V2.png";
 import Slide1 from "public/assets/mintsans/slide1.svg";
 import Slide2 from "public/assets/mintsans/slide2.svg";
 import Slide3 from "public/assets/mintsans/slide3.svg";
@@ -30,7 +30,7 @@ export default function Page() {
 		<>
 			<Title title={t("MINTSANS.Head.title")} description={t("MINTSANS.Head.description")}>
 				<div className="absolute inset-0 bg-neutral-950">
-					<FadingImage src={TitleImage} alt="" fill className="object-contain object-right" />
+					<FadingImage src={TitleImage} alt="" fill className="object-contain object-center p-6" />
 				</div>
 			</Title>
 			<main>
