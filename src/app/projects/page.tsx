@@ -16,7 +16,7 @@ export default function Page() {
     return (
 		<>
 			<Title title={t("PROJECTS.Head.title")} description={t("PROJECTS.Head.description")} />
-			<main className="max-w-7xl mx-auto px-6 md:px-9">
+			<main className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
 				<Grid />
 			</main>
 		</>
