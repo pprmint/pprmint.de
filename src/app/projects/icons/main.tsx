@@ -246,10 +246,10 @@ export default function Main() {
 				) : null}
 			</div>
 			<div
-				className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 md:even:border-r border-black/5 dark:border-white/5 md:divide-x divide-black/5 dark:divide-white/5`}
+				className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 border-r border-black/5 dark:border-white/5 divide-x divide-black/5 dark:divide-white/5`}
 			>
 				{Icons.map((category, catIndex) => (
-					<div key={catIndex} className="md:first:border-l border-b border-black/5 dark:border-white/5">
+					<div key={catIndex} className="first:border-l border-b border-black/5 dark:border-white/5">
 						<p className="font-stretch-condensed text-2xl md:text-3xl px-4 pt-3 pb-2 text-neutral-950 dark:text-white">
 							{t(`ICONS.Content.Category.${category.category}`)}
 						</p>

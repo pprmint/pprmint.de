@@ -50,9 +50,9 @@ export default function Checkbox({ color = "neutral", border, large, ...rest }: 
 										? "data-[state='unchecked']:border-violet/15"
 										: color === "pink"
 											? "data-[state='unchecked']:border-pink/15"
-											: !rest.disabled ?
-												"data-[state='unchecked']:border-neutral-950/10 dark:data-[state='unchecked']:border-white/10":
-												"data-[state='unchecked']:border-black/5 dark:data-[state='unchecked']:border-white/5";
+											: !rest.disabled
+												? "data-[state='unchecked']:border-black/5 dark:data-[state='unchecked']:border-white/5"
+												: "border-transparent";
 
 	return (
 		<RCheckbox.Root
