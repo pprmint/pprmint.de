@@ -349,7 +349,8 @@
 				"text2": "Davon abgesehen ist jegliche Wiederverwendung, ganz gleich ob für kommerzielle oder persönliche Zwecke, ohne meine schriftliche Erlaubnis <b>untersagt</b>.",
 				"text3": "<Link>Schreibe mir eine Nachricht</Link>, wenn du Fragen dazu hast."
 			},
-			"noHasOwn": "Der Text oben wurde eigentlich in Markdown geschrieben. Wenn du das hier lesen kannst, solltest du mal deinen Browser aktualisieren, da sonst Formatierungen und Links für dich hier nicht funktionieren werden."
+			"noHasOwn": "Der Text oben wurde eigentlich in Markdown geschrieben. Wenn du das hier lesen kannst, solltest du mal deinen Browser aktualisieren, da sonst Formatierungen und Links für dich hier nicht funktionieren werden.",
+			"return": "Zurück zur Galerie"
 		},
 		"Error": {
 			"title": "Kein Ergebnis",

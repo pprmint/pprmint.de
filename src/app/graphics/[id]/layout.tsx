@@ -2,17 +2,27 @@
 import { ReactNode } from "react";
 import ArrowLeft from "src/icons/ArrowLeft";
 import Link from "next/link";
+import Button from "src/components/ui/Button";
+import { useTranslations } from "next-intl";
+import ArrowTurnLeft from "src/icons/ArrowTurnLeft";
 
 export default function Layout({ children }: { children: ReactNode }) {
+	const t = useTranslations("GRAPHICS");
 	return (
 		<>
-			<Link
-				href="/graphics"
-				className="group absolute top-60 md:top-80 xl:top-96 left-1/2 -translate-x-1/2 inline-flex z-10 text-lg text-white hover:text-neutral-950 border-2 border-neutral-50 hover:bg-neutral-50 active:border-neutral-200 active:bg-neutral-200 rounded-full p-1 duration-100 animate-fade-in"
-			>
-				<ArrowLeft className="size-[30px] stroke-0 group-hover:stroke-1 stroke-current duration-100" />
-			</Link>
 			{children}
+			<div className="max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20">
+				<div className="w-full pt-12 md:pt-20 xl:pt-40 border-x border-black/5 dark:border-white/5">
+					<div className="flex justify-center border-y border-black/5 dark:border-white/5">
+						<Link href="/graphics">
+							<Button noInitialPadding size="large">
+								{t("Content.return")}
+								<ArrowTurnLeft />
+							</Button>
+						</Link>
+					</div>
+				</div>
+			</div>
 		</>
 	);
 }
