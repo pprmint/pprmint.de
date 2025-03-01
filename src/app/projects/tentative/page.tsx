@@ -29,7 +29,7 @@ export default function Page() {
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
 				<video
-					src="/assets/tentative/LogoCollection.mp4"
+					src="https://cms.pprmint.de/uploads/hero_dedff7564d.mp4"
 					autoPlay
 					playsInline
 					muted
@@ -37,8 +37,8 @@ export default function Page() {
 					className="absolute w-screen min-h-screen max-h-svh object-cover"
 				/>
 			</Title>
-			<main>
-				<section className="max-w-7xl mx-auto px-6 md:px-9 my-20">
+			<main className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
+				<section className="pt-20 md:pt-32 xl:pt-40 border-x border-black/5 dark:border-white/5">
 					<h2>
 						About Tentative<span className="text-green">.</span>
 					</h2>
@@ -92,12 +92,12 @@ export default function Page() {
 						ideas I've had for a while: Using a pixel font and the color purple (my favorite (green is a close second)).
 					</p>
 				</section>
-				<section className="max-w-7xl mx-auto px-6 md:px-9 my-20">
+				<section className="pt-20 md:pt-32 xl:pt-40 border-x border-black/5 dark:border-white/5">
 					<h2>
 						69 days later<span className="text-green">.</span>
 					</h2>
 					<p>I threw it all out the window.</p>
-					<div className="relative w-full aspect-video my-9">
+					<div className="relative w-full max-w-7xl mx-auto aspect-video my-9">
 						<FadingImage src={BrandingRev0} alt="" className="w-full rounded-xl" />
 					</div>
 					<p>
@@ -119,7 +119,7 @@ export default function Page() {
 						If you feel like something's off about that stylized A, you are not alone. We also thought it looked weird at some point, so I
 						fixed it.
 					</p>
-					<video src="/assets/tentative/LogoFix.mp4" autoPlay playsInline muted loop />
+					<video src="/assets/tentative/LogoFix.mp4" autoPlay playsInline muted loop className="max-w-7xl mx-auto" />
 					<p>
 						Separating the "TIVE" from the "TENTA" part by setting it in the black weight turned turned out to be a neat idea, as "TENTA"
 						could now be used as a prefix for other projects, or be substituted for the tent icon if space was tight.
@@ -136,7 +136,7 @@ export default function Page() {
 						ultimately decided on <span className="text-violet-500">violet</span> to be Tentative's main brand color.
 					</p>
 				</section>
-				<section className="max-w-7xl mx-auto px-6 md:px-9 my-20">
+				<section className="pt-20 md:pt-32 xl:pt-40 border-x border-black/5 dark:border-white/5">
 					<div className="flex flex-col md:flex-row gap-9 my-9">
 						<div className="w-full">
 							<h2>
@@ -177,7 +177,7 @@ export default function Page() {
 						member. Prominently displayed is a drawing of their respective OCs, their logo and their respective icons in the background
 						visible on hover.
 					</p>
-					<div className="relative w-full aspect-video my-9">
+					<div className="relative w-full max-w-7xl mx-auto aspect-video my-9">
 						<FadingImage src={WebsiteMembers} alt="" className="rounded-xl" />
 					</div>
 				</section>

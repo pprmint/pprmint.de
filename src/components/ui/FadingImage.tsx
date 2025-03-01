@@ -1,7 +1,7 @@
 "use client";
 import { Fragment, useState } from "react";
 import Image, { ImageProps } from "next/image";
-import Spinner from "../loading/Glow";
+import LoadingSpinner from "../loading/LoadingSpinner";
 
 interface FadingImageProps extends ImageProps {
 	className?: string;
@@ -14,7 +14,7 @@ export default function FadingImage({ className, hideSpinner, ...rest }: FadingI
 		<Fragment>
 			{!hideSpinner && !loaded && (
 				<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-					<Spinner />
+					<LoadingSpinner />
 				</div>
 			)}
 			{/* eslint jsx-a11y/alt-text:0 */}

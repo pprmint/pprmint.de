@@ -1,8 +1,6 @@
 "use client";
-import * as Toast from "@radix-ui/react-toast";
+import { toast } from "sonner";
 import { useTranslations } from "next-intl";
-import { useRef, useState } from "react";
-import X from "src/icons/X";
 
 interface Shade {
 	[index: number]: string;
@@ -166,62 +164,48 @@ const Colors: Color[] = [
 
 export default function Palette() {
 	const t = useTranslations("COMMON");
-
-	// Toasts for copying palette colors.
-	const [toastOpen, setToastOpen] = useState(false);
-	const timerRef = useRef(0);
-	const [currentColor, setCurrentColor] = useState("");
-
 	return (
-		<Toast.Provider>
-			<div className="dark flex flex-col lg:flex-row w-full pb-20">
-				{Colors.map((color, colorIndex) => (
-					<div
-						key={colorIndex}
-						className="grid grid-cols-4 grid-rows-3 lg:grid-rows-11 lg:grid-cols-1 lg:h-[700px] w-full"
-					>
-						{color.shades.map((shade, shadeIndex) => (
-							<div
-								key={colorIndex + shadeIndex}
-								style={{ backgroundColor: shade as string }}
-								className={`group flex items-center justify-center h-16 -mono ${
-									shadeIndex == 5 ? "col-span-2 lg:col-span-1" : "col-span-1"
-								} ${
-									shadeIndex > 5 ? "text-white" : "text-neutral-950"
-								} duration-100 ease-in-out-custom cursor-pointer active:duration-75`}
-								onClick={() => {
-									navigator.clipboard.writeText((shade as string).substring(1));
-									setToastOpen(false);
-									window.clearTimeout(timerRef.current);
-									timerRef.current = window.setTimeout(() => {
-										setCurrentColor(shade as string);
-										setToastOpen(true);
-									}, 100);
-								}}
+		<div className="dark flex flex-col lg:flex-row w-full border border-black/5 dark:border-white/5">
+			{Colors.map((color, colorIndex) => (
+				<div
+					key={colorIndex}
+					className="grid grid-cols-4 grid-rows-3 lg:grid-rows-11 lg:grid-cols-1 lg:h-[700px] w-full"
+				>
+					{color.shades.map((shade, shadeIndex) => (
+						<div
+							key={colorIndex + shadeIndex}
+							style={{ backgroundColor: shade as string }}
+							className={`group flex items-center justify-center h-16 -mono ${
+								shadeIndex == 5 ? "col-span-2 lg:col-span-1" : "col-span-1"
+							} ${
+								shadeIndex > 5 ? "text-white" : "text-neutral-950"
+							} duration-100 ease-in-out-custom cursor-pointer active:shadow-inner active:opacity-90 active:duration-75`}
+							onClick={() => {
+								navigator.clipboard.writeText((shade as string).substring(1));
+								toast(t("copied"), {
+									description: shade as string,
+									icon: (
+										<div
+											className="border border-black/5 dark:border-white/5 size-5 rounded-full"
+											style={{ backgroundColor: shade as string }}
+										/>
+									),
+								});
+							}}
+						>
+							<span
+								className={
+									shadeIndex == 5
+										? "text-4xl font-light font-stretch-expanded"
+										: "opacity-0 group-hover:opacity-100 duration-150 font-stretch-expanded"
+								}
 							>
-								<span
-									className={shadeIndex == 5 ? "text-4xl font-light font-stretch-expanded" : "opacity-0 group-hover:opacity-100 duration-150 font-stretch-expanded"}
-								>
-									{shade as string}
-								</span>
-							</div>
-						))}
-					</div>
-				))}
-			</div>
-			<Toast.Root
-				className="flex gap-6 items-center p-3 rounded-xl shadow-lg shadow-neutral-950/50 backdrop-blur-xl bg-gradient-to-b from-neutral-800/75 to-neutral-900/90 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
-				open={toastOpen}
-				onOpenChange={setToastOpen}
-                duration={3000}
-			>
-				<div className="size-8 rounded-full border border-neutral-50/10" style={{ backgroundColor: currentColor }} />
-				<Toast.Description>{t("copied")}</Toast.Description>
-				<Toast.Close className="inline-flex items-center justify-center size-6 hover:bg-neutral-50/10 active:bg-neutral-50/5 rounded-full duration-100 active:duration-75">
-					<X className="fill-neutral-50" />
-				</Toast.Close>
-			</Toast.Root>
-			<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-60 outline-none" />
-		</Toast.Provider>
+								{shade as string}
+							</span>
+						</div>
+					))}
+				</div>
+			))}
+		</div>
 	);
 }

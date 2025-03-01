@@ -45,7 +45,7 @@ export default function Page() {
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
-				<div style={{ perspective: 2000 }}>
+				<div className="bg-neutral-950" style={{ perspective: 2000 }}>
 					<Marquee
 						style={{
 							width: "125vw",
@@ -53,6 +53,9 @@ export default function Page() {
 							transform: "rotateX(20deg) rotateY(10deg) rotateZ(-15deg)",
 						}}
 						speed={50}
+						gradient
+						gradientColor="#111"
+						gradientWidth={500}
 					>
 						{locale === "en" && (
 							<>
@@ -177,8 +180,8 @@ export default function Page() {
 					</Marquee>
 				</div>
 			</Title>
-			<main className="max-w-7xl mx-auto px-6 md:px-9">
-				<section className="my-20 md:my-32 xl:my-40">
+			<main className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
+				<section className="pt-20 md:pt-32 xl:pt-40 border-x border-black/5 dark:border-white/5">
 					<h2>
 						{t("Content.About.heading")}
 						<span className="text-yellow">.</span>
@@ -198,7 +201,7 @@ export default function Page() {
 					</p>
 					<p>{t("Content.About.text6")}</p>
 				</section>
-				<section className="my-20 md:my-32 xl:my-40">
+				<section className="pt-20 md:pt-32 xl:pt-40 border-x border-black/5 dark:border-white/5">
 					<h2>
 						{t("Content.Credits.heading")}
 						<span className="text-yellow">.</span>
@@ -222,7 +225,7 @@ export default function Page() {
 					</Link>
 					<p>{t("Content.Credits.vanillaTweaks")}</p>
 				</section>
-				<section className="my-20 md:my-32 xl:my-40">
+				<section className="pt-20 md:pt-32 xl:pt-40 border-x border-black/5 dark:border-white/5">
 					<h2>
 						{t("Content.MayContainMistakes.heading")}
 						<span className="text-yellow">.</span>
@@ -235,16 +238,16 @@ export default function Page() {
 						),
 					})}
 				</section>
-				<section className="my-20 md:my-32 xl:my-40">
+				<section className="pt-20 md:pt-32 xl:pt-40 border-x border-black/5 dark:border-white/5 text-center">
 					<h2>{t("Content.Download.heading")}</h2>
 					{t("Content.Download.text")}
-					<div className="flex gap-3 pt-6">
+					<div className="flex gap-3 pt-6 justify-center">
 						<Link
 							href="https://modrinth.com/resourcepack/mintcraft/versions"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							<Button tabIndex={-1} color="green">
+							<Button tabIndex={-1} color="green" design="filled">
 								<svg
 									role="img"
 									viewBox="0 0 24 24"
@@ -261,7 +264,7 @@ export default function Page() {
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							<Button tabIndex={-1} color="blue">
+							<Button tabIndex={-1} color="blue" design="filled">
 								<svg
 									role="img"
 									viewBox="0 0 24 24"

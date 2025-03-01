@@ -14,7 +14,7 @@ export default function Tooltip({ text, side = "top", children }: PropsWithChild
 			</RadixTooltip.Trigger>
 			<RadixTooltip.Content
 				className="
-				m-1 select-none rounded-md text-neutral-950 dark:text-white bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md px-3 pt-1.5 pb-2 text-sm max-w-sm leading-none shadow-xl shadow-neutral-950/5
+				m-1 select-none text-neutral-950 dark:text-white bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md px-3 pt-1.5 pb-2 text-sm max-w-sm leading-none shadow-xl shadow-neutral-950/5
 				border border-neutral-100 dark:border-neutral-800
 				data-[side=top]:data-[state=delayed-open]:animate-tooltip-enter-top data-[side=top]:data-[state=instant-open]:animate-tooltip-enter-top data-[side=top]:data-[state=closed]:animate-tooltip-exit-top
 				data-[side=bottom]:data-[state=delayed-open]:animate-tooltip-enter-bottom data-[side=bottom]:data-[state=instant-open]:animate-tooltip-enter-bottom data-[side=bottom]:data-[state=closed]:animate-tooltip-exit-bottom

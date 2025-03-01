@@ -4,7 +4,6 @@ import remarkGfm from "remark-gfm";
 import { getTranslations } from "next-intl/server";
 import KofiWidget from "./widget";
 import FadingImage from "src/components/ui/FadingImage";
-import ArtCreditButton from "src/components/ui/ArtCreditButton";
 import Twitter from "src/icons/Twitter";
 import Link from "next/link";
 
@@ -82,10 +81,6 @@ export default async function Page() {
 						alt=""
 						className="absolute bottom-0 left-1/2 -translate-x-1/2 max-h-[55%] lg:max-h-[65%] w-auto mx-auto"
 					/>
-					<ArtCreditButton fixToBottom link="https://twitter.com/DIVAOFDESPAlR">
-						<Twitter />
-						@DIVAOFDESPAlR
-					</ArtCreditButton>
 				</section>
 				<section className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9 flex flex-col xl:flex-row gap-9">
 					<div className="grow">

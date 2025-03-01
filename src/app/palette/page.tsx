@@ -43,7 +43,7 @@ export default function Page() {
 					<p>{t("Content.Usage.text2")}</p>
 					<div className="flex flex-wrap gap-3 pt-6">
 						<Link href="https://static.pprmint.de/download/pprmint.2024.afpalette" download>
-							<Button tabIndex={-1}>
+							<Button design="semi-transparent" tabIndex={-1}>
 								<SwatchBook />
 								{t("Content.Usage.affinity")}
 							</Button>
@@ -53,7 +53,7 @@ export default function Page() {
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							<Button tabIndex={-1}>
+							<Button design="semi-transparent" tabIndex={-1}>
 								<ExternalLink />
 								{t("Content.Usage.tailwind")}
 							</Button>

@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { Loader2 } from "lucide-react";
 import Button from "src/components/ui/Button";
 import WarningTriangle from "src/icons/WarningTriangle";
 import { useTranslations } from "next-intl";
@@ -154,11 +153,7 @@ export default function Form() {
 								design="filled"
 								color={failed ? "yellow" : "green"}
 							>
-								{sending ? (
-									<Loader2 size={16} className="animate-spin" />
-								) : (
-									failed && <WarningTriangle />
-								)}
+								{failed && <WarningTriangle />}
 								{sending ? t("Form.sending") : failed ? t("Form.retry") : t("Form.send")}
 							</Button>
 							<p className="text-xs ml-3 my-3 sm:my-0">

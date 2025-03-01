@@ -27,9 +27,9 @@ export default function Page() {
 			<Title title={t("YTDG.Head.title")} description={t("YTDG.Head.description")}>
 				<FadingImage src={Hero} alt="" fill className="object-cover" quality={90} />
 			</Title>
-			<main>
-				<section className="relative flex items-center lg:min-h-2/3-screen pb-48 xl:pb-0">
-					<div className="my-20 md:my-32 xl:my-40 w-full max-w-7xl mx-auto px-6 md:px-9 z-10">
+			<main className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
+				<section className="relative flex items-center pb-48 xl:pb-0 border-x border-black/5">
+					<div className="py-20 md:py-32 xl:py-40 w-full z-10">
 						<div className="w-full max-w-xl 2xl:max-w-3xl">
 							<h2>{t("YTDG.Content.About.heading")}</h2>
 							<p>{t("YTDG.Content.About.text1")}</p>
@@ -55,67 +55,67 @@ export default function Page() {
 						src={IsometricScreenshot}
 						title="inabakumori - Relayouter"
 						alt=""
-						className="absolute bottom-0 right-0 object-contain opacity-50 2xl:opacity-30 max-h-full w-5/6 md:w-2/3 p-6 lg:p-12"
+						className="absolute bottom-0 right-0 object-contain opacity-50 max-h-full w-5/6 md:w-2/3 lg:w-1/2 p-6 md:p-12"
 						quality={90}
 					/>
 				</section>
-				<section className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9">
+				<section className="border-x border-black/5 dark:border-white/5">
 					<h2>{t("YTDG.Content.Roadmap.heading")}</h2>
-					<div className="flex flex-col">
-						<div className="flex gap-6">
+					<div className="flex flex-col pl-3 md:pl-6">
+						<div className="flex gap-3 md:gap-6">
 							<div className="flex flex-col">
-								<Check className="size-6 bg-gradient-to-b from-violet-500 to-violet-600 text-neutral-950 rounded-full p-1" />
-								<div className="w-1 flex-grow bg-gradient-to-b from-violet-600 to-violet-500 ml-2.5" />
+								<Check className="size-6 bg-violet-500 text-neutral-950 rounded-full p-1" />
+								<div className="w-1 flex-grow bg-violet-500 ml-2.5" />
 							</div>
 							<p className="pb-3">{t("YTDG.Content.Roadmap.savingSettings")}</p>
 						</div>
-						<div className="flex gap-6">
+						<div className="flex gap-3 md:gap-6">
 							<div className="flex flex-col">
-								<Check className="size-6 bg-gradient-to-b from-violet-500 to-violet-600 text-neutral-950 rounded-full p-1" />
-								<div className="w-1 flex-grow bg-neutral-900 ml-2.5" />
+								<Check className="size-6 bg-violet-500 text-neutral-950 rounded-full p-1" />
+								<div className="w-1 flex-grow bg-black/5 dark:bg-white/5 ml-2.5" />
 							</div>
 							<p className="pb-3">{t("YTDG.Content.Roadmap.tempFolder")}</p>
 						</div>
-						<div className="flex gap-6">
+						<div className="flex gap-3 md:gap-6">
 							<div className="flex flex-col">
-								<div className="size-6 bg-neutral-900 rounded-full p-1" />
-								<div className="w-1 flex-grow bg-neutral-900 ml-2.5" />
+								<div className="size-6 bg-black/5 dark:bg-white/5 rounded-full p-1" />
+								<div className="w-1 flex-grow bg-black/5 dark:bg-white/5 ml-2.5" />
 							</div>
 							<p className="pb-3">{t("YTDG.Content.Roadmap.autoUpdater")}</p>
 						</div>
-						<div className="flex gap-6">
+						<div className="flex gap-3 md:gap-6">
 							<div className="flex flex-col">
-								<div className="size-6 bg-neutral-900 rounded-full p-1" />
-								<div className="w-1 flex-grow bg-neutral-900 ml-2.5" />
+								<div className="size-6 bg-black/5 dark:bg-white/5 rounded-full p-1" />
+								<div className="w-1 flex-grow bg-black/5 dark:bg-white/5 ml-2.5" />
 							</div>
 							<p className="pb-3">{t("YTDG.Content.Roadmap.translations")}</p>
 						</div>
-						<div className="flex gap-6">
+						<div className="flex gap-3 md:gap-6">
 							<div className="flex flex-col">
-								<div className="size-6 bg-neutral-900 rounded-full p-1" />
-								<div className="w-1 flex-grow bg-neutral-900 ml-2.5" />
+								<div className="size-6 bg-black/5 dark:bg-white/5 rounded-full p-1" />
+								<div className="w-1 flex-grow bg-black/5 dark:bg-white/5 ml-2.5" />
 							</div>
 							<p className="pb-3">{t("YTDG.Content.Roadmap.fullSupport")}</p>
 						</div>
-						<div className="flex gap-6">
+						<div className="flex gap-3 md:gap-6">
 							<div className="flex flex-col">
-								<div className="size-6 bg-neutral-900 rounded-full p-1" />
+								<div className="size-6 bg-black/5 dark:bg-white/5 rounded-full p-1" />
 							</div>
 							<p className="pb-3">{t("YTDG.Content.Roadmap.youTellMe")}</p>
 						</div>
 					</div>
 				</section>
-				<section className="my-20 md:my-32 xl:my-40 max-w-7xl mx-auto px-6 md:px-9">
+				<section className="pt-20 md:pt-32 xl:pt-40 border-x border-black/5 dark:border-white/5 text-center">
 					<h2>{t("YTDG.Content.Download.heading")}</h2>
 					<p>{t("YTDG.Content.Download.text")}</p>
 					<br />
-					<div className="flex">
+					<div className="flex justify-center">
 						<Link
 							href="https://github.com/pprmint/yt-dlp-GUI/releases/latest"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							<Button color="violet">
+							<Button color="violet" design="filled">
 								<ExternalLink />
 								{t("COMMON.download")}
 							</Button>

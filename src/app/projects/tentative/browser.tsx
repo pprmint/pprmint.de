@@ -11,11 +11,7 @@ import Bookmark from "src/icons/Bookmark";
 import OldWebsite1 from "public/assets/tentative/website1.png";
 import OldWebsite2 from "public/assets/tentative/website2.png";
 import OldWebsite3 from "public/assets/tentative/website3.png";
-import Image from "next/image";
 import Add from "src/icons/Add";
-import ChevronLeft from "src/icons/ChevronLeft";
-import RotateCw from "src/icons/RotateCw";
-import ChevronRight from "src/icons/ChevronRight";
 import FadingImage from "src/components/ui/FadingImage";
 
 const Tabs = [
@@ -92,7 +88,7 @@ const Tabs = [
 export default function BrowserWindow() {
 	const [tab, setTab] = useState(0);
 	return (
-		<div className="border border-black/10 dark:ring-black/50 outline outline-1 outline-white/10 -outline-offset-2 rounded-xl overflow-clip my-9 text-sm shadow-2xl">
+		<div className="border border-black/10 dark:ring-black/50 outline outline-1 outline-white/10 -outline-offset-2 rounded-xl overflow-clip my-9 text-sm shadow-2xl max-w-7xl mx-auto">
 			<div className="bg-elevate">
 				<div className="flex items-center gap-1">
 					<div className="group flex gap-2 p-3">
@@ -106,9 +102,9 @@ export default function BrowserWindow() {
 							<TriangleTopLeftBottomRight className="opacity-0 group-hover:opacity-100 duration-100 fill-green-900 p-0.5" />
 						</button>
 					</div>
-					<div className="inline-flex items-center gap-3 px-3 bg-neutral-800 light:bg-neutral-900 py-0.5 flex-grow rounded-md">
+					<div className="inline-flex items-center gap-3 px-3 bg-neutral-50 dark:bg-neutral-800 py-0.5 flex-grow rounded-md">
 						<Lock />
-						<p className="flex-grow py-0.5">
+						<p className="flex-grow pt-0.5 pb-1">
 							<span className="opacity-50">https://</span>
 							tentative.name
 						</p>
@@ -120,11 +116,11 @@ export default function BrowserWindow() {
 						<Menu />
 					</div>
 				</div>
-				<div className="flex bg-neutral-950 light:bg-neutral-900">
+				<div className="flex bg-neutral-50 dark:bg-neutral-900">
 					{Tabs.map((item, index) => (
 						<button
 							key={index}
-							className={`py-1.5 flex items-center justify-center grow gap-2 ${index === tab && "bg-elevate"}`}
+							className={`py-1.5 flex items-center justify-center grow gap-2 ${index === tab && "bg-white dark:bg-neutral-950"}`}
 							onClick={() => setTab(index)}
 						>
 							<div className="size-4">{item.favicon}</div>

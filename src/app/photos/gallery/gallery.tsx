@@ -19,12 +19,11 @@ import { AnimatePresence } from "motion/react";
 export default function Gallery({ photos, page }: { photos: Photos; page: number }) {
 	const t = useTranslations("PHOTOS");
 	const format = useFormatter();
-	const [open, setOpen] = useState(false);
 	const [direction, setDirection] = useState(0);
 	const [selectedPhoto, setSelectedPhoto] = useState(0);
 	const [scale, setScale] = useState(1);
 
-	function handleSelectArt(id: number) {
+	function handleSelectPhoto(id: number) {
 		setDirection(id > selectedPhoto ? 1 : -1);
 		setTimeout(() => {
 			setSelectedPhoto(id);
@@ -33,9 +32,9 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 	// Reset to 0 after the lightbox is closed.
 	function reset() {
 		setTimeout(() => {
+			setSelectedPhoto(0);
 			setDirection(0);
 			setScale(1);
-			setSelectedPhoto(0);
 		}, 200);
 	}
 
@@ -55,7 +54,7 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 			className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 sm:p-2 border-y border-black/5 dark:border-white/5 sm:gap-2"
 		>
 			{photos.data.map((photo, index) => (
-				<Dialog.Root key={photo.id} onOpenChange={reset}>
+				<Dialog.Root key={photo.id}>
 					<Dialog.Trigger asChild>
 						<button
 							onClick={() => setSelectedPhoto(index)}
@@ -77,7 +76,7 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 					</Dialog.Trigger>
 					<Dialog.Portal>
 						<Dialog.Overlay className="bg-neutral-950/90 backdrop-blur-xl data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
-						<Dialog.Content asChild>
+						<Dialog.Content asChild onCloseAutoFocus={reset}>
 							<div
 								className={`text-white fixed inset-0 z-100 h-screen max-h-svh w-screen data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out focus-visible:outline-none`}
 							>
@@ -289,7 +288,7 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 												{photos.data.map((photo, index) => (
 													<button
 														key={index}
-														onClick={() => handleSelectArt(index)}
+														onClick={() => handleSelectPhoto(index)}
 														className={`relative ${selectedPhoto === index ? "h-12 w-16" : "h-10 w-10 saturate-0 hover:saturate-100 opacity-50 hover:opacity-100"} duration-300 ease-out-quart overflow-clip`}
 													>
 														<Image

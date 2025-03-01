@@ -76,7 +76,7 @@ export default async function Page(props: Props) {
 								width={media.width}
 								height={media.height}
 								quality={100}
-								className="w-full h-auto animate-skeleton-pulse"
+								className="w-full h-auto"
 							/>
 						</div>
 					) : (

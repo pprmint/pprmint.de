@@ -19,7 +19,6 @@ import Bluesky from "src/icons/Bluesky";
 
 export default function Gallery({ artworks, page }: { artworks: MinaArtworks; page: number }) {
 	const t = useTranslations("MINA");
-	const [open, setOpen] = useState(false);
 	const [direction, setDirection] = useState(0);
 	const [selectedArt, setSelectedArt] = useState(0);
 	const [selectedVariant, setSelectedVariant] = useState(0);
@@ -29,11 +28,14 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 		setDirection(id > selectedArt ? 1 : -1);
 		setTimeout(() => {
 			setSelectedArt(id);
+			setSelectedVariant(0);
 		}, 1);
 	}
 	// Reset to 0 after the lightbox is closed.
 	function reset() {
 		setTimeout(() => {
+			setSelectedArt(0);
+			setSelectedVariant(0);
 			setDirection(0);
 			setScale(1);
 		}, 200);
@@ -55,7 +57,7 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 			className="group grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 sm:p-2 border-y border-black/5 dark:border-white/5 sm:gap-2"
 		>
 			{artworks.data.map((art, index) => (
-				<Dialog.Root key={art.id} onOpenChange={reset}>
+				<Dialog.Root key={art.id}>
 					<Dialog.Trigger asChild>
 						<button
 							key={art.id}
@@ -93,7 +95,7 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 					</Dialog.Trigger>
 					<Dialog.Portal>
 						<Dialog.Overlay className="bg-neutral-950/90 backdrop-blur-xl fixed inset-0 z-90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out" />
-						<Dialog.Content asChild>
+						<Dialog.Content asChild onCloseAutoFocus={reset}>
 							<div
 								className={`text-white fixed inset-0 z-100 h-screen max-h-svh w-screen focus-visible:outline-none data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out`}
 							>

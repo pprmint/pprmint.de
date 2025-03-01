@@ -71,7 +71,7 @@ export default function Checkbox({ color = "neutral", border, large, ...rest }: 
 					strokeLinejoin="miter"
 					strokeLinecap="square"
 					strokeDasharray={24}
-					className="group-data-[state=checked]:animate-lucide-check-draw-in"
+					className="group-data-[state=checked]:animate-svg-check-draw-in"
 				>
 					<path d="M20 6 9 17l-5-5" />
 				</svg>

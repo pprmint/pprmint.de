@@ -3,6 +3,7 @@ import { ThemeProvider } from "next-themes";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { LazyMotion, domAnimation } from "motion/react";
+import Toast from "src/components/ui/Toast";
 
 import NavBar from "src/components/layout/navigation/NavBar";
 import Footer from "src/components/layout/Footer";
@@ -53,8 +54,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 							<div className="px-2 py-1 bg-red text-white fixed z-100 top-0 left-1/2 -translate-x-1/2 rounded-b-md w-full max-w-max">
 								<p className="text-sm">
 									<WarningTriangle className="inline mb-1 mr-2" />
-									<span className="font-bold">No JavaScript detected.</span> Parts of the site won't work properly.{" "}
-									<span className="hidden md:inline-block">Please enable JavaScript or use a more recent browser.</span>
+									<span className="font-bold">No JavaScript detected.</span> Parts of the site won't
+									work properly.{" "}
+									<span className="hidden md:inline-block">
+										Please enable JavaScript or use a more recent browser.
+									</span>
 								</p>
 							</div>
 						</noscript>
@@ -63,6 +67,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 								<TooltipProvider>
 									<NavBar />
 									<TransitionProvider>
+										<Toast />
 										{children}
 										<Footer />
 									</TransitionProvider>

@@ -1,4 +1,4 @@
-export default function Spinner() {
+export default function LoadingSpinner() {
 	const segments = 5;
 	return (
 		<div className="size-16 -rotate-90">

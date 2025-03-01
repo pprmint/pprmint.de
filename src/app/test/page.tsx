@@ -5,7 +5,7 @@ import AudioPlayer from "src/components/ui/AudioPlayer";
 import Image from "next/image";
 
 import Seyana from "public/assets/mina/sticker_seyana.webp";
-import Spinner from "src/components/loading/Glow";
+import LoadingSpinner from "src/components/loading/LoadingSpinner";
 
 export async function generateMetadata() {
 	return {
@@ -20,7 +20,7 @@ export default function Page() {
 			<section className="py-40 w-full border-x border-black/5 dark:border-white/5">
 				<h2>Loading things</h2>
 				<div className="flex flex-wrap justify-between">
-					<Spinner />
+					<LoadingSpinner />
 				</div>
 			</section>
 			<section className="pb-40 w-full border-x border-black/5 dark:border-white/5">

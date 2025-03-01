@@ -1,7 +1,6 @@
 "use client";
 import { useState, useRef, PropsWithChildren, ChangeEvent, Fragment } from "react";
 import ReactDOMServer from "react-dom/server";
-import * as Toast from "@radix-ui/react-toast";
 import Checkbox from "src/components/ui/Checkbox";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -18,6 +17,7 @@ import Search from "src/icons/Search";
 import X from "src/icons/X";
 import Text from "src/icons/Text";
 import Zip from "src/icons/Zip";
+import { toast } from "sonner";
 
 export default function Main() {
 	const t = useTranslations("");
@@ -114,12 +114,10 @@ export default function Main() {
 						navigator.clipboard.writeText(
 							ReactDOMServer.renderToString(Icons[props.categoryIndex].icons[props.iconIndex].icon)
 						);
-						setToastOpen(false);
-						window.clearTimeout(timerRef.current);
-						timerRef.current = window.setTimeout(() => {
-							setCurrent({ category: props.categoryIndex, icon: props.iconIndex });
-							setToastOpen(true);
-						}, 100);
+						toast(t(Icons[props.categoryIndex].icons[props.iconIndex].names.includes("Twitter but worse") ? "COMMON.yikes" : "COMMON.copied"), {
+							description: Icons[props.categoryIndex].icons[props.iconIndex].names[0],
+							icon: <div className="*:size-[30px] *:fill-neutral-50">{Icons[props.categoryIndex].icons[props.iconIndex].icon}</div>,
+						});
 						if (Icons[props.categoryIndex].icons[props.iconIndex].names.includes("Jiggy")) {
 							handleJiggy();
 						}
@@ -150,28 +148,7 @@ export default function Main() {
 	}
 
 	return (
-		<Toast.Provider>
-			<Toast.Root
-				className="flex gap-6 items-center p-3 rounded-xl shadow-lg shadow-neutral-950/50 backdrop-blur-xl bg-gradient-to-b from-neutral-800/75 to-neutral-900/90 border border-neutral-950 ring-1 ring-inset ring-neutral-50/10 data-[state=open]:animate-toast-slide-in data-[state=closed]:animate-fade-out-scale-down data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-toast-slide-out"
-				open={toastOpen}
-				onOpenChange={setToastOpen}
-				duration={3000}
-			>
-				<div className="*:size-[30px] *:fill-neutral-50">
-					{Icons[current.category].icons[current.icon].icon}
-				</div>
-				<Toast.Description>
-					{t(
-						Icons[current.category].icons[current.icon].names.includes("Twitter but worse")
-							? "COMMON.yikes"
-							: "COMMON.copied"
-					)}
-				</Toast.Description>
-				<Toast.Close className="inline-flex items-center justify-center size-6 hover:bg-neutral-50/10 active:bg-neutral-50/5 rounded-full duration-100 active:duration-75">
-					<X className="fill-neutral-50" />
-				</Toast.Close>
-			</Toast.Root>
-			<Toast.Viewport className="[--viewport-padding:_24px] fixed bottom-0 right-0 p-[var(--viewport-padding)] flex flex-col w-max z-60 outline-none" />
+		<>
 			<section className="pt-12 md:pt-20 xl:pt-40 pb-9 border-x border-black/5 dark:border-white/5">
 				<div className="md:flex items-center gap-3">
 					<div className="inline-flex whitespace-nowrap gap-3 flex-grow mb-3 md:mb-0">
@@ -198,7 +175,8 @@ export default function Main() {
 				<div
 					onClick={handleClear}
 					className={`absolute flex right-0 w-10 h-full items-center justify-center text-neutral-950 dark:text-white ${
-						search && "hover:bg-black/5 active:bg-black/10 dark:hover:bg-white/5 dark:active:bg-white/10 cursor-pointer"
+						search &&
+						"hover:bg-black/5 active:bg-black/10 dark:hover:bg-white/5 dark:active:bg-white/10 cursor-pointer"
 					} duration-100`}
 				>
 					{search ? <X /> : <Search />}
@@ -226,6 +204,21 @@ export default function Main() {
 											if (icon.names.includes("Jiggy")) {
 												handleJiggy();
 											}
+											toast(
+												t(
+													icon.names.includes("Twitter but worse")
+														? "COMMON.yikes"
+														: "COMMON.copied"
+												),
+												{
+													description: icon.names[0],
+													icon: (
+														<div className="*:size-[30px] *:fill-neutral-50">
+															{icon.icon}
+														</div>
+													),
+												}
+											);
 										}}
 									>
 										<div className={large ? "*:size-[30px]" : ""}>{icon.icon}</div>
@@ -285,6 +278,6 @@ export default function Main() {
 					</m.div>
 				)}
 			</AnimatePresence>
-		</Toast.Provider>
+		</>
 	);
 }

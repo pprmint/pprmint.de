@@ -205,14 +205,6 @@ module.exports = {
 					from: { opacity: 1 },
 					to: { opacity: 0 },
 				},
-				toastSlideIn: {
-					from: { transform: "translateX(calc(100% + var(--viewport-padding)))" },
-					to: { transform: "translateX(0)" },
-				},
-				toastSlideOut: {
-					from: { transform: "translateX(var(--radix-toast-swipe-end-x))" },
-					to: { transform: "translateX(calc(100% + var(--viewport-padding)))" },
-				},
 				scaleUp: {
 					from: { scale: "95%", opacity: 0 },
 					to: { scale: "100%", opacity: 1 },
@@ -327,20 +319,9 @@ module.exports = {
 						transform: "translateX(-4px)",
 					},
 				},
-				skeletonPulse: {
-					"0%": { backgroundColor: "#eeeeee14" },
-					"50%": { backgroundColor: "#eeeeee26" },
-					"100%": { backgroundColor: "#eeeeee14" },
-				},
-				lucideCheckDrawIn: {
+				svgCheckDrawIn: {
 					from: { strokeDashoffset: 24 },
 					to: { strokeDashoffset: 48 },
-				},
-				lucideSparkle: {
-					"0%": { transform: "scale(0) rotate(-90deg)", opacity: 0, filter: "blur(5px)" },
-					"40%": { transform: "scale(1) rotate(-5deg)", opacity: 1, filter: "blur(1px)" },
-					"50%": { transform: "scale(1) rotate(0deg)", opacity: 1, filter: "blur(0px)" },
-					"100%": { transform: "scale(0) rotate(45deg)", opacity: 0, filter: "blur(5px)" },
 				},
 				float: {
 					"0%": { transform: "translateY(10px)" },
@@ -379,14 +360,6 @@ module.exports = {
 						opacity: 0,
 					},
 				},
-				navEnter: {
-					from: {
-						transform: "translateY(-64px)",
-					},
-					to: {
-						transform: "translateY(0px)",
-					},
-				},
 			},
 			animation: {
 				"accordion-slide-down": "accordionSlideDown .4s cubic-bezier(0.5, 0, 0.1, 1);",
@@ -397,8 +370,6 @@ module.exports = {
 				"collapsible-vertical-close": "collapsibleVerticalClose .3s cubic-bezier(0.3, 0, 0.2, 1);",
 				"select-open": "selectOpen .2s;",
 				"select-close": "selectClose .2s;",
-				"toast-slide-in": "toastSlideIn .3s cubic-bezier(0.16, 1, 0.3, 1);",
-				"toast-slide-out": "toastSlideOut .25s cubic-bezier(0.33, 1, 0.68, 1);",
 				"scale-up": "scaleUp .2s cubic-bezier(0, 0, 0.2, 1)",
 				"scale-down": "scaleDown .2s cubic-bezier(0, 0, 0.2, 1)",
 				"fade-in": "fadeIn .25s cubic-bezier(0, 0, 0.2, 1)",
@@ -414,15 +385,12 @@ module.exports = {
 				"tooltip-exit-left": "tooltipExitLeft .2s cubic-bezier(0.33, 1, 0.68, 1) forwards",
 				"tooltip-enter-right": "tooltipEnterRight .2s cubic-bezier(0.33, 1, 0.68, 1) forwards",
 				"tooltip-exit-right": "tooltipExitRight .2s cubic-bezier(0.33, 1, 0.68, 1) forwards",
-				"skeleton-pulse": "skeletonPulse 3s cubic-bezier(0.7, 0, 0.3, 1) 2s infinite",
-				"lucide-check-draw-in": "lucideCheckDrawIn 0.25s cubic-bezier(0.33, 1, 0.68, 1) forwards",
-				"lucide-sparkle": "lucideSparkle 0.75s linear 0.25s forwards",
+				"svg-check-draw-in": "svgCheckDrawIn 0.25s cubic-bezier(0.33, 1, 0.68, 1) forwards",
 				float: "float 4s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite",
 				"float-rotate-l": "floatRotateL 6s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite",
 				"float-rotate-r": "floatRotateR 6s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite",
 				"dialog-enter": "dialogEnter .5s cubic-bezier(0.16, 1, 0.3, 1) .1s normal backwards",
 				"dialog-exit": "dialogExit .15s ease-in",
-				"nav-enter": "navEnter 1s cubic-bezier(0.16, 1, 0.3, 1) backwards",
 			},
 			transitionDuration: {
 				25: "25ms",
