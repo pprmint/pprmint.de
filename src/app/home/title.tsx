@@ -47,7 +47,7 @@ export default function HomeTitle() {
 		setNoAccents(false);
 	});
 	return (
-		<section className="relative w-screen h-screen overflow-clip">
+		<section className="relative w-full h-screen overflow-clip">
 			<div className="absolute -z-10 inset-0 bg-white dark:bg-neutral-950">
 				<video
 					src="https://static.pprmint.de/uploads/wavy_ff6ca718a6.webm"
