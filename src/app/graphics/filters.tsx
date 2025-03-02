@@ -1,20 +1,15 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import * as Collapsible from "@radix-ui/react-collapsible";
 import { useTranslations } from "next-intl";
-import Filter from "src/icons/Filter";
 import Stop from "src/icons/Stop";
 import Photo from "src/icons/Photo";
 import Video from "src/icons/Video";
 import Cube from "src/icons/Cube";
-import FilterFilled from "src/icons/FilterFilled";
 
 export default function Filters(props: { type: string; dimension: string }) {
 	const t = useTranslations("GRAPHICS");
 	const searchParams = useSearchParams();
-	const [filtersOpen, setFiltersOpen] = useState(false);
 	const pathname = usePathname();
 	const { replace } = useRouter();
 
@@ -38,11 +33,6 @@ export default function Filters(props: { type: string; dimension: string }) {
 		params.delete("p"); // Otherwise you may end up on a page with no results.
 		replace(`${pathname}?${params.toString()}`, { scroll: false });
 	}
-
-	const filtersActive =
-		(props.dimension && (props.dimension === "2d" || props.dimension === "3d") && props.type) ||
-		props.type === "static" ||
-		props.type === "animated";
 
 	return (
 		<div className="flex flex-col sm:flex-row items-center w-full border-t border-black/5 dark:border-white/5">

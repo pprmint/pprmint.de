@@ -1,26 +1,14 @@
 "use client";
 import { useTranslations } from "next-intl";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Button from "src/components/ui/Button";
-import X from "src/icons/X";
 import * as m from "motion/react-m";
 import { AnimatePresence } from "motion/react";
 import { toast } from "sonner";
 
 export default function Glyphs() {
 	const t = useTranslations();
-
-	// Toasts for copying glyphs.
-	const [toastOpen, setToastOpen] = useState(false);
-	const timerRef = useRef(0);
-	const [currentGlyph, setCurrentGlyph] = useState("");
-
-	useEffect(() => {
-		return () => clearTimeout(timerRef.current);
-	}, []);
-
 	const [glyphsOpen, setGlyphsOpen] = useState(false);
-
 	return (
 		<div className="py-20 md:py-32 xl:py-40 border-x border-black/5 dark:border-white/5">
 			<div

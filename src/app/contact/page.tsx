@@ -1,23 +1,13 @@
 import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
-import Link from "next/link";
 import Title from "src/components/layout/Title";
-import Button from "src/components/ui/Button";
 import FadingImage from "src/components/ui/FadingImage";
-import Twitter from "src/icons/Twitter";
 
-import LetterDE from "public/assets/contact/letter_de.webp";
-import LetterEN from "public/assets/contact/letter_en.webp";
+import Letter from "public/assets/contact/letter_en.webp";
 import LetterSilhouette from "public/assets/contact/letter_silhouette.svg";
-
-import TitleBackgroundEn from "public/assets/contact/title_en.webp";
-import TitleBackgroundDe from "public/assets/contact/title_de.webp";
-import Letter from "public/assets/contact/letter.svg";
-import Bubbles from "public/assets/contact/bubbles.svg";
 
 import Chatbox from "./chatbox";
 import Form from "./form";
-import NoSSR from "src/components/NoSSR";
 
 export async function generateMetadata() {
 	const t = await getTranslations("CONTACT");
@@ -70,8 +60,8 @@ export default async function Page() {
 						style={{ left: "30%", top: "10%", transform: "rotate(-9deg)" }}
 					/>
 					<FadingImage
-						src={locale === "de" ? LetterDE : LetterEN}
-						alt="Postwoman Mina."
+						src={Letter}
+						alt="A letter."
 						className="absolute right-[3%] bottom-[-10%] rotate-6 w-1/2 h-auto"
 					/>
 					<div className="absolute inset-0 backdrop-blur-sm bg-gradient-to-t from-neutral-950/25" />

@@ -1,6 +1,5 @@
 "use client";
 import { ReactNode } from "react";
-import ArrowLeft from "src/icons/ArrowLeft";
 import Link from "next/link";
 import Button from "src/components/ui/Button";
 import { useTranslations } from "next-intl";

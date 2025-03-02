@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as m from "motion/react-m";
 import { AnimatePresence } from "motion/react";
 import Button from "src/components/ui/Button";
@@ -7,13 +7,20 @@ import Kofi from "src/icons/Kofi";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import ExternalLink from "src/icons/ExternalLink";
+import { useNavbar } from "src/components/layout/navigation/NavBarContext";
 
 export default function KofiWidget() {
 	const t = useTranslations("");
 	const [visible, setVisible] = useState(false);
+	const { setInverted, setNoAccents } = useNavbar();
+	useEffect(() => {
+		setInverted(true);
+		setNoAccents(true);
+		return () => setInverted(false);
+	}, []);
 	return (
-		<div className="w-full max-w-[400px]">
-			<div className="rounded-xl shadow-lg mx-auto w-full max-w-[400px] h-[640px] overflow-clip bg-elevate">
+		<div className="w-full max-w-[400px] xl:pt-40">
+			<div className="mx-auto w-full max-w-[400px] h-[640px] overflow-clip bg-black/5 dark:bg-white/5">
 				<AnimatePresence mode="wait">
 					{visible ? (
 						<m.iframe
@@ -27,8 +34,12 @@ export default function KofiWidget() {
 							className="w-full"
 						/>
 					) : (
-						<m.div key="warn" exit={{ opacity: 0 }} className="flex flex-col items-center justify-center size-full p-6 text-center">
-							<Kofi className="size-[60px] text-white" />
+						<m.div
+							key="warn"
+							exit={{ opacity: 0 }}
+							className="flex flex-col items-center justify-center size-full p-6 text-center"
+						>
+							<Kofi className="size-[60px] text-neutral-950 dark:text-white" />
 							<p>{t("KOFI.dataInfo")}</p>
 							<Link
 								className="text-sm mt-3 mb-6 text-link-external inline-flex gap-1 items-center"
@@ -39,7 +50,7 @@ export default function KofiWidget() {
 								{t("PRIVACY.Content.privacyPolicyOf", { provider: "Ko-fi" })}
 								<ExternalLink />
 							</Link>
-							<Button design="outlined" onClick={() => setVisible(true)}>
+							<Button design="semi-transparent" onClick={() => setVisible(true)}>
 								{t("KOFI.showWidget")}
 							</Button>
 						</m.div>

@@ -437,13 +437,15 @@ export default function Selector() {
 					>
 						{search ? <X /> : <Search />}
 					</div>
-					<input
-						type="text"
-						value={search}
-						onChange={handleSearchChange}
-						placeholder={t("Content.search")}
-						className="w-full border-b border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
-					/>
+					<div className="border-b border-black/5 dark:border-white/5">
+						<input
+							type="text"
+							value={search}
+							onChange={handleSearchChange}
+							placeholder={t("Content.search")}
+							className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
+						/>
+					</div>
 				</div>
 				<div className="w-full justify-center">
 					{filteredIcons.length === 0 ? (
@@ -459,7 +461,9 @@ export default function Selector() {
 							{filteredIcons.map((icon) => (
 								<button
 									className={`relative group p-2 sm:p-4 ${
-										selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name) ? "bg-black/5 dark:bg-white/5" : ""
+										selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name)
+											? "bg-black/5 dark:bg-white/5"
+											: ""
 									} duration-200 ease-out`}
 									key={icon.name}
 									onClick={() => handleIconSelect(icon)}
@@ -508,7 +512,9 @@ export default function Selector() {
 					<p className="relative text-2xl md:text-3xl mb-2">
 						{t.rich("Content.Panel.iconsSelected", {
 							count: selectedIcons.length,
-							em: (chunks) => <span className="text-neutral-950 dark:text-white font-bold">{chunks}</span>,
+							em: (chunks) => (
+								<span className="text-neutral-950 dark:text-white font-bold">{chunks}</span>
+							),
 						})}
 					</p>
 					<p
@@ -529,7 +535,11 @@ export default function Selector() {
 										height: 24,
 										transition: { type: "spring", duration: 0.5, bounce: 0 },
 									}}
-									exit={{ opacity: 0, height: 0, transition: { type: "linear", duration: 0.2, height: { delay: 0.1 } } }}
+									exit={{
+										opacity: 0,
+										height: 0,
+										transition: { type: "linear", duration: 0.2, height: { delay: 0.1 } },
+									}}
 								>
 									{icon.name}
 								</m.li>

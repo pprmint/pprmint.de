@@ -12,10 +12,8 @@ type Props = {
 
 export async function generateMetadata(props: Props) {
 	const params = await props.params;
-	const locale = await getUserLocale();
-
 	const { id } = params;
-
+	const locale = await getUserLocale();
 	const Work: Work = await getWork(id, locale);
 	const t = await getTranslations("GRAPHICS");
 	return Work.data !== null

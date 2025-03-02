@@ -1,5 +1,4 @@
 "use client";
-
 import { useTranslations } from "next-intl";
 import Title from "src/components/layout/Title";
 import FadingImage from "src/components/ui/FadingImage";
