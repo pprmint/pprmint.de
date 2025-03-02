@@ -54,7 +54,7 @@ export default function Page() {
 						<FadingImage src={Slide6} alt="Slide 6" className="w-full" />
 					</div>
 				</section>
-				<section className="px-6 md:px-9 lg:px-12 xl:px-20">
+				<section className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
 					<div className="py-20 md:py-32 xl:py-40 text-center border-x border-black/5 dark:border-white/5">
 						<h2 className="mb-6">
 							{t("MINTSANS.Content.Tester.heading")}

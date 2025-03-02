@@ -24,12 +24,12 @@ export default function Title(
 	}, [props.children, props.noAccents, setInverted, setNoAccents]);
 	return (
 		<div
-			className={`relative w-screen ${props.children ? "dark h-1/2-screen xl:h-[700px] border-b border-black/5 dark:border-white/5" : "h-max"} overflow-hidden text-balance`}
+			className={`relative w-full ${props.children ? "dark h-1/2-screen xl:h-[700px] border-b border-black/5 dark:border-white/5" : "h-max"} overflow-hidden text-balance`}
 		>
 			{props.children && <div className="absolute -z-10 inset-0">{props.children}</div>}
 			<div className="w-full h-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 				<div className={`h-full w-full border-x ${props.children ? "border-white/5" : "border-black/5 dark:border-white/5"}`}>
-					<div className="relative size-full flex flex-col gap-6 xl:justify-center col-span-2 md:col-span-1 py-20 md:py-28 lg:py-32 xl:py-40">
+					<div className="relative size-full flex flex-col gap-6 xl:justify-center col-span-2 md:col-span-1 pt-28 pb-20 md:py-28 lg:py-32 xl:py-40">
 						<div className={props.children ? "drop-shadow-md" : ""}>
 							<m.h1
 								className={`relative pb-1 md:pb-2 lg:pb-3 font-serif ${props.children && "text-white"}`}

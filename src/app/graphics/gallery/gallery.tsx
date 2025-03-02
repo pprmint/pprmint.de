@@ -19,7 +19,7 @@ export default function GalleryGrid({ works, page }: { works: Works; page: numbe
 	return (
 		<div
 			ref={galleryRef}
-			className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2"
+			className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2"
 		>
 			{works.data.map((work) => (
 				<Link

@@ -264,7 +264,7 @@ export default function Glyphs() {
 						onClick={() => {
 							navigator.clipboard.writeText(glyph);
 							toast(t("COMMON.copied"), {
-								icon: <span className="text-neutral-50 font-mintbit text-2xl">{glyph}</span>,
+								icon: <span className="text-neutral-950 dark:text-white font-mintbit text-2xl">{glyph}</span>,
 							});
 						}}
 					>

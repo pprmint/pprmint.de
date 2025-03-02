@@ -33,7 +33,7 @@ export default function RefSheet() {
 			<Dialog.Portal>
 				<Dialog.Overlay className="bg-white/90 dark:bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-100" />
 				<Dialog.Content
-					className={`fixed z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-svh md:h-max w-screen max-w-6xl bg-white dark:bg-neutral-950 md:outline outline-1 outline-black/5 dark:outline-white/5 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl ${
+					className={`fixed z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-svh md:h-auto w-screen max-w-6xl bg-white dark:bg-neutral-950 md:outline outline-1 outline-black/5 dark:outline-white/5 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl ${
 						!col && "md:grid grid-cols-2 items-center"
 					} overflow-auto`}
 				>
@@ -181,7 +181,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<button
 							id="front"
-							className="relative flex items-center justify-center border-t md:border-r lg:border-b border-black/5 dark:border-white/5 hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 duration-200 active:duration-75 row-span-2 p-3"
+							className="relative flex items-center justify-center border-t md:border-r xl:border-b border-black/5 dark:border-white/5 hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 duration-200 active:duration-75 row-span-2 p-3"
 						>
 							<FadingImage
 								src={ReferenceFront}
@@ -209,7 +209,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<button
 							id="back"
-							className="relative flex items-center justify-center border-t border-r md:border-r-0 lg:border-r lg:border-b border-black/5 dark:border-white/5 hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 duration-200 active:duration-75 row-span-2 p-3"
+							className="relative flex items-center justify-center border-t border-r md:border-r-0 xl:border-r xl:border-b border-black/5 dark:border-white/5 hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 duration-200 active:duration-75 row-span-2 p-3"
 						>
 							<FadingImage
 								src={ReferenceBack}
@@ -237,12 +237,12 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<button
 							id="hairbow"
-							className="relative flex md:col-span-2 xl:col-span-1 items-center justify-center border-t md:border-b lg:border-b-0 md:border-r lg:border-r-0 border-black/5 dark:border-white/5 gap-6 hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 duration-200 active:duration-75 p-6"
+							className="relative flex md:col-span-2 xl:col-span-1 items-center justify-center border-t md:border-b xl:border-b-0 md:border-r xl:border-r-0 border-black/5 dark:border-white/5 gap-6 hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 duration-200 active:duration-75 p-6"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 400 434"
-								className="w-auto max-h-full object-contain"
+								className="w-full max-h-full object-contain"
 							>
 								<path
 									d="M69.8 338.6c14.1 11.9 23.4 15.7 35.7 25.1a79.5 79.5 0 0 1-12.6-27.3 87 87 0 0 0 20 33.4h.1a113.3 113.3 0 0 0 12.4 11.6c9.2 7.7 18.1 13.9 23.9 21.2a29 29 0 0 1 6.7 18 80 80 0 0 1 15.1-16.4l-2.2-3.7a60.6 60.6 0 0 0-4.7-6.9 117.2 117.2 0 0 1 14.7 19.2c.2-2 .7-3.7.7-3.7l1-3 1 3 2.3 5.2a87 87 0 0 0 2.7 4.7c.3-3 .8-7.1 2.1-10.6 1.3-3.4 3.4-6.2 6.6-7.3 1.3-.4 2.3-.4 3.2 0 1.3.5 2.2 1.8 2.7 3.7.9 3.4.2 8.9-.3 12.2l6.7-4.6 21.1-13.6 2.3-1.5-.6 2.7a446.1 446.1 0 0 1-3.8 15.2c4.4-5.3 9.8-10 15-13.9 11.6-8.5 22.6-13 22.6-13l6.7-2.8-5.5 4.7a28.4 28.4 0 0 0-9 14c2.9-3.1 8.3-7.7 17-11.5 6.1-2.7 14-5 23.6-6.1 12-1.3 23-9.2 32.2-19.4a129.8 129.8 0 0 0 17.1-23.6 196.6 196.6 0 0 0 13-26.2 151.8 151.8 0 0 1-21.6 42.7 137 137 0 0 0 20.4-19.7 101 101 0 0 0 20-37.7c3.5-11.7 4-21 2.9-25a458 458 0 0 0-39.1-91.9c-11.9-20.4-26-39.4-42.1-50.8a216.3 216.3 0 0 0-32.5-20c-14.8-7-20.2-5.1-24.3-5.6l.2-2c4.2.5 9.8-1.3 25 5.8 7.9 3.7 18.4 9.8 32.8 20 16.3 11.7 30.7 30.8 42.7 51.5a459 459 0 0 1 39.4 92.5 51 51 0 0 1-1.6 21c-2 8.5-5.6 18.6-11.6 28.9.2 2.5.8 18.5-6 35.4a66 66 0 0 1-22 28.8 109.5 109.5 0 0 1-36.2 16.8c-21.3 5.8-39.6 5.4-39.6 5.4h-2l1.2-1.6a67 67 0 0 1 20.6-19.5 53.9 53.9 0 0 1 5.9-2.9 74 74 0 0 0-17.6 5.2c-13.5 6-18.7 14-18.7 14l-2.1 3.2v-4s.2-4.9 3.4-10.8c.7-1.3 1.7-2.7 2.8-4.1-4.2 2.1-10.4 5.5-16.6 10.2a77 77 0 0 0-18 17.8l-3.7 5.4 1.7-6.3 3.2-12.4 1.4-5.6a1554 1554 0 0 0-27.6 18.3l-2.4 2 .7-3.1s1.5-7 1-12.1a8.9 8.9 0 0 0-.6-3c-.3-.5-.6-1-1-1.1-.5-.2-1-.2-1.7 0-2.6 1-4.2 3.3-5.3 6-1.8 4.9-2 11-2.3 13.3l-.4 2.8-1.5-2.4s-2.4-3.6-4.5-7.6l-1-2.3-.2.9a8 8 0 0 0 0 2.5l1.7 6.6-3.5-5.8-5-8.3-1.8-3c-7.5 6-12 12.4-16.5 18.7l-.4.5-.7-.2c-38.4-9-53.7-31.7-65.3-52.5-6.9-12.5-12.4-24.3-20.8-32.1l-2.4-2.1a30.4 30.4 0 0 1-10.7-22.7c-.8-12.2 3-23.5 3-23.5l2 .6s-3.8 11-3 22.8c.6 7.7 3 15.8 10 21.2a39 39 0 0 1 2.4 2.1Zm84.1 84a27 27 0 0 0-6.3-18.7c-5.7-7.2-14.5-13.3-23.6-21a137.4 137.4 0 0 1-12.3-11.5c-13.6-11.9-22.7-15.8-35-24.8 5 7 9.4 15.7 14.4 24.7 11.2 20.3 26 42.2 62.8 51.3Zm183.3-61.8c-2 2.7-4.2 5.3-6.4 7.8-9.7 10.6-21 18.8-33.5 20.2-1.1 0-2.2.2-3.2.4a66.4 66.4 0 0 0-11.9 7.7l-1.8 1.5c-4 3.3-8.4 7.6-12.2 13 5.2-.1 20-.9 36.9-5.4 11.7-3.2 24.5-8.3 35.5-16.4 10.7-7.9 17.3-18 21.3-27.9a87 87 0 0 0 6.1-31.5 96.3 96.3 0 0 1-30.8 30.6Zm-187.1-30.2a16 16 0 0 1 3 6.7c.6 2.4.5 5 .1 7.4a33.2 33.2 0 0 1-5.4 12.8c-4 6.4-8.7 10.8-8.7 10.8l-2.2 2.2.4-3c.5-3.4-.5-6.6-2.5-9.8-1.6-2.8-4-5.5-6.8-8.3-5.4-5.4-12.4-11-19.1-17a89.7 89.7 0 0 1-17.1-19.5 36.7 36.7 0 0 1-5.6-17.9h2c.2 6 2.3 11.6 5.4 16.8a88 88 0 0 0 16.7 19c6.7 6 13.8 11.6 19.2 17 3 3 5.4 5.9 7.2 8.8a18 18 0 0 1 2.8 8.2 68.7 68.7 0 0 0 10-14.1c1-2 1.8-4.1 2.3-6.3.6-2.3.8-4.6.5-7a16 16 0 0 0-2.9-7.2l-2.4-1.4c-13.1-8-25.1-16.4-27.5-41.8a1 1 0 0 1 2-.2c2.3 24.5 13.8 32.6 26.5 40.3.8.4 15.5 8.7 27.7 19.4a60.6 60.6 0 0 1 14.6 17.4c2 4.3 2.8 8.5 1.6 12.4-.8 3-2.6 5.8-5.8 8.4a81 81 0 0 0 55.6-12 103 103 0 0 0 23.2-19.5 157 157 0 0 0 18.4-24.4 154.7 154.7 0 0 1-8.8 14.8c2 1.4 5.6 2 9.9 2a73.8 73.8 0 0 0 54.5-29.6c4-5.4 6.7-11 8.6-16.6a70 70 0 0 0 3.5-18.3c1.2-20.3-5.7-37.1-5.7-37.1a94 94 0 0 0 7 37.1c-.3 7.2-1.5 15-4.4 22.5a59.7 59.7 0 0 1-7.3 13.5 75.7 75.7 0 0 1-56.2 30.5c-4.8 0-8.7-.8-11-2.3a125.3 125.3 0 0 1-13.5 15.8 101 101 0 0 1-17 13.4c-31.3 19.5-59.7 11.8-59.7 11.8l-2.2-.7 2-1.3c4.1-2.8 6.3-6 7-9.3 1.2-5.3-1.4-11-5.8-16.7a138.6 138.6 0 0 0-34.1-27.7Zm68-149c.4 4.2 4.9 9.9 10 17a157 157 0 0 1 10.7 17 63.8 63.8 0 0 1 5 15c1 6 1 12.2-.7 18.7-1.4 5.4-4 11-8.1 16.7 3.7-5.9 6-11.5 7.1-17a43.4 43.4 0 0 0 0-18 58.4 58.4 0 0 0-5-14.5l-3-5.9a191 191 0 0 0-7-11.3c-4.7-7.4-8.8-13.5-9-17.7Zm10.2-25c3.3.6 9.8 1 17.6 2.8a67 67 0 0 1 24.4 10.9 57.2 57.2 0 0 1 18.7 23.1 100 100 0 0 1 7.3 28.9c.5 5.5.6 11.4.4 17.8-.2 8-1.1 16.9-2.7 26.5a211 211 0 0 0 1.8-26.5c0-6.4-.4-12.2-1-17.6a104 104 0 0 0-7.7-28.2 58.1 58.1 0 0 0-23.9-26.8c-7-4.3-14.2-6.7-20.4-8.1-6.4-1.6-11.7-2.1-14.5-2.7Zm63.3-15a111 111 0 0 1 25.7 25.2 120.4 120.4 0 0 1 8 12.7c2 3.9 3.5 7.4 4.1 10.4-1-3.1-3-6.9-5.7-11a147.5 147.5 0 0 0-10.9-14.6L310 161a338.6 338.6 0 0 0-8.7-10.1c-3.6-3.9-7-7.1-9.7-9.2Zm-45.8-14.5a17.5 17.5 0 0 1 6.9-.8 27.5 27.5 0 0 1 11.5 3.2c2.2 1 3.6 1.9 3.6 1.9l-3.8-1-2.5-.5-3-.7-1.3-.3c-.5 0-1.1-.2-1.7-.4l-1.7-.4c-1.2-.3-2.4-.6-3.5-.7-1.6-.3-3.1-.5-4.5-.3Z"
@@ -261,7 +261,7 @@ export default function RefSheet() {
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 400 434"
-								className="w-auto max-h-full object-containm hidden md:block xl:hidden"
+								className="w-full max-h-full object-containm hidden md:block xl:hidden"
 							>
 								<path
 									d="M200.8 89.7c-7.4 7.3-8.6 15.6-8.6 15.6l-2-.3s1.4-9.8 10.4-17.8c-4.3-56.2 58.1-78 58.1-78l1.6-.7-.2 1.7c-5.5 32.8 3.8 53.5 8.7 71.8 23 6.5 34 18.2 40 32 3.2 7.3 5 15.1 6.4 23.2 1.3 7.7 2.3 15.7 3.8 23.4a96.3 96.3 0 0 0 5 18.1c1.6 3.8 3.5 7.5 5.9 11l1 1.3h-1.7s-4.5-.2-10.9-5.8a137.2 137.2 0 0 0 .6 25.2 83 83 0 0 0 12.4 37.1c10 14.8 27.8 24.3 58.8 17.1l1.8-.4-.6 1.8s-2.6 8.2-12.1 13.5a32 32 0 0 1-14.4 4.1c-3 4.1-6.9 7.9-12.6 9.6-5.8 1.7-13.5 1.5-24.6-2.6l.7-1.9c10.5 3.9 17.8 4.2 23.3 2.6 4.7-1.4 7.9-4.3 10.6-7.5-4 0-8.3-.3-13.2-1.3-4.4-.9-9.3-2.3-14.6-4.3a97 97 0 0 0 14.8 3.4c5 .8 9.5 1 13.5.6a40.8 40.8 0 0 0 15.5-4.5c6-3.4 9-8 10.3-10.5-30.9 6.5-48.8-3.4-59-18.4a84.6 84.6 0 0 1-12.7-38.2 136.6 136.6 0 0 1-.6-20.7 97.6 97.6 0 0 0-3.6 30.4c-.7-7.2-.6-13.4-.1-18.6 1-10.5 3.6-16.9 4.2-18.1a64 64 0 0 1-9.8-13 60.7 60.7 0 0 0 12 13.6 25 25 0 0 0 8.6 4.8c-2-3-3.8-6.2-5.2-9.5-2.5-6-4.2-12.1-5.4-18.5-1.6-7.7-2.5-15.7-3.9-23.5A99 99 0 0 0 307 115c-5.7-13.2-16.1-24.3-37.5-30.7 2.2 10.6-1 20-5.6 27.7a69.6 69.6 0 0 1-18.4 19.3l-1.4-.4s-4.8-10.2-8.5-25a146.8 146.8 0 0 1-4-26.6v-9.4c.3-6.9 1.4-13.9 3.4-20.6 2-6.6 4.8-12.9 8.9-18.8-3.8 6-6.3 12.5-8 19a88.4 88.4 0 0 0-2.3 29.7 138.5 138.5 0 0 0 4 26.2c3 11.8 6.5 20.6 7.8 23.5 2.8-2 11-8.5 16.8-18a35.1 35.1 0 0 0 5-27.8c-4.9-18.3-14.2-39-9.3-71.4-10.8 4.3-72.4 32-50.9 96l-1.9.7a88.8 88.8 0 0 1-4.2-18.6Z"
@@ -336,7 +336,7 @@ export default function RefSheet() {
 					<Dialog.Trigger asChild>
 						<button
 							id="shoe"
-							className="relative flex items-center justify-center border-y md:border-b-0 border-r lg:border-b border-black/5 dark:border-white/5 hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 duration-200 active:duration-75 p-6"
+							className="relative flex items-center justify-center border-y md:border-b-0 border-r xl:border-b border-black/5 dark:border-white/5 hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg hover:shadow-black/5 duration-200 active:duration-75 p-6"
 						>
 							<FadingImage
 								src={ReferenceShoes}

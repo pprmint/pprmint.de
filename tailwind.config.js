@@ -562,9 +562,6 @@ module.exports = {
 				"4/6-screen": "66.666667vh",
 				"5/6-screen": "83.333333vh",
 			},
-			screens: {
-				"3xl": "1921px",
-			},
 			gridTemplateColumns: {
 				16: "repeat(16, minmax(0, 1fr))",
 			},

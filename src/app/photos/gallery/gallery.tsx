@@ -51,7 +51,7 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 	return (
 		<div
 			ref={galleryRef}
-			className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 sm:p-2 border-y border-black/5 dark:border-white/5 sm:gap-2"
+			className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:p-2 border-y border-black/5 dark:border-white/5 sm:gap-2"
 		>
 			{photos.data.map((photo, index) => (
 				<Dialog.Root key={photo.id}>

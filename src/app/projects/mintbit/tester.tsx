@@ -70,7 +70,7 @@ export default function Tester() {
 							<Slider.Track className="relative grow h-9">
 								<Slider.Range className="absolute bg-gradient-to-l from-black/5 dark:from-white/5 h-9" />
 							</Slider.Track>
-							<Slider.Thumb className="block h-9 w-px group-hover:w-4 active:w-4 bg-neutral-950 dark:bg-white outline-none focus-visible:outline-none duration-100" />
+							<Slider.Thumb className="block h-9 w-px group-hover:w-1 active:w-4 bg-neutral-950 dark:bg-white outline-none focus-visible:outline-none duration-100" />
 						</Slider.Root>
 					</div>
 					<div className="flex flex-col w-full sm:w-1/2 border-b border-black/5 dark:border-white/5">
@@ -95,7 +95,7 @@ export default function Tester() {
 							<Slider.Track className="relative grow h-9">
 								<Slider.Range className="absolute bg-gradient-to-l from-black/5 dark:from-white/5 h-9" />
 							</Slider.Track>
-							<Slider.Thumb className="block h-9 w-px group-hover:w-4 active:w-4 bg-neutral-950 dark:bg-white outline-none focus-visible:outline-none duration-100" />
+							<Slider.Thumb className="block h-9 w-px group-hover:w-1 active:w-4 bg-neutral-950 dark:bg-white outline-none focus-visible:outline-none duration-100" />
 						</Slider.Root>
 					</div>
 					<div className="border-b border-black/5 dark:border-white/5 inline-flex justify-center">

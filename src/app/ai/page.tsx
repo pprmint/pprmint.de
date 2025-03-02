@@ -16,7 +16,7 @@ export default function Page() {
     return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} />
-			<main className="max-w-8xl px-6 md:px-9 xl:px-20">
+			<main className="max-w-8xl mx-auto px-6 md:px-9 xl:px-20">
 				<section className="pb-20 md:pb-32 xl:pb-40 border-x border-black/5 dark:border-white/5">
 					<h2>
 						{t("Content.Intro.heading")}
