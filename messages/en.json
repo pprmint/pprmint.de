@@ -257,7 +257,6 @@
 		"downloadAll": "Download all",
 		"downloadSelected": "Download selected",
 		"deselectAll": "Deselect all",
-		"tryDifferent": "Try using different filters or removing some.",
 		"settings": "Settings",
 		"visitPage": "Visit page",
 		"visitWebsite": "Visit website",
@@ -307,6 +306,18 @@
 				}
 			}
 		}
+	},
+	"FONTTESTER": {
+		"Weight": {
+			"label": "Weight",
+			"extralight": "Extra light",
+			"regular": "Regular",
+			"bold": "Bold"
+		},
+		"reset": "Reset",
+		"size": "Size",
+		"alignment": "Alignment",
+		"tracking": "Tracking"
 	},
 	"FOOTER": {
 		"and": " and ",
@@ -545,11 +556,7 @@
 			},
 			"Tester": {
 				"heading": "Try it out",
-				"pangram": "The five boxing wizards jump quickly.",
-				"alignment": "Alignment",
-				"size": "Size",
-				"spacing": "Letter spacing",
-				"reset": "Reset"
+				"pangram": "The five boxing wizards jump quickly."
 			}
 		},
 		"Head": {
@@ -600,12 +607,8 @@
 					"regular": "Regular",
 					"bold": "Bold"
 				},
-				"alignment": "Alignment",
 				"heading": "Try it out, or better yet: Don't",
-				"pangram": "The quick brown fox jumps over the lazy dog.",
-				"size": "Size",
-				"spacing": "Letter spacing",
-				"reset": "Reset settings"
+				"pangram": "The quick brown fox jumps over the lazy dog."
 			}
 		},
 		"Head": {

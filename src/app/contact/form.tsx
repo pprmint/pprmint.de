@@ -96,54 +96,62 @@ export default function Form() {
 						)}
 					</AnimatePresence>
 					<form className="grid grid-cols-2">
-						<input
-							required
-							type="text"
-							placeholder={t("Form.name")}
-							name="name"
-							aria-label="name text field"
-							maxLength={30}
-							onChange={(e) => {
-								setFormData({ ...formData, name: e.target.value });
-							}}
-							className="box-content col-span-2 sm:col-span-1 sm:border-r border-t sm:border-b border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
-						/>
-						<input
-							required
-							type="text"
-							placeholder={t("Form.emailAddress")}
-							name="email"
-							aria-label="email address text field"
-							maxLength={50}
-							onChange={(e) => {
-								setFormData({ ...formData, email: e.target.value });
-							}}
-							className="box-content col-span-2 sm:col-span-1 border-y border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
-						/>
-						<input
-							required
-							type="text"
-							placeholder={t("Form.subject")}
-							name="subject"
-							aria-label="subject text field"
-							maxLength={100}
-							onChange={(e) => {
-								setFormData({ ...formData, subject: e.target.value });
-							}}
-							className="box-content col-span-2 border-b border-black/5 dark:border-white/5 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100"
-						/>
-						<textarea
-							required
-							name="message"
-							placeholder={t("Form.message")}
-							aria-label="message field"
-							maxLength={2000}
-							rows={7}
-							onChange={(e) => {
-								setFormData({ ...formData, message: e.target.value });
-							}}
-							className="box-content col-span-2 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-2 duration-100 resize-none"
-						/>
+						<div className="col-span-2 sm:col-span-1 sm:border-r border-t sm:border-b border-black/5 dark:border-white/5">
+							<input
+								required
+								type="text"
+								placeholder={t("Form.name")}
+								name="name"
+								aria-label="name text field"
+								maxLength={30}
+								onChange={(e) => {
+									setFormData({ ...formData, name: e.target.value });
+								}}
+								className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
+							/>
+						</div>
+						<div className="col-span-2 sm:col-span-1 border-y border-black/5 dark:border-white/5">
+							<input
+								required
+								type="text"
+								placeholder={t("Form.emailAddress")}
+								name="email"
+								aria-label="email address text field"
+								maxLength={50}
+								onChange={(e) => {
+									setFormData({ ...formData, email: e.target.value });
+								}}
+								className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
+							/>
+						</div>
+						<div className="col-span-2 border-b border-black/5 dark:border-white/5">
+							<input
+								required
+								type="text"
+								placeholder={t("Form.subject")}
+								name="subject"
+								aria-label="subject text field"
+								maxLength={100}
+								onChange={(e) => {
+									setFormData({ ...formData, subject: e.target.value });
+								}}
+								className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
+							/>
+						</div>
+						<div className="col-span-2">
+							<textarea
+								required
+								name="message"
+								placeholder={t("Form.message")}
+								aria-label="message field"
+								maxLength={2000}
+								rows={7}
+								onChange={(e) => {
+									setFormData({ ...formData, message: e.target.value });
+								}}
+								className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-1.5 duration-100 resize-none"
+							/>
+						</div>
 						<div className="col-span-2 flex flex-col sm:flex-row-reverse items-center justify-between">
 							<Button
 								onClick={(e) => {

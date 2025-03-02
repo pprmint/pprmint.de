@@ -10,7 +10,7 @@ import RotateCcw from "src/icons/RotateCcw";
 import Button from "src/components/ui/Button";
 
 export default function Tester() {
-	const t = useTranslations("MINTBIT");
+	const t = useTranslations();
 	const [textAlignment, setTextAlignment] = useState("text-center");
 	const [tracking, setTracking] = useState([0]);
 	const [fontSize, setFontSize] = useState([1.5]);
@@ -29,7 +29,7 @@ export default function Tester() {
 					onValueChange={(textAlignment) => {
 						if (textAlignment) setTextAlignment(textAlignment);
 					}}
-					aria-label={t("Content.Tester.alignment")}
+					aria-label={t("FONTTESTER.alignment")}
 					className="w-full md:w-max md:border-r border-b border-black/5 dark:border-white/5"
 				>
 					{[
@@ -56,13 +56,13 @@ export default function Tester() {
 							min={0.5}
 							max={10}
 							step={0.05}
-							aria-label={t("Content.Tester.size")}
+							aria-label={t("FONTTESTER.size")}
 						>
 							<div
 								aria-hidden
 								className="absolute inset-0 flex justify-between items-center px-3 pointer-events-none"
 							>
-								<span className="font-stretch-condensed">{t("Content.Tester.size")}</span>
+								<span className="font-stretch-condensed">{t("FONTTESTER.size")}</span>
 								<span className="text-neutral-950 dark:text-white font-stretch-condensed">
 									{fontSize}em
 								</span>
@@ -81,13 +81,13 @@ export default function Tester() {
 							min={-0.25}
 							max={1.5}
 							step={0.01}
-							aria-label={t("Content.Tester.spacing")}
+							aria-label={t("FONTTESTER.tracking")}
 						>
 							<div
 								aria-hidden
 								className="absolute inset-0 flex justify-between items-center px-3 pointer-events-none"
 							>
-								<span className="font-stretch-condensed">{t("Content.Tester.spacing")}</span>
+								<span className="font-stretch-condensed">{t("FONTTESTER.tracking")}</span>
 								<span className="text-neutral-950 dark:text-white font-stretch-condensed">
 									{tracking}em
 								</span>
@@ -101,18 +101,18 @@ export default function Tester() {
 					<div className="border-b border-black/5 dark:border-white/5 inline-flex justify-center">
 						<Button
 							design="transparent"
-							aria-label={t("Content.Tester.reset")}
+							aria-label={t("FONTTESTER.reset")}
 							onClick={resetFont}
 						>
 							<RotateCcw className="group-hover:rotate-[-360deg] group-hover:duration-300" />
-							{t("Content.Tester.reset")}
+							{t("FONTTESTER.reset")}
 						</Button>
 					</div>
 				</div>
 			</Toolbar.Root>
 			<textarea
 				className={`flex w-full p-3 md:p-6 font-mintbit text-neutral-950 dark:text-white placeholder:text-neutral-950 dark:placeholder:text-white focus:placeholder:text-black/10 dark:focus:placeholder:text-white/10 bg-transparent focus:outline-none focus-visible:outline-none min-h-[200px] h-1/2-screen border-b border-black/5 dark:border-white/5 ${textAlignment}`}
-				placeholder={t("Content.Tester.pangram")}
+				placeholder={t("MINTBIT.Content.Tester.pangram")}
 				style={{
 					fontSize: `${fontSize}em`,
 					letterSpacing: `${tracking}em`,

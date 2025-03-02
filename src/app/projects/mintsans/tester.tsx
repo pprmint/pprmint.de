@@ -29,7 +29,7 @@ export default function Tester() {
 		);
 	}
 
-	const t = useTranslations("MINTSANS");
+	const t = useTranslations();
 	const [weight, setWeight] = useState("400");
 	const [textAlignment, setTextAlignment] = useState("text-center");
 	const [tracking, setTracking] = useState([0]);
@@ -48,7 +48,7 @@ export default function Tester() {
 						<Select.Root value={weight} onValueChange={setWeight}>
 							<Select.Trigger
 								className="group flex items-center justify-between px-3 h-9 w-full hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white active:shadow-inner duration-100"
-								aria-label={t("Content.Tester.Weight.label")}
+								aria-label={t("FONTTESTER.Weight.label")}
 							>
 								<Select.Value aria-label={weight} />
 								<Select.Icon className="ml-auto group-hover:translate-y-0.5 duration-100">
@@ -62,9 +62,9 @@ export default function Tester() {
 									</Select.ScrollUpButton>
 									<Select.Viewport className="p-1">
 										<Select.Group>
-											<SelectItem value="200">{t("Content.Tester.Weight.extralight")}</SelectItem>
-											<SelectItem value="400">{t("Content.Tester.Weight.regular")}</SelectItem>
-											<SelectItem value="700">{t("Content.Tester.Weight.bold")}</SelectItem>
+											<SelectItem value="200">{t("FONTTESTER.Weight.extralight")}</SelectItem>
+											<SelectItem value="400">{t("FONTTESTER.Weight.regular")}</SelectItem>
+											<SelectItem value="700">{t("FONTTESTER.Weight.bold")}</SelectItem>
 										</Select.Group>
 									</Select.Viewport>
 									<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-white/50 dark:from-neutral-900/50 text-neutral-950 dark:text-white rounded-b-md">
@@ -81,7 +81,7 @@ export default function Tester() {
 						onValueChange={(textAlignment) => {
 							if (textAlignment) setTextAlignment(textAlignment);
 						}}
-						aria-label={t("Content.Tester.alignment")}
+						aria-label={t("FONTTESTER.alignment")}
 						className="w-max md:border-r border-b border-black/5 dark:border-white/5"
 					>
 						{[
@@ -108,13 +108,13 @@ export default function Tester() {
 						min={0.5}
 						max={10}
 						step={0.05}
-						aria-label={t("Content.Tester.size")}
+						aria-label={t("FONTTESTER.size")}
 					>
 						<div
 							aria-hidden
 							className="absolute inset-0 flex justify-between items-center px-3 pointer-events-none"
 						>
-							<span className="font-stretch-condensed">{t("Content.Tester.size")}</span>
+							<span className="font-stretch-condensed">{t("FONTTESTER.size")}</span>
 							<span className="text-neutral-950 dark:text-white font-stretch-condensed">
 								{fontSize}em
 							</span>
@@ -122,7 +122,7 @@ export default function Tester() {
 						<Slider.Track className="relative grow h-9">
 							<Slider.Range className="absolute bg-gradient-to-l from-black/5 dark:from-white/5 h-9" />
 						</Slider.Track>
-						<Slider.Thumb className="block h-9 w-px group-hover:w-4 active:w-4 bg-neutral-950 dark:bg-white outline-none focus-visible:outline-none duration-100" />
+						<Slider.Thumb className="block h-9 w-px group-hover:w-1 active:w-1 bg-neutral-950 dark:bg-white outline-none focus-visible:outline-none duration-100" />
 					</Slider.Root>
 				</div>
 				<div className="flex flex-col w-full md:w-1/2 border-b border-black/5 dark:border-white/5">
@@ -133,13 +133,13 @@ export default function Tester() {
 						min={-0.25}
 						max={1.5}
 						step={0.01}
-						aria-label={t("Content.Tester.spacing")}
+						aria-label={t("FONTTESTER.tracking")}
 					>
 						<div
 							aria-hidden
 							className="absolute inset-0 flex justify-between items-center px-3 pointer-events-none"
 						>
-							<span className="font-stretch-condensed">{t("Content.Tester.spacing")}</span>
+							<span className="font-stretch-condensed">{t("FONTTESTER.tracking")}</span>
 							<span className="text-neutral-950 dark:text-white font-stretch-condensed">
 								{tracking}em
 							</span>
@@ -147,19 +147,19 @@ export default function Tester() {
 						<Slider.Track className="relative grow h-9">
 							<Slider.Range className="absolute bg-gradient-to-l from-black/5 dark:from-white/5 h-9" />
 						</Slider.Track>
-						<Slider.Thumb className="block h-9 w-px group-hover:w-4 active:w-4 bg-neutral-950 dark:bg-white outline-none focus-visible:outline-none duration-100" />
+						<Slider.Thumb className="block h-9 w-px group-hover:w-1 active:w-1 bg-neutral-950 dark:bg-white outline-none focus-visible:outline-none duration-100" />
 					</Slider.Root>
 				</div>
 				<div className="w-full md:w-max border-b border-black/5 dark:border-white/5 inline-flex justify-center">
-					<Button design="transparent" aria-label={t("Content.Tester.reset")} onClick={resetFont}>
+					<Button design="transparent" aria-label={t("FONTTESTER.reset")} onClick={resetFont}>
 						<RotateCcw className="group-hover:rotate-[-360deg] group-hover:duration-300" />
-						{t("Content.Tester.reset")}
+						{t("FONTTESTER.reset")}
 					</Button>
 				</div>
 			</Toolbar.Root>
 			<textarea
 				className={`flex w-full p-3 md:p-6 font-mintsans text-neutral-950 dark:text-white placeholder:text-neutral-950 dark:placeholder:text-white focus:placeholder:text-black/10 dark:focus:placeholder:text-white/10 bg-transparent focus:outline-none focus-visible:outline-none min-h-[200px] h-1/2-screen border-b border-black/5 dark:border-white/5 ${textAlignment}`}
-				placeholder={t("Content.Tester.pangram")}
+				placeholder={t("MINTSANS.Content.Tester.pangram")}
 				style={{
 					fontWeight: weight,
 					fontSize: `${fontSize as unknown as number}em`,

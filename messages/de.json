@@ -257,7 +257,6 @@
 		"downloadAll": "Alle herunterladen",
 		"downloadSelected": "Ausgewählte herunterladen",
 		"deselectAll": "Auswahl zurücksetzen",
-		"tryDifferent": "Probiere andere Filter aus, oder entferne welche.",
 		"settings": "Einstellungen",
 		"visitPage": "Seite besuchen",
 		"visitWebsite": "Website besuchen",
@@ -307,6 +306,18 @@
 				}
 			}
 		}
+	},
+	"FONTTESTER": {
+		"Weight": {
+			"label": "Gewicht",
+			"extralight": "Extraleicht",
+			"regular": "Normal",
+			"bold": "Breit"
+		},
+		"reset": "Zurücksetzen",
+		"size": "Schriftgröße",
+		"alignment": "Ausrichtung",
+		"tracking": "Zeichenabstand"
 	},
 	"FOOTER": {
 		"madeWith": "Gemacht mit ",
@@ -536,11 +547,7 @@
 			},
 			"Tester": {
 				"heading": "Probier es aus",
-				"pangram": "Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich.",
-				"alignment": "Ausrichtung",
-				"size": "Größe",
-				"spacing": "Zeichenabstand",
-				"reset": "Zurücksetzen"
+				"pangram": "Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich."
 			}
 		},
 		"Head": {
@@ -594,18 +601,8 @@
 				"text": "und deine Augen bluten."
 			},
 			"Tester": {
-				"Weight": {
-					"label": "Gewicht",
-					"extralight": "Extraleicht",
-					"regular": "Normal",
-					"bold": "Breit"
-				},
-				"alignment": "Ausrichtung",
 				"heading": "Probier es aus, oder noch besser: Lass es",
-				"pangram": "Franz jagt im komplett verwahrlosten Taxi quer durch Bayern.",
-				"size": "Größe",
-				"spacing": "Zeichenabstand",
-				"reset": "Einstellungen zurücksetzen"
+				"pangram": "Franz jagt im komplett verwahrlosten Taxi quer durch Bayern."
 			}
 		},
 		"Head": {
