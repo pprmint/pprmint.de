@@ -38,9 +38,10 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 			</h2>
 			<div className="grid grid-cols-2 border-x border-black/5 dark:border-white/5 items-center pt-20 lg:pt-0">
 				<div className="order-2 lg:order-1 flex col-span-2 lg:col-span-1 flex-col justify-center lg:border-r border-black/5 dark:border-white/5 h-full w-full lg:pt-40 lg:backdrop-blur-sm bg-white/25 dark:bg-neutral-950/25">
-					<div className="aspect-video md:aspect-auto md:grow">
+					<div className="md:grow">
 						<AnimatePresence mode="wait">
 							<m.div
+								layout
 								key={data.data[current].id}
 								className="pt-3 lg:border-t border-black/5 dark:border-white/5"
 							>
@@ -202,21 +203,24 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 					</div>
 				</div>
 				<div className="order-1 lg:order-2 col-span-2 lg:col-span-1 relative lg:h-full lg:pt-40 backdrop-blur-sm bg-neutral-950/25 lg:backdrop-blur-none lg:bg-transparent">
-					<div className="border-y border-black/5 dark:border-white/5 aspect-video">
+					<div className="aspect-video border-y border-black/5 dark:border-white/5">
 						<AnimatePresence>
 							<m.div
 								key={data.data[current].id}
 								initial={{
+									position: "relative",
 									clipPath:
 										direction < 0
 											? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
 											: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
 								}}
 								animate={{
+									position: "relative",
 									clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
 									transition: { type: "spring", duration: 0.5, bounce: 0, delay: 0.05 },
 								}}
 								exit={{
+									position: "absolute",
 									clipPath:
 										direction < 0
 											? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
@@ -224,7 +228,6 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 									opacity: 0,
 									transition: { ease: "easeIn", duration: 0.2 },
 								}}
-								className="absolute"
 							>
 								<m.div
 									initial={{
