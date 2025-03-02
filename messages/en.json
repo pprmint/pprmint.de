@@ -47,17 +47,10 @@
 	"APPICONS": {
 		"Content": {
 			"Intro": {
-				"title": "About these icons.",
+				"title": "About these icons",
 				"text1": "Many applications out there follow their own design language, from the design of the app itself to its icon. For the latter, I want to create a more uniform look (and also make sure that not every video editor from Adobe looks like Media Encoder). Controversial to hear this from a Windows user, I know. <i>Consistency? In Windows? Hilarious.</i>",
 				"text2": "These icons loosely follow the <a>guidelines for Windows app icons</a>. Click on a few icons to select them and then download them below.",
 				"text3": "More symbols will be added over time if I feel like it."
-			},
-			"Dialog": {
-				"title": "Caffeine addiction.",
-				"text1": "Hiya. Making all of these icons was a lot of work. I'm releasing them for free, but if you're feeling generous and want to support me and my work, a coffee would be really appreciated.",
-				"text2": "Click the button below to visit my Ko-fi page.",
-				"openKofi": "Fuel my addiction",
-				"noThanks": "Nah"
 			},
 			"search": "Search for an app icon by its name",
 			"noResults": "No results",
@@ -71,18 +64,6 @@
 		"Head": {
 			"description": "Windows-11-style app icons.",
 			"title": "App icons"
-		}
-	},
-	"CALC": {
-		"Head": {
-			"description": "Because you can never have enough useless easter eggs.",
-			"title": "Calculator"
-		},
-		"Content": {
-			"Settings": {
-				"lcdFont": "LCD font",
-				"lightTheme": "Light theme"
-			}
 		}
 	},
 	"CHAT": {
@@ -910,7 +891,7 @@
 				"text4": "Yes, I am aware other GUIs already exist. Now shush."
 			},
 			"Roadmap": {
-				"heading": "Roadmap.",
+				"heading": "Roadmap",
 				"savingSettings": "Remember the last used settings for download type, formats and output folder.",
 				"tempFolder": "Download files to a temporary folder before moving them to the chosen output folder.",
 				"autoUpdater": "Detect new releases on GitHub and allow you to either download and install them manually, or do so with one or two clicks.",
@@ -919,7 +900,7 @@
 				"youTellMe": "You tell me. I'm open to suggestions."
 			},
 			"Download": {
-				"heading": "Download from GitHub.",
+				"heading": "Download from GitHub",
 				"text": "You can always find the latest installer on the releases page of the repo."
 			}
 		},

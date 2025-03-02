@@ -60,7 +60,7 @@ export default function Page() {
 					/>
 				</section>
 				<section className="border-x border-black/5 dark:border-white/5">
-					<h2>{t("YTDG.Content.Roadmap.heading")}</h2>
+					<h2>{t("YTDG.Content.Roadmap.heading")}<span className="text-violet">.</span></h2>
 					<div className="flex flex-col pl-3 md:pl-6">
 						<div className="flex gap-3 md:gap-6">
 							<div className="flex flex-col">
@@ -106,7 +106,7 @@ export default function Page() {
 					</div>
 				</section>
 				<section className="pt-20 md:pt-32 xl:pt-40 border-x border-black/5 dark:border-white/5 text-center">
-					<h2>{t("YTDG.Content.Download.heading")}</h2>
+					<h2>{t("YTDG.Content.Download.heading")}<span className="text-violet">.</span></h2>
 					<p>{t("YTDG.Content.Download.text")}</p>
 					<br />
 					<div className="flex justify-center">
