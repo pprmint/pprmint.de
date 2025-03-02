@@ -761,6 +761,12 @@
 			}
 		}
 	},
+	"POMIFURI": {
+		"Head": {
+			"title": "Website and logo for Pomifuri",
+			"description": "A streamer and artist."
+		}
+	},
 	"PRIVACY": {
 		"Head": {
 			"description": "Learn about what data is processed upon your visit.",

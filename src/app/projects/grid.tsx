@@ -10,6 +10,7 @@ import ArrowRight from "src/icons/ArrowRight";
 import Globe from "src/icons/Globe";
 import Link from "next/link";
 
+import PomifuriImage from "./pomifuri/twitter-image.png";
 import AutselliaImage from "./autsellia/twitter-image.png";
 import AppiconsImage from "./appicons/twitter-image.png";
 import IconsImage from "./icons/twitter-image.png";
@@ -24,6 +25,12 @@ import { useState } from "react";
 
 const ProjectsList = [
 	{
+		name: "pomifuri",
+		tags: ["website"],
+		image: PomifuriImage,
+		link: "https://pomi.moe",
+	},
+	{
 		name: "minasans",
 		tags: ["font"],
 		image: MinasansImage,
@@ -32,6 +39,7 @@ const ProjectsList = [
 		name: "autsellia",
 		tags: ["website"],
 		image: AutselliaImage,
+		link: "https://autsellia.com",
 	},
 	{
 		name: "minttriangles",
@@ -47,6 +55,7 @@ const ProjectsList = [
 		name: "tentative",
 		tags: ["design", "website"],
 		image: TentativeImage,
+		link: "https://tentative.name",
 	},
 	{
 		name: "mintbit",
@@ -125,7 +134,8 @@ export default function Grid() {
 				{ProjectsList.map((project) => (
 					<Link
 						key={project.name}
-						href={`/projects/${project.name}`}
+						href={project.link ? project.link : `/projects/${project.name}`}
+						target={project.link ? "_blank" : "_self"}
 						className={`group relative overflow-clip aspect-[1.914/1] ${
 							!project.tags.includes(filter) &&
 							filter != "" &&
@@ -143,7 +153,7 @@ export default function Grid() {
 									{t(`${project.name.toUpperCase()}.Head.description`)}
 								</p>
 							</div>
-							<ArrowRight className="absolute bottom-6 right-12 opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-hover:right-6 fill-green stroke-green stroke-1 size-7 duration-200 group-hover:duration-400 group-focus:duration-400 ease-in-quad group-hover:ease-out-quint group-focus:ease-out-quint group-hover:delay-100 group-focus:delay-150" />
+							<ArrowRight className="absolute bottom-6 right-12 opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-hover:right-6 group-focus:right-6 fill-green stroke-green stroke-1 size-7 duration-200 group-hover:duration-400 group-focus:duration-400 ease-in-quad group-hover:ease-out-quint group-focus:ease-out-quint group-hover:delay-100 group-focus:delay-150" />
 						</div>
 					</Link>
 				))}

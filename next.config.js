@@ -140,6 +140,36 @@ module.exports = withNextIntl({
 				destination: "/projects/minttriangles",
 				permanent: false,
 			},
+			{
+				source: "/pomifuri",
+				destination: "https://pomi.moe",
+				permanent: false,
+			},
+			{
+				source: "/projects/pomifuri",
+				destination: "https://pomi.moe",
+				permanent: false,
+			},
+			{
+				source: "/autsellia",
+				destination: "https://autsellia.com",
+				permanent: false,
+			},
+			{
+				source: "/projects/autsellia",
+				destination: "https://autsellia.com",
+				permanent: false,
+			},
+			{
+				source: "/tentative",
+				destination: "https://tentative.name",
+				permanent: false,
+			},
+			{
+				source: "/projects/tentative",
+				destination: "https://tentative.name",
+				permanent: false,
+			},
 		];
 	},
 	async headers() {
