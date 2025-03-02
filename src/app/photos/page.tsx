@@ -17,8 +17,8 @@ export async function generateMetadata() {
 	};
 }
 
-export default async function Page({ searchParams }: { searchParams: Promise<{ p: number }> }) {
-	const { p = 1 } = await searchParams;
+export default async function Page({ searchParams }: { searchParams: Promise<{ p?: string }> }) {
+	const { p = "1" } = await searchParams;
 	const t = await getTranslations("PHOTOS");
 	return (
 		<>
@@ -26,7 +26,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ p
 			<main className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 				<section className="pb-20 md:pb-32 xl:pb-40 border-x border-black/5 dark:border-white/5">
 					<Suspense fallback={<GallerySkeleton />}>
-						<GallerySuspense p={p} />
+						<GallerySuspense p={parseInt(p)} />
 					</Suspense>
 				</section>
 				<section className="flex flex-col lg:flex-row items-center justify-center gap-9 px-6 md:px-9 border-x border-black/5 dark:border-white/5">
