@@ -17,7 +17,7 @@ export default function KofiWidget() {
 		setInverted(true);
 		setNoAccents(true);
 		return () => setInverted(false);
-	}, []);
+	}, [setInverted, setNoAccents]);
 	return (
 		<div className="w-full max-w-[400px] xl:pt-40">
 			<div className="mx-auto w-full max-w-[400px] h-[640px] overflow-clip bg-black/5 dark:bg-white/5">
