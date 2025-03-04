@@ -8,7 +8,7 @@ import { MinaArtworks } from "src/types/mina-artwork";
 import * as Dialog from "@radix-ui/react-dialog";
 import Error from "src/icons/Error";
 
-import * as m from "motion/react-m";
+import * as m from "motion/react-client";
 import { AnimatePresence } from "motion/react";
 import EyeDisabled from "src/icons/EyeDisabled";
 import Link from "next/link";
@@ -21,11 +21,17 @@ import Globe from "src/icons/Globe";
 export default function Gallery({ artworks, page }: { artworks: MinaArtworks; page: number }) {
 	const t = useTranslations("MINA");
 	const [direction, setDirection] = useState(0);
+	const [xOffset, setXOffset] = useState(0);
 	const [selectedArtwork, setSelectedArtwork] = useState(0);
 	const [selectedVariant, setSelectedVariant] = useState(0);
 	const [scale, setScale] = useState(1);
 
-	function handleSelectArtwork(id: number) {
+	function handleSelectArtwork({ id, offset }: { id: number; offset?: number }) {
+		if (offset) {
+			setXOffset(offset);
+		} else {
+			setXOffset(0);
+		}
 		setDirection(id > selectedArtwork ? 1 : -1);
 		setTimeout(() => {
 			setSelectedArtwork(id);
@@ -38,6 +44,7 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 			setSelectedArtwork(0);
 			setSelectedVariant(0);
 			setDirection(0);
+			setXOffset(0);
 			setScale(1);
 		}, 200);
 	}
@@ -51,6 +58,34 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 			initRef.current = true;
 		}
 	}, [page]);
+
+	const variants = {
+		enter: (direction: number) => {
+			return {
+				x: direction < 0 ? -120 : direction > 0 ? 120 : 0,
+				clipPath:
+					direction < 0
+						? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
+						: direction > 0
+							? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
+							: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+			};
+		},
+		center: {
+			x: 0,
+			clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+		},
+		exit: (direction: number) => {
+			return {
+				x: direction < 0 ? 120 + xOffset : -120 + xOffset,
+				clipPath:
+					direction < 0
+						? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
+						: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+				opacity: 0,
+			};
+		},
+	};
 
 	return (
 		<div
@@ -112,33 +147,42 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 											<AnimatePresence mode="popLayout">
 												<m.div
 													key={artworks.data[selectedArtwork].id}
-													initial={{
-														x: direction < 0 ? -120 : direction > 0 ? 120 : 0,
-														clipPath:
-															direction < 0
-																? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
-																: direction > 0
-																	? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
-																	: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-													}}
-													animate={{
-														x: 0,
-														clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-														transition: {
+													custom={direction}
+													variants={variants}
+													initial="enter"
+													animate="center"
+													exit="exit"
+													transition={{
+														x: {
 															type: "spring",
-															duration: 0.5,
+															duration: 0.6,
 															bounce: 0,
-															delay: 0.05,
 														},
 													}}
-													exit={{
-														x: direction < 0 ? 60 : -60,
-														clipPath:
-															direction < 0
-																? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
-																: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
-														opacity: 0,
-														transition: { ease: "easeIn", duration: 0.2 },
+													drag={scale > 1 ? false : "x"}
+													dragConstraints={{ left: 0, right: 0 }}
+													dragElastic={1}
+													onDragEnd={(e, { offset, velocity }) => {
+														const swipeConfidenceThreshold = 10000;
+														const swipePower = (offset: number, velocity: number) => {
+															return Math.abs(offset) * velocity;
+														};
+														const swipe = swipePower(offset.x, velocity.x);
+														if (swipe < -swipeConfidenceThreshold) {
+															if (selectedArtwork < artworks.data.length - 1) {
+																handleSelectArtwork({
+																	id: selectedArtwork + 1,
+																	offset: offset.x,
+																});
+															}
+														} else if (swipe > swipeConfidenceThreshold) {
+															if (selectedArtwork > 0) {
+																handleSelectArtwork({
+																	id: selectedArtwork - 1,
+																	offset: offset.x,
+																});
+															}
+														}
 													}}
 												>
 													<FadingImage
@@ -210,22 +254,22 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 																].artist.creditUrl!.startsWith("https://bsky.app/") ? (
 																	<Bluesky />
 																) : artworks.data[
-																	selectedArtwork
-																].artist.creditUrl!.startsWith(
-																	"https://twitter.com/"
-																) ? (
+																		selectedArtwork
+																  ].artist.creditUrl!.startsWith(
+																		"https://twitter.com/"
+																  ) ? (
 																	<Twitter />
 																) : artworks.data[
-																	selectedArtwork
-																].artist.creditUrl!.startsWith(
-																	"https://www.instagram.com/"
-																) ? (
+																		selectedArtwork
+																  ].artist.creditUrl!.startsWith(
+																		"https://www.instagram.com/"
+																  ) ? (
 																	<Instagram />
 																) : artworks.data[
-																	selectedArtwork
-																].artist.creditUrl!.startsWith(
-																	"https://www.youtube.com/"
-																) ? (
+																		selectedArtwork
+																  ].artist.creditUrl!.startsWith(
+																		"https://www.youtube.com/"
+																  ) ? (
 																	<YouTube />
 																) : (
 																	<Globe />
@@ -252,10 +296,11 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 																	onClick={() => setSelectedVariant(index)}
 																>
 																	<div
-																		className={`h-2 ${index === selectedVariant
-																			? "bg-neutral-50"
-																			: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
-																			} rounded-full duration-200 ease-out-quint`}
+																		className={`h-2 ${
+																			index === selectedVariant
+																				? "bg-neutral-50"
+																				: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
+																		} rounded-full duration-200 ease-out-quint`}
 																	/>
 																</button>
 															)
@@ -295,7 +340,7 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 												{artworks.data.map((artwork, index) => (
 													<button
 														key={index}
-														onClick={() => handleSelectArtwork(index)}
+														onClick={() => handleSelectArtwork({ id: index })}
 														className={`relative ${selectedArtwork === index ? "h-12 w-16" : "h-10 w-10 saturate-0 hover:saturate-100 opacity-50 hover:opacity-100"} duration-300 ease-out-quart overflow-clip`}
 													>
 														<Image

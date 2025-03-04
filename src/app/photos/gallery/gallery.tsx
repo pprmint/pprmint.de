@@ -13,17 +13,23 @@ import CameraShutterSpeed from "src/icons/CameraShutterSpeed";
 import CameraFocalLength from "src/icons/CameraFocalLength";
 import Error from "src/icons/Error";
 
-import * as m from "motion/react-m";
+import * as m from "motion/react-client";
 import { AnimatePresence } from "motion/react";
 
 export default function Gallery({ photos, page }: { photos: Photos; page: number }) {
 	const t = useTranslations("PHOTOS");
 	const format = useFormatter();
 	const [direction, setDirection] = useState(0);
+	const [xOffset, setXOffset] = useState(0);
 	const [selectedPhoto, setSelectedPhoto] = useState(0);
 	const [scale, setScale] = useState(1);
 
-	function handleSelectPhoto(id: number) {
+	function handleSelectPhoto({ id, offset }: { id: number; offset?: number }) {
+		if (offset) {
+			setXOffset(offset);
+		} else {
+			setXOffset(0);
+		}
 		setDirection(id > selectedPhoto ? 1 : -1);
 		setTimeout(() => {
 			setSelectedPhoto(id);
@@ -34,6 +40,7 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 		setTimeout(() => {
 			setSelectedPhoto(0);
 			setDirection(0);
+			setXOffset(0);
 			setScale(1);
 		}, 200);
 	}
@@ -47,6 +54,34 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 			initRef.current = true;
 		}
 	}, [page]);
+
+	const variants = {
+		enter: (direction: number) => {
+			return {
+				x: direction < 0 ? -120 : direction > 0 ? 120 : 0,
+				clipPath:
+					direction < 0
+						? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
+						: direction > 0
+						? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
+						: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+			};
+		},
+		center: {
+			x: 0,
+			clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+		},
+		exit: (direction: number) => {
+			return {
+				x: direction < 0 ? 120 + xOffset : -120 + xOffset,
+				clipPath:
+					direction < 0
+						? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
+						: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+				opacity: 0,
+			};
+		},
+	};
 
 	return (
 		<div
@@ -87,39 +122,47 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 								<TransformWrapper disablePadding onTransformed={(e) => setScale(e.state.scale)}>
 									<TransformComponent>
 										<div className="flex items-center justify-center w-screen h-screen max-h-svh">
-											<AnimatePresence>
+											<AnimatePresence mode="popLayout">
 												<m.div
 													key={photos.data[selectedPhoto].id}
-													initial={{
-														position: "relative",
-														x: direction < 0 ? -120 : direction > 0 ? 120 : 0,
-														clipPath:
-															direction < 0
-																? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
-																: direction > 0
-																	? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
-																	: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-													}}
-													animate={{
-														x: 0,
-														position: "relative",
-														clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-														transition: {
+													custom={direction}
+													variants={variants}
+													initial="enter"
+													animate="center"
+													exit="exit"
+													transition={{
+														x: {
 															type: "spring",
-															duration: 0.5,
+															duration: 0.6,
 															bounce: 0,
-															delay: 0.05,
 														},
 													}}
-													exit={{
-														position: "absolute",
-														x: direction < 0 ? 60 : -60,
-														clipPath:
-															direction < 0
-																? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
-																: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
-														opacity: 0,
-														transition: { ease: "easeIn", duration: 0.2 },
+													drag={scale > 1 ? false : "x"}
+													dragConstraints={{ left: 0, right: 0 }}
+													dragElastic={1}
+													onDragEnd={(e, { offset, velocity }) => {
+														const swipeConfidenceThreshold = 10000;
+														const swipePower = (offset: number, velocity: number) => {
+															return Math.abs(offset) * velocity;
+														};
+														setXOffset(offset.x);
+
+														const swipe = swipePower(offset.x, velocity.x);
+														if (swipe < -swipeConfidenceThreshold) {
+															if (selectedPhoto < photos.data.length - 1) {
+																handleSelectPhoto({
+																	id: selectedPhoto + 1,
+																	offset: offset.x,
+																});
+															}
+														} else if (swipe > swipeConfidenceThreshold) {
+															if (selectedPhoto > 0) {
+																handleSelectPhoto({
+																	id: selectedPhoto - 1,
+																	offset: offset.x,
+																});
+															}
+														}
 													}}
 												>
 													<FadingImage
@@ -282,14 +325,20 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 											}}
 										>
 											<div
-												className={`absolute inset-0 flex w-max items-center gap-2 ${direction !== 0 && "duration-500"} ease-out-quart`}
+												className={`absolute inset-0 flex w-max items-center gap-2 ${
+													direction !== 0 && "duration-500"
+												} ease-out-quart`}
 												style={{ left: `calc(50% - ${selectedPhoto * 48}px - 32px` }}
 											>
 												{photos.data.map((photo, index) => (
 													<button
 														key={index}
-														onClick={() => handleSelectPhoto(index)}
-														className={`relative ${selectedPhoto === index ? "h-12 w-16" : "h-10 w-10 saturate-0 hover:saturate-100 opacity-50 hover:opacity-100"} duration-300 ease-out-quart overflow-clip`}
+														onClick={() => handleSelectPhoto({ id: index })}
+														className={`relative ${
+															selectedPhoto === index
+																? "h-12 w-16"
+																: "h-10 w-10 saturate-0 hover:saturate-100 opacity-50 hover:opacity-100"
+														} duration-300 ease-out-quart overflow-clip`}
 													>
 														<Image
 															src={`https://static.pprmint.de${photo.photo.formats.thumbnail.url}`}
