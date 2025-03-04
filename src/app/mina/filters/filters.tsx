@@ -78,11 +78,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 	return (
 		<>
 			<div className="flex w-full border-t border-black/5 dark:border-white/5">
-				<div className="flex items-center grow">
-					<div className="flex items-center gap-2 h-9 pl-2 pr-3 w-max border-r border-black/5 dark:border-white/5">
-						<Checkbox border id="nsfw" checked={nsfw} onCheckedChange={handleNsfw} />
-						<label htmlFor="nsfw">{t("Content.NSFW.checkbox")}</label>
-					</div>
+				<div className="flex items-center sm:justify-between grow">
 					<div className="grow sm:grow-0 sm:w-48 gap-3 sm:border-r border-black/5 dark:border-white/5">
 						<Select.Root value={props.artist} onValueChange={handleSelectArtist}>
 							<div className="flex w-full">
@@ -132,6 +128,10 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 								</Select.Content>
 							</Select.Portal>
 						</Select.Root>
+					</div>
+					<div className="flex items-center gap-2 h-9 pl-2 pr-3 w-max border-l border-black/5 dark:border-white/5">
+						<Checkbox border id="nsfw" checked={nsfw} onCheckedChange={handleNsfw} />
+						<label htmlFor="nsfw">{t("Content.NSFW.checkbox")}</label>
 					</div>
 				</div>
 			</div>
