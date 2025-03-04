@@ -176,7 +176,7 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 												transition: { duration: 0.4, type: "spring", bounce: 0 },
 											}}
 											exit={{ y: -48, opacity: 0 }}
-											className="absolute flex justify-between items-center top-0 pl-6 pr-4 pt-4 min-h-16 inset-x-0"
+											className="absolute flex justify-between items-center top-0 pl-6 pr-4 pt-4 inset-x-0"
 										>
 											<AnimatePresence mode="wait">
 												<m.div
@@ -213,22 +213,22 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 																].artist.creditUrl!.startsWith("https://bsky.app/") ? (
 																	<Bluesky />
 																) : artworks.data[
-																		selectedArtwork
-																  ].artist.creditUrl!.startsWith(
-																		"https://twitter.com/"
-																  ) ? (
+																	selectedArtwork
+																].artist.creditUrl!.startsWith(
+																	"https://twitter.com/"
+																) ? (
 																	<Twitter />
 																) : artworks.data[
-																		selectedArtwork
-																  ].artist.creditUrl!.startsWith(
-																		"https://www.instagram.com/"
-																  ) ? (
+																	selectedArtwork
+																].artist.creditUrl!.startsWith(
+																	"https://www.instagram.com/"
+																) ? (
 																	<Instagram />
 																) : artworks.data[
-																		selectedArtwork
-																  ].artist.creditUrl!.startsWith(
-																		"https://www.youtube.com/"
-																  ) ? (
+																	selectedArtwork
+																].artist.creditUrl!.startsWith(
+																	"https://www.youtube.com/"
+																) ? (
 																	<YouTube />
 																) : (
 																	<Globe />
@@ -255,11 +255,10 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 																	onClick={() => setSelectedVariant(index)}
 																>
 																	<div
-																		className={`h-2 ${
-																			index === selectedVariant
+																		className={`h-2 ${index === selectedVariant
 																				? "bg-neutral-50"
 																				: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
-																		} rounded-full duration-200 ease-out-quint`}
+																			} rounded-full duration-200 ease-out-quint`}
 																	/>
 																</button>
 															)
