@@ -293,9 +293,10 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 													>
 														<Image
 															src={`https://static.pprmint.de${photo.photo.formats.thumbnail.url}`}
-															fill
+															width={photo.photo.formats.thumbnail.width}
+															height={photo.photo.formats.thumbnail.height}
 															alt={photo.photo.alternativeText || ""}
-															className="object-cover"
+															className="absolute top-0 inset-x-0 h-full object-cover"
 														/>
 													</button>
 												))}

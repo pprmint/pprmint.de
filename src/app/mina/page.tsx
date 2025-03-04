@@ -43,12 +43,13 @@ export default async function Page({
 				creditLink="https://www.instagram.com/nogonagon"
 				noAccents
 			>
-				<div className="h-full bg-[#387895] flex items-end justify-end">
+				<div className="relative h-full bg-[#387895] flex items-end justify-end">
 					<FadingImage
 						src="https://cms.pprmint.de/uploads/nano_3bg_560c52a096.webp"
 						alt=""
 						fill
 						className="object-cover object-[50%_90%]"
+						priority
 					/>
 					<div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent" />
 					<div className="absolute h-full w-full max-w-8xl left-1/2 -translate-x-1/2 flex items-end justify-end pt-12 px-9 md:px-24 xl:px-48">

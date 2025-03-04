@@ -86,7 +86,7 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 											: artwork.artwork[0].height
 									}
 									alt=""
-									className="h-full min-w-full object-cover group-focus-visible/button:animate-pulse"
+									className={`h-full min-w-full object-cover group-focus-visible/button:animate-pulse ${artwork.focus}`}
 								/>
 							</div>
 							{artwork.nsfw && (
@@ -109,11 +109,10 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 								<TransformWrapper disablePadding onTransformed={(e) => setScale(e.state.scale)}>
 									<TransformComponent>
 										<div className="flex items-center justify-center w-screen h-screen max-h-svh">
-											<AnimatePresence>
+											<AnimatePresence mode="popLayout">
 												<m.div
 													key={artworks.data[selectedArtwork].id}
 													initial={{
-														position: "relative",
 														x: direction < 0 ? -120 : direction > 0 ? 120 : 0,
 														clipPath:
 															direction < 0
@@ -124,7 +123,6 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 													}}
 													animate={{
 														x: 0,
-														position: "relative",
 														clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
 														transition: {
 															type: "spring",
@@ -134,7 +132,6 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 														},
 													}}
 													exit={{
-														position: "absolute",
 														x: direction < 0 ? 60 : -60,
 														clipPath:
 															direction < 0
@@ -256,8 +253,8 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 																>
 																	<div
 																		className={`h-2 ${index === selectedVariant
-																				? "bg-neutral-50"
-																				: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
+																			? "bg-neutral-50"
+																			: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
 																			} rounded-full duration-200 ease-out-quint`}
 																	/>
 																</button>
@@ -303,9 +300,10 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 													>
 														<Image
 															src={`https://static.pprmint.de${artwork.artwork[0].formats.thumbnail.url}`}
-															fill
+															width={artwork.artwork[0].formats.thumbnail.width}
+															height={artwork.artwork[0].formats.thumbnail.height}
 															alt={artwork.artwork[0].alternativeText || ""}
-															className={`object-cover ${artwork.focus} ${artwork.nsfw && selectedArtwork !== index && "blur-sm hover:blur-0"}`}
+															className={`absolute top-0 inset-x-0 h-full object-cover ${artwork.focus} ${artwork.nsfw && selectedArtwork !== index && "blur-sm hover:blur-0"}`}
 														/>
 													</button>
 												))}
