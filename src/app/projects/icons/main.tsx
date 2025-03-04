@@ -123,7 +123,7 @@ export default function Main() {
 							{
 								description: Icons[props.categoryIndex].icons[props.iconIndex].names[0],
 								icon: (
-									<div className="*:size-[30px] *:fill-neutral-50">
+									<div className="*:size-[30px] *:fill-neutral-950 dark:*:fill-white">
 										{Icons[props.categoryIndex].icons[props.iconIndex].icon}
 									</div>
 								),
