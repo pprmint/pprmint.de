@@ -164,7 +164,7 @@ export default function Form() {
 								{failed && <WarningTriangle />}
 								{sending ? t("Form.sending") : failed ? t("Form.retry") : t("Form.send")}
 							</Button>
-							<p className="text-xs ml-3 my-3 sm:my-0">
+							<p className="text-xs sm:ml-3 my-3 sm:my-0">
 								{t.rich("preferMailto", {
 									Link: (chunks) => (
 										<Link
