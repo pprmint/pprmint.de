@@ -8,7 +8,7 @@ import { MinaArtworks } from "src/types/mina-artwork";
 import HeartFilled from "src/icons/HeartFilled";
 import HomeTitle from "./home/title";
 import Announcements from "./home/announcements";
-import * as motion from "motion/react-client";
+import * as m from "motion/react-m";
 import Button from "src/components/ui/Button";
 
 export async function generateMetadata() {
@@ -63,27 +63,27 @@ export default async function Page() {
 					<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 						<div className="w-full border-x border-black/5 dark:border-white/5 pt-9 lg:pt-16 xl:pt-48">
 							<div className="relative">
-								<motion.div
+								<m.div
 									initial={{ clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" }}
 									whileInView={{
 										clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-										transition: { delay: 0.2, type: "spring", bounce: 0, duration: 0.75 },
+										transition: { type: "spring", bounce: 0, duration: 0.75 },
 									}}
-									viewport={{ once: true }}
+									viewport={{ once: true, amount: 1 }}
 									className="absolute -z-10 italic pb-[0.1em] text-5xl md:text-8xl lg:text-9xl xl:text-[9rem] tracking-tight font-stretch-condensed bg-black/5 dark:bg-white/5 text-neutral-950 dark:text-white overflow-clip"
 								>
-									<motion.div
+									<m.div
 										initial={{ padding: "0 0" }}
 										whileInView={{
 											padding: "0 .3em",
-											transition: { delay: 0.2, type: "spring", bounce: 0, duration: 0.75 },
+											transition: { type: "spring", bounce: 0, duration: 0.75 },
 										}}
-										viewport={{ once: true }}
+										viewport={{ once: true, amount: 1 }}
 										aria-hidden
 									>
 										{t("Content.Mina.heading1")}
-									</motion.div>
-								</motion.div>
+									</m.div>
+								</m.div>
 								<FadingImage
 									src={`https://static.pprmint.de${MinaArt.data[0].artwork[0].url}`}
 									alt={MinaArt.data[0].artwork[0].alternativeText || ""}
@@ -91,28 +91,28 @@ export default async function Page() {
 									height={MinaArt.data[0].artwork[0].height || 0}
 									className="w-auto h-auto max-h-screen mx-auto pt-12 sm:pt-14 md:pt-20 lg:pt-24 xl:pt-28 pb-14 sm:pb-16 md:pb-20 lg:pb-24 xl:pb-32"
 								/>
-								<motion.div
+								<m.div
 									initial={{ clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)" }}
 									whileInView={{
 										clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-										transition: { delay: 0.2, type: "spring", bounce: 0, duration: 0.75 },
+										transition: { type: "spring", bounce: 0, duration: 0.75 },
 									}}
-									viewport={{ once: true }}
+									viewport={{ once: true, amount: 1 }}
 									aria-hidden
 									className="absolute bottom-0 right-0 text-right italic text-5xl md:text-8xl lg:text-9xl xl:text-[10rem] font-serif font-stretch-ultra-condensed bg-white/50 dark:bg-neutral-950/50 backdrop-blur-md text-neutral-950 dark:text-white"
 								>
-									<motion.div
+									<m.div
 										initial={{ padding: "0 0" }}
 										whileInView={{
 											padding: "0 .3em",
-											transition: { delay: 0.2, type: "spring", bounce: 0, duration: 0.75 },
+											transition: { type: "spring", bounce: 0, duration: 0.75 },
 										}}
-										viewport={{ once: true }}
+										viewport={{ once: true, amount: 1 }}
 										className="bg-black/5 dark:bg-white/5 leading-tight tracking-tight font-[350]"
 									>
 										{t("Content.Mina.heading2")}
-									</motion.div>
-								</motion.div>
+									</m.div>
+								</m.div>
 							</div>
 							<div className="flex flex-col grow mt-12">
 								<h2 className="sr-only">{t("Content.Mina.heading1") + " " + t("Content.Mina.heading2")}</h2>
