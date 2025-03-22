@@ -44,6 +44,7 @@ export default async function Page() {
 					<p>{t("Content.General.text1")}</p>
 					<p>{t("Content.General.text2")}</p>
 					<p>{t("Content.General.text3")}</p>
+					<p>{t("Content.General.text4")}</p>
 					<p className="flex gap-6 flex-wrap">
 						<Link
 							className="text-link-external inline-flex gap-1 items-center"
@@ -73,20 +74,13 @@ export default async function Page() {
 					<p className="flex gap-6 flex-wrap">
 						<Link
 							className="text-link-external inline-flex gap-1 items-center"
-							href="https://vercel.com/legal/privacy-policy"
+							href={`https://www.hetzner.com/${locale === "de" ? "de/" : ""}legal/privacy-policy/`}
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							{t("Content.privacyPolicyOf", { provider: "Vercel" })}
-							<ExternalLink />
-						</Link>
-						<Link
-							className="text-link-external inline-flex gap-1 items-center"
-							href="https://vercel.com/legal/dpa"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							{t("Content.dpaOf", { provider: "Vercel" })}
+							{t("Content.privacyPolicyOf", {
+								provider: "Hetzner",
+							})}
 							<ExternalLink />
 						</Link>
 						<Link
