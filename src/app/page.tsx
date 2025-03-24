@@ -67,18 +67,18 @@ export default async function Page() {
 									initial={{ clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" }}
 									whileInView={{
 										clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-										transition: { type: "spring", bounce: 0, duration: 0.75 },
+										transition: { type: "spring", bounce: 0, duration: 0.75, delay: 0.2 },
 									}}
-									viewport={{ once: true, amount: 1 }}
+									viewport={{ once: true }}
 									className="absolute -z-10 italic pb-[0.1em] text-5xl md:text-8xl lg:text-9xl xl:text-[9rem] tracking-tight font-stretch-condensed bg-black/5 dark:bg-white/5 text-neutral-950 dark:text-white overflow-clip"
 								>
 									<m.div
 										initial={{ padding: "0 0" }}
 										whileInView={{
 											padding: "0 .3em",
-											transition: { type: "spring", bounce: 0, duration: 0.75 },
+											transition: { type: "spring", bounce: 0, duration: 0.75, delay: 0.2 },
 										}}
-										viewport={{ once: true, amount: 1 }}
+										viewport={{ once: true }}
 										aria-hidden
 									>
 										{t("Content.Mina.heading1")}
@@ -95,9 +95,9 @@ export default async function Page() {
 									initial={{ clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)" }}
 									whileInView={{
 										clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-										transition: { type: "spring", bounce: 0, duration: 0.75 },
+										transition: { type: "spring", bounce: 0, duration: 0.75, delay: 0.2 },
 									}}
-									viewport={{ once: true, amount: 1 }}
+									viewport={{ once: true }}
 									aria-hidden
 									className="absolute bottom-0 right-0 text-right italic text-5xl md:text-8xl lg:text-9xl xl:text-[10rem] font-serif font-stretch-ultra-condensed bg-white/50 dark:bg-neutral-950/50 backdrop-blur-md text-neutral-950 dark:text-white"
 								>
@@ -105,9 +105,9 @@ export default async function Page() {
 										initial={{ padding: "0 0" }}
 										whileInView={{
 											padding: "0 .3em",
-											transition: { type: "spring", bounce: 0, duration: 0.75 },
+											transition: { type: "spring", bounce: 0, duration: 0.75, delay: 0.2 },
 										}}
-										viewport={{ once: true, amount: 1 }}
+										viewport={{ once: true }}
 										className="bg-black/5 dark:bg-white/5 leading-tight tracking-tight font-[350]"
 									>
 										{t("Content.Mina.heading2")}
