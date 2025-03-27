@@ -1,3 +1,4 @@
+const { withPayload } = require("@payloadcms/next/withPayload");
 /** @type {import("next").NextConfig} */
 const createNextIntlPlugin = require('next-intl/plugin');
 const withNextIntl = createNextIntlPlugin();
@@ -25,7 +26,7 @@ const securityHeaders = [
 	},
 ];
 
-module.exports = withNextIntl({
+module.exports = withPayload(withNextIntl({
 	reactStrictMode: false,
 	images: {
 		remotePatterns: [
@@ -178,4 +179,4 @@ module.exports = withNextIntl({
 			},
 		];
 	},
-});
+}));

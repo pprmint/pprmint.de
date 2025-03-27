@@ -3,8 +3,8 @@ import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
-import MinaWhat from "public/assets/mina/minawhat.png";
-import Button from "src/components/ui/Button";
+import MinaWhat from "/public/assets/mina/minawhat.png";
+import Button from "@/components/ui/Button";
 
 export default function OutOfBounds() {
     const t = useTranslations("MINA");

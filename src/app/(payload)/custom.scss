@@ -1,0 +1,49 @@
+@import url("/fonts/DINish/DINish.css");
+@import url("/fonts/NotoSerif/notoserif.css");
+
+:root {
+	--font-body: "DINish", system-ui;
+	--font-mono: "Iosevka Mint Expanded", "Cascadia Code", monospace;
+	--font-serif: "Noto Serif", serif;
+	--base-body-size: 16;
+}
+
+html {
+	font-size: 16px;
+}
+
+html,
+body,
+button,
+input,
+[data-sonner-toast] {
+	font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-serif);
+	font-stretch: ultra-condensed;
+}
+
+.card__title {
+	font-size: 1.25em;
+}
+
+.checkbox-input label.field-label {
+	font-size: 1rem;
+	padding-bottom: 0;
+}
+
+.react-datepicker__time-list-item,
+.popup-button-list__button {
+	font-size: 1rem;
+}
+
+.react-datepicker__day--outside-month {
+	color: var(--color-base-500);
+}

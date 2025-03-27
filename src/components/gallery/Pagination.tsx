@@ -2,8 +2,8 @@
 import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
 import { useMediaQuery } from "react-responsive";
-import ChevronLeft from "src/icons/ChevronLeft";
-import ChevronRight from "src/icons/ChevronRight";
+import ChevronLeft from "@/icons/ChevronLeft";
+import ChevronRight from "@/icons/ChevronRight";
 import { usePathname, useRouter } from "next/navigation";
 
 function Pagination({ page, pageCount }: { page: number; pageCount: number }) {
