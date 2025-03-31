@@ -4,7 +4,7 @@ import { useTranslations, useFormatter } from "next-intl";
 import Image from "next/image";
 import FadingImage from "@/components/ui/FadingImage";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-import { MinaArtworks } from "@/types/mina-artwork";
+import type { Mina } from "@/payload-types";
 import * as Dialog from "@radix-ui/react-dialog";
 import Error from "@/icons/Error";
 
@@ -17,8 +17,9 @@ import Twitter from "@/icons/Twitter";
 import Instagram from "@/icons/Instagram";
 import YouTube from "@/icons/YouTube";
 import Globe from "@/icons/Globe";
+import { PaginatedDocs } from "payload";
 
-export default function Gallery({ artworks, page }: { artworks: MinaArtworks; page: number }) {
+export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mina>; page: number }) {
 	const t = useTranslations("MINA");
 	const [direction, setDirection] = useState(0);
 	const [xOffset, setXOffset] = useState(0);
@@ -92,7 +93,7 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 			ref={galleryRef}
 			className="group grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 sm:p-2 border-y border-black/5 dark:border-white/5 sm:gap-2"
 		>
-			{artworks.data.map((artwork, index) => (
+			{artworks.docs.map((artwork, index) => (
 				<Dialog.Root key={artwork.id}>
 					<Dialog.Trigger asChild>
 						<button
@@ -109,19 +110,19 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 						>
 							<div className="scale-[1.025] sm:group-hover/button:scale-100 group-active/button:scale-100 sm:group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
 								<FadingImage
-									src={`https://static.pprmint.de${artwork.artwork[0].formats.small ? artwork.artwork[0].formats.small.url : artwork.artwork[0].url}`}
+									src={`https://static.pprmint.de${artwork.images[0].image.sizes.sd ? artwork.images[0].image.sizes.sd.url : artwork.images[0].image.url}`}
 									width={
-										artwork.artwork[0].formats.small
-											? artwork.artwork[0].formats.small.width
-											: artwork.artwork[0].width
+										artwork.images[0].image.sizes.sd
+											? artwork.images[0].image.sizes.sd.width
+											: artwork.images[0].image.width
 									}
 									height={
-										artwork.artwork[0].formats.small
-											? artwork.artwork[0].formats.small.height
+										artwork.artwork[0].sizes.sd
+											? artwork.artwork[0].sizes.sd.height
 											: artwork.artwork[0].height
 									}
 									alt=""
-									className={`h-full min-w-full object-cover group-focus-visible/button:animate-pulse ${artwork.focus}`}
+									className={`h-full min-w-full object-cover group-focus-visible/button:animate-pulse ${artwork.images[0].image.thumbnailURL}`}
 								/>
 							</div>
 							{artwork.nsfw && (
@@ -139,14 +140,14 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 							>
 								<Dialog.Description className="sr-only">
 									{t("Content.Artworks.drawnBy")}
-									{artworks.data[selectedArtwork].artist.name}
+									{artworks.docs[selectedArtwork].artist.name}
 								</Dialog.Description>
 								<TransformWrapper disablePadding onTransformed={(e) => setScale(e.state.scale)}>
 									<TransformComponent>
 										<div className="flex items-center justify-center w-screen h-screen max-h-svh">
 											<AnimatePresence mode="popLayout">
 												<m.div
-													key={artworks.data[selectedArtwork].id}
+													key={artworks.docs[selectedArtwork].id}
 													custom={direction}
 													variants={variants}
 													initial="enter"
@@ -169,7 +170,7 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 														};
 														const swipe = swipePower(offset.x, velocity.x);
 														if (swipe < -swipeConfidenceThreshold) {
-															if (selectedArtwork < artworks.data.length - 1) {
+															if (selectedArtwork < artworks.docs.length - 1) {
 																handleSelectArtwork({
 																	id: selectedArtwork + 1,
 																	offset: offset.x,
@@ -186,20 +187,20 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 													}}
 												>
 													<FadingImage
-														src={`https://static.pprmint.de${artworks.data[selectedArtwork].artwork[selectedVariant].url}`}
+														src={`https://static.pprmint.de${artworks.docs[selectedArtwork].artwork[selectedVariant].url}`}
 														width={
-															artworks.data[selectedArtwork].artwork[selectedVariant]
+															artworks.docs[selectedArtwork].artwork[selectedVariant]
 																.width
 														}
 														height={
-															artworks.data[selectedArtwork].artwork[selectedVariant]
+															artworks.docs[selectedArtwork].artwork[selectedVariant]
 																.height
 														}
 														alt={
-															artworks.data[selectedArtwork].artwork[selectedVariant]
+															artworks.docs[selectedArtwork].artwork[selectedVariant]
 																.alternativeText || ""
 														}
-														className={`max-h-svh w-auto mx-auto py-16 ${artworks.data[selectedArtwork].pixelart && "pixelated"}`}
+														className={`max-h-svh w-auto mx-auto py-16 ${artworks.docs[selectedArtwork].pixelart && "pixelated"}`}
 														unoptimized
 													/>
 												</m.div>
@@ -221,7 +222,7 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 										>
 											<AnimatePresence mode="wait">
 												<m.div
-													key={artworks.data[selectedArtwork].artist.name}
+													key={artworks.docs[selectedArtwork].artist.name}
 													initial={{ opacity: 0 }}
 													animate={{ opacity: 1, transition: { duration: 0.2 } }}
 													exit={{ opacity: 0, transition: { duration: 0.2 } }}
@@ -232,15 +233,15 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 															<span className="text-white/70">
 																{t("Content.Artworks.drawnBy")}
 															</span>
-															{artworks.data[selectedArtwork].artist.name}
-															{artworks.data[selectedArtwork].heart && (
+															{artworks.docs[selectedArtwork].artist.name}
+															{artworks.docs[selectedArtwork].heart && (
 																<span className="text-red"> ♥</span>
 															)}
 														</p>
 													</Dialog.Title>
-													{artworks.data[selectedArtwork].artist.creditUrl && (
+													{artworks.docs[selectedArtwork].artist.creditUrl && (
 														<Link
-															href={artworks.data[selectedArtwork].artist.creditUrl!}
+															href={artworks.docs[selectedArtwork].artist.creditUrl!}
 															target="_blank"
 															rel="noopener noreferrer"
 															className="rounded-full"
@@ -249,23 +250,23 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 																tabIndex={-1}
 																className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
 															>
-																{artworks.data[
+																{artworks.docs[
 																	selectedArtwork
 																].artist.creditUrl!.startsWith("https://bsky.app/") ? (
 																	<Bluesky />
-																) : artworks.data[
+																) : artworks.docs[
 																		selectedArtwork
 																  ].artist.creditUrl!.startsWith(
 																		"https://twitter.com/"
 																  ) ? (
 																	<Twitter />
-																) : artworks.data[
+																) : artworks.docs[
 																		selectedArtwork
 																  ].artist.creditUrl!.startsWith(
 																		"https://www.instagram.com/"
 																  ) ? (
 																	<Instagram />
-																) : artworks.data[
+																) : artworks.docs[
 																		selectedArtwork
 																  ].artist.creditUrl!.startsWith(
 																		"https://www.youtube.com/"
@@ -280,15 +281,15 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 												</m.div>
 											</AnimatePresence>
 											<AnimatePresence mode="wait">
-												{artworks.data[selectedArtwork].artwork.length >= 2 && (
+												{artworks.docs[selectedArtwork].artwork.length >= 2 && (
 													<m.div
-														key={artworks.data[selectedArtwork].id}
+														key={artworks.docs[selectedArtwork].id}
 														initial={{ opacity: 0 }}
 														animate={{ opacity: 1 }}
 														exit={{ opacity: 0 }}
 														className="flex flex-row items-center justify-center px-6 h-9 inset-x-0"
 													>
-														{artworks.data[selectedArtwork].artwork.map(
+														{artworks.docs[selectedArtwork].artwork.map(
 															(variant, index) => (
 																<button
 																	key={index}
@@ -337,16 +338,16 @@ export default function Gallery({ artworks, page }: { artworks: MinaArtworks; pa
 												className={`absolute inset-0 flex w-max items-center gap-2 ${direction !== 0 && "duration-500"} ease-out-quart`}
 												style={{ left: `calc(50% - ${selectedArtwork * 48}px - 32px` }}
 											>
-												{artworks.data.map((artwork, index) => (
+												{artworks.docs.map((artwork, index) => (
 													<button
 														key={index}
 														onClick={() => handleSelectArtwork({ id: index })}
 														className={`relative ${selectedArtwork === index ? "h-12 w-16" : "h-10 w-10 saturate-0 hover:saturate-100 opacity-50 hover:opacity-100"} duration-300 ease-out-quart overflow-clip`}
 													>
 														<Image
-															src={`https://static.pprmint.de${artwork.artwork[0].formats.thumbnail.url}`}
-															width={artwork.artwork[0].formats.thumbnail.width}
-															height={artwork.artwork[0].formats.thumbnail.height}
+															src={`https://static.pprmint.de${artwork.artwork[0].sizes.thumbnail.url}`}
+															width={artwork.artwork[0].sizes.thumbnail.width}
+															height={artwork.artwork[0].sizes.thumbnail.height}
 															alt={artwork.artwork[0].alternativeText || ""}
 															className={`absolute top-0 inset-x-0 h-full object-cover ${artwork.focus} ${artwork.nsfw && selectedArtwork !== index && "blur-sm hover:blur-0"}`}
 														/>

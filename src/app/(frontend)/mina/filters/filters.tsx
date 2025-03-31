@@ -8,14 +8,15 @@ import Checkbox from "@/components/ui/Checkbox";
 import { Dialog } from "@radix-ui/react-dialog";
 import * as Select from "@radix-ui/react-select";
 import { useTranslations } from "next-intl";
+import type { Artist } from "@/payload-types";
 
-import { Artists } from "@/types/artist";
 import Check from "@/icons/Check";
 import ChevronDown from "@/icons/ChevronDown";
 import ChevronUp from "@/icons/ChevronUp";
 import X from "@/icons/X";
+import { PaginatedDocs } from "payload";
 
-function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
+function Filters(props: { nsfw?: string; artist?: string; artists: PaginatedDocs<Artist> }) {
 	const t = useTranslations("MINA");
 	const searchParams = useSearchParams();
 	const nsfw = props.nsfw === "show";
@@ -73,7 +74,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 		);
 	}
 
-	const artistFilterActive = props.artist ? props.artists.data.some((a) => a.name === props.artist) : false;
+	const artistFilterActive = props.artist ? props.artists.docs.some((a) => a.name === props.artist) : false;
 
 	return (
 		<>
@@ -109,7 +110,7 @@ function Filters(props: { nsfw?: string; artist?: string; artists: Artists }) {
 									</Select.ScrollUpButton>
 									<Select.Viewport className="p-1">
 										<Select.Group>
-											{props.artists.data
+											{props.artists.docs
 												.sort((a, b) =>
 													a.name.localeCompare(b.name, undefined, {
 														sensitivity: "base",

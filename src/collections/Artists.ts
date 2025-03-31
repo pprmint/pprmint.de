@@ -3,8 +3,8 @@ import { CollectionConfig } from "payload";
 export const Artists: CollectionConfig = {
 	slug: "artists",
 	access: {
-    read: () => true,
-  },
+		read: () => true,
+	},
 	admin: {
 		useAsTitle: "name",
 	},
@@ -21,13 +21,13 @@ export const Artists: CollectionConfig = {
 					name: "creditUrl",
 					type: "text",
 				},
-			]
+			],
 		},
 		{
 			name: "artworks",
 			type: "join",
-			collection: "mina-art",
+			collection: "mina",
 			on: "artist",
-		}
+		},
 	],
-}
+};

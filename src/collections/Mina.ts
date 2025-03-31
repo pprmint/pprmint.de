@@ -1,27 +1,36 @@
-import type { CollectionConfig } from "payload"
+import { anyone } from "@/access/anyone";
+import { authenticated } from "@/access/authenticated";
+import type { CollectionConfig } from "payload";
 
-export const MinaArt: CollectionConfig = {
-	slug: "mina-art",
+export const Mina: CollectionConfig = {
+	slug: "mina",
+	labels: {
+		singular: "Mina artwork",
+		plural: "Mina artworks",
+	},
 	access: {
-		read: () => true,
+		create: authenticated,
+		delete: authenticated,
+		read: anyone,
+		update: authenticated,
 	},
 	fields: [
 		{
-			type: "row",
+			name: "images",
+			type: "array",
+			required: true,
+			labels: {
+				singular: "Image",
+				plural: "Images",
+			},
 			fields: [
 				{
-					name: "altEn",
-					label: "Alternative text (English)",
-					type: "text",
-					// required: true,
+					name: "image",
+					type: "upload",
+					relationTo: "media",
+					required: true,
 				},
-				{
-					name: "altDe",
-					label: "Alternative text (German)",
-					type: "text",
-					// required: true,
-				},
-			]
+			],
 		},
 		{
 			name: "artist",
@@ -31,7 +40,7 @@ export const MinaArt: CollectionConfig = {
 			hasMany: false,
 			admin: {
 				position: "sidebar",
-			}
+			},
 		},
 		{
 			name: "date",
@@ -45,7 +54,7 @@ export const MinaArt: CollectionConfig = {
 					timeFormat: "HH:mm",
 				},
 				position: "sidebar",
-			}
+			},
 		},
 		{
 			name: "pixelart",
@@ -54,7 +63,7 @@ export const MinaArt: CollectionConfig = {
 			defaultValue: false,
 			admin: {
 				position: "sidebar",
-			}
+			},
 		},
 		{
 			name: "nsfw",
@@ -64,7 +73,7 @@ export const MinaArt: CollectionConfig = {
 			defaultValue: false,
 			admin: {
 				position: "sidebar",
-			}
+			},
 		},
 		{
 			name: "heart",
@@ -74,10 +83,7 @@ export const MinaArt: CollectionConfig = {
 			defaultValue: false,
 			admin: {
 				position: "sidebar",
-			}
+			},
 		},
 	],
-	upload: {
-		focalPoint: true,
-	},
-}
+};
