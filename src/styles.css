@@ -89,3 +89,10 @@ p:not(:last-of-type) {
 * {
 	text-transform: lowercase;
 }
+
+*:nth-child(2) {
+	transform: rotateZ(1deg);
+}
+*:nth-child(3) {
+	transform: rotateZ(-1deg);
+}
