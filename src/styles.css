@@ -85,3 +85,7 @@ body {
 p:not(:last-of-type) {
 	margin-bottom: 12px;
 }
+
+* {
+	text-transform: lowercase;
+}
