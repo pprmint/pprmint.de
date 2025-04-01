@@ -81,7 +81,7 @@ export default async function Page() {
 						width={1311}
 						height={1276}
 						alt=""
-						className="absolute -bottom-3 left-1/2 -translate-x-[30%] max-h-[55%] lg:max-h-[65%] w-auto mx-auto rotate-2"
+						className="absolute left-1/2 -translate-x-[30%] max-h-[55%] lg:max-h-[65%] w-auto mx-auto rotate-2"
 					/>
 				</section>
 				<section className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
