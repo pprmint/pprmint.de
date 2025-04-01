@@ -25,7 +25,7 @@ export default async function Page() {
 		<>
 			<main>
 				<section className="dark bg-neutral-950 h-screen relative pt-24 md:pt-32 xl:pt-40 px-6 md:px-9 lg:px-12 xl:px-20 overflow-clip">
-					<div className="absolute inset-0 opacity-75">
+					<div className="absolute inset-0 opacity-75 rotate-2">
 						<FadingImage
 							src="https://cms.pprmint.de/uploads/bg_f66021cc37.webp"
 							alt=""
@@ -81,7 +81,7 @@ export default async function Page() {
 						width={1311}
 						height={1276}
 						alt=""
-						className="absolute bottom-0 left-1/2 -translate-x-1/2 max-h-[55%] lg:max-h-[65%] w-auto mx-auto"
+						className="absolute -bottom-3 left-1/2 -translate-x-[30%] max-h-[55%] lg:max-h-[65%] w-auto mx-auto rotate-2"
 					/>
 				</section>
 				<section className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
