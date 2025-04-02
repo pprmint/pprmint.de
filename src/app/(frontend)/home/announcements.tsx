@@ -6,13 +6,15 @@ import ArrowRight from "@/icons/ArrowRight";
 import ArrowUpRight from "@/icons/ArrowUpRight";
 import ChevronRight from "@/icons/ChevronRight";
 import ChevronLeft from "@/icons/ChevronLeft";
-import { Announcements as AnnouncementsType } from "@/types/announcement";
+import { PaginatedDocs } from "payload";
+import type { Announcement } from "@/payload-types";
 import * as m from "motion/react-m";
 import { AnimatePresence } from "motion/react";
 import { useTranslations } from "next-intl";
 import Button from "@/components/ui/Button";
+import RichText from "@/components/RichText";
 
-export default function Announcements({ data }: { data: AnnouncementsType }) {
+export default function Announcements({ data }: { data: PaginatedDocs<Announcement> }) {
 	const t = useTranslations("HOME");
 	const [current, setCurrent] = useState(0);
 	const [direction, setDirection] = useState(1);
@@ -20,14 +22,14 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 	const handleNext = () => {
 		setDirection(1);
 		setTimeout(() => {
-			setCurrent((prev) => (prev - 1 + data.data.length) % data.data.length);
+			setCurrent((prev) => (prev - 1 + data.docs.length) % data.docs.length);
 		}, 1);
 	};
 
 	const handlePrevious = () => {
 		setDirection(-1);
 		setTimeout(() => {
-			setCurrent((prev) => (prev + 1) % data.data.length);
+			setCurrent((prev) => (prev + 1) % data.docs.length);
 		}, 1);
 	};
 
@@ -42,7 +44,7 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 						<AnimatePresence mode="wait">
 							<m.div
 								layout
-								key={data.data[current].id}
+								key={data.docs[current].id}
 								className="pt-3 lg:border-t border-black/5 dark:border-white/5"
 							>
 								<m.h3
@@ -54,29 +56,31 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 									}}
 									className="text-3xl md:text-4xl lg:text-5xl"
 								>
-									{data.data[current].title}
+									{data.docs[current].title}
 								</m.h3>
 							</m.div>
 						</AnimatePresence>
 						<AnimatePresence mode="wait">
-							<m.p
-								key={data.data[current].id}
+							<m.div
+								key={data.docs[current].id}
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1, transition: { duration: 0.3, delay: 0.1 } }}
 								exit={{
 									opacity: 0,
 									transition: { duration: 0.1, ease: "linear" },
 								}}
-								className="lg:pr-3 my-3 grow xl:text-xl 2xl:text-2xl"
 							>
-								{data.data[current].description}
-							</m.p>
+								<RichText
+									className="lg:pr-3 my-3 grow xl:text-xl 2xl:text-2xl"
+									data={data.docs[current].text}
+								/>
+							</m.div>
 						</AnimatePresence>
 					</div>
 					<div className="flex h-12 border-y border-black/5 dark:border-white/5">
 						<AnimatePresence mode="wait">
 							<m.div
-								key={data.data[current].id}
+								key={data.docs[current].id}
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1, transition: { duration: 0.3, delay: 0.2 } }}
 								exit={{
@@ -85,16 +89,16 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 								}}
 								className="flex grow"
 							>
-								{data.data[current].link && (
+								{data.docs[current].link && (
 									<Link
-										href={data.data[current].link}
-										target={data.data[current].link.startsWith("/") ? "_self" : "_blank"}
+										href={data.docs[current].link}
+										target={data.docs[current].link.startsWith("/") ? "_self" : "_blank"}
 										rel="noopener noreferrer"
 										className="w-full"
 									>
 										<Button size="full" noInitialPadding>
-											<span>{data.data[current].linkText}</span>
-											{data.data[current].link.startsWith("/") ? (
+											<span>{data.docs[current].linkText}</span>
+											{data.docs[current].link.startsWith("/") ? (
 												<div className="relative size-5 overflow-clip duration-0">
 													<ArrowRight
 														width={20}
@@ -127,11 +131,9 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 							</m.div>
 						</AnimatePresence>
 						<div className="relative flex w-24 ml-auto border-l border-black/5 dark:border-white/5 divide-x divide-neutral-50/5">
-							<Button size="full"
-								onClick={handleNext}
-							>
+							<Button size="full" onClick={handleNext}>
 								<AnimatePresence mode="wait">
-									<m.div key={data.data[current].link}>
+									<m.div key={data.docs[current].link}>
 										<m.div
 											initial={{ x: "100%" }}
 											exit={{
@@ -154,11 +156,9 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 									</m.div>
 								</AnimatePresence>
 							</Button>
-							<Button size="full"
-								onClick={handlePrevious}
-							>
+							<Button size="full" onClick={handlePrevious}>
 								<AnimatePresence mode="wait">
-									<m.div key={data.data[current].link}>
+									<m.div key={data.docs[current].link}>
 										<m.div
 											initial={{ x: "-100%" }}
 											exit={{
@@ -184,18 +184,21 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 							<m.div
 								className="absolute -bottom-px bg-neutral-950 dark:bg-white h-px"
 								style={{
-									width: `${100 / data.data.length}%`,
-									left: `${current * (100 / data.data.length)}%`,
+									width: `${100 / data.docs.length}%`,
+									left: `${current * (100 / data.docs.length)}%`,
 								}}
 								animate={{
-									left: `${current * (100 / data.data.length)}%`,
+									left: `${current * (100 / data.docs.length)}%`,
 									transition: { type: "spring", duration: 0.2, bounce: 0 },
 								}}
 								exit={{
 									left:
 										direction < 0
-											? `${((current + 1) % data.data.length) * (100 / data.data.length)}%`
-											: `${((current - 1 + data.data.length) % data.data.length) * (100 / data.data.length)}%`,
+											? `${((current + 1) % data.docs.length) * (100 / data.docs.length)}%`
+											: `${
+													((current - 1 + data.docs.length) % data.docs.length) *
+													(100 / data.docs.length)
+											  }%`,
 									transition: { type: "spring", duration: 0.2, bounce: 0 },
 								}}
 							/>
@@ -203,10 +206,10 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 					</div>
 				</div>
 				<div className="order-1 lg:order-2 col-span-2 lg:col-span-1 relative lg:h-full lg:pt-40 backdrop-blur-sm bg-neutral-950/25 lg:backdrop-blur-none lg:bg-transparent">
-					<div className="aspect-video border-y border-black/5 dark:border-white/5">
+					<div className="aspect-video border-y border-black/5 dark:border-white/5 overflow-clip">
 						<AnimatePresence>
 							<m.div
-								key={data.data[current].id}
+								key={data.docs[current].id}
 								initial={{
 									position: "relative",
 									clipPath:
@@ -242,14 +245,16 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 										transition: { ease: "easeIn", duration: 0.2 },
 									}}
 								>
-									<FadingImage
-										src={`https://static.pprmint.de${data.data[current].media.url}`}
-										alt={data.data[current].media.alternativeText || ""}
-										quality={90}
-										width={data.data[current].media.width}
-										height={data.data[current].media.height}
-										className="w-full"
-									/>
+									{typeof data.docs[current].image !== "string" && (
+										<FadingImage
+											src={data.docs[current].image.url || ""}
+											alt={data.docs[current].image.alt || ""}
+											quality={90}
+											width={data.docs[current].image.width || 0}
+											height={data.docs[current].image.height || 0}
+											className="w-full"
+										/>
+									)}
 								</m.div>
 							</m.div>
 						</AnimatePresence>

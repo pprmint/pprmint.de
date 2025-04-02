@@ -1,6 +1,7 @@
 import type { CollectionConfig } from "payload";
 import { anyone } from "../access/anyone";
 import { authenticated } from "../access/authenticated";
+import { FixedToolbarFeature, InlineToolbarFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 
 export const Media: CollectionConfig = {
 	slug: "media",
@@ -12,21 +13,21 @@ export const Media: CollectionConfig = {
 	},
 	fields: [
 		{
-			type: "row",
-			fields: [
-				{
-					name: "altEn",
-					label: "Alternative text (English)",
-					type: "text",
-					// required: true,
+			name: "alt",
+			label: "Alternative text",
+			type: "text",
+			localized: true,
+			// required: true,
+		},
+		{
+			name: "caption",
+			type: "richText",
+			localized: true,
+			editor: lexicalEditor({
+				features: ({ rootFeatures }) => {
+					return [...rootFeatures, FixedToolbarFeature(), InlineToolbarFeature()];
 				},
-				{
-					name: "altDe",
-					label: "Alternative text (German)",
-					type: "text",
-					// required: true,
-				},
-			],
+			}),
 		},
 	],
 	upload: {

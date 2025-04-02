@@ -2,16 +2,19 @@ import { s3Storage } from "@payloadcms/storage-s3";
 import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
 import nodemailer from "nodemailer";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { BlocksFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
 
-import { Users } from "./collections/Users";
-import { Media } from "./collections/Media";
+import { Announcements } from "./collections/Announcements";
 import { Mina } from "./collections/Mina";
 import { Artists } from "./collections/Artists";
+import { Media } from "./collections/Media";
+import { MediaBlock } from "./blocks/MediaBlock/config";
+import { Users } from "./collections/Users";
+import { getServerSideURL } from "./utilities/getURL";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -23,8 +26,28 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Media, Mina, Artists, Users],
-	editor: lexicalEditor(),
+	collections: [Announcements, Mina, Artists, Media, Users],
+	localization: {
+		locales: [
+			{
+				code: "en",
+				label: "English",
+			},
+			{
+				code: "de",
+				label: "German",
+			},
+		],
+		defaultLocale: "en",
+	},
+	editor: lexicalEditor({
+		features: ({ defaultFeatures }) => [
+			...defaultFeatures,
+			BlocksFeature({
+				blocks: [MediaBlock],
+			}),
+		],
+	}),
 	secret: process.env.PAYLOAD_SECRET || "",
 	typescript: {
 		outputFile: path.resolve(dirname, "payload-types.ts"),
@@ -33,6 +56,7 @@ export default buildConfig({
 		url: process.env.DATABASE_URI || "",
 	}),
 	sharp,
+	cors: [getServerSideURL()].filter(Boolean),
 	plugins: [
 		// ...plugins,
 		s3Storage({

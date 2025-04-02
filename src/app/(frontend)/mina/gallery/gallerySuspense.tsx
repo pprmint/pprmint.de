@@ -1,11 +1,9 @@
 import config from "@payload-config";
-import { MinaArtworks } from "@/types/mina-artwork";
-import type { Artist } from "@/payload-types";
+import { getPayload } from "payload";
 import Filters from "../filters/filters";
 import Gallery from "./gallery";
 import Pagination from "@/components/gallery/Pagination";
 import OutOfBounds from "@/components/gallery/OutOfBounds";
-import { getPayload } from "payload";
 
 export default async function GallerySuspense({ p, nsfw, artist }: { p: number; nsfw: string; artist?: string }) {
 	const payload = await getPayload({ config });

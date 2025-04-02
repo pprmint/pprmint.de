@@ -52,3 +52,7 @@ h6 {
 .react-datepicker__day--outside-month {
 	color: var(--color-base-500);
 }
+
+.inline-toolbar-popup .caret {
+	top: calc(100% - 34px);
+}
