@@ -148,8 +148,8 @@ module.exports = {
 				},
 			},
 			fontFamily: {
-				sans: "'Comic Sans MS',DINish, Bahnschrift, D-DIN, Inter, Roboto, Helvetica, Arial, sans-serif",
-				serif: 'Papyrus, "Noto Serif", "New York", "Roboto Slab", "Linux Libertine", Georgia, Times, serif',
+				sans: "DINish, Bahnschrift, D-DIN, Inter, Roboto, Helvetica, Arial, sans-serif",
+				serif: '"Noto Serif", "New York", "Roboto Slab", "Linux Libertine", Georgia, Times, serif',
 				mintbit: "Mintbit, 'Roboto Mono', monospace",
 				minttriangles: "'Mint Triangles', monospace",
 				lcd: "'LCD 14', 'Roboto Mono', monospace",
