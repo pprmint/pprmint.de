@@ -4,9 +4,7 @@ import { getPayload } from "payload";
 import { getLocale, getTranslations } from "next-intl/server";
 import Link from "next/link";
 
-import { Announcements as AnnouncementsType } from "@/types/announcement";
 import FadingImage from "@/components/ui/FadingImage";
-import { MinaArtworks } from "@/types/mina-artwork";
 import HeartFilled from "@/icons/HeartFilled";
 import HomeTitle from "./home/title";
 import Announcements from "./home/announcements";

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { useTranslations, useFormatter, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import FadingImage from "@/components/ui/FadingImage";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
@@ -21,7 +21,6 @@ import { PaginatedDocs } from "payload";
 
 export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mina>; page: number }) {
 	const t = useTranslations("MINA");
-	const locale = useLocale();
 	const [direction, setDirection] = useState(0);
 	const [xOffset, setXOffset] = useState(0);
 	const [selectedArtwork, setSelectedArtwork] = useState(0);
@@ -208,13 +207,8 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																	.image.height || 0
 															}
 															alt={
-																locale === "de"
-																	? artworks.docs[selectedArtwork].images[
-																			selectedVariant
-																	  ].image.altEn || ""
-																	: artworks.docs[selectedArtwork].images[
-																			selectedVariant
-																	  ].image.altDe || ""
+																artworks.docs[selectedArtwork].images[selectedVariant]
+																	.image.alt || ""
 															}
 															className={`max-h-svh w-auto mx-auto py-16 ${
 																artworks.docs[selectedArtwork].pixelart && "pixelated"
@@ -387,11 +381,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																	artwork.images[0].image.sizes?.thumbnail?.height ||
 																	0
 																}
-																alt={
-																	locale === "de"
-																		? artwork.images[0].image.altDe || ""
-																		: artwork.images[0].image.altEn || ""
-																}
+																alt={artwork.images[0].image.alt || ""}
 																className={`absolute top-0 inset-x-0 h-full object-cover ${
 																	artwork.nsfw &&
 																	selectedArtwork !== index &&

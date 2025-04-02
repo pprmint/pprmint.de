@@ -37,6 +37,7 @@
     "@types/react-responsive-masonry": "^2.6.0",
     "@types/sanitize-html": "^2.13.0",
     "@vercel/og": "^0.6.5",
+    "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
     "eslint": "9.18.0",

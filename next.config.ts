@@ -5,7 +5,7 @@ const withNextIntl = createNextIntlPlugin();
 
 const NEXT_PUBLIC_SERVER_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
 	? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-	: undefined || process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
+	: process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
 
 const securityHeaders = [
 	{
@@ -35,6 +35,10 @@ module.exports = withPayload(
 		reactStrictMode: false,
 		images: {
 			remotePatterns: [
+				{
+					hostname: "*.pprmint.de",
+					protocol: "https",
+				},
 				...[NEXT_PUBLIC_SERVER_URL /* 'https://example.com' */].map((item) => {
 					const url = new URL(item);
 					return {
