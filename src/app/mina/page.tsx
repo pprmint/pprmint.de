@@ -39,26 +39,17 @@ export default async function Page({
 			<Title
 				title={t("Head.title")}
 				description={t("Head.description")}
-				creditName="Nanogon"
-				creditLink="https://www.instagram.com/nogonagon"
-				noAccents
+				creditName="JaspenPNG"
+				creditLink="https://twitter.com/JaspenPng"
 			>
-				<div className="relative h-full bg-[#387895] flex items-end justify-end">
-					<FadingImage
-						src="https://cms.pprmint.de/uploads/nano_3bg_560c52a096.webp"
-						alt=""
-						fill
-						className="object-cover object-[50%_90%]"
-						priority
-					/>
-					<div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent" />
-					<div className="absolute h-full w-full max-w-8xl left-1/2 -translate-x-1/2 flex items-end justify-end pt-12 px-9 md:px-24 xl:px-48">
+				<div className="relative h-full bg-neutral-950">
+					<div className="absolute w-full max-w-8xl inset-y-0 pt-9 md:pt-0 px-9 md:px-12 lg:px-24 xl:px-32 left-1/2 -translate-x-1/2">
 						<FadingImage
-							src="https://cms.pprmint.de/uploads/nano_3fg_52f352de52.webp"
+							src="https://cms.pprmint.de/uploads/jaspen_1t_2ea197f066.webp"
 							alt=""
-							width={815}
-							height={1500}
-							className="w-fit h-full"
+							width={2000}
+							height={4000}
+							className="xl:absolute right-20 -top-1/4 h-full w-auto md:w-[40%] xl:w-2/3 md:h-auto max-w-5xl ml-auto"
 						/>
 					</div>
 				</div>
@@ -66,7 +57,7 @@ export default async function Page({
 			<main>
 				<section id="lore" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<div className="w-full md:grid grid-cols-2 border-x border-black/5 dark:border-white/5">
-						<div className="border-r border-black/5 dark:border-white/5 pt-12 lg:pt-20 xl:pt-40 md:pr-12">
+						<div className="md:border-r border-black/5 dark:border-white/5 pt-12 lg:pt-20 xl:pt-40 md:pr-12">
 							<h2>
 								{t("Content.About.heading")}
 								<span className="text-green">.</span>
