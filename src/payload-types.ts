@@ -68,6 +68,7 @@ export interface Config {
   blocks: {};
   collections: {
     announcements: Announcement;
+    projects: Project;
     mina: Mina;
     artists: Artist;
     media: Media;
@@ -83,6 +84,7 @@ export interface Config {
   };
   collectionsSelect: {
     announcements: AnnouncementsSelect<false> | AnnouncementsSelect<true>;
+    projects: ProjectsSelect<false> | ProjectsSelect<true>;
     mina: MinaSelect<false> | MinaSelect<true>;
     artists: ArtistsSelect<false> | ArtistsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
@@ -221,6 +223,34 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: string;
+  image: string | Media;
+  title: string;
+  description: string;
+  tags?: ('font' | 'design' | 'website' | 'software' | 'customization') | null;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "mina".
  */
 export interface Mina {
@@ -280,6 +310,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'announcements';
         value: string | Announcement;
+      } | null)
+    | ({
+        relationTo: 'projects';
+        value: string | Project;
       } | null)
     | ({
         relationTo: 'mina';
@@ -349,6 +383,19 @@ export interface AnnouncementsSelect<T extends boolean = true> {
   text?: T;
   link?: T;
   linkText?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects_select".
+ */
+export interface ProjectsSelect<T extends boolean = true> {
+  image?: T;
+  title?: T;
+  description?: T;
+  tags?: T;
+  content?: T;
   updatedAt?: T;
   createdAt?: T;
 }

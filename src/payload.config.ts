@@ -15,6 +15,7 @@ import { Media } from "./collections/Media";
 import { MediaBlock } from "./blocks/MediaBlock/config";
 import { Users } from "./collections/Users";
 import { getServerSideURL } from "./utilities/getURL";
+import { Projects } from "./collections/Projects";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -26,7 +27,7 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Announcements, Mina, Artists, Media, Users],
+	collections: [Announcements, Projects, Mina, Artists, Media, Users],
 	localization: {
 		locales: [
 			{
