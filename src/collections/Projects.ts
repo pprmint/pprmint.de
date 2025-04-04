@@ -1,7 +1,6 @@
 import type { CollectionConfig } from "payload";
 import { anyone } from "../access/anyone";
 import { authenticated } from "../access/authenticated";
-import { FixedToolbarFeature, InlineToolbarFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 
 export const Projects: CollectionConfig = {
 	slug: "projects",
