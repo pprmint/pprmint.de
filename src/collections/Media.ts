@@ -19,16 +19,6 @@ export const Media: CollectionConfig = {
 			localized: true,
 			// required: true,
 		},
-		{
-			name: "caption",
-			type: "richText",
-			localized: true,
-			editor: lexicalEditor({
-				features: ({ rootFeatures }) => {
-					return [...rootFeatures, FixedToolbarFeature(), InlineToolbarFeature()];
-				},
-			}),
-		},
 	],
 	upload: {
 		focalPoint: true,

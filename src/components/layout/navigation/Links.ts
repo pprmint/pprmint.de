@@ -5,6 +5,10 @@ export const Pages = [
 		strings: "Home",
 	},
 	{
+		link: "/articles",
+		strings: "Articles",
+	},
+	{
 		link: "/mina",
 		strings: "Mina",
 	},

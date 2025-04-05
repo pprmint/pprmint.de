@@ -56,3 +56,18 @@ h6 {
 .inline-toolbar-popup .caret {
 	top: calc(100% - 34px);
 }
+
+.rich-text-lexical .editor-container,
+.LexicalEditorTheme__listItem,
+.LexicalEditorTheme__paragraph {
+	font-family: var(--font-body);
+	font-size: 1rem;
+}
+
+.LexicalEditorTheme__listItemChecked::after {
+	top: 5px;
+	left: 8px;
+	right: 7px;
+	width: 5px;
+	height: 10px;
+}

@@ -38,6 +38,22 @@
 			"title": "AI training declaration"
 		}
 	},
+	"ARTICLES": {
+		"Head": {
+			"title": "Articles",
+			"description": "A few words regarding some of the projects I've worked on, as well as other stuff."
+		},
+		"Content": {
+			"Tags": {
+				"font": "Font",
+				"design": "Design thing",
+				"website": "Website",
+				"software": "Software",
+				"ramblings": "Ramblings"
+			},
+			"moreTagged": "More articles tagged with <b>{tag}</b>."
+		}
+	},
 	"AUTSELLIA": {
 		"Head": {
 			"title": "Website for Autsellia",
@@ -635,6 +651,10 @@
 				"Home": {
 					"description": "This is where it all began.",
 					"title": "Home page"
+				},
+				"Articles": {
+					"title": "Articles",
+					"description": "Words about my projects, or anything else."
 				},
 				"Mina": {
 					"description": "The greenest page on this entire website.",

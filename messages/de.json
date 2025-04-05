@@ -38,6 +38,22 @@
 			"title": "Erklärung bzgl. KI-Training"
 		}
 	},
+	"ARTICLES": {
+		"Head": {
+			"title": "Artikel",
+			"description": "Einige Worte zu Projekten, an denen ich gearbeitet habe, sowie anderes Zeug."
+		},
+		"Content": {
+			"Tags": {
+				"font": "Schriftart",
+				"design": "Design-Ding",
+				"website": "Website",
+				"software": "Software",
+				"ramblings": "Geschwafel"
+			},
+			"moreTagged": "Weitere Artikel mit dem <b>{tag}</b>-Tag."
+		}
+	},
 	"AUTSELLIA": {
 		"Head": {
 			"title": "Website für Autsellia",
@@ -629,6 +645,10 @@
 				"Home": {
 					"description": "Hier fing alles an.",
 					"title": "Startseite"
+				},
+				"Articles": {
+					"title": "Artikel",
+					"description": "Worte über meine Projekte, oder was anderes."
 				},
 				"Mina": {
 					"description": "Keine Seite ist grüner als diese.",

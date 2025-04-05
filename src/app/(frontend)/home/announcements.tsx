@@ -12,7 +12,7 @@ import * as m from "motion/react-m";
 import { AnimatePresence } from "motion/react";
 import { useTranslations } from "next-intl";
 import Button from "@/components/ui/Button";
-import RichText from "@/components/RichText";
+import RichText from "@/components/richText";
 
 export default function Announcements({ data }: { data: PaginatedDocs<Announcement> }) {
 	const t = useTranslations("HOME");

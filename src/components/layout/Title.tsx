@@ -62,7 +62,7 @@ export default function Title(
 										delay: props.children ? 0.25 : 0.05,
 									},
 								}}
-								className={`text-xl md:text-2xl xl:text-3xl ${props.children && "text-white/75"} max-w-60 sm:max-w-none`}
+								className={`text-xl md:text-2xl xl:text-3xl ${props.children && "text-white/75 max-w-60"} sm:max-w-none`}
 							>
 								{props.description}
 							</m.p>

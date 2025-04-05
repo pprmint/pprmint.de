@@ -3,13 +3,12 @@
 import type { StaticImageData } from "next/image";
 
 import { cn } from "@/utilities/cn";
-import NextImage from "next/image";
 import React from "react";
 
 import type { Props as MediaProps } from "../types";
 
 import { cssVariables } from "@/cssVariables";
-import { getClientSideURL } from "@/utilities/getURL";
+import FadingImage from "@/components/ui/FadingImage";
 
 const { breakpoints } = cssVariables;
 
@@ -40,7 +39,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 
 		const cacheTag = resource.updatedAt;
 
-		src = `${getClientSideURL()}${url}?${cacheTag}`;
+		src = `${url}?${cacheTag}`;
 	}
 
 	const loading = loadingFromProps || (!priority ? "lazy" : undefined);
@@ -54,7 +53,8 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 
 	return (
 		<picture className={cn(pictureClassName)}>
-			<NextImage
+			<FadingImage
+				hideSpinner
 				alt={alt || ""}
 				className={cn(imgClassName)}
 				fill={fill}

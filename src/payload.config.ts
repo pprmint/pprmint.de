@@ -2,7 +2,7 @@ import { s3Storage } from "@payloadcms/storage-s3";
 import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
 import nodemailer from "nodemailer";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { BlocksFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
@@ -12,10 +12,18 @@ import { Announcements } from "./collections/Announcements";
 import { Mina } from "./collections/Mina";
 import { Artists } from "./collections/Artists";
 import { Media } from "./collections/Media";
-import { MediaBlock } from "./blocks/MediaBlock/config";
+import {
+	AlignFeature,
+	HeadingFeature,
+	HorizontalRuleFeature,
+	InlineToolbarFeature,
+	LinkFeature,
+	OrderedListFeature,
+	UnorderedListFeature,
+} from "@payloadcms/richtext-lexical";
 import { Users } from "./collections/Users";
 import { getServerSideURL } from "./utilities/getURL";
-import { Projects } from "./collections/Projects";
+import { Articles } from "./collections/Articles/Articles";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -27,7 +35,7 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Announcements, Projects, Mina, Artists, Media, Users],
+	collections: [Announcements, Articles, Mina, Artists, Media, Users],
 	localization: {
 		locales: [
 			{
@@ -44,9 +52,14 @@ export default buildConfig({
 	editor: lexicalEditor({
 		features: ({ defaultFeatures }) => [
 			...defaultFeatures,
-			BlocksFeature({
-				blocks: [MediaBlock],
-			}),
+			HeadingFeature({ enabledHeadingSizes: ["h1", "h2", "h3", "h4", "h5"] }),
+			// FixedToolbarFeature(),
+			InlineToolbarFeature(),
+			LinkFeature(),
+			HorizontalRuleFeature(),
+			AlignFeature(),
+			OrderedListFeature(),
+			UnorderedListFeature(),
 		],
 	}),
 	secret: process.env.PAYLOAD_SECRET || "",

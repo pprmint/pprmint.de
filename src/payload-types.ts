@@ -68,7 +68,7 @@ export interface Config {
   blocks: {};
   collections: {
     announcements: Announcement;
-    projects: Project;
+    articles: Article;
     mina: Mina;
     artists: Artist;
     media: Media;
@@ -84,7 +84,7 @@ export interface Config {
   };
   collectionsSelect: {
     announcements: AnnouncementsSelect<false> | AnnouncementsSelect<true>;
-    projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    articles: ArticlesSelect<false> | ArticlesSelect<true>;
     mina: MinaSelect<false> | MinaSelect<true>;
     artists: ArtistsSelect<false> | ArtistsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
@@ -160,21 +160,6 @@ export interface Announcement {
 export interface Media {
   id: string;
   alt?: string | null;
-  caption?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -223,14 +208,16 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "projects".
+ * via the `definition` "articles".
  */
-export interface Project {
+export interface Article {
   id: string;
-  image: string | Media;
   title: string;
+  slug: string;
   description: string;
-  tags?: ('font' | 'design' | 'website' | 'software' | 'customization') | null;
+  tags: ('font' | 'design' | 'website' | 'software' | 'ramblings')[];
+  publishedAt: string;
+  thumbnail: string | Media;
   content: {
     root: {
       type: string;
@@ -248,6 +235,7 @@ export interface Project {
   };
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -312,8 +300,8 @@ export interface PayloadLockedDocument {
         value: string | Announcement;
       } | null)
     | ({
-        relationTo: 'projects';
-        value: string | Project;
+        relationTo: 'articles';
+        value: string | Article;
       } | null)
     | ({
         relationTo: 'mina';
@@ -388,16 +376,19 @@ export interface AnnouncementsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "projects_select".
+ * via the `definition` "articles_select".
  */
-export interface ProjectsSelect<T extends boolean = true> {
-  image?: T;
+export interface ArticlesSelect<T extends boolean = true> {
   title?: T;
+  slug?: T;
   description?: T;
   tags?: T;
+  publishedAt?: T;
+  thumbnail?: T;
   content?: T;
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -435,7 +426,6 @@ export interface ArtistsSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
-  caption?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
