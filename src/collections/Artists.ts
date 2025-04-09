@@ -10,19 +10,22 @@ export const Artists: CollectionConfig = {
 	},
 	fields: [
 		{
-			type: "row",
-			fields: [
-				{
-					name: "name",
-					type: "text",
-					required: true,
-				},
-				{
-					name: "creditUrl",
-					type: "text",
-				},
-			],
+			name: "name",
+			type: "text",
+			required: true,
+			admin: {
+				position: "sidebar",
+			},
 		},
+		{
+			name: "creditUrl",
+			label: "Credit URL",
+			type: "text",
+			admin: {
+				position: "sidebar",
+			},
+		},
+
 		{
 			name: "artworks",
 			type: "join",
