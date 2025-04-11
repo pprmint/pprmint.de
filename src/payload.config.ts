@@ -75,9 +75,7 @@ export default buildConfig({
 		// ...plugins,
 		s3Storage({
 			collections: {
-				media: {
-					prefix: "pprmint"
-				},
+				media: true,
 			},
 			bucket: process.env.S3_BUCKET || "",
 			config: {
