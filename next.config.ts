@@ -3,8 +3,8 @@ const { withPayload } = require("@payloadcms/next/withPayload");
 const createNextIntlPlugin = require("next-intl/plugin");
 const withNextIntl = createNextIntlPlugin();
 
-const NEXT_PUBLIC_SERVER_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
-	? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+const NEXT_PUBLIC_SERVER_URL = process.env.COOLIFY_FQDN
+	? `https://${process.env.COOLIFY_FQDN}`
 	: process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
 
 const securityHeaders = [

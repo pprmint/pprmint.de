@@ -9,6 +9,8 @@ import type { Props as MediaProps } from "../types";
 
 import { cssVariables } from "@/cssVariables";
 import FadingImage from "@/components/ui/FadingImage";
+import { getClientSideURL } from "@/utilities/getURL";
+import BrokenImage from "@/icons/BrokenImage";
 
 const { breakpoints } = cssVariables;
 
@@ -39,7 +41,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 
 		const cacheTag = resource.updatedAt;
 
-		src = `${url}?${cacheTag}`;
+		src = `${getClientSideURL()}${url}?${cacheTag}`;
 	}
 
 	const loading = loadingFromProps || (!priority ? "lazy" : undefined);
@@ -51,21 +53,30 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 				.map(([, value]) => `(max-width: ${value}px) ${value * 2}w`)
 				.join(", ");
 
-	return (
-		<picture className={cn(pictureClassName)}>
-			<FadingImage
-				hideSpinner
-				alt={alt || ""}
-				className={cn(imgClassName)}
-				fill={fill}
-				height={!fill ? height : undefined}
-				priority={priority}
-				quality={100}
-				loading={loading}
-				sizes={sizes}
-				src={src}
-				width={!fill ? width : undefined}
-			/>
-		</picture>
-	);
+	if (src === "") {
+		return (
+			<div className="flex gap-3 items-center justify-center aspect-video outline-1 outline-dashed outline-black/5 dark:outline-white/5 -outline-offset-8">
+				<BrokenImage />
+				{alt}
+			</div>
+		);
+	} else {
+		return (
+			<picture className={cn(pictureClassName)}>
+				<FadingImage
+					hideSpinner
+					alt={alt || ""}
+					className={cn(imgClassName)}
+					fill={fill}
+					height={!fill ? height : undefined}
+					priority={priority}
+					quality={100}
+					loading={loading}
+					sizes={sizes}
+					src={src}
+					width={!fill ? width : undefined}
+				/>
+			</picture>
+		);
+	}
 };
