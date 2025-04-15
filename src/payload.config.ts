@@ -24,6 +24,7 @@ import {
 import { Users } from "./collections/Users";
 import { getServerSideURL } from "./utilities/getURL";
 import { Articles } from "./collections/Articles/Articles";
+import { Downloads } from "./collections/Downloads";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -35,7 +36,7 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Announcements, Articles, Mina, Artists, Media, Users],
+	collections: [Announcements, Articles, Mina, Artists, Media, Downloads, Users],
 	localization: {
 		locales: [
 			{
