@@ -74,6 +74,10 @@ h6 {
 	height: 10px;
 }
 
+.LexicalEditorTheme__textItalic {
+	font-variation-settings: "slnt" -12;
+}
+
 @layer payload-default {
 	// Media tables as a grid
 	.collection-list--media table {
