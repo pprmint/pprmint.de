@@ -124,7 +124,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 											artwork.images[0].image.height ||
 											0
 										}
-										alt=""
+										alt={artwork.images[0].image.alt || ""}
 										className={`h-full min-w-full object-cover group-focus-visible/button:animate-pulse ${artwork.images[0].image.thumbnailURL}`}
 									/>
 								)}
