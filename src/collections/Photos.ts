@@ -48,6 +48,10 @@ export const Photos: CollectionConfig = {
 							pickerAppearance: "dayAndTime",
 							displayFormat: "dd.MM.yyy HH:mm",
 							timeFormat: "HH:mm",
+							timeIntervals: 1, // I hate this.
+							overrides: {
+								calendarStartDay: 1,
+							},
 						},
 						width: "33.333%",
 					},
@@ -59,7 +63,7 @@ export const Photos: CollectionConfig = {
 			fields: [
 				{
 					name: "iso",
-          label: "ISO",
+					label: "ISO",
 					type: "number",
 					admin: {
 						width: "25%",
@@ -74,7 +78,7 @@ export const Photos: CollectionConfig = {
 				},
 				{
 					name: "shutterSpeed",
-          label: "Shutter speed",
+					label: "Shutter speed",
 					type: "text",
 					admin: {
 						width: "25%",
@@ -82,7 +86,7 @@ export const Photos: CollectionConfig = {
 				},
 				{
 					name: "focalLength",
-          label: "Focal length",
+					label: "Focal length (35mm equiv.)",
 					type: "number",
 					admin: {
 						width: "25%",

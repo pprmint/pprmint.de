@@ -4,7 +4,8 @@ import { useTranslations, useFormatter } from "next-intl";
 import Image from "next/image";
 import FadingImage from "@/components/ui/FadingImage";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-import { Photos } from "@/types/photo";
+import { Photo } from "@/payload-types";
+import { PaginatedDocs } from "payload";
 import * as Dialog from "@radix-ui/react-dialog";
 import Tooltip from "@/components/ui/Tooltip";
 import CameraAperture from "@/icons/CameraAperture";
@@ -15,8 +16,9 @@ import Error from "@/icons/Error";
 
 import * as m from "motion/react-client";
 import { AnimatePresence } from "motion/react";
+import { getClientSideURL } from "@/utilities/getURL";
 
-export default function Gallery({ photos, page }: { photos: Photos; page: number }) {
+export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>; page: number }) {
 	const t = useTranslations("PHOTOS");
 	const format = useFormatter();
 	const [direction, setDirection] = useState(0);
@@ -88,7 +90,7 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 			ref={galleryRef}
 			className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:p-2 border-y border-black/5 dark:border-white/5 sm:gap-2"
 		>
-			{photos.data.map((photo, index) => (
+			{photos.docs.map((photo, index) => (
 				<Dialog.Root key={photo.id}>
 					<Dialog.Trigger asChild>
 						<button
@@ -100,10 +102,10 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 						>
 							<div className="scale-[1.025] sm:group-hover/button:scale-100 group-active/button:scale-100 sm:group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
 								<FadingImage
-									src={`https://static.pprmint.de${photo.photo.formats.small.url}`}
-									width={photo.photo.formats.small.width}
-									height={photo.photo.formats.small.height}
-									alt=""
+									src={photo.sizes?.sd?.url || photo.url || ""}
+									width={photo.sizes?.sd?.width || photo.width || 0}
+									height={photo.sizes?.sd?.height || photo.height || 0}
+									alt={photo.alt || ""}
 									className="h-full min-w-full object-cover group-focus-visible/button:animate-pulse"
 								/>
 							</div>
@@ -116,15 +118,14 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 								className={`text-white fixed inset-0 z-100 h-screen max-h-svh w-screen data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out focus-visible:outline-none`}
 							>
 								<Dialog.Description className="sr-only">
-									{photos.data[selectedPhoto].photo.alternativeText ||
-										photos.data[selectedPhoto].dateTime}
+									{photos.docs[selectedPhoto].alt || photos.docs[selectedPhoto].date}
 								</Dialog.Description>
 								<TransformWrapper disablePadding onTransformed={(e) => setScale(e.state.scale)}>
 									<TransformComponent>
 										<div className="flex items-center justify-center w-screen h-screen max-h-svh">
 											<AnimatePresence mode="popLayout">
 												<m.div
-													key={photos.data[selectedPhoto].id}
+													key={photos.docs[selectedPhoto].id}
 													custom={direction}
 													variants={variants}
 													initial="enter"
@@ -149,7 +150,7 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 
 														const swipe = swipePower(offset.x, velocity.x);
 														if (swipe < -swipeConfidenceThreshold) {
-															if (selectedPhoto < photos.data.length - 1) {
+															if (selectedPhoto < photos.docs.length - 1) {
 																handleSelectPhoto({
 																	id: selectedPhoto + 1,
 																	offset: offset.x,
@@ -166,10 +167,10 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 													}}
 												>
 													<FadingImage
-														src={`https://static.pprmint.de${photos.data[selectedPhoto].photo.url}`}
-														width={photos.data[selectedPhoto].photo.width}
-														height={photos.data[selectedPhoto].photo.height}
-														alt={photos.data[selectedPhoto].photo.alternativeText || ""}
+														src={photos.docs[selectedPhoto].url || ""}
+														width={photos.docs[selectedPhoto].width || 0}
+														height={photos.docs[selectedPhoto].height || 0}
+														alt={photos.docs[selectedPhoto].alt || ""}
 														className="max-h-svh w-auto mx-auto py-16"
 														unoptimized
 													/>
@@ -192,36 +193,32 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 										>
 											<AnimatePresence mode="wait">
 												<m.div
-													key={photos.data[selectedPhoto].id}
+													key={photos.docs[selectedPhoto].id}
 													initial={{ opacity: 0 }}
 													animate={{ opacity: 1, transition: { duration: 0.2 } }}
 													exit={{ opacity: 0, transition: { duration: 0.2 } }}
 													className="flex md:items-center flex-grow flex-col md:flex-row gap-3 md:gap-6"
 												>
 													<div className="flex items-center gap-3">
+														{typeof photos.docs[selectedPhoto].camera === "object" &&
+														photos.docs[selectedPhoto].camera.svgLogo ? (
+															<div
+																className="*:h-4 *:md:h-6 *:w-full"
+																dangerouslySetInnerHTML={{
+																	__html: photos.docs[selectedPhoto].camera.svgLogo,
+																}}
+															/>
+														) : (
+															<div className="font-medium text-lg">
+																{typeof photos.docs[selectedPhoto].camera ===
+																	"object" && photos.docs[selectedPhoto].camera.name}
+															</div>
+														)}
 														<div>
-															{photos.data[selectedPhoto].camera.logo ? (
-																<Image
-																	src={`https://static.pprmint.de${photos.data[selectedPhoto].camera.logo.url}`}
-																	width={photos.data[selectedPhoto].camera.logo.width}
-																	height={
-																		photos.data[selectedPhoto].camera.logo.height
-																	}
-																	alt={photos.data[selectedPhoto].camera.name}
-																	unoptimized
-																	className="invert h-4 md:h-6 w-auto"
-																/>
-															) : (
-																<p className="font-medium text-lg">
-																	{photos.data[selectedPhoto].camera.name}
-																</p>
-															)}
-														</div>
-														<div className="flex flex-col items-start justify-start">
 															<Dialog.Title asChild>
-																<span className="text-sm" style={{ lineHeight: 1 }}>
+																<div className="text-sm" style={{ lineHeight: 1 }}>
 																	{format.dateTime(
-																		new Date(photos.data[selectedPhoto].dateTime),
+																		new Date(photos.docs[selectedPhoto].date),
 																		{
 																			day: "numeric",
 																			month: "long",
@@ -230,56 +227,58 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 																	)}
 																	,{" "}
 																	{format.dateTime(
-																		new Date(photos.data[selectedPhoto].dateTime),
+																		new Date(photos.docs[selectedPhoto].date),
 																		{
 																			hour: "numeric",
 																			minute: "2-digit",
 																		}
 																	)}
-																</span>
+																</div>
 															</Dialog.Title>
-															{photos.data[selectedPhoto].lens && (
-																<span
-																	className="text-sm text-white/70"
+															{photos.docs[selectedPhoto].lens && (
+																<div
+																	className="text-xs text-white/70 mt-0.5"
 																	style={{ lineHeight: 1 }}
 																>
-																	{photos.data[selectedPhoto].lens.name}
-																</span>
+																	{typeof photos.docs[selectedPhoto].lens ===
+																		"object" &&
+																		photos.docs[selectedPhoto].lens.name}
+																</div>
 															)}
 														</div>
 													</div>
 													<div className="dark flex gap-3 md:gap-6 select-none text-white/70">
-														{photos.data[selectedPhoto].iso && (
+														{photos.docs[selectedPhoto].iso && (
 															<Tooltip text={t("Content.Camera.iso")} side="top">
 																<div className="flex gap-1 items-center">
 																	<CameraIso />
 																	<span className="text-sm">
-																		{photos.data[selectedPhoto].iso}
+																		{photos.docs[selectedPhoto].iso}
 																	</span>
 																</div>
 															</Tooltip>
 														)}
-														{photos.data[selectedPhoto].aperture && (
+														{photos.docs[selectedPhoto].aperture && (
 															<Tooltip text={t("Content.Camera.aperture")} side="top">
 																<div className="flex gap-1 items-center">
 																	<CameraAperture />
 																	<span className="text-sm">
-																		<i>f</i>/{photos.data[selectedPhoto].aperture}
+																		<i>f</i>/{photos.docs[selectedPhoto].aperture}
 																	</span>
 																</div>
 															</Tooltip>
 														)}
-														{photos.data[selectedPhoto].shutter && (
+														{photos.docs[selectedPhoto].shutterSpeed && (
 															<Tooltip text={t("Content.Camera.shutterSpeed")} side="top">
 																<div className="flex gap-1 items-center">
 																	<CameraShutterSpeed />
 																	<span className="text-sm">
-																		{photos.data[selectedPhoto].shutter}s
+																		{photos.docs[selectedPhoto].shutterSpeed}s
 																	</span>
 																</div>
 															</Tooltip>
 														)}
-														{photos.data[selectedPhoto].focalLength && (
+														{photos.docs[selectedPhoto].focalLength && (
 															<Tooltip
 																text={t.rich("Content.Camera.focalLength", {
 																	small: (chunks) => (
@@ -291,7 +290,7 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 																<div className="flex gap-1 items-center">
 																	<CameraFocalLength />
 																	<span className="text-sm">
-																		{photos.data[selectedPhoto].focalLength}mm
+																		{photos.docs[selectedPhoto].focalLength}mm
 																	</span>
 																</div>
 															</Tooltip>
@@ -330,7 +329,7 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 												} ease-out-quart`}
 												style={{ left: `calc(50% - ${selectedPhoto * 48}px - 32px` }}
 											>
-												{photos.data.map((photo, index) => (
+												{photos.docs.map((photo, index) => (
 													<button
 														key={index}
 														onClick={() => handleSelectPhoto({ id: index })}
@@ -341,10 +340,10 @@ export default function Gallery({ photos, page }: { photos: Photos; page: number
 														} duration-300 ease-out-quart overflow-clip`}
 													>
 														<Image
-															src={`https://static.pprmint.de${photo.photo.formats.thumbnail.url}`}
-															width={photo.photo.formats.thumbnail.width}
-															height={photo.photo.formats.thumbnail.height}
-															alt={photo.photo.alternativeText || ""}
+															src={photo.sizes?.thumbnail?.url || photo.url || ""}
+															width={photo.sizes?.thumbnail?.width || photo.width || 0}
+															height={photo.sizes?.thumbnail?.height || photo.height || 0}
+															alt={photo.alt || ""}
 															className="absolute top-0 inset-x-0 h-full object-cover"
 														/>
 													</button>
