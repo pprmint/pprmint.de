@@ -69,9 +69,12 @@ export interface Config {
   collections: {
     announcements: Announcement;
     articles: Article;
+    media: Media;
     mina: Mina;
     artists: Artist;
-    media: Media;
+    photos: Photo;
+    cameras: Camera;
+    lenses: Lense;
     download: Download;
     users: User;
     'payload-locked-documents': PayloadLockedDocument;
@@ -86,9 +89,12 @@ export interface Config {
   collectionsSelect: {
     announcements: AnnouncementsSelect<false> | AnnouncementsSelect<true>;
     articles: ArticlesSelect<false> | ArticlesSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
     mina: MinaSelect<false> | MinaSelect<true>;
     artists: ArtistsSelect<false> | ArtistsSelect<true>;
-    media: MediaSelect<false> | MediaSelect<true>;
+    photos: PhotosSelect<false> | PhotosSelect<true>;
+    cameras: CamerasSelect<false> | CamerasSelect<true>;
+    lenses: LensesSelect<false> | LensesSelect<true>;
     download: DownloadSelect<false> | DownloadSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -275,6 +281,87 @@ export interface Artist {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "photos".
+ */
+export interface Photo {
+  id: string;
+  alt?: string | null;
+  camera: string | Camera;
+  lens?: (string | null) | Lense;
+  date: string;
+  iso?: number | null;
+  aperture?: number | null;
+  shutterSpeed?: string | null;
+  focalLength?: number | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    sd?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    hd?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    fhd?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "cameras".
+ */
+export interface Camera {
+  id: string;
+  name: string;
+  svgLogo?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "lenses".
+ */
+export interface Lense {
+  id: string;
+  name: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "download".
  */
 export interface Download {
@@ -324,6 +411,10 @@ export interface PayloadLockedDocument {
         value: string | Article;
       } | null)
     | ({
+        relationTo: 'media';
+        value: string | Media;
+      } | null)
+    | ({
         relationTo: 'mina';
         value: string | Mina;
       } | null)
@@ -332,8 +423,16 @@ export interface PayloadLockedDocument {
         value: string | Artist;
       } | null)
     | ({
-        relationTo: 'media';
-        value: string | Media;
+        relationTo: 'photos';
+        value: string | Photo;
+      } | null)
+    | ({
+        relationTo: 'cameras';
+        value: string | Camera;
+      } | null)
+    | ({
+        relationTo: 'lenses';
+        value: string | Lense;
       } | null)
     | ({
         relationTo: 'download';
@@ -416,36 +515,6 @@ export interface ArticlesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "mina_select".
- */
-export interface MinaSelect<T extends boolean = true> {
-  images?:
-    | T
-    | {
-        image?: T;
-        id?: T;
-      };
-  artist?: T;
-  date?: T;
-  pixelart?: T;
-  nsfw?: T;
-  heart?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "artists_select".
- */
-export interface ArtistsSelect<T extends boolean = true> {
-  name?: T;
-  creditUrl?: T;
-  artworks?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
@@ -505,6 +574,124 @@ export interface MediaSelect<T extends boolean = true> {
               filename?: T;
             };
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "mina_select".
+ */
+export interface MinaSelect<T extends boolean = true> {
+  images?:
+    | T
+    | {
+        image?: T;
+        id?: T;
+      };
+  artist?: T;
+  date?: T;
+  pixelart?: T;
+  nsfw?: T;
+  heart?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "artists_select".
+ */
+export interface ArtistsSelect<T extends boolean = true> {
+  name?: T;
+  creditUrl?: T;
+  artworks?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "photos_select".
+ */
+export interface PhotosSelect<T extends boolean = true> {
+  alt?: T;
+  camera?: T;
+  lens?: T;
+  date?: T;
+  iso?: T;
+  aperture?: T;
+  shutterSpeed?: T;
+  focalLength?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+  sizes?:
+    | T
+    | {
+        thumbnail?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        sd?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        hd?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        fhd?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "cameras_select".
+ */
+export interface CamerasSelect<T extends boolean = true> {
+  name?: T;
+  svgLogo?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "lenses_select".
+ */
+export interface LensesSelect<T extends boolean = true> {
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

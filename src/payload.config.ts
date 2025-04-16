@@ -9,6 +9,12 @@ import { fileURLToPath } from "url";
 import sharp from "sharp";
 
 import { Announcements } from "./collections/Announcements";
+import { Users } from "./collections/Users";
+import { Articles } from "./collections/Articles/Articles";
+import { Downloads } from "./collections/Downloads";
+import { Photos } from "./collections/Photos";
+import { Cameras } from "./collections/Camera";
+import { Lenses } from "./collections/Lenses";
 import { Mina } from "./collections/Mina";
 import { Artists } from "./collections/Artists";
 import { Media } from "./collections/Media";
@@ -21,10 +27,7 @@ import {
 	OrderedListFeature,
 	UnorderedListFeature,
 } from "@payloadcms/richtext-lexical";
-import { Users } from "./collections/Users";
 import { getServerSideURL } from "./utilities/getURL";
-import { Articles } from "./collections/Articles/Articles";
-import { Downloads } from "./collections/Downloads";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -36,7 +39,7 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Announcements, Articles, Mina, Artists, Media, Downloads, Users],
+	collections: [Announcements, Articles, Media, Mina, Artists, Photos, Cameras, Lenses, Downloads, Users],
 	localization: {
 		locales: [
 			{
@@ -77,6 +80,8 @@ export default buildConfig({
 		s3Storage({
 			collections: {
 				media: true,
+				photos: true,
+				download: true,
 			},
 			bucket: process.env.S3_BUCKET || "",
 			config: {
