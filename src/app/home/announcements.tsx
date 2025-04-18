@@ -131,7 +131,7 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 								onClick={handleNext}
 							>
 								<AnimatePresence mode="wait">
-									<m.div key={data.data[current].link}>
+									<m.div key={data.data[current].id}>
 										<m.div
 											initial={{ x: "100%" }}
 											exit={{
@@ -158,7 +158,7 @@ export default function Announcements({ data }: { data: AnnouncementsType }) {
 								onClick={handlePrevious}
 							>
 								<AnimatePresence mode="wait">
-									<m.div key={data.data[current].link}>
+									<m.div key={data.data[current].id}>
 										<m.div
 											initial={{ x: "-100%" }}
 											exit={{
