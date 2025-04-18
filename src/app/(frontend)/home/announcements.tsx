@@ -133,7 +133,7 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 						<div className="relative flex w-24 ml-auto border-l border-black/5 dark:border-white/5 divide-x divide-neutral-50/5">
 							<Button size="full" onClick={handleNext}>
 								<AnimatePresence mode="wait">
-									<m.div key={data.docs[current].link}>
+									<m.div key={data.docs[current].id}>
 										<m.div
 											initial={{ x: "100%" }}
 											exit={{
@@ -158,7 +158,7 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 							</Button>
 							<Button size="full" onClick={handlePrevious}>
 								<AnimatePresence mode="wait">
-									<m.div key={data.docs[current].link}>
+									<m.div key={data.docs[current].id}>
 										<m.div
 											initial={{ x: "-100%" }}
 											exit={{
