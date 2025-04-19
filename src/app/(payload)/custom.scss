@@ -79,13 +79,51 @@ h6 {
 	padding-bottom: 0;
 }
 
+.date-time-picker .react-datepicker__navigation {
+	top: 12px;
+}
+
+.react-datepicker__month {
+	margin: 0;
+}
+.date-time-picker .react-datepicker__header__dropdown,
+.date-time-picker .react-datepicker-year-header {
+	padding: 9px 0 10px;
+}
+.react-datepicker__day-names {
+	background-color: transparent;
+	border-top: 1px solid var(--theme-elevation-150);
+	border-bottom: 1px solid var(--theme-elevation-150);
+	.react-datepicker__day-name {
+		margin: 1px 0 3px 0;
+		width: 40px;
+	}
+}
+.react-datepicker__month .react-datepicker__day {
+	margin: 0;
+	box-shadow: none;
+	width: 40px;
+	font-size: 0.9rem;
+	line-height: 28px;
+	padding-bottom: 2px;
+}
+.react-datepicker__month .react-datepicker__week:nth-of-type(even) {
+	background-color: #8888880a;
+}
+
+.date-time-picker .react-datepicker__month-select,
+.date-time-picker .react-datepicker__year-select {
+	font-family: var(--font-body);
+	font-size: 0.9rem;
+}
+
 .react-datepicker__time-list-item,
 .popup-button-list__button {
 	font-size: 1rem;
 }
 
 .react-datepicker__day--outside-month {
-	color: var(--color-base-500);
+	color: var(--theme-elevation-300);
 }
 
 .inline-toolbar-popup .caret {
@@ -249,9 +287,9 @@ h6 {
 		}
 	}
 	.collection-list--media table .file__thumbnail {
-		aspect-ratio: 16 / 9,
+		aspect-ratio: 16 / 9;
 	}
 	.collection-list--photos table .file__thumbnail {
-		aspect-ratio: 3 / 2,
+		aspect-ratio: 3 / 2;
 	}
 }
