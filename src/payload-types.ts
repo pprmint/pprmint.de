@@ -267,6 +267,7 @@ export interface Mina {
   commissionPrice?: number | null;
   outfit?: (string | null) | Outfit;
   featuring?: (string | Character)[] | null;
+  thumbnailURL?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -632,6 +633,7 @@ export interface MinaSelect<T extends boolean = true> {
   commissionPrice?: T;
   outfit?: T;
   featuring?: T;
+  thumbnailURL?: T;
   updatedAt?: T;
   createdAt?: T;
 }

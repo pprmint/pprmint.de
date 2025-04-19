@@ -2,6 +2,7 @@ import { anyone } from "@/access/anyone";
 import { authenticated } from "@/access/authenticated";
 import type { CollectionConfig } from "payload";
 import { revalidateArtChange, revalidateArtDelete } from "./hooks/revalidatePage";
+import { setThumbnailURL } from "./hooks/setThumbnailURL";
 
 export const Mina: CollectionConfig = {
 	slug: "mina",
@@ -84,7 +85,7 @@ export const Mina: CollectionConfig = {
 						width: "40%",
 						date: {
 							pickerAppearance: "dayAndTime",
-							displayFormat: "dd.MM.yyy HH:mm",
+							displayFormat: "dd. MMMM yyy HH:mm",
 							timeFormat: "HH:mm",
 							overrides: {
 								calendarStartDay: 1,
@@ -128,6 +129,22 @@ export const Mina: CollectionConfig = {
 				},
 			],
 		},
+		{
+			name: "thumbnail",
+			type: "ui",
+			admin: {
+				components: {
+					Cell: "@/collections/Mina/ThumbnailCell",
+				},
+			},
+		},
+		{
+			name: "thumbnailURL",
+			type: "text",
+			admin: {
+				hidden: true,
+			},
+		},
 	],
 	hooks: {
 		// Use value from the 'date' field as the doc creation date.
@@ -139,6 +156,7 @@ export const Mina: CollectionConfig = {
 				}
 				return data;
 			},
+			setThumbnailURL,
 		],
 		afterChange: [revalidateArtChange],
 		afterDelete: [revalidateArtDelete],

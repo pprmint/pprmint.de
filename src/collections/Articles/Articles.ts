@@ -88,6 +88,9 @@ export const Articles: CollectionConfig = {
 			required: true,
 			admin: {
 				position: "sidebar",
+				date: {
+					displayFormat: "dd. MMMM yyy",
+				}
 			},
 		},
 		{

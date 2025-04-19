@@ -16,7 +16,6 @@ import Error from "@/icons/Error";
 
 import * as m from "motion/react-client";
 import { AnimatePresence } from "motion/react";
-import { getClientSideURL } from "@/utilities/getURL";
 
 export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>; page: number }) {
 	const t = useTranslations("PHOTOS");
