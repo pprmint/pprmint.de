@@ -1,5 +1,38 @@
-@import url("/fonts/DINish/DINish.css");
-@import url("/fonts/NotoSerif/notoserif.css");
+// #cursed
+@font-face {
+	font-family: "DINish";
+	font-weight: 300 900;
+	font-stretch: 75% 125%;
+	font-display: swap;
+	font-style: normal;
+	font-variation-settings: "slnt" 0deg;
+	src: url("/fonts/DINish/DINish[slnt,wdth,wght].woff2") format("woff2");
+}
+@font-face {
+	font-family: "DINish";
+	font-weight: 300 900;
+	font-stretch: 75% 125%;
+	font-display: swap;
+	font-style: italic;
+	font-variation-settings: "slnt" -12deg;
+	src: url("/fonts/DINish/DINish[slnt,wdth,wght].woff2") format("woff2");
+}
+@font-face {
+	font-family: "Noto Serif";
+	font-weight: 100 900;
+	font-stretch: 62.5% 100%;
+	font-display: swap;
+	font-style: normal;
+	src: url("/fonts/NotoSerif/NotoSerif-VariableFont_wdth,wght.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Noto Serif";
+	font-weight: 100 900;
+	font-stretch: 62.5% 100%;
+	font-display: swap;
+	font-style: italic;
+	src: url("/fonts/NotoSerif/NotoSerif-Italic-VariableFont_wdth,wght.ttf") format("truetype");
+}
 
 :root {
 	--font-body: "DINish", system-ui;
