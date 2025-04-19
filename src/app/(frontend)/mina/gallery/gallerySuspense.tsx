@@ -1,5 +1,6 @@
 import config from "@payload-config";
 import { getPayload } from "payload";
+import type { Where } from "payload";
 import Filters from "../filters/filters";
 import Gallery from "./gallery";
 import Pagination from "@/components/gallery/Pagination";
@@ -11,16 +12,36 @@ export default async function GallerySuspense({ p, nsfw, artist }: { p: number; 
 	const payload = await getPayload({ config });
 	const artists = await payload.find({
 		collection: "artists",
+		select: {
+			id: true,
+			name: true,
+		},
 	});
-	const artworks = await payload.find({
-		collection: "mina",
-		page: p,
-		where: {
+
+	let filters: Where[] = [];
+
+	if (nsfw !== "show") {
+		filters.push({
 			nsfw: {
 				equals: false,
 			},
-		},
-		locale: locale,
+		});
+	}
+
+	if (artist !== "undefined") {
+		filters.push({
+			"artist.name": {
+				like: artist,
+			},
+		});
+	}
+
+	const artworks = await payload.find({
+		collection: "mina",
+		page: p,
+		where: filters.length > 0 ? { and: filters } : undefined,
+		locale,
+		sort: "-createdAt",
 	});
 	return (
 		<div className="border-x border-black/5 dark:border-white/5 pt-12 lg:pt-20 xl:pt-40">

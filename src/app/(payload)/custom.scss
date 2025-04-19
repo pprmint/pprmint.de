@@ -80,7 +80,8 @@ h6 {
 
 @layer payload-default {
 	// Media tables as a grid
-	.collection-list--media table {
+	.collection-list--media table,
+	.collection-list--photos table {
 		thead {
 			display: inline-block;
 			width: 100%;
@@ -195,8 +196,7 @@ h6 {
 							max-width: 100%;
 							height: auto;
 							max-height: unset;
-							aspect-ratio: 1/1;
-							border-radius: 0;
+							border-radius: 3px 3px 0 0;
 							border-bottom: 1px solid var(--theme-elevation-150);
 							transition: all 0.1s;
 							background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%202%202%22%3E%3Cpath%20d%3D%22M2%202V1H0V0h1v2z%22%20fill%3D%22%238881%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
@@ -214,5 +214,11 @@ h6 {
 				}
 			}
 		}
+	}
+	.collection-list--media table .file__thumbnail {
+		aspect-ratio: 16 / 9,
+	}
+	.collection-list--photos table .file__thumbnail {
+		aspect-ratio: 3 / 2,
 	}
 }

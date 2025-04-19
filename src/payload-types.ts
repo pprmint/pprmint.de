@@ -72,6 +72,8 @@ export interface Config {
     media: Media;
     mina: Mina;
     artists: Artist;
+    outfits: Outfit;
+    characters: Character;
     photos: Photo;
     cameras: Camera;
     lenses: Lense;
@@ -92,6 +94,8 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     mina: MinaSelect<false> | MinaSelect<true>;
     artists: ArtistsSelect<false> | ArtistsSelect<true>;
+    outfits: OutfitsSelect<false> | OutfitsSelect<true>;
+    characters: CharactersSelect<false> | CharactersSelect<true>;
     photos: PhotosSelect<false> | PhotosSelect<true>;
     cameras: CamerasSelect<false> | CamerasSelect<true>;
     lenses: LensesSelect<false> | LensesSelect<true>;
@@ -251,15 +255,18 @@ export interface Article {
  */
 export interface Mina {
   id: string;
+  pixelart: boolean;
+  nsfw: boolean;
+  wholesome: boolean;
   images: {
     image: string | Media;
     id?: string | null;
   }[];
   artist: string | Artist;
   date: string;
-  pixelart: boolean;
-  nsfw: boolean;
-  heart: boolean;
+  commissionPrice?: number | null;
+  outfit?: (string | null) | Outfit;
+  featuring?: (string | Character)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -276,6 +283,29 @@ export interface Artist {
     hasNextPage?: boolean;
     totalDocs?: number;
   };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "outfits".
+ */
+export interface Outfit {
+  id: string;
+  name: string;
+  designer: string | Artist;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "characters".
+ */
+export interface Character {
+  id: string;
+  name: string;
+  owner: string;
+  link?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -421,6 +451,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'artists';
         value: string | Artist;
+      } | null)
+    | ({
+        relationTo: 'outfits';
+        value: string | Outfit;
+      } | null)
+    | ({
+        relationTo: 'characters';
+        value: string | Character;
       } | null)
     | ({
         relationTo: 'photos';
@@ -580,6 +618,9 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "mina_select".
  */
 export interface MinaSelect<T extends boolean = true> {
+  pixelart?: T;
+  nsfw?: T;
+  wholesome?: T;
   images?:
     | T
     | {
@@ -588,9 +629,9 @@ export interface MinaSelect<T extends boolean = true> {
       };
   artist?: T;
   date?: T;
-  pixelart?: T;
-  nsfw?: T;
-  heart?: T;
+  commissionPrice?: T;
+  outfit?: T;
+  featuring?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -602,6 +643,27 @@ export interface ArtistsSelect<T extends boolean = true> {
   name?: T;
   creditUrl?: T;
   artworks?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "outfits_select".
+ */
+export interface OutfitsSelect<T extends boolean = true> {
+  name?: T;
+  designer?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "characters_select".
+ */
+export interface CharactersSelect<T extends boolean = true> {
+  name?: T;
+  owner?: T;
+  link?: T;
   updatedAt?: T;
   createdAt?: T;
 }

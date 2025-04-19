@@ -125,7 +125,10 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 											0
 										}
 										alt={artwork.images[0].image.alt || ""}
-										className={`h-full min-w-full object-cover group-focus-visible/button:animate-pulse ${artwork.images[0].image.thumbnailURL}`}
+										style={{
+											objectPosition: `${artwork.images[0].image.focalX}% ${artwork.images[0].image.focalY}%`,
+										}}
+										className="h-full min-w-full object-cover group-focus-visible/button:animate-pulse"
 									/>
 								)}
 							</div>
@@ -248,7 +251,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																	{t("Content.Artworks.drawnBy")}
 																</span>
 																{artworks.docs[selectedArtwork].artist.name}
-																{artworks.docs[selectedArtwork].heart && (
+																{artworks.docs[selectedArtwork].wholesome && (
 																	<span className="text-red"> ♥</span>
 																)}
 															</p>
@@ -270,6 +273,12 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																		"https://bsky.app/"
 																	) ? (
 																		<Bluesky />
+																	) : artworks.docs[
+																			selectedArtwork
+																	  ].artist.creditUrl!.startsWith(
+																			"https://x.com/"
+																	  ) ? (
+																		<Twitter />
 																	) : artworks.docs[
 																			selectedArtwork
 																	  ].artist.creditUrl!.startsWith(

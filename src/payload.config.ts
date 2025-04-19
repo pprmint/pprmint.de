@@ -15,8 +15,10 @@ import { Downloads } from "./collections/Downloads";
 import { Photos } from "./collections/Photos";
 import { Cameras } from "./collections/Camera";
 import { Lenses } from "./collections/Lenses";
-import { Mina } from "./collections/Mina";
+import { Mina } from "./collections/Mina/Mina";
 import { Artists } from "./collections/Artists";
+import { Outfits } from "./collections/Outfits";
+import { Characters } from "./collections/Characters";
 import { Media } from "./collections/Media";
 import {
 	AlignFeature,
@@ -39,7 +41,7 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Announcements, Articles, Media, Mina, Artists, Photos, Cameras, Lenses, Downloads, Users],
+	collections: [Announcements, Articles, Media, Mina, Artists, Outfits, Characters, Photos, Cameras, Lenses, Downloads, Users],
 	localization: {
 		locales: [
 			{

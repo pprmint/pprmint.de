@@ -31,17 +31,17 @@ export const Media: CollectionConfig = {
 			},
 			{
 				name: "sd",
-				width: 720,
+				width: undefined,
 				height: 480,
 			},
 			{
 				name: "hd",
-				width: 1280,
+				width: undefined,
 				height: 720,
 			},
 			{
 				name: "fhd",
-				width: 1920,
+				width: undefined,
 				height: 1080,
 			},
 		],

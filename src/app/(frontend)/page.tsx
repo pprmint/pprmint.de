@@ -26,7 +26,7 @@ export default async function Page() {
 	const announcements = await payload.find({
 		collection: "announcements",
 		limit: 5,
-		locale: locale,
+		locale,
 	});
 	const mina = await payload.find({
 		collection: "mina",
@@ -36,7 +36,7 @@ export default async function Page() {
 				equals: false,
 			},
 		},
-		locale: locale,
+		locale,
 	});
 	return (
 		<>
@@ -175,40 +175,4 @@ export default async function Page() {
 			</main>
 		</>
 	);
-}
-
-async function GetAnnouncements() {
-	const pageSize = 5;
-	const locale = await getLocale();
-	const res = await fetch(
-		`${process.env.STRAPI_API_URL}/announcements?pagination[pageSize]=${pageSize}&populate=media&locale=${locale}&sort=id:desc`,
-		{
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
-			},
-			next: { revalidate: 60 },
-		}
-	);
-	if (!res.ok) {
-		console.error("Failed to fetch announcement data.");
-	}
-	return res.json();
-}
-
-async function GetArt() {
-	const res = await fetch(
-		`${process.env.STRAPI_API_URL}/mina-artworks?pagination[limit]=1&filters[nsfw][$ne]=true&populate=artwork&populate=artist&sort=creationDate:desc`,
-		{
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
-			},
-			next: { revalidate: 60 },
-		}
-	);
-	if (!res.ok) {
-		console.error("Failed to fetch artwork.");
-	}
-	return res.json();
 }
