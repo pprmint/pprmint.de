@@ -88,6 +88,7 @@ export const Mina: CollectionConfig = {
 							timeFormat: "HH:mm",
 							overrides: {
 								calendarStartDay: 1,
+								minDate: new Date("2020-01-01"),
 							},
 						},
 					},

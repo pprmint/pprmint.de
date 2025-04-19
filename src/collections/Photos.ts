@@ -51,6 +51,7 @@ export const Photos: CollectionConfig = {
 							timeIntervals: 1, // I hate this.
 							overrides: {
 								calendarStartDay: 1,
+								minDate: new Date("2010-01-01"),
 							},
 						},
 						width: "33.333%",
