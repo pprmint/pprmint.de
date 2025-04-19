@@ -133,7 +133,7 @@ export const Mina: CollectionConfig = {
 		// Will be deleted once all artworks have been added.
 		beforeChange: [
 			async ({ data, operation }) => {
-				if (operation === "update" && data.date) {
+				if (operation === "create" && data.date) {
 					data.createdAt = new Date(data.date);
 				}
 				return data;
