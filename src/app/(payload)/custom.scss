@@ -1,3 +1,6 @@
+@tailwind components;
+@tailwind utilities;
+
 // #cursed
 @font-face {
 	font-family: "DINish";
@@ -151,7 +154,8 @@ h6 {
 
 @layer payload-default {
 	// Media tables as a grid
-	.collection-list--media table,
+	.collection-list--assets table,
+	.collection-list--artwork table,
 	.collection-list--photos table {
 		thead {
 			display: inline-block;
@@ -286,8 +290,11 @@ h6 {
 			}
 		}
 	}
-	.collection-list--media table .file__thumbnail {
+	.collection-list--assets table .file__thumbnail {
 		aspect-ratio: 16 / 9;
+	}
+	.collection-list--artwork table .file__thumbnail {
+		aspect-ratio: 1 / 1;
 	}
 	.collection-list--photos table .file__thumbnail {
 		aspect-ratio: 3 / 2;

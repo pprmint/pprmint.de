@@ -245,13 +245,13 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 										transition: { ease: "easeIn", duration: 0.2 },
 									}}
 								>
-									{typeof data.docs[current].image !== "string" && data.docs[current].image.sizes && (
+									{typeof data.docs[current] === "object" && data.docs[current].sizes && (
 										<FadingImage
-											src={data.docs[current].image.sizes?.fhd?.url || ""}
-											alt={data.docs[current].image.alt || ""}
+											src={data.docs[current].sizes?.fhd?.url || ""}
+											alt={data.docs[current].alt || ""}
 											quality={90}
-											width={data.docs[current].image.sizes?.fhd?.width || 0}
-											height={data.docs[current].image.sizes?.fhd?.height || 0}
+											width={data.docs[current].sizes?.fhd?.width || 0}
+											height={data.docs[current].sizes?.fhd?.height || 0}
 											className="w-full"
 										/>
 									)}

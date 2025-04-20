@@ -1,6 +1,7 @@
 import { anyone } from "@/access/anyone";
 import { authenticated } from "@/access/authenticated";
 import type { CollectionConfig } from "payload";
+import { revalidateDelete, revalidateChange } from "./hooks/revalidate";
 
 export const Announcements: CollectionConfig = {
 	slug: "announcements",
@@ -15,10 +16,10 @@ export const Announcements: CollectionConfig = {
 	},
 	fields: [
 		{
-			name: "image",
-			type: "upload",
-			relationTo: "media",
-			required: true,
+			name: "alt",
+			label: "Alternative text",
+			type: "text",
+			localized: true,
 		},
 		{
 			name: "title",
@@ -48,4 +49,26 @@ export const Announcements: CollectionConfig = {
 			],
 		},
 	],
+	upload: {
+		adminThumbnail: "thumbnail",
+		imageSizes: [
+			{
+				name: "thumbnail",
+				width: 320,
+				height: 180,
+			},
+			{
+				name: "fhd",
+				width: 1920,
+				height: 1080,
+			},
+		],
+		resizeOptions: {
+			fit: "cover",
+		},
+	},
+	hooks: {
+		afterChange: [revalidateChange],
+		afterDelete: [revalidateDelete],
+	},
 };

@@ -1,4 +1,6 @@
-import { Works } from "@/types/work";
+import config from "@payload-config";
+import { getPayload } from "payload";
+import type { Where } from "payload";
 import Filters from "../filters";
 import Pagination from "@/components/gallery/Pagination";
 import OutOfBounds from "@/components/gallery/OutOfBounds";
@@ -10,47 +12,47 @@ export default async function GallerySuspense({
 	dimension,
 	type,
 }: {
-	locale: string;
+	locale: "en" | "de" | "all" | undefined;
 	p: number;
 	dimension: string;
 	type: string;
 }) {
-	const Works: Works = await getWorks(locale, p, dimension, type);
+	const payload = await getPayload({ config });
+
+	let filters: Where[] = [];
+
+	if (dimension !== "") {
+		filters.push({
+			dimension: {
+				equals: dimension,
+			},
+		});
+	}
+
+	if (type !== "") {
+		filters.push({
+			type: {
+				equals: type,
+			},
+		});
+	}
+
+	const graphics = await payload.find({
+		collection: "graphics",
+		draft: false,
+		limit: 20,
+		overrideAccess: false,
+		locale: locale,
+		pagination: true,
+		page: p,
+		where: filters.length > 0 ? { and: filters } : undefined,
+	});
+
 	return (
 		<>
 			<Filters type={type} dimension={dimension} />
-			{Works.data.length == 0 ? <OutOfBounds /> : <Gallery works={Works} page={p} />}
-			<Pagination page={p} pageCount={Works.meta.pagination.pageCount}  />
+			{graphics.docs.length == 0 ? <OutOfBounds /> : <Gallery graphics={graphics} page={p} />}
+			<Pagination page={p} pageCount={graphics.totalPages} />
 		</>
 	);
-}
-
-async function getWorks(locale: string, page: number, dimension: string, type: string) {
-	let dimensionFilter = "";
-	let typeFilter = "";
-
-	if (dimension && (dimension === "2d" || dimension === "3d")) {
-		dimensionFilter = `filters[dimension][$eq]=${dimension === "2d" ? "twodee" : "threedee"}&`;
-	}
-
-	if (type && (type === "static" || type === "animated")) {
-		typeFilter = `filters[type][$eq]=${type}&`;
-	}
-
-	const res = await fetch(
-		`${process.env.STRAPI_API_URL}/works?pagination[page]=${Number(
-			page
-		)}&pagination[pageSize]=20&${dimensionFilter}${typeFilter}populate=*&sort=creationDate:desc`,
-		{
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `bearer ${process.env.STRAPI_API_KEY}`,
-			},
-			next: { revalidate: 0 },
-		}
-	);
-	if (!res.ok) {
-		throw new Error("Failed to fetch works.");
-	}
-	return res.json();
 }

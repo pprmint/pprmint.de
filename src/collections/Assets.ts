@@ -1,10 +1,9 @@
 import type { CollectionConfig } from "payload";
 import { anyone } from "../access/anyone";
 import { authenticated } from "../access/authenticated";
-import { FixedToolbarFeature, InlineToolbarFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 
-export const Media: CollectionConfig = {
-	slug: "media",
+export const Assets: CollectionConfig = {
+	slug: "assets",
 	access: {
 		create: authenticated,
 		delete: authenticated,
@@ -17,7 +16,6 @@ export const Media: CollectionConfig = {
 			label: "Alternative text",
 			type: "text",
 			localized: true,
-			// required: true,
 		},
 	],
 	upload: {

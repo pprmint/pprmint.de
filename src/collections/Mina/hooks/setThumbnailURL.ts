@@ -6,7 +6,7 @@ export const setThumbnailURL: CollectionBeforeChangeHook = async ({ data, req })
 	if (!firstImageID) return data;
 
 	const mediaDoc = await req.payload.findByID({
-		collection: "media",
+		collection: "artwork",
 		id: firstImageID,
 	});
 

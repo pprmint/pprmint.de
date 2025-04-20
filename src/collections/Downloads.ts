@@ -4,6 +4,10 @@ import { authenticated } from "../access/authenticated";
 
 export const Downloads: CollectionConfig = {
 	slug: "download",
+	labels: {
+		singular: "File",
+		plural: "Files",
+	},
 	access: {
 		create: authenticated,
 		delete: authenticated,

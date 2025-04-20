@@ -24,7 +24,7 @@ export default async function Page({
 }) {
 	const { p = "1", type = "", dimension = "" } = await searchParams;
 	const t = await getTranslations("GRAPHICS");
-	const locale = await getLocale();
+	const locale = (await getLocale()) as "en" | "de" | "all" | undefined;
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} />

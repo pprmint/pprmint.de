@@ -8,7 +8,7 @@ import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
 
-import { Announcements } from "./collections/Announcements";
+import { Announcements } from "./collections/Announcements/Announcements";
 import { Users } from "./collections/Users";
 import { Articles } from "./collections/Articles/Articles";
 import { Downloads } from "./collections/Downloads";
@@ -16,10 +16,11 @@ import { Photos } from "./collections/Photos";
 import { Cameras } from "./collections/Camera";
 import { Lenses } from "./collections/Lenses";
 import { Mina } from "./collections/Mina/Mina";
+import { Artwork } from "./collections/Mina/Artwork";
 import { Artists } from "./collections/Artists";
 import { Outfits } from "./collections/Outfits";
 import { Characters } from "./collections/Characters";
-import { Media } from "./collections/Media";
+import { Assets } from "./collections/Assets";
 import {
 	AlignFeature,
 	HeadingFeature,
@@ -30,6 +31,7 @@ import {
 	UnorderedListFeature,
 } from "@payloadcms/richtext-lexical";
 import { getServerSideURL } from "./utilities/getURL";
+import { Graphics } from "./collections/Graphics/Graphics";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -41,7 +43,22 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Announcements, Articles, Media, Mina, Artists, Outfits, Characters, Photos, Cameras, Lenses, Downloads, Users],
+	collections: [
+		Announcements,
+		Articles,
+		Mina,
+		Artwork,
+		Artists,
+		Outfits,
+		Characters,
+		Graphics,
+		Photos,
+		Cameras,
+		Lenses,
+		Assets,
+		Downloads,
+		Users,
+	],
 	localization: {
 		locales: [
 			{
@@ -81,7 +98,9 @@ export default buildConfig({
 		// ...plugins,
 		s3Storage({
 			collections: {
-				media: true,
+				announcements: true,
+				artwork: true,
+				assets: true,
 				photos: true,
 				download: true,
 			},

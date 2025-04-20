@@ -7,8 +7,8 @@ import { populatePublishedAt } from "@/hooks/populatePublishedAt";
 import { MediaBlock } from "@/blocks/MediaBlock/config";
 import { slugField } from "@/fields/slug";
 
-export const Articles: CollectionConfig = {
-	slug: "articles",
+export const Graphics: CollectionConfig = {
+	slug: "graphics",
 	access: {
 		create: authenticated,
 		delete: authenticated,
@@ -43,33 +43,48 @@ export const Articles: CollectionConfig = {
 			},
 		},
 		{
-			name: "tags",
-			type: "select",
-			hasMany: true,
-			required: true,
+			type: "row",
 			admin: {
 				position: "sidebar",
 			},
-			options: [
+			fields: [
 				{
-					label: "Font",
-					value: "font",
+					name: "dimension",
+					type: "select",
+					defaultValue: "2d",
+					required: true,
+					admin: {
+						width: "50%",
+					},
+					options: [
+						{
+							label: "2D",
+							value: "2d",
+						},
+						{
+							label: "3D",
+							value: "3d",
+						},
+					],
 				},
 				{
-					label: "Design thing",
-					value: "design",
-				},
-				{
-					label: "Website",
-					value: "website",
-				},
-				{
-					label: "Software",
-					value: "software",
-				},
-				{
-					label: "Ramblings",
-					value: "ramblings",
+					name: "type",
+					type: "select",
+					defaultValue: "static",
+					required: true,
+					admin: {
+						width: "50%",
+					},
+					options: [
+						{
+							label: "Static",
+							value: "static",
+						},
+						{
+							label: "Animated",
+							value: "animated",
+						},
+					],
 				},
 			],
 		},
@@ -82,7 +97,11 @@ export const Articles: CollectionConfig = {
 				position: "sidebar",
 				date: {
 					displayFormat: "dd. MMMM yyy",
-				}
+					overrides: {
+						calendarStartDay: 1,
+						minDate: new Date("2010-01-01"),
+					},
+				},
 			},
 		},
 		{
@@ -90,6 +109,15 @@ export const Articles: CollectionConfig = {
 			type: "upload",
 			relationTo: "assets",
 			required: true,
+			admin: {
+				position: "sidebar",
+			},
+		},
+		{
+			name: "alt",
+			label: "Alternative text",
+			type: "text",
+			localized: true,
 			admin: {
 				position: "sidebar",
 			},

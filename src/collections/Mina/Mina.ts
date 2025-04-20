@@ -1,7 +1,7 @@
 import { anyone } from "@/access/anyone";
 import { authenticated } from "@/access/authenticated";
 import type { CollectionConfig } from "payload";
-import { revalidateArtChange, revalidateArtDelete } from "./hooks/revalidatePage";
+import { revalidateArtChange, revalidateArtDelete } from "./hooks/revalidate";
 import { setThumbnailURL } from "./hooks/setThumbnailURL";
 
 export const Mina: CollectionConfig = {
@@ -58,7 +58,7 @@ export const Mina: CollectionConfig = {
 				{
 					name: "image",
 					type: "upload",
-					relationTo: "media",
+					relationTo: "artwork",
 					required: true,
 				},
 			],
@@ -96,7 +96,7 @@ export const Mina: CollectionConfig = {
 				},
 				{
 					name: "commissionPrice",
-					label: "Price (€)",
+					label: "Price",
 					type: "number",
 					min: 1,
 					admin: {

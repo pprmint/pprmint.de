@@ -1,5 +1,6 @@
 import BrokenImage from "@/icons/BrokenImage";
 import type { Mina } from "@/payload-types";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function ThumbnailCell({ rowData }: { rowData: Mina }) {
@@ -20,7 +21,7 @@ export default function ThumbnailCell({ rowData }: { rowData: Mina }) {
 						backgroundSize: "20%",
 						backgroundColor: "var(--theme-elevation-50)",
 					}}
-					title={rowData.thumbnailURL.replace(/^.*\/|-\d+x\d+(?=\.\w+$)/g, '')}
+					title={rowData.thumbnailURL.replace(/^.*\/|-\d+x\d+(?=\.\w+$)/g, "")}
 				>
 					<img
 						src={rowData.thumbnailURL}
@@ -41,7 +42,9 @@ export default function ThumbnailCell({ rowData }: { rowData: Mina }) {
 						height: 64,
 						position: "relative",
 					}}
-					title={`${rowData.thumbnailURL.replace(/^.*\/|-\d+x\d+(?=\.\w+$)/g, '')} + ${rowData.images.length - 1} more`}
+					title={`${rowData.thumbnailURL.replace(/^.*\/|-\d+x\d+(?=\.\w+$)/g, "")} + ${
+						rowData.images.length - 1
+					} more`}
 				>
 					<div
 						style={{
@@ -72,7 +75,7 @@ export default function ThumbnailCell({ rowData }: { rowData: Mina }) {
 							backgroundColor: "var(--theme-elevation-50)",
 						}}
 					>
-						<img
+						<Image
 							src={rowData.thumbnailURL}
 							alt="Thumbnail"
 							style={{
