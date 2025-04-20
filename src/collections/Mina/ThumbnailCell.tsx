@@ -23,7 +23,7 @@ export default function ThumbnailCell({ rowData }: { rowData: Mina }) {
 					}}
 					title={rowData.thumbnailURL.replace(/^.*\/|-\d+x\d+(?=\.\w+$)/g, "")}
 				>
-					<img
+					<Image
 						src={rowData.thumbnailURL}
 						alt="Thumbnail"
 						style={{
