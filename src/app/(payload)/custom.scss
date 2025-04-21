@@ -26,7 +26,8 @@
 	font-stretch: 62.5% 100%;
 	font-display: swap;
 	font-style: normal;
-	src: url("/fonts/NotoSerif/NotoSerif-VariableFont_wdth,wght.ttf") format("truetype");
+	src: url("/fonts/NotoSerif/NotoSerif-VariableFont_wdth,wght.ttf")
+		format("truetype");
 }
 @font-face {
 	font-family: "Noto Serif";
@@ -34,7 +35,8 @@
 	font-stretch: 62.5% 100%;
 	font-display: swap;
 	font-style: italic;
-	src: url("/fonts/NotoSerif/NotoSerif-Italic-VariableFont_wdth,wght.ttf") format("truetype");
+	src: url("/fonts/NotoSerif/NotoSerif-Italic-VariableFont_wdth,wght.ttf")
+		format("truetype");
 }
 
 :root {
@@ -153,13 +155,53 @@ h6 {
 }
 
 @layer payload-default {
+	.hamburger {
+		position: fixed;
+		top: 15px !important;
+		left: 16px !important;
+		padding: 3px 3px;
+		z-index: 9999;
+		width: 27px;
+		height: 27px;
+		border-radius: 100%;
+		box-shadow: none;
+		background-color: var(--theme-elevation-50);
+		&:hover {
+			box-shadow: none;
+			background-color: var(--theme-elevation-100);
+		}
+		&:active {
+			box-shadow: none;
+			background-color: var(--theme-elevation-150);
+		}
+		.hamburger__open-icon {
+			width: 21px;
+			height: 21px;
+		}
+		.hamburger__open-icon svg {
+			width: 20px;
+			height: 21px;
+			transform: translateX(-0.5px);
+			path {
+				stroke-linecap: butt !important;
+			}
+		}
+		.hamburger__close-icon,
+		.hamburger__close-icon svg {
+			width: 21px;
+			height: 21px;
+		}
+	}
 	// Media tables as a grid
 	.collection-list--assets table,
 	.collection-list--artwork table,
 	.collection-list--photos table {
+		min-width: calc(100% + var(--gutter-h) * -1) !important;
 		thead {
 			display: inline-block;
-			width: 100%;
+			width: inherit;
+			max-width: calc(100vw + var(--gutter-h) * -2) !important;
+			overflow: auto;
 			tr {
 				display: inline-flex;
 				width: 100%;
@@ -190,16 +232,16 @@ h6 {
 			gap: 20px;
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 			@media (min-width: 768px) {
-				grid-template-columns: repeat(3, minmax(0, 1fr));
+				grid-template-columns: repeat(4, minmax(0, 1fr));
 			}
 			@media (min-width: 1024px) {
-				grid-template-columns: repeat(5, minmax(0, 1fr));
-			}
-			@media (min-width: 1280px) {
 				grid-template-columns: repeat(6, minmax(0, 1fr));
 			}
 			@media (min-width: 1536px) {
-				grid-template-columns: repeat(7, minmax(0, 1fr));
+				grid-template-columns: repeat(8, minmax(0, 1fr));
+			}
+			@media (min-width: 2560px) {
+				grid-template-columns: repeat(12, minmax(0, 1fr));
 			}
 			tr {
 				position: relative;
@@ -236,6 +278,7 @@ h6 {
 				}
 				td {
 					padding: 0;
+					min-width: unset;
 					padding-inline-start: 0 !important;
 					padding-inline-end: 0 !important;
 					span:not(.check) {
@@ -243,8 +286,10 @@ h6 {
 						padding: 0px 10px;
 						width: 100%;
 						text-align: center;
+						overflow: hidden;
 						text-overflow: ellipsis;
 						text-wrap: nowrap;
+						width: 100%;
 						span {
 							padding: 0;
 						}
