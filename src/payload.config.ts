@@ -13,7 +13,7 @@ import { Users } from "./collections/Users";
 import { Articles } from "./collections/Articles/Articles";
 import { Downloads } from "./collections/Downloads";
 import { Photos } from "./collections/Photos";
-import { Cameras } from "./collections/Camera";
+import { Cameras } from "./collections/Cameras";
 import { Lenses } from "./collections/Lenses";
 import { Mina } from "./collections/Mina/Mina";
 import { Artwork } from "./collections/Mina/Artwork";
@@ -41,6 +41,11 @@ export default buildConfig({
 		user: Users.slug,
 		importMap: {
 			baseDir: path.resolve(dirname),
+		},
+		components: {
+			Nav: {
+				path: "@/views/admin/Nav",
+			},
 		},
 	},
 	collections: [

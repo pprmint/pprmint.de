@@ -12,6 +12,9 @@ export const Outfits: CollectionConfig = {
 	},
 	admin: {
 		useAsTitle: "name",
+		custom: {
+			parent: "mina",
+		},
 	},
 	fields: [
 		{
@@ -21,7 +24,7 @@ export const Outfits: CollectionConfig = {
 					name: "name",
 					type: "text",
 					required: true,
-          localized: true,
+					localized: true,
 				},
 				{
 					name: "designer",

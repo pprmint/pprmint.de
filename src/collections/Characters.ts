@@ -12,6 +12,9 @@ export const Characters: CollectionConfig = {
 	},
 	admin: {
 		useAsTitle: "name",
+		custom: {
+			parent: "mina",
+		},
 	},
 	fields: [
 		{

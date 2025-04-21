@@ -3,21 +3,24 @@ import { anyone } from "../access/anyone";
 import { authenticated } from "../access/authenticated";
 
 export const Lenses: CollectionConfig = {
-  slug: "lenses",
-  access: {
-    create: authenticated,
-    delete: authenticated,
-    read: anyone,
-    update: authenticated,
-  },
-  admin: {
-		useAsTitle: "name",
+	slug: "lenses",
+	access: {
+		create: authenticated,
+		delete: authenticated,
+		read: anyone,
+		update: authenticated,
 	},
-  fields: [
-    {
-      name: "name",
-      type: "text",
-      required: true,
-    },
-  ],
+	admin: {
+		useAsTitle: "name",
+		custom: {
+			parent: "photos",
+		},
+	},
+	fields: [
+		{
+			name: "name",
+			type: "text",
+			required: true,
+		},
+	],
 };

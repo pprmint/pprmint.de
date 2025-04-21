@@ -12,6 +12,9 @@ export const Cameras: CollectionConfig = {
 	},
 	admin: {
 		useAsTitle: "name",
+		custom: {
+			parent: "photos",
+		},
 	},
 	fields: [
 		{
@@ -26,7 +29,9 @@ export const Cameras: CollectionConfig = {
 			validate: (val) => {
 				if (!val) return true;
 				const pattern = /<\s*svg[^>]*>(.*?)<\s*\/\s*svg>/g;
-				return pattern.test(val.toString()) || "This doesn't look like a valid SVG.";
+				return (
+					pattern.test(val.toString()) || "This doesn't look like a valid SVG."
+				);
 			},
 			admin: {
 				language: "xml",

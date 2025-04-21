@@ -7,6 +7,9 @@ export const Artists: CollectionConfig = {
 	},
 	admin: {
 		useAsTitle: "name",
+		custom: {
+			parent: "mina",
+		},
 	},
 	fields: [
 		{

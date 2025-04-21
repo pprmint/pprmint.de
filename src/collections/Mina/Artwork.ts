@@ -11,6 +11,15 @@ export const Artwork: CollectionConfig = {
 		read: anyone,
 		update: authenticated,
 	},
+	admin: {
+		custom: {
+			parent: "mina",
+		},
+		pagination: {
+			limits: [12, 24, 48, 60, 120],
+			defaultLimit: 24,
+		},
+	},
 	fields: [
 		{
 			name: "alt",
