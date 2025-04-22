@@ -24,6 +24,7 @@ import { ItalicFeatureClient as ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0
 import { SlugComponent as SlugComponent_92cc057d0a2abb4f6cf0307edf59f986 } from '@/fields/slug/SlugComponent'
 import { BlocksFeatureClient as BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { default as default_fe03cf72bd0e99b114595c84b35aa026 } from '@/collections/Mina/ThumbnailCell'
+import { default as default_6df7a046138a2b702edc97d85962fbec } from '@/collections/Mina/ArtworkThumbnailCell'
 import { default as default_29cb8920591e7d49b0f645b8e217d5f7 } from '@/views/admin/Nav'
 import { S3ClientUploadHandler as S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24 } from '@payloadcms/storage-s3/client'
 
@@ -54,6 +55,7 @@ export const importMap = {
   "@/fields/slug/SlugComponent#SlugComponent": SlugComponent_92cc057d0a2abb4f6cf0307edf59f986,
   "@payloadcms/richtext-lexical/client#BlocksFeatureClient": BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@/collections/Mina/ThumbnailCell#default": default_fe03cf72bd0e99b114595c84b35aa026,
+  "@/collections/Mina/ArtworkThumbnailCell#default": default_6df7a046138a2b702edc97d85962fbec,
   "@/views/admin/Nav#default": default_29cb8920591e7d49b0f645b8e217d5f7,
   "@payloadcms/storage-s3/client#S3ClientUploadHandler": S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24
 }

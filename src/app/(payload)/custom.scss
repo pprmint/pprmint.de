@@ -267,8 +267,9 @@ h6 {
 					}
 				}
 				&:has(.checkbox-input--checked) {
-					.file__thumbnail {
-						background-color: var(--theme-elevation-200) !important;
+					.file__thumbnail,
+					a.mina-artwork-thumbnail {
+						background-color: var(--theme-elevation-100) !important;
 						padding: 10px;
 					}
 				}
@@ -297,6 +298,7 @@ h6 {
 					&.cell-_select {
 						position: absolute;
 						padding: 10px !important;
+						z-index: 1;
 						&:not(:has(.checkbox-input--checked)) {
 							opacity: 0;
 						}

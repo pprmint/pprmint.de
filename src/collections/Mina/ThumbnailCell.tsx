@@ -1,4 +1,5 @@
 import BrokenImage from "@/icons/BrokenImage";
+import EyeDisabled from "@/icons/EyeDisabled";
 import type { Mina } from "@/payload-types";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +10,7 @@ export default function ThumbnailCell({ rowData }: { rowData: Mina }) {
 			rowData.images.length === 1 ? (
 				<Link
 					href={`/admin/collections/mina/${rowData.id}`}
-					className="relative size-16 overflow-clip rounded-[3px]"
+					className="group relative size-16 overflow-clip rounded-[3px]"
 					style={{
 						boxShadow:
 							"0 2px 2px -1px #0000001a, inset 0 0 1px var(--theme-elevation-150)",
@@ -25,8 +26,16 @@ export default function ThumbnailCell({ rowData }: { rowData: Mina }) {
 						src={rowData.thumbnailURL}
 						alt="Thumbnail"
 						fill
-						className="size-full object-cover object-top"
+						className={`size-full object-cover object-top ${rowData.nsfw && "opacity-50 group-hover:opacity-100 duration-100"}`}
 					/>
+					{rowData.nsfw && (
+						<div
+							className="flex size-full items-center justify-center group-hover:opacity-0 text-[var(--theme-text)] duration-100"
+							style={{ backdropFilter: "blur(6px)" }}
+						>
+							<EyeDisabled width={30} height={30} className="opacity-50" />
+						</div>
+					)}
 				</Link>
 			) : (
 				<Link
@@ -57,8 +66,16 @@ export default function ThumbnailCell({ rowData }: { rowData: Mina }) {
 							src={rowData.thumbnailURL}
 							alt="Thumbnail"
 							fill
-							className="size-full object-cover object-top"
+							className={`size-full object-cover object-top ${rowData.nsfw && "opacity-50 group-hover:opacity-100 duration-100"}`}
 						/>
+						{rowData.nsfw && (
+							<div
+								className="flex size-full items-center justify-center group-hover:opacity-0 text-[var(--theme-text)] duration-100"
+								style={{ backdropFilter: "blur(6px)" }}
+							>
+								<EyeDisabled width={30} height={30} className="opacity-50" />
+							</div>
+						)}
 					</div>
 				</Link>
 			)

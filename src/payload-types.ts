@@ -86,6 +86,10 @@ export interface Config {
     'payload-migrations': PayloadMigration;
   };
   collectionsJoins: {
+    artwork: {
+      entries: 'mina';
+      smut: 'mina';
+    };
     artists: {
       artworks: 'mina';
     };
@@ -310,6 +314,16 @@ export interface Mina {
 export interface Artwork {
   id: string;
   alt?: string | null;
+  entries?: {
+    docs?: (string | Mina)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  smut?: {
+    docs?: (string | Mina)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -742,6 +756,8 @@ export interface MinaSelect<T extends boolean = true> {
  */
 export interface ArtworkSelect<T extends boolean = true> {
   alt?: T;
+  entries?: T;
+  smut?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;

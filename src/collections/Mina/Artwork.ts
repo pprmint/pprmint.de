@@ -27,6 +27,35 @@ export const Artwork: CollectionConfig = {
 			type: "text",
 			localized: true,
 		},
+		{
+			name: "entries",
+			type: "join",
+			collection: "mina",
+			on: "images.image",
+		},
+		{
+			name: "smut",
+			type: "join",
+			collection: "mina",
+			on: "images.image",
+			where: {
+				nsfw: {
+					equals: true,
+				},
+			},
+			admin: {
+				hidden: true,
+			},
+		},
+		{
+			name: "thumbnail",
+			type: "ui",
+			admin: {
+				components: {
+					Cell: "@/collections/Mina/ArtworkThumbnailCell",
+				},
+			},
+		},
 	],
 	upload: {
 		focalPoint: true,
