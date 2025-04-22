@@ -1,3 +1,4 @@
+import { slugField } from "@/fields/slug";
 import { CollectionConfig } from "payload";
 
 export const Artists: CollectionConfig = {
@@ -29,6 +30,9 @@ export const Artists: CollectionConfig = {
 				},
 			],
 		},
+		...slugField("name", {
+			slugOverrides: { required: true },
+		}),
 		{
 			name: "artworks",
 			type: "join",

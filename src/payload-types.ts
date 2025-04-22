@@ -378,6 +378,8 @@ export interface Artist {
   id: string;
   name: string;
   creditUrl?: string | null;
+  slug: string;
+  slugLock?: boolean | null;
   artworks?: {
     docs?: (string | Mina)[];
     hasNextPage?: boolean;
@@ -821,6 +823,8 @@ export interface ArtworkSelect<T extends boolean = true> {
 export interface ArtistsSelect<T extends boolean = true> {
   name?: T;
   creditUrl?: T;
+  slug?: T;
+  slugLock?: T;
   artworks?: T;
   updatedAt?: T;
   createdAt?: T;

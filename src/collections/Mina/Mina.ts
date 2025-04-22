@@ -79,6 +79,7 @@ export const Mina: CollectionConfig = {
 					hasMany: false,
 					admin: {
 						width: "50%",
+						sortOptions: "slug",
 					},
 				},
 				{
