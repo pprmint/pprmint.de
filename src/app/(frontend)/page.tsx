@@ -32,8 +32,8 @@ export default async function Page() {
 		collection: "mina",
 		limit: 1,
 		where: {
-			nsfw: {
-				equals: false,
+			rating: {
+				equals: "safe",
 			},
 		},
 		locale,
@@ -59,7 +59,9 @@ export default async function Page() {
 								{t("Content.Featured.MinaSans.text")}
 							</p>
 							<Link href="/projects/minasans" className="inline-flex w-fit">
-								<Button design="semi-transparent">{t("Content.Featured.MinaSans.button")}</Button>
+								<Button design="semi-transparent">
+									{t("Content.Featured.MinaSans.button")}
+								</Button>
 							</Link>
 						</div>
 					</div>
@@ -70,7 +72,8 @@ export default async function Page() {
 						alt=""
 						className="absolute right-0 top-1/2 -translate-y-1/2 object-cover xl:object-auto xl:w-3/4 h-full xl:h-auto"
 						style={{
-							maskImage: "linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0))",
+							maskImage:
+								"linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0))",
 							maskRepeat: "space",
 							backgroundRepeat: "repeat",
 						}}
@@ -81,10 +84,17 @@ export default async function Page() {
 						<div className="w-full border-x border-black/5 dark:border-white/5 pt-9 lg:pt-16 xl:pt-48">
 							<div className="relative">
 								<m.div
-									initial={{ clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" }}
+									initial={{
+										clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+									}}
 									whileInView={{
 										clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-										transition: { type: "spring", bounce: 0, duration: 0.75, delay: 0.2 },
+										transition: {
+											type: "spring",
+											bounce: 0,
+											duration: 0.75,
+											delay: 0.2,
+										},
 									}}
 									viewport={{ once: true }}
 									className="absolute -z-10 italic pb-[0.1em] text-5xl md:text-8xl lg:text-9xl xl:text-[9rem] tracking-tight font-stretch-condensed bg-black/5 dark:bg-white/5 text-neutral-950 dark:text-white overflow-clip"
@@ -93,7 +103,12 @@ export default async function Page() {
 										initial={{ padding: "0 0" }}
 										whileInView={{
 											padding: "0 .3em",
-											transition: { type: "spring", bounce: 0, duration: 0.75, delay: 0.2 },
+											transition: {
+												type: "spring",
+												bounce: 0,
+												duration: 0.75,
+												delay: 0.2,
+											},
 										}}
 										viewport={{ once: true }}
 										aria-hidden
@@ -111,10 +126,17 @@ export default async function Page() {
 									/>
 								)}
 								<m.div
-									initial={{ clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)" }}
+									initial={{
+										clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
+									}}
 									whileInView={{
 										clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-										transition: { type: "spring", bounce: 0, duration: 0.75, delay: 0.2 },
+										transition: {
+											type: "spring",
+											bounce: 0,
+											duration: 0.75,
+											delay: 0.2,
+										},
 									}}
 									viewport={{ once: true }}
 									aria-hidden
@@ -124,7 +146,12 @@ export default async function Page() {
 										initial={{ padding: "0 0" }}
 										whileInView={{
 											padding: "0 .3em",
-											transition: { type: "spring", bounce: 0, duration: 0.75, delay: 0.2 },
+											transition: {
+												type: "spring",
+												bounce: 0,
+												duration: 0.75,
+												delay: 0.2,
+											},
 										}}
 										viewport={{ once: true }}
 										className="bg-black/5 dark:bg-white/5 leading-tight tracking-tight font-[350]"
@@ -135,10 +162,14 @@ export default async function Page() {
 							</div>
 							<div className="flex flex-col grow mt-12">
 								<h2 className="sr-only">
-									{t("Content.Mina.heading1") + " " + t("Content.Mina.heading2")}
+									{t("Content.Mina.heading1") +
+										" " +
+										t("Content.Mina.heading2")}
 								</h2>
 								<div className="flex flex-col w-full text-center">
-									<p className="xl:text-xl 2xl:text-2xl">{t("Content.Mina.text1")}</p>
+									<p className="xl:text-xl 2xl:text-2xl">
+										{t("Content.Mina.text1")}
+									</p>
 									<p className="mb-6 xl:text-xl 2xl:text-2xl">
 										{typeof mina.docs[0].artist !== "string" &&
 											t.rich("Content.Mina.text2", {
@@ -153,7 +184,9 @@ export default async function Page() {
 															{chunks}
 														</Link>
 													) : (
-														<span className="font-medium font-neutal-50">{chunks}</span>
+														<span className="font-medium font-neutal-50">
+															{chunks}
+														</span>
 													),
 											})}
 									</p>

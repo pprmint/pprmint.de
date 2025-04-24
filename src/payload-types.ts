@@ -291,8 +291,8 @@ export interface Asset {
  */
 export interface Mina {
   id: string;
+  rating: 'safe' | 'suggestive' | 'explicit';
   pixelart: boolean;
-  nsfw: boolean;
   wholesome: boolean;
   images: {
     image: string | Artwork;
@@ -395,7 +395,9 @@ export interface Artist {
 export interface Outfit {
   id: string;
   name: string;
-  designer: string | Artist;
+  designer?: (string | null) | Artist;
+  slug: string;
+  slugLock?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -406,8 +408,10 @@ export interface Outfit {
 export interface Character {
   id: string;
   name: string;
-  owner: string;
+  owner?: string | null;
   link?: string | null;
+  slug: string;
+  slugLock?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -734,8 +738,8 @@ export interface ArticlesSelect<T extends boolean = true> {
  * via the `definition` "mina_select".
  */
 export interface MinaSelect<T extends boolean = true> {
+  rating?: T;
   pixelart?: T;
-  nsfw?: T;
   wholesome?: T;
   images?:
     | T
@@ -836,6 +840,8 @@ export interface ArtistsSelect<T extends boolean = true> {
 export interface OutfitsSelect<T extends boolean = true> {
   name?: T;
   designer?: T;
+  slug?: T;
+  slugLock?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -847,6 +853,8 @@ export interface CharactersSelect<T extends boolean = true> {
   name?: T;
   owner?: T;
   link?: T;
+  slug?: T;
+  slugLock?: T;
   updatedAt?: T;
   createdAt?: T;
 }

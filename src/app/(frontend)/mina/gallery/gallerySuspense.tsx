@@ -24,14 +24,16 @@ export default async function GallerySuspense({
 			id: true,
 			name: true,
 		},
+		pagination: false,
+		limit: undefined,
 	});
 
 	let filters: Where[] = [];
 
 	if (nsfw !== "show") {
 		filters.push({
-			nsfw: {
-				equals: false,
+			rating: {
+				not_equals: "explicit",
 			},
 		});
 	}

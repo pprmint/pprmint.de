@@ -4,8 +4,12 @@ import type { Artwork } from "@/payload-types";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ThumbnailCell({ rowData }: { rowData: Artwork }) {
-	const nsfw = rowData.smut?.docs && rowData.smut?.docs?.length > 0;
+export default function ArtworkThumbnailCell({
+	rowData,
+}: {
+	rowData: Artwork;
+}) {
+	const nsfw = (rowData.smut?.docs && rowData.smut?.docs?.length > 0) || false;
 	const filename = rowData.thumbnailURL!.replace(
 		/^.*\/|-\d+x\d+(?=\.\w+$)/g,
 		"",

@@ -19,7 +19,13 @@ import YouTube from "@/icons/YouTube";
 import Globe from "@/icons/Globe";
 import { PaginatedDocs } from "payload";
 
-export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mina>; page: number }) {
+export default function Gallery({
+	artworks,
+	page,
+}: {
+	artworks: PaginatedDocs<Mina>;
+	page: number;
+}) {
 	const t = useTranslations("MINA");
 	const [direction, setDirection] = useState(0);
 	const [xOffset, setXOffset] = useState(0);
@@ -27,7 +33,13 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 	const [selectedVariant, setSelectedVariant] = useState(0);
 	const [scale, setScale] = useState(1);
 
-	function handleSelectArtwork({ id, offset }: { id: number; offset?: number }) {
+	function handleSelectArtwork({
+		id,
+		offset,
+	}: {
+		id: number;
+		offset?: number;
+	}) {
 		if (offset) {
 			setXOffset(offset);
 		} else {
@@ -54,7 +66,9 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 	const initRef = useRef(false);
 	useEffect(() => {
 		if (initRef.current && galleryRef.current) {
-			scrollTo({ top: galleryRef.current?.getBoundingClientRect().top + scrollY - 140 });
+			scrollTo({
+				top: galleryRef.current?.getBoundingClientRect().top + scrollY - 140,
+			});
 		} else {
 			initRef.current = true;
 		}
@@ -68,8 +82,8 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 					direction < 0
 						? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
 						: direction > 0
-						? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
-						: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+							? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
+							: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
 			};
 		},
 		center: {
@@ -112,7 +126,9 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 								{typeof artwork.images[0].image !== "string" && (
 									<FadingImage
 										src={
-											artwork.images[0].image.sizes?.sd?.url || artwork.images[0].image.url || ""
+											artwork.images[0].image.sizes?.sd?.url ||
+											artwork.images[0].image.url ||
+											""
 										}
 										width={
 											artwork.images[0].image.sizes?.sd?.width ||
@@ -132,9 +148,14 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 									/>
 								)}
 							</div>
-							{artwork.nsfw && (
-								<div className="absolute inset-0 flex items-center justify-center backdrop-blur-lg group-focus-visible/button:backdrop-blur-sm bg-neutral-950/75 group-focus-visible/button:bg-transparent group-hover/button:opacity-0 duration-300 ease-out-quint pointer-events-none">
-									<EyeDisabled className="size-[30px] fill-neutral-50 opacity-50" />
+							{artwork.rating !== "safe" && (
+								<div className="absolute inset-0 flex items-center justify-center text-neutral-950 dark:text-white backdrop-blur group-focus-visible/button:backdrop-blur bg-neutral-50/75 dark:bg-neutral-950/75 group-focus-visible/button:bg-transparent group-hover/button:opacity-0 duration-300 ease-out-quint pointer-events-none">
+									<EyeDisabled className="size-[30px] opacity-50" />
+									<div
+										className={`absolute top-0 right-0 px-1 py-0.5 leading-none ${artwork.rating === "explicit" ? "bg-red/25" : "bg-yellow/25"} text-xs font-stretch-condensed uppercase`}
+									>
+										{artwork.rating}
+									</div>
 								</div>
 							)}
 						</button>
@@ -150,7 +171,10 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 									{typeof artworks.docs[selectedArtwork].artist !== "string" &&
 										artworks.docs[selectedArtwork].artist.name}
 								</Dialog.Description>
-								<TransformWrapper disablePadding onTransformed={(e) => setScale(e.state.scale)}>
+								<TransformWrapper
+									disablePadding
+									onTransformed={(e) => setScale(e.state.scale)}
+								>
 									<TransformComponent>
 										<div className="flex items-center justify-center w-screen h-screen max-h-svh">
 											<AnimatePresence mode="popLayout">
@@ -173,7 +197,10 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 													dragElastic={1}
 													onDragEnd={(e, { offset, velocity }) => {
 														const swipeConfidenceThreshold = 10000;
-														const swipePower = (offset: number, velocity: number) => {
+														const swipePower = (
+															offset: number,
+															velocity: number,
+														) => {
 															return Math.abs(offset) * velocity;
 														};
 														const swipe = swipePower(offset.x, velocity.x);
@@ -194,27 +221,33 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 														}
 													}}
 												>
-													{typeof artworks.docs[selectedArtwork].images[selectedVariant]
-														.image !== "string" && (
+													{typeof artworks.docs[selectedArtwork].images[
+														selectedVariant
+													].image !== "string" && (
 														<FadingImage
 															src={
-																artworks.docs[selectedArtwork].images[selectedVariant]
-																	.image.url || ""
+																artworks.docs[selectedArtwork].images[
+																	selectedVariant
+																].image.url || ""
 															}
 															width={
-																artworks.docs[selectedArtwork].images[selectedVariant]
-																	.image.width || 0
+																artworks.docs[selectedArtwork].images[
+																	selectedVariant
+																].image.width || 0
 															}
 															height={
-																artworks.docs[selectedArtwork].images[selectedVariant]
-																	.image.height || 0
+																artworks.docs[selectedArtwork].images[
+																	selectedVariant
+																].image.height || 0
 															}
 															alt={
-																artworks.docs[selectedArtwork].images[selectedVariant]
-																	.image.alt || ""
+																artworks.docs[selectedArtwork].images[
+																	selectedVariant
+																].image.alt || ""
 															}
 															className={`max-h-svh w-auto mx-auto py-16 ${
-																artworks.docs[selectedArtwork].pixelart && "pixelated"
+																artworks.docs[selectedArtwork].pixelart &&
+																"pixelated"
 															}`}
 															unoptimized
 														/>
@@ -231,17 +264,25 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 											animate={{
 												y: 0,
 												opacity: 1,
-												transition: { duration: 0.4, type: "spring", bounce: 0 },
+												transition: {
+													duration: 0.4,
+													type: "spring",
+													bounce: 0,
+												},
 											}}
 											exit={{ y: -48, opacity: 0 }}
 											className="absolute flex justify-between items-center top-0 pl-6 pr-4 pt-4 inset-x-0"
 										>
 											<AnimatePresence mode="wait">
-												{typeof artworks.docs[selectedArtwork].artist !== "string" && (
+												{typeof artworks.docs[selectedArtwork].artist !==
+													"string" && (
 													<m.div
 														key={artworks.docs[selectedArtwork].artist.name}
 														initial={{ opacity: 0 }}
-														animate={{ opacity: 1, transition: { duration: 0.2 } }}
+														animate={{
+															opacity: 1,
+															transition: { duration: 0.2 },
+														}}
 														exit={{ opacity: 0, transition: { duration: 0.2 } }}
 														className="flex items-center flex-grow gap-3 text-xl"
 													>
@@ -256,9 +297,13 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																)}
 															</p>
 														</Dialog.Title>
-														{artworks.docs[selectedArtwork].artist.creditUrl && (
+														{artworks.docs[selectedArtwork].artist
+															.creditUrl && (
 															<Link
-																href={artworks.docs[selectedArtwork].artist.creditUrl!}
+																href={
+																	artworks.docs[selectedArtwork].artist
+																		.creditUrl!
+																}
 																target="_blank"
 																rel="noopener noreferrer"
 																className="rounded-full"
@@ -270,31 +315,31 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																	{artworks.docs[
 																		selectedArtwork
 																	].artist.creditUrl!.startsWith(
-																		"https://bsky.app/"
+																		"https://bsky.app/",
 																	) ? (
 																		<Bluesky />
 																	) : artworks.docs[
 																			selectedArtwork
 																	  ].artist.creditUrl!.startsWith(
-																			"https://x.com/"
+																			"https://x.com/",
 																	  ) ? (
 																		<Twitter />
 																	) : artworks.docs[
 																			selectedArtwork
 																	  ].artist.creditUrl!.startsWith(
-																			"https://twitter.com/"
+																			"https://twitter.com/",
 																	  ) ? (
 																		<Twitter />
 																	) : artworks.docs[
 																			selectedArtwork
 																	  ].artist.creditUrl!.startsWith(
-																			"https://www.instagram.com/"
+																			"https://www.instagram.com/",
 																	  ) ? (
 																		<Instagram />
 																	) : artworks.docs[
 																			selectedArtwork
 																	  ].artist.creditUrl!.startsWith(
-																			"https://www.youtube.com/"
+																			"https://www.youtube.com/",
 																	  ) ? (
 																		<YouTube />
 																	) : (
@@ -315,23 +360,25 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 														exit={{ opacity: 0 }}
 														className="flex flex-row items-center justify-center px-6 h-9 inset-x-0"
 													>
-														{artworks.docs[selectedArtwork].images.map((_, index) => (
-															<button
-																key={index}
-																className={`group h-full ${
-																	index === selectedVariant ? "w-9" : "w-5"
-																} px-1.5 duration-200 ease-out-quint`}
-																onClick={() => setSelectedVariant(index)}
-															>
-																<div
-																	className={`h-2 ${
-																		index === selectedVariant
-																			? "bg-neutral-50"
-																			: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
-																	} rounded-full duration-200 ease-out-quint`}
-																/>
-															</button>
-														))}
+														{artworks.docs[selectedArtwork].images.map(
+															(_, index) => (
+																<button
+																	key={index}
+																	className={`group h-full ${
+																		index === selectedVariant ? "w-9" : "w-5"
+																	} px-1.5 duration-200 ease-out-quint`}
+																	onClick={() => setSelectedVariant(index)}
+																>
+																	<div
+																		className={`h-2 ${
+																			index === selectedVariant
+																				? "bg-neutral-50"
+																				: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
+																		} rounded-full duration-200 ease-out-quint`}
+																	/>
+																</button>
+															),
+														)}
 													</m.div>
 												)}
 											</AnimatePresence>
@@ -350,7 +397,11 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 											animate={{
 												y: 0,
 												opacity: 1,
-												transition: { duration: 0.4, type: "spring", bounce: 0 },
+												transition: {
+													duration: 0.4,
+													type: "spring",
+													bounce: 0,
+												},
 											}}
 											exit={{ y: 48, opacity: 0 }}
 											className="absolute bottom-2 inset-x-0 h-12"
@@ -364,7 +415,9 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 												className={`absolute inset-0 flex w-max items-center gap-2 ${
 													direction !== 0 && "duration-500"
 												} ease-out-quart`}
-												style={{ left: `calc(50% - ${selectedArtwork * 48}px - 32px` }}
+												style={{
+													left: `calc(50% - ${selectedArtwork * 48}px - 32px`,
+												}}
 											>
 												{artworks.docs.map((artwork, index) => (
 													<button
@@ -379,22 +432,24 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 														{typeof artwork.images[0].image !== "string" && (
 															<Image
 																src={
-																	artwork.images[0].image.sizes?.thumbnail?.url ||
+																	artwork.images[0].image.sizes?.thumbnail
+																		?.url ||
 																	artwork.images[0].image.url ||
 																	""
 																}
 																width={
-																	artwork.images[0].image.sizes?.thumbnail?.width || 0
+																	artwork.images[0].image.sizes?.thumbnail
+																		?.width || 0
 																}
 																height={
-																	artwork.images[0].image.sizes?.thumbnail?.height ||
-																	0
+																	artwork.images[0].image.sizes?.thumbnail
+																		?.height || 0
 																}
 																alt={artwork.images[0].image.alt || ""}
 																className={`absolute top-0 inset-x-0 h-full object-cover ${
-																	artwork.nsfw &&
+																	artwork.rating !== "safe" &&
 																	selectedArtwork !== index &&
-																	"blur-sm hover:blur-0"
+																	"blur-[2px] hover:blur-0"
 																}`}
 																style={{
 																	objectPosition: `${artwork.images[0].image.focalX}% ${artwork.images[0].image.focalY}%`,

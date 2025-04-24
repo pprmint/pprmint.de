@@ -1,6 +1,7 @@
 import type { CollectionConfig } from "payload";
 import { anyone } from "../access/anyone";
 import { authenticated } from "../access/authenticated";
+import { slugField } from "@/fields/slug";
 
 export const Outfits: CollectionConfig = {
 	slug: "outfits",
@@ -25,14 +26,24 @@ export const Outfits: CollectionConfig = {
 					type: "text",
 					required: true,
 					localized: true,
+					admin: {
+						width: "50%",
+					},
 				},
 				{
 					name: "designer",
 					type: "relationship",
 					relationTo: "artists",
-					required: true,
+					admin: {
+						width: "50%",
+						sortOptions: "name",
+						isSortable: true,
+					},
 				},
 			],
 		},
+		...slugField("name", {
+			slugOverrides: { required: true },
+		}),
 	],
 };
