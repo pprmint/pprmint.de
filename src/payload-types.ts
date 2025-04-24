@@ -291,8 +291,8 @@ export interface Asset {
  */
 export interface Mina {
   id: string;
-  rating: 'safe' | 'suggestive' | 'explicit';
   pixelart: boolean;
+  nsfw: boolean;
   wholesome: boolean;
   images: {
     image: string | Artwork;
@@ -738,8 +738,8 @@ export interface ArticlesSelect<T extends boolean = true> {
  * via the `definition` "mina_select".
  */
 export interface MinaSelect<T extends boolean = true> {
-  rating?: T;
   pixelart?: T;
+  nsfw?: T;
   wholesome?: T;
   images?:
     | T

@@ -32,8 +32,8 @@ export default async function GallerySuspense({
 
 	if (nsfw !== "show") {
 		filters.push({
-			rating: {
-				not_equals: "explicit",
+			nsfw: {
+				equals: false,
 			},
 		});
 	}

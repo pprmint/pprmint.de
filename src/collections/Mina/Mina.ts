@@ -23,34 +23,18 @@ export const Mina: CollectionConfig = {
 	},
 	fields: [
 		{
-			name: "rating",
-			type: "radio",
-			required: true,
-			defaultValue: "safe",
-			options: [
-				{
-					value: "safe",
-					label: "Safe",
-				},
-				{
-					value: "suggestive",
-					label: "Suggestive",
-				},
-				{
-					value: "explicit",
-					label: "Explicit",
-				},
-			],
-			admin: {
-				position: "sidebar",
-			},
-		},
-		{
 			type: "row",
 			admin: { position: "sidebar" },
 			fields: [
 				{
 					name: "pixelart",
+					type: "checkbox",
+					required: true,
+					defaultValue: false,
+				},
+				{
+					name: "nsfw",
+					label: "NSFW",
 					type: "checkbox",
 					required: true,
 					defaultValue: false,

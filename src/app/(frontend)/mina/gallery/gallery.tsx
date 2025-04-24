@@ -148,14 +148,9 @@ export default function Gallery({
 									/>
 								)}
 							</div>
-							{artwork.rating !== "safe" && (
+							{artwork.nsfw && (
 								<div className="absolute inset-0 flex items-center justify-center text-neutral-950 dark:text-white backdrop-blur group-focus-visible/button:backdrop-blur bg-neutral-50/75 dark:bg-neutral-950/75 group-focus-visible/button:bg-transparent group-hover/button:opacity-0 duration-300 ease-out-quint pointer-events-none">
 									<EyeDisabled className="size-[30px] opacity-50" />
-									<div
-										className={`absolute top-0 right-0 px-1 py-0.5 leading-none ${artwork.rating === "explicit" ? "bg-red/25" : "bg-yellow/25"} text-xs font-stretch-condensed uppercase`}
-									>
-										{artwork.rating}
-									</div>
 								</div>
 							)}
 						</button>
@@ -447,7 +442,7 @@ export default function Gallery({
 																}
 																alt={artwork.images[0].image.alt || ""}
 																className={`absolute top-0 inset-x-0 h-full object-cover ${
-																	artwork.rating !== "safe" &&
+																	artwork.nsfw &&
 																	selectedArtwork !== index &&
 																	"blur-[2px] hover:blur-0"
 																}`}

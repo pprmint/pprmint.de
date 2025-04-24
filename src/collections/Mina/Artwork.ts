@@ -39,8 +39,8 @@ export const Artwork: CollectionConfig = {
 			collection: "mina",
 			on: "images.image",
 			where: {
-				rating: {
-					equals: "explicit",
+				nsfw: {
+					equals: true,
 				},
 			},
 			admin: {

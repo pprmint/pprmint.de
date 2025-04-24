@@ -32,8 +32,8 @@ export default async function Page() {
 		collection: "mina",
 		limit: 1,
 		where: {
-			rating: {
-				equals: "safe",
+			nsfw: {
+				equals: false,
 			},
 		},
 		locale,

@@ -25,9 +25,9 @@ export default function ThumbnailCell({ rowData }: { rowData: Mina }) {
 						src={rowData.thumbnailURL}
 						alt="Thumbnail"
 						fill
-						className={`size-full object-cover object-top ${rowData.rating === "explicit" && "opacity-50 group-hover:opacity-100 duration-100"}`}
+						className={`size-full object-cover object-top ${rowData.nsfw && "opacity-50 group-hover:opacity-100 duration-100"}`}
 					/>
-					{rowData.rating === "explicit" && (
+					{rowData.nsfw && (
 						<div
 							className="flex size-full items-center justify-center group-hover:opacity-0 text-[var(--theme-text)] duration-100"
 							style={{ backdropFilter: "blur(6px)" }}
@@ -44,14 +44,14 @@ export default function ThumbnailCell({ rowData }: { rowData: Mina }) {
 				>
 					<div className="absolute flex items-center justify-center opacity-0 group-hover:opacity-100 bottom-0 right-0 size-[60px] border border-solid border-[var(--theme-elevation-100)] bg-[var(--theme-elevation-50)] rounded-[3px] duration-150 ease-out" />
 					<div
-						className={`absolute flex items-center justify-center bottom-0 right-0 group-hover:bottom-1 group-hover:right-1 size-[60px] border border-solid border-[var(--theme-elevation-150)] bg-[var(--theme-elevation-50)] group-hover:bg-[var(--theme-bg)] rounded-[3px] duration-150 ${rowData.rating === "explicit" && "group-hover:delay-700"} group-hover:shadow-[0_2px_2px_-1px_#0000001a] ease-out`}
+						className={`absolute flex items-center justify-center bottom-0 right-0 group-hover:bottom-1 group-hover:right-1 size-[60px] border border-solid border-[var(--theme-elevation-150)] bg-[var(--theme-elevation-50)] group-hover:bg-[var(--theme-bg)] rounded-[3px] duration-150 ${rowData.nsfw && "group-hover:delay-700"} group-hover:shadow-[0_2px_2px_-1px_#0000001a] ease-out`}
 					>
 						<span aria-hidden className="text-2xl">
 							{rowData.images.length}
 						</span>
 					</div>
 					<div
-						className={`absolute size-[60px] top-0 left-0 group-hover:-top-1 group-hover:-left-1 group-hover:opacity-0 bg-[var(--theme-elevation-50)] rounded-[3px] overflow-clip duration-150 ${rowData.rating === "explicit" && "group-hover:delay-700"} ease-out`}
+						className={`absolute size-[60px] top-0 left-0 group-hover:-top-1 group-hover:-left-1 group-hover:opacity-0 bg-[var(--theme-elevation-50)] rounded-[3px] overflow-clip duration-150 ${rowData.nsfw && "group-hover:delay-700"} ease-out`}
 						style={{
 							boxShadow:
 								"0 2px 2px -1px #0000001a",
@@ -65,9 +65,9 @@ export default function ThumbnailCell({ rowData }: { rowData: Mina }) {
 							src={rowData.thumbnailURL}
 							alt="Thumbnail"
 							fill
-							className={`size-full object-cover object-top ${rowData.rating === "explicit" && "opacity-50 group-hover:opacity-100 duration-100"}`}
+							className={`size-full object-cover object-top ${rowData.nsfw && "opacity-50 group-hover:opacity-100 duration-100"}`}
 						/>
-						{rowData.rating === "explicit" && (
+						{rowData.nsfw && (
 							<div
 								className="flex size-full items-center justify-center group-hover:opacity-0 text-[var(--theme-text)] duration-100"
 								style={{ backdropFilter: "blur(6px)" }}
