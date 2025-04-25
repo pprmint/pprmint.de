@@ -1,6 +1,6 @@
 import type { CollectionConfig } from "payload";
 import { anyone } from "../../access/anyone";
-import { authenticated } from "../../access/authenticated";
+import { withRole } from "@/access/withRole";
 import { BlocksFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 import { revalidateDelete, revalidatePage } from "./hooks/revalidate";
 import { populatePublishedAt } from "@/hooks/populatePublishedAt";
@@ -10,10 +10,10 @@ import { slugField } from "@/fields/slug";
 export const Articles: CollectionConfig = {
 	slug: "articles",
 	access: {
-		create: authenticated,
-		delete: authenticated,
+		create: withRole(["admin"]),
+		delete: withRole(["admin"]),
 		read: anyone,
-		update: authenticated,
+		update: withRole(["admin"]),
 	},
 	admin: {
 		useAsTitle: "title",

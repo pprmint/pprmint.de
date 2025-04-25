@@ -1,14 +1,15 @@
 import type { CollectionConfig } from "payload";
 import { anyone } from "../access/anyone";
-import { authenticated } from "../access/authenticated";
+import { fieldWithRole } from "@/access/fieldWithRole";
+import { withRole } from "@/access/withRole";
 
 export const Photos: CollectionConfig = {
 	slug: "photos",
 	access: {
-		create: authenticated,
-		delete: authenticated,
+		create: withRole(["admin"]),
+		delete: withRole(["admin"]),
 		read: anyone,
-		update: authenticated,
+		update: withRole(["admin", "editor"]),
 	},
 	admin: {
 		custom: {
@@ -22,6 +23,10 @@ export const Photos: CollectionConfig = {
 			type: "text",
 			localized: true,
 			// required: true,
+			access: {
+				create: fieldWithRole(["admin"]),
+				update: fieldWithRole(["admin", "editor"]),
+			},
 		},
 		{
 			type: "row",
@@ -34,6 +39,10 @@ export const Photos: CollectionConfig = {
 					admin: {
 						width: "33.333%",
 					},
+					access: {
+						create: fieldWithRole(["admin"]),
+						update: fieldWithRole(["admin"]),
+					},
 				},
 				{
 					name: "lens",
@@ -41,6 +50,10 @@ export const Photos: CollectionConfig = {
 					relationTo: "lenses",
 					admin: {
 						width: "33.333%",
+					},
+					access: {
+						create: fieldWithRole(["admin"]),
+						update: fieldWithRole(["admin"]),
 					},
 				},
 				{
@@ -61,6 +74,10 @@ export const Photos: CollectionConfig = {
 						},
 						width: "33.333%",
 					},
+					access: {
+						create: fieldWithRole(["admin"]),
+						update: fieldWithRole(["admin"]),
+					},
 				},
 			],
 		},
@@ -74,12 +91,20 @@ export const Photos: CollectionConfig = {
 					admin: {
 						width: "25%",
 					},
+					access: {
+						create: fieldWithRole(["admin"]),
+						update: fieldWithRole(["admin"]),
+					},
 				},
 				{
 					name: "aperture",
 					type: "number",
 					admin: {
 						width: "25%",
+					},
+					access: {
+						create: fieldWithRole(["admin"]),
+						update: fieldWithRole(["admin"]),
 					},
 				},
 				{
@@ -89,6 +114,10 @@ export const Photos: CollectionConfig = {
 					admin: {
 						width: "25%",
 					},
+					access: {
+						create: fieldWithRole(["admin"]),
+						update: fieldWithRole(["admin"]),
+					},
 				},
 				{
 					name: "focalLength",
@@ -96,6 +125,10 @@ export const Photos: CollectionConfig = {
 					type: "number",
 					admin: {
 						width: "25%",
+					},
+					access: {
+						create: fieldWithRole(["admin"]),
+						update: fieldWithRole(["admin"]),
 					},
 				},
 			],

@@ -1,16 +1,22 @@
+import { anyone } from "@/access/anyone";
+import { withRole } from "@/access/withRole";
 import { slugField } from "@/fields/slug";
 import { CollectionConfig } from "payload";
 
 export const Artists: CollectionConfig = {
 	slug: "artists",
 	access: {
-		read: () => true,
+		create: withRole(["admin"]),
+		delete: withRole(["admin"]),
+		read: anyone,
+		update: withRole(["admin"]),
 	},
 	admin: {
 		useAsTitle: "name",
 		custom: {
 			parent: "mina",
 		},
+		defaultColumns: ["name", "creditUrl"],
 	},
 	fields: [
 		{

@@ -1,21 +1,22 @@
 import type { CollectionConfig } from "payload";
 import { anyone } from "../access/anyone";
-import { authenticated } from "../access/authenticated";
 import { slugField } from "@/fields/slug";
+import { withRole } from "@/access/withRole";
 
 export const Outfits: CollectionConfig = {
 	slug: "outfits",
 	access: {
-		create: authenticated,
-		delete: authenticated,
+		create: withRole(["admin"]),
+		delete: withRole(["admin"]),
 		read: anyone,
-		update: authenticated,
+		update: withRole(["admin"]),
 	},
 	admin: {
 		useAsTitle: "name",
 		custom: {
 			parent: "mina",
 		},
+		defaultColumns: ["name", "designer"],
 	},
 	fields: [
 		{
@@ -41,6 +42,12 @@ export const Outfits: CollectionConfig = {
 					},
 				},
 			],
+		},
+		{
+			name: "artworks",
+			type: "join",
+			collection: "mina",
+			on: "outfit",
 		},
 		...slugField("name", {
 			slugOverrides: { required: true },

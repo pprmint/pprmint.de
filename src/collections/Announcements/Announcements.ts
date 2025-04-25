@@ -1,15 +1,16 @@
 import { anyone } from "@/access/anyone";
-import { authenticated } from "@/access/authenticated";
+import { withRole } from "@/access/withRole";
 import type { CollectionConfig } from "payload";
 import { revalidateDelete, revalidateChange } from "./hooks/revalidate";
+import { fieldWithRole } from "@/access/fieldWithRole";
 
 export const Announcements: CollectionConfig = {
 	slug: "announcements",
 	access: {
-		create: authenticated,
-		delete: authenticated,
+		create: withRole(["admin"]),
+		delete: withRole(["admin"]),
 		read: anyone,
-		update: authenticated,
+		update: withRole(["admin", "editor"]),
 	},
 	admin: {
 		useAsTitle: "title",
@@ -23,18 +24,30 @@ export const Announcements: CollectionConfig = {
 			label: "Alternative text",
 			type: "text",
 			localized: true,
+			access: {
+				create: fieldWithRole(["admin"]),
+				update: fieldWithRole(["admin", "editor"]),
+			},
 		},
 		{
 			name: "title",
 			type: "text",
 			required: true,
 			localized: true,
+			access: {
+				create: fieldWithRole(["admin"]),
+				update: fieldWithRole(["admin"]),
+			},
 		},
 		{
 			name: "text",
 			type: "richText",
 			required: true,
 			localized: true,
+			access: {
+				create: fieldWithRole(["admin"]),
+				update: fieldWithRole(["admin"]),
+			},
 		},
 		{
 			type: "row",
@@ -42,12 +55,20 @@ export const Announcements: CollectionConfig = {
 				{
 					name: "link",
 					type: "text",
+					access: {
+						create: fieldWithRole(["admin"]),
+						update: fieldWithRole(["admin"]),
+					},
 				},
 				{
 					name: "linkText",
 					label: "Link text",
 					type: "text",
 					localized: true,
+					access: {
+						create: fieldWithRole(["admin"]),
+						update: fieldWithRole(["admin"]),
+					},
 				},
 			],
 		},

@@ -1,7 +1,15 @@
+import { authenticated } from "@/access/authenticated";
+import { withRole } from "@/access/withRole";
 import type { CollectionConfig } from "payload";
 
 export const Users: CollectionConfig = {
 	slug: "users",
+	access: {
+		create: withRole(["admin"]),
+		delete: withRole(["admin"]),
+		read: authenticated,
+		update: withRole(["admin"]),
+	},
 	admin: {
 		useAsTitle: "email",
 		custom: {
@@ -10,7 +18,20 @@ export const Users: CollectionConfig = {
 	},
 	auth: true,
 	fields: [
-		// Email added by default
-		// Add more fields as needed
+		{
+			name: "role",
+			type: "select",
+			options: [
+				{
+					value: "admin",
+					label: "Admin",
+				},
+				{
+					value: "editor",
+					label: "Editor (for alt text)",
+				},
+			],
+			defaultValue: "admin",
+		},
 	],
 };

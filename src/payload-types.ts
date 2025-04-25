@@ -93,6 +93,12 @@ export interface Config {
     artists: {
       artworks: 'mina';
     };
+    outfits: {
+      artworks: 'mina';
+    };
+    characters: {
+      artworks: 'mina';
+    };
   };
   collectionsSelect: {
     announcements: AnnouncementsSelect<false> | AnnouncementsSelect<true>;
@@ -397,6 +403,11 @@ export interface Outfit {
   id: string;
   name: string;
   designer?: (string | null) | Artist;
+  artworks?: {
+    docs?: (string | Mina)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
   slug: string;
   slugLock?: boolean | null;
   updatedAt: string;
@@ -411,6 +422,11 @@ export interface Character {
   name: string;
   owner?: string | null;
   link?: string | null;
+  artworks?: {
+    docs?: (string | Mina)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
   slug: string;
   slugLock?: boolean | null;
   updatedAt: string;
@@ -555,6 +571,7 @@ export interface Download {
  */
 export interface User {
   id: string;
+  role?: ('admin' | 'editor') | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -842,6 +859,7 @@ export interface ArtistsSelect<T extends boolean = true> {
 export interface OutfitsSelect<T extends boolean = true> {
   name?: T;
   designer?: T;
+  artworks?: T;
   slug?: T;
   slugLock?: T;
   updatedAt?: T;
@@ -855,6 +873,7 @@ export interface CharactersSelect<T extends boolean = true> {
   name?: T;
   owner?: T;
   link?: T;
+  artworks?: T;
   slug?: T;
   slugLock?: T;
   updatedAt?: T;
@@ -1051,6 +1070,7 @@ export interface DownloadSelect<T extends boolean = true> {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  role?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;

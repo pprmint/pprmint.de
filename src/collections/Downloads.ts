@@ -1,6 +1,6 @@
 import type { CollectionConfig } from "payload";
 import { anyone } from "../access/anyone";
-import { authenticated } from "../access/authenticated";
+import { withRole } from "@/access/withRole";
 
 export const Downloads: CollectionConfig = {
 	slug: "download",
@@ -14,10 +14,10 @@ export const Downloads: CollectionConfig = {
 		plural: "Files",
 	},
 	access: {
-		create: authenticated,
-		delete: authenticated,
+		create: withRole(["admin"]),
+		delete: withRole(["admin"]),
 		read: anyone,
-		update: authenticated,
+		update: withRole(["admin"]),
 	},
 	upload: true,
 	fields: [],

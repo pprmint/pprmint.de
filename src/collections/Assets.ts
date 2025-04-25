@@ -1,14 +1,15 @@
 import type { CollectionConfig } from "payload";
 import { anyone } from "../access/anyone";
-import { authenticated } from "../access/authenticated";
+import { withRole } from "@/access/withRole";
+import { fieldWithRole } from "@/access/fieldWithRole";
 
 export const Assets: CollectionConfig = {
 	slug: "assets",
 	access: {
-		create: authenticated,
-		delete: authenticated,
+		create: withRole(["admin"]),
+		delete: withRole(["admin"]),
 		read: anyone,
-		update: authenticated,
+		update: withRole(["admin", "editor"]),
 	},
 	admin: {
 		custom: {
@@ -21,6 +22,10 @@ export const Assets: CollectionConfig = {
 			label: "Alternative text",
 			type: "text",
 			localized: true,
+			access: {
+				create: fieldWithRole(["admin"]),
+				update: fieldWithRole(["admin", "editor"]),
+			},
 		},
 	],
 	upload: {
