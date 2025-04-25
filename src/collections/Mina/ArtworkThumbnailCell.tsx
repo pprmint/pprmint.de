@@ -49,7 +49,7 @@ export default function ArtworkThumbnailCell({
 				</Link>
 				<Link
 					href={`/admin/collections/artwork/${rowData.id}`}
-					className="underline decoration-[var(--theme-elevation-400)] text-[var(--theme-elevation-800)] text-[13px]"
+					className="block underline decoration-[var(--theme-elevation-400)] text-[var(--theme-elevation-800)] text-[13px] w-full text-ellipsis overflow-hidden"
 				>
 					{filename}
 				</Link>
