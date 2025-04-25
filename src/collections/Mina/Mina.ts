@@ -3,6 +3,7 @@ import { authenticated } from "@/access/authenticated";
 import type { CollectionConfig } from "payload";
 import { revalidateArtChange, revalidateArtDelete } from "./hooks/revalidate";
 import { setThumbnailURL } from "./hooks/setThumbnailURL";
+import { populateNormalizedDate } from "@/hooks/populateNormalizedDate";
 
 export const Mina: CollectionConfig = {
 	slug: "mina",
@@ -146,25 +147,24 @@ export const Mina: CollectionConfig = {
 			},
 		},
 		{
+			name: "normalizedDate",
+			type: "date",
+			required: true,
+			admin: {
+				hidden: true,
+			},
+		},
+		{
 			name: "thumbnailURL",
 			type: "text",
+			required: true,
 			admin: {
 				hidden: true,
 			},
 		},
 	],
 	hooks: {
-		// Use value from the 'date' field as the doc creation date.
-		// Will be deleted once all artworks have been added.
-		beforeChange: [
-			async ({ data, operation }) => {
-				if (operation === "create" && data.date) {
-					data.createdAt = new Date(data.date);
-				}
-				return data;
-			},
-			setThumbnailURL,
-		],
+		beforeChange: [populateNormalizedDate, setThumbnailURL],
 		afterChange: [revalidateArtChange],
 		afterDelete: [revalidateArtDelete],
 	},

@@ -1,0 +1,324 @@
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 100;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-Thin.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 100;
+	font-stretch: expanded;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtendedThin.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 100;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ThinItalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 100;
+	font-stretch: expanded;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtendedThinItalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 200;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtraLight.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 200;
+	font-stretch: expanded;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtendedExtraLight.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 200;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtraLightItalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 200;
+	font-stretch: expanded;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtendedExtraLightItalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-Light.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 300;
+	font-stretch: expanded;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtendedLight.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-LightItalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 300;
+	font-stretch: expanded;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtendedLightItalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-Regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: expanded;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-Extended.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-Italic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: expanded;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtendedItalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-Medium.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: expanded;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtendedMedium.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-MediumItalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: expanded;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtendedMediumItalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: expanded;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtendedSemiBold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-SemiBoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: expanded;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtendedSemiBoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-Bold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: expanded;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtendedBold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-BoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: expanded;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtendedBoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 800;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtraBold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 800;
+	font-stretch: expanded;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtendedExtraBold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 800;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtraBoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 800;
+	font-stretch: expanded;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtendedExtraBoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 900;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-Heavy.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 900;
+	font-stretch: expanded;
+	font-style: normal;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtendedHeavy.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 900;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-HeavyItalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Mint Web';
+	font-display: swap;
+	font-weight: 900;
+	font-stretch: expanded;
+	font-style: italic;
+	src: url('/fonts/IosevkaMint/IosevkaMint-ExtendedHeavyItalic.woff2') format('woff2');
+}

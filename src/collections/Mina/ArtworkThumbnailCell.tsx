@@ -9,11 +9,14 @@ export default function ArtworkThumbnailCell({
 }: {
 	rowData: Artwork;
 }) {
-	const nsfw = (rowData.smut?.docs && rowData.smut?.docs?.length > 0) || false;
-	const filename = rowData.thumbnailURL!.replace(
-		/^.*\/|-\d+x\d+(?=\.\w+$)/g,
-		"",
-	);
+	const nsfw =
+		rowData && rowData.smut
+			? rowData.smut?.docs && rowData.smut?.docs?.length > 0
+			: false;
+	const filename =
+		rowData && rowData.thumbnailURL
+			? rowData.thumbnailURL.replace(/^.*\/|-\d+x\d+(?=\.\w+$)/g, "")
+			: "";
 	if (rowData) {
 		return rowData.thumbnailURL ? (
 			<div className="leading-none">

@@ -10,6 +10,7 @@ import Footer from "@/components/layout/Footer";
 import WarningTriangle from "@/icons/WarningTriangle";
 
 import "@/styles.css";
+import "/public/fonts/IosevkaMint/IosevkaMint.css";
 import "/public/fonts/NotoSerif/notoserif.css";
 import "/public/fonts/DINish/DINish.css";
 import "/public/fonts/Mintbit/mintbit.css";

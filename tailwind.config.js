@@ -149,6 +149,7 @@ module.exports = {
 			},
 			fontFamily: {
 				sans: "DINish, Bahnschrift, D-DIN, Inter, Roboto, Helvetica, Arial, sans-serif",
+				mono: "'Iosevka Mint Web', 'JetBrains Mono', monospace",
 				serif: '"Noto Serif", "New York", "Roboto Slab", "Linux Libertine", Georgia, Times, serif',
 				mintbit: "Mintbit, 'Roboto Mono', monospace",
 				minttriangles: "'Mint Triangles', monospace",
