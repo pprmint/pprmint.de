@@ -121,15 +121,6 @@ export const Graphics: CollectionConfig = {
 			},
 		},
 		{
-			name: "alt",
-			label: "Alternative text",
-			type: "text",
-			localized: true,
-			admin: {
-				position: "sidebar",
-			},
-		},
-		{
 			name: "content",
 			type: "richText",
 			required: true,
