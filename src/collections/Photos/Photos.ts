@@ -1,7 +1,9 @@
 import type { CollectionConfig } from "payload";
-import { anyone } from "../access/anyone";
+import { anyone } from "@/access/anyone";
 import { fieldWithRole } from "@/access/fieldWithRole";
 import { withRole } from "@/access/withRole";
+import { revalidatePhotoChange, revalidatePhotoDelete } from "./hooks/revalidate";
+import { populateNormalizedDate } from "@/hooks/populateNormalizedDate";
 
 export const Photos: CollectionConfig = {
 	slug: "photos",
@@ -135,7 +137,6 @@ export const Photos: CollectionConfig = {
 		},
 	],
 	upload: {
-		focalPoint: true,
 		adminThumbnail: "thumbnail",
 		imageSizes: [
 			{
@@ -159,5 +160,10 @@ export const Photos: CollectionConfig = {
 				height: 1080,
 			},
 		],
+	},
+	hooks: {
+		afterChange: [revalidatePhotoChange],
+		beforeChange: [populateNormalizedDate],
+		afterDelete: [revalidatePhotoDelete],
 	},
 };

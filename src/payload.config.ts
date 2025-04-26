@@ -12,7 +12,7 @@ import { Announcements } from "./collections/Announcements/Announcements";
 import { Users } from "./collections/Users";
 import { Articles } from "./collections/Articles/Articles";
 import { Downloads } from "./collections/Downloads";
-import { Photos } from "./collections/Photos";
+import { Photos } from "./collections/Photos/Photos";
 import { Cameras } from "./collections/Cameras";
 import { Lenses } from "./collections/Lenses";
 import { Mina } from "./collections/Mina/Mina";
