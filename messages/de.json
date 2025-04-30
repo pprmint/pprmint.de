@@ -346,7 +346,8 @@
 				"Type": {
 					"label": "Art",
 					"static": "Statisch",
-					"animated": "Animiert"
+					"animated": "Animiert",
+					"both": "Beides"
 				}
 			},
 			"showingWorks_one": "{count} Werk wird gezeigt.",

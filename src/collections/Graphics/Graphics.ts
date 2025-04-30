@@ -91,6 +91,10 @@ export const Graphics: CollectionConfig = {
 							label: "Animated",
 							value: "animated",
 						},
+						{
+							label: "A bit of both",
+							value: "both",
+						},
 					],
 				},
 			],

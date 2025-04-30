@@ -443,10 +443,9 @@ export interface Graphic {
   slugLock?: boolean | null;
   description: string;
   dimension: '2d' | '3d';
-  type: 'static' | 'animated';
+  type: 'static' | 'animated' | 'both';
   publishedAt: string;
   thumbnail: string | Asset;
-  alt?: string | null;
   content: {
     root: {
       type: string;
@@ -892,7 +891,6 @@ export interface GraphicsSelect<T extends boolean = true> {
   type?: T;
   publishedAt?: T;
   thumbnail?: T;
-  alt?: T;
   content?: T;
   updatedAt?: T;
   createdAt?: T;
