@@ -32,7 +32,7 @@ export default async function GallerySuspense({
 	if (type !== "") {
 		filters.push({
 			type: {
-				equals: type,
+				contains: type,
 			},
 		});
 	}

@@ -4,6 +4,7 @@ import FadingImage from "@/components/ui/FadingImage";
 import Link from "next/link";
 import { PaginatedDocs } from "payload";
 import { Graphic } from "@/payload-types";
+import { Media } from "@/components/Media";
 
 export default function GalleryGrid({ graphics, page }: { graphics: PaginatedDocs<Graphic>; page: number }) {
 	const galleryRef = useRef<HTMLDivElement>(null);
@@ -33,13 +34,10 @@ export default function GalleryGrid({ graphics, page }: { graphics: PaginatedDoc
 				>
 					<div className="scale-[1.025] group-hover/button:scale-100 group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
 						{typeof graphic.thumbnail === "object" && (
-							<FadingImage
-								src={graphic.thumbnail.sizes?.sd?.url || graphic.thumbnail.url || ""}
-								width={graphic.thumbnail.sizes?.sd?.width || graphic.thumbnail.width || 0}
-								height={graphic.thumbnail.sizes?.sd?.height || graphic.thumbnail.height || 0}
-								alt=""
-								className="h-full min-w-full object-cover group-focus-visible/button:animate-pulse"
-								style={{ objectPosition: `${graphic.thumbnail.focalX}% ${graphic.thumbnail.focalY}%` }}
+							<Media
+								resource={graphic.thumbnail}
+								imgClassName="object-cover group-focus-visible/button:animate-pulse"
+								fill
 							/>
 						)}
 					</div>

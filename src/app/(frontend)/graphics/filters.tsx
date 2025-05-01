@@ -61,7 +61,7 @@ export default function Filters(props: { type: string; dimension: string }) {
 					3D
 				</button>
 			</div>
-			<div className="grid grid-cols-3 w-full sm:w-96 sm:border-r border-black/5 dark:border-white/5">
+			<div className="grid grid-cols-2 w-full sm:w-64 sm:border-r border-black/5 dark:border-white/5">
 				<button
 					onClick={() => handleSelectType("static")}
 					className={`flex gap-3 items-center justify-center w-full h-9 ${
@@ -83,17 +83,6 @@ export default function Filters(props: { type: string; dimension: string }) {
 				>
 					<Video className="duration-100" />
 					{t("Content.Filters.Type.animated")}
-				</button>
-				<button
-					onClick={() => handleSelectType("both")}
-					className={`flex gap-3 items-center justify-center w-full h-9 ${
-						props.type == "both"
-							? "font-semibold text-white dark:text-neutral-950 bg-neutral-950 dark:bg-white hover:bg-neutral-900 dark:hover:bg-neutral-50 active:bg-neutral-800 dark:active:bg-neutral-100"
-							: "hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white"
-					} active:shadow-inner duration-100`}
-				>
-					<Fullscreen className="duration-100" />
-					{t("Content.Filters.Type.both")}
 				</button>
 			</div>
 		</div>

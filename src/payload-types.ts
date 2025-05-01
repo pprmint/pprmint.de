@@ -443,7 +443,7 @@ export interface Graphic {
   slugLock?: boolean | null;
   description: string;
   dimension: '2d' | '3d';
-  type: 'static' | 'animated' | 'both';
+  type: ('static' | 'animated')[];
   publishedAt: string;
   thumbnail: string | Asset;
   content: {

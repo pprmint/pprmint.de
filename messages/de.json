@@ -346,8 +346,7 @@
 				"Type": {
 					"label": "Art",
 					"static": "Statisch",
-					"animated": "Animiert",
-					"both": "Beides"
+					"animated": "Animiert"
 				}
 			},
 			"showingWorks_one": "{count} Werk wird gezeigt.",
@@ -649,7 +648,7 @@
 				},
 				"Articles": {
 					"title": "Artikel",
-					"description": "Worte über einige meiner Projekte, oder was anderes."
+					"description": "Worte über einige meiner Projekte, oder sonstwas."
 				},
 				"Mina": {
 					"description": "Keine Seite ist grüner als diese.",

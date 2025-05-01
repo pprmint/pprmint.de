@@ -66,7 +66,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 				<article className="relative md:grid md:grid-cols-3 md:col-span-2 border-x border-b border-black/5 dark:border-white/5">
 					<div className="md:sticky h-max pt-28 md:pt-32 xl:pt-40 top-0">
 						<m.h1
-							className="relative pb-1 md:pb-2 lg:pb-3 font-serif text-balance md:pr-9"
+							className="relative pb-1 md:pb-2 lg:pb-3 font-serif text-balance md:pr-9 xl:text-6xl"
 							initial={{ opacity: 0, filter: "blur(5px)", y: 20 }}
 							animate={{
 								opacity: 1,
@@ -80,6 +80,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 							}}
 						>
 							{graphic.title}
+							<span className="text-green">.</span>
 						</m.h1>
 						<m.p
 							initial={{ opacity: 0, y: 40 }}
@@ -117,11 +118,25 @@ export default async function Page({ params: paramsPromise }: Args) {
 							})}{" "}
 							•{" "}
 							<Link href={`/graphics?dimension=${graphic.dimension}`}>
-								{graphic.dimension}
+								{graphic.dimension.toUpperCase()}
 							</Link>
-							<Link href={`/graphics?type=${graphic.type}`}>
-								{t(`Content.Filters.Type.${graphic.type}`)}
-							</Link>
+							,{" "}
+							{graphic.type.length === 0 ? (
+								<Link href={`/graphics?type=${graphic.type}`}>
+									{t(`Content.Filters.Type.${graphic.type}`)}
+								</Link>
+							) : (
+								graphic.type.map((type, index) => (
+									<Fragment key={index}>
+										{index > 0 && " & "}
+										<Link href={`/graphics?type=${type}`}>
+											{index > 0
+												? t(`Content.Filters.Type.${type}`).toLowerCase()
+												: t(`Content.Filters.Type.${type}`)}
+										</Link>
+									</Fragment>
+								))
+							)}
 						</m.p>
 					</div>
 					<RichText

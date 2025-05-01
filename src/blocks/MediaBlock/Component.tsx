@@ -13,18 +13,13 @@ type Props = MediaBlockProps & {
 	className?: string;
 	enableGutter?: boolean;
 	imgClassName?: string;
+	videoClassName?: string;
 	staticImage?: StaticImageData;
 	disableInnerContainer?: boolean;
 };
 
 export const MediaBlock: React.FC<Props> = (props) => {
-	const {
-		className,
-		enableGutter = true,
-		imgClassName,
-		media,
-		staticImage,
-	} = props;
+	const { className, enableGutter = true, imgClassName, videoClassName, media, staticImage } = props;
 
 	return (
 		<div
@@ -36,12 +31,10 @@ export const MediaBlock: React.FC<Props> = (props) => {
 				className
 			)}
 		>
-			{(media || staticImage) && (
-				<Media
-					imgClassName={cn(imgClassName)}
-					resource={media}
-					src={staticImage}
-				/>
+			{media && typeof media === "object" && media.mimeType?.includes("video") ? (
+				<Media videoClassName={cn(videoClassName)} resource={media} controls={true} />
+			) : (
+				(media || staticImage) && <Media imgClassName={cn(imgClassName)} resource={media} src={staticImage} />
 			)}
 		</div>
 	);

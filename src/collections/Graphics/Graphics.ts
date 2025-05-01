@@ -61,7 +61,7 @@ export const Graphics: CollectionConfig = {
 					defaultValue: "2d",
 					required: true,
 					admin: {
-						width: "50%",
+						width: "33.333%",
 					},
 					options: [
 						{
@@ -78,9 +78,10 @@ export const Graphics: CollectionConfig = {
 					name: "type",
 					type: "select",
 					defaultValue: "static",
+					hasMany: true,
 					required: true,
 					admin: {
-						width: "50%",
+						width: "66.666%",
 					},
 					options: [
 						{
@@ -90,10 +91,6 @@ export const Graphics: CollectionConfig = {
 						{
 							label: "Animated",
 							value: "animated",
-						},
-						{
-							label: "A bit of both",
-							value: "both",
 						},
 					],
 				},

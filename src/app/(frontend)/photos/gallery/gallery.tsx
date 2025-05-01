@@ -16,6 +16,7 @@ import Error from "@/icons/Error";
 
 import * as m from "motion/react-client";
 import { AnimatePresence } from "motion/react";
+import { Media } from "@/components/Media";
 
 export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>; page: number }) {
 	const t = useTranslations("PHOTOS");
@@ -100,12 +101,9 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 								focus-visible:z-10 scale-100 sm:hover:scale-[1.025] sm:active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 sm:hover:shadow-lg active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-[3/2]"
 						>
 							<div className="scale-[1.025] sm:group-hover/button:scale-100 group-active/button:scale-100 sm:group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
-								<FadingImage
-									src={photo.sizes?.sd?.url || photo.url || ""}
-									width={photo.sizes?.sd?.width || photo.width || 0}
-									height={photo.sizes?.sd?.height || photo.height || 0}
-									alt={photo.alt || ""}
-									className="h-full min-w-full object-cover group-focus-visible/button:animate-pulse"
+								<Media
+									resource={photo}
+									imgClassName="h-full min-w-full object-cover group-focus-visible/button:animate-pulse"
 								/>
 							</div>
 						</button>

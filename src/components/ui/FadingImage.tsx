@@ -6,9 +6,11 @@ import LoadingSpinner from "../loading/LoadingSpinner";
 interface FadingImageProps extends ImageProps {
 	className?: string;
 	hideSpinner?: boolean;
+	focalX?: number;
+	focalY?: number;
 }
 
-export default function FadingImage({ className, hideSpinner, ...rest }: FadingImageProps) {
+export default function FadingImage({ className, hideSpinner, focalX, focalY, ...rest }: FadingImageProps) {
 	const [loaded, setLoaded] = useState(false);
 	return (
 		<Fragment>
@@ -21,7 +23,10 @@ export default function FadingImage({ className, hideSpinner, ...rest }: FadingI
 			<Image
 				onLoad={() => setLoaded(true)}
 				className={`${loaded ? "opacity-100" : "opacity-0"} ${className}`}
-				style={{ transition: "opacity 0.5s" }}
+				style={{
+					transition: "opacity 0.5s",
+					objectPosition: focalX && focalY ? `${focalX}% ${focalY}%` : "50% 50%",
+				}}
 				draggable={false}
 				{...rest}
 			/>

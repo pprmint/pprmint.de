@@ -18,14 +18,9 @@ import Instagram from "@/icons/Instagram";
 import YouTube from "@/icons/YouTube";
 import Globe from "@/icons/Globe";
 import { PaginatedDocs } from "payload";
+import { Media } from "@/components/Media";
 
-export default function Gallery({
-	artworks,
-	page,
-}: {
-	artworks: PaginatedDocs<Mina>;
-	page: number;
-}) {
+export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mina>; page: number }) {
 	const t = useTranslations("MINA");
 	const [direction, setDirection] = useState(0);
 	const [xOffset, setXOffset] = useState(0);
@@ -33,13 +28,7 @@ export default function Gallery({
 	const [selectedVariant, setSelectedVariant] = useState(0);
 	const [scale, setScale] = useState(1);
 
-	function handleSelectArtwork({
-		id,
-		offset,
-	}: {
-		id: number;
-		offset?: number;
-	}) {
+	function handleSelectArtwork({ id, offset }: { id: number; offset?: number }) {
 		if (offset) {
 			setXOffset(offset);
 		} else {
@@ -82,8 +71,8 @@ export default function Gallery({
 					direction < 0
 						? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
 						: direction > 0
-							? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
-							: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+						? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
+						: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
 			};
 		},
 		center: {
@@ -123,30 +112,12 @@ export default function Gallery({
 								focus-visible:z-10 scale-100 sm:hover:scale-[1.025] sm:active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 sm:hover:shadow-lg active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-square"
 						>
 							<div className="scale-[1.025] sm:group-hover/button:scale-100 group-active/button:scale-100 sm:group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
-								{typeof artwork.images[0].image !== "string" && (
-									<FadingImage
-										src={
-											artwork.images[0].image.sizes?.sd?.url ||
-											artwork.images[0].image.url ||
-											""
-										}
-										width={
-											artwork.images[0].image.sizes?.sd?.width ||
-											artwork.images[0].image.width ||
-											0
-										}
-										height={
-											artwork.images[0].image.sizes?.sd?.height ||
-											artwork.images[0].image.height ||
-											0
-										}
-										alt={artwork.images[0].image.alt || ""}
-										style={{
-											objectPosition: `${artwork.images[0].image.focalX}% ${artwork.images[0].image.focalY}%`,
-										}}
-										className="h-full min-w-full object-cover group-focus-visible/button:animate-pulse"
-									/>
-								)}
+								<Media
+									resource={artwork.images[0].image}
+									imgClassName="h-full min-w-full object-cover group-focus-visible/button:animate-pulse"
+									fill
+									
+								/>
 							</div>
 							{artwork.nsfw && (
 								<div className="absolute inset-0 flex items-center justify-center text-neutral-950 dark:text-white backdrop-blur group-focus-visible/button:backdrop-blur bg-neutral-50/75 dark:bg-neutral-950/75 group-focus-visible/button:bg-transparent group-hover/button:opacity-0 duration-300 ease-out-quint pointer-events-none">
@@ -166,10 +137,7 @@ export default function Gallery({
 									{typeof artworks.docs[selectedArtwork].artist !== "string" &&
 										artworks.docs[selectedArtwork].artist.name}
 								</Dialog.Description>
-								<TransformWrapper
-									disablePadding
-									onTransformed={(e) => setScale(e.state.scale)}
-								>
+								<TransformWrapper disablePadding onTransformed={(e) => setScale(e.state.scale)}>
 									<TransformComponent>
 										<div className="flex items-center justify-center w-screen h-screen max-h-svh">
 											<AnimatePresence mode="popLayout">
@@ -192,10 +160,7 @@ export default function Gallery({
 													dragElastic={1}
 													onDragEnd={(e, { offset, velocity }) => {
 														const swipeConfidenceThreshold = 10000;
-														const swipePower = (
-															offset: number,
-															velocity: number,
-														) => {
+														const swipePower = (offset: number, velocity: number) => {
 															return Math.abs(offset) * velocity;
 														};
 														const swipe = swipePower(offset.x, velocity.x);
@@ -216,33 +181,27 @@ export default function Gallery({
 														}
 													}}
 												>
-													{typeof artworks.docs[selectedArtwork].images[
-														selectedVariant
-													].image !== "string" && (
+													{typeof artworks.docs[selectedArtwork].images[selectedVariant]
+														.image !== "string" && (
 														<FadingImage
 															src={
-																artworks.docs[selectedArtwork].images[
-																	selectedVariant
-																].image.url || ""
+																artworks.docs[selectedArtwork].images[selectedVariant]
+																	.image.url || ""
 															}
 															width={
-																artworks.docs[selectedArtwork].images[
-																	selectedVariant
-																].image.width || 0
+																artworks.docs[selectedArtwork].images[selectedVariant]
+																	.image.width || 0
 															}
 															height={
-																artworks.docs[selectedArtwork].images[
-																	selectedVariant
-																].image.height || 0
+																artworks.docs[selectedArtwork].images[selectedVariant]
+																	.image.height || 0
 															}
 															alt={
-																artworks.docs[selectedArtwork].images[
-																	selectedVariant
-																].image.alt || ""
+																artworks.docs[selectedArtwork].images[selectedVariant]
+																	.image.alt || ""
 															}
 															className={`max-h-svh w-auto mx-auto py-16 ${
-																artworks.docs[selectedArtwork].pixelart &&
-																"pixelated"
+																artworks.docs[selectedArtwork].pixelart && "pixelated"
 															}`}
 															unoptimized
 														/>
@@ -269,8 +228,7 @@ export default function Gallery({
 											className="absolute flex justify-between items-center top-0 pl-6 pr-4 pt-4 inset-x-0"
 										>
 											<AnimatePresence mode="wait">
-												{typeof artworks.docs[selectedArtwork].artist !==
-													"string" && (
+												{typeof artworks.docs[selectedArtwork].artist !== "string" && (
 													<m.div
 														key={artworks.docs[selectedArtwork].artist.name}
 														initial={{ opacity: 0 }}
@@ -292,13 +250,9 @@ export default function Gallery({
 																)}
 															</p>
 														</Dialog.Title>
-														{artworks.docs[selectedArtwork].artist
-															.creditUrl && (
+														{artworks.docs[selectedArtwork].artist.creditUrl && (
 															<Link
-																href={
-																	artworks.docs[selectedArtwork].artist
-																		.creditUrl!
-																}
+																href={artworks.docs[selectedArtwork].artist.creditUrl!}
 																target="_blank"
 																rel="noopener noreferrer"
 																className="rounded-full"
@@ -310,31 +264,31 @@ export default function Gallery({
 																	{artworks.docs[
 																		selectedArtwork
 																	].artist.creditUrl!.startsWith(
-																		"https://bsky.app/",
+																		"https://bsky.app/"
 																	) ? (
 																		<Bluesky />
 																	) : artworks.docs[
 																			selectedArtwork
 																	  ].artist.creditUrl!.startsWith(
-																			"https://x.com/",
+																			"https://x.com/"
 																	  ) ? (
 																		<Twitter />
 																	) : artworks.docs[
 																			selectedArtwork
 																	  ].artist.creditUrl!.startsWith(
-																			"https://twitter.com/",
+																			"https://twitter.com/"
 																	  ) ? (
 																		<Twitter />
 																	) : artworks.docs[
 																			selectedArtwork
 																	  ].artist.creditUrl!.startsWith(
-																			"https://www.instagram.com/",
+																			"https://www.instagram.com/"
 																	  ) ? (
 																		<Instagram />
 																	) : artworks.docs[
 																			selectedArtwork
 																	  ].artist.creditUrl!.startsWith(
-																			"https://www.youtube.com/",
+																			"https://www.youtube.com/"
 																	  ) ? (
 																		<YouTube />
 																	) : (
@@ -355,25 +309,23 @@ export default function Gallery({
 														exit={{ opacity: 0 }}
 														className="flex flex-row items-center justify-center px-6 h-9 inset-x-0"
 													>
-														{artworks.docs[selectedArtwork].images.map(
-															(_, index) => (
-																<button
-																	key={index}
-																	className={`group h-full ${
-																		index === selectedVariant ? "w-9" : "w-5"
-																	} px-1.5 duration-200 ease-out-quint`}
-																	onClick={() => setSelectedVariant(index)}
-																>
-																	<div
-																		className={`h-2 ${
-																			index === selectedVariant
-																				? "bg-neutral-50"
-																				: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
-																		} rounded-full duration-200 ease-out-quint`}
-																	/>
-																</button>
-															),
-														)}
+														{artworks.docs[selectedArtwork].images.map((_, index) => (
+															<button
+																key={index}
+																className={`group h-full ${
+																	index === selectedVariant ? "w-9" : "w-5"
+																} px-1.5 duration-200 ease-out-quint`}
+																onClick={() => setSelectedVariant(index)}
+															>
+																<div
+																	className={`h-2 ${
+																		index === selectedVariant
+																			? "bg-neutral-50"
+																			: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
+																	} rounded-full duration-200 ease-out-quint`}
+																/>
+															</button>
+														))}
 													</m.div>
 												)}
 											</AnimatePresence>
@@ -427,18 +379,16 @@ export default function Gallery({
 														{typeof artwork.images[0].image !== "string" && (
 															<Image
 																src={
-																	artwork.images[0].image.sizes?.thumbnail
-																		?.url ||
+																	artwork.images[0].image.sizes?.thumbnail?.url ||
 																	artwork.images[0].image.url ||
 																	""
 																}
 																width={
-																	artwork.images[0].image.sizes?.thumbnail
-																		?.width || 0
+																	artwork.images[0].image.sizes?.thumbnail?.width || 0
 																}
 																height={
-																	artwork.images[0].image.sizes?.thumbnail
-																		?.height || 0
+																	artwork.images[0].image.sizes?.thumbnail?.height ||
+																	0
 																}
 																alt={artwork.images[0].image.alt || ""}
 																className={`absolute top-0 inset-x-0 h-full object-cover ${

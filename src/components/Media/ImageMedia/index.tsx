@@ -18,7 +18,6 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 	const {
 		alt: altFromProps,
 		fill,
-		pictureClassName,
 		imgClassName,
 		priority,
 		resource,
@@ -62,21 +61,21 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 		);
 	} else {
 		return (
-			<picture className={cn(pictureClassName)}>
-				<FadingImage
-					hideSpinner
-					alt={alt || ""}
-					className={cn(imgClassName)}
-					fill={fill}
-					height={!fill ? height : undefined}
-					priority={priority}
-					quality={100}
-					loading={loading}
-					sizes={sizes}
-					src={src}
-					width={!fill ? width : undefined}
-				/>
-			</picture>
+			<FadingImage
+				hideSpinner
+				alt={alt || ""}
+				className={cn(imgClassName)}
+				fill={fill}
+				height={!fill ? height : undefined}
+				priority={priority}
+				quality={100}
+				loading={loading}
+				sizes={sizes}
+				src={src}
+				width={!fill ? width : undefined}
+				focalX={resource && typeof resource === "object" && resource.focalX || 0}
+				focalY={resource && typeof resource === "object" && resource.focalY || 0}
+			/>
 		);
 	}
 };

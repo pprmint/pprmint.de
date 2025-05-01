@@ -346,8 +346,7 @@
 				"Type": {
 					"label": "Type",
 					"static": "Static",
-					"animated": "Animated",
-					"both": "Both"
+					"animated": "Animated"
 				}
 			},
 			"showingWorks_one": "Showing {count} work.",

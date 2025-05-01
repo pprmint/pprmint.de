@@ -26,8 +26,7 @@
 	font-stretch: 62.5% 100%;
 	font-display: swap;
 	font-style: normal;
-	src: url("/fonts/NotoSerif/NotoSerif-VariableFont_wdth,wght.ttf")
-		format("truetype");
+	src: url("/fonts/NotoSerif/NotoSerif-VariableFont_wdth,wght.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Noto Serif";
@@ -35,8 +34,7 @@
 	font-stretch: 62.5% 100%;
 	font-display: swap;
 	font-style: italic;
-	src: url("/fonts/NotoSerif/NotoSerif-Italic-VariableFont_wdth,wght.ttf")
-		format("truetype");
+	src: url("/fonts/NotoSerif/NotoSerif-Italic-VariableFont_wdth,wght.ttf") format("truetype");
 }
 
 :root {
@@ -155,41 +153,41 @@ h6 {
 }
 
 @layer payload-default {
-	.hamburger {
+	.nav-toggler {
 		position: fixed;
-		top: 15px !important;
-		left: 16px !important;
-		padding: 3px 3px;
-		z-index: 9999;
-		width: 27px;
-		height: 27px;
-		border-radius: 100%;
-		box-shadow: none;
-		background-color: var(--theme-elevation-50);
-		&:hover {
+		.hamburger {
+			padding: 3px 2px 3px 4px;
+			z-index: 9999;
+			width: 27px;
+			height: 27px;
+			border-radius: 100%;
 			box-shadow: none;
-			background-color: var(--theme-elevation-100);
-		}
-		&:active {
-			box-shadow: none;
-			background-color: var(--theme-elevation-150);
-		}
-		.hamburger__open-icon {
-			width: 21px;
-			height: 21px;
-		}
-		.hamburger__open-icon svg {
-			width: 20px;
-			height: 21px;
-			transform: translateX(-0.5px);
-			path {
-				stroke-linecap: butt !important;
+			background-color: var(--theme-elevation-50);
+			&:hover {
+				box-shadow: none;
+				background-color: var(--theme-elevation-100);
 			}
-		}
-		.hamburger__close-icon,
-		.hamburger__close-icon svg {
-			width: 21px;
-			height: 21px;
+			&:active {
+				box-shadow: none;
+				background-color: var(--theme-elevation-150);
+			}
+			.hamburger__open-icon {
+				width: 21px;
+				height: 21px;
+			}
+			.hamburger__open-icon svg {
+				width: 20px;
+				height: 21px;
+				transform: translateX(-0.5px);
+				path {
+					stroke-linecap: butt !important;
+				}
+			}
+			.hamburger__close-icon,
+			.hamburger__close-icon svg {
+				width: 21px;
+				height: 21px;
+			}
 		}
 	}
 	// Media tables as a grid
