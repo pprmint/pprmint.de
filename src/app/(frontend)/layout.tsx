@@ -20,14 +20,15 @@ import "/public/fonts/MintSans/mintsans.css";
 import { NavbarProvider } from "@/components/layout/navigation/NavBarContext";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import TransitionProvider from "./transitionProvider";
+import { getServerSideURL } from "@/utilities/getURL";
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://pprmint.de"),
+	metadataBase: new URL(getServerSideURL()),
 	title: {
 		template: `%s • pprmint.`,
 		default: `pprmint.`,
 	},
-	keywords: ["art, design, graphic design, after effects, development, webdev, cinema 4d, 2d, 3d"],
+	keywords: ["art, design, graphic design, photography, after effects, development, webdev, cinema 4d, 2d, 3d"],
 	openGraph: {
 		siteName: "pprmint.de",
 	},
