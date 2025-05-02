@@ -4,7 +4,7 @@
 
 @layer base {
 	h1 {
-		@apply text-neutral-950 dark:text-white font-[350] tracking-tight font-serif font-stretch-ultra-condensed text-4xl md:text-5xl lg:text-6xl xl:text-8xl pb-3;
+		@apply text-neutral-950 dark:text-white font-[350] tracking-tight font-serif font-stretch-extra-condensed text-4xl md:text-5xl lg:text-6xl xl:text-8xl pb-3;
 	}
 	h2 {
 		@apply text-neutral-950 dark:text-white font-[350] tracking-[-0.02em] font-serif font-stretch-condensed text-3xl md:text-4xl lg:text-5xl pb-3;
