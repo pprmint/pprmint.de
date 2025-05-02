@@ -11,8 +11,8 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
         <div className="relative w-full mt-16 border-y border-red bg-red/5 overflow-clip">
           <div className="flex flex-col p-6 md:p-9 md:max-w-3xl mx-auto border-x border-red bg-white dark:bg-neutral-950 animate-fade-in">
             <div className="mb-6">
-              <h1 className="flex text-3xl font-mono">
-                <WarningCircle className="fill-red size-[30px] inline mt-0.5 mr-3" />
+              <h1 className="flex text-3xl font-mono font-normal">
+                <WarningCircle className="fill-red size-[30px] inline mt-[0.175rem] mr-3" />
                 {error.name}
               </h1>
               <p className="w-full">{error.message}</p>

@@ -69,6 +69,15 @@
 	}
 }
 
+li.nestedListItem ul.list-bullet {
+	margin: 0 0 0 16px;
+	font-size: 0.9em;
+	
+	li::marker {
+		content: "▪ ";
+	}
+}
+
 :focus-visible {
 	outline: 2px #4b5 dotted;
 }
