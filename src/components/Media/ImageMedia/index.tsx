@@ -7,12 +7,9 @@ import React from "react";
 
 import type { Props as MediaProps } from "../types";
 
-import { cssVariables } from "@/cssVariables";
 import FadingImage from "@/components/ui/FadingImage";
 import { getClientSideURL } from "@/utilities/getURL";
 import BrokenImage from "@/icons/BrokenImage";
-
-const { breakpoints } = cssVariables;
 
 export const ImageMedia: React.FC<MediaProps> = (props) => {
 	const {
@@ -21,7 +18,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 		imgClassName,
 		priority,
 		resource,
-		size: sizeFromProps,
+		size,
 		src: srcFromProps,
 		loading: loadingFromProps,
 	} = props;
@@ -32,25 +29,22 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 	let src: StaticImageData | string = srcFromProps || "";
 
 	if (!src && resource && typeof resource === "object") {
-		const { alt: altFromResource, height: fullHeight, url, width: fullWidth } = resource;
+		const { alt: altFromResource, height: fullHeight, url, width: fullWidth, sizes, updatedAt } = resource;
 
-		width = fullWidth!;
-		height = fullHeight!;
 		alt = altFromResource || "";
 
-		const cacheTag = resource.updatedAt;
+		const selectedSize = size && sizes?.[size as keyof typeof sizes];
+		const imageUrl = selectedSize?.url || url;
+		width = selectedSize?.width || fullWidth!;
+		height = selectedSize?.height || fullHeight!;
 
-		src = `${getClientSideURL()}${url}?${cacheTag}`;
+		const cacheTag = updatedAt;
+		if (imageUrl) {
+			src = `${getClientSideURL()}${imageUrl}?${cacheTag}`;
+		}
 	}
 
 	const loading = loadingFromProps || (!priority ? "lazy" : undefined);
-
-	// NOTE: this is used by the browser to determine which image to download at different screen sizes
-	const sizes = sizeFromProps
-		? sizeFromProps
-		: Object.entries(breakpoints)
-				.map(([, value]) => `(max-width: ${value}px) ${value * 2}w`)
-				.join(", ");
 
 	if (src === "") {
 		return (
@@ -62,6 +56,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 	} else {
 		return (
 			<FadingImage
+				suppressHydrationWarning
 				hideSpinner
 				alt={alt || ""}
 				className={cn(imgClassName)}
@@ -70,11 +65,10 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 				priority={priority}
 				quality={100}
 				loading={loading}
-				sizes={sizes}
 				src={src}
 				width={!fill ? width : undefined}
-				focalX={resource && typeof resource === "object" && resource.focalX || 0}
-				focalY={resource && typeof resource === "object" && resource.focalY || 0}
+				focalX={(resource && typeof resource === "object" && resource.focalX) || 0}
+				focalY={(resource && typeof resource === "object" && resource.focalY) || 0}
 			/>
 		);
 	}

@@ -28,7 +28,7 @@ export const VideoMedia: React.FC<MediaProps> = (props) => {
 
     return (
       <video
-        className={cn(videoClassName)}
+        className={cn(videoClassName, "w-full aspect-video bg-black")}
         autoPlay={autoPlay}
         controls={controls}
         muted={muted}
@@ -36,7 +36,7 @@ export const VideoMedia: React.FC<MediaProps> = (props) => {
         playsInline
         ref={videoRef}
       >
-        <source src={`${getClientSideURL()}${url}`} />
+        <source suppressHydrationWarning src={`${getClientSideURL()}${url}`} />
       </video>
     )
   }
