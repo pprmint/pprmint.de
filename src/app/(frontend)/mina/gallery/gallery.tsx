@@ -114,9 +114,8 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 							<div className="scale-[1.025] sm:group-hover/button:scale-100 group-active/button:scale-100 sm:group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
 								<Media
 									resource={artwork.images[0].image}
-									imgClassName="h-full min-w-full object-cover group-focus-visible/button:animate-pulse"
+									imgClassName="object-cover group-focus-visible/button:animate-pulse"
 									fill
-									
 								/>
 							</div>
 							{artwork.nsfw && (
