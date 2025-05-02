@@ -12,6 +12,7 @@ export default async function GallerySuspense({ p }: { p: number }) {
 		collection: "photos",
 		page: p,
 		locale: locale,
+    limit: 12,
 	});
 
 	return (
