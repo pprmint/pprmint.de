@@ -108,6 +108,7 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
               <div className="scale-[1.025] sm:group-hover/button:scale-100 group-active/button:scale-100 sm:group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
                 <Media
                   resource={photo}
+                  size="sd"
                   fill
                   imgClassName="object-cover group-focus-visible/button:animate-pulse"
                 />

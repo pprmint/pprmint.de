@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useRef } from "react";
-import FadingImage from "@/components/ui/FadingImage";
 import Link from "next/link";
 import { PaginatedDocs } from "payload";
 import { Graphic } from "@/payload-types";
@@ -41,6 +40,7 @@ export default function GalleryGrid({ graphics, page }: { graphics: PaginatedDoc
             {typeof graphic.thumbnail === "object" && (
               <Media
                 resource={graphic.thumbnail}
+                size="sd"
                 imgClassName="object-cover group-focus-visible/button:animate-pulse"
                 fill
               />
