@@ -13,6 +13,7 @@ import * as m from "motion/react-m";
 import { getLocale, getFormatter, getTranslations } from "next-intl/server";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
+import { Media } from "@/components/Media";
 
 export async function generateStaticParams() {
 	const payload = await getPayload({ config: configPromise });
@@ -61,12 +62,14 @@ export default async function Page({ params: paramsPromise }: Args) {
 	}
 
 	return (
-		<>
-			<main className="max-w-8xl mx-auto px-6 md:px-9 xl:px-20">
-				<article className="relative md:grid md:grid-cols-3 md:col-span-2 border-x border-b border-black/5 dark:border-white/5">
-					<div className="md:sticky h-max pt-28 md:pt-32 xl:pt-40 top-0">
+		<main>
+			<article className="relative border-b border-black/5 dark:border-white/5">
+				<header className="relative flex justify-center px-6 md:px-9 lg:px-12 pb-9 items-end border-b border-black/5 dark:border-white/5 h-2/3-screen min-h-96">
+					<Media resource={article.thumbnail} fill imgClassName="object-cover" />
+					<div className="absolute inset-0 bg-gradient-to-t from-white dark:from-neutral-950" />
+					<div className="relative md:text-center">
 						<m.h1
-							className="relative pb-1 md:pb-2 lg:pb-3 font-serif text-balance md:pr-9"
+							className="pb-1 md:pb-2 lg:pb-3 font-serif text-balance"
 							initial={{ opacity: 0, filter: "blur(5px)", y: 20 }}
 							animate={{
 								opacity: 1,
@@ -118,27 +121,27 @@ export default async function Page({ params: paramsPromise }: Args) {
 							•{" "}
 							{article.tags.map((tag, index) => (
 								<Fragment key={tag}>
-									<Link href={`/articles?tag=${tag}`}>
-										{t(`Content.Tags.${tag}`)}
-									</Link>
+									<Link href={`/articles?tag=${tag}`}>{t(`Content.Tags.${tag}`)}</Link>
 									{article.tags.length > 1 && index < article.tags.length - 1 && ", "}
 								</Fragment>
 							))}
 						</m.p>
 					</div>
+				</header>
+				<div className="relative max-w-6xl mx-auto px-6 md:px-9 lg:px-12">
 					<RichText
-						className="lg:text-lg py-20 md:py-32 xl:py-40 md:col-span-2 prose-h1:xl:text-7xl md:border-l border-black/5 dark:border-white/5"
+						className="border-x border-black/5 dark:border-white/5 lg:text-lg py-20 md:py-32 xl:py-40 md:col-span-2 prose-h1:xl:text-7xl"
 						data={article.content}
 					/>
 					<div
 						aria-hidden
-						className="absolute bottom-3 right-3 lg:right-6 lg:bottom-6 -rotate-6 font-serif italic font-thin font-stretch-extra-condensed text-neutral-950 dark:text-white text-4xl md:text-6xl xl:text-7xl"
+						className="absolute bottom-6 right-12 lg:right-16 lg:bottom-9 -rotate-6 font-serif italic font-thin font-stretch-extra-condensed text-neutral-950 dark:text-white text-6xl xl:text-7xl"
 					>
 						fin<span className="text-green">.</span>
 					</div>
-				</article>
-			</main>
-		</>
+				</div>
+			</article>
+		</main>
 	);
 }
 
@@ -158,6 +161,11 @@ export async function generateMetadata({ params: paramsPromise }: Args) {
 	return {
 		title: article.title,
 		description: article.description,
+		twitter: {
+			images:
+				(typeof article.thumbnail === "object" && article.thumbnail.sizes?.hd?.url) ||
+				(typeof article.thumbnail === "object" && article.thumbnail.url),
+		},
 	};
 }
 
