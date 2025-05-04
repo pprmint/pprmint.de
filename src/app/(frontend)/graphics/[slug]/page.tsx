@@ -158,6 +158,10 @@ export async function generateMetadata({ params: paramsPromise }: Args) {
 		slug,
 	});
 
+	if (!graphic) {
+		return null;
+	}
+
 	return {
 		title: graphic.title,
 		description: graphic.description,
