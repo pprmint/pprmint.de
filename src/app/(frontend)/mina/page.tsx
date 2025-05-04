@@ -115,9 +115,10 @@ export default async function Page({
 						<GallerySuspense p={parseInt(p)} artist={artist} nsfw={nsfw} />
 					</Suspense>
 				</section>
-				<section id="statistics" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+				{/* We'll get to that eventually. */}
+				{/* <section id="statistics" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<Stats />
-				</section>
+				</section> */}
 				<section id="rules" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<div className="w-full border-x border-black/5 dark:border-white/5 py-12 lg:py-20 xl:py-40">
 						<h2>
