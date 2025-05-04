@@ -43,14 +43,21 @@ export default async function Page({
 				creditName="wasonz"
 				creditLink="https://x.com/wxsonz"
 			>
-				<div className="relative h-full bg-gradient-to-br from-green-900 via-neutral-950 to-blue-900">
+				<div className="relative h-full bg-neutral-950">
 					<div className="absolute w-full max-w-8xl inset-y-0 pt-9 md:pt-0 px-9 md:px-12 lg:px-24 xl:px-32 left-1/2 -translate-x-1/2">
 						<FadingImage
-							src="/api/artwork/file/wxz_original_transparent.webp"
+							src="/api/assets/file/wxz_bg_empty.jpg"
+							alt=""
+							fill
+							className="object-cover"
+							unoptimized
+						/>
+						<FadingImage
+							src="/api/artwork/file/wxz_original_transparent-1.webp"
 							alt=""
 							width={2000}
 							height={3783}
-							className="xl:absolute right-20 top-3 h-full w-auto md:w-[40%] xl:w-2/3 md:h-auto max-w-5xl ml-auto"
+							className="relative sm:absolute sm:right-16 h-full w-auto sm:w-[40%] xl:w-2/3 sm:h-auto max-w-5xl ml-auto"
 						/>
 					</div>
 				</div>
