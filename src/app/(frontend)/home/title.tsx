@@ -12,24 +12,24 @@ const Links = [
 		link: "/graphics",
 		text: "Content.Hero.graphics",
 		images: [
-			"https://cms.pprmint.de/uploads/Mesh_Edit_778967f6fe.webp",
-			"https://cms.pprmint.de/uploads/Solar_System_2_f133addf64.png",
+			"/api/assets/file/Mesh_Edit_778967f6fe.webp",
+			"/api/assets/file/Solar_System_2_f133addf64.webp",
 		],
 	},
 	{
 		link: "/photos",
 		text: "Content.Hero.photos",
 		images: [
-			"https://cms.pprmint.de/uploads/P1070217_09b3fc1981.webp",
-			"https://cms.pprmint.de/uploads/DSC_00275_0b8fa85e3b.webp",
+			"/api/photos/file/P1070217-1.webp",
+			"/api/assets/file/DSC00275.webp",
 		],
 	},
 	{
 		link: "/projects",
 		text: "Content.Hero.projects",
 		images: [
-			"https://cms.pprmint.de/uploads/pomi_moe_cdd8f9992e.png",
-			"https://cms.pprmint.de/uploads/autsellia_com_582c948c0d.png",
+			"/api/assets/file/pomi_moe_cdd8f9992e.png",
+			"/api/assets/file/autsellia_com_582c948c0d.png",
 		],
 	},
 	{
@@ -42,15 +42,16 @@ const Links = [
 export default function HomeTitle() {
 	const t = useTranslations("HOME");
 	const [hovered, setHovered] = useState(-1);
-	const { setNoAccents } = useNavbar();
+	const { setNoAccents, setInverted } = useNavbar();
 	useEffect(() => {
+		setInverted(false);
 		setNoAccents(false);
 	});
 	return (
 		<section className="relative w-full h-screen overflow-clip">
 			<div className="absolute -z-10 inset-0 bg-white dark:bg-neutral-950">
 				<video
-					src="https://static.pprmint.de/uploads/wavy_ff6ca718a6.webm"
+					src="/api/assets/file/wavy_ff6ca718a6.webm"
 					className="absolute inset-0 object-fill w-full h-full opacity-20 invert dark:invert-0 mix-blend-hard-light dark:mix-blend-normal"
 					loop
 					autoPlay

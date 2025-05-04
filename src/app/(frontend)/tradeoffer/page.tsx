@@ -1,10 +1,13 @@
 import { Viewport } from "next";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import KofiWidget from "./widget";
 import FadingImage from "@/components/ui/FadingImage";
 import Link from "next/link";
+import configPromise from "@payload-config";
+import { getPayload } from "payload";
+import RichText from "@/components/richText";
 
 export async function generateMetadata() {
 	const t = await getTranslations("TRADEOFFER");
@@ -20,14 +23,21 @@ export const viewport: Viewport = {
 
 export default async function Page() {
 	const t = await getTranslations("TRADEOFFER");
-	const license: LicenseData = await GetLicenses();
+	const locale = (await getLocale()) as "en" | "de" | "all" | undefined;
+
+	const payload = await getPayload({ config: configPromise });
+	const licenses = await payload.findGlobal({
+		slug: "fontLicenses",
+		locale: locale,
+	});
+
 	return (
 		<>
 			<main>
 				<section className="dark bg-neutral-950 h-screen relative pt-24 md:pt-32 xl:pt-40 px-6 md:px-9 lg:px-12 xl:px-20 overflow-clip">
 					<div className="absolute inset-0 opacity-75">
 						<FadingImage
-							src="https://cms.pprmint.de/uploads/bg_f66021cc37.webp"
+							src="/api/assets/file/tradeoffer_bg_f66021cc37.webp"
 							alt=""
 							fill
 							className="object-cover origin-[50%_10%] blur scale-105"
@@ -77,11 +87,11 @@ export default async function Page() {
 					</div>
 					<FadingImage
 						hideSpinner
-						src="https://cms.pprmint.de/uploads/da_mina_32d26097f7.webp"
+						src="/api/assets/file/tradeoffer_da_mina_32d26097f7.webp"
 						width={1311}
 						height={1276}
 						alt=""
-						className="absolute left-1/2 -translate-x-1/2 max-h-[55%] lg:max-h-[65%] w-auto mx-auto rotate-2"
+						className="absolute left-1/2 -translate-x-1/2 bottom-0 max-h-[55%] lg:max-h-[65%] w-auto mx-auto"
 					/>
 				</section>
 				<section className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
@@ -128,28 +138,18 @@ export default async function Page() {
 					</div>
 				</section>
 				<section className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
-					<div className="border-x border-t pt-20 md:pt-32 xl:pt-40 border-black/5 dark:border-white/5">
+					<div className="border-x border-t pt-20 border-black/5 dark:border-white/5">
 						<h2>
 							{t("Content.License.heading")}
 							<span className="text-violet">.</span>
 						</h2>
 						<p>{t("Content.License.text")}</p>
 						<div className="flex flex-col xl:flex-row mt-6 border-b border-black/5 dark:border-white/5">
-							<div className="w-full pt-12 lg:pt-20 xl:pt-6 pb-3 xl:pr-12 border-t xl:border-r border-black/5 dark:border-white/5">
-								<Markdown
-									className="prose-headings:font-bold prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-ul:list-disc prose-ul:list-inside prose-hr:my-3 prose-hr:border-black/5 dark:prose-hr:border-white/5"
-									remarkPlugins={[remarkGfm]}
-								>
-									{license.data.desktopLicense}
-								</Markdown>
+							<div className="w-full pb-3 xl:pr-12 border-t xl:border-r border-black/5 dark:border-white/5">
+								<RichText data={licenses.desktopLicense} />
 							</div>
-							<div className="w-full pt-12 lg:pt-20 xl:pt-6 pb-3 xl:pr-12 border-t border-black/5 dark:border-white/5">
-								<Markdown
-									className="prose-headings:font-bold prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-ul:list-disc prose-ul:list-inside prose-hr:my-3 prose-hr:border-black/5 dark:prose-hr:border-white/5"
-									remarkPlugins={[remarkGfm]}
-								>
-									{license.data.webLicense}
-								</Markdown>
+							<div className="w-full pb-3 xl:pr-12 border-t border-black/5 dark:border-white/5">
+								<RichText data={licenses.webLicense} />
 							</div>
 						</div>
 					</div>

@@ -66,7 +66,7 @@ export default async function Page() {
 						</div>
 					</div>
 					<FadingImage
-						src="https://cms.pprmint.de/uploads/IMG_0902_2e9636cf91.webp"
+						src="/api/assets/file/IMG0902_2e9636cf91.webp"
 						width={1803}
 						height={1200}
 						alt=""

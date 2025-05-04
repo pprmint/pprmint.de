@@ -78,312 +78,312 @@ const Icons = [
 	{
 		name: "Adobe Creative Cloud Client",
 		image: CreativeCloudClientIcon,
-		link: "/Adobe/Creative_Cloud_Client.ico",
+		file: "W11_Creative_Cloud_Client.ico",
 	},
 	{
 		name: "Adobe Acrobat",
 		image: AcrobatIcon,
-		link: "/Adobe/Acrobat.ico",
+		file: "W11_Acrobat.ico",
 	},
 	{
 		name: "Adobe Scan",
 		image: ScanIcon,
-		link: "/Adobe/Scan.ico",
+		file: "W11_Scan.ico",
 	},
 	{
 		name: "Adobe Aero",
 		image: AeroIcon,
-		link: "/Adobe/Aero.ico",
+		file: "W11_Aero.ico",
 	},
 	{
 		name: "Adobe Animate",
 		image: AnimateIcon,
-		link: "/Adobe/Animate.ico",
+		file: "W11_Animate.ico",
 	},
 	{
 		name: "Adobe After Effects",
 		image: AfterEffectsIcon,
-		link: "/Adobe/After_Effects.ico",
+		file: "W11_After_Effects.ico",
 	},
 	{
 		name: "Adobe Audition",
 		image: AuditionIcon,
-		link: "/Adobe/Audition.ico",
+		file: "W11_Audition.ico",
 	},
 	{
 		name: "Adobe Character Animator",
 		image: CharacterAnimatorIcon,
-		link: "/Adobe/Character_Animator.ico",
+		file: "W11_Character_Animator.ico",
 	},
 	{
 		name: "Adobe Dreamweaver",
 		image: DreamweaverIcon,
-		link: "/Adobe/Dreamweaver.ico",
+		file: "W11_Dreamweaver.ico",
 	},
 	{
 		name: "Adobe Fresco",
 		image: FrescoIcon,
-		link: "/Adobe/Fresco.ico",
+		file: "W11_Fresco.ico",
 	},
 	{
 		name: "Adobe Illustrator",
 		image: IllustratorIcon,
-		link: "/Adobe/Illustrator.ico",
+		file: "W11_Illustrator.ico",
 	},
 	{
 		name: "Adobe InCopy",
 		image: InCopyIcon,
-		link: "/Adobe/InCopy.ico",
+		file: "W11_InCopy.ico",
 	},
 	{
 		name: "Adobe InDesign",
 		image: InDesignIcon,
-		link: "/Adobe/InDesign.ico",
+		file: "W11_InDesign.ico",
 	},
 	{
 		name: "Adobe Lightroom",
 		image: LightroomIcon,
-		link: "/Adobe/Lightroom.ico",
+		file: "W11_Lightroom.ico",
 	},
 	{
 		name: "Adobe Lightroom Classic",
 		image: LightroomClassicIcon,
-		link: "/Adobe/Lightroom_Classic.ico",
+		file: "W11_Lightroom_Classic.ico",
 	},
 	{
 		name: "Adobe Media Encoder",
 		image: MediaEncoderIcon,
-		link: "/Adobe/Media_Encoder.ico",
+		file: "W11_Media_Encoder.ico",
 	},
 	{
 		name: "Adobe Media Encoder (Alt)",
 		image: MediaEncoderAltIcon,
-		link: "/Adobe/Media_Encoder_(alt).ico",
+		file: "W11_Media_Encoder_(alt).ico",
 	},
 	{
 		name: "Adobe Photoshop",
 		image: PhotoshopIcon,
-		link: "/Adobe/Photoshop.ico",
+		file: "W11_Photoshop.ico",
 	},
 	{
 		name: "Adobe Premiere Pro",
 		image: PremiereProIcon,
-		link: "/Adobe/Premiere_Pro.ico",
+		file: "W11_Premiere_Pro.ico",
 	},
 	{
 		name: "Adobe XD",
 		image: XDIcon,
-		link: "/Adobe/XD.ico",
+		file: "W11_XD.ico",
 	},
 	{
 		name: "Affinity Designer",
 		image: AffinityDesignerIcon,
-		link: "/Affinity/Designer.ico",
+		file: "W11_Designer.ico",
 	},
 	{
 		name: "Affinity Photo",
 		image: AffinityPhotoIcon,
-		link: "/Affinity/Photo.ico",
+		file: "W11_Photo.ico",
 	},
 	{
 		name: "Affinity Publisher",
 		image: AffinityPublisherIcon,
-		link: "/Affinity/Publisher.ico",
+		file: "W11_Publisher.ico",
 	},
 	{
 		name: "Affinity Designer (alt)",
 		image: AffinityDesignerAltIcon,
-		link: "/Affinity/Designer_(alt).ico",
+		file: "W11_Designer_(alt).ico",
 	},
 	{
 		name: "Affinity Photo (alt)",
 		image: AffinityPhotoAltIcon,
-		link: "/Affinity/Photo_(alt).ico",
+		file: "W11_Photo_(alt).ico",
 	},
 	{
 		name: "Affinity Publisher (alt)",
 		image: AffinityPublisherAltIcon,
-		link: "/Affinity/Publisher_(alt).ico",
+		file: "W11_Publisher_(alt).ico",
 	},
 	{
 		name: "Aseprite",
 		image: AsepriteIcon,
-		link: "/Art/Aseprite.ico",
+		file: "W11_Aseprite.ico",
 	},
 	{
 		name: "Aseprite (alt)",
 		image: AsepriteAltIcon,
-		link: "/Art/Aseprite_(alt).ico",
+		file: "W11_Aseprite_(alt).ico",
 	},
 	{
 		name: "Blender",
 		image: BlenderIcon,
-		link: "/Art/Blender.ico",
+		file: "W11_Blender.ico",
 	},
 	{
 		name: "Cinema 4D",
 		image: Cinema4DIcon,
-		link: "/Art/Cinema_4D.ico",
+		file: "W11_Cinema_4D.ico",
 	},
 	{
 		name: "Clip Studio",
 		image: ClipStudioIcon,
-		link: "/Art/Clip_Studio.ico",
+		file: "W11_Clip_Studio.ico",
 	},
 	{
 		name: "Clip Studio Paint",
 		image: ClipStudioPaintIcon,
-		link: "/Art/Clip_Studio_Paint.ico",
+		file: "W11_Clip_Studio_Paint.ico",
 	},
 	{
 		name: "GIMP",
 		image: GimpIcon,
-		link: "/Art/GIMP.ico",
+		file: "W11_GIMP.ico",
 	},
 	{
 		name: "GraphicsGale",
 		image: GraphicsGaleIcon,
-		link: "/Art/GraphicsGale.ico",
+		file: "W11_GraphicsGale.ico",
 	},
 	{
 		name: "Krita",
 		image: KritaIcon,
-		link: "/Art/Krita.ico",
+		file: "W11_Krita.ico",
 	},
 	{
 		name: "Live2D Cubism",
 		image: Live2DCubismIcon,
-		link: "/Art/Live2D_Cubism.ico",
+		file: "W11_Live2D_Cubism.ico",
 	},
 	{
 		name: "League of Legends",
 		image: LeagueIcon,
-		link: "/Games/League.ico",
+		file: "W11_League.ico",
 	},
 	{
 		name: "Minecraft",
 		image: MinecraftIcon,
-		link: "/Games/Minecraft_grass.ico",
+		file: "W11_Minecraft_grass.ico",
 	},
 	{
 		name: "Prism Launcher",
 		image: PrismLauncherIcon,
-		link: "/Games/Prism_Launcher.ico",
+		file: "W11_Prism_Launcher.ico",
 	},
 	{
 		name: "Steam",
 		image: SteamIcon,
-		link: "/Games/Steam.ico",
+		file: "W11_Steam.ico",
 	},
 	{
 		name: "Discord",
 		image: DiscordIcon,
-		link: "/Chat/Discord.ico",
+		file: "W11_Discord.ico",
 	},
 	{
 		name: "FL Studio",
 		image: FLStudioIcon,
-		link: "/DAWs/FL_Studio.ico",
+		file: "W11_FL_Studio.ico",
 	},
 	{
 		name: "Reaper",
 		image: ReaperIcon,
-		link: "/DAWs/Reaper.ico",
+		file: "W11_Reaper.ico",
 	},
 	{
 		name: "Ableton Live Intro",
 		image: AbletonLiveIntroIcon,
-		link: "/DAWs/Ableton_Live_Intro.ico",
+		file: "W11_Ableton_Live_Intro.ico",
 	},
 	{
 		name: "Ableton Live Intro (alt)",
 		image: AbletonLiveIntroAltIcon,
-		link: "/DAWs/Ableton_Live_Intro_(alt).ico",
+		file: "W11_Ableton_Live_Intro_(alt).ico",
 	},
 	{
 		name: "Ableton Live Standard",
 		image: AbletonLiveStandardIcon,
-		link: "/DAWs/Ableton_Live_Standard.ico",
+		file: "W11_Ableton_Live_Standard.ico",
 	},
 	{
 		name: "Ableton Live Standard (alt)",
 		image: AbletonLiveStandardAltIcon,
-		link: "/DAWs/Ableton_Live_Standard_(alt).ico",
+		file: "W11_Ableton_Live_Standard_(alt).ico",
 	},
 	{
 		name: "Ableton Live Suite",
 		image: AbletonLiveSuiteIcon,
-		link: "/DAWs/Ableton_Live_Suite.ico",
+		file: "W11_Ableton_Live_Suite.ico",
 	},
 	{
 		name: "Ableton Live Suite (alt)",
 		image: AbletonLiveSuiteAltIcon,
-		link: "/DAWs/Ableton_Live_Suite_(alt).ico",
+		file: "W11_Ableton_Live_Suite_(alt).ico",
 	},
 	{
 		name: "Ableton Live Lite",
 		image: AbletonLiveLiteIcon,
-		link: "/DAWs/Ableton_Live_Lite.ico",
+		file: "W11_Ableton_Live_Lite.ico",
 	},
 	{
 		name: "Ableton Live Lite (alt)",
 		image: AbletonLiveLiteAltIcon,
-		link: "/DAWs/Ableton_Live_Lite_(alt).ico",
+		file: "W11_Ableton_Live_Lite_(alt).ico",
 	},
 	{
 		name: "Ableton Live Beta",
 		image: AbletonLiveBetaIcon,
-		link: "/DAWs/Ableton_Live_Beta.ico",
+		file: "W11_Ableton_Live_Beta.ico",
 	},
 	{
 		name: "Ableton Live Beta (alt)",
 		image: AbletonLiveBetaAltIcon,
-		link: "/DAWs/Ableton_Live_Beta_(alt).ico",
+		file: "W11_Ableton_Live_Beta_(alt).ico",
 	},
 	{
 		name: "Aegisub",
 		image: AegisubIcon,
-		link: "/Various/Aegisub.ico",
+		file: "W11_Aegisub.ico",
 	},
 	{
 		name: "Audacity",
 		image: AudacityIcon,
-		link: "/Various/Audacity.ico",
+		file: "W11_Audacity.ico",
 	},
 	{
 		name: "DaVinci Resolve",
 		image: DaVinciResolveIcon,
-		link: "/Various/Resolve.ico",
+		file: "W11_Resolve.ico",
 	},
 	{
 		name: "FileZilla",
 		image: FileZillaIcon,
-		link: "/Various/FileZilla.ico",
+		file: "W11_FileZilla.ico",
 	},
 	{
 		name: "OBS",
 		image: OBSIcon,
-		link: "/Various/OBS.ico",
+		file: "W11_OBS.ico",
 	},
 	{
 		name: "OBS (Alt)",
 		image: OBSAltIcon,
-		link: "/Various/OBS_(alt).ico",
+		file: "W11_OBS_(alt).ico",
 	},
 	{
 		name: "qBittorrent",
 		image: qBittorrentIcon,
-		link: "/Various/qBittorrent.ico",
+		file: "W11_qBittorrent.ico",
 	},
 	{
 		name: "Spotify",
 		image: SpotifyIcon,
-		link: "/Various/Spotify.ico",
+		file: "W11_Spotify.ico",
 	},
 	{
 		name: "Tixati",
 		image: TixatiIcon,
-		link: "/Various/Tixati.ico",
+		file: "W11_Tixati.ico",
 	},
 ];
 
@@ -396,9 +396,9 @@ export default function Selector() {
 	};
 	const filteredIcons = Icons.filter((icon) => icon.name.toLowerCase().includes(search.toLowerCase()));
 
-	const [selectedIcons, setSelectedIcons] = useState<{ name: string; link: string }[]>([]);
+	const [selectedIcons, setSelectedIcons] = useState<{ name: string; file: string }[]>([]);
 	const [loading, setLoading] = useState(false);
-	const handleIconSelect = (icon: { name: string; link: string }) => {
+	const handleIconSelect = (icon: { name: string; file: string }) => {
 		setSelectedIcons((prevSelectedIcons) => {
 			// Check if the icon is already selected, if yes, remove it from the list.
 			const isIconSelected = prevSelectedIcons.some((selectedIcon) => selectedIcon.name === icon.name);
@@ -414,7 +414,7 @@ export default function Selector() {
 		setLoading(true);
 		const zip = new JSZip();
 		for (const icon of selectedIcons) {
-			const response = await fetch(`https://static.pprmint.de/download/AppIcons${icon.link}`);
+			const response = await fetch(`/api/download/file/${icon.file}`);
 			const blob = await response.blob();
 			zip.file(`${icon.name}.ico`, blob);
 		}

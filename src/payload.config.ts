@@ -32,6 +32,7 @@ import {
 } from "@payloadcms/richtext-lexical";
 import { getServerSideURL } from "./utilities/getURL";
 import { Graphics } from "./collections/Graphics/Graphics";
+import { FontLicenses } from "./globals/FontLicenses/FontLicenses";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -64,6 +65,7 @@ export default buildConfig({
 		Downloads,
 		Users,
 	],
+	globals: [FontLicenses],
 	localization: {
 		locales: [
 			{

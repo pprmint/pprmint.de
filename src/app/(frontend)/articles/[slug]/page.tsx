@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 import configPromise from "@payload-config";
 import { getPayload } from "payload";
 import { draftMode } from "next/headers";
@@ -11,7 +9,6 @@ import NotFound from "../../not-found";
 import RichText from "@/components/richText";
 import * as m from "motion/react-m";
 import { getLocale, getFormatter, getTranslations } from "next-intl/server";
-import Button from "@/components/ui/Button";
 import Link from "next/link";
 import { Media } from "@/components/Media";
 

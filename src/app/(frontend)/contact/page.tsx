@@ -66,7 +66,7 @@ export default async function Page() {
 					/>
 					<div className="absolute inset-0 backdrop-blur-sm bg-gradient-to-t from-neutral-950/25" />
 					<FadingImage
-						src="https://cms.pprmint.de/uploads/nekomimi_4_af97e38270.webp"
+						src="/api/artwork/file/nekomimi_68cdbdf7a0.webp"
 						width={1158}
 						height={3238}
 						alt="Postwoman Mina."

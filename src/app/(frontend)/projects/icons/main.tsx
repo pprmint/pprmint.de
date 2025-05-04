@@ -245,13 +245,13 @@ export default function Main() {
 						</div>
 					</div>
 					<div className="flex flex-wrap md:flex-nowrap border-b lg:border-t lg:border-l border-black/5 dark:border-white/5">
-						<Link href="https://static.pprmint.de/download/minticons/MintIcons.zip" download>
+						<Link href="/api/download/file/MintIcons.zip" download>
 							<Button>
 								<Zip />
 								{t("ICONS.Content.Download.svgs")}
 							</Button>
 						</Link>
-						<Link href="https://static.pprmint.de/download/minticons/MintIcons1.1.otf" download>
+						<Link href="/api/download/file/MintIcons1.1.otf" download>
 							<Button design="semi-transparent">
 								<Text />
 								{t("ICONS.Content.Download.font")}

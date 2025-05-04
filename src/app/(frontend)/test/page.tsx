@@ -34,7 +34,7 @@ export default function Page() {
 			</section>
 			<section className="pb-40 w-full border-x border-black/5 dark:border-white/5">
 				<h2>Video player</h2>
-				<VideoPlayer src="https://static.pprmint.de/videos/Takashi.mp4" />
+				<VideoPlayer src="/api/download/file/Takashi.mp4" />
 			</section>
 			<section id="texts" className="pb-40 w-full border-x border-black/5 dark:border-white/5">
 				<h1>The quick brown fox jumps over the lazy dog. 1234567890</h1>

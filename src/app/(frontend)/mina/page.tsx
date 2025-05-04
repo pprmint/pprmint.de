@@ -40,17 +40,17 @@ export default async function Page({
 			<Title
 				title={t("Head.title")}
 				description={t("Head.description")}
-				creditName="JaspenPNG"
-				creditLink="https://twitter.com/JaspenPng"
+				creditName="wasonz"
+				creditLink="https://x.com/wxsonz"
 			>
-				<div className="relative h-full bg-neutral-950">
+				<div className="relative h-full bg-gradient-to-br from-green-900 via-neutral-950 to-blue-900">
 					<div className="absolute w-full max-w-8xl inset-y-0 pt-9 md:pt-0 px-9 md:px-12 lg:px-24 xl:px-32 left-1/2 -translate-x-1/2">
 						<FadingImage
-							src="https://cms.pprmint.de/uploads/jaspen_1t_2ea197f066.webp"
+							src="/api/artwork/file/wxz_original_transparent.webp"
 							alt=""
 							width={2000}
-							height={4000}
-							className="xl:absolute right-20 -top-1/4 h-full w-auto md:w-[40%] xl:w-2/3 md:h-auto max-w-5xl ml-auto"
+							height={3783}
+							className="xl:absolute right-20 top-3 h-full w-auto md:w-[40%] xl:w-2/3 md:h-auto max-w-5xl ml-auto"
 						/>
 					</div>
 				</div>
@@ -97,7 +97,7 @@ export default async function Page({
 						<div className="flex flex-col lg:items-end">
 							<p className="mb-3">{t("Content.Reference.Download.text")}</p>
 							<Link
-								href="https://static.pprmint.de/download/Mina/Mina_ref_sheet_(by_nekomimi).png"
+								href="/api/download/file/mina_ref_sheet_by_nekomimi.png"
 								target="_blank"
 								download
 								className="w-fit"

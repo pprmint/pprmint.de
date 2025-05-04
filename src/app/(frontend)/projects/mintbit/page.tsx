@@ -43,7 +43,7 @@ export default function Page() {
 						<h2>{t("MINTBIT.Content.Download.heading")}</h2>
 						<p>{t("MINTBIT.Content.Download.text")}</p>
 						<br />
-						<Link className="flex w-max mx-auto" href="https://static.pprmint.de/download/Mintbit/Mintbit_1.1.zip">
+						<Link className="flex w-max mx-auto" href="/api/download/file/mintbit_1.1.zip">
 							<Button color="green" design="filled" tabIndex={-1}>
 								<Download />
 								{t("COMMON.download")}
