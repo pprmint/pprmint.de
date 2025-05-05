@@ -7,7 +7,7 @@ import type { Graphic } from "@/payload-types";
 export const revalidatePage: CollectionAfterChangeHook<Graphic> = ({ doc, previousDoc, req: { payload, context } }) => {
 	if (!context.disableRevalidate) {
 		if (doc._status === "published") {
-			const path = doc.slug === "home" ? "/" : `/${doc.slug}`;
+			const path = `/graphics/${doc.slug}`;
 
 			payload.logger.info(`Revalidating page at path: ${path}`);
 
@@ -17,7 +17,7 @@ export const revalidatePage: CollectionAfterChangeHook<Graphic> = ({ doc, previo
 
 		// If the page was previously published, we need to revalidate the old path
 		if (previousDoc?._status === "published" && doc._status !== "published") {
-			const oldPath = previousDoc.slug === "home" ? "/" : `/${previousDoc.slug}`;
+			const oldPath = `/graphics/${previousDoc.slug}`;
 
 			payload.logger.info(`Revalidating old page at path: ${oldPath}`);
 
@@ -30,7 +30,7 @@ export const revalidatePage: CollectionAfterChangeHook<Graphic> = ({ doc, previo
 
 export const revalidateDelete: CollectionAfterDeleteHook<Graphic> = ({ doc, req: { context } }) => {
 	if (!context.disableRevalidate) {
-		const path = `/${doc?.slug}`;
+		const path = `/graphics/${doc?.slug}`;
 		revalidatePath(path);
 		revalidateTag("pages-sitemap");
 	}
