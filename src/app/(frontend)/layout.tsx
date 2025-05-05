@@ -20,10 +20,9 @@ import "/public/fonts/MintSans/mintsans.css";
 import { NavbarProvider } from "@/components/layout/navigation/NavBarContext";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import TransitionProvider from "./transitionProvider";
-import { getServerSideURL } from "@/utilities/getURL";
 
 export const metadata: Metadata = {
-	metadataBase: new URL(getServerSideURL()),
+	metadataBase: process.env.NEXT_PUBLIC_SERVER_URL,
 	title: {
 		template: `%s • pprmint.`,
 		default: `pprmint.`,
