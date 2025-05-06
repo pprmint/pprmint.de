@@ -304,6 +304,7 @@ export interface Mina {
   pixelart: boolean;
   nsfw: boolean;
   wholesome: boolean;
+  reference: boolean;
   images: {
     image: string | Artwork;
     id?: string | null;
@@ -762,6 +763,7 @@ export interface MinaSelect<T extends boolean = true> {
   pixelart?: T;
   nsfw?: T;
   wholesome?: T;
+  reference?: T;
   images?:
     | T
     | {

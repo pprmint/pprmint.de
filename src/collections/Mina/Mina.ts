@@ -51,6 +51,16 @@ export const Mina: CollectionConfig = {
 			],
 		},
 		{
+			name: "reference",
+			label: "Featured as reference",
+			type: "checkbox",
+			required: true,
+			defaultValue: false,
+			admin: {
+				position: "sidebar",
+			}
+		},
+		{
 			name: "images",
 			type: "array",
 			required: true,
