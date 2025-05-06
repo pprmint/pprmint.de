@@ -8,4 +8,4 @@ My personal website, built with [Next.js](https://nextjs.org/) and [Tailwind](ht
 
 `pnpm dev` to look at the site on [localhost:3000](http://localhost:3000).
 
-The [.env.example](.env.example) file contains the API endpoint and key to access a Strapi instance used to manage content on some pages. It also contains SMTP details for the contact form.
+The [.env.example](.env.example) file contains various credentials for Payload and the S3 storage adapter, along with details to SMTP mail transfer.
