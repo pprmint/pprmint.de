@@ -98,7 +98,7 @@ function Nav() {
 
 	function NavSection({ title, items }: { title: string; items: NavItem[] }) {
 		return (
-			<div>
+			<div className="border-0 border-b border-solid border-[var(--theme-elevation-100)]">
 				<div className="text-[var(--theme-elevation-400)] px-4 mb-2">
 					<span className="text-xs">{title}</span>
 				</div>
@@ -134,7 +134,7 @@ function Nav() {
 					</svg>
 				</Link>
 			</div>
-			<div className="mb-auto flex flex-col gap-5 border-0 border-b border-solid border-[var(--theme-elevation-100)]">
+			<div className="mb-auto flex flex-col gap-5">
 				<NavLink slug="" link="/admin" icon={<Home />} label="Dashboard" />
 				<NavSection title="Collections" items={Collections} />
 				{Globals.length > 0 && <NavSection title="Globals" items={Globals} />}
