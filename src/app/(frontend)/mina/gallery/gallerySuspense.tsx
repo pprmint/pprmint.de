@@ -52,7 +52,7 @@ export default async function GallerySuspense({
 		limit: 28,
 		where: filters.length > 0 ? { and: filters } : undefined,
 		locale,
-		sort: "-createdAt",
+		sort: "-date",
 	});
 	return (
 		<div className="border-x border-black/5 dark:border-white/5 pt-12 lg:pt-20 xl:pt-40">
