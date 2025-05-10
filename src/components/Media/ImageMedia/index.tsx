@@ -67,8 +67,8 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 				loading={loading}
 				src={src}
 				width={!fill ? width : undefined}
-				focalX={(resource && typeof resource === "object" && resource.focalX) || 0}
-				focalY={(resource && typeof resource === "object" && resource.focalY) || 0}
+				focalX={(resource && typeof resource === "object" && resource.focalX) || 50}
+				focalY={(resource && typeof resource === "object" && resource.focalY) || 50}
 			/>
 		);
 	}
