@@ -42,7 +42,7 @@ export default function Page() {
 					<p>{t("Content.Usage.text1")}</p>
 					<p>{t("Content.Usage.text2")}</p>
 					<div className="flex flex-wrap gap-3 pt-6">
-						<Link href="/api/download/file/pprmint.2024.afpalette" download>
+						<Link href="/api/download/file/pprmint.2024.afpalette" download target="_blank">
 							<Button design="semi-transparent" tabIndex={-1}>
 								<SwatchBook />
 								{t("Content.Usage.affinity")}

@@ -118,7 +118,7 @@ export default async function Page() {
 						<span className="text-pink">.</span>
 					</h2>
 					<p className="pb-6">{t("Content.Download.text")}</p>
-					<Link className="flex w-max mx-auto" href="/api/download/file/mint_triangles_1.0.zip" download>
+					<Link className="flex w-max mx-auto" href="/api/download/file/mint_triangles_1.0.zip" download target="_blank">
 						<Button color="pink" tabIndex={-1} design="filled">
 							<Download />
 							{t("Content.Download.button")}

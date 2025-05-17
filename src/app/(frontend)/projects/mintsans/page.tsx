@@ -68,7 +68,7 @@ export default function Page() {
 						<h2>{t("MINTSANS.Content.Download.heading")}</h2>
 						<p>{t("MINTSANS.Content.Download.text")}</p>
 						<br />
-						<Link className="flex w-max mx-auto" href="/api/download/file/mintsans_2.0.zip">
+						<Link className="flex w-max mx-auto" href="/api/download/file/mintsans_2.0.zip" download target="_blank">
 							<Button design="filled" color="green" tabIndex={-1}>
 								<Download />
 								{t("COMMON.download")}
