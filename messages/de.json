@@ -771,32 +771,6 @@
 			"title": "Datenschutzerklärung"
 		},
 		"Content": {
-			"Tldr": {
-				"heading": "Die Kurzfassung:",
-				"text1": "Die Website läuft auf einem VPS von <b>Hetzner</b>. Bilder, Videos und andere Medien werden von einem CMS bereitgestellt, welches auf einem VPS von <b>Contabo</b> gehostet wird. <b>Fastmail</b> ist mein Email-Anbieter und <b>Cloudflare</b> dient als DNS-Proxy.",
-				"text2": "Daten, die du mir über das Kontaktformular oder per Email schickst, wie z.B. Name, Email-Adresse und was du in das Nachrichtenfeld schreibst, sind die einzigen Daten, die über dich erfasst werden. Diese Nachrichten werden nach 60 Tagen automatisch gelöscht, sofern nichts anderes vereinbart wurde.",
-				"text3": "Cloudflare kann Informationen wie deine öffentliche IP-Adresse, den Browsertyp und die Uhrzeit der Anfrage verarbeiten und speichern, soweit dies für die Bereitstellung der Dienste oder für andere Zwecke erforderlich ist. Cloudflare fungiert als Proxy zwischen deinem Browser und meinen Servern, um diese besser zu schützen."
-			},
-			"General": {
-				"heading": "Allgemein",
-				"text1": "Diese Website sammelt keine persönlichen Daten durch Analyse, Werbung, Tracking, Cookies, Fingerprinting oder ähnliches. Beim Besuch dieser Website können IP-Adressen durch Drittanbieter erfasst und gespeichert werden. Weitere Informationen hierzu folgen im Abschnitt \"Hosting\".",
-				"text2": "Einstellungen wie die Anzeigesprache oder das Farbschema, oder die Entdeckung einiger Easter Eggs können als Cookie oder im LocalStorage des Browsers gespeichert werden. Diese sind für die Grundfunktionalität der Website erforderlich und werden nicht zur Analyse oder Identifizierung der Besucher verwendet.",
-				"text3": "Die einzigen personenbezogenen Daten, auf die ich direkt Zugriff habe, sind die Daten, die du mir über das Kontaktformular oder direkt per E-Mail schickst, wie z.B. Name, E-Mail-Adresse und Inhalt der Nachricht. Mein Email-Postfach befindet sich bei Fastmail (Fastmail Pty. Ltd, PO Box 234, Collins St West, Victoria 8007, Australia) und Emails werden automatisch nach 60 Tagen gelöscht, sofern nicht anders abgesprochen.",
-				"text4": "Teile dieser Website können Links zu externen Websites enthalten, wie z.B. Social Media Profile oder Websites von Künstlern und anderen Projekten. Ich übernehme keine Verantwortung für den Inhalt externer Websites. Beim Besuch dieser Seiten gelten deren Datenschutzerklärungen und Nutzungsbedingungen und nicht die von pprmint.de."
-			},
-			"Hosting": {
-				"heading": "Hosting",
-				"text1": "Diese Website wird von Hetzner (Hetzner Online GmbH, Industriestraße 25, 91710 Gunzenhausen, Deutschland) gehostet. Außerdem wird mein CMS von Contabo (Contabo GmbH, Aschauer Straße 32a, 81549 München, Deutschland) gehostet. Beide Server befinden sich in Rechenzentren innerhalb der EU.",
-				"text2": "Zum Schutz vor DDoS-Angriffen und zur Optimierung der Ladezeiten verwende ich Cloudflare (Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA), die einen Proxy für DNS-Anfragen zwischen deinem Browser und meinen Servern bereitstellen und einen schnellen Cache für Medien bereitstellen. Anfragen werden zunächst von Cloudflare bearbeitet, die dabei auch die IP-Adressen der Besucher zu Analyse- und Sicherheitszwecken sammeln.",
-				"text3": "Der Einsatz von Diensten dieser Anbieter zum jeweiligen Zweck beruht auf meinem berechtigten Interesse, diese Website möglichst fehlerfrei, schnell und sicher bereitstellen zu können. (Art. 6 Abs. 1 lit. f DSGVO)"
-			},
-			"Contact": {
-				"heading": "Kontakt",
-				"text1": "Bei Fragen zum Thema Datenschutz kannst du mir gerne eine Email an <strong>privacy[at]pprmint.de</strong> schicken.",
-				"text2": "Verwende die obige Adresse nur für diesen Zweck und nicht für allgemeine Fragen, Werbung oder ähnliches."
-			},
-			"dpaOf": "Data Processing Addendum von {provider}",
-			"privacyPolicyOf": "Datenschutzerklärung von {provider}",
 			"lastUpdated": "Zuletzt aktualisiert: {revisionDate, date, ::yyyyMMMMd}"
 		}
 	},

@@ -777,32 +777,6 @@
 			"title": "Privacy policy"
 		},
 		"Content": {
-			"Tldr": {
-				"heading": "TL;DR:",
-				"text1": "This website is hosted on a VPS by <b>Hetzner</b>. Images, videos and other media is provided by a CMS hosted on a VPS by <b>Contabo</b>. <b>Fastmail</b> is my email provider and <b>Cloudflare</b> serves as a DNS proxy.",
-				"text2": "Data that you send me via the contact form or by email, such as your name, email address and what you write in the message field, is the only data that is collected about you. These messages are automatically deleted after 60 days, unless otherwise agreed.",
-				"text3": "Cloudflare may process and store information such as your public IP address, browser type and the time of the request to the extent necessary to provide the services or for other purposes. Cloudflare acts as a proxy between your browser and my servers to better protect them."
-			},
-			"General": {
-				"heading": "General",
-				"text1": "This website does not collect any personal data through analytics tools, advertising, tracking, cookies, fingerprinting or similar. When visiting this website, IP addresses may be collected and stored by third-party providers. Further information on this follows in the section \"Hosting\".",
-				"text2": "Settings such as the display language or the color scheme, or the discovery of some easter eggs can be saved as a cookie or in the localStorage of the browser. These are required for the basic functionality of the website and are not used to analyze or identify visitors.",
-				"text3": "The only personal data I have direct access to is the data you send me via the contact form or directly by email, such as your name, email address and the content of the message. My email provider is Fastmail (Fastmail Pty. Ltd, PO Box 234, Collins St West, Victoria 8007, Australia) and emails are automatically deleted after 60 days unless otherwise agreed.",
-				"text4": "Parts of this website may contain links to external websites, like as social media profiles or websites of artists and other projects. I'm not responsible for the content found on those sites. Upon visiting them you're subject to the privacy policies and terms of the respective websites and not that of pprmint.de."
-			},
-			"Hosting": {
-				"heading": "Hosting",
-				"text1": "This website is hosted by Hetzner (Hetzner Online GmbH, Industriestraße 25, 91710 Gunzenhausen, Germany). In addition, my CMS is hosted by Contabo (Contabo GmbH, Aschauer Straße 32a, 81549 Munich, Germany). Both servers are located in data centers within the EU.",
-				"text2": "To protect against DDoS attacks and to optimize loading times, I use Cloudflare (Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA), who provide a proxy for DNS requests between your browser and my servers and offer a cache for media. Requests are first processed by Cloudflare, who also collect the IP addresses of visitors for analysis and security purposes.",
-				"text3": "The use of these services for their respective purpose is based on my legitimate interest in being able to offer this website as reliable, fast and secure as possible. (Art. 6(1)(f) GDPR)"
-			},
-			"Contact": {
-				"heading": "Contact",
-				"text1": "If you have privacy-related questions, feel free to send them to <strong>privacy[at]pprmint.de</strong>.",
-				"text2": "Please use the above address only for such questions and not for general questions, advertisements or the like."
-			},
-			"dpaOf": "Data Processing Addendum of {provider}",
-			"privacyPolicyOf": "Privacy policy of {provider}",
 			"lastUpdated": "Last updated: {revisionDate, date, ::yyyyMMMMd}"
 		}
 	},

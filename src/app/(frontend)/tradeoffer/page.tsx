@@ -1,6 +1,4 @@
 import { Viewport } from "next";
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { getLocale, getTranslations } from "next-intl/server";
 import KofiWidget from "./widget";
 import FadingImage from "@/components/ui/FadingImage";
