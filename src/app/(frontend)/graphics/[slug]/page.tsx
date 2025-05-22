@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 import configPromise from "@payload-config";
 import { getPayload } from "payload";
 import { draftMode } from "next/headers";
@@ -11,32 +9,7 @@ import NotFound from "../../not-found";
 import RichText from "@/components/richText";
 import * as m from "motion/react-m";
 import { getLocale, getFormatter, getTranslations } from "next-intl/server";
-import Button from "@/components/ui/Button";
 import Link from "next/link";
-
-export async function generateStaticParams() {
-	const payload = await getPayload({ config: configPromise });
-	const graphics = await payload.find({
-		collection: "graphics",
-		draft: false,
-		limit: 1000,
-		overrideAccess: false,
-		pagination: false,
-		select: {
-			slug: true,
-		},
-	});
-
-	const params = graphics.docs
-		?.filter((doc) => {
-			return doc.slug !== "home";
-		})
-		.map(({ slug }) => {
-			return { slug };
-		});
-
-	return params;
-}
 
 type Args = {
 	params: Promise<{

@@ -12,30 +12,6 @@ import { getLocale, getFormatter, getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { Media } from "@/components/Media";
 
-export async function generateStaticParams() {
-	const payload = await getPayload({ config: configPromise });
-	const articles = await payload.find({
-		collection: "articles",
-		draft: false,
-		limit: undefined,
-		overrideAccess: false,
-		pagination: false,
-		select: {
-			slug: true,
-		},
-	});
-
-	const params = articles.docs
-		?.filter((doc) => {
-			return doc.slug !== "home";
-		})
-		.map(({ slug }) => {
-			return { slug };
-		});
-
-	return params;
-}
-
 type Args = {
 	params: Promise<{
 		slug?: string;
