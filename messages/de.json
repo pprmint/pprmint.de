@@ -505,11 +505,15 @@
 					"artist": "Künstler",
 					"year": "Jahr"
 				},
-				"last7Days": "Fanart der letzten 7 Tage:",
-				"alltime": "Fanart ingesamt:",
+				"Statistics": {
+					"title": "Statistiken",
+					"total": "Gesamtzahl",
+					"commissioned": "Auftragswerke",
+					"averagePrice": "Durchschnittspreis",
+					"artworkCount": "Anzahl Kunstwerke"
+				},
 				"drawnBy": "Von ",
-				"showingArtworks_one": "{count} Artwork wird gezeigt.",
-				"showingArtworks_other": "{count} Artworks werden gezeigt.",
+				"showingArtworks": "{shown} von {total, plural, =1 {# Werk} other {# Werken}} gezeigt.",
 				"outOfBounds": "...wo bin ich?",
 				"clipBackIn": "Noclip ausschalten"
 			},

@@ -78,62 +78,60 @@ function Filters(props: { nsfw?: string; artist?: string; artists: PaginatedDocs
 
 	return (
 		<>
-			<div className="flex w-full border-t border-black/5 dark:border-white/5">
-				<div className="flex items-center sm:justify-between grow">
-					<div className="grow sm:grow-0 sm:w-48 gap-3 sm:border-r border-black/5 dark:border-white/5">
-						<Select.Root value={props.artist} onValueChange={handleSelectArtist}>
-							<div className="flex w-full">
-								<Select.Trigger
-									className="group flex items-center justify-between px-3 h-9 w-full hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white active:shadow-inner duration-100"
-									aria-label="Artist"
+			<div className="flex items-center grow">
+				<div className="grow sm:grow-0 sm:w-48 gap-3 border-r border-black/5 dark:border-white/5">
+					<Select.Root value={props.artist} onValueChange={handleSelectArtist}>
+						<div className="flex w-full">
+							<Select.Trigger
+								className="group flex items-center justify-between px-3 h-9 w-full hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white active:shadow-inner duration-100"
+								aria-label="Artist"
+							>
+								<Select.Value aria-label={props.artist}>
+									{artistFilterActive ? props.artist : t("Content.Artworks.Filters.artist")}
+								</Select.Value>
+								<Select.Icon className="ml-auto">
+									<ChevronDown />
+								</Select.Icon>
+							</Select.Trigger>
+							{artistFilterActive && (
+								<button
+									onClick={handleClearArtist}
+									className="h-9 px-2.5 hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 hover:text-neutral-950 dark:hover:text-white duration-100"
 								>
-									<Select.Value aria-label={props.artist}>
-										{artistFilterActive ? props.artist : t("Content.Artworks.Filters.artist")}
-									</Select.Value>
-									<Select.Icon className="ml-auto">
-										<ChevronDown />
-									</Select.Icon>
-								</Select.Trigger>
-								{artistFilterActive && (
-									<button
-										onClick={handleClearArtist}
-										className="h-9 px-2.5 hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 hover:text-neutral-950 dark:hover:text-white duration-100"
-									>
-										<X />
-									</button>
-								)}
-							</div>
-							<Select.Portal>
-								<Select.Content className="z-50 bg-white/90 dark:bg-neutral-950/90 backdrop-blur ring-1 ring-black/5 dark:ring-white/5 shadow-lg data-[state=open]:animate-fade-in">
-									<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-white/50 dark:from-neutral-900/50 text-neutral-950 dark:text-white rounded-t-md">
-										<ChevronUp />
-									</Select.ScrollUpButton>
-									<Select.Viewport className="p-1">
-										<Select.Group>
-											{props.artists.docs
-												.sort((a, b) =>
-													a.name.localeCompare(b.name, undefined, {
-														sensitivity: "base",
-													})
-												)
-												.map((artist) => (
-													<SelectItem key={artist.id} value={artist.name}>
-														{artist.name}
-													</SelectItem>
-												))}
-										</Select.Group>
-									</Select.Viewport>
-									<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-white/50 dark:from-neutral-900/50 text-neutral-950 dark:text-white rounded-b-md">
-										<ChevronDown />
-									</Select.ScrollDownButton>
-								</Select.Content>
-							</Select.Portal>
-						</Select.Root>
-					</div>
-					<div className="flex items-center gap-2 h-9 pl-2 pr-3 w-max border-l border-black/5 dark:border-white/5">
-						<Checkbox border id="nsfw" checked={nsfw} onCheckedChange={handleNsfw} />
-						<label htmlFor="nsfw">{t("Content.NSFW.checkbox")}</label>
-					</div>
+									<X />
+								</button>
+							)}
+						</div>
+						<Select.Portal>
+							<Select.Content className="z-50 bg-white/90 dark:bg-neutral-950/90 backdrop-blur ring-1 ring-black/5 dark:ring-white/5 shadow-lg data-[state=open]:animate-fade-in">
+								<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-white/50 dark:from-neutral-900/50 text-neutral-950 dark:text-white rounded-t-md">
+									<ChevronUp />
+								</Select.ScrollUpButton>
+								<Select.Viewport className="p-1">
+									<Select.Group>
+										{props.artists.docs
+											.sort((a, b) =>
+												a.name.localeCompare(b.name, undefined, {
+													sensitivity: "base",
+												})
+											)
+											.map((artist) => (
+												<SelectItem key={artist.id} value={artist.name}>
+													{artist.name}
+												</SelectItem>
+											))}
+									</Select.Group>
+								</Select.Viewport>
+								<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-white/50 dark:from-neutral-900/50 text-neutral-950 dark:text-white rounded-b-md">
+									<ChevronDown />
+								</Select.ScrollDownButton>
+							</Select.Content>
+						</Select.Portal>
+					</Select.Root>
+				</div>
+				<div className="flex items-center gap-2 h-9 pl-2 pr-3 w-max sm:border-r border-black/5 dark:border-white/5">
+					<Checkbox border id="nsfw" checked={nsfw} onCheckedChange={handleNsfw} />
+					<label htmlFor="nsfw">{t("Content.NSFW.checkbox")}</label>
 				</div>
 			</div>
 			<Dialog open={dialogOpen} onOpenChange={setDialogOpen}>

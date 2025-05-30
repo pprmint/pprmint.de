@@ -158,7 +158,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 													drag={scale > 1 ? false : "x"}
 													dragConstraints={{ left: 0, right: 0 }}
 													dragElastic={1}
-													onDragEnd={(e, { offset, velocity }) => {
+													onDragEnd={(_, { offset, velocity }) => {
 														const swipeConfidenceThreshold = 10000;
 														const swipePower = (offset: number, velocity: number) => {
 															return Math.abs(offset) * velocity;

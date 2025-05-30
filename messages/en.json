@@ -505,11 +505,15 @@
 					"artist": "Artist",
 					"year": "Year"
 				},
-				"last7Days": "Fanart drawn in the last 7 days:",
-				"alltime": "Fanart drawn in total:",
+				"Statistics": {
+					"title": "Statistics",
+					"total": "Grand total",
+					"commissioned": "Commissioned",
+					"averagePrice": "Average comm price",
+					"artworkCount": "Artwork count"
+				},
 				"drawnBy": "By ",
-				"showingArtworks_one": "Showing {count} artwork.",
-				"showingArtworks_other": "Showing {count} artworks.",
+				"showingArtworks": "Showing {shown} out of {total, plural, =1 {# artwork} other {# artworks}}.",
 				"outOfBounds": "...where am i?",
 				"clipBackIn": "Clip back in bounds"
 			},
