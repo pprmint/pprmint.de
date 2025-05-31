@@ -17,8 +17,8 @@ export async function getUserLocale() {
 	const acceptLanguage = (await headers()).get("Accept-Language");
 	if (acceptLanguage) {
 		const languages = acceptLanguage
-			.split(",")
-			.map((lang) => lang.split(";")[0].trim().toLowerCase()) // Split up into array.
+			.split(",") // Split up into array.
+			.map((lang) => lang.split(";")[0].trim().toLowerCase()) // Remove the quality value.
 			.map((lang) => lang.split("-")[0]); // Remove subtags like -US or -AT
 
 		const match = languages.find((lang) => locales.includes(lang as Locale));
