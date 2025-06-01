@@ -510,7 +510,8 @@
 					"total": "Gesamtzahl",
 					"commissioned": "Auftragswerke",
 					"averagePrice": "Durchschnittspreis",
-					"artworkCount": "Anzahl Kunstwerke"
+					"artworkCount": "Anzahl Kunstwerke",
+					"numberArtworks": "{count, plural, =0 {Keine Kunstwerke} =1 {Ein Kunstwerk} other {# Kunstwerke}}"
 				},
 				"drawnBy": "Von ",
 				"showingArtworks": "{shown} von {total, plural, =1 {# Werk} other {# Werken}} gezeigt.",

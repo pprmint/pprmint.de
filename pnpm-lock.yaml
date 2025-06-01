@@ -105,13 +105,7 @@ importers:
       '@visx/event':
         specifier: ^3.12.0
         version: 3.12.0
-      '@visx/grid':
-        specifier: ^3.12.0
-        version: 3.12.0(react@19.0.0)
       '@visx/group':
-        specifier: ^3.12.0
-        version: 3.12.0(react@19.0.0)
-      '@visx/marker':
         specifier: ^3.12.0
         version: 3.12.0(react@19.0.0)
       '@visx/responsive':
@@ -2164,18 +2158,8 @@ packages:
   '@visx/event@3.12.0':
     resolution: {integrity: sha512-9Lvw6qJ0Fi+y1vsC1WspfdIKCxHTb7oy59Uql1uBdPGT8zChP0vuxW0jQNQRDbKgoefj4pCXAFi8+MF1mEtVTw==}
 
-  '@visx/grid@3.12.0':
-    resolution: {integrity: sha512-L4ex2ooSYhwNIxJ3XFIKRhoSvEGjPc2Y3YCrtNB4TV5Ofdj4q0UMOsxfrH23Pr8HSHuQhb6VGMgYoK0LuWqDmQ==}
-    peerDependencies:
-      react: ^16.0.0-0 || ^17.0.0-0 || ^18.0.0-0
-
   '@visx/group@3.12.0':
     resolution: {integrity: sha512-Dye8iS1alVXPv7nj/7M37gJe6sSKqJLH7x6sEWAsRQ9clI0kFvjbKcKgF+U3aAVQr0NCohheFV+DtR8trfK/Ag==}
-    peerDependencies:
-      react: ^16.0.0-0 || ^17.0.0-0 || ^18.0.0-0
-
-  '@visx/marker@3.12.0':
-    resolution: {integrity: sha512-11aCWC13+PqbAatNgMVcm33J8PRNdyGiDbfMfwUXt5/FS2XLs2e1fjfhIwAxmCCLZ13FYlabrc1qnjnhwXbTVQ==}
     peerDependencies:
       react: ^16.0.0-0 || ^17.0.0-0 || ^18.0.0-0
 
@@ -7647,30 +7631,9 @@ snapshots:
       '@types/react': types-react@19.0.0-rc.1
       '@visx/point': 3.12.0
 
-  '@visx/grid@3.12.0(react@19.0.0)':
-    dependencies:
-      '@types/react': types-react@19.0.0-rc.1
-      '@visx/curve': 3.12.0
-      '@visx/group': 3.12.0(react@19.0.0)
-      '@visx/point': 3.12.0
-      '@visx/scale': 3.12.0
-      '@visx/shape': 3.12.0(react@19.0.0)
-      classnames: 2.5.1
-      prop-types: 15.8.1
-      react: 19.0.0
-
   '@visx/group@3.12.0(react@19.0.0)':
     dependencies:
       '@types/react': types-react@19.0.0-rc.1
-      classnames: 2.5.1
-      prop-types: 15.8.1
-      react: 19.0.0
-
-  '@visx/marker@3.12.0(react@19.0.0)':
-    dependencies:
-      '@types/react': types-react@19.0.0-rc.1
-      '@visx/group': 3.12.0(react@19.0.0)
-      '@visx/shape': 3.12.0(react@19.0.0)
       classnames: 2.5.1
       prop-types: 15.8.1
       react: 19.0.0

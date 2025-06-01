@@ -361,6 +361,22 @@ module.exports = {
 						opacity: 0,
 					},
 				},
+				graphEnterLeft: {
+					from: {
+						clipPath: "polygon(0 0, 0% 0, 0% 100%, 0% 100%)",
+					},
+					to: {
+						clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+					},
+				},
+				graphEnterBottom: {
+					from: {
+						clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
+					},
+					to: {
+						clipPath: "polygon(0 0%, 100% 0%, 100% 100%, 0% 100%)",
+					},
+				},
 			},
 			animation: {
 				"accordion-slide-down": "accordionSlideDown .4s cubic-bezier(0.5, 0, 0.1, 1);",
@@ -392,6 +408,8 @@ module.exports = {
 				"float-rotate-r": "floatRotateR 6s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite",
 				"dialog-enter": "dialogEnter .5s cubic-bezier(0.16, 1, 0.3, 1) .1s normal backwards",
 				"dialog-exit": "dialogExit .15s ease-in",
+				"graph-enter-left": "graphEnterLeft .6s cubic-bezier(0.4, 0, 0, 1)",
+				"graph-enter-bottom": "graphEnterBottom .6s cubic-bezier(0.4, 0, 0, 1)",
 			},
 			transitionDuration: {
 				25: "25ms",
