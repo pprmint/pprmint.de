@@ -52,9 +52,9 @@ function Nav() {
 			.map((item) => ({
 				slug: item.slug,
 				label: `${item.labels.plural ? item.labels.plural : item.slug}`,
-				icon: item.admin.custom.icon,
+				icon: item.admin.custom?.icon,
 				link: "/admin/collections/" + item.slug,
-				parent: item.admin.custom.parent,
+				parent: item.admin.custom?.parent,
 			})),
 	);
 
