@@ -19,7 +19,7 @@ export const Artwork: CollectionConfig = {
 			limits: [12, 24, 48, 60, 120],
 			defaultLimit: 24,
 		},
-		defaultColumns: ["-createdAt", "thumbnail", "alt"]
+		defaultColumns: ["artworkThumbnail", "-createdAt", "alt"]
 	},
 	fields: [
 		{
@@ -49,7 +49,7 @@ export const Artwork: CollectionConfig = {
 			},
 		},
 		{
-			name: "thumbnail",
+			name: "artworkThumbnail",
 			type: "ui",
 			admin: {
 				components: {
