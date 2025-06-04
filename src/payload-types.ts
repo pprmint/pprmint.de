@@ -303,21 +303,91 @@ export interface Asset {
  */
 export interface Mina {
   id: string;
-  pixelart: boolean;
-  nsfw: boolean;
-  wholesome: boolean;
-  reference: boolean;
-  images: {
-    image: string | Artwork;
-    id?: string | null;
-  }[];
   artist: string | Artist;
   date: string;
   commissionPrice?: number | null;
   outfit?: (string | null) | Outfit;
   featuring?: (string | Character)[] | null;
+  images: {
+    image: string | Artwork;
+    id?: string | null;
+  }[];
+  medium: 'digital' | 'physical';
+  style: 'drawing' | 'pixelart' | 'model';
+  detail: 'rendered' | 'flat' | 'sketch';
+  /**
+   * Present artwork as a good reference for new art.
+   */
+  reference: boolean;
+  /**
+   * Avoid compression and optimization for pixel art and GIFs.
+   */
+  unoptimized: boolean;
+  /**
+   * Show a little heart next to artist credit.
+   */
+  wholesome: boolean;
+  /**
+   * Hide suggestive or lewd artwork behind a visibility checkbox.
+   */
+  nsfw: boolean;
   normalizedDate: string;
   thumbnailURL: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "artists".
+ */
+export interface Artist {
+  id: string;
+  name: string;
+  creditUrl?: string | null;
+  slug: string;
+  slugLock?: boolean | null;
+  artworks?: {
+    docs?: (string | Mina)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "outfits".
+ */
+export interface Outfit {
+  id: string;
+  name: string;
+  designer?: (string | null) | Artist;
+  artworks?: {
+    docs?: (string | Mina)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  slug: string;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "characters".
+ */
+export interface Character {
+  id: string;
+  name: string;
+  owner?: string | null;
+  link?: string | null;
+  artworks?: {
+    docs?: (string | Mina)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  slug: string;
+  slugLock?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -383,61 +453,6 @@ export interface Artwork {
       filename?: string | null;
     };
   };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "artists".
- */
-export interface Artist {
-  id: string;
-  name: string;
-  creditUrl?: string | null;
-  slug: string;
-  slugLock?: boolean | null;
-  artworks?: {
-    docs?: (string | Mina)[];
-    hasNextPage?: boolean;
-    totalDocs?: number;
-  };
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "outfits".
- */
-export interface Outfit {
-  id: string;
-  name: string;
-  designer?: (string | null) | Artist;
-  artworks?: {
-    docs?: (string | Mina)[];
-    hasNextPage?: boolean;
-    totalDocs?: number;
-  };
-  slug: string;
-  slugLock?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "characters".
- */
-export interface Character {
-  id: string;
-  name: string;
-  owner?: string | null;
-  link?: string | null;
-  artworks?: {
-    docs?: (string | Mina)[];
-    hasNextPage?: boolean;
-    totalDocs?: number;
-  };
-  slug: string;
-  slugLock?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -762,21 +777,24 @@ export interface ArticlesSelect<T extends boolean = true> {
  * via the `definition` "mina_select".
  */
 export interface MinaSelect<T extends boolean = true> {
-  pixelart?: T;
-  nsfw?: T;
-  wholesome?: T;
-  reference?: T;
+  artist?: T;
+  date?: T;
+  commissionPrice?: T;
+  outfit?: T;
+  featuring?: T;
   images?:
     | T
     | {
         image?: T;
         id?: T;
       };
-  artist?: T;
-  date?: T;
-  commissionPrice?: T;
-  outfit?: T;
-  featuring?: T;
+  medium?: T;
+  style?: T;
+  detail?: T;
+  reference?: T;
+  unoptimized?: T;
+  wholesome?: T;
+  nsfw?: T;
   normalizedDate?: T;
   thumbnailURL?: T;
   updatedAt?: T;

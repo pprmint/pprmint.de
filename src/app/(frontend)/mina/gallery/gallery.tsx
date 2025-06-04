@@ -117,6 +117,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 									size="sd"
 									imgClassName="object-cover group-focus-visible/button:animate-pulse"
 									fill
+									unoptimized={artwork.unoptimized}
 								/>
 							</div>
 							{artwork.nsfw && (
@@ -201,7 +202,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																	.image.alt || ""
 															}
 															className={`max-h-svh w-auto mx-auto py-16 ${
-																artworks.docs[selectedArtwork].pixelart && "pixelated"
+																artworks.docs[selectedArtwork].unoptimized && "pixelated"
 															}`}
 															unoptimized
 														/>
