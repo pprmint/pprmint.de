@@ -483,6 +483,7 @@
 				"Color": {
 					"text": "Es gibt da noch eine <Link>Palette-Seite</Link>, solltest du etwas ausführlicheres wollen."
 				},
+				"outdated": "Diese Referenzen müssen noch überarbeitet werden, um Mina's Design korrekt darzustellen. Verwende bis dahin lieber die Kunstwerke in der Galerie, die als \"Gute Referenz\" gekennzeichnet sind.",
 				"credit": "Referenzzeichnungen von <Link>nekomimi</Link>.",
 				"Download": {
 					"text": "Möchtest du diese Übersicht mit allen Infos als einzelnes Bild haben? Bitte schön:",
@@ -501,8 +502,10 @@
 			"Artworks": {
 				"Filters": {
 					"button": "Filter",
-					"nsfw": "Neuronen-Aktivierung",
+					"nsfw": "NSFW-Werke zeigen",
 					"artist": "Künstler",
+					"outfit": "Outfit",
+					"reference": "Gute Referenzen zeigen",
 					"year": "Jahr"
 				},
 				"Statistics": {
@@ -515,21 +518,19 @@
 				},
 				"drawnBy": "Von ",
 				"showingArtworks": "{shown} von {total, plural, =1 {# Werk} other {# Werken}} gezeigt.",
-				"outOfBounds": "...wo bin ich?",
-				"clipBackIn": "Noclip ausschalten"
+				"OutOfBounds": {
+					"title": "Willkommen im Nichts",
+					"text": "Deaktiviere einige Filter und navigiere zur ersten Seite zurück."
+				}
 			},
 			"NSFW": {
-				"checkbox": "Neuronen-Aktivierung",
-				"Dialog": {
-					"title": "Das Ankreuzfeld hat dich wohl neugierig gemacht",
-					"text1": "Manche Dinge sollte man lieber ungesehen lassen. Besonders wenn du dich in der Öffentlichkeit befindest, oder dir jemand aus anderen Gründen über die Schulter linsen könnte.",
-					"text2": "Ist dieses Kästchen angekreuzt, werden anzügliche bzw. anstößige (NSFW) Illustrationen auf der Seite angezeigt. Ist dies kein Problem für dich, so verkaufe deine Seele gleich mit dem grünen Knopf unten.",
-					"text3": "Wenn du noch keine 18 Jahre alt bist, schließe dieses Pop-up.",
-					"hint": "Tipp: Wenn eine Tastatur vor dir liegt, du nur eine Hand frei hast und plötzlich deine Mission abbrechen musst, kannst du die Leertaste drücken, um die Schweinereien wieder zu verstecken.",
-					"credit": "Die Zeichnung von Mina da oben stammt von <Link>@wxsonz</Link>.",
-					"admitSins": "Tschüssi, Seele!",
-					"nevermind": "Nee, lass mal."
-				}
+				"title": "Nicht so schnell",
+				"subtitle": "Ja, auch <i>solche</i> Werke von Mina gibt es. Willkommen im Internet.",
+				"text1": "Durch das Ankreuzen dieses Kästchens werden Kunstwerke angezeigt, die anzüglich oder sexuell explizit sein können.",
+				"text2": "Indem du fortfährst, bestätigst du, mindestens 18 Jahre alt zu sein, oder das Alter der Volljährigkeit in deiner Gerichtbarkeit erreicht zu haben.",
+				"text3": "Solltest du unter 18 Jahre alt sein, schließe dieses Pop-up. Das Zeug ist nix für dich.",
+				"admitSins": "Lass mich rein!",
+				"nevermind": "Nein, danke."
 			},
 			"Discord": {
 				"heading": "Verleihe deinen Nachrichten einen Hauch von Grün",

@@ -8,22 +8,53 @@ import OutOfBounds from "@/components/gallery/OutOfBounds";
 import { getLocale, getTranslations } from "next-intl/server";
 import Stats from "../stats/main";
 
-export default async function GallerySuspense({ p, nsfw, artist }: { p: number; nsfw: string; artist?: string }) {
+export default async function GallerySuspense({
+	p,
+	nsfw,
+	refs,
+	artist,
+	outfit,
+}: {
+	p: number;
+	nsfw: string;
+	refs: string;
+	artist?: string;
+	outfit?: string;
+}) {
 	const t = await getTranslations("MINA");
 	const locale = (await getLocale()) as "en" | "de" | "all" | undefined;
 	const payload = await getPayload({ config });
+
+	// Data for dropdowns.
 	const artists = await payload.find({
 		collection: "artists",
 		select: {
 			id: true,
 			name: true,
+			slug: true,
 		},
 		pagination: false,
 		limit: undefined,
+		sort: "slug",
 	});
 
+	const outfits = await payload.find({
+		collection: "outfits",
+		select: {
+			id: true,
+			name: true,
+			slug: true,
+		},
+		pagination: false,
+		limit: undefined,
+		locale: locale,
+		sort: "slug",
+	});
+
+	// Filters.
 	let filters: Where[] = [];
 
+	// Always filter out smut unless nsfw=show in search param.
 	if (nsfw !== "show") {
 		filters.push({
 			nsfw: {
@@ -32,10 +63,26 @@ export default async function GallerySuspense({ p, nsfw, artist }: { p: number; 
 		});
 	}
 
+	if (refs === "show") {
+		filters.push({
+			reference: {
+				equals: true,
+			},
+		});
+	}
+
 	if (artist !== "undefined") {
 		filters.push({
-			"artist.name": {
+			"artist.slug": {
 				equals: artist,
+			},
+		});
+	}
+
+	if (outfit !== "undefined") {
+		filters.push({
+			"outfit.slug": {
+				equals: outfit,
 			},
 		});
 	}
@@ -54,19 +101,28 @@ export default async function GallerySuspense({ p, nsfw, artist }: { p: number; 
 	});
 
 	return (
-		<div className="border-x border-black/5 dark:border-white/5 pt-12 lg:pt-20 xl:pt-40">
+		<div className="border-x border-black/5 dark:border-white/5">
 			{artworks !== null && (
 				<>
-					<div className="sm:flex w-full border-t border-black/5 dark:border-white/5">
-						<Filters nsfw={nsfw} artist={artist} artists={artists} />
-						<div className="hidden md:flex text-sm items-center px-3">
-							{t("Content.Artworks.showingArtworks", {
-								shown: artworks.totalDocs,
-								total: allArtworks.totalDocs,
-							})}
-						</div>
-						<div className="border-y sm:border-y-0 sm:border-l border-black/5 dark:border-white/5">
-							<Stats />
+					<div className="xl:flex w-full border-t border-black/5 dark:border-white/5">
+						<Filters
+							nsfw={nsfw}
+							refs={refs}
+							artist={artist}
+							artists={artists}
+							outfit={outfit}
+							outfits={outfits}
+						/>
+						<div className="flex items-center border-t xl:border-t-0 border-black/5 dark:border-white/5">
+							<div className="text-sm grow px-3">
+								{t("Content.Artworks.showingArtworks", {
+									shown: artworks.totalDocs,
+									total: allArtworks.totalDocs,
+								})}
+							</div>
+							<div className="border-l border-black/5 dark:border-white/5">
+								<Stats />
+							</div>
 						</div>
 					</div>
 					{artworks.docs.length == 0 ? <OutOfBounds /> : <Gallery artworks={artworks} page={p} />}

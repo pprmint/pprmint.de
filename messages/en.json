@@ -483,6 +483,7 @@
 				"Color": {
 					"text": "There's also a <Link>palette page</Link> if you'd like something more exhaustive."
 				},
+				"outdated": "This ref sheet needs to be reworked to properly reflect Mina's intended design. For now, please refer to artworks marked as \"good references\" in the gallery.",
 				"credit": "Reference drawings by <Link>nekomimi</Link>.",
 				"Download": {
 					"text": "Would you like to have this overview with all details as a single image? Look no further:",
@@ -501,8 +502,10 @@
 			"Artworks": {
 				"Filters": {
 					"button": "Filters",
-					"nsfw": "Neuron activation",
+					"nsfw": "Show NSFW works",
 					"artist": "Artist",
+					"outfit": "Outfit",
+					"reference": "Show good references",
 					"year": "Year"
 				},
 				"Statistics": {
@@ -515,21 +518,19 @@
 				},
 				"drawnBy": "By ",
 				"showingArtworks": "Showing {shown} out of {total, plural, =1 {# artwork} other {# artworks}}.",
-				"outOfBounds": "...where am i?",
-				"clipBackIn": "Clip back in bounds"
+				"OutOfBounds": {
+					"title": "Welcome to nothing",
+					"text": "Try disabling some filters and navigating back to the first page."
+				}
 			},
 			"NSFW": {
-				"checkbox": "Neuron activation",
-				"Dialog": {
-					"title": "Looks like that checkbox made you a bit curious",
-					"text1": "Some things are better left unseen. Especially if you're in public or otherwise at risk of someone peeking over your shoulder.",
-					"text2": "Ticking this box will reveal suggestive and lewd (NSFW) artwork on the page. If you're fine with that, please sell your soul using the green button below in a few seconds.",
-					"text3": "If you're under the age of 18, close this pop-up.",
-					"hint": "Hint: If there's a keyboard in front of you, you only have one hand free and suddenly need to abort your mission, press the space bar to hide the smut again.",
-					"credit": "The art of Mina judging you up there was drawn by <Link>@wxsonz</Link>.",
-					"admitSins": "See ya, soul!",
-					"nevermind": "Nah, I'm good."
-				}
+				"title": "Not so fast",
+				"subtitle": "Yes, <i>that</i> kinda art of Mina exists. Welcome to the Internet.",
+				"text1": "Ticking this box will reveal artwork that may be suggestive, lewd or sexually explicit. Not safe for work, if you will.",
+				"text2": "By proceeding, you confirm that you are at least 18 years old, or have reached the age of majority in your jurisdiction.",
+				"text3": "If you're under the age of 18, close this pop-up. That stuff ain't for you.",
+				"admitSins": "Let me in!",
+				"nevermind": "Nah, I'm good."
 			},
 			"Discord": {
 				"heading": "Give your messages a touch of green",

@@ -24,7 +24,7 @@ export default function Title(
 	}, [props.children, props.noAccents, setInverted, setNoAccents]);
 	return (
 		<div
-			className={`relative w-full ${props.children && "dark xl:h-[700px] pb-px"} overflow-hidden text-balance`}
+			className={`relative w-full ${props.children ? "dark xl:h-[700px] pb-px" : ""} overflow-hidden text-balance`}
 		>
 			{props.children && <div className="absolute -z-10 inset-0">{props.children}</div>}
 			{props.children && <div className="absolute bottom-0 inset-x-0 h-px bg-black/5 dark:bg-white/5"/>}
@@ -33,7 +33,7 @@ export default function Title(
 					<div className="relative size-full flex flex-col gap-6 xl:justify-center col-span-2 md:col-span-1 pt-28 pb-20 md:py-28 lg:py-32 xl:py-40">
 						<div className={props.children ? "drop-shadow-md" : ""}>
 							<m.h1
-								className={`relative pb-1 md:pb-2 lg:pb-3 font-serif ${props.children && "text-white"}`}
+								className={`relative pb-1 md:pb-2 lg:pb-3 font-serif ${props.children ? "text-white" : ""}`}
 								initial={{ opacity: 0, filter: "blur(5px)", y: 20 }}
 								animate={{
 									opacity: 1,
@@ -62,7 +62,7 @@ export default function Title(
 										delay: props.children ? 0.25 : 0.05,
 									},
 								}}
-								className={`text-xl md:text-2xl xl:text-3xl ${props.children && "text-white/75 max-w-60"} sm:max-w-none`}
+								className={`text-xl md:text-2xl xl:text-3xl ${props.children ? "text-white/75 max-w-60" : ""} sm:max-w-none`}
 							>
 								{props.description}
 							</m.p>

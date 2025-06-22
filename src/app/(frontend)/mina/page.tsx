@@ -18,6 +18,7 @@ import GallerySuspense from "./gallery/gallerySuspense";
 import GallerySkeleton from "./gallery/gallerySkeleton";
 import Download from "@/icons/Download";
 import Discord from "@/icons/Discord";
+import WarningCircle from "@/icons/WarningCircle";
 
 export async function generateMetadata() {
 	const t = await getTranslations("MINA");
@@ -30,10 +31,10 @@ export async function generateMetadata() {
 export default async function Page({
 	searchParams,
 }: {
-	searchParams: Promise<{ p: string; nsfw: string; artist: string }>;
+	searchParams: Promise<{ p: string; nsfw: string; refs: string; artist: string; outfit: string }>;
 }) {
 	const t = await getTranslations("MINA");
-	const { p = "1", nsfw, artist = "undefined" } = await searchParams;
+	const { p = "1", nsfw, refs, artist = "undefined", outfit = "undefined" } = await searchParams;
 	return (
 		<>
 			<Title
@@ -64,7 +65,7 @@ export default async function Page({
 			<main>
 				<section id="lore" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<div className="w-full md:grid grid-cols-2 border-x border-black/5 dark:border-white/5">
-						<div className="md:border-r border-black/5 dark:border-white/5 pt-12 lg:pt-20 xl:pt-40 md:pr-12">
+						<div className="md:border-r border-black/5 dark:border-white/5 py-12 lg:py-20 xl:py-40 md:pr-12">
 							<h2>
 								{t("Content.About.heading")}
 								<span className="text-green">.</span>
@@ -88,9 +89,39 @@ export default async function Page({
 						</div>
 					</div>
 				</section>
+				<section id="gallery" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+					<Suspense fallback={<GallerySkeleton />}>
+						<GallerySuspense p={parseInt(p)} artist={artist} outfit={outfit} nsfw={nsfw} refs={refs} />
+					</Suspense>
+				</section>
+				<section id="rules" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+					<div className="w-full border-x border-black/5 dark:border-white/5 py-12 lg:py-20 xl:py-40">
+						<h2>
+							{t("Content.Fanart.heading")}
+							<span className="text-green">.</span>
+						</h2>
+						<p>{t("Content.Fanart.text1")}</p>
+						<p>{t("Content.Fanart.text2")}</p>
+						<p>{t("Content.Fanart.text3")}</p>
+						<div className="px-1 py-0.5 max-w-max bg-black/5 dark:bg-white/5 hover:bg-red-50 dark:hover:bg-red-950 text-transparent hover:text-red-800 dark:hover:text-red-200 duration-100 select-none hover:select-text">
+							{t("Content.Fanart.text4")}
+						</div>
+						<p className="text-xs text-neutral-950/25 dark:text-white/25 pt-1">
+							{t("Content.Fanart.text5")}
+						</p>
+					</div>
+				</section>
 				<section id="design" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+					<div className="w-full md:flex items-center gap-3 px-3 py-2.5 border-x border-yellow bg-yellow-50 dark:bg-yellow-950 text-neutral-950 dark:text-white">
+						<div className="my-1">
+							<WarningCircle />
+						</div>
+						<div>
+							<p className="text-sm md:text-base">{t("Content.Reference.outdated")}</p>
+						</div>
+					</div>
 					<Ref />
-					<div className="w-full border-x border-black/5 dark:border-white/5 flex flex-col lg:flex-row lg:justify-between gap-6 pt-6">
+					<div className="w-full border-x border-black/5 dark:border-white/5 flex flex-col lg:flex-row lg:justify-between gap-6 pt-6 pb-32">
 						<p>
 							{t.rich("Content.Reference.credit", {
 								Link: (chunks) => (
@@ -114,28 +145,6 @@ export default async function Page({
 								</Button>
 							</Link>
 						</div>
-					</div>
-				</section>
-				<section id="gallery" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-					<Suspense fallback={<GallerySkeleton />}>
-						<GallerySuspense p={parseInt(p)} artist={artist} nsfw={nsfw} />
-					</Suspense>
-				</section>
-				<section id="rules" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-					<div className="w-full border-x border-black/5 dark:border-white/5 py-12 lg:py-20 xl:py-40">
-						<h2>
-							{t("Content.Fanart.heading")}
-							<span className="text-green">.</span>
-						</h2>
-						<p>{t("Content.Fanart.text1")}</p>
-						<p>{t("Content.Fanart.text2")}</p>
-						<p>{t("Content.Fanart.text3")}</p>
-						<div className="px-1 py-0.5 max-w-max bg-black/5 dark:bg-white/5 hover:bg-red-50 dark:hover:bg-red-950 text-transparent hover:text-red-800 dark:hover:text-red-200 duration-100 select-none hover:select-text">
-							{t("Content.Fanart.text4")}
-						</div>
-						<p className="text-xs text-neutral-950/25 dark:text-white/25 pt-1">
-							{t("Content.Fanart.text5")}
-						</p>
 					</div>
 				</section>
 				<section className="relative flex items-end justify-center max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20 min-h-[400px] overflow-clip">
