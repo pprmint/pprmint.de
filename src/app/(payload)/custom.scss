@@ -260,8 +260,7 @@ h6 {
 				&:hover {
 					border: 1px solid var(--theme-elevation-250);
 					td.cell-_select {
-						opacity: 1 !important;
-						z-index: 10;
+						opacity: 1;
 					}
 					.file__thumbnail {
 						border-bottom-color: var(--theme-elevation-250) !important;
@@ -299,9 +298,11 @@ h6 {
 					&.cell-_select {
 						position: absolute;
 						padding: 10px !important;
-						z-index: 1;
-						&:not(:has(.checkbox-input--checked)) {
-							opacity: 0;
+						z-index: 10;
+						opacity: 0;
+						transition: opacity .1s;
+						&:has(.checkbox-input--checked) {
+							opacity: 1;
 						}
 					}
 					&.cell-filename,
@@ -327,7 +328,7 @@ h6 {
 							background-repeat: repeat;
 							background-size: 10%;
 							img {
-								position: absolute;
+								position: inherit;
 								width: 100%;
 								height: 100%;
 								object-fit: contain;
