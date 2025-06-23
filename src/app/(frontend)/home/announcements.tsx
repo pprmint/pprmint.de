@@ -21,16 +21,16 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 
 	const handleNext = () => {
 		setDirection(1);
-		setTimeout(() => {
+		requestAnimationFrame(() => {
 			setCurrent((prev) => (prev - 1 + data.docs.length) % data.docs.length);
-		}, 1);
+		});
 	};
 
 	const handlePrevious = () => {
 		setDirection(-1);
-		setTimeout(() => {
+		requestAnimationFrame(() => {
 			setCurrent((prev) => (prev + 1) % data.docs.length);
-		}, 1);
+		});
 	};
 
 	return (

@@ -35,10 +35,10 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 			setXOffset(0);
 		}
 		setDirection(id > selectedArtwork ? 1 : -1);
-		setTimeout(() => {
+		requestAnimationFrame(() => {
 			setSelectedArtwork(id);
 			setSelectedVariant(0);
-		}, 1);
+		});
 	}
 	// Reset to 0 after the lightbox is closed.
 	function reset() {

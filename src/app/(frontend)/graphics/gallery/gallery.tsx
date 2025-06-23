@@ -22,7 +22,7 @@ export default function GalleryGrid({ graphics, page }: { graphics: PaginatedDoc
 	return (
 		<div
 			ref={galleryRef}
-			className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:p-2 border-y border-black/5 dark:border-white/5 md:gap-2"
+			className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-1 md:p-2 border-y border-black/5 dark:border-white/5 gap-1 md:gap-2"
 		>
 			<AnimatePresence mode="popLayout">
 				{graphics.docs.map((graphic, index) => (

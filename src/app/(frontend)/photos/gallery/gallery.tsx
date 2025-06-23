@@ -33,9 +33,9 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 			setXOffset(0);
 		}
 		setDirection(id > selectedPhoto ? 1 : -1);
-		setTimeout(() => {
+		requestAnimationFrame(() => {
 			setSelectedPhoto(id);
-		}, 1);
+		});
 	}
 	// Reset to 0 after the lightbox is closed.
 	function reset() {
@@ -88,7 +88,7 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 	return (
 		<div
 			ref={galleryRef}
-			className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:p-2 border-y border-black/5 dark:border-white/5 sm:gap-2"
+			className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-1 sm:p-2 border-y border-black/5 dark:border-white/5 gap-1 sm:gap-2"
 		>
 			<AnimatePresence mode="popLayout">
 				{photos.docs.map((photo, index) => (
@@ -227,7 +227,7 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 																	"object" &&
 																photos.docs[selectedPhoto].camera.svgLogo ? (
 																	<div
-																		className="*:h-4 *:md:h-6 *:w-full"
+																		className="h-4 *:h-4 md:h-6 *:md:h-6 w-auto *:w-auto"
 																		dangerouslySetInnerHTML={{
 																			__html: photos.docs[selectedPhoto].camera
 																				.svgLogo,
