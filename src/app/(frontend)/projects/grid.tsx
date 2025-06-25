@@ -17,7 +17,7 @@ import MintbitImage from "./mintbit/twitter-image.png";
 import MintcraftImage from "./mintcraft/twitter-image.png";
 import MintsansImage from "./mintsans/twitter-image.png";
 import MinttrianglesImage from "./minttriangles/twitter-image.png";
-import MinasansImage from "./minasans/twitter-image.png";
+import VariaImage from "./varia/twitter-image.png";
 import TentativeImage from "./tentative/twitter-image.png";
 import YtdgImage from "./ytdg/twitter-image.png";
 import { useState } from "react";
@@ -30,9 +30,9 @@ const ProjectsList = [
 		link: "https://pomi.moe",
 	},
 	{
-		name: "minasans",
+		name: "varia",
 		tags: ["font"],
-		image: MinasansImage,
+		image: VariaImage,
 	},
 	{
 		name: "autsellia",

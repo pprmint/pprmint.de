@@ -92,7 +92,17 @@ module.exports = withPayload(
 				},
 				{
 					source: "/minasans",
-					destination: "/projects/minasans",
+					destination: "/projects/varia",
+					permanent: false,
+				},
+				{
+					source: "/projects/minasans",
+					destination: "/projects/varia",
+					permanent: false,
+				},
+				{
+					source: "/varia",
+					destination: "/projects/varia",
 					permanent: false,
 				},
 				{

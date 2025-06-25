@@ -8,7 +8,7 @@ import Link from "next/link";
 import ArrowRight from "@/icons/ArrowRight";
 
 export async function generateMetadata() {
-	const t = await getTranslations("MINASANS");
+	const t = await getTranslations("VARIA");
 	return {
 		title: t("Head.title"),
 		description: t("Head.description"),
@@ -16,13 +16,13 @@ export async function generateMetadata() {
 }
 
 export default function Page() {
-	const t = useTranslations("MINASANS");
+	const t = useTranslations("VARIA");
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
 				<div className="absolute inset-0 bg-neutral-950">
 					<FadingImage
-						src="/api/assets/file/MinaSans_title.webp"
+						src="/api/assets/file/Varia_BG.png"
 						alt=""
 						fill
 						className="object-cover"
@@ -37,22 +37,25 @@ export default function Page() {
 			<main>
 				<section>
 					<div className="relative w-full aspect-video">
-						<FadingImage src="/api/assets/file/MinaSans_Cover.png" width={3840} height={2160} unoptimized alt="Slide 2" className="w-full" />
+						<FadingImage src="/api/assets/file/Varia_Cover.png" width={3840} height={2160} unoptimized alt="Slide 2" className="w-full" />
 					</div>
 					<div className="relative w-full aspect-video">
-						<FadingImage src="/api/assets/file/MinaSans_Alphabet.png" width={3840} height={2160} alt="Slide 1" className="w-full" />
+						<FadingImage src="/api/assets/file/Varia_Alphabet.png" width={3840} height={2160} alt="Slide 1" className="w-full" />
 					</div>
 					<div className="relative w-full aspect-video">
-						<FadingImage src="/api/assets/file/MinaSans_StVO.png" width={3840} height={2160} alt="Slide 3" className="w-full" />
+						<FadingImage src="/api/assets/file/Varia_CharacterVariants.png" width={3840} height={2160} alt="Slide 4" className="w-full" />
 					</div>
 					<div className="relative w-full aspect-video">
-						<FadingImage src="/api/assets/file/MinaSans_faktor.png" width={3840} height={2160} alt="Slide 6" className="w-full" />
+						<FadingImage src="/api/assets/file/Varia_StVO.png" width={3840} height={2160} alt="Slide 3" className="w-full" />
 					</div>
 					<div className="relative w-full aspect-video">
-						<FadingImage src="/api/assets/file/MinaSans_Nondescript_phone.png" width={3840} height={2160} alt="Slide 5" className="w-full" />
+						<FadingImage src="/api/assets/file/Varia_Time.png" width={3840} height={2160} alt="Slide 5" className="w-full" />
 					</div>
 					<div className="relative w-full aspect-video">
-						<FadingImage src="/api/assets/file/MinaSans_Release_date.png" width={3840} height={2160} alt="Slide 6" className="w-full" />
+						<FadingImage src="/api/assets/file/Varia_Faktor.png" width={3840} height={2160} alt="Slide 6" className="w-full" />
+					</div>
+					<div className="relative w-full aspect-video">
+						<FadingImage src="/api/assets/file/Varia_ReleaseDate.png" width={3840} height={2160} alt="Slide 6" className="w-full" />
 					</div>
 					<div className="relative w-full aspect-video">
 						<FadingImage src="/api/assets/file/MinaSans_Mina.png" width={3840} height={2160} alt="Slide 4" className="w-full" />

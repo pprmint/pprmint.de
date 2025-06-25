@@ -50,27 +50,27 @@ export default async function Page() {
 					<div className="relative z-10 max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
 						<div className="py-20 md:py-32 xl:py-40 border-x border-white/5">
 							<p className="text-white text-xl lg:text-2xl xl:text-3xl font-stretch-condensed">
-								{t("Content.Featured.MinaSans.tagline")}
+								{t("Content.Featured.Varia.tagline")}
 							</p>
 							<h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-								Mina Sans<span className="text-green">.</span>
+								MN Varia<span className="text-green">.</span>
 							</h2>
 							<p className="text-white/75 xl:text-xl 2xl:text-2xl mb-6 max-w-[75%] text-balance">
-								{t("Content.Featured.MinaSans.text")}
+								{t("Content.Featured.Varia.text")}
 							</p>
-							<Link href="/projects/minasans" className="inline-flex w-fit">
+							<Link href="/projects/varia" className="inline-flex w-fit">
 								<Button design="semi-transparent">
-									{t("Content.Featured.MinaSans.button")}
+									{t("Content.Featured.Varia.button")}
 								</Button>
 							</Link>
 						</div>
 					</div>
 					<FadingImage
-						src="/api/assets/file/IMG0902_2e9636cf91.webp"
-						width={1803}
-						height={1200}
+						src="/api/assets/file/Varia_BG.png"
+						width={2680}
+						height={1400}
 						alt=""
-						className="absolute right-0 top-1/2 -translate-y-1/2 object-cover xl:object-auto xl:w-3/4 h-full xl:h-auto"
+						className="absolute inset-0 object-cover origin-top"
 						style={{
 							maskImage:
 								"linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0))",
