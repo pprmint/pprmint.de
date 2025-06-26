@@ -67,10 +67,9 @@ export default async function Page() {
 					</div>
 					<FadingImage
 						src="/api/assets/file/Varia_BG.png"
-						width={2680}
-						height={1400}
+						fill
 						alt=""
-						className="absolute inset-0 object-cover origin-top"
+						className="object-cover"
 						style={{
 							maskImage:
 								"linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0))",
