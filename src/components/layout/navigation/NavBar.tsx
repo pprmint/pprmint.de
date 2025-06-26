@@ -80,7 +80,7 @@ export default function NavBar() {
 			}
 				${solid || navOpen ? "bg-white/90 dark:bg-neutral-950/90 backdrop-blur-xl border-black/5 dark:border-white/5" : "border-transparent"}`}
 		>
-			<Link className="absolute z-90 left-6 md:left-9 top-3.5" href="/">
+			<Link className="absolute z-90 left-6 md:left-[33px] top-3.5" href="/">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 157 35" className="h-auto w-[157px] mt-[3px]">
 					<path
 						fill="currentColor"
