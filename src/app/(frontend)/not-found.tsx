@@ -5,20 +5,23 @@ import { useTranslations } from "next-intl";
 import * as m from "motion/react-m";
 
 import DetectiveMina from "/public/assets/404/mina_chibi.webp";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ArrowRight from "@/icons/ArrowRight";
 import Button from "@/components/ui/Button";
+import { useMotionTemplate, useSpring, useTransform } from "motion/react";
 
 export default function NotFound() {
 	const t = useTranslations("404");
-	const [coords, setCoords] = useState({ x: 0, y: 0 });
 
+	const spring = { damping: 10, stiffness: 100, mass: 0.5, restDelta: 0.01 }
+	
+	const x = useSpring(0, spring)
+	const y = useSpring(0, spring)
+	
 	useEffect(() => {
 		const handleWindowMouseMove = (e: MouseEvent) => {
-			setCoords({
-				x: e.clientX / document.documentElement.clientWidth,
-				y: e.clientY / document.documentElement.clientHeight,
-			});
+			x.set(e.clientX / document.documentElement.clientWidth);
+			y.set(e.clientY / document.documentElement.clientHeight);
 		};
 		window.addEventListener("mousemove", handleWindowMouseMove);
 
@@ -27,15 +30,17 @@ export default function NotFound() {
 		};
 	}, []);
 
+	const weight = useTransform(y, [0, 1], [400, 800])
+	const slnt = useTransform(x, [0, 1], [0, -12])
+
 	return (
 		<main className="relative w-screen xl:h-screen overflow-clip">
 			<div className="absolute inset-0 bottom-[10vh] -z-10">
-				<div
+				<m.div
 					aria-hidden
-					className="absolute flex items-center justify-center size-full font-stretch-expanded text-[52vw] text-transparent bg-clip-text opacity-[0.075] duration-300"
+					className="absolute flex items-center justify-center size-full font-stretch-expanded text-[52vw] text-transparent bg-clip-text opacity-[0.075]"
 					style={{
-						fontWeight: 400 + (800 - 400) * coords.y,
-						fontVariationSettings: `'slnt' ${0 + (-12 - 0) * coords.x}`,
+						fontVariationSettings: useMotionTemplate`'slnt' ${slnt}, 'wght' ${weight}`
 					}}
 				>
 					<m.div
@@ -74,7 +79,7 @@ export default function NotFound() {
 					>
 						4
 					</m.div>
-				</div>
+				</m.div>
 			</div>
 			<div className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 				<div className="h-screen w-full grid xl:grid-cols-2 border-x border-black/5 dark:border-white/5">
