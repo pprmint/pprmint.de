@@ -13,11 +13,11 @@ import { useMotionTemplate, useSpring, useTransform } from "motion/react";
 export default function NotFound() {
 	const t = useTranslations("404");
 
-	const spring = { damping: 10, stiffness: 100, mass: 0.5, restDelta: 0.01 }
-	
-	const x = useSpring(0, spring)
-	const y = useSpring(0, spring)
-	
+	const spring = { damping: 10, stiffness: 100, mass: 0.5, restDelta: 0.01 };
+
+	const x = useSpring(0, spring);
+	const y = useSpring(0, spring);
+
 	useEffect(() => {
 		const handleWindowMouseMove = (e: MouseEvent) => {
 			x.set(e.clientX / document.documentElement.clientWidth);
@@ -28,10 +28,10 @@ export default function NotFound() {
 		return () => {
 			window.removeEventListener("mousemove", handleWindowMouseMove);
 		};
-	}, []);
+	}, [x, y]);
 
-	const weight = useTransform(y, [0, 1], [400, 800])
-	const slnt = useTransform(x, [0, 1], [0, -12])
+	const weight = useTransform(y, [0, 1], [400, 800]);
+	const slnt = useTransform(x, [0, 1], [0, -12]);
 
 	return (
 		<main className="relative w-screen xl:h-screen overflow-clip">
@@ -40,7 +40,7 @@ export default function NotFound() {
 					aria-hidden
 					className="absolute flex items-center justify-center size-full font-stretch-expanded text-[52vw] text-transparent bg-clip-text opacity-[0.075]"
 					style={{
-						fontVariationSettings: useMotionTemplate`'slnt' ${slnt}, 'wght' ${weight}`
+						fontVariationSettings: useMotionTemplate`'slnt' ${slnt}, 'wght' ${weight}`,
 					}}
 				>
 					<m.div
