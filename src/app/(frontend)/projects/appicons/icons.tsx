@@ -499,7 +499,10 @@ export default function Selector() {
 										src={icon.image}
 										alt={icon.name}
 										style={{ transition: "opacity 0.2s" }}
-										className={`${selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name) && "opacity-25"} drop-shadow`}
+										className={`${
+											selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name) &&
+											"opacity-25"
+										} drop-shadow`}
 									/>
 								</button>
 							))}
@@ -519,7 +522,11 @@ export default function Selector() {
 					</p>
 					<p
 						onClick={() => setSelectedIcons([])}
-						className={`mb-2 ${loading || selectedIcons.length === 0 ? "pointer-events-none text-neutral-950/50 dark:text-white/50" : "text-link cursor-pointer"} duration-100`}
+						className={`mb-2 ${
+							loading || selectedIcons.length === 0
+								? "pointer-events-none text-neutral-950/50 dark:text-white/50"
+								: "text-link cursor-pointer"
+						} duration-100`}
 					>
 						{t("Content.Panel.deselectAll")}
 					</p>
@@ -538,7 +545,7 @@ export default function Selector() {
 									exit={{
 										opacity: 0,
 										height: 0,
-										transition: { type: "linear", duration: 0.2, height: { delay: 0.1 } },
+										transition: { ease: "linear", duration: 0.2, height: { delay: 0.1 } },
 									}}
 								>
 									{icon.name}
