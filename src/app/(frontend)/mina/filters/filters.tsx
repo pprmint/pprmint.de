@@ -64,6 +64,7 @@ function Filters(props: {
 		if (refs) {
 			params.delete("refs");
 		} else {
+			params.delete("p"); // Otherwise you may end up on a page with no results.
 			params.set("refs", "show");
 		}
 		replace(`${pathname}?${params.toString()}`, { scroll: false });
