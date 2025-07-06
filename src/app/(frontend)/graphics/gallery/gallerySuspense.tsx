@@ -46,6 +46,12 @@ export default async function GallerySuspense({
 		pagination: true,
 		page: p,
 		where: filters.length > 0 ? { and: filters } : undefined,
+		select: {
+			id: true,
+			slug: true,
+			title: true,
+			thumbnail: true,
+		},
 	});
 
 	return (

@@ -90,7 +90,7 @@ export default async function GallerySuspense({
 	const artworks = await payload.find({
 		collection: "mina",
 		page: p,
-		limit: 28,
+		limit: 24,
 		where: filters.length > 0 ? { and: filters } : undefined,
 		locale,
 		sort: "-date",
