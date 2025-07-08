@@ -44,7 +44,6 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 		};
 	}, [artworks.docs.length]);
 
-
 	function handleSelectArtwork({ id, offset }: { id: number; offset?: number }) {
 		if (offset) {
 			setXOffset(offset);
@@ -74,6 +73,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 		if (initRef.current && galleryRef.current) {
 			scrollTo({
 				top: galleryRef.current?.getBoundingClientRect().top + scrollY - 140,
+				behavior: "smooth",
 			});
 		} else {
 			initRef.current = true;
@@ -483,7 +483,10 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 					))}
 				</AnimatePresence>
 			</m.div>
-			<div id="galleryHeightRef" className="fixed w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 -top-full -left-full pointer-events-none">
+			<div
+				id="galleryHeightRef"
+				className="fixed w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 -top-full -left-full pointer-events-none"
+			>
 				<div
 					ref={galleryHeightRef}
 					className="w-full group grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 p-1 sm:p-2 gap-1 sm:gap-2"

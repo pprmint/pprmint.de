@@ -44,6 +44,35 @@ export const Outfits: CollectionConfig = {
 			],
 		},
 		{
+			name: "description",
+			type: "textarea",
+			required: true,
+			localized: true,
+		},
+		{
+			type: "row",
+			fields: [
+				{
+					name: "referenceFront",
+					label: "Front reference image",
+					type: "upload",
+					relationTo: "artwork",
+					admin: {
+						width: "50%",
+					},
+				},
+				{
+					name: "referenceBack",
+					label: "Back reference image",
+					type: "upload",
+					relationTo: "artwork",
+					admin: {
+						width: "50%",
+					},
+				},
+			],
+		},
+		{
 			name: "artworks",
 			type: "join",
 			collection: "mina",

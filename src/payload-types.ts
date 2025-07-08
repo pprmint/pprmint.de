@@ -362,25 +362,9 @@ export interface Outfit {
   id: string;
   name: string;
   designer?: (string | null) | Artist;
-  artworks?: {
-    docs?: (string | Mina)[];
-    hasNextPage?: boolean;
-    totalDocs?: number;
-  };
-  slug: string;
-  slugLock?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "characters".
- */
-export interface Character {
-  id: string;
-  name: string;
-  owner?: string | null;
-  link?: string | null;
+  description: string;
+  referenceFront?: (string | null) | Artwork;
+  referenceBack?: (string | null) | Artwork;
   artworks?: {
     docs?: (string | Mina)[];
     hasNextPage?: boolean;
@@ -453,6 +437,25 @@ export interface Artwork {
       filename?: string | null;
     };
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "characters".
+ */
+export interface Character {
+  id: string;
+  name: string;
+  owner?: string | null;
+  link?: string | null;
+  artworks?: {
+    docs?: (string | Mina)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  slug: string;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -891,6 +894,9 @@ export interface ArtistsSelect<T extends boolean = true> {
 export interface OutfitsSelect<T extends boolean = true> {
   name?: T;
   designer?: T;
+  description?: T;
+  referenceFront?: T;
+  referenceBack?: T;
   artworks?: T;
   slug?: T;
   slugLock?: T;

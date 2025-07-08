@@ -19,6 +19,7 @@ import GallerySkeleton from "./gallery/gallerySkeleton";
 import Download from "@/icons/Download";
 import Discord from "@/icons/Discord";
 import WarningCircle from "@/icons/WarningCircle";
+// import OutfitRowSuspense from "./outfitRow/outfitRowSuspense";
 
 export async function generateMetadata() {
 	const t = await getTranslations("MINA");
@@ -94,6 +95,11 @@ export default async function Page({
 						<GallerySuspense p={parseInt(p)} artist={artist} outfit={outfit} nsfw={nsfw} refs={refs} />
 					</Suspense>
 				</section>
+				{/* <section id="outfits" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+					<Suspense>
+						<OutfitRowSuspense />
+					</Suspense>
+				</section> */}
 				<section id="rules" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<div className="w-full border-x border-black/5 dark:border-white/5 py-12 lg:py-20 xl:py-40">
 						<h2>
