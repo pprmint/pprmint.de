@@ -40,7 +40,7 @@ export default async function Page() {
 				<section className="py-20 md:py-32 xl:py-40 text-center border-x border-b border-black/5 dark:border-white/5">
 					<h2>
 						{t("Content.Intro.heading")}
-						<span className="text-pink">.</span>
+						<span className="text-violet">.</span>
 					</h2>
 					<p>
 						{t.rich("Content.Intro.text1", {
@@ -72,7 +72,7 @@ export default async function Page() {
 					<div className="md:order-1 pt-20 pb-6 lg:py-0 lg:pl-20 lg:text-right">
 						<h2>
 							{t("Content.Wireframe.heading")}
-							<span className="text-pink">.</span>
+							<span className="text-violet">.</span>
 						</h2>
 						<p>
 							{t.rich("Content.Wireframe.text", {
@@ -96,7 +96,7 @@ export default async function Page() {
 					<div className="pt-20 pb-6 lg:py-0 lg:pr-20">
 						<h2>
 							{t("Content.Punctuation.heading")}
-							<span className="text-pink">.</span>
+							<span className="text-violet">.</span>
 						</h2>
 						<p>{t("Content.Punctuation.text")}</p>
 					</div>
@@ -106,7 +106,7 @@ export default async function Page() {
 					<div className="md:order-1 pt-20 pb-6 lg:py-0 lg:pl-20 lg:text-right">
 						<h2>
 							{t("Content.Special.heading")}
-							<span className="text-pink">.</span>
+							<span className="text-violet">.</span>
 						</h2>
 						<p>{t("Content.Special.text")}</p>
 					</div>
@@ -115,11 +115,11 @@ export default async function Page() {
 				<section className="text-center border-x border-t border-black/5 dark:border-white/5 pt-20 md:pt-32 xl:pt-40">
 					<h2>
 						{t("Content.Download.heading")}
-						<span className="text-pink">.</span>
+						<span className="text-violet">.</span>
 					</h2>
 					<p className="pb-6">{t("Content.Download.text")}</p>
 					<Link className="flex w-max mx-auto" href="/api/download/file/mint_triangles_1.0.zip" download target="_blank">
-						<Button color="pink" tabIndex={-1} design="filled">
+						<Button color="violet" tabIndex={-1} design="filled">
 							<Download />
 							{t("Content.Download.button")}
 						</Button>

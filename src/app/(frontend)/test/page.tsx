@@ -47,6 +47,73 @@ export default function Page() {
 				<p className="text-link">Internal link</p>
 				<p className="text-link-external">External link</p>
 			</section>
+			<section id="colors" className="w-full border-x border-black/5 dark:border-white/5 flex pb-40">
+				<div className="grid grid-rows-11 w-full">
+					<div className="w-full h-12 bg-red-50" />
+					<div className="w-full h-12 bg-red-100" />
+					<div className="w-full h-12 bg-red-200" />
+					<div className="w-full h-12 bg-red-300" />
+					<div className="w-full h-12 bg-red-400" />
+					<div className="w-full h-12 bg-red-500" />
+					<div className="w-full h-12 bg-red-600" />
+					<div className="w-full h-12 bg-red-700" />
+					<div className="w-full h-12 bg-red-800" />
+					<div className="w-full h-12 bg-red-900" />
+					<div className="w-full h-12 bg-red-950" />
+				</div>
+				<div className="grid grid-rows-11 w-full">
+					<div className="w-full h-12 bg-yellow-50" />
+					<div className="w-full h-12 bg-yellow-100" />
+					<div className="w-full h-12 bg-yellow-200" />
+					<div className="w-full h-12 bg-yellow-300" />
+					<div className="w-full h-12 bg-yellow-400" />
+					<div className="w-full h-12 bg-yellow-500" />
+					<div className="w-full h-12 bg-yellow-600" />
+					<div className="w-full h-12 bg-yellow-700" />
+					<div className="w-full h-12 bg-yellow-800" />
+					<div className="w-full h-12 bg-yellow-900" />
+					<div className="w-full h-12 bg-yellow-950" />
+				</div>
+				<div className="grid grid-rows-11 w-full">
+					<div className="w-full h-12 bg-green-50" />
+					<div className="w-full h-12 bg-green-100" />
+					<div className="w-full h-12 bg-green-200" />
+					<div className="w-full h-12 bg-green-300" />
+					<div className="w-full h-12 bg-green-400" />
+					<div className="w-full h-12 bg-green-500" />
+					<div className="w-full h-12 bg-green-600" />
+					<div className="w-full h-12 bg-green-700" />
+					<div className="w-full h-12 bg-green-800" />
+					<div className="w-full h-12 bg-green-900" />
+					<div className="w-full h-12 bg-green-950" />
+				</div>
+				<div className="grid grid-rows-11 w-full">
+					<div className="w-full h-12 bg-blue-50" />
+					<div className="w-full h-12 bg-blue-100" />
+					<div className="w-full h-12 bg-blue-200" />
+					<div className="w-full h-12 bg-blue-300" />
+					<div className="w-full h-12 bg-blue-400" />
+					<div className="w-full h-12 bg-blue-500" />
+					<div className="w-full h-12 bg-blue-600" />
+					<div className="w-full h-12 bg-blue-700" />
+					<div className="w-full h-12 bg-blue-800" />
+					<div className="w-full h-12 bg-blue-900" />
+					<div className="w-full h-12 bg-blue-950" />
+				</div>
+				<div className="grid grid-rows-11 w-full">
+					<div className="w-full h-12 bg-violet-50" />
+					<div className="w-full h-12 bg-violet-100" />
+					<div className="w-full h-12 bg-violet-200" />
+					<div className="w-full h-12 bg-violet-300" />
+					<div className="w-full h-12 bg-violet-400" />
+					<div className="w-full h-12 bg-violet-500" />
+					<div className="w-full h-12 bg-violet-600" />
+					<div className="w-full h-12 bg-violet-700" />
+					<div className="w-full h-12 bg-violet-800" />
+					<div className="w-full h-12 bg-violet-900" />
+					<div className="w-full h-12 bg-violet-950" />
+				</div>
+			</section>
 			<section
 				id="buttons"
 				className="w-full border-x border-black/5 dark:border-white/5 flex flex-col gap-6 pb-40 flex-wrap"
@@ -56,17 +123,10 @@ export default function Page() {
 				<div className="flex gap-3 flex-wrap">
 					<Button>Button</Button>
 					<Button color="red">Button</Button>
-					<Button color="orange">Button</Button>
 					<Button color="yellow">Button</Button>
-					<Button color="lime">Button</Button>
 					<Button color="green">Button</Button>
-					<Button color="cyan">Button</Button>
 					<Button color="blue">Button</Button>
 					<Button color="violet">Button</Button>
-					<Button color="pink">Button</Button>
-					<Button disabled color="pink">
-						Button
-					</Button>
 				</div>
 				<h3>Semi-transparent</h3>
 				<div className="flex gap-3 flex-wrap">
@@ -74,28 +134,16 @@ export default function Page() {
 					<Button design="semi-transparent" color="red">
 						Button
 					</Button>
-					<Button design="semi-transparent" color="orange">
-						Button
-					</Button>
 					<Button design="semi-transparent" color="yellow">
 						Button
 					</Button>
-					<Button design="semi-transparent" color="lime">
-						Button
-					</Button>
 					<Button design="semi-transparent" color="green">
-						Button
-					</Button>
-					<Button design="semi-transparent" color="cyan">
 						Button
 					</Button>
 					<Button design="semi-transparent" color="blue">
 						Button
 					</Button>
 					<Button design="semi-transparent" color="violet">
-						Button
-					</Button>
-					<Button design="semi-transparent" color="pink">
 						Button
 					</Button>
 					<Button design="semi-transparent" disabled>
@@ -108,28 +156,16 @@ export default function Page() {
 					<Button design="filled" color="red">
 						Button
 					</Button>
-					<Button design="filled" color="orange">
-						Button
-					</Button>
 					<Button design="filled" color="yellow">
 						Button
 					</Button>
-					<Button design="filled" color="lime">
-						Button
-					</Button>
 					<Button design="filled" color="green">
-						Button
-					</Button>
-					<Button design="filled" color="cyan">
 						Button
 					</Button>
 					<Button design="filled" color="blue">
 						Button
 					</Button>
 					<Button design="filled" color="violet">
-						Button
-					</Button>
-					<Button design="filled" color="pink">
 						Button
 					</Button>
 					<Button design="filled" disabled>
@@ -142,28 +178,16 @@ export default function Page() {
 					<Button design="outlined" color="red">
 						Button
 					</Button>
-					<Button design="outlined" color="orange">
-						Button
-					</Button>
 					<Button design="outlined" color="yellow">
 						Button
 					</Button>
-					<Button design="outlined" color="lime">
-						Button
-					</Button>
 					<Button design="outlined" color="green">
-						Button
-					</Button>
-					<Button design="outlined" color="cyan">
 						Button
 					</Button>
 					<Button design="outlined" color="blue">
 						Button
 					</Button>
 					<Button design="outlined" color="violet">
-						Button
-					</Button>
-					<Button design="outlined" color="pink">
 						Button
 					</Button>
 					<Button design="outlined" disabled>
@@ -176,105 +200,73 @@ export default function Page() {
 				<div className="flex gap-3">
 					<Checkbox />
 					<Checkbox color="red" />
-					<Checkbox color="orange" />
 					<Checkbox color="yellow" />
-					<Checkbox color="lime" />
 					<Checkbox color="green" />
-					<Checkbox color="cyan" />
 					<Checkbox color="blue" />
 					<Checkbox color="violet" />
-					<Checkbox color="pink" />
 					<Checkbox disabled />
 				</div>
 				<div className="flex gap-3">
 					<Checkbox checked />
 					<Checkbox checked color="red" />
-					<Checkbox checked color="orange" />
 					<Checkbox checked color="yellow" />
-					<Checkbox checked color="lime" />
 					<Checkbox checked color="green" />
-					<Checkbox checked color="cyan" />
 					<Checkbox checked color="blue" />
 					<Checkbox checked color="violet" />
-					<Checkbox checked color="pink" />
 					<Checkbox checked disabled />
 				</div>
 				<div className="flex gap-3">
 					<Checkbox large />
 					<Checkbox large color="red" />
-					<Checkbox large color="orange" />
 					<Checkbox large color="yellow" />
-					<Checkbox large color="lime" />
 					<Checkbox large color="green" />
-					<Checkbox large color="cyan" />
 					<Checkbox large color="blue" />
 					<Checkbox large color="violet" />
-					<Checkbox large color="pink" />
 					<Checkbox large disabled />
 				</div>
 				<div className="flex gap-3">
 					<Checkbox large checked />
 					<Checkbox large checked color="red" />
-					<Checkbox large checked color="orange" />
 					<Checkbox large checked color="yellow" />
-					<Checkbox large checked color="lime" />
 					<Checkbox large checked color="green" />
-					<Checkbox large checked color="cyan" />
 					<Checkbox large checked color="blue" />
 					<Checkbox large checked color="violet" />
-					<Checkbox large checked color="pink" />
 					<Checkbox large checked disabled />
 				</div>
 				<div className="flex gap-3">
 					<Checkbox border />
 					<Checkbox border color="red" />
-					<Checkbox border color="orange" />
 					<Checkbox border color="yellow" />
-					<Checkbox border color="lime" />
 					<Checkbox border color="green" />
-					<Checkbox border color="cyan" />
 					<Checkbox border color="blue" />
 					<Checkbox border color="violet" />
-					<Checkbox border color="pink" />
 					<Checkbox border disabled />
 				</div>
 				<div className="flex gap-3">
 					<Checkbox border checked />
 					<Checkbox border checked color="red" />
-					<Checkbox border checked color="orange" />
 					<Checkbox border checked color="yellow" />
-					<Checkbox border checked color="lime" />
 					<Checkbox border checked color="green" />
-					<Checkbox border checked color="cyan" />
 					<Checkbox border checked color="blue" />
 					<Checkbox border checked color="violet" />
-					<Checkbox border checked color="pink" />
 					<Checkbox border checked disabled />
 				</div>
 				<div className="flex gap-3">
 					<Checkbox border large />
 					<Checkbox border large color="red" />
-					<Checkbox border large color="orange" />
 					<Checkbox border large color="yellow" />
-					<Checkbox border large color="lime" />
 					<Checkbox border large color="green" />
-					<Checkbox border large color="cyan" />
 					<Checkbox border large color="blue" />
 					<Checkbox border large color="violet" />
-					<Checkbox border large color="pink" />
 					<Checkbox border large disabled />
 				</div>
 				<div className="flex gap-3">
 					<Checkbox border large checked />
 					<Checkbox border large checked color="red" />
-					<Checkbox border large checked color="orange" />
 					<Checkbox border large checked color="yellow" />
-					<Checkbox border large checked color="lime" />
 					<Checkbox border large checked color="green" />
-					<Checkbox border large checked color="cyan" />
 					<Checkbox border large checked color="blue" />
 					<Checkbox border large checked color="violet" />
-					<Checkbox border large checked color="pink" />
 					<Checkbox border large checked disabled />
 				</div>
 			</section>

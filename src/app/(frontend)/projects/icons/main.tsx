@@ -287,7 +287,7 @@ export default function Main() {
 						className="fixed flex items-center justify-center gap-6 z-100 bottom-0 inset-x-0 py-6"
 					>
 						<Image src={JiggyGif} alt="A jiggy!" className="size-32" />
-						<span className="bg-clip-text bg-gradient-to-b from-orange-100 to-orange text-8xl font-bold font-stretch-expanded text-transparent">
+						<span className="bg-clip-text bg-gradient-to-b from-yellow-100 to-yellow text-8xl font-bold font-stretch-expanded text-transparent">
 							{jiggies}
 						</span>
 					</m.div>

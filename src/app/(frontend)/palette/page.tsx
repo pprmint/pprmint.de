@@ -25,10 +25,9 @@ export default function Page() {
 					<div className="absolute top-1/2 inset-x-0 -translate-y-1/2">
 						<div className="w-full h-1/6-screen skew-y-12 bg-green" />
 						<div className="w-full h-1/6-screen -skew-y-12 border-y-2 border-yellow" />
-						<div className="w-full h-1/6-screen skew-y-12 border-y-2 border-orange" />
-						<div className="w-full h-1/6-screen -skew-y-12 border-y-2 border-red" />
-						<div className="w-full h-1/6-screen skew-y-12 border-y-2 border-violet" />
-						<div className="w-full h-1/6-screen -skew-y-12 border-y-2 border-blue" />
+						<div className="w-full h-1/6-screen skew-y-12 border-y-2 border-red" />
+						<div className="w-full h-1/6-screen -skew-y-12 border-y-2 border-violet" />
+						<div className="w-full h-1/6-screen skew-y-12 border-y-2 border-blue" />
 					</div>
 					<div className="absolute inset-0 bg-gradient-to-r from-neutral-950/75 via-transparent"/>
 				</div>

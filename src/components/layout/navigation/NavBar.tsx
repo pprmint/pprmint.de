@@ -116,8 +116,8 @@ export default function NavBar() {
 							gradientTransform="matrix(0 -13 13 0 151.75 23.86)"
 							gradientUnits="userSpaceOnUse"
 						>
-							<stop offset="0" style={{ stopColor: "#3da447", stopOpacity: 1 }} />
-							<stop offset="1" style={{ stopColor: "#32863a", stopOpacity: 1 }} />
+							<stop offset="0" style={{ stopColor: "#17925f", stopOpacity: 1 }} />
+							<stop offset="1" style={{ stopColor: "#1b6b47", stopOpacity: 1 }} />
 						</linearGradient>
 						<linearGradient
 							id="pprmint.b"
@@ -128,8 +128,8 @@ export default function NavBar() {
 							gradientTransform="matrix(0 -13 13 0 138.5 23.86)"
 							gradientUnits="userSpaceOnUse"
 						>
-							<stop offset="0" style={{ stopColor: "#3da447", stopOpacity: 1 }} />
-							<stop offset="1" style={{ stopColor: "#4b5", stopOpacity: 1 }} />
+							<stop offset="0" style={{ stopColor: "#17925f", stopOpacity: 1 }} />
+							<stop offset="1" style={{ stopColor: "#0b7", stopOpacity: 1 }} />
 						</linearGradient>
 						<linearGradient
 							id="pprmint.c"
