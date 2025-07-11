@@ -66,10 +66,10 @@ export default async function Page() {
 						</div>
 					</div>
 					<FadingImage
-						src="/api/assets/file/Varia_BG.png"
+						src="/api/assets/file/3D_a_edit2.webp"
 						fill
 						alt=""
-						className="object-cover"
+						className="w-full max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20 object-cover mix-blend-screen opacity-75"
 						style={{
 							maskImage:
 								"linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0))",
