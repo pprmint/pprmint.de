@@ -35,6 +35,7 @@ export const Outfits: CollectionConfig = {
 					name: "designer",
 					type: "relationship",
 					relationTo: "artists",
+					required: true,
 					admin: {
 						width: "50%",
 						sortOptions: "name",

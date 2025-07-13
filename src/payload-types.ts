@@ -361,7 +361,7 @@ export interface Artist {
 export interface Outfit {
   id: string;
   name: string;
-  designer?: (string | null) | Artist;
+  designer: string | Artist;
   description: string;
   referenceFront?: (string | null) | Artwork;
   referenceBack?: (string | null) | Artwork;
