@@ -490,6 +490,13 @@
 					"button": "Referenzblatt herunterladen"
 				}
 			},
+			"Outfits": {
+				"heading": "Outfits",
+				"designedBy": "Entworfen von <Link>{designer}</Link>",
+				"showArtworksFeaturingOutfit": "Kunstwerke mit diesem Outfit anzeigen",
+				"front": "Vorderseite",
+				"back": "Rückseite"
+			},
 			"Fanart": {
 				"heading": "Fanart-Regeln",
 				"text1": "Für SFW-Fanart habe ich grundsätzlich keine wirklichen Regeln für dich. Tob dich aus.",

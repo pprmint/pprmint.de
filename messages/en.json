@@ -490,6 +490,13 @@
 					"button": "Download reference sheet"
 				}
 			},
+			"Outfits": {
+				"heading": "Outfits",
+				"designedBy": "Designed by <Link>{designer}</Link>",
+				"showArtworksFeaturingOutfit": "Show artworks featuring this outfit",
+				"front": "Front",
+				"back": "Back"
+			},
 			"Fanart": {
 				"heading": "Fanart rules",
 				"text1": "I don't really have any rules for you if you plan on drawing SFW art with Mina. Knock yourself out.",

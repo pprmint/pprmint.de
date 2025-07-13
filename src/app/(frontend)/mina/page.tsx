@@ -19,7 +19,7 @@ import GallerySkeleton from "./gallery/gallerySkeleton";
 import Download from "@/icons/Download";
 import Discord from "@/icons/Discord";
 import WarningCircle from "@/icons/WarningCircle";
-// import OutfitRowSuspense from "./outfitRow/outfitRowSuspense";
+import OutfitRowSuspense from "./outfitRow/outfitRowSuspense";
 
 export async function generateMetadata() {
 	const t = await getTranslations("MINA");
@@ -45,13 +45,10 @@ export default async function Page({
 				creditLink="https://x.com/wxsonz"
 			>
 				<div className="relative h-full bg-neutral-950">
-					<div className="absolute w-full max-w-8xl inset-y-0 pt-9 md:pt-0 px-9 md:px-12 lg:px-24 xl:px-32 left-1/2 -translate-x-1/2">
-						<FadingImage
-							src="/api/assets/file/wxz_bg_empty.jpg"
-							alt=""
-							fill
-							className="object-cover"
-							unoptimized
+					<div className="absolute bg-gradient-to-bl from-blue-900 via-[#151515] to-[#151515] w-full max-w-8xl inset-y-0 pt-9 md:pt-0 px-9 md:px-12 lg:px-24 xl:px-32 left-1/2 -translate-x-1/2">
+						<div
+							style={{ background: "url(/assets/noise.png)" }}
+							className="absolute inset-0 opacity-20 mix-blend-multiply"
 						/>
 						<FadingImage
 							src="/api/artwork/file/wxz_original_transparent-1.webp"
@@ -95,11 +92,11 @@ export default async function Page({
 						<GallerySuspense p={parseInt(p)} artist={artist} outfit={outfit} nsfw={nsfw} refs={refs} />
 					</Suspense>
 				</section>
-				{/* <section id="outfits" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+				<section id="outfits" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<Suspense>
 						<OutfitRowSuspense />
 					</Suspense>
-				</section> */}
+				</section>
 				<section id="rules" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<div className="w-full border-x border-black/5 dark:border-white/5 py-12 lg:py-20 xl:py-40">
 						<h2>
@@ -118,8 +115,8 @@ export default async function Page({
 					</div>
 				</section>
 				<section id="design" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-					<div className="w-full md:flex items-center gap-3 px-3 py-2.5 border-x border-yellow bg-yellow-50 dark:bg-yellow-950 text-neutral-950 dark:text-white">
-						<div className="my-1">
+					<div className="w-full md:flex items-center gap-3 px-3 py-2.5 border-x bg-yellow-50 dark:bg-yellow-950 border-yellow-100 dark:border-yellow-900 text-neutral-950 dark:text-white">
+						<div className="my-1 text-yellow">
 							<WarningCircle />
 						</div>
 						<div>
