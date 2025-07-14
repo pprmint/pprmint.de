@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import FadingImage from "@/components/ui/FadingImage";
 import ArrowRight from "@/icons/ArrowRight";
 import ArrowUpRight from "@/icons/ArrowUpRight";
@@ -18,6 +18,21 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 	const t = useTranslations("HOME");
 	const [current, setCurrent] = useState(0);
 	const [direction, setDirection] = useState(1);
+
+	const descriptionHeightRef = useRef<HTMLDivElement>(null);
+	const [descriptionHeight, setDescriptionHeight] = useState<number | "auto">("auto");
+	useEffect(() => {
+		const handleResize = () => {
+			if (descriptionHeightRef.current) {
+				setDescriptionHeight(descriptionHeightRef.current.scrollHeight);
+			}
+		};
+		handleResize();
+		window.addEventListener("resize", handleResize);
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, [current]);
 
 	const handleNext = () => {
 		setDirection(1);
@@ -40,7 +55,7 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 			</h2>
 			<div className="grid grid-cols-2 border-x border-black/5 dark:border-white/5 items-center pt-20 lg:pt-0">
 				<div className="order-2 lg:order-1 flex col-span-2 lg:col-span-1 flex-col justify-center lg:border-r border-black/5 dark:border-white/5 h-full w-full lg:pt-40 lg:backdrop-blur-sm bg-white/25 dark:bg-neutral-950/25">
-					<div className="md:grow">
+					<m.div className="md:grow" animate={{ height: descriptionHeight }}>
 						<AnimatePresence mode="wait">
 							<m.div
 								layout
@@ -62,6 +77,7 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 						</AnimatePresence>
 						<AnimatePresence mode="wait">
 							<m.div
+								layout
 								key={data.docs[current].id}
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1, transition: { duration: 0.3, delay: 0.1 } }}
@@ -71,11 +87,31 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 								}}
 							>
 								<RichText
-									className="lg:pr-3 my-3 grow xl:text-xl 2xl:text-2xl"
+									className="lg:pr-3 mt-3 pb-3 grow xl:text-xl 2xl:text-2xl"
 									data={data.docs[current].text}
 								/>
 							</m.div>
 						</AnimatePresence>
+					</m.div>
+					<div
+						id="descriptionHeightRef"
+						aria-hidden
+						className="fixed -top-full -left-full w-full max-w-8xl px-6 md:px-9 lg:px-0 border-x pointer-events-none"
+					>
+						<div ref={descriptionHeightRef}>
+							<div className="pt-3 lg:border-t border-black/5 dark:border-white/5">
+								<h3 aria-hidden className="text-3xl md:text-4xl lg:text-5xl">
+									{data.docs[current].title}
+								</h3>
+							</div>
+							<div>
+								<RichText
+									aria-hidden
+									className="lg:pr-3 mt-3 pb-3 grow xl:text-xl 2xl:text-2xl"
+									data={data.docs[current].text}
+								/>
+							</div>
+						</div>
 					</div>
 					<div className="flex h-12 border-y border-black/5 dark:border-white/5">
 						<AnimatePresence mode="wait">
