@@ -20,6 +20,7 @@ import Download from "@/icons/Download";
 import Discord from "@/icons/Discord";
 import WarningCircle from "@/icons/WarningCircle";
 import OutfitRowSuspense from "./outfitRow/outfitRowSuspense";
+import OutfitRowSkeleton from "./outfitRow/outfitRowSkeleton";
 
 export async function generateMetadata() {
 	const t = await getTranslations("MINA");
@@ -45,7 +46,7 @@ export default async function Page({
 				creditLink="https://x.com/wxsonz"
 			>
 				<div className="relative h-full bg-neutral-950">
-					<div className="absolute bg-gradient-to-bl from-blue-900 via-[#151515] to-[#151515] w-full max-w-8xl inset-y-0 pt-9 md:pt-0 px-9 md:px-12 lg:px-24 xl:px-32 left-1/2 -translate-x-1/2">
+					<div className="absolute bg-gradient-to-bl from-blue-900 via-[#151515] to-[#151515] w-full max-w-8xl inset-y-0 pt-9 md:pt-0 px-9 md:px-20 lg:px-32 xl:px-32 left-1/2 -translate-x-1/2">
 						<div
 							style={{ background: "url(/assets/noise.png)" }}
 							className="absolute inset-0 opacity-20 mix-blend-multiply"
@@ -63,7 +64,7 @@ export default async function Page({
 			<main>
 				<section id="lore" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<div className="w-full md:grid grid-cols-2 border-x border-black/5 dark:border-white/5">
-						<div className="md:border-r border-black/5 dark:border-white/5 py-12 lg:py-20 xl:py-40 md:pr-12">
+						<div className="md:border-r border-black/5 dark:border-white/5 py-20 lg:py-32 xl:py-40 md:pr-12">
 							<h2>
 								{t("Content.About.heading")}
 								<span className="text-green">.</span>
@@ -71,7 +72,7 @@ export default async function Page({
 							<p>{t("Content.About.text1")}</p>
 							<p>{t("Content.About.text2")}</p>
 						</div>
-						<div className="pt-3 md:pt-[6.25rem] lg:pt-[8.75rem] xl:pt-[13.75rem] pb-12 lg:pb-20 xl:pb-40 md:pr-12">
+						<div className="pt-3 md:pt-[6.25rem] lg:pt-[8.75rem] xl:pt-[13.75rem] pb-20 lg:pb-32 xl:pb-40 md:pr-12">
 							<p>{t("Content.About.text3")}</p>
 							<p>{t("Content.About.text4")}</p>
 							<p>{t("Content.About.text5")}</p>
@@ -93,12 +94,12 @@ export default async function Page({
 					</Suspense>
 				</section>
 				<section id="outfits" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-					<Suspense>
+					<Suspense fallback={<OutfitRowSkeleton />}>
 						<OutfitRowSuspense />
 					</Suspense>
 				</section>
 				<section id="rules" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-					<div className="w-full border-x border-black/5 dark:border-white/5 py-12 lg:py-20 xl:py-40">
+					<div className="w-full border-x border-black/5 dark:border-white/5 py-20 lg:py-32 xl:py-40">
 						<h2>
 							{t("Content.Fanart.heading")}
 							<span className="text-green">.</span>

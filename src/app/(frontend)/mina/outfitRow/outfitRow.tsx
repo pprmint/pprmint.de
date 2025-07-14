@@ -214,13 +214,13 @@ export default function OutfitRow({ outfits }: { outfits: PaginatedDocs<Outfit> 
 
 	return (
 		<>
-			<div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 md:max-h-[800px] border-y border-black/5 dark:border-white/5">
+			<div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 md:max-h-[800px] border-y border-black/5 dark:border-white/5 backdrop-blur-sm">
 				{outfits.docs.map((outfit, _) => (
 					<Dialog.Root key={outfit.id}>
 						<Dialog.Trigger asChild>
 							<button
 								id={outfit.name}
-								className="group relative row-span-2 duration-200 active:duration-75 active:p-2"
+								className="group relative w-full aspect-[1/2] duration-200 active:duration-75 active:p-2"
 							>
 								<div className="size-full flex items-center justify-center group-hover:bg-black/5 dark:group-hover:bg-white/5 duration-200 group-active:duration-75 p-3 group-active:p-1">
 									<Media
