@@ -96,7 +96,7 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 					<div
 						id="descriptionHeightRef"
 						aria-hidden
-						className="fixed -top-full -left-full w-full max-w-8xl px-6 md:px-9 lg:px-0 border-x pointer-events-none"
+						className="fixed -top-[200%] -left-[200%] w-full max-w-8xl px-6 md:px-9 lg:px-0 border-x pointer-events-none opacity-0"
 					>
 						<div ref={descriptionHeightRef}>
 							<div className="pt-3 lg:border-t border-black/5 dark:border-white/5">

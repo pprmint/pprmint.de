@@ -455,7 +455,7 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 			</m.div>
 			<div
 				id="galleryHeightRef"
-				className="fixed w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 -top-full -left-full pointer-events-none"
+				className="fixed w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 -top-[200%] -left-[200%] pointer-events-none opacity-0"
 			>
 				<div
 					ref={galleryHeightRef}
