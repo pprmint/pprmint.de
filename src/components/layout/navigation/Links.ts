@@ -5,12 +5,12 @@ export const Pages = [
 		strings: "Home",
 	},
 	{
-		link: "/articles",
-		strings: "Articles",
-	},
-	{
 		link: "/mina",
 		strings: "Mina",
+	},
+	{
+		link: "/articles",
+		strings: "Articles",
 	},
 	{
 		link: "/contact",
