@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import Title from "@/components/layout/Title";
 import Palette from "./palette";
+import OldPalette from "./oldPalette";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 import SwatchBook from "@/icons/SwatchBook";
@@ -35,18 +36,12 @@ export default function Page() {
 			<main className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
 				<section className="py-20 md:py-32 xl:py-40 border-x border-black/5 dark:border-white/5">
 					<h2>
-						{t("Content.Usage.heading")}
+						{t("Content.Current.heading")}
 						<span className="text-green">.</span>
 					</h2>
-					<p>{t("Content.Usage.text1")}</p>
-					<p>{t("Content.Usage.text2")}</p>
+					<p>{t("Content.Current.text1")}</p>
+					<p>{t("Content.Current.text2")}</p>
 					<div className="flex flex-wrap gap-3 pt-6">
-						<Link href="/api/download/file/pprmint.2024.afpalette" download target="_blank">
-							<Button design="semi-transparent" tabIndex={-1}>
-								<SwatchBook />
-								{t("Content.Usage.affinity")}
-							</Button>
-						</Link>
 						<Link
 							href="https://github.com/pprmint/pprmint.de/blob/main/tailwind.config.js#L7"
 							target="_blank"
@@ -54,12 +49,29 @@ export default function Page() {
 						>
 							<Button design="semi-transparent" tabIndex={-1}>
 								<ExternalLink />
-								{t("Content.Usage.tailwind")}
+								{t("Content.Current.tailwind")}
 							</Button>
 						</Link>
 					</div>
 				</section>
 				<Palette />
+				<section className="py-20 md:py-32 xl:py-40 border-x border-black/5 dark:border-white/5">
+					<h2>
+						{t("Content.Old.heading")}
+						<span className="text-green">.</span>
+					</h2>
+					<p>{t("Content.Old.text1")}</p>
+					<p>{t("Content.Old.text2")}</p>
+					<div className="flex flex-wrap gap-3 pt-6">
+						<Link href="/api/download/file/pprmint.2024.afpalette" download target="_blank">
+							<Button design="semi-transparent" tabIndex={-1}>
+								<SwatchBook />
+								{t("Content.Old.affinity")}
+							</Button>
+						</Link>
+					</div>
+				</section>
+				<OldPalette />
 			</main>
 		</>
 	);

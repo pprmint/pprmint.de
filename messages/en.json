@@ -749,12 +749,17 @@
 			"description": "My color palette."
 		},
 		"Content": {
-			"Usage": {
-				"heading": "Usage",
+			"Current": {
+				"heading": "Current palette",
 				"text1": "Simply click on any of the boxes below to copy the HEX code to your clipboard.",
-				"text2": "Maybe these will be helpful to you as well:",
-				"tailwind": "View Tailwind config",
-				"affinity": "Download Affinity swatches"
+				"text2": "Maybe this will be helpful to you as well:",
+				"tailwind": "View Tailwind config"
+			},
+			"Old": {
+				"heading": "Old palette",
+				"text1": "Same thing, just with my previous color palette.",
+				"text2": "In case you still need it:",
+				"affinity": "Download old Affinity swatches"
 			}
 		}
 	},

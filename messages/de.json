@@ -743,12 +743,17 @@
 			"description": "Meine Farb-Palette."
 		},
 		"Content": {
-			"Usage": {
+			"Current": {
 				"heading": "Verwendung",
 				"text1": "Klicke einfach auf eines der unteren Felder, um den HEX-Code in die Zwischenablage zu kopieren.",
-				"text2": "Vielleicht findest du die hier auch nützlich:",
-				"tailwind": "Tailwind-Konfig ansehen",
-				"affinity": "Farbfelder für Affinity herunterladen"
+				"text2": "Vielleicht findest du das hier auch nützlich:",
+				"tailwind": "Tailwind-Konfig ansehen"
+			},
+			"Old": {
+				"heading": "Alte Palette",
+				"text1": "Selbes Prinzip, nur mit meiner vorherigen Farbpalette.",
+				"text2": "Falls du es noch brauchst:",
+				"affinity": "Alte Farbfelder für Affinity herunterladen"
 			}
 		}
 	},
