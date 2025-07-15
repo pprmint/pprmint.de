@@ -29,7 +29,7 @@ export default function GalleryGrid({ graphics, page }: { graphics: PaginatedDoc
 
 	useEffect(() => {
 		if (initRef.current && galleryRef.current) {
-			scrollTo({ top: galleryRef.current?.getBoundingClientRect().top + scrollY - 168 });
+			scrollTo({ top: galleryRef.current?.getBoundingClientRect().top + scrollY - 168, behavior: "smooth" });
 		} else {
 			initRef.current = true;
 		}
@@ -50,10 +50,12 @@ export default function GalleryGrid({ graphics, page }: { graphics: PaginatedDoc
 							layout
 							initial={{
 								opacity: 0,
+								y: 10,
 							}}
 							animate={{
 								opacity: 1,
-								transition: { delay: 0.25 + index / 100 },
+								y: 0,
+								transition: { delay: 0.25 + index / 100, type: "spring", bounce: 0, duration: 0.4 },
 							}}
 							exit={{
 								opacity: 0,

@@ -67,7 +67,7 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 	const initRef = useRef(false);
 	useEffect(() => {
 		if (initRef.current && galleryRef.current) {
-			scrollTo({ top: galleryRef.current?.getBoundingClientRect().top + scrollY - 105 });
+			scrollTo({ top: galleryRef.current?.getBoundingClientRect().top + scrollY - 105, behavior: "smooth" });
 		} else {
 			initRef.current = true;
 		}
@@ -116,10 +116,12 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 							layout
 							initial={{
 								opacity: 0,
+								y: 10,
 							}}
 							animate={{
 								opacity: 1,
-								transition: { delay: 0.25 + index / 100 },
+								y: 0,
+								transition: { delay: 0.25 + index / 100, type: "spring", bounce: 0, duration: 0.4 },
 							}}
 							exit={{
 								opacity: 0,
