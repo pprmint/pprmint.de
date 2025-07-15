@@ -27,8 +27,8 @@ function MessageBubble(props: { incoming?: boolean; id: string }) {
 			<div
 				className={`w-fit max-w-[80%] px-4 py-2 rounded-3xl ${
 					props.incoming
-						? "rounded-bl-md bg-neutral-50 dark:bg-neutral-800 text-neutral-950 dark:text-white"
-						: `rounded-br-md ${isAppleDevice ? "bg-blue" : "bg-green"} text-white selection:bg-neutral-950`
+						? "rounded-bl-md bg-neutral-50 dark:bg-neutral-900 text-neutral-950 dark:text-white"
+						: `rounded-br-md ${isAppleDevice ? "bg-blue-600" : "bg-green-600"} text-white selection:bg-neutral-950`
 				}`}
 			>
 				{t.rich(`Messages.${props.id}.${props.incoming ? "answer" : "message"}`, {
@@ -218,28 +218,28 @@ function Chatbox() {
 							<MessageBubble key={index} incoming={message.incoming} id={message.id} />
 						))}
 					</div>
-					<div className="h-64 bg-[#fafafa] dark:bg-[#181818] overflow-y-auto px-3 border-t border-black/5 dark:border-white/5">
+					<div className="h-64 bg-[#fafafa] dark:bg-[#181818] overflow-y-auto border-t border-black/5 dark:border-white/5">
 						<AnimatePresence mode="wait">
 							{messageBox ? (
 								ending ? (
 									<m.div
-										key="messages"
+										key="ending"
 										initial={{ opacity: 0 }}
 										animate={{ opacity: 1, transition: { delay: 0.5 } }}
-										exit={{ opacity: 0 }}
-										className={`grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-3 h-full py-3 items-center ${
+										exit={{ opacity: 0, pointerEvents: "none" }}
+										className={`grid grid-rows-2 sm:grid-rows-1 sm:grid-cols-2 h-full items-center divide-x divide-black/5 dark:divide-white/5 ${
 											answering ? "opacity-50 saturate-0 pointer-events-none" : "opacity-100 saturate-100"
-										} duration-200`}
+										}`}
 									>
 										<button
-											className="inline-flex flex-row md:flex-col items-center justify-center gap-3 ring-1 hover:shadow-sm ring-inset ring-black/5 dark:ring-white/5 hover:ring-green dark:hover:ring-green active:ring-2 active:ring-green/0 dark:active:ring-green/0 bg-white dark:bg-neutral-900 hover:bg-green-50 text-neutral-950 dark:text-white rounded-md size-full duration-100 active:duration-75"
+											className="inline-flex flex-row md:flex-col items-center justify-center gap-3 hover:ring-1 ring-inset ring-green active:ring-4 active:ring-green/0 dark:active:ring-green/0 hover:bg-green-50 dark:hover:bg-green-950 text-neutral-950 dark:text-white size-full duration-100 active:duration-75"
 											onClick={() => handleEndingYes()}
 										>
 											<Heart className="size-6 md:size-9 text-green" />
 											{t("Messages.EndingYes.message")}
 										</button>
 										<button
-											className="inline-flex flex-row md:flex-col items-center justify-center gap-3 ring-1 hover:shadow-sm ring-inset ring-black/5 dark:ring-white/5 hover:ring-red dark:hover:ring-red active:ring-2 active:ring-red/0 dark:active:ring-red/0 bg-white dark:bg-neutral-900 hover:bg-red-50 text-neutral-950 dark:text-white rounded-md size-full duration-100 active:duration-75"
+											className="inline-flex flex-row md:flex-col items-center justify-center gap-3 hover:ring-1 ring-inset ring-red active:ring-4 active:ring-red/0 dark:active:ring-red/0 hover:bg-red-50 dark:hover:bg-red-950 text-neutral-950 dark:text-white size-full duration-100 active:duration-75"
 											onClick={() => handleEndingNo()}
 										>
 											<HeartBroken className="size-6 md:size-9 text-red" />
@@ -248,11 +248,11 @@ function Chatbox() {
 									</m.div>
 								) : (
 									<m.div
-										key="ending"
+										key="messages"
 										initial={{ opacity: 0 }}
 										animate={{ opacity: 1 }}
 										exit={{ opacity: 0 }}
-										className="flex flex-col gap-3 items-end py-3"
+										className="flex flex-col gap-3 items-end p-3"
 									>
 										{clickedQuestions.length > 0 && (
 											<button
