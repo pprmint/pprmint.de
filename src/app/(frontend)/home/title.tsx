@@ -74,7 +74,7 @@ export default function HomeTitle() {
 			</div>
 			<div className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 				<div className="h-screen w-full md:grid grid-cols-2 border-x border-black/5 dark:border-white/5">
-					<div className="relative size-full flex flex-col gap-6 justify-center col-span-2 md:col-span-1 xl:border-r border-black/5 dark:border-white/5">
+					<div className="relative size-full flex flex-col gap-6 justify-center col-span-2 md:col-span-1 md:border-r border-black/5 dark:border-white/5">
 						<div>
 							<h1 className="relative pb-1 md:pb-3 font-serif" aria-label={t("Content.Hero.title")}>
 								{String(t("Content.Hero.title") + ".")
@@ -139,7 +139,12 @@ export default function HomeTitle() {
 												delay: 1 + (index + 1) / 10,
 											},
 										}}
-										className="relative w-full aspect-video border-y odd:border-r border-black/5 dark:border-white/5 even:border-r-0 group-last:border-r-0"
+										className="relative w-full aspect-video border-black/5 dark:border-white/5
+											border-y border-r group-even:border-r-0 xl:group-[&:nth-child(2)]:border-r
+											group-[&:nth-child(3)]:border-t-0
+											group-[&:nth-child(4)]:border-t-0
+											xl:group-[&:nth-child(3)]:border-t
+											xl:group-[&:nth-child(4)]:border-t"
 									>
 										<div className="absolute flex items-center justify-center z-10 inset-x-0 bottom-0 h-0 group-hover:h-full bg-neutral-950 dark:bg-white group-active:active:bg-neutral-800 dark:group-active:bg-neutral-100 text-white dark:text-neutral-950 group-active:shadow-inner text-2xl uppercase font-stretch-expanded font-bold duration-400 ease-out-quint overflow-clip">
 											<div className="flex opacity-0 group-hover:opacity-100 duration-100">
