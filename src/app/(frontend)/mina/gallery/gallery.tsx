@@ -1,22 +1,16 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import FadingImage from "@/components/ui/FadingImage";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import type { Mina } from "@/payload-types";
 import * as Dialog from "@radix-ui/react-dialog";
-import Error from "@/icons/Error";
 
 import * as m from "motion/react-client";
 import { AnimatePresence } from "motion/react";
 import EyeDisabled from "@/icons/EyeDisabled";
 import Link from "next/link";
-import Bluesky from "@/icons/Bluesky";
-import Twitter from "@/icons/Twitter";
-import Instagram from "@/icons/Instagram";
-import YouTube from "@/icons/YouTube";
-import Globe from "@/icons/Globe";
 import { PaginatedDocs } from "payload";
 import { Media } from "@/components/Media";
 
@@ -169,7 +163,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 									<Dialog.Overlay className="bg-neutral-950/90 backdrop-blur-xl data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
 									<Dialog.Content asChild onCloseAutoFocus={reset}>
 										<div
-											className={`text-white fixed inset-0 z-100 h-screen max-h-svh w-screen data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out focus-visible:outline-none`}
+											className={`fixed inset-0 z-100 h-screen max-h-svh w-screen data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out focus-visible:outline-none`}
 										>
 											<Dialog.Description className="sr-only">
 												{t("Content.Artworks.drawnBy")}
@@ -279,7 +273,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 															},
 														}}
 														exit={{ y: -48, opacity: 0 }}
-														className="absolute flex justify-between items-center top-0 pl-6 pr-4 pt-4 inset-x-0"
+														className="absolute top-0 pl-6 pr-4 pt-4 inset-x-0"
 													>
 														<AnimatePresence mode="wait">
 															{typeof artworks.docs[selectedArtwork].artist !==
@@ -292,73 +286,84 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																		transition: { duration: 0.2 },
 																	}}
 																	exit={{ opacity: 0, transition: { duration: 0.2 } }}
-																	className="flex items-center flex-grow gap-3 text-xl"
 																>
 																	<Dialog.Title asChild>
-																		<p>
+																		<span className="text-xl">
 																			<span className="text-white/70">
 																				{t("Content.Artworks.drawnBy")}
 																			</span>
-																			{artworks.docs[selectedArtwork].artist.name}
+																			{artworks.docs[selectedArtwork].artist
+																				.creditUrl ? (
+																				<Link
+																					href={
+																						artworks.docs[selectedArtwork]
+																							.artist.creditUrl!
+																					}
+																					target="_blank"
+																					rel="noopener noreferrer"
+																					className="text-link"
+																				>
+																					{
+																						artworks.docs[selectedArtwork]
+																							.artist.name
+																					}
+																				</Link>
+																			) : (
+																				artworks.docs[selectedArtwork].artist
+																					.name
+																			)}
 																			{artworks.docs[selectedArtwork]
 																				.wholesome && (
 																				<span className="text-red"> ♥</span>
 																			)}
-																		</p>
+																		</span>
 																	</Dialog.Title>
-																	{artworks.docs[selectedArtwork].artist
-																		.creditUrl && (
-																		<Link
-																			href={
-																				artworks.docs[selectedArtwork].artist
-																					.creditUrl!
-																			}
-																			target="_blank"
-																			rel="noopener noreferrer"
-																			className="rounded-full"
-																		>
-																			<button
-																				tabIndex={-1}
-																				className=" p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl"
-																			>
-																				{artworks.docs[
-																					selectedArtwork
-																				].artist.creditUrl!.startsWith(
-																					"https://bsky.app/"
-																				) ? (
-																					<Bluesky />
-																				) : artworks.docs[
-																						selectedArtwork
-																				  ].artist.creditUrl!.startsWith(
-																						"https://x.com/"
-																				  ) ? (
-																					<Twitter />
-																				) : artworks.docs[
-																						selectedArtwork
-																				  ].artist.creditUrl!.startsWith(
-																						"https://twitter.com/"
-																				  ) ? (
-																					<Twitter />
-																				) : artworks.docs[
-																						selectedArtwork
-																				  ].artist.creditUrl!.startsWith(
-																						"https://www.instagram.com/"
-																				  ) ? (
-																					<Instagram />
-																				) : artworks.docs[
-																						selectedArtwork
-																				  ].artist.creditUrl!.startsWith(
-																						"https://www.youtube.com/"
-																				  ) ? (
-																					<YouTube />
-																				) : (
-																					<Globe />
-																				)}
-																			</button>
-																		</Link>
-																	)}
 																</m.div>
 															)}
+														</AnimatePresence>
+														<AnimatePresence mode="wait">
+															<m.div
+																key={artworks.docs[selectedArtwork].id}
+																initial={{ opacity: 0 }}
+																animate={{
+																	opacity: 1,
+																	transition: { duration: 0.2 },
+																}}
+																exit={{ opacity: 0, transition: { duration: 0.2 } }}
+															>
+																{artworks.docs[selectedArtwork].featuring && (
+																	<p className="text-xs mt-1">
+																		{t("Content.Artworks.featuring")}{" "}
+																		{artworks.docs[selectedArtwork].featuring
+																			.filter(
+																				(character) =>
+																					typeof character === "object"
+																			)
+																			.map((character, index, array) => (
+																				<Fragment key={character.id}>
+																					{character.link ? (
+																						<Link
+																							href={character.link}
+																							target="_blank"
+																							rel="noopener norefererrer"
+																							className="text-white"
+																						>
+																							{character.name}
+																						</Link>
+																					) : (
+																						<span>{character.name}</span>
+																					)}
+																					{index !== array.length - 1 &&
+																						(index < array.length - 2 ? (
+																							<span>, </span>
+																						) : (
+																							<span> & </span>
+																						))}
+																				</Fragment>
+																			))}
+																	</p>
+																)}
+															</m.div>
 														</AnimatePresence>
 														<AnimatePresence mode="wait">
 															{artworks.docs[selectedArtwork].images.length >= 2 && (
@@ -396,8 +401,20 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 															)}
 														</AnimatePresence>
 														<Dialog.Close asChild>
-															<button className="p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
-																<Error />
+															<button className="absolute top-2.5 right-3 p-3 rounded-full hover:bg-white/5 duration-100">
+																<svg
+																	xmlns="http://www.w3.org/2000/svg"
+																	width={19}
+																	height={19}
+																	viewBox="0 0 19 19"
+																	fill="none"
+																	stroke="#fff"
+																	strokeWidth={1}
+																	strokeLinecap="butt"
+																>
+																	<path d="M3 3 16 16" />
+																	<path d="M3 16 16 3" />
+																</svg>
 															</button>
 														</Dialog.Close>
 													</m.div>

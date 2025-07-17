@@ -12,7 +12,6 @@ import CameraAperture from "@/icons/CameraAperture";
 import CameraIso from "@/icons/CameraIso";
 import CameraShutterSpeed from "@/icons/CameraShutterSpeed";
 import CameraFocalLength from "@/icons/CameraFocalLength";
-import Error from "@/icons/Error";
 
 import * as m from "motion/react-client";
 import { AnimatePresence } from "motion/react";
@@ -380,8 +379,20 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 															</m.div>
 														</AnimatePresence>
 														<Dialog.Close asChild>
-															<button className="p-2.5 rounded-full bg-neutral-50/10 hover:bg-neutral-50/20 duration-100 text-xl">
-																<Error />
+															<button className="absolute top-2.5 right-3 p-3 rounded-full hover:bg-white/5 duration-100">
+																<svg
+																	xmlns="http://www.w3.org/2000/svg"
+																	width={19}
+																	height={19}
+																	viewBox="0 0 19 19"
+																	fill="none"
+																	stroke="#fff"
+																	strokeWidth={1}
+																	strokeLinecap="butt"
+																>
+																	<path d="M3 3 16 16" />
+																	<path d="M3 16 16 3" />
+																</svg>
 															</button>
 														</Dialog.Close>
 													</m.div>
