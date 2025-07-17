@@ -159,7 +159,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 											/>
 										</div>
 										{artwork.nsfw && (
-											<div className="absolute inset-0 flex items-center justify-center text-neutral-950 dark:text-white backdrop-blur group-focus-visible/button:backdrop-blur bg-neutral-50/75 dark:bg-neutral-950/75 group-focus-visible/button:bg-transparent group-hover/button:opacity-0 duration-300 ease-out-quint pointer-events-none">
+											<div className="absolute inset-0 flex items-center justify-center text-neutral-950 dark:text-white backdrop-blur-md group-focus-visible/button:backdrop-blur-md bg-neutral-50/75 dark:bg-neutral-950/75 group-focus-visible/button:bg-transparent group-hover/button:opacity-0 duration-300 ease-out-quint pointer-events-none">
 												<EyeDisabled className="size-[30px] opacity-50" />
 											</div>
 										)}
