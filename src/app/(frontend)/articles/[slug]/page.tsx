@@ -108,7 +108,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 					/>
 					<div
 						aria-hidden
-						className="absolute bottom-6 right-12 lg:right-16 lg:bottom-9 -rotate-6 font-serif italic font-thin font-stretch-extra-condensed text-neutral-950 dark:text-white text-6xl xl:text-7xl"
+						className="absolute bottom-[0.25em] right-12 lg:right-16 font-serif text-neutral-950 dark:text-white text-6xl xl:text-7xl"
 					>
 						fin<span className="text-green">.</span>
 					</div>

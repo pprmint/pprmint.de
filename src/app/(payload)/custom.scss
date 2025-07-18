@@ -21,26 +21,19 @@
 	src: url("/fonts/DINish/DINish[slnt,wdth,wght].woff2") format("woff2");
 }
 @font-face {
-	font-family: "Noto Serif";
-	font-weight: 100 900;
-	font-stretch: 62.5% 100%;
+	font-family: "Gambarino";
+	src: url("/fonts/Gambarino/Gambarino-Regular.woff2") format("woff2"),
+		url("/fonts/Gambarino/Gambarino-Regular.woff") format("woff"),
+		url("/fonts/Gambarino/Gambarino-Regular.ttf") format("truetype");
+	font-weight: 400;
 	font-display: swap;
 	font-style: normal;
-	src: url("/fonts/NotoSerif/NotoSerif-VariableFont_wdth,wght.ttf") format("truetype");
-}
-@font-face {
-	font-family: "Noto Serif";
-	font-weight: 100 900;
-	font-stretch: 62.5% 100%;
-	font-display: swap;
-	font-style: italic;
-	src: url("/fonts/NotoSerif/NotoSerif-Italic-VariableFont_wdth,wght.ttf") format("truetype");
 }
 
 :root {
 	--font-body: "DINish", system-ui;
 	--font-mono: "Iosevka Mint Expanded", "Cascadia Code", monospace;
-	--font-serif: "Noto Serif", serif;
+	--font-serif: "Gambarino", serif;
 	--base-body-size: 16;
 }
 
@@ -300,7 +293,7 @@ h6 {
 						padding: 10px !important;
 						z-index: 10;
 						opacity: 0;
-						transition: opacity .1s;
+						transition: opacity 0.1s;
 						&:has(.checkbox-input--checked) {
 							opacity: 1;
 						}

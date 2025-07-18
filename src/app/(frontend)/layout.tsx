@@ -11,7 +11,7 @@ import WarningTriangle from "@/icons/WarningTriangle";
 
 import "@/styles.css";
 import "/public/fonts/IosevkaMint/IosevkaMint.css";
-import "/public/fonts/NotoSerif/notoserif.css";
+import "/public/fonts/Gambarino/gambarino.css";
 import "/public/fonts/DINish/DINish.css";
 import "/public/fonts/Mintbit/mintbit.css";
 import "/public/fonts/MintTriangles/minttriangles.css";
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-	themeColor: "#44bb55",
+	themeColor: "#00bb77",
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -52,7 +52,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 				<LazyMotion features={domAnimation}>
 					<ThemeProvider defaultTheme="system" themes={["light", "dark", "system"]} attribute="class">
 						<noscript>
-							<div className="px-2 py-1 bg-red text-white fixed z-100 top-0 left-1/2 -translate-x-1/2 rounded-b-md w-full max-w-max">
+							<div className="px-2 py-1 bg-red text-black fixed z-100 top-0 left-1/2 -translate-x-1/2 rounded-b-md w-full max-w-max">
 								<p className="text-sm">
 									<WarningTriangle className="inline mb-1 mr-2" />
 									<span className="font-bold">No JavaScript detected.</span> Parts of the site won't

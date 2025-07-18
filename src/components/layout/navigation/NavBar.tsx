@@ -178,7 +178,7 @@ export default function NavBar() {
 							className="w-full h-max pt-20 xl:pt-5"
 						>
 							<div className="flex items-baseline gap-3">
-								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif font-stretch-extra-condensed">
+								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif">
 									{t("Path.General.title")}
 								</p>
 								<div className="w-full h-px bg-neutral-950/5 dark:bg-white/5" />
@@ -216,7 +216,7 @@ export default function NavBar() {
 							className="w-full h-max col-span-2 pt-9 md:pt-20 xl:pt-5"
 						>
 							<div className="flex items-baseline gap-3">
-								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif font-stretch-extra-condensed">
+								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif">
 									{t("Path.Work.title")}
 								</p>
 								<div className="w-full h-px bg-neutral-950/5 dark:bg-white/5" />
@@ -301,7 +301,7 @@ export default function NavBar() {
 							className="w-full h-max pt-9 md:pt-20 xl:pt-5"
 						>
 							<div className="flex items-baseline gap-3">
-								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif font-stretch-extra-condensed">
+								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif">
 									{t("Path.Other.title")}
 								</p>
 								<div className="w-full h-px bg-neutral-950/5 dark:bg-white/5" />

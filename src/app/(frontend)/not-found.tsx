@@ -85,7 +85,7 @@ export default function NotFound() {
 				<div className="h-screen w-full grid xl:grid-cols-2 border-x border-black/5 dark:border-white/5">
 					<div className="order-2 xl:order-1 relative size-full flex flex-col xl:justify-center border-t xl:border-t-0 xl:border-r border-black/5 dark:border-white/5 bg-white/50 dark:bg-neutral-950/50">
 						<div className="grow xl:grow-0 py-6 xl:py-0">
-							<h1 className="relative pb-1 md:pb-3 font-serif">
+							<h1 className="relative pb-1 md:pb-3 font-serif xl:text-[5rem]">
 								<m.div
 									initial={{ opacity: 0, filter: "blur(5px)", y: 20 }}
 									animate={{

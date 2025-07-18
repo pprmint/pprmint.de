@@ -139,7 +139,7 @@ export default async function Page() {
 									}}
 									viewport={{ once: true }}
 									aria-hidden
-									className="absolute bottom-0 right-0 text-right italic text-5xl md:text-8xl lg:text-9xl xl:text-[10rem] font-serif font-stretch-extra-condensed bg-white/50 dark:bg-neutral-950/50 backdrop-blur-md text-neutral-950 dark:text-white"
+									className="absolute bottom-0 right-0 text-right italic text-5xl md:text-8xl lg:text-9xl xl:text-[10rem] font-serif bg-white/50 dark:bg-neutral-950/50 backdrop-blur-md text-neutral-950 dark:text-white"
 								>
 									<m.div
 										initial={{ padding: "0 0" }}

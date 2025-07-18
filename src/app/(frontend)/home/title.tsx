@@ -200,7 +200,7 @@ export default function HomeTitle() {
 												initial={{ opacity: 0 }}
 												animate={{ opacity: 1, transition: { delay: 0.03 * index } }}
 												exit={{ opacity: 0, transition: { duration: 0.15 } }}
-												className="font-serif font-stretch-extra-condensed text-[15rem] xl:text-[18rem] font-thin text-black/5 dark:text-white/5"
+												className="font-serif text-[15rem] xl:text-[18rem] font-thin text-black/5 dark:text-white/5"
 												aria-hidden
 											>
 												{character}
