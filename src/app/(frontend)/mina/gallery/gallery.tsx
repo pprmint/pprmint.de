@@ -301,7 +301,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																					}
 																					target="_blank"
 																					rel="noopener noreferrer"
-																					className="text-link"
+																					className="text-link text-white decoration-white/50"
 																				>
 																					{
 																						artworks.docs[selectedArtwork]
