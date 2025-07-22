@@ -65,35 +65,35 @@ export default function Page() {
 						<div className="flex gap-3 md:gap-6">
 							<div className="flex flex-col">
 								<Check className="size-6 bg-violet-500 text-neutral-950 rounded-full p-1" />
-								<div className="w-1 flex-grow bg-violet-500 ml-2.5" />
+								<div className="w-1 grow bg-violet-500 ml-2.5" />
 							</div>
 							<p className="pb-3">{t("YTDG.Content.Roadmap.savingSettings")}</p>
 						</div>
 						<div className="flex gap-3 md:gap-6">
 							<div className="flex flex-col">
 								<Check className="size-6 bg-violet-500 text-neutral-950 rounded-full p-1" />
-								<div className="w-1 flex-grow bg-black/5 dark:bg-white/5 ml-2.5" />
+								<div className="w-1 grow bg-black/5 dark:bg-white/5 ml-2.5" />
 							</div>
 							<p className="pb-3">{t("YTDG.Content.Roadmap.tempFolder")}</p>
 						</div>
 						<div className="flex gap-3 md:gap-6">
 							<div className="flex flex-col">
 								<div className="size-6 bg-black/5 dark:bg-white/5 rounded-full p-1" />
-								<div className="w-1 flex-grow bg-black/5 dark:bg-white/5 ml-2.5" />
+								<div className="w-1 grow bg-black/5 dark:bg-white/5 ml-2.5" />
 							</div>
 							<p className="pb-3">{t("YTDG.Content.Roadmap.autoUpdater")}</p>
 						</div>
 						<div className="flex gap-3 md:gap-6">
 							<div className="flex flex-col">
 								<div className="size-6 bg-black/5 dark:bg-white/5 rounded-full p-1" />
-								<div className="w-1 flex-grow bg-black/5 dark:bg-white/5 ml-2.5" />
+								<div className="w-1 grow bg-black/5 dark:bg-white/5 ml-2.5" />
 							</div>
 							<p className="pb-3">{t("YTDG.Content.Roadmap.translations")}</p>
 						</div>
 						<div className="flex gap-3 md:gap-6">
 							<div className="flex flex-col">
 								<div className="size-6 bg-black/5 dark:bg-white/5 rounded-full p-1" />
-								<div className="w-1 flex-grow bg-black/5 dark:bg-white/5 ml-2.5" />
+								<div className="w-1 grow bg-black/5 dark:bg-white/5 ml-2.5" />
 							</div>
 							<p className="pb-3">{t("YTDG.Content.Roadmap.fullSupport")}</p>
 						</div>

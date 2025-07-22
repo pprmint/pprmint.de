@@ -64,7 +64,7 @@ export default async function Page() {
 						alt="A letter."
 						className="absolute right-[3%] bottom-[-10%] rotate-6 w-1/2 h-auto"
 					/>
-					<div className="absolute inset-0 backdrop-blur-sm bg-gradient-to-t from-neutral-950/25" />
+					<div className="absolute inset-0 backdrop-blur-xs bg-linear-to-t from-neutral-950/25" />
 					<FadingImage
 						src="/api/artwork/file/nekomimi_68cdbdf7a0.webp"
 						width={1158}

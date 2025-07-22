@@ -8,7 +8,7 @@ import MinaOuch from "/public/assets/mina_ouch.webp";
 export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
 	return (
 		<div className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
-			<div className="flex items-center justify-center min-h-[calc(100vh_-_96px)] border-x border-x-black/5 dark:border-x-white/5 ">
+			<div className="flex items-center justify-center min-h-[calc(100vh-96px)] border-x border-x-black/5 dark:border-x-white/5 ">
 				<div className="relative w-full mt-16 border-y border-red bg-red/5 overflow-clip">
 					<div className="relative flex flex-col p-6 md:p-9 md:max-w-3xl mx-auto border-x border-red bg-white dark:bg-neutral-950 animate-fade-in">
 						<div className="mb-6">

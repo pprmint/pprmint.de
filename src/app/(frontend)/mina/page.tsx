@@ -46,7 +46,7 @@ export default async function Page({
 				creditLink="https://x.com/wxsonz"
 			>
 				<div className="relative h-full bg-neutral-950">
-					<div className="absolute bg-gradient-to-bl from-blue-900 via-[#151515] to-[#151515] w-full max-w-8xl inset-y-0 pt-9 md:pt-0 px-9 md:px-20 lg:px-32 xl:px-32 left-1/2 -translate-x-1/2">
+					<div className="absolute bg-linear-to-bl from-blue-900 via-[#151515] to-[#151515] w-full max-w-8xl inset-y-0 pt-9 md:pt-0 px-9 md:px-20 lg:px-32 xl:px-32 left-1/2 -translate-x-1/2">
 						<div
 							style={{ background: "url(/assets/noise.png)" }}
 							className="absolute inset-0 opacity-20 mix-blend-multiply"
@@ -72,7 +72,7 @@ export default async function Page({
 							<p>{t("Content.About.text1")}</p>
 							<p>{t("Content.About.text2")}</p>
 						</div>
-						<div className="pt-3 md:pt-[6.25rem] lg:pt-[8.75rem] xl:pt-[13.75rem] pb-20 lg:pb-32 xl:pb-40 md:pr-12">
+						<div className="pt-3 md:pt-25 lg:pt-35 xl:pt-55 pb-20 lg:pb-32 xl:pb-40 md:pr-12">
 							<p>{t("Content.About.text3")}</p>
 							<p>{t("Content.About.text4")}</p>
 							<p>{t("Content.About.text5")}</p>
@@ -196,7 +196,7 @@ export default async function Page({
 							}}
 							className="absolute inset-0 bottom-0 h-full backdrop-blur-md pointer-events-none"
 						/>
-						<div className="absolute inset-0 bg-gradient-to-t from-white dark:from-neutral-950" />
+						<div className="absolute inset-0 bg-linear-to-t from-white dark:from-neutral-950" />
 					</div>
 					<div className="relative z-10 border-x border-black/5 dark:border-white/5 w-full max-w-8xl mx-auto flex items-center flex-col pt-96 pb-12 text-center text-balance dark:drop-shadow-[0px_2px_8px_#111]">
 						<h2>

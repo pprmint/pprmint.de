@@ -26,7 +26,7 @@ export default function Button({
 		? design === "filled"
 			? "bg-black/5 text-black/25 dark:bg-white/5 dark:text-white/25"
 			: design === "semi-transparent"
-			? "bg-black/[0.025] text-black/25 dark:bg-white/[0.025] dark:text-white/25"
+			? "bg-black/2.5 text-black/25 dark:bg-white/2.5 dark:text-white/25"
 			: design === "outlined"
 			? "ring-1 ring-inset ring-black/5 dark:ring-white/5 text-black/25 dark:text-white/25"
 			: design === "transparent" && "text-black/25 dark:text-white/25"
@@ -88,7 +88,7 @@ export default function Button({
 				align === "center" ? "justify-center" : align === "right" ? "justify-end" : ""
 			} font-medium ${size === "regular" ? "duration-100" : "duration-200"} ease-out ${padding} ${
 				!rest.disabled && "hover:cursor-pointer"
-			} ${!rest.disabled && "hover:shadow-sm"} ${
+			} ${!rest.disabled && "hover:shadow-xs"} ${
 				rest.disabled && "pointer-events-none"
 			} select-none active:duration-50 ${buttonSize} ${styles} overflow-hidden`}
 			{...rest}

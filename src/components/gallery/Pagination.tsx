@@ -29,7 +29,7 @@ function Pagination({ page, pageCount }: { page: number; pageCount: number }) {
 	return (
 		<div className="flex justify-center border-b border-black/5 dark:border-white/5">
 			<button
-				className={`group inline-flex items-center justify-center size-9 hover:text-neutral-950 hover:dark:text-white hover:bg-black/5 dark:hover:bg-white/5 active:bg-neutral-100 dark:active:bg-neutral-800 disabled:bg-transparent disabled:text-neutral-200 dark:disabled:text-neutral-800 duration-100 disabled:pointer-events-none`}
+				className={`group inline-flex items-center justify-center size-9 hover:text-neutral-950 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 active:bg-neutral-100 dark:active:bg-neutral-800 disabled:bg-transparent disabled:text-neutral-200 dark:disabled:text-neutral-800 duration-100 disabled:pointer-events-none`}
 				disabled={page === 1}
 				onClick={() => handlePagination(page - 1)}
 			>
@@ -39,7 +39,7 @@ function Pagination({ page, pageCount }: { page: number; pageCount: number }) {
 				className={`size-9 font-stretch-expanded ${
 					1 === page
 						? "text-white dark:text-neutral-950 bg-neutral-950 dark:bg-neutral-50 pointer-events-none font-bold"
-						: "hover:text-neutral-950 hover:dark:text-white hover:bg-black/5 dark:hover:bg-white/5 active:bg-neutral-100 dark:active:bg-neutral-800"
+						: "hover:text-neutral-950 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 active:bg-neutral-100 dark:active:bg-neutral-800"
 				}`}
 				onClick={() => handlePagination(1)}
 			>
@@ -53,7 +53,7 @@ function Pagination({ page, pageCount }: { page: number; pageCount: number }) {
 						className={`size-9 ${index + 1 > 9 ? "font-stretch-condensed" : "font-stretch-expanded"} ${
 							index + 1 === page
 								? "text-white dark:text-neutral-950 bg-neutral-950 dark:bg-neutral-50 pointer-events-none font-bold"
-								: "hover:text-neutral-950 hover:dark:text-white hover:bg-black/5 dark:hover:bg-white/5 active:bg-neutral-100 dark:active:bg-neutral-800"
+								: "hover:text-neutral-950 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 active:bg-neutral-100 dark:active:bg-neutral-800"
 						}`}
 						onClick={() => handlePagination(index + 1)}
 					>
@@ -66,7 +66,7 @@ function Pagination({ page, pageCount }: { page: number; pageCount: number }) {
 					className={`size-9 ${pageCount > 9 ? "font-stretch-condensed" : "font-stretch-expanded"} ${
 						pageCount === page
 							? "text-white dark:text-neutral-950 bg-neutral-950 dark:bg-neutral-50 pointer-events-none font-bold"
-							: "hover:text-neutral-950 hover:dark:text-white hover:bg-black/5 dark:hover:bg-white/5 active:bg-neutral-100 dark:active:bg-neutral-800"
+							: "hover:text-neutral-950 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 active:bg-neutral-100 dark:active:bg-neutral-800"
 					}`}
 					onClick={() => handlePagination(pageCount)}
 				>
@@ -74,7 +74,7 @@ function Pagination({ page, pageCount }: { page: number; pageCount: number }) {
 				</button>
 			)}
 			<button
-				className={`group inline-flex items-center justify-center size-9 hover:text-neutral-950 hover:dark:text-white hover:bg-black/5 dark:hover:bg-white/5 active:bg-neutral-100 dark:active:bg-neutral-800 disabled:bg-transparent disabled:text-neutral-200 dark:disabled:text-neutral-800 duration-100 disabled:pointer-events-none`}
+				className={`group inline-flex items-center justify-center size-9 hover:text-neutral-950 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 active:bg-neutral-100 dark:active:bg-neutral-800 disabled:bg-transparent disabled:text-neutral-200 dark:disabled:text-neutral-800 duration-100 disabled:pointer-events-none`}
 				disabled={page === pageCount}
 				onClick={() => handlePagination(page + 1)}
 			>

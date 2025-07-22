@@ -69,7 +69,7 @@ export default function OutfitRow({ outfits }: { outfits: PaginatedDocs<Outfit> 
 							className={`${
 								!showBack
 									? "font-bold text-neutral-950 dark:text-white"
-									: "group-hover:text-neutral-950 group-hover:dark:text-white"
+									: "group-hover:text-neutral-950 dark:group-hover:text-white"
 							}`}
 						>
 							{t("Content.Outfits.front")}
@@ -97,7 +97,7 @@ export default function OutfitRow({ outfits }: { outfits: PaginatedDocs<Outfit> 
 							className={`${
 								showBack
 									? "font-bold text-neutral-950 dark:text-white"
-									: "group-hover:text-neutral-950 group-hover:dark:text-white"
+									: "group-hover:text-neutral-950 dark:group-hover:text-white"
 							}`}
 						>
 							{t("Content.Outfits.back")}
@@ -157,7 +157,7 @@ export default function OutfitRow({ outfits }: { outfits: PaginatedDocs<Outfit> 
 		return (
 			<Dialog.Portal>
 				<Dialog.Overlay className="bg-white/90 dark:bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-100" />
-				<Dialog.Content className="fixed z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-svh md:h-auto md:max-h-[80vh] w-screen max-w-6xl max-h-screen bg-white dark:bg-neutral-950 md:outline outline-1 outline-black/5 dark:outline-white/5 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl md:grid grid-cols-2 items-center overflow-auto">
+				<Dialog.Content className="fixed z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-svh md:h-auto md:max-h-[80vh] w-screen max-w-6xl max-h-screen bg-white dark:bg-neutral-950 md:outline-solid outline-1 outline-black/5 dark:outline-white/5 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl md:grid grid-cols-2 items-center overflow-auto">
 					<div className="relative h-full max-h-2/3-screen md:max-h-[80vh] md:border-r border-black/5 dark:border-white/5">
 						<CyclingFrontBackRef referenceFront={referenceFront} referenceBack={referenceBack} />
 					</div>
@@ -214,13 +214,13 @@ export default function OutfitRow({ outfits }: { outfits: PaginatedDocs<Outfit> 
 
 	return (
 		<>
-			<div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 md:max-h-[800px] border-y border-black/5 dark:border-white/5 backdrop-blur-sm">
+			<div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 md:max-h-[800px] border-y border-black/5 dark:border-white/5 backdrop-blur-xs">
 				{outfits.docs.map((outfit, _) => (
 					<Dialog.Root key={outfit.id}>
 						<Dialog.Trigger asChild>
 							<button
 								id={outfit.name}
-								className="group relative w-full aspect-[1/2] duration-200 active:duration-75 active:p-2"
+								className="group relative w-full aspect-1/2 duration-200 active:duration-75 active:p-2"
 							>
 								<div className="size-full flex items-center justify-center group-hover:bg-black/5 dark:group-hover:bg-white/5 duration-200 group-active:duration-75 p-3 group-active:p-1">
 									<Media

@@ -55,7 +55,7 @@ export default async function Stats() {
 			</Dialog.Trigger>
 			<Dialog.Portal>
 				<Dialog.Overlay className="bg-white/90 dark:bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-100" />
-				<Dialog.Content className="fixed z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-svh sm:max-h-4/5-screen overflow-y-auto overflow-x-hidden md:h-max w-screen sm:w-[93vw] max-w-6xl bg-white dark:bg-neutral-950 outline outline-1 outline-black/5 dark:outline-white/5 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl">
+				<Dialog.Content className="fixed z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-svh sm:max-h-4/5-screen overflow-y-auto overflow-x-hidden md:h-max w-screen sm:w-[93vw] max-w-6xl bg-white dark:bg-neutral-950 outline-solid outline-1 outline-black/5 dark:outline-white/5 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl">
 					<Dialog.Title className="sr-only">{t("Content.Artworks.Statistics.title")}</Dialog.Title>
 					<Dialog.Close asChild>
 						<button
@@ -116,7 +116,7 @@ export default async function Stats() {
 							{artists.docs
 								.sort((a, b) => (b.artworks?.totalDocs || 0) - (a.artworks?.totalDocs || 0))
 								.map((artist, _) => (
-									<tr key={artist.id} className="odd:bg-black/[0.025] dark:odd:bg-white/[0.025]">
+									<tr key={artist.id} className="odd:bg-black/2.5 dark:odd:bg-white/2.5">
 										<td className="px-2 py-1 text-left">{artist.name}</td>
 										<td className="px-2 py-1 text-right">{artist.artworks?.totalDocs}</td>
 									</tr>

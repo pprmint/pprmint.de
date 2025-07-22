@@ -443,7 +443,7 @@ export default function Selector() {
 							value={search}
 							onChange={handleSearchChange}
 							placeholder={t("Content.search")}
-							className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
+							className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
 						/>
 					</div>
 				</div>
@@ -502,7 +502,7 @@ export default function Selector() {
 										className={`${
 											selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name) &&
 											"opacity-25"
-										} drop-shadow`}
+										} drop-shadow-sm`}
 									/>
 								</button>
 							))}

@@ -1,6 +1,77 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@config '../tailwind.config.js';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility text-link {
+  @apply font-medium text-neutral-950 dark:text-white underline decoration-1 decoration-dotted hover:decoration-solid decoration-neutral-950/50 dark:decoration-white/50 hover:decoration-neutral-950 dark:hover:decoration-white duration-100 underline-offset-2;
+}
+
+@utility text-link-external {
+  @apply font-medium text-blue underline decoration-1 decoration-dotted hover:decoration-solid decoration-blue/50 hover:decoration-blue duration-100 underline-offset-2;
+}
+
+@utility font-stretch-ultra-condensed {
+  font-stretch: ultra-condensed;
+}
+
+@utility font-stretch-extra-condensed {
+  font-stretch: extra-condensed;
+}
+
+@utility font-stretch-condensed {
+  font-stretch: condensed;
+}
+
+@utility font-stretch-semi-condensed {
+  font-stretch: semi-condensed;
+}
+
+@utility font-stretch-normal {
+  font-stretch: normal;
+}
+
+@utility font-stretch-semi-expanded {
+  font-stretch: semi-expanded;
+}
+
+@utility font-stretch-expanded {
+  font-stretch: expanded;
+}
+
+@utility font-stretch-extra-expanded {
+  font-stretch: extra-expanded;
+}
+
+@utility font-stretch-ultra-expanded {
+  font-stretch: ultra-expanded;
+}
+
+@utility italic {
+  font-style: italic;
+  font-variation-settings: 'slnt' -12; /* For DINish font. */
+}
+
+@utility pixelated {
+  image-rendering: pixelated;
+}
 
 @layer base {
 	h1 {
@@ -20,52 +91,6 @@
 	}
 	h6 {
 		@apply text-neutral-950 dark:text-white font-serif md:text-lg lg:text-xl pb-1;
-	}
-}
-
-@layer components {
-	.text-link {
-		@apply font-medium text-neutral-950 dark:text-white underline decoration-1 decoration-dotted hover:decoration-solid decoration-neutral-950/50 dark:decoration-white/50 hover:decoration-neutral-950 dark:hover:decoration-white duration-100 underline-offset-2;
-	}
-	.text-link-external {
-		@apply font-medium text-blue underline decoration-1 decoration-dotted hover:decoration-solid decoration-blue/50 hover:decoration-blue duration-100 underline-offset-2;
-	}
-}
-
-@layer utilities {
-	.font-stretch-ultra-condensed {
-		font-stretch: ultra-condensed;
-	}
-	.font-stretch-extra-condensed {
-		font-stretch: extra-condensed;
-	}
-	.font-stretch-condensed {
-		font-stretch: condensed;
-	}
-	.font-stretch-semi-condensed {
-		font-stretch: semi-condensed;
-	}
-	.font-stretch-normal {
-		font-stretch: normal;
-	}
-	.font-stretch-semi-expanded {
-		font-stretch: semi-expanded;
-	}
-	.font-stretch-expanded {
-		font-stretch: expanded;
-	}
-	.font-stretch-extra-expanded {
-		font-stretch: extra-expanded;
-	}
-	.font-stretch-ultra-expanded {
-		font-stretch: ultra-expanded;
-	}
-	.italic {
-		font-style: italic;
-		font-variation-settings: "slnt" -12; /* For DINish font. */
-	}
-	.pixelated {
-		image-rendering: pixelated;
 	}
 }
 

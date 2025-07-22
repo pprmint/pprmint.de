@@ -113,7 +113,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 						</m.p>
 					</div>
 					<RichText
-						className="lg:text-lg py-20 md:py-32 xl:py-40 md:col-span-2 prose-h1:xl:text-7xl md:border-l border-black/5 dark:border-white/5"
+						className="lg:text-lg py-20 md:py-32 xl:py-40 md:col-span-2 xl:prose-h1:text-7xl md:border-l border-black/5 dark:border-white/5"
 						data={graphic.content}
 					/>
 				</article>

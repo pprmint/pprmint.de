@@ -19,9 +19,9 @@ export default function Tester() {
 		return (
 			<Select.Item
 				value={props.value}
-				className="group relative flex items-center gap-3 pr-2 pl-2 h-7 leading-none select-none outline-none data-[disabled]:text-black/25 dark:data-[disabled]:text-white/25 data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-950 dark:data-[highlighted]:text-white data-[state=checked]:text-neutral-950 dark:data-[state=checked]:text-white data-[highlighted]:bg-black/10 dark:data-[highlighted]:bg-white/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-none"
+				className="group relative flex items-center gap-3 pr-2 pl-2 h-7 leading-none select-none outline-hidden data-disabled:text-black/25 dark:data-disabled:text-white/25 data-disabled:pointer-events-none data-highlighted:text-neutral-950 dark:data-highlighted:text-white data-[state=checked]:text-neutral-950 dark:data-[state=checked]:text-white data-highlighted:bg-black/10 dark:data-highlighted:bg-white/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-hidden"
 			>
-				<Select.ItemText className="flex-grow">{props.children}</Select.ItemText>
+				<Select.ItemText className="grow">{props.children}</Select.ItemText>
 				<Select.ItemIndicator className="ml-auto">
 					<Check />
 				</Select.ItemIndicator>
@@ -56,8 +56,8 @@ export default function Tester() {
 								</Select.Icon>
 							</Select.Trigger>
 							<Select.Portal>
-								<Select.Content className="z-50 bg-white/90 dark:bg-neutral-950/90 backdrop-blur ring-1 ring-black/5 dark:ring-white/5 shadow-lg data-[state=open]:animate-fade-in">
-									<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-white/50 dark:from-neutral-900/50 text-neutral-950 dark:text-white rounded-t-md">
+								<Select.Content className="z-50 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-sm ring-1 ring-black/5 dark:ring-white/5 shadow-lg data-[state=open]:animate-fade-in">
+									<Select.ScrollUpButton className="absolute z-50 top-0 left-0 right-0 flex justify-center bg-linear-to-b from-white/50 dark:from-neutral-900/50 text-neutral-950 dark:text-white rounded-t-md">
 										<ChevronUp />
 									</Select.ScrollUpButton>
 									<Select.Viewport className="p-1">
@@ -67,7 +67,7 @@ export default function Tester() {
 											<SelectItem value="700">{t("FONTTESTER.Weight.bold")}</SelectItem>
 										</Select.Group>
 									</Select.Viewport>
-									<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-white/50 dark:from-neutral-900/50 text-neutral-950 dark:text-white rounded-b-md">
+									<Select.ScrollDownButton className="absolute z-50 bottom-0 left-0 right-0 flex justify-center bg-linear-to-t from-white/50 dark:from-neutral-900/50 text-neutral-950 dark:text-white rounded-b-md">
 										<ChevronDown />
 									</Select.ScrollDownButton>
 								</Select.Content>
@@ -91,7 +91,7 @@ export default function Tester() {
 						].map((alignment) => (
 							<Toolbar.ToggleItem
 								key={alignment.value}
-								className="inline-flex items-center justify-center size-9 data-[state=off]:text-neutral-950 dark:data-[state=off]:text-white data-[state=on]:text-white dark:data-[state=on]:text-neutral-950 data-[state=off]:hover:bg-black/5 dark:data-[state=off]:hover:bg-white/5 data-[state=off]:active:bg-black/10 data-[state=off]:dark:active:bg-white/10 data-[state=on]:bg-neutral-950 dark:data-[state=on]:bg-white duration-100"
+								className="inline-flex items-center justify-center size-9 data-[state=off]:text-neutral-950 dark:data-[state=off]:text-white data-[state=on]:text-white dark:data-[state=on]:text-neutral-950 data-[state=off]:hover:bg-black/5 dark:data-[state=off]:hover:bg-white/5 data-[state=off]:active:bg-black/10 dark:data-[state=off]:active:bg-white/10 data-[state=on]:bg-neutral-950 dark:data-[state=on]:bg-white duration-100"
 								value={alignment.value}
 								aria-label={alignment.ariaLabel}
 							>
@@ -120,9 +120,9 @@ export default function Tester() {
 							</span>
 						</div>
 						<Slider.Track className="relative grow h-9">
-							<Slider.Range className="absolute bg-gradient-to-l from-black/5 dark:from-white/5 h-9" />
+							<Slider.Range className="absolute bg-linear-to-l from-black/5 dark:from-white/5 h-9" />
 						</Slider.Track>
-						<Slider.Thumb className="block h-9 w-px group-hover:w-1 active:w-1 bg-neutral-950 dark:bg-white outline-none focus-visible:outline-none duration-100" />
+						<Slider.Thumb className="block h-9 w-px group-hover:w-1 active:w-1 bg-neutral-950 dark:bg-white outline-hidden focus-visible:outline-hidden duration-100" />
 					</Slider.Root>
 				</div>
 				<div className="flex flex-col w-full md:w-1/2 border-b border-black/5 dark:border-white/5">
@@ -145,9 +145,9 @@ export default function Tester() {
 							</span>
 						</div>
 						<Slider.Track className="relative grow h-9">
-							<Slider.Range className="absolute bg-gradient-to-l from-black/5 dark:from-white/5 h-9" />
+							<Slider.Range className="absolute bg-linear-to-l from-black/5 dark:from-white/5 h-9" />
 						</Slider.Track>
-						<Slider.Thumb className="block h-9 w-px group-hover:w-1 active:w-1 bg-neutral-950 dark:bg-white outline-none focus-visible:outline-none duration-100" />
+						<Slider.Thumb className="block h-9 w-px group-hover:w-1 active:w-1 bg-neutral-950 dark:bg-white outline-hidden focus-visible:outline-hidden duration-100" />
 					</Slider.Root>
 				</div>
 				<div className="w-full md:w-max border-b border-black/5 dark:border-white/5 inline-flex justify-center">
@@ -158,7 +158,7 @@ export default function Tester() {
 				</div>
 			</Toolbar.Root>
 			<textarea
-				className={`flex w-full p-3 md:p-6 font-mintsans text-neutral-950 dark:text-white placeholder:text-neutral-950 dark:placeholder:text-white focus:placeholder:text-black/10 dark:focus:placeholder:text-white/10 bg-transparent focus:outline-none focus-visible:outline-none min-h-[200px] h-1/2-screen border-b border-black/5 dark:border-white/5 ${textAlignment}`}
+				className={`flex w-full p-3 md:p-6 font-mintsans text-neutral-950 dark:text-white placeholder:text-neutral-950 dark:placeholder:text-white focus:placeholder:text-black/10 dark:focus:placeholder:text-white/10 bg-transparent focus:outline-hidden focus-visible:outline-hidden min-h-[200px] h-1/2-screen border-b border-black/5 dark:border-white/5 ${textAlignment}`}
 				placeholder={t("MINTSANS.Content.Tester.pangram")}
 				style={{
 					fontWeight: weight,

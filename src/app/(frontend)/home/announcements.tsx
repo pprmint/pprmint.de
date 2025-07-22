@@ -54,7 +54,7 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 				{t("Content.News.heading")}
 			</h2>
 			<div className="grid grid-cols-2 border-x border-black/5 dark:border-white/5 items-center pt-20 lg:pt-0">
-				<div className="order-2 lg:order-1 flex col-span-2 lg:col-span-1 flex-col justify-center lg:border-r border-black/5 dark:border-white/5 h-full w-full lg:pt-40 lg:backdrop-blur-sm bg-white/25 dark:bg-neutral-950/25">
+				<div className="order-2 lg:order-1 flex col-span-2 lg:col-span-1 flex-col justify-center lg:border-r border-black/5 dark:border-white/5 h-full w-full lg:pt-40 lg:backdrop-blur-xs bg-white/25 dark:bg-neutral-950/25">
 					<m.div className="md:grow" animate={{ height: descriptionHeight }}>
 						<AnimatePresence mode="wait">
 							<m.div
@@ -241,7 +241,7 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 						</div>
 					</div>
 				</div>
-				<div className="order-1 lg:order-2 col-span-2 lg:col-span-1 relative lg:h-full lg:pt-40 backdrop-blur-sm bg-neutral-950/25 lg:backdrop-blur-none lg:bg-transparent">
+				<div className="order-1 lg:order-2 col-span-2 lg:col-span-1 relative lg:h-full lg:pt-40 backdrop-blur-xs bg-neutral-950/25 lg:backdrop-blur-none lg:bg-transparent">
 					<div className="aspect-video border-y border-black/5 dark:border-white/5 overflow-clip">
 						<AnimatePresence>
 							<m.div

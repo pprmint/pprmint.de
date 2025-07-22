@@ -21,7 +21,7 @@ export default function Glyphs() {
 						<m.div
 							initial={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
-							className="absolute flex items-center justify-center bottom-0 left-px right-px z-10 bg-gradient-to-t from-white dark:from-neutral-950 pb-6 pt-12"
+							className="absolute flex items-center justify-center bottom-0 left-px right-px z-10 bg-linear-to-t from-white dark:from-neutral-950 pb-6 pt-12"
 						>
 							<Button design="filled" color="neutral" onClick={() => setGlyphsOpen(true)}>
 								{t("MINTBIT.Content.AllGlyphs.showAll")}

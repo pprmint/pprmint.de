@@ -88,7 +88,7 @@ const Tabs = [
 export default function BrowserWindow() {
 	const [tab, setTab] = useState(0);
 	return (
-		<div className="border border-black/10 dark:ring-black/50 outline outline-1 outline-white/10 -outline-offset-2 rounded-xl overflow-clip my-9 text-sm shadow-2xl max-w-7xl mx-auto">
+		<div className="border border-black/10 dark:ring-black/50 outline-solid outline-1 outline-white/10 -outline-offset-2 rounded-xl overflow-clip my-9 text-sm shadow-2xl max-w-7xl mx-auto">
 			<div className="bg-elevate">
 				<div className="flex items-center gap-1">
 					<div className="group flex gap-2 p-3">
@@ -102,9 +102,9 @@ export default function BrowserWindow() {
 							<TriangleTopLeftBottomRight className="opacity-0 group-hover:opacity-100 duration-100 fill-green-900 p-0.5" />
 						</button>
 					</div>
-					<div className="inline-flex items-center gap-3 px-3 bg-neutral-50 dark:bg-neutral-800 py-0.5 flex-grow rounded-md">
+					<div className="inline-flex items-center gap-3 px-3 bg-neutral-50 dark:bg-neutral-800 py-0.5 grow rounded-md">
 						<Lock />
-						<p className="flex-grow pt-0.5 pb-1">
+						<p className="grow pt-0.5 pb-1">
 							<span className="opacity-50">https://</span>
 							tentative.name
 						</p>

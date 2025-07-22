@@ -39,7 +39,7 @@ export default function Tester() {
 					].map((alignment) => (
 						<Toolbar.ToggleItem
 							key={alignment.value}
-							className="inline-flex items-center justify-center size-9 data-[state=off]:text-neutral-950 dark:data-[state=off]:text-white data-[state=on]:text-white dark:data-[state=on]:text-neutral-950 data-[state=off]:hover:bg-black/5 dark:data-[state=off]:hover:bg-white/5 data-[state=off]:active:bg-black/10 data-[state=off]:dark:active:bg-white/10 data-[state=on]:bg-neutral-950 dark:data-[state=on]:bg-white duration-100"
+							className="inline-flex items-center justify-center size-9 data-[state=off]:text-neutral-950 dark:data-[state=off]:text-white data-[state=on]:text-white dark:data-[state=on]:text-neutral-950 data-[state=off]:hover:bg-black/5 dark:data-[state=off]:hover:bg-white/5 data-[state=off]:active:bg-black/10 dark:data-[state=off]:active:bg-white/10 data-[state=on]:bg-neutral-950 dark:data-[state=on]:bg-white duration-100"
 							value={alignment.value}
 							aria-label={alignment.ariaLabel}
 						>
@@ -68,9 +68,9 @@ export default function Tester() {
 								</span>
 							</div>
 							<Slider.Track className="relative grow h-9">
-								<Slider.Range className="absolute bg-gradient-to-l from-black/5 dark:from-white/5 h-9" />
+								<Slider.Range className="absolute bg-linear-to-l from-black/5 dark:from-white/5 h-9" />
 							</Slider.Track>
-							<Slider.Thumb className="block h-9 w-px group-hover:w-1 active:w-4 bg-neutral-950 dark:bg-white outline-none focus-visible:outline-none duration-100" />
+							<Slider.Thumb className="block h-9 w-px group-hover:w-1 active:w-4 bg-neutral-950 dark:bg-white outline-hidden focus-visible:outline-hidden duration-100" />
 						</Slider.Root>
 					</div>
 					<div className="flex flex-col w-full sm:w-1/2 border-b border-black/5 dark:border-white/5">
@@ -93,9 +93,9 @@ export default function Tester() {
 								</span>
 							</div>
 							<Slider.Track className="relative grow h-9">
-								<Slider.Range className="absolute bg-gradient-to-l from-black/5 dark:from-white/5 h-9" />
+								<Slider.Range className="absolute bg-linear-to-l from-black/5 dark:from-white/5 h-9" />
 							</Slider.Track>
-							<Slider.Thumb className="block h-9 w-px group-hover:w-1 active:w-4 bg-neutral-950 dark:bg-white outline-none focus-visible:outline-none duration-100" />
+							<Slider.Thumb className="block h-9 w-px group-hover:w-1 active:w-4 bg-neutral-950 dark:bg-white outline-hidden focus-visible:outline-hidden duration-100" />
 						</Slider.Root>
 					</div>
 					<div className="border-b border-black/5 dark:border-white/5 inline-flex justify-center">
@@ -111,7 +111,7 @@ export default function Tester() {
 				</div>
 			</Toolbar.Root>
 			<textarea
-				className={`flex w-full p-3 md:p-6 font-mintbit text-neutral-950 dark:text-white placeholder:text-neutral-950 dark:placeholder:text-white focus:placeholder:text-black/10 dark:focus:placeholder:text-white/10 bg-transparent focus:outline-none focus-visible:outline-none min-h-[200px] h-1/2-screen border-b border-black/5 dark:border-white/5 ${textAlignment}`}
+				className={`flex w-full p-3 md:p-6 font-mintbit text-neutral-950 dark:text-white placeholder:text-neutral-950 dark:placeholder:text-white focus:placeholder:text-black/10 dark:focus:placeholder:text-white/10 bg-transparent focus:outline-hidden focus-visible:outline-hidden min-h-[200px] h-1/2-screen border-b border-black/5 dark:border-white/5 ${textAlignment}`}
 				placeholder={t("MINTBIT.Content.Tester.pangram")}
 				style={{
 					fontSize: `${fontSize}em`,

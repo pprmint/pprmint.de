@@ -29,29 +29,29 @@ export default function ThumbnailCell({ rowData }: { rowData: Mina }) {
 					/>
 					{rowData.nsfw && (
 						<div
-							className="flex size-full items-center justify-center group-hover:opacity-0 text-[var(--theme-text)] duration-100"
+							className="flex size-full items-center justify-center group-hover:opacity-0 text-(--theme-text) duration-100"
 							style={{ backdropFilter: "blur(6px)" }}
 						>
 							<EyeDisabled width={30} height={30} className="opacity-50" />
 						</div>
 					)}
-					<div className="absolute inset-0 outline-1 outline-[var(--theme-elevation-50)] -outline-offset-1" />
+					<div className="absolute inset-0 outline-1 outline-(--theme-elevation-50) -outline-offset-1" />
 				</Link>
 			) : (
 				<Link
-					className="group relative size-16 overflow-visible outline-1 outline-[var(--theme-elevation-50)] -outline-offset-1"
+					className="group relative size-16 overflow-visible outline-1 outline-(--theme-elevation-50) -outline-offset-1"
 					href={`/admin/collections/mina/${rowData.id}`}
 				>
-					<div className="absolute flex items-center justify-center opacity-0 group-hover:opacity-100 bottom-0 right-0 size-[60px] border border-solid border-[var(--theme-elevation-100)] bg-[var(--theme-elevation-50)] rounded-[3px] duration-150 ease-out" />
+					<div className="absolute flex items-center justify-center opacity-0 group-hover:opacity-100 bottom-0 right-0 size-[60px] border border-solid border-(--theme-elevation-100) bg-(--theme-elevation-50) rounded-[3px] duration-150 ease-out" />
 					<div
-						className={`absolute flex items-center justify-center bottom-0 right-0 group-hover:bottom-1 group-hover:right-1 size-[60px] border border-solid border-[var(--theme-elevation-150)] bg-[var(--theme-elevation-50)] group-hover:bg-[var(--theme-bg)] rounded-[3px] duration-150 ${rowData.nsfw && "group-hover:delay-700"} group-hover:shadow-[0_2px_2px_-1px_#0000001a] ease-out`}
+						className={`absolute flex items-center justify-center bottom-0 right-0 group-hover:bottom-1 group-hover:right-1 size-[60px] border border-solid border-(--theme-elevation-150) bg-(--theme-elevation-50) group-hover:bg-(--theme-bg) rounded-[3px] duration-150 ${rowData.nsfw && "group-hover:delay-700"} group-hover:shadow-[0_2px_2px_-1px_#0000001a] ease-out`}
 					>
 						<span aria-hidden className="text-2xl">
 							{rowData.images.length}
 						</span>
 					</div>
 					<div
-						className={`absolute size-[60px] top-0 left-0 group-hover:-top-1 group-hover:-left-1 group-hover:opacity-0 bg-[var(--theme-elevation-50)] rounded-[3px] overflow-clip duration-150 ${rowData.nsfw && "group-hover:delay-700"} ease-out`}
+						className={`absolute size-[60px] top-0 left-0 group-hover:-top-1 group-hover:-left-1 group-hover:opacity-0 bg-(--theme-elevation-50) rounded-[3px] overflow-clip duration-150 ${rowData.nsfw && "group-hover:delay-700"} ease-out`}
 						style={{
 							boxShadow:
 								"0 2px 2px -1px #0000001a",
@@ -69,7 +69,7 @@ export default function ThumbnailCell({ rowData }: { rowData: Mina }) {
 						/>
 						{rowData.nsfw && (
 							<div
-								className="flex size-full items-center justify-center group-hover:opacity-0 text-[var(--theme-text)] duration-100"
+								className="flex size-full items-center justify-center group-hover:opacity-0 text-(--theme-text) duration-100"
 								style={{ backdropFilter: "blur(6px)" }}
 							>
 								<EyeDisabled width={30} height={30} className="opacity-50" />

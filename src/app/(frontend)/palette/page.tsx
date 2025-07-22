@@ -30,7 +30,7 @@ export default function Page() {
 						<div className="w-full h-1/6-screen -skew-y-12 border-y-2 border-violet" />
 						<div className="w-full h-1/6-screen skew-y-12 border-y-2 border-blue" />
 					</div>
-					<div className="absolute inset-0 bg-gradient-to-r from-neutral-950/75 via-transparent"/>
+					<div className="absolute inset-0 bg-linear-to-r from-neutral-950/75 via-transparent"/>
 				</div>
 			</Title>
 			<main className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">

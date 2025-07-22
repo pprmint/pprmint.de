@@ -163,7 +163,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 									<Dialog.Overlay className="bg-neutral-950/90 backdrop-blur-xl data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
 									<Dialog.Content asChild onCloseAutoFocus={reset}>
 										<div
-											className={`fixed inset-0 z-100 h-screen max-h-svh w-screen data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out focus-visible:outline-none`}
+											className={`fixed inset-0 z-100 h-screen max-h-svh w-screen data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out focus-visible:outline-hidden`}
 										>
 											<Dialog.Description className="sr-only">
 												{t("Content.Artworks.drawnBy")}

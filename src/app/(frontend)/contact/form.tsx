@@ -107,7 +107,7 @@ export default function Form() {
 								onChange={(e) => {
 									setFormData({ ...formData, name: e.target.value });
 								}}
-								className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
+								className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
 							/>
 						</div>
 						<div className="col-span-2 sm:col-span-1 border-y border-black/5 dark:border-white/5">
@@ -121,7 +121,7 @@ export default function Form() {
 								onChange={(e) => {
 									setFormData({ ...formData, email: e.target.value });
 								}}
-								className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
+								className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
 							/>
 						</div>
 						<div className="col-span-2 border-b border-black/5 dark:border-white/5">
@@ -135,7 +135,7 @@ export default function Form() {
 								onChange={(e) => {
 									setFormData({ ...formData, subject: e.target.value });
 								}}
-								className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
+								className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
 							/>
 						</div>
 						<div className="col-span-2">
@@ -149,7 +149,7 @@ export default function Form() {
 								onChange={(e) => {
 									setFormData({ ...formData, message: e.target.value });
 								}}
-								className="size-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-1.5 duration-100 resize-none"
+								className="size-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-1.5 duration-100 resize-none"
 							/>
 						</div>
 						<div className="col-span-2 flex flex-col sm:flex-row-reverse items-center justify-between">

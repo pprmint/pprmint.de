@@ -33,7 +33,7 @@ export default function RefSheet() {
 			<Dialog.Portal>
 				<Dialog.Overlay className="bg-white/90 dark:bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-100" />
 				<Dialog.Content
-					className={`fixed z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-svh md:h-auto w-screen max-w-6xl bg-white dark:bg-neutral-950 md:outline outline-1 outline-black/5 dark:outline-white/5 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl ${!col && "md:grid grid-cols-2 items-center"
+					className={`fixed z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-svh md:h-auto w-screen max-w-6xl bg-white dark:bg-neutral-950 md:outline-solid outline-1 outline-black/5 dark:outline-white/5 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl ${!col && "md:grid grid-cols-2 items-center"
 						} overflow-auto`}
 				>
 					<div
@@ -157,7 +157,7 @@ export default function RefSheet() {
 								<FadingImage
 									src={ReferenceHand}
 									className="w-auto max-h-full object-contain"
-									alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
+									alt="Drawing of a hand with a rectangular ring, spanning across the ring-3 and middle finger."
 								/>
 							</div>
 						</button>
@@ -174,7 +174,7 @@ export default function RefSheet() {
 						reference={
 							<FadingImage
 								src={ReferenceHand}
-								alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
+								alt="Drawing of a hand with a rectangular ring, spanning across the ring-3 and middle finger."
 								className="max-h-1/2-screen w-auto lg:w-1/2 lg:max-h-[50vh] object-contain"
 							/>
 						}
@@ -371,7 +371,7 @@ export default function RefSheet() {
 						reference={
 							<FadingImage
 								src={ReferenceShoes}
-								alt="Drawing of a hand with a rectangular ring, spanning across the ring and middle finger."
+								alt="Drawing of a hand with a rectangular ring, spanning across the ring-3 and middle finger."
 								className="w-full h-auto object-contain"
 							/>
 						}

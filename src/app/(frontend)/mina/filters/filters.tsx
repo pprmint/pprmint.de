@@ -102,9 +102,9 @@ function Filters(props: {
 		return (
 			<Select.Item
 				value={props.value}
-				className="group relative flex items-center gap-3 pr-2 pl-2 h-7 leading-none select-none outline-none data-[disabled]:text-black/25 dark:data-[disabled]:text-white/25 data-[disabled]:pointer-events-none data-[highlighted]:text-neutral-950 dark:data-[highlighted]:text-white data-[state=checked]:text-neutral-950 dark:data-[state=checked]:text-white data-[highlighted]:bg-black/10 dark:data-[highlighted]:bg-white/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-none"
+				className="group relative flex items-center gap-3 pr-2 pl-2 h-7 leading-none select-none outline-hidden data-disabled:text-black/25 dark:data-disabled:text-white/25 data-disabled:pointer-events-none data-highlighted:text-neutral-950 dark:data-highlighted:text-white data-[state=checked]:text-neutral-950 dark:data-[state=checked]:text-white data-highlighted:bg-black/10 dark:data-highlighted:bg-white/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-hidden"
 			>
-				<Select.ItemText className="flex-grow">{props.children}</Select.ItemText>
+				<Select.ItemText className="grow">{props.children}</Select.ItemText>
 				<Select.ItemIndicator className="ml-auto">
 					<Check />
 				</Select.ItemIndicator>
@@ -141,8 +141,8 @@ function Filters(props: {
 							)}
 						</div>
 						<Select.Portal>
-							<Select.Content className="z-[99999] bg-white/90 dark:bg-neutral-950/90 backdrop-blur ring-1 ring-black/5 dark:ring-white/5 shadow-lg data-[state=open]:animate-fade-in">
-								<Select.ScrollUpButton className="absolute z-[9999] top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-white/50 dark:from-neutral-900/50 text-neutral-950 dark:text-white rounded-t-md">
+							<Select.Content className="z-99999 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-sm ring-1 ring-black/5 dark:ring-white/5 shadow-lg data-[state=open]:animate-fade-in">
+								<Select.ScrollUpButton className="absolute z-9999 top-0 left-0 right-0 flex justify-center bg-linear-to-b from-white/50 dark:from-neutral-900/50 text-neutral-950 dark:text-white rounded-t-md">
 									<ChevronUp />
 								</Select.ScrollUpButton>
 								<Select.Viewport className="p-1">
@@ -154,7 +154,7 @@ function Filters(props: {
 										))}
 									</Select.Group>
 								</Select.Viewport>
-								<Select.ScrollDownButton className="absolute z-[9999] bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-white/50 dark:from-neutral-900/50 text-neutral-950 dark:text-white rounded-b-md">
+								<Select.ScrollDownButton className="absolute z-9999 bottom-0 left-0 right-0 flex justify-center bg-linear-to-t from-white/50 dark:from-neutral-900/50 text-neutral-950 dark:text-white rounded-b-md">
 									<ChevronDown />
 								</Select.ScrollDownButton>
 							</Select.Content>
@@ -187,8 +187,8 @@ function Filters(props: {
 							)}
 						</div>
 						<Select.Portal>
-							<Select.Content className="z-[99999] bg-white/90 dark:bg-neutral-950/90 backdrop-blur ring-1 ring-black/5 dark:ring-white/5 shadow-lg data-[state=open]:animate-fade-in">
-								<Select.ScrollUpButton className="absolute z-[9999] top-0 left-0 right-0 flex justify-center bg-gradient-to-b from-white/75 dark:from-neutral-950/75 text-neutral-950 dark:text-white">
+							<Select.Content className="z-99999 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-sm ring-1 ring-black/5 dark:ring-white/5 shadow-lg data-[state=open]:animate-fade-in">
+								<Select.ScrollUpButton className="absolute z-9999 top-0 left-0 right-0 flex justify-center bg-linear-to-b from-white/75 dark:from-neutral-950/75 text-neutral-950 dark:text-white">
 									<ChevronUp />
 								</Select.ScrollUpButton>
 								<Select.Viewport className="p-1">
@@ -200,7 +200,7 @@ function Filters(props: {
 										))}
 									</Select.Group>
 								</Select.Viewport>
-								<Select.ScrollDownButton className="absolute z-[9999] bottom-0 left-0 right-0 flex justify-center bg-gradient-to-t from-white/75 dark:from-neutral-950/75 text-neutral-950 dark:text-white">
+								<Select.ScrollDownButton className="absolute z-9999 bottom-0 left-0 right-0 flex justify-center bg-linear-to-t from-white/75 dark:from-neutral-950/75 text-neutral-950 dark:text-white">
 									<ChevronDown />
 								</Select.ScrollDownButton>
 							</Select.Content>

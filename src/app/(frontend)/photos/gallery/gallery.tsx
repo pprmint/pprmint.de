@@ -126,7 +126,7 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 								opacity: 0,
 							}}
 							transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-							className="relative w-full aspect-[3/2]"
+							className="relative w-full aspect-3/2"
 						>
 							<Dialog.Root key={photo.id}>
 								<Dialog.Trigger asChild>
@@ -155,7 +155,7 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 									<Dialog.Overlay className="bg-neutral-950/90 backdrop-blur-xl data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
 									<Dialog.Content asChild onCloseAutoFocus={reset}>
 										<div
-											className={`text-white fixed inset-0 z-100 h-screen max-h-svh w-screen data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out focus-visible:outline-none`}
+											className={`text-white fixed inset-0 z-100 h-screen max-h-svh w-screen data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out focus-visible:outline-hidden`}
 										>
 											<Dialog.Description className="sr-only">
 												{photos.docs[selectedPhoto].alt || photos.docs[selectedPhoto].date}
@@ -243,14 +243,14 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 																initial={{ opacity: 0 }}
 																animate={{ opacity: 1, transition: { duration: 0.2 } }}
 																exit={{ opacity: 0, transition: { duration: 0.2 } }}
-																className="flex md:items-center flex-grow flex-col md:flex-row gap-3 md:gap-6"
+																className="flex md:items-center grow flex-col md:flex-row gap-3 md:gap-6"
 															>
 																<div className="flex items-center gap-3">
 																	{typeof photos.docs[selectedPhoto].camera ===
 																		"object" &&
 																	photos.docs[selectedPhoto].camera.svgLogo ? (
 																		<div
-																			className="h-4 *:h-4 md:h-6 *:md:h-6 w-auto *:w-auto"
+																			className="h-4 *:h-4 md:h-6 md:*:h-6 w-auto *:w-auto"
 																			dangerouslySetInnerHTML={{
 																				__html: photos.docs[selectedPhoto]
 																					.camera.svgLogo,
@@ -475,7 +475,7 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 					className="w-full group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-1 sm:p-2 gap-1 sm:gap-2"
 				>
 					{[...Array(photos.docs.length)].map((_, index) => (
-						<div key={index} className="w-full aspect-[3/2]" />
+						<div key={index} className="w-full aspect-3/2" />
 					))}
 				</div>
 			</div>

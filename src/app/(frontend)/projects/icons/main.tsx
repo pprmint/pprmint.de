@@ -180,7 +180,7 @@ export default function Main() {
 							maxLength={30}
 							onChange={handleSearchChange}
 							ref={searchRef}
-							className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent dark:hover:focus:bg-transparent outline-none focus:outline-none text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
+							className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent dark:hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
 						/>
 						{search !== "" ? (
 							<div className="absolute top-[36px] z-10 p-1 max-h-80 -left-px -right-px bg-white dark:bg-neutral-950 border border-black/5 dark:border-white/5 shadow-xl shadow-neutral-950/5 dark:shadow-neutral-950 overflow-auto">
@@ -287,7 +287,7 @@ export default function Main() {
 						className="fixed flex items-center justify-center gap-6 z-100 bottom-0 inset-x-0 py-6"
 					>
 						<Image src={JiggyGif} alt="A jiggy!" className="size-32" />
-						<span className="bg-clip-text bg-gradient-to-b from-yellow-100 to-yellow text-8xl font-bold font-stretch-expanded text-transparent">
+						<span className="bg-clip-text bg-linear-to-b from-yellow-100 to-yellow text-8xl font-bold font-stretch-expanded text-transparent">
 							{jiggies}
 						</span>
 					</m.div>

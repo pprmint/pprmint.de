@@ -38,9 +38,9 @@ export default async function Page() {
 							src="/api/assets/file/tradeoffer_bg_f66021cc37.webp"
 							alt=""
 							fill
-							className="object-cover origin-[50%_10%] blur scale-105"
+							className="object-cover origin-[50%_10%] blur-sm scale-105"
 						/>
-						<div className="absolute inset-0 bg-gradient-to-t from-neutral-950/50 via-75% via-transparent" />
+						<div className="absolute inset-0 bg-linear-to-t from-neutral-950/50 via-75% via-transparent" />
 						<div className="absolute top-0 left-1/2 -translate-x-1/2 size-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20">
 							<div className="size-full mx-auto border-x border-white/5" />
 						</div>

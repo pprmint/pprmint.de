@@ -62,7 +62,7 @@ export default function HomeTitle() {
 					style={{ background: "url(/assets/noise.png)" }}
 					className="absolute inset-0 opacity-50 dark:opacity-20 dark:mix-blend-multiply mix-blend-screen"
 				/>
-				<div className="absolute inset-0 bg-gradient-to-t from-white dark:from-neutral-950 via-30% via-transparent" />
+				<div className="absolute inset-0 bg-linear-to-t from-white dark:from-neutral-950 via-30% via-transparent" />
 				<m.div
 					initial={{ opacity: 1 }}
 					animate={{
@@ -140,13 +140,13 @@ export default function HomeTitle() {
 											},
 										}}
 										className="relative w-full aspect-video border-black/5 dark:border-white/5
-											border-y border-r group-even:border-r-0 xl:group-[&:nth-child(2)]:border-r
-											group-[&:nth-child(3)]:border-t-0
-											group-[&:nth-child(4)]:border-t-0
-											xl:group-[&:nth-child(3)]:border-t
-											xl:group-[&:nth-child(4)]:border-t"
+											border-y border-r group-even:border-r-0 xl:group-nth-2:border-r
+											group-nth-3:border-t-0
+											group-nth-4:border-t-0
+											xl:group-nth-3:border-t
+											xl:group-nth-4:border-t"
 									>
-										<div className="absolute flex items-center justify-center z-10 inset-x-0 bottom-0 h-0 group-hover:h-full bg-neutral-950 dark:bg-white group-active:active:bg-neutral-800 dark:group-active:bg-neutral-100 text-white dark:text-neutral-950 group-active:shadow-inner text-2xl uppercase font-stretch-expanded font-bold duration-400 ease-out-quint overflow-clip">
+										<div className="absolute flex items-center justify-center z-10 inset-x-0 bottom-0 h-0 group-hover:h-full bg-neutral-950 dark:bg-white active:group-active:bg-neutral-800 dark:group-active:bg-neutral-100 text-white dark:text-neutral-950 group-active:shadow-inner text-2xl uppercase font-stretch-expanded font-bold duration-400 ease-out-quint overflow-clip">
 											<div className="flex opacity-0 group-hover:opacity-100 duration-100">
 												{t(button.text)
 													.split("")

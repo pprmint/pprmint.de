@@ -39,7 +39,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 			<article className="relative border-b border-black/5 dark:border-white/5">
 				<header className="relative flex justify-center px-6 md:px-9 lg:px-12 pb-9 items-end border-b border-black/5 dark:border-white/5 h-2/3-screen min-h-96">
 					<Media resource={article.thumbnail} fill imgClassName="object-cover" />
-					<div className="absolute inset-0 bg-gradient-to-t from-white dark:from-neutral-950" />
+					<div className="absolute inset-0 bg-linear-to-t from-white dark:from-neutral-950" />
 					<div className="relative md:text-center">
 						<m.h1
 							className="pb-1 md:pb-2 lg:pb-3 font-serif text-balance"
@@ -103,7 +103,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 				</header>
 				<div className="relative max-w-6xl mx-auto px-6 md:px-9 lg:px-12">
 					<RichText
-						className="border-x border-black/5 dark:border-white/5 lg:text-lg py-20 md:py-32 xl:py-40 md:col-span-2 prose-h1:xl:text-7xl"
+						className="border-x border-black/5 dark:border-white/5 lg:text-lg py-20 md:py-32 xl:py-40 md:col-span-2 xl:prose-h1:text-7xl"
 						data={article.content}
 					/>
 					<div
