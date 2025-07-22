@@ -171,7 +171,7 @@ export default function OutfitRow({ outfits }: { outfits: PaginatedDocs<Outfit> 
 						{typeof designer === "object" && designer.creditUrl ? (
 							<p className="text-lg text-neutral-950 dark:text-white">
 								{t.rich("Content.Outfits.designedBy", {
-									designer: typeof designer === "object" && designer.name,
+									designer: typeof designer === "object" && designer.name || "",
 									Link: (chunks) => (
 										<Link
 											className="text-link-external"
@@ -187,7 +187,7 @@ export default function OutfitRow({ outfits }: { outfits: PaginatedDocs<Outfit> 
 						) : (
 							<p className="text-lg text-neutral-950 dark:text-white">
 								{t.rich("Content.Outfits.designedBy", {
-									designer: typeof designer === "object" && designer.name,
+									designer: typeof designer === "object" && designer.name || "",
 									Link: (chunks) => <span>{chunks}</span>,
 								})}
 							</p>
