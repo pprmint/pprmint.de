@@ -94,7 +94,7 @@ module.exports = {
 			fontFamily: {
 				sans: "DINish, Bahnschrift, D-DIN, Inter, Roboto, Helvetica, Arial, sans-serif",
 				mono: "'Iosevka Mint Web', 'JetBrains Mono', monospace",
-				serif: 'Gambarino, "New York", "Roboto Slab", "Linux Libertine", Georgia, Times, serif',
+				serif: '"Instrument Serif", "New York", "Roboto Slab", "Linux Libertine", Georgia, Times, serif',
 				mintbit: "Mintbit, 'Roboto Mono', monospace",
 				minttriangles: "'Mint Triangles', monospace",
 				lcd: "'LCD 14', 'Roboto Mono', monospace",

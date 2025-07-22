@@ -2,22 +2,11 @@
 
 @config '../tailwind.config.js';
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
+	button:not(:disabled),
+	[role="button"]:not(:disabled) {
+		cursor: pointer;
+	}
 }
 
 @utility text-link {
@@ -26,42 +15,6 @@
 
 @utility text-link-external {
   @apply font-medium text-blue underline decoration-1 decoration-dotted hover:decoration-solid decoration-blue/50 hover:decoration-blue duration-100 underline-offset-2;
-}
-
-@utility font-stretch-ultra-condensed {
-  font-stretch: ultra-condensed;
-}
-
-@utility font-stretch-extra-condensed {
-  font-stretch: extra-condensed;
-}
-
-@utility font-stretch-condensed {
-  font-stretch: condensed;
-}
-
-@utility font-stretch-semi-condensed {
-  font-stretch: semi-condensed;
-}
-
-@utility font-stretch-normal {
-  font-stretch: normal;
-}
-
-@utility font-stretch-semi-expanded {
-  font-stretch: semi-expanded;
-}
-
-@utility font-stretch-expanded {
-  font-stretch: expanded;
-}
-
-@utility font-stretch-extra-expanded {
-  font-stretch: extra-expanded;
-}
-
-@utility font-stretch-ultra-expanded {
-  font-stretch: ultra-expanded;
 }
 
 @utility italic {

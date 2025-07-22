@@ -1,5 +1,6 @@
-@tailwind components;
-@tailwind utilities;
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
 
 // #cursed
 @font-face {
@@ -21,19 +22,24 @@
 	src: url("/fonts/DINish/DINish[slnt,wdth,wght].woff2") format("woff2");
 }
 @font-face {
-	font-family: "Gambarino";
-	src: url("/fonts/Gambarino/Gambarino-Regular.woff2") format("woff2"),
-		url("/fonts/Gambarino/Gambarino-Regular.woff") format("woff"),
-		url("/fonts/Gambarino/Gambarino-Regular.ttf") format("truetype");
+	font-family: "Instrument Serif";
+	src: url("/fonts/InstrumentSerif/InstrumentSerif-Regular.woff2") format("woff2"), url("/fonts/InstrumentSerif/InstrumentSerif-Regular.ttf") format("truetype");
 	font-weight: 400;
 	font-display: swap;
 	font-style: normal;
+}
+@font-face {
+	font-family: "Instrument Serif";
+	src: url("/fonts/InstrumentSerif/InstrumentSerif-Italic.woff2") format("woff2"), url("/fonts/InstrumentSerif/InstrumentSerif-Italic.ttf") format("truetype");
+	font-weight: 400;
+	font-display: swap;
+	font-style: italic;
 }
 
 :root {
 	--font-body: "DINish", system-ui;
 	--font-mono: "Iosevka Mint Expanded", "Cascadia Code", monospace;
-	--font-serif: "Gambarino", serif;
+	--font-serif: "Instrument Serif", serif;
 	--base-body-size: 16;
 }
 

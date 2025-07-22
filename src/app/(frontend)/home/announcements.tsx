@@ -50,7 +50,7 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 
 	return (
 		<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto overflow-x-clip">
-			<h2 className="absolute top-12 lg:top-auto lg:-bottom-12 left-0 text-[10rem] lg:text-[20rem] text-black/5 dark:text-white/5 -z-10 font-serif italic tracking-tight">
+			<h2 className="absolute top-12 lg:top-auto lg:-bottom-16 left-0 text-[10rem] lg:text-[20rem] text-black/5 dark:text-white/5 -z-10 font-serif italic tracking-tight">
 				{t("Content.News.heading")}
 			</h2>
 			<div className="grid grid-cols-2 border-x border-black/5 dark:border-white/5 items-center pt-20 lg:pt-0">
