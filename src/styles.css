@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @config '../tailwind.config.js';
 
@@ -10,20 +10,20 @@
 }
 
 @utility text-link {
-  @apply font-medium text-neutral-950 dark:text-white underline decoration-1 decoration-dotted hover:decoration-solid decoration-neutral-950/50 dark:decoration-white/50 hover:decoration-neutral-950 dark:hover:decoration-white duration-100 underline-offset-2;
+	@apply font-medium text-neutral-950 dark:text-white underline decoration-1 decoration-dotted hover:decoration-solid decoration-neutral-950/50 dark:decoration-white/50 hover:decoration-neutral-950 dark:hover:decoration-white duration-100 underline-offset-2;
 }
 
 @utility text-link-external {
-  @apply font-medium text-blue underline decoration-1 decoration-dotted hover:decoration-solid decoration-blue/50 hover:decoration-blue duration-100 underline-offset-2;
+	@apply font-medium text-blue underline decoration-1 decoration-dotted hover:decoration-solid decoration-blue/50 hover:decoration-blue duration-100 underline-offset-2;
 }
 
 @utility italic {
-  font-style: italic;
-  font-variation-settings: 'slnt' -12; /* For DINish font. */
+	font-style: italic;
+	font-variation-settings: "slnt" -12; /* For DINish font. */
 }
 
 @utility pixelated {
-  image-rendering: pixelated;
+	image-rendering: pixelated;
 }
 
 @layer base {
@@ -47,10 +47,14 @@
 	}
 }
 
+@theme {
+	--breakpoint-3xl: 120rem;
+}
+
 li.nestedListItem ul.list-bullet {
 	margin: 0 0 0 16px;
 	font-size: 0.9em;
-	
+
 	li::marker {
 		content: "▪ ";
 	}
