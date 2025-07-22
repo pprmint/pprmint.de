@@ -285,23 +285,23 @@ module.exports = {
 				},
 				dialogEnter: {
 					from: {
-						transform: "translateY(calc(-50% + 30px)) translateX(-50%) scale(0.98)",
+						transform: "translateY(30px) scale(0.98)",
 						boxShadow: "0 0px 10px -12px rgb(0 0 0 / 0.25)",
 						opacity: 0,
 					},
 					to: {
-						transform: "translateY(-50%) translateX(-50%) scale(1)",
+						transform: "translateY(0px) scale(1)",
 						boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
 						opacity: 1,
 					},
 				},
 				dialogExit: {
 					from: {
-						transform: "translateY(-50%) translateX(-50%)",
+						transform: "translateY(0px) scale(1)",
 						opacity: 1,
 					},
 					to: {
-						transform: "translateY(calc(-50% + 10px)) translateX(-50%)",
+						transform: "translateY(10px) scale(0.98)",
 						opacity: 0,
 					},
 				},
@@ -351,7 +351,7 @@ module.exports = {
 				"float-rotate-l": "floatRotateL 6s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite",
 				"float-rotate-r": "floatRotateR 6s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite",
 				"dialog-enter": "dialogEnter .5s cubic-bezier(0.16, 1, 0.3, 1) .1s normal backwards",
-				"dialog-exit": "dialogExit .15s ease-in",
+				"dialog-exit": "dialogExit .2s",
 				"graph-enter-left": "graphEnterLeft .6s cubic-bezier(0.4, 0, 0, 1)",
 				"graph-enter-bottom": "graphEnterBottom .6s cubic-bezier(0.4, 0, 0, 1)",
 			},
