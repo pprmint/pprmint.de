@@ -93,50 +93,7 @@ export default async function Page() {
 					/>
 				</section>
 				<section className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
-					<div className="flex flex-col xl:flex-row border-x border-black/5 dark:border-white/5">
-						<div className="py-20 md:py-32 xl:py-40 xl:pr-12 grow border-r border-black/5 dark:border-white/5">
-							<h2>
-								{t("Content.How.heading")}
-								<span className="text-violet">.</span>
-							</h2>
-							<p>{t("Content.How.text1")}</p>
-							<p>
-								{t.rich("Content.How.text2", {
-									Link: (chunks) => (
-										<Link
-											href="https://glyphsapp.com/"
-											target="_blank"
-											className="text-link-external"
-										>
-											{chunks}
-										</Link>
-									),
-								})}
-							</p>
-							<p>{t("Content.How.text3")}</p>
-							<p>{t("Content.How.text4")}</p>
-							<p>{t("Content.How.text5")}</p>
-							{t.rich("Content.How.text6", {
-								Link: (chunks) => (
-									<Link href="/contact" className="text-link">
-										{chunks}
-									</Link>
-								),
-							})}
-							<hr className="border-black/5 dark:border-white/5 my-6" />
-							<p>
-								{t.rich("Content.How.text7", {
-									b: (chunks) => (
-										<span className="text-neutral-950 dark:text-white font-medium">{chunks}</span>
-									),
-								})}
-							</p>
-						</div>
-						<KofiWidget />
-					</div>
-				</section>
-				<section className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
-					<div className="border-x border-t pt-20 border-black/5 dark:border-white/5">
+					<div className="border-x py-20 md:py-32 xl:py-40 border-black/5 dark:border-white/5">
 						<h2>
 							{t("Content.License.heading")}
 							<span className="text-violet">.</span>
@@ -150,6 +107,11 @@ export default async function Page() {
 								<RichText data={licenses.webLicense} />
 							</div>
 						</div>
+					</div>
+				</section>
+				<section className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
+					<div className="border-x border-black/5 dark:border-white/5">
+						<KofiWidget />
 					</div>
 				</section>
 			</main>

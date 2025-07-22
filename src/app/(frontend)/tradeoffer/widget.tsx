@@ -10,7 +10,7 @@ import ExternalLink from "@/icons/ExternalLink";
 import { useNavbar } from "@/components/layout/navigation/NavBarContext";
 
 export default function KofiWidget() {
-	const t = useTranslations("");
+	const t = useTranslations("KOFI");
 	const [visible, setVisible] = useState(false);
 	const { setInverted, setNoAccents } = useNavbar();
 	useEffect(() => {
@@ -19,8 +19,8 @@ export default function KofiWidget() {
 		return () => setInverted(false);
 	}, [setInverted, setNoAccents]);
 	return (
-		<div className="w-full max-w-[400px] xl:pt-40">
-			<div className="mx-auto w-full max-w-[400px] h-[640px] overflow-clip bg-black/5 dark:bg-white/5">
+		<div className="w-full max-w-[400px] mx-auto">
+			<div className="mx-auto w-full max-w-[400px] h-[700px] overflow-clip bg-black/5 dark:bg-white/5">
 				<AnimatePresence mode="wait">
 					{visible ? (
 						<m.iframe
@@ -29,7 +29,7 @@ export default function KofiWidget() {
 							animate={{ opacity: 1 }}
 							id="kofiframe"
 							src="https://ko-fi.com/pprmint/?hidefeed=true&widget=true&embed=true"
-							height="640"
+							height="700"
 							title="pprmint"
 							className="w-full"
 						/>
@@ -40,25 +40,25 @@ export default function KofiWidget() {
 							className="flex flex-col items-center justify-center size-full p-6 text-center"
 						>
 							<Kofi className="size-[60px] text-neutral-950 dark:text-white" />
-							<p>{t("KOFI.dataInfo")}</p>
+							<p>{t("dataInfo")}</p>
 							<Link
 								className="text-sm mt-3 mb-6 text-link-external inline-flex gap-1 items-center"
 								href="https://more.ko-fi.com/privacy"
 								target="_blank"
 								rel="noopener noreferrer"
 							>
-								{t("PRIVACY.Content.privacyPolicyOf", { provider: "Ko-fi" })}
+								{t("privacyPolicy", { provider: "Ko-fi" })}
 								<ExternalLink />
 							</Link>
 							<Button design="semi-transparent" onClick={() => setVisible(true)}>
-								{t("KOFI.showWidget")}
+								{t("showWidget")}
 							</Button>
 						</m.div>
 					)}
 				</AnimatePresence>
 			</div>
 			<p className="text-xs text-center mt-1">
-				{t.rich("KOFI.alternative", {
+				{t.rich("alternative", {
 					Link: (chunks) => (
 						<Link href="https://ko-fi.com/pprmint" target="_blank" className="text-link-external">
 							{chunks}

@@ -438,7 +438,8 @@
 	"KOFI": {
 		"dataInfo": "Wenn du dieses Widget aktivierst, werden möglicherweise Daten von Ko-fi und deren Partnern erfasst.",
 		"showWidget": "Widget anzeigen",
-		"alternative": "Sollte das Widget nicht funktionieren, <Link>besuche mein Profil</Link>."
+		"alternative": "Sollte das Widget nicht funktionieren, <Link>besuche mein Profil</Link>.",
+		"privacyPolicy": "Datenschutzerklärung von Ko-fi"
 	},
 	"MINA": {
 		"Head": {
@@ -840,16 +841,6 @@
 				"youReceive": "du erhältst:",
 				"youReceiveSub1": "vorabversionen von mn varia",
 				"youReceiveSub2": "die gesamte schriftfamilie, sobald sie fertig ist"
-			},
-			"How": {
-				"heading": "Wie das funktionieren wird",
-				"text1": "Vor kurzem habe ich mir einen Mac zugelegt, wodurch ich nun endlich Windows für produktive Arbeiten hinter mir lassen kann. Der Umstieg auf einen Mac bedeutet auch, dass ich eine professionellere Software zur Erstellung von Schriftarten verwenden kann.",
-				"text2": "Konkret möchte ich <Link>Glyphs</Link> kaufen, damit ich mich ernsthafter mit dem Design und der Erstellung von Schriftarten befassen kann. Glyphs ist nicht nur viel angenehmer zu verwenden, sondern ermöglicht mir auch die Erstellung von Schriftarten mit mehr Features und besonders variable Schriften, welche FontForge selbst nicht unterstützt.",
-				"text3": "Der Kauf von Glyphs wäre jedoch eine Investition, und eine Art Rendite wäre doch schön.",
-				"text4": "MN Varia wird meine erste kostenpflichtige Schriftart sein. Mein Ziel ist es, eine variable Schriftart mit Features wie Zeichenvarianten, kontextabhängigen Alternativen und Tabellenzahlen zu erstellen, die vorwiegend lateinische Buchstaben abdeckt. Ein Preis von etwa 25-30€ scheint mir in Anbetracht des Arbeitsaufwandes fair (besonders wenn man bedenkt, wie viel manch anderer dafür verlangt).",
-				"text5": "Wenn du mir helfen möchtest, Glyphs zu finanzieren, würde ich mich über jede Ko-fi-Spende sehr freuen. Würdest du gerne Varia vor allen anderen ausprobieren, dann würdest du ab 15€ Zugriff auf Vorabversionen erhalten, sowie ich sie erstelle. Außerdem könntest du das finale Design mit deinem Feedback beeinflussen.",
-				"text6": "Mein herzliches Dankeschön samt Download-Links zu den Schriften würden an die Email-Adresse gelagen, die du auch für die Ko-fi-Spende verwendet hast. Sollte ich mich nach 2 Tagen noch nicht gemeldet haben, <Link>schreib mich an</Link>.",
-				"text7": "Um Erwartungen richtig zu setzen: <b>Schriftarten zu erstellen braucht Zeit und Mühe.</b> Wahrscheinlich werde ich nicht allzu häufig Updates bereitstellen. Es kann auch lange dauern, bis eine Version wirklich produktionsreif ist. Ich habe nicht unendlich freie Zeit und möchte Varia perfektionieren, wie es nur geht. Daher bitte ich um Geduld."
 			},
 			"License": {
 				"heading": "Lizenz",

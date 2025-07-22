@@ -438,7 +438,8 @@
 	"KOFI": {
 		"dataInfo": "If you enable this widget, data may be collected by Ko-fi and its partners.",
 		"showWidget": "Show widget",
-		"alternative": "If the widget doesn't work, try to <Link>visit my profile</Link> instead."
+		"alternative": "If the widget doesn't work, try to <Link>visit my profile</Link> instead.",
+		"privacyPolicy": "Privacy policy of Ko-fi"
 	},
 	"MINA": {
 		"Head": {
@@ -841,16 +842,7 @@
 				"youReceiveSub1": "early versions of mn varia",
 				"youReceiveSub2": "the full family once it's ready"
 			},
-			"How": {
-				"heading": "How this is gonna work",
-				"text1": "I've recently gotten my hands on a Mac, which allowed me to finally ditch Windows for any productive work. Switching to a Mac also means that I could use more professional software to create fonts.",
-				"text2": "Specifically, I'd like to purchase <Link>Glyphs</Link> so I can get more serious about font design and creation. Glyphs is not only much more pleasant to use than the things I've been dealing with before, it also allows me to create fonts with more features, more easily, and most importantly, variable fonts which FontForge doesn't natively support.",
-				"text3": "However, buying Glyphs would be an investment, and a potential return on investment would be nice.",
-				"text4": "MN Varia is going to be my first paid font. My goal is to create a variable font with features like character variants, contextual alternatives and tabular numbers, with extended Latin coverage. Considering the amount of work that would go into this, I think €25-30 would be a fair price for the final product (especially considering what most other font foundries tend to charge).",
-				"text5": "If you'd like to help me afford Glyphs I'd greatly appreaciate any Ko-fi donations. If you feel extra generous and would like to try Varia before anyone else, €15 would give you access to early versions as I create them and net you a chance to influence the final design with your feedback.",
-				"text6": "My heartfelt thanks along with links to download the font will be sent to the email address used for your donation. If you don't hear from me after 2 days, please <Link>contact me</Link>.",
-				"text7": "To set expecations straight: <b>Creating fonts takes a lot of time and effort.</b> I might not release updates very frequently and it might take a long time until there's a production-ready version. I only have so much free time and want to make Varia the best it can be, so I ask for your patience."
-			},
+			
 			"License": {
 				"heading": "License",
 				"text": "You'll receive Desktop and Web licenses with the following respective terms:",
