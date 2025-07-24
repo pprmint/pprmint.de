@@ -29,7 +29,7 @@ export default function LoadingSpinner() {
 					skewY: [0, 0, 0, 6, 0, 0, 0, 6, 0],
 				}}
 				transition={transition}
-				className="absolute translate-x-full translate-y-full size-4 bg-green"
+				className="absolute size-4 bg-green"
 			/>
 		</div>
 	);
