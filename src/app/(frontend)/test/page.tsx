@@ -6,6 +6,7 @@ import Image from "next/image";
 
 import Seyana from "/public/assets/mina/sticker_seyana.webp";
 import LoadingSpinner from "@/components/loading/LoadingSpinner";
+import GlowingSpinner from "@/components/loading/GlowingSpinner";
 
 export async function generateMetadata() {
 	return {
@@ -19,8 +20,9 @@ export default function Page() {
 		<main className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
 			<section className="py-40 w-full border-x border-black/5 dark:border-white/5">
 				<h2>Loading things</h2>
-				<div className="flex flex-wrap justify-between">
+				<div className="flex p-6 gap-12 flex-wrap">
 					<LoadingSpinner />
+					<GlowingSpinner />
 				</div>
 			</section>
 			<section className="pb-40 w-full border-x border-black/5 dark:border-white/5">
