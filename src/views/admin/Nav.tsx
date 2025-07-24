@@ -117,7 +117,7 @@ function Nav() {
 	}
 
 	return (
-		<nav className="w-screen md:w-(--nav-width) h-screen max-h-svh flex flex-col border-0 border-r border-solid border-(--theme-elevation-100) sticky top-0 bottom-0 overflow-auto">
+		<nav className="twp w-screen md:w-(--nav-width) h-screen max-h-svh flex flex-col border-0 border-r border-solid border-(--theme-elevation-100) sticky top-0 bottom-0 overflow-auto">
 			<div className="relative h-14">
 				<Link
 					href="/"

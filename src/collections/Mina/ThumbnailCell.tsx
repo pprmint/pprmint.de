@@ -10,7 +10,7 @@ export default function ThumbnailCell({ rowData }: { rowData: Mina }) {
 			rowData.images.length === 1 ? (
 				<Link
 					href={`/admin/collections/mina/${rowData.id}`}
-					className="group relative size-16 overflow-clip rounded-[3px]"
+					className="twp group relative size-16 overflow-clip rounded-[3px]"
 					style={{
 						boxShadow:
 							"0 2px 2px -1px #0000001a",

@@ -1,6 +1,28 @@
-@layer theme, base, components, utilities;
-@import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/utilities.css" layer(utilities);
+@layer theme {
+	@import "tailwindcss/theme.css";
+}
+
+@layer base {
+	.twp {
+		@import "tailwindcss/preflight.css";
+	}
+
+	.no-twp {
+		*,
+		::after,
+		::before,
+		::backdrop,
+		::file-selector-button {
+			all: revert-layer;
+		}
+	}
+}
+
+@layer components;
+
+@layer utilities {
+	@import "tailwindcss/utilities.css";
+}
 
 // #cursed
 @font-face {

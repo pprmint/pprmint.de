@@ -19,7 +19,7 @@ export default function ArtworkThumbnailCell({
 			: "";
 	if (rowData) {
 		return rowData.thumbnailURL ? (
-			<div className="leading-none">
+			<div className="twp leading-none">
 				<Link
 					href={`/admin/collections/artwork/${rowData.id}`}
 					className="mina-artwork-thumbnail block group relative w-fullzz aspect-square overflow-clip border-0 border-solid border-b border-(--theme-elevation-150) hover:border-(--theme-elevation-250) rounded-t-sm mb-2 duration-100"
