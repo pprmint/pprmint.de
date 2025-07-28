@@ -48,10 +48,6 @@ module.exports = withPayload(
 				}),
 			],
 		},
-		experimental: {
-			workerThreads: false,
-			cpus: 1,
-		},
 		async redirects() {
 			return [
 				{
