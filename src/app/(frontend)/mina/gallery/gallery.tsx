@@ -140,7 +140,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 										}}
 										onClick={() => setSelectedArtwork(index)}
 										className="group/button absolute inset-0 overflow-clip bg-white dark:bg-neutral-950
-										outline outline-1 -outline-offset-1 outline-neutral-50/5
+										outline -outline-offset-1 outline-white/5
 										focus-visible:z-10 scale-100 sm:hover:scale-[1.025] sm:active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 sm:hover:shadow-xl hover:z-10 active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer"
 									>
 										<div className="scale-[1.025] sm:group-hover/button:scale-100 group-active/button:scale-100 sm:group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
@@ -153,7 +153,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 											/>
 										</div>
 										{artwork.nsfw && (
-											<div className="absolute inset-0 flex items-center justify-center text-neutral-950 dark:text-white backdrop-blur-md group-focus-visible/button:backdrop-blur-md bg-neutral-50/75 dark:bg-neutral-950/75 group-focus-visible/button:bg-transparent group-hover/button:opacity-0 duration-300 ease-out-quint pointer-events-none">
+											<div className="absolute inset-0 flex items-center justify-center text-neutral-950 dark:text-white backdrop-blur-md group-focus-visible/button:backdrop-blur-md bg-white/75 dark:bg-neutral-950/75 group-focus-visible/button:bg-transparent group-hover/button:opacity-0 duration-300 ease-out-quint pointer-events-none">
 												<EyeDisabled className="size-[30px] opacity-50" />
 											</div>
 										)}
@@ -163,11 +163,11 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 									<Dialog.Overlay className="bg-neutral-950/90 backdrop-blur-xl data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-90" />
 									<Dialog.Content asChild onCloseAutoFocus={reset}>
 										<div
-											className={`fixed inset-0 z-100 h-screen max-h-svh w-screen data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out focus-visible:outline-hidden`}
+											className={`text-white/70 fixed inset-0 z-100 h-screen max-h-svh w-screen data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out focus-visible:outline-hidden`}
 										>
 											<Dialog.Description className="sr-only">
 												{t("Content.Artworks.drawnBy")}
-												{typeof artworks.docs[selectedArtwork].artist !== "string" &&
+												{typeof artworks.docs[selectedArtwork].artist === "object" &&
 													artworks.docs[selectedArtwork].artist.name}
 											</Dialog.Description>
 											<TransformWrapper
@@ -225,7 +225,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 															>
 																{typeof artworks.docs[selectedArtwork].images[
 																	selectedVariant
-																].image !== "string" && (
+																].image === "object" && (
 																	<FadingImage
 																		src={
 																			artworks.docs[selectedArtwork].images[
@@ -273,98 +273,134 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 															},
 														}}
 														exit={{ y: -48, opacity: 0 }}
-														className="absolute top-0 pl-6 pr-4 pt-4 inset-x-0"
+														className="absolute top-0 pl-6 pr-4 inset-x-0"
 													>
-														<AnimatePresence mode="wait">
-															{typeof artworks.docs[selectedArtwork].artist !==
-																"string" && (
-																<m.div
-																	key={artworks.docs[selectedArtwork].artist.name}
-																	initial={{ opacity: 0 }}
-																	animate={{
-																		opacity: 1,
-																		transition: { duration: 0.2 },
-																	}}
-																	exit={{ opacity: 0, transition: { duration: 0.2 } }}
-																>
-																	<Dialog.Title asChild>
-																		<span className="text-xl">
-																			<span className="text-white/70">
-																				{t("Content.Artworks.drawnBy")}
+														<div className="h-16 inline-flex flex-col justify-center">
+															<AnimatePresence mode="wait">
+																{typeof artworks.docs[selectedArtwork].artist ===
+																	"object" && (
+																	<m.div
+																		key={artworks.docs[selectedArtwork].artist.name}
+																		initial={{ opacity: 0 }}
+																		animate={{
+																			opacity: 1,
+																			transition: { duration: 0.2 },
+																		}}
+																		exit={{
+																			opacity: 0,
+																			transition: { duration: 0.2 },
+																		}}
+																	>
+																		<Dialog.Title asChild>
+																			<span className="text-xl">
+																				<span>
+																					{t("Content.Artworks.drawnBy")}
+																				</span>
+																				{artworks.docs[selectedArtwork].artist
+																					.creditUrl ? (
+																					<Link
+																						href={
+																							artworks.docs[
+																								selectedArtwork
+																							].artist.creditUrl!
+																						}
+																						target="_blank"
+																						rel="noopener noreferrer"
+																						className="text-link text-white decoration-white/50"
+																					>
+																						{
+																							artworks.docs[
+																								selectedArtwork
+																							].artist.name
+																						}
+																					</Link>
+																				) : (
+																					artworks.docs[selectedArtwork]
+																						.artist.name
+																				)}
+																				{artworks.docs[selectedArtwork]
+																					.wholesome && (
+																					<span className="text-red"> ♥</span>
+																				)}
 																			</span>
-																			{artworks.docs[selectedArtwork].artist
-																				.creditUrl ? (
-																				<Link
-																					href={
-																						artworks.docs[selectedArtwork]
-																							.artist.creditUrl!
-																					}
-																					target="_blank"
-																					rel="noopener noreferrer"
-																					className="text-link text-white decoration-white/50"
-																				>
-																					{
-																						artworks.docs[selectedArtwork]
-																							.artist.name
-																					}
-																				</Link>
-																			) : (
-																				artworks.docs[selectedArtwork].artist
-																					.name
-																			)}
-																			{artworks.docs[selectedArtwork]
-																				.wholesome && (
-																				<span className="text-red"> ♥</span>
-																			)}
-																		</span>
-																	</Dialog.Title>
-																</m.div>
-															)}
-														</AnimatePresence>
-														<AnimatePresence mode="wait">
-															<m.div
-																key={artworks.docs[selectedArtwork].id}
-																initial={{ opacity: 0 }}
-																animate={{
-																	opacity: 1,
-																	transition: { duration: 0.2 },
-																}}
-																exit={{ opacity: 0, transition: { duration: 0.2 } }}
-															>
-																{artworks.docs[selectedArtwork].featuring && (
-																	<p className="text-xs mt-1">
-																		{t("Content.Artworks.featuring")}{" "}
-																		{artworks.docs[selectedArtwork].featuring
-																			.filter(
-																				(character) =>
-																					typeof character === "object"
-																			)
-																			.map((character, index, array) => (
-																				<Fragment key={character.id}>
-																					{character.link ? (
-																						<Link
-																							href={character.link}
-																							target="_blank"
-																							rel="noopener norefererrer"
-																							className="text-white"
-																						>
-																							{character.name}
-																						</Link>
-																					) : (
-																						<span>{character.name}</span>
-																					)}
-																					{index !== array.length - 1 &&
-																						(index < array.length - 2 ? (
-																							<span>, </span>
-																						) : (
-																							<span> & </span>
-																						))}
-																				</Fragment>
-																			))}
-																	</p>
+																		</Dialog.Title>
+																	</m.div>
 																)}
-															</m.div>
-														</AnimatePresence>
+															</AnimatePresence>
+															<AnimatePresence mode="wait">
+																{artworks.docs[selectedArtwork].featuring && (
+																	<m.div
+																		initial={{ height: 0 }}
+																		animate={{
+																			height: 16,
+																			transition: { duration: 0.15 },
+																		}}
+																		exit={{
+																			height: 0,
+																			opacity: 0,
+																			transition: { duration: 0.15 },
+																		}}
+																	>
+																		<AnimatePresence mode="wait">
+																			<m.p
+																				key={selectedArtwork}
+																				className="text-xs"
+																				initial={{ opacity: 0 }}
+																				animate={{
+																					opacity: 1,
+																					transition: {
+																						duration: 0.2,
+																						delay: 0.2,
+																					},
+																				}}
+																				exit={{
+																					opacity: 0,
+																					transition: { duration: 0.1 },
+																				}}
+																			>
+																				{t("Content.Artworks.featuring")}{" "}
+																				{artworks.docs[
+																					selectedArtwork
+																				].featuring
+																					.filter(
+																						(character) =>
+																							typeof character ===
+																							"object"
+																					)
+																					.map((character, index, array) => (
+																						<Fragment key={character.id}>
+																							{character.link ? (
+																								<Link
+																									href={
+																										character.link
+																									}
+																									target="_blank"
+																									rel="noopener norefererrer"
+																									className="text-white"
+																								>
+																									{character.name}
+																								</Link>
+																							) : (
+																								<span>
+																									{character.name}
+																								</span>
+																							)}
+																							{index !==
+																								array.length - 1 &&
+																								(index <
+																								array.length - 2 ? (
+																									<span>, </span>
+																								) : (
+																									<span> & </span>
+																								))}
+																						</Fragment>
+																					))}
+																			</m.p>
+																		</AnimatePresence>
+																	</m.div>
+																)}
+															</AnimatePresence>
+														</div>
 														<AnimatePresence mode="wait">
 															{artworks.docs[selectedArtwork].images.length >= 2 && (
 																<m.div
@@ -372,31 +408,33 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																	initial={{ opacity: 0 }}
 																	animate={{ opacity: 1 }}
 																	exit={{ opacity: 0 }}
-																	className="flex flex-row items-center justify-center px-6 h-9 inset-x-0"
+																	className="absolute top-3.5 right-16 sm:right-1/2 sm:translate-x-1/2"
 																>
-																	{artworks.docs[selectedArtwork].images.map(
-																		(_, index) => (
-																			<button
-																				key={index}
-																				className={`group h-full ${
-																					index === selectedVariant
-																						? "w-9"
-																						: "w-5"
-																				} px-1.5 duration-200 ease-out-quint`}
-																				onClick={() =>
-																					setSelectedVariant(index)
-																				}
-																			>
-																				<div
-																					className={`h-2 ${
+																	<div className="flex flex-row items-center justify-center h-9">
+																		{artworks.docs[selectedArtwork].images.map(
+																			(_, index) => (
+																				<button
+																					key={index}
+																					className={`group h-full ${
 																						index === selectedVariant
-																							? "bg-neutral-50"
-																							: "bg-neutral-50/20 group-hover:bg-neutral-50/50"
-																					} rounded-full duration-200 ease-out-quint`}
-																				/>
-																			</button>
-																		)
-																	)}
+																							? "w-12"
+																							: "w-6"
+																					} px-1.5 duration-200 ease-out-quint`}
+																					onClick={() =>
+																						setSelectedVariant(index)
+																					}
+																				>
+																					<div
+																						className={`${
+																							index === selectedVariant
+																								? "bg-white h-[3px] duration-200"
+																								: "bg-white/20 group-hover:bg-white/50 h-[3px]"
+																						} ease-out-quint`}
+																					/>
+																				</button>
+																			)
+																		)}
+																	</div>
 																</m.div>
 															)}
 														</AnimatePresence>
@@ -459,7 +497,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																			: "h-10 w-10 saturate-0 hover:saturate-100 opacity-50 hover:opacity-100"
 																	} duration-300 ease-out-quart overflow-clip`}
 																>
-																	{typeof artwork.images[0].image !== "string" && (
+																	{typeof artwork.images[0].image === "object" && (
 																		<Image
 																			src={
 																				artwork.images[0].image.sizes?.thumbnail
@@ -479,7 +517,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																			className={`absolute top-0 inset-x-0 h-full object-cover ${
 																				artwork.nsfw &&
 																				selectedArtwork !== index &&
-																				"blur-[2px] hover:blur-0"
+																				"blur-[2px] hover:blur-none"
 																			}`}
 																			style={{
 																				objectPosition: `${artwork.images[0].image.focalX}% ${artwork.images[0].image.focalY}%`,

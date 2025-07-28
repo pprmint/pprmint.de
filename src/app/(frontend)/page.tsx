@@ -115,7 +115,7 @@ export default async function Page() {
 										{t("Content.Mina.heading1")}
 									</m.div>
 								</m.div>
-								{typeof mina.docs[0].images[0].image !== "string" && (
+								{typeof mina.docs[0].images[0].image === "object" && (
 									<FadingImage
 										src={mina.docs[0].images[0].image.url || ""}
 										alt={mina.docs[0].images[0].image.alt || ""}
@@ -170,11 +170,11 @@ export default async function Page() {
 										{t("Content.Mina.text1")}
 									</p>
 									<p className="mb-6 xl:text-xl 2xl:text-2xl">
-										{typeof mina.docs[0].artist !== "string" &&
+										{typeof mina.docs[0].artist === "object" &&
 											t.rich("Content.Mina.text2", {
 												artist: mina.docs[0].artist.name,
 												link: (chunks) =>
-													typeof mina.docs[0].artist !== "string" &&
+													typeof mina.docs[0].artist === "object" &&
 													mina.docs[0].artist.creditUrl ? (
 														<Link
 															href={mina.docs[0].artist.creditUrl}

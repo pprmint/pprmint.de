@@ -57,7 +57,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ p
 								>
 									<div className="flex grow md:gap-3 lg:gap-6 flex-col lg:flex-row lg:items-center hover:bg-black/5 dark:hover:bg-white/5 duration-100">
 										<div className="lg:h-44 2xl:h-48 relative aspect-video overflow-clip">
-											{typeof article.thumbnail !== "string" && (
+											{typeof article.thumbnail === "object" && (
 												<FadingImage
 													src={article.thumbnail.sizes?.hd?.url || ""}
 													alt={article.thumbnail.alt || ""}
