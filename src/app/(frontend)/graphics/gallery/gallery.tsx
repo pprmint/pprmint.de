@@ -72,7 +72,7 @@ export default function GalleryGrid({ graphics, page }: { graphics: PaginatedDoc
 								key={graphic.id}
 								href={`/graphics/${graphic.slug}`}
 								className="group/button absolute inset-0 overflow-clip bg-white dark:bg-neutral-950
-						  outline outline-1 -outline-offset-1 outline-neutral-50/5
+						  outline -outline-offset-1 outline-neutral-50/5
 						  hover:z-10 focus-visible:z-10 scale-100 hover:scale-[1.025] active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer aspect-video"
 							>
 								<div className="scale-[1.025] group-hover/button:scale-100 group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
