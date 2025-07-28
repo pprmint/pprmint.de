@@ -55,6 +55,7 @@ export default function OutfitRow({ outfits }: { outfits: PaginatedDocs<Outfit> 
 								(typeof referenceFront === "object" && referenceFront.alt) ||
 								""
 							}
+							size="fhd"
 							className="size-full p-6 pb-12"
 							imgClassName="size-full object-contain"
 						/>
