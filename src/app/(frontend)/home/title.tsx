@@ -35,7 +35,7 @@ const Links = [
 	{
 		link: "/contact",
 		text: "Content.Hero.contact",
-		images: ["/assets/home/letter.png", "/assets/home/pen.png"],
+		images: ["/api/assets/file/letter.png", "/api/assets/file/pen.png"],
 	},
 ];
 
