@@ -33,7 +33,7 @@ import {
 import { getServerSideURL } from "./utilities/getURL";
 import { Graphics } from "./collections/Graphics/Graphics";
 import { FontLicenses } from "./globals/FontLicenses/FontLicenses";
-import { PrivacyPolicy } from "./globals/FontLicenses/PrivacyPolicy/PrivacyPolicy";
+import { PrivacyPolicy } from "./globals/PrivacyPolicy/PrivacyPolicy";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
