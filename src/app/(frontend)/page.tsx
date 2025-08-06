@@ -37,6 +37,7 @@ export default async function Page() {
 			},
 		},
 		locale,
+		sort: "-date",
 	});
 	return (
 		<>
