@@ -20,7 +20,7 @@ export default function Form() {
 		message: "",
 	});
 	const [sending, setSending] = useState(false);
-	const [submitted, setSubmitted] = useState(true);
+	const [submitted, setSubmitted] = useState(false);
 	const [failed, setFailed] = useState(false);
 
 	// Regular expression to validate email addresses.
