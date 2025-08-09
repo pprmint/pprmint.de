@@ -9,6 +9,7 @@ import * as m from "motion/react-m";
 import PixelMina from "/public/assets/mina64.gif";
 import { AnimatePresence } from "motion/react";
 import { Link } from "next-transition-router";
+import { submitForm } from "./submitForm";
 
 export default function Form() {
 	const t = useTranslations("CONTACT.Content.Email");
@@ -19,7 +20,7 @@ export default function Form() {
 		message: "",
 	});
 	const [sending, setSending] = useState(false);
-	const [submitted, setSubmitted] = useState(false);
+	const [submitted, setSubmitted] = useState(true);
 	const [failed, setFailed] = useState(false);
 
 	// Regular expression to validate email addresses.
@@ -40,31 +41,14 @@ export default function Form() {
 
 	async function handleSubmit(e: React.FormEvent) {
 		e.preventDefault();
-		console.log("Sending...");
 		setFailed(false);
 		setSending(true);
-
 		try {
-			const response = await fetch("/contact/api", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(formData),
-			});
-
-			if (response.ok) {
-				const data = await response.json();
-				console.log(data.message);
-				setSubmitted(true);
-				setSending(false);
-			} else {
-				console.error("Message failed to send.");
-				setSending(false);
-				setFailed(true);
-			}
-		} catch (error) {
-			console.error("Sending error:", error);
+			await submitForm(formData);
+			setSubmitted(true);
+		} catch (error: any) {
+			setFailed(true);
+			console.log(`Failed to send email: ${error.message}`);
 		}
 	}
 
@@ -168,7 +152,9 @@ export default function Form() {
 								{t.rich("preferMailto", {
 									Link: (chunks) => (
 										<Link
-											href={`mailto:${chunks}?subject=${t("Message.subject")}&body=${t("Message.body")}`}
+											href={`mailto:${chunks}?subject=${t("Message.subject")}&body=${t(
+												"Message.body"
+											)}`}
 											className="text-link"
 										>
 											{chunks}
@@ -185,7 +171,7 @@ export default function Form() {
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1, transition: { ease: "linear", duration: 0.2 } }}
 					exit={{ opacity: 0, transition: { ease: "linear", duration: 0.2 } }}
-					className="min-h-[349px] sm:min-h-[303px] flex flex-col gap-3 items-center justify-center text-center"
+					className="min-h-[349px] sm:min-h-[293px] flex flex-col gap-3 items-center justify-center text-center"
 				>
 					<h1 className="pb-0">
 						<span>
