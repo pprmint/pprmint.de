@@ -201,9 +201,5 @@ module.exports = withPayload(
 				},
 			];
 		},
-		experimental: {
-			workerThreads: false,
-			cpus: 1,
-		},
 	})
 );
