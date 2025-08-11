@@ -42,22 +42,21 @@ export default async function Page({
 			<Title
 				title={t("Head.title")}
 				description={t("Head.description")}
-				creditName="wasonz"
-				creditLink="https://x.com/wxsonz"
+				creditName="Ventusilly"
+				creditLink="https://vgen.co/ventusilly"
 			>
-				<div className="relative h-full bg-neutral-950">
-					<div className="absolute bg-linear-to-bl from-blue-900 via-[#151515] to-[#151515] w-full max-w-8xl inset-y-0 pt-9 md:pt-0 px-9 md:px-20 lg:px-32 xl:px-32 left-1/2 -translate-x-1/2">
-						<div
-							style={{ background: "url(/assets/noise.png)" }}
-							className="absolute inset-0 opacity-20 mix-blend-multiply"
-						/>
+				<div className="size-full bg-gray-900">
+					<div className="relative size-full max-w-8xl mx-auto">
 						<FadingImage
-							src="/api/artwork/file/wxz_original_transparent-1.webp"
+							src="/api/artwork/file/ventus_88d79ff2a4_no_text.webp"
 							alt=""
-							width={2000}
-							height={3783}
-							className="relative sm:absolute sm:right-16 h-full w-auto sm:w-[40%] xl:w-2/3 sm:h-auto max-w-5xl ml-auto"
+							fill
+							className="absolute object-cover"
+							quality={100}
 						/>
+						<div className="max-[1921px]:hidden absolute right-0 w-8xl h-full bg-gradient-to-r from-gray-900 via-transparent" />
+						<div className="max-[1921px]:hidden absolute right-0 w-8xl h-full bg-gradient-to-l from-gray-900 via-15% via-transparent" />
+						<p className="text-xs absolute bottom-1 lg:bottom-2 right-7 md:right-12 lg:right-16 xl:right-24 text-right drop-shadow-sm">{t("Content.drinkResponsibly")}</p>
 					</div>
 				</div>
 			</Title>
