@@ -56,7 +56,7 @@ export default async function Page({
 						/>
 						<div className="max-[1921px]:hidden absolute right-0 w-8xl h-full bg-gradient-to-r from-gray-900 via-transparent" />
 						<div className="max-[1921px]:hidden absolute right-0 w-8xl h-full bg-gradient-to-l from-gray-900 via-15% via-transparent" />
-						<p className="text-xs absolute bottom-1 lg:bottom-2 right-7 md:right-12 lg:right-16 xl:right-24 text-right drop-shadow-sm">{t("Content.drinkResponsibly")}</p>
+						<p className="text-xs absolute bottom-1 lg:bottom-2 right-7 md:right-12 lg:right-16 xl:right-24 text-right text-white/50 drop-shadow-sm">{t("Content.drinkResponsibly")}</p>
 					</div>
 				</div>
 			</Title>
