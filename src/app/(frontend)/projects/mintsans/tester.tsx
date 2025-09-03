@@ -47,7 +47,7 @@ export default function Tester() {
 					<div className="grow md:grow-0 md:w-40 border-b border-r border-black/5 dark:border-white/5">
 						<Select.Root value={weight} onValueChange={setWeight}>
 							<Select.Trigger
-								className="group flex items-center justify-between px-3 h-9 w-full hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white active:shadow-inner duration-100"
+								className="group flex items-center justify-between px-3 h-9 w-full hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white duration-100"
 								aria-label={t("FONTTESTER.Weight.label")}
 							>
 								<Select.Value aria-label={weight} />

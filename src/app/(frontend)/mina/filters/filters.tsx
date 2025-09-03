@@ -102,7 +102,7 @@ function Filters(props: {
 		return (
 			<Select.Item
 				value={props.value}
-				className="group relative flex items-center gap-3 pr-2 pl-2 h-7 leading-none select-none outline-hidden data-disabled:text-black/25 dark:data-disabled:text-white/25 data-disabled:pointer-events-none data-highlighted:text-neutral-950 dark:data-highlighted:text-white data-[state=checked]:text-neutral-950 dark:data-[state=checked]:text-white data-highlighted:bg-black/10 dark:data-highlighted:bg-white/10 active:opacity-75 duration-100 cursor-pointer focus-visible:outline-hidden"
+				className="group relative flex items-center gap-3 pr-2 pl-2 h-7 leading-none select-none outline-none focus:outline-none data-disabled:text-black/25 dark:data-disabled:text-white/25 data-disabled:pointer-events-none data-highlighted:text-neutral-950 dark:data-highlighted:text-white data-[state=checked]:text-neutral-950 dark:data-[state=checked]:text-white data-highlighted:bg-black/10 dark:data-highlighted:bg-white/10 active:opacity-75 duration-75 data-highlighted:duration-0 cursor-pointer focus-visible:outline-hidden"
 			>
 				<Select.ItemText className="grow">{props.children}</Select.ItemText>
 				<Select.ItemIndicator className="ml-auto">
@@ -119,7 +119,7 @@ function Filters(props: {
 					<Select.Root value={props.artist} onValueChange={handleSelectArtist}>
 						<div className="flex w-full">
 							<Select.Trigger
-								className="group flex items-center justify-between px-3 h-9 w-full hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white active:shadow-inner duration-100"
+								className="group flex items-center justify-between px-3 h-9 w-full hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white duration-75 hover:duration-0"
 								aria-label={t("Content.Artworks.Filters.artist")}
 							>
 								<Select.Value aria-label={props.artist}>
@@ -165,7 +165,7 @@ function Filters(props: {
 					<Select.Root value={props.outfit} onValueChange={handleSelectOutfit}>
 						<div className="flex w-full">
 							<Select.Trigger
-								className="group flex items-center justify-between px-3 h-9 w-full hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white active:shadow-inner duration-100"
+								className="group flex items-center justify-between px-3 h-9 w-full hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white duration-100"
 								aria-label={t("Content.Artworks.Filters.outfit")}
 							>
 								<Select.Value aria-label={props.outfit}>

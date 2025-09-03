@@ -135,7 +135,7 @@ export default function RefSheet() {
 		}
 		return (
 			<div
-				className="w-full active:shadow-inner active:opacity-90 duration-100 active:duration-75 cursor-pointer"
+				className="w-full active:opacity-90 duration-100 active:duration-75 cursor-pointer"
 				style={{ backgroundColor: color, height: height }}
 				onClick={handleClick}
 			/>

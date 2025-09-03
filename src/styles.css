@@ -60,10 +60,6 @@ li.nestedListItem ul.list-bullet {
 	}
 }
 
-:focus-visible {
-	outline: 2px #4b5 dotted;
-}
-
 img {
 	user-select: none;
 }

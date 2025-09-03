@@ -146,7 +146,7 @@ export default function HomeTitle() {
 											xl:group-nth-3:border-t
 											xl:group-nth-4:border-t"
 									>
-										<div className="absolute flex items-center justify-center z-10 inset-x-0 bottom-0 h-0 group-hover:h-full bg-neutral-950 dark:bg-white active:group-active:bg-neutral-800 dark:group-active:bg-neutral-100 text-white dark:text-neutral-950 group-active:shadow-inner text-2xl uppercase font-stretch-expanded font-bold duration-400 ease-out-quint overflow-clip">
+										<div className="absolute flex items-center justify-center z-10 inset-x-0 bottom-0 h-0 group-hover:h-full bg-neutral-950 dark:bg-white active:group-active:bg-neutral-800 dark:group-active:bg-neutral-100 text-white dark:text-neutral-950 text-2xl uppercase font-stretch-expanded font-bold duration-400 ease-out-quint overflow-clip">
 											<div className="flex opacity-0 group-hover:opacity-100 duration-100">
 												{t(button.text)
 													.split("")

@@ -182,7 +182,7 @@ function AudioPlayer(props: PropsWithChildren<{ src: string; title?: string; art
 					</button>
 					<button
 						onClick={handlePlay}
-						className="p-3 m-0.5 hover:p-3.5 hover:m-0 bg-linear-to-b from-neutral-50 to-neutral-100 border border-neutral-50 border-b-neutral-200 rounded-full text-neutral-950 active:scale-95 active:duration-75 active:shadow-inner duration-200 ease-out-quint"
+						className="p-3 m-0.5 hover:p-3.5 hover:m-0 bg-linear-to-b from-neutral-50 to-neutral-100 border border-neutral-50 border-b-neutral-200 rounded-full text-neutral-950 active:scale-95 active:duration-75 duration-200 ease-out-quint"
 					>
 						{playing ? <Pause className="size-6" /> : <Play className="pl-0.5 size-6" />}
 					</button>

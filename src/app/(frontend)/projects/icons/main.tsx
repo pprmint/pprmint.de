@@ -107,7 +107,7 @@ export default function Main() {
 			<Tooltip text={Icons[props.categoryIndex].icons[props.iconIndex].names[0]} side="top">
 				<button
 					aria-label={"Icon: " + Icons[props.categoryIndex].icons[props.iconIndex].names[0]}
-					className={`inline-flex items-center justify-center mx-auto w-full aspect-square hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 active:shadow-inner duration-100 active:duration-75 ${
+					className={`inline-flex items-center justify-center mx-auto w-full aspect-square hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-100 active:duration-75 ${
 						large && "*:size-[30px]"
 					}`}
 					onClick={() => {

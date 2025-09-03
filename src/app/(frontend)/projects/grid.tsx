@@ -121,7 +121,7 @@ export default function Grid() {
 								filter == tag.name
 									? "font-semibold text-white dark:text-neutral-950 bg-neutral-950 dark:bg-white hover:bg-neutral-900 dark:hover:bg-neutral-50 active:bg-neutral-800 dark:active:bg-neutral-100"
 									: "hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white"
-							} active:shadow-inner duration-100`}
+							} duration-100`}
 						>
 							{tag.icon}
 							{t(`PROJECTS.Tag.${tag.name}`)}
@@ -142,7 +142,7 @@ export default function Grid() {
 						} border-l last:border-r border-b border-black/5 dark:border-white/5 duration-200`}
 					>
 						<FadingImage src={project.image} alt="" fill className="object-cover" />
-						<div className="absolute inset-0 backdrop-blur-md bg-neutral-950/75 group-active:bg-neutral-950/85 opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:shadow-inner duration-200 group-active:duration-75">
+						<div className="absolute inset-0 backdrop-blur-md bg-neutral-950/75 group-active:bg-neutral-950/85 opacity-0 group-hover:opacity-100 group-focus:opacity-100 duration-200 group-active:duration-75">
 							<div className="absolute inset-0 p-6 translate-y-6 opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-hover:translate-y-0 group-focus:translate-y-0 duration-200 group-hover:duration-400 group-focus:duration-400 ease-in-quad group-hover:ease-out-quint group-focus:ease-out-quint group-hover:delay-100 group-focus:delay-150">
 								<h3 className="text-white md:text-2xl xl:text-3xl">
 									{t(`${project.name.toUpperCase()}.Head.title`)}

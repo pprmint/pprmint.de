@@ -44,7 +44,7 @@ export default function Filters(props: { type: string; dimension: string }) {
 						props.dimension == "2d"
 							? "font-semibold text-white dark:text-neutral-950 bg-neutral-950 dark:bg-white hover:bg-neutral-900 dark:hover:bg-neutral-50 active:bg-neutral-800 dark:active:bg-neutral-100"
 							: "hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white"
-					} active:shadow-inner duration-100`}
+					} duration-100`}
 				>
 					<Stop className="duration-100" />
 					2D
@@ -55,7 +55,7 @@ export default function Filters(props: { type: string; dimension: string }) {
 						props.dimension == "3d"
 							? "font-semibold text-white dark:text-neutral-950 bg-neutral-950 dark:bg-white hover:bg-neutral-900 dark:hover:bg-neutral-50 active:bg-neutral-800 dark:active:bg-neutral-100"
 							: "hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white"
-					} active:shadow-inner duration-100`}
+					} duration-100`}
 				>
 					<Cube className="duration-100" />
 					3D
@@ -68,7 +68,7 @@ export default function Filters(props: { type: string; dimension: string }) {
 						props.type == "static"
 							? "font-semibold text-white dark:text-neutral-950 bg-neutral-950 dark:bg-white hover:bg-neutral-900 dark:hover:bg-neutral-50 active:bg-neutral-800 dark:active:bg-neutral-100"
 							: "hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white"
-					} active:shadow-inner duration-100`}
+					} duration-100`}
 				>
 					<Photo className="duration-100" />
 					{t("Content.Filters.Type.static")}
@@ -79,7 +79,7 @@ export default function Filters(props: { type: string; dimension: string }) {
 						props.type == "animated"
 							? "font-semibold text-white dark:text-neutral-950 bg-neutral-950 dark:bg-white hover:bg-neutral-900 dark:hover:bg-neutral-50 active:bg-neutral-800 dark:active:bg-neutral-100"
 							: "hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white"
-					} active:shadow-inner duration-100`}
+					} duration-100`}
 				>
 					<Video className="duration-100" />
 					{t("Content.Filters.Type.animated")}
