@@ -189,8 +189,8 @@ export default function NavBar() {
 										className={`flex items-center ${
 											Page.link === pathname
 												? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
-												: "hover:text-neutral-950 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 active:opacity-75"
-										} px-3 py-1.5 w-full duration-100 active:duration-75`}
+												: "hover:text-neutral-950 hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-75 hover:duration-0"
+										} px-3 py-1.5 w-full duration-75 hover:duration-0`}
 										key={Page.link}
 										href={Page.link}
 										onClick={handleClose}
@@ -225,9 +225,9 @@ export default function NavBar() {
 								<Link
 									className={`flex items-center ${
 										"/graphics" === pathname
-											? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
-											: "hover:text-neutral-950 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 active:opacity-75"
-									} px-3 py-1.5 w-full duration-100 active:duration-75`}
+											? "text-neutral-950 dark:text-white cursor-default"
+											: "hover:text-neutral-950 hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-75 hover:duration-0"
+									} px-3 py-1.5 w-full duration-75 hover:duration-0`}
 									href="/graphics"
 									onClick={handleClose}
 								>
@@ -242,8 +242,8 @@ export default function NavBar() {
 									className={`flex items-center ${
 										"/photos" === pathname
 											? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
-											: "hover:text-neutral-950 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 active:opacity-75"
-									} px-3 py-1.5 w-full duration-100 active:duration-75`}
+											: "hover:text-neutral-950 hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-75 hover:duration-0"
+									} px-3 py-1.5 w-full duration-75 hover:duration-0`}
 									href="/photos"
 									onClick={handleClose}
 								>
@@ -259,8 +259,8 @@ export default function NavBar() {
 										className={`flex items-center ${
 											Project.link === pathname
 												? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
-												: "hover:text-neutral-950 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 active:opacity-75"
-										} px-3 py-1.5 w-full duration-100 active:duration-75`}
+												: "hover:text-neutral-950 hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-75 hover:duration-0"
+										} px-3 py-1.5 w-full duration-75 hover:duration-0`}
 										key={Project.link}
 										href={Project.link}
 										onClick={handleClose}
@@ -277,8 +277,8 @@ export default function NavBar() {
 									className={`flex items-center ${
 										"/projects" === pathname
 											? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
-											: "hover:text-neutral-950 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 active:opacity-75"
-									} px-3 py-1.5 w-full duration-100 active:duration-75`}
+											: "hover:text-neutral-950 hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-75 hover:duration-0"
+									} px-3 py-1.5 w-full duration-75 hover:duration-0`}
 									href="/projects"
 									onClick={handleClose}
 								>
@@ -311,8 +311,8 @@ export default function NavBar() {
 									className={`flex items-center ${
 										"/privacy" === pathname
 											? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
-											: "hover:text-neutral-950 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 active:opacity-75"
-									} px-3 py-1.5 w-full duration-100 active:duration-75`}
+											: "hover:text-neutral-950 hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-75 hover:duration-0"
+									} px-3 py-1.5 w-full duration-75 hover:duration-0`}
 									href="/privacy"
 									onClick={handleClose}
 								>
@@ -327,8 +327,8 @@ export default function NavBar() {
 									className={`flex items-center ${
 										"/ai" === pathname
 											? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
-											: "hover:text-neutral-950 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 active:opacity-75"
-									} px-3 py-1.5 w-full duration-100 active:duration-75`}
+											: "hover:text-neutral-950 hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-75 hover:duration-0"
+									} px-3 py-1.5 w-full duration-75 hover:duration-0`}
 									href="/ai"
 									onClick={handleClose}
 								>

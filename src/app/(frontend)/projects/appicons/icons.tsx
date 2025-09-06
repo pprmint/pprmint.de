@@ -463,8 +463,8 @@ export default function Selector() {
 									className={`relative group p-2 sm:p-4 ${
 										selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name)
 											? "bg-black/5 dark:bg-white/5"
-											: ""
-									} duration-200 ease-out`}
+											: "hover:bg-black/5 hover:dark:bg-white/5"
+									} active:bg-black/10 active:dark:bg-white/10 duration-75 hover:duration-0 ease-out`}
 									key={icon.name}
 									onClick={() => handleIconSelect(icon)}
 								>
@@ -485,7 +485,6 @@ export default function Selector() {
 												animate={{
 													pathLength: 1,
 													transition: {
-														delay: 0.1,
 														type: "spring",
 														duration: 0.3,
 														bounce: 0,
@@ -498,11 +497,8 @@ export default function Selector() {
 										hideSpinner
 										src={icon.image}
 										alt={icon.name}
-										style={{ transition: "opacity 0.2s" }}
-										className={`${
-											selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name) &&
-											"opacity-25"
-										} drop-shadow-sm`}
+										style={{ transition: "opacity 0.2s", opacity: selectedIcons.some((selectedIcon) => selectedIcon.name === icon.name) ? 0.25 : 1 }}
+										className="drop-shadow-sm"
 									/>
 								</button>
 							))}
@@ -540,12 +536,12 @@ export default function Selector() {
 										y: 0,
 										opacity: 1,
 										height: 24,
-										transition: { type: "spring", duration: 0.5, bounce: 0 },
+										transition: { ease: [0.22, 1, 0.36, 1], duration: 0.4 },
 									}}
 									exit={{
 										opacity: 0,
 										height: 0,
-										transition: { ease: "linear", duration: 0.2, height: { delay: 0.1 } },
+										transition: { ease: "linear", duration: 0.1, height: { delay: 0.1 } },
 									}}
 								>
 									{icon.name}

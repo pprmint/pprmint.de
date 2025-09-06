@@ -93,11 +93,6 @@ export default function Main() {
 
 	const [large, setLarge] = useState(false);
 
-	// Toasts for copying icons.
-	const [toastOpen, setToastOpen] = useState(false);
-	const timerRef = useRef(0);
-	const [current, setCurrent] = useState({ category: 0, icon: 0 });
-
 	// The funny.
 	const [showJiggy, setShowJiggy] = useState(false);
 	const [jiggies, setJiggies] = useState(0);
@@ -107,7 +102,7 @@ export default function Main() {
 			<Tooltip text={Icons[props.categoryIndex].icons[props.iconIndex].names[0]} side="top">
 				<button
 					aria-label={"Icon: " + Icons[props.categoryIndex].icons[props.iconIndex].names[0]}
-					className={`inline-flex items-center justify-center mx-auto w-full aspect-square hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-100 active:duration-75 ${
+					className={`inline-flex items-center justify-center mx-auto w-full aspect-square hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-75 hover:duration-0 ${
 						large && "*:size-[30px]"
 					}`}
 					onClick={() => {
