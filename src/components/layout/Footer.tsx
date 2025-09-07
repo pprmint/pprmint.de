@@ -1,12 +1,7 @@
 "use client";
 import { Fragment, useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import Image from "next/image";
 
-import FooterCursor from "/public/assets/footer/cursor.svg";
-import FooterCube from "/public/assets/footer/cube.svg";
-import FooterBrackets from "/public/assets/footer/brackets.svg";
-import FooterLeaf from "/public/assets/footer/leaf.svg";
 import Link from "next/link";
 import Moon from "@/icons/Moon";
 import Computer from "@/icons/Computer";
@@ -23,6 +18,7 @@ import Twitter from "@/icons/Twitter";
 import YouTube from "@/icons/YouTube";
 import GitHub from "@/icons/GitHub";
 import Kofi from "@/icons/Kofi";
+import { September } from "./September";
 
 export default function Footer() {
 	const t = useTranslations("FOOTER");
@@ -31,10 +27,16 @@ export default function Footer() {
 	const currentLocale = useLocale();
 	const otherLocale = locales?.find((cur) => cur !== currentLocale);
 
-	const [clicks, setClicks] = useState(290);
+	// Mina easter egg states.
+	const [clicks, setClicks] = useState(0);
 	const [textVisible, setTextVisible] = useState(false);
 	const [counterVisible, setCounterVisible] = useState(false);
 	const [pissedOffMina, setPissedOffMina] = useState(false);
+
+	// September easter egg states.
+	const [septemberLineIndex, setSeptemberLineIndex] = useState(0);
+	const [septemberBeats, setSeptemberBeats] = useState(0);
+	const [isSeptember, setIsSeptember] = useState(false);
 
 	const audioRef = useRef<HTMLAudioElement | null>(null);
 	useEffect(() => {
@@ -42,6 +44,8 @@ export default function Footer() {
 		audioRef.current = new Audio("/sounds/nadenade_1.wav");
 		// Check localStorage for pissedOffMina state.
 		setPissedOffMina(!!localStorage.getItem("pissedOffMina"));
+		// Check if it's September.
+		setIsSeptember(new Date().getMonth() === 8);
 	}, []);
 
 	useEffect(() => {
@@ -88,20 +92,36 @@ export default function Footer() {
 	}
 
 	function handlePat() {
-		if (audioRef.current) {
-			if (!audioRef.current.paused) {
-				audioRef.current.currentTime = 0;
+		if (isSeptember) {
+			// September easter egg.
+			setSeptemberBeats((prevBeats) => {
+				const newBeats = prevBeats + 1;
+				const currentLine = September[septemberLineIndex];
+				if (newBeats >= currentLine.beats && septemberLineIndex < September.length - 1) {
+					setSeptemberLineIndex((prevIndex) => prevIndex + 1);
+					// Reset beats for next line.
+					return 0;
+				}
+				return newBeats;
+			});
+		} else {
+			// Mina easter egg.
+			if (audioRef.current) {
+				if (!audioRef.current.paused) {
+					audioRef.current.currentTime = 0;
+				}
+				audioRef.current.play();
 			}
-			audioRef.current.play();
+			setClicks((prevClicks) => {
+				const newClicks = Math.min(prevClicks + 1, Number.MAX_SAFE_INTEGER);
+				handleClickActions(newClicks);
+				return newClicks;
+			});
 		}
-		setClicks((prevClicks) => {
-			const newClicks = Math.min(prevClicks + 1, Number.MAX_SAFE_INTEGER);
-			handleClickActions(newClicks);
-			return newClicks;
-		});
 	}
 
 	const translationKey = getTranslationKey(clicks, pissedOffMina);
+	const currentSeptemberLine = September[septemberLineIndex];
 
 	return (
 		<footer className="w-screen overflow-x-hidden">
@@ -124,23 +144,43 @@ export default function Footer() {
 						</svg>
 					</div>
 				</div>
-				{clicks > 2 && (
+				{isSeptember ? (
 					<p
 						className={`absolute bottom-44 inset-x-0 text-center transition-opacity text-xs duration-300 select-none ${
-							textVisible ? "opacity-100" : "opacity-0"
+							currentSeptemberLine.lyric ? "opacity-100" : "opacity-0"
 						}`}
 					>
-						{t(translationKey)}
+						{currentSeptemberLine.lyric}
 					</p>
+				) : (
+					clicks > 2 && (
+						<p
+							className={`absolute bottom-44 inset-x-0 text-center transition-opacity text-xs duration-300 select-none ${
+								textVisible ? "opacity-100" : "opacity-0"
+							}`}
+						>
+							{t(translationKey)}
+						</p>
+					)
 				)}
-				{counterVisible && (
+				{isSeptember ? (
 					<p
-						className={`absolute bottom-36 -rotate-3 left-1/2 -translate-x-1/2 bg-green text-neutral-950 rounded-md px-2 py-1 w-max text-xs transition-opacity duration-300 select-none ${
-							counterVisible ? "opacity-100" : "opacity-0"
+						className={`absolute bottom-36 -rotate-3 left-1/2 -translate-x-1/2 bg-blue text-neutral-950 rounded-md px-2 py-1 w-max text-xs transition-opacity duration-300 select-none ${
+							currentSeptemberLine.lyric ? "opacity-100" : "opacity-0"
 						}`}
 					>
-						{clicks}
+						{septemberBeats}/{currentSeptemberLine.beats}
 					</p>
+				) : (
+					counterVisible && (
+						<p
+							className={`absolute bottom-36 -rotate-3 left-1/2 -translate-x-1/2 bg-green text-neutral-950 rounded-md px-2 py-1 w-max text-xs transition-opacity duration-300 select-none ${
+								counterVisible ? "opacity-100" : "opacity-0"
+							}`}
+						>
+							{clicks}
+						</p>
+					)
 				)}
 			</div>
 			<hr className="border-black/5 dark:border-white/5" />
