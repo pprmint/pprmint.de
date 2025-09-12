@@ -4,7 +4,7 @@
 			"title": "Sie hat überall gesucht",
 			"info": "Hier gibt es keine Seite. Vielleicht wurde sie verschoben oder es gab sie nie. So ist das manchmal.",
 			"returnHome": "Zur Startseite",
-			"credit": "Detektiv-Mina wurde von <Link>Layer (@DIVAOFDESPAlR)</Link> gezeichnet."
+			"credit": "Detektiv-Mina wurde von <Link>Layer (@TenHeavenly)</Link> gezeichnet."
 		},
 		"Head": {
 			"title": "Seite nicht gefunden"
@@ -531,6 +531,19 @@
 				"OutOfBounds": {
 					"title": "Willkommen im Nichts",
 					"text": "Deaktiviere einige Filter und navigiere zur ersten Seite zurück."
+				},
+        "ContextMenu": {
+					"Artwork": {
+						"label": "Kunstwerk",
+						"openInNewTab": "Bild in neuem Tab öffnen",
+						"copyImageUrl": "Bildadresse kopieren",
+						"saveImage": "Bild speichern"
+					},
+					"Artist": {
+						"label": "Künstler",
+						"showAll": "Zeige alle Werke von {artist}",
+						"visitProfile": "Profil auf {site} ansehen"
+					}
 				}
 			},
 			"NSFW": {

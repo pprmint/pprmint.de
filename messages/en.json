@@ -4,7 +4,7 @@
 			"title": "She looked everywhere",
 			"info": "There's no page here. Maybe it was moved or it never existed. That's how it is sometimes.",
 			"returnHome": "Go to home page",
-			"credit": "Detective Mina was drawn by <Link>Layer (@DIVAOFDESPAlR)</Link>."
+			"credit": "Detective Mina was drawn by <Link>Layer (@TenHeavenly)</Link>."
 		},
 		"Head": {
 			"title": "Page not found"
@@ -531,6 +531,19 @@
 				"OutOfBounds": {
 					"title": "Welcome to nothing",
 					"text": "Try disabling some filters and navigating back to the first page."
+				},
+				"ContextMenu": {
+					"Artwork": {
+						"label": "Artwork",
+						"openInNewTab": "Open image in new tab",
+						"copyImageUrl": "Copy image URL",
+						"saveImage": "Save image"
+					},
+					"Artist": {
+						"label": "Artist",
+						"showAll": "Show all artworks by {artist}",
+						"visitProfile": "Visit profile on {site}"
+					}
 				}
 			},
 			"NSFW": {
@@ -843,7 +856,7 @@
 				"youReceiveSub1": "early versions of mn varia",
 				"youReceiveSub2": "the full family once it's ready"
 			},
-			
+
 			"License": {
 				"heading": "License",
 				"text": "You'll receive Desktop and Web licenses with the following respective terms:",

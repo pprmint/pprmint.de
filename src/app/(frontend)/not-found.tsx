@@ -161,7 +161,7 @@ export default function NotFound() {
 							{t.rich("Content.credit", {
 								Link: (chunks) => (
 									<Link
-										href="https://twitter.com/DIVAOFDESPAlR"
+										href="https://twitter.com/TenHeavenly"
 										target="_blank"
 										className="text-link-external"
 									>
