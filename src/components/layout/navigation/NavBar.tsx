@@ -225,7 +225,7 @@ export default function NavBar() {
 								<Link
 									className={`flex items-center ${
 										"/graphics" === pathname
-											? "text-neutral-950 dark:text-white cursor-default"
+											? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
 											: "hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-75 hover:duration-0"
 									} px-3 py-1.5 w-full duration-75 hover:duration-0`}
 									href="/graphics"
