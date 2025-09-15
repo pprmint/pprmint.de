@@ -537,11 +537,12 @@
 						"label": "Kunstwerk",
 						"openInNewTab": "Bild in neuem Tab öffnen",
 						"copyImageUrl": "Bildadresse kopieren",
-						"saveImage": "Bild speichern"
+						"saveImage": "Bild speichern",
+            "showAllWithOutfit": "Zeige alle Werke mit diesem Outfit"
 					},
 					"Artist": {
 						"label": "Künstler",
-						"showAll": "Zeige alle Werke von {artist}",
+						"showAllByArtist": "Zeige alle Werke von {artist}",
 						"visitProfile": "Profil auf {site} ansehen"
 					}
 				}

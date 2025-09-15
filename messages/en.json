@@ -537,11 +537,12 @@
 						"label": "Artwork",
 						"openInNewTab": "Open image in new tab",
 						"copyImageUrl": "Copy image URL",
-						"saveImage": "Save image"
+						"saveImage": "Save image",
+            "showAllWithOutfit": "Show all artworks with same outfit"
 					},
 					"Artist": {
 						"label": "Artist",
-						"showAll": "Show all artworks by {artist}",
+						"showAllByArtist": "Show all artworks by {artist}",
 						"visitProfile": "Visit profile on {site}"
 					}
 				}
