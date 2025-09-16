@@ -36,6 +36,62 @@ export const Artists: CollectionConfig = {
 				},
 			],
 		},
+		{
+			name: "creditLinks",
+			label: "Credit links",
+			type: "array",
+			fields: [
+				{
+					type: "row",
+					fields: [
+						{
+							name: "service",
+							type: "select",
+							required: true,
+							admin: {
+								width: "50%"
+							},
+							options: [
+								{
+									label: "Twitter",
+									value: "twitter",
+								},
+								{
+									label: "Bluesky",
+									value: "bsky",
+								},
+								{
+									label: "Instagram",
+									value: "instagram",
+								},
+								{
+									label: "VGen",
+									value: "vgen",
+								},
+								{
+									label: "YouTube",
+									value: "youtube",
+								},
+								{
+									label: "Own website",
+									value: "website",
+								},
+								{
+									label: "Other",
+									value: "other",
+								},
+							]
+						},
+						{
+							name: "url",
+							label: "URL",
+							type: "text",
+							required: true,
+						}
+					]
+				}
+			]
+		},
 		...slugField("name", {
 			slugOverrides: { required: true },
 		}),

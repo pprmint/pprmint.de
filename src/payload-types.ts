@@ -344,6 +344,13 @@ export interface Artist {
   id: string;
   name: string;
   creditUrl?: string | null;
+  creditLinks?:
+    | {
+        service: 'twitter' | 'bsky' | 'instagram' | 'vgen' | 'youtube' | 'website' | 'other';
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
   slug: string;
   slugLock?: boolean | null;
   artworks?: {
@@ -881,6 +888,13 @@ export interface ArtworkSelect<T extends boolean = true> {
 export interface ArtistsSelect<T extends boolean = true> {
   name?: T;
   creditUrl?: T;
+  creditLinks?:
+    | T
+    | {
+        service?: T;
+        url?: T;
+        id?: T;
+      };
   slug?: T;
   slugLock?: T;
   artworks?: T;
