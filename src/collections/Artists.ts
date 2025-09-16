@@ -20,25 +20,17 @@ export const Artists: CollectionConfig = {
 	},
 	fields: [
 		{
-			type: "row",
-			fields: [
-				{
-					name: "name",
-					type: "text",
-					required: true,
-					admin: { width: "50%" },
-				},
-				{
-					name: "creditUrl",
-					label: "Credit URL",
-					type: "text",
-					admin: { width: "50%" },
-				},
-			],
+			name: "name",
+			type: "text",
+			required: true,
 		},
 		{
 			name: "creditLinks",
 			label: "Credit links",
+			labels: {
+				singular: "Credit link",
+				plural: "Credit links",
+			},
 			type: "array",
 			fields: [
 				{
@@ -48,49 +40,21 @@ export const Artists: CollectionConfig = {
 							name: "service",
 							type: "select",
 							required: true,
+							defaultValue: "Twitter",
 							admin: {
-								width: "50%"
+								width: "50%",
 							},
-							options: [
-								{
-									label: "Twitter",
-									value: "twitter",
-								},
-								{
-									label: "Bluesky",
-									value: "bsky",
-								},
-								{
-									label: "Instagram",
-									value: "instagram",
-								},
-								{
-									label: "VGen",
-									value: "vgen",
-								},
-								{
-									label: "YouTube",
-									value: "youtube",
-								},
-								{
-									label: "Own website",
-									value: "website",
-								},
-								{
-									label: "Other",
-									value: "other",
-								},
-							]
+							options: ["Twitter", "Bluesky", "Instagram", "VGen", "YouTube", "Website"],
 						},
 						{
 							name: "url",
 							label: "URL",
 							type: "text",
 							required: true,
-						}
-					]
-				}
-			]
+						},
+					],
+				},
+			],
 		},
 		...slugField("name", {
 			slugOverrides: { required: true },

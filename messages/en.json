@@ -543,7 +543,8 @@
 					"Artist": {
 						"label": "Artist",
 						"showAllByArtist": "Show all artworks by {artist}",
-						"visitProfile": "Visit profile on {site}"
+						"visitProfile": "Visit profile on {site}",
+						"visitWebsite": "Visit website {site}"
 					}
 				}
 			},

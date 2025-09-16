@@ -343,10 +343,9 @@ export interface Mina {
 export interface Artist {
   id: string;
   name: string;
-  creditUrl?: string | null;
   creditLinks?:
     | {
-        service: 'twitter' | 'bsky' | 'instagram' | 'vgen' | 'youtube' | 'website' | 'other';
+        service: 'Twitter' | 'Bluesky' | 'Instagram' | 'VGen' | 'YouTube' | 'Website';
         url: string;
         id?: string | null;
       }[]
@@ -887,7 +886,6 @@ export interface ArtworkSelect<T extends boolean = true> {
  */
 export interface ArtistsSelect<T extends boolean = true> {
   name?: T;
-  creditUrl?: T;
   creditLinks?:
     | T
     | {
