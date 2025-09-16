@@ -304,6 +304,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
                                           .unoptimized && "pixelated"
                                           }`}
                                         unoptimized
+                                        priority
                                       />
                                     )}
                                 </m.div>
