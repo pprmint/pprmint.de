@@ -583,7 +583,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
                   </Dialog.Portal>
                   <ContextMenu.Portal>
                     <ContextMenu.Content
-                      className="p-1 min-w-64 z-99999 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-sm ring-1 ring-black/5 dark:ring-white/5 shadow-lg data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-[var(--radix-context-menu-content-transform-origin)]"
+                      className="p-1 min-w-64 z-99999 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-sm ring-1 ring-black/5 dark:ring-white/5 shadow-xl data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-[var(--radix-context-menu-content-transform-origin)]"
                     >
                       <ContextMenu.Group>
                         <ContextMenu.Label className="text-xs text-neutral-950/50 dark:text-white/50 ml-2 mt-1.5">{t("Content.Artworks.ContextMenu.Artwork.label")}</ContextMenu.Label>
