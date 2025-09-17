@@ -176,9 +176,9 @@ export default async function Page() {
 												artist: mina.docs[0].artist.name,
 												link: (chunks) =>
 													typeof mina.docs[0].artist === "object" &&
-													mina.docs[0].artist.creditUrl ? (
+													mina.docs[0].artist.creditLinks && mina.docs[0].artist.creditLinks.length > 0 ? (
 														<Link
-															href={mina.docs[0].artist.creditUrl}
+															href={mina.docs[0].artist.creditLinks[0].url}
 															className="text-link-external"
 														>
 															{chunks}

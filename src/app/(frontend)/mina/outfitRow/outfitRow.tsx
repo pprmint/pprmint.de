@@ -169,14 +169,14 @@ export default function OutfitRow({ outfits }: { outfits: PaginatedDocs<Outfit> 
 								<span className="text-green">.</span>
 							</h2>
 						</Dialog.Title>
-						{typeof designer === "object" && designer.creditUrl ? (
+						{typeof designer === "object" && designer.creditLinks && designer.creditLinks.length > 0 ? (
 							<p className="text-lg text-neutral-950 dark:text-white">
 								{t.rich("Content.Outfits.designedBy", {
 									designer: typeof designer === "object" && designer.name || "",
 									Link: (chunks) => (
 										<Link
 											className="text-link-external"
-											href={(typeof designer === "object" && designer.creditUrl) || ""}
+											href={(typeof designer === "object" &&  designer.creditLinks && designer.creditLinks[0].url) || ""}
 											target="_blank"
 											rel="noopener noreferrer"
 										>

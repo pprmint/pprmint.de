@@ -39,6 +39,14 @@ module.exports = withPayload(
 					hostname: "*.pprmint.de",
 					protocol: "https",
 				},
+				{
+					hostname: "pprmint.de",
+					protocol: "https",
+				},
+				{
+					hostname: "*.github.dev",
+					protocol: "https",
+				},
 				...[NEXT_PUBLIC_SERVER_URL /* 'https://example.com' */].map((item) => {
 					const url = new URL(item);
 					return {
