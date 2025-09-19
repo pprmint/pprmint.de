@@ -195,15 +195,15 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 												}}
 												onClick={() => setSelectedArtwork(index)}
 												className="group/button absolute inset-0 overflow-clip bg-white dark:bg-neutral-950
-										outline -outline-offset-1 outline-white/5
-										focus-visible:z-10 scale-100 sm:hover:scale-[1.025] sm:active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 sm:hover:shadow-xl hover:z-10 active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer"
+													outline -outline-offset-1 outline-white/5
+													focus-visible:z-10 scale-100 sm:hover:scale-[1.025] sm:active:scale-[0.975] hover:bg-white dark:hover:bg-neutral-900 sm:hover:shadow-xl hover:z-10 active:shadow-none focus-visible:shadow-xl duration-250 ease-out-quart active:duration-75 cursor-pointer focus-visible:animate-pulse"
 											>
 												<div className="scale-[1.025] sm:group-hover/button:scale-100 group-active/button:scale-100 sm:group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
 													<Media
 														resource={artwork.images[0].image}
 														size="sd"
 														className="relative size-full"
-														imgClassName="size-full object-cover group-focus-visible/button:animate-pulse"
+														imgClassName="size-full object-cover"
 														unoptimized={artwork.unoptimized}
 													/>
 												</div>
