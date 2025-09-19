@@ -72,13 +72,47 @@ export default function NavBar() {
 		};
 	}, [navOpen]);
 
+	function NavLink({ string, href, noDescription }: { string: string; href: string; noDescription?: boolean }) {
+		return (
+			<Link
+				className={`flex items-center ${
+					pathname === href
+						? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
+						: "hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-75"
+				} px-3 py-1.5 w-full duration-75 hover:duration-0`}
+				key={href}
+				href={href}
+				onClick={handleClose}
+			>
+				<li>
+					<div className="flex flex-col">
+						<span>{t(`Path.${string}.title`)}</span>
+						{!noDescription && (
+							<span className="text-xs opacity-75">{t(`Path.${string}.description`)}</span>
+						)}
+					</div>
+				</li>
+			</Link>
+		);
+	}
+
 	return (
 		<nav
 			ref={navRef}
-			className={`z-90 fixed top-0 inset-x-0 ${navOpen ? "h-full md:h-96 xl:h-72 shadow-xl shadow-neutral-950/5 dark:shadow-neutral-950/25" : "h-16"} flex justify-between duration-300 overflow-auto border-b ${
-				!inverted ? "text-neutral-950 dark:text-white" : solid ? "text-neutral-950 dark:text-white" : "text-white "
+			className={`z-90 fixed top-0 inset-x-0 ${
+				navOpen ? "h-full md:h-96 xl:h-72 shadow-xl shadow-neutral-950/5 dark:shadow-neutral-950/25" : "h-16"
+			} flex justify-between duration-300 overflow-auto border-b ${
+				!inverted
+					? "text-neutral-950 dark:text-white"
+					: solid
+					? "text-neutral-950 dark:text-white"
+					: "text-white "
 			}
-				${solid || navOpen ? "bg-white/90 dark:bg-neutral-950/90 backdrop-blur-xl border-black/5 dark:border-white/5" : "border-transparent"}`}
+				${
+					solid || navOpen
+						? "bg-white/90 dark:bg-neutral-950/90 backdrop-blur-xl border-black/5 dark:border-white/5"
+						: "border-transparent"
+				}`}
 		>
 			<Link className="absolute z-90 left-6 md:left-[33px] top-3.5" href="/">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 157 35" className="h-auto w-[157px] mt-[3px]">
@@ -185,23 +219,7 @@ export default function NavBar() {
 							</div>
 							<ul>
 								{Pages.map((Page) => (
-									<Link
-										className={`flex items-center ${
-											Page.link === pathname
-												? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
-												: "hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-75 hover:duration-0"
-										} px-3 py-1.5 w-full duration-75 hover:duration-0`}
-										key={Page.link}
-										href={Page.link}
-										onClick={handleClose}
-									>
-										<li>
-											<div className="flex flex-col">
-												<span>{t(`Path.General.${Page.strings}.title`)}</span>
-												<span className="text-xs opacity-75">{t(`Path.General.${Page.strings}.description`)}</span>
-											</div>
-										</li>
-									</Link>
+									<NavLink string={`General.${Page.strings}`} href={Page.link} />
 								))}
 							</ul>
 						</m.div>
@@ -222,72 +240,12 @@ export default function NavBar() {
 								<div className="w-full h-px bg-neutral-950/5 dark:bg-white/5" />
 							</div>
 							<ul className="md:grid grid-cols-2">
-								<Link
-									className={`flex items-center ${
-										"/graphics" === pathname
-											? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
-											: "hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-75 hover:duration-0"
-									} px-3 py-1.5 w-full duration-75 hover:duration-0`}
-									href="/graphics"
-									onClick={handleClose}
-								>
-									<li>
-										<div className="flex flex-col">
-											<span>{t(`Path.Work.Graphics.title`)}</span>
-											<span className="text-xs opacity-75">{t(`Path.Work.Graphics.description`)}</span>
-										</div>
-									</li>
-								</Link>
-								<Link
-									className={`flex items-center ${
-										"/photos" === pathname
-											? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
-											: "hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-75 hover:duration-0"
-									} px-3 py-1.5 w-full duration-75 hover:duration-0`}
-									href="/photos"
-									onClick={handleClose}
-								>
-									<li>
-										<div className="flex flex-col">
-											<span>{t(`Path.Work.Photos.title`)}</span>
-											<span className="text-xs opacity-75">{t(`Path.Work.Photos.description`)}</span>
-										</div>
-									</li>
-								</Link>
+								<NavLink string="Work.Graphics" href="/graphics" />
+								<NavLink string="Work.Photos" href="/photos" />
 								{Projects.map((Project) => (
-									<Link
-										className={`flex items-center ${
-											Project.link === pathname
-												? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
-												: "hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-75 hover:duration-0"
-										} px-3 py-1.5 w-full duration-75 hover:duration-0`}
-										key={Project.link}
-										href={Project.link}
-										onClick={handleClose}
-									>
-										<li>
-											<div className="flex flex-col">
-												<span>{t(`Path.Work.Projects.${Project.strings}.title`)}</span>
-												<span className="text-xs opacity-75">{t(`Path.Work.Projects.${Project.strings}.description`)}</span>
-											</div>
-										</li>
-									</Link>
+									<NavLink string={`Work.Projects.${Project.strings}`} href={Project.link} />
 								))}
-								<Link
-									className={`flex items-center ${
-										"/projects" === pathname
-											? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
-											: "hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-75 hover:duration-0"
-									} px-3 py-1.5 w-full duration-75 hover:duration-0`}
-									href="/projects"
-									onClick={handleClose}
-								>
-									<li>
-										<div className="flex flex-col">
-											<span>{t("Path.Work.Projects.More.title")}</span>
-										</div>
-									</li>
-								</Link>
+								<NavLink string="Work.Projects.More" href="/projects" noDescription />
 							</ul>
 						</m.div>
 						<m.div
@@ -307,38 +265,8 @@ export default function NavBar() {
 								<div className="w-full h-px bg-neutral-950/5 dark:bg-white/5" />
 							</div>
 							<ul>
-								<Link
-									className={`flex items-center ${
-										"/privacy" === pathname
-											? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
-											: "hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-75 hover:duration-0"
-									} px-3 py-1.5 w-full duration-75 hover:duration-0`}
-									href="/privacy"
-									onClick={handleClose}
-								>
-									<li>
-										<div className="flex flex-col">
-											<span>{t("Path.Other.Privacy.title")}</span>
-											<span className="text-xs opacity-75">{t("Path.Other.Privacy.description")}</span>
-										</div>
-									</li>
-								</Link>
-								<Link
-									className={`flex items-center ${
-										"/ai" === pathname
-											? "text-neutral-950 dark:text-white bg-black/5 dark:bg-white/5 cursor-default"
-											: "hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 duration-75 hover:duration-0"
-									} px-3 py-1.5 w-full duration-75 hover:duration-0`}
-									href="/ai"
-									onClick={handleClose}
-								>
-									<li>
-										<div className="flex flex-col">
-											<span>{t("Path.Other.AI.title")}</span>
-											<span className="text-xs opacity-75">{t("Path.Other.AI.description")}</span>
-										</div>
-									</li>
-								</Link>
+								<NavLink string="Other.Privacy" href="/privacy" />
+								<NavLink string="Other.AI" href="/ai" />
 							</ul>
 						</m.div>
 					</m.div>
@@ -374,19 +302,29 @@ function MenuIcon({
 				d={
 					close
 						? `M${yPadding},${yPadding} ${size / 2},${size / 2} ${size - yPadding},${yPadding}`
-						: `M${xPadding},${yPadding + (size % 2 ? 0.5 : 0)} ${size / 2},${yPadding + (size % 2 ? 0.5 : 0)} ${size - xPadding},${yPadding + (size % 2 ? 0.5 : 0)}`
+						: `M${xPadding},${yPadding + (size % 2 ? 0.5 : 0)} ${size / 2},${
+								yPadding + (size % 2 ? 0.5 : 0)
+						  } ${size - xPadding},${yPadding + (size % 2 ? 0.5 : 0)}`
 				}
-				className="duration-400 ease-out-quint"
-			/>
-			<path
-				d={close ? `M${size / 2},${size / 2} ${size / 2},${size / 2}` : `M${xPadding},${size / 2} ${size - xPadding},${size / 2}`}
 				className="duration-400 ease-out-quint"
 			/>
 			<path
 				d={
 					close
-						? `M${yPadding},${size - yPadding} ${size / 2},${size / 2} ${size - yPadding},${size - yPadding}`
-						: `M${xPadding},${size - yPadding - (size % 2 ? 0.5 : 0)} ${size / 2},${size - yPadding - (size % 2 ? 0.5 : 0)} ${size - xPadding},${size - yPadding - (size % 2 ? 0.5 : 0)}`
+						? `M${size / 2},${size / 2} ${size / 2},${size / 2}`
+						: `M${xPadding},${size / 2} ${size - xPadding},${size / 2}`
+				}
+				className="duration-400 ease-out-quint"
+			/>
+			<path
+				d={
+					close
+						? `M${yPadding},${size - yPadding} ${size / 2},${size / 2} ${size - yPadding},${
+								size - yPadding
+						  }`
+						: `M${xPadding},${size - yPadding - (size % 2 ? 0.5 : 0)} ${size / 2},${
+								size - yPadding - (size % 2 ? 0.5 : 0)
+						  } ${size - xPadding},${size - yPadding - (size % 2 ? 0.5 : 0)}`
 				}
 				className="duration-400 ease-out-quint"
 			/>
