@@ -44,7 +44,7 @@ export default function Checkbox({ color = "neutral", border, large, ...rest }: 
 				border && `border data-[state='checked']:border-transparent`
 			} ${borders} ${colors} flex items-center justify-center ${
 				large ? "size-9" : "size-6"
-			} outline-hidden focus:outline-solid duration-100 active:duration-75`}
+			} duration-100 active:duration-75`}
 			{...rest}
 		>
 			<RCheckbox.Indicator>
