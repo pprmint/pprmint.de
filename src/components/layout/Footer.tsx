@@ -124,7 +124,7 @@ export default function Footer() {
 	const currentSeptemberLine = September[septemberLineIndex];
 
 	return (
-		<footer className="w-screen overflow-x-hidden">
+		<footer className="w-full overflow-x-hidden">
 			<div className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 				<div className="w-full border-x border-black/5 dark:border-white/5 pt-10 lg:pt-20 xl:pt-40">
 					<div className="h-36 overflow-clip">
