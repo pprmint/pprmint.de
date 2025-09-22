@@ -16,6 +16,15 @@ import Link from "next/link";
 import { PaginatedDocs } from "payload";
 import { Media } from "@/components/Media";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import ExternalLink from "@/icons/ExternalLink";
+import Copy from "@/icons/Copy";
+import FloppyDisk from "@/icons/FloppyDisk";
+import Filter from "@/icons/Filter";
+import Bluesky from "@/icons/Bluesky";
+import YouTube from "@/icons/YouTube";
+import Twitter from "@/icons/Twitter";
+import Globe from "@/icons/Globe";
+import Instagram from "@/icons/Instagram";
 
 export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mina>; page: number }) {
 	const t = useTranslations("MINA");
@@ -117,7 +126,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 	function ContextMenuItem(props: React.PropsWithChildren<{ action?: MouseEventHandler<HTMLDivElement> }>) {
 		return (
 			<ContextMenu.Item
-				className="group relative flex items-center gap-3 pr-2 pl-2 h-7 leading-none select-none outline-none focus:outline-none data-disabled:text-black/25 dark:data-disabled:text-white/25 data-disabled:pointer-events-none data-highlighted:text-neutral-950 dark:data-highlighted:text-white data-[state=checked]:text-neutral-950 dark:data-[state=checked]:text-white data-highlighted:bg-black/10 dark:data-highlighted:bg-white/10 active:opacity-75 duration-75 data-highlighted:duration-0 cursor-pointer focus-visible:outline-hidden"
+				className="group relative flex items-center gap-2.5 pr-2 pl-2 h-7 leading-none select-none outline-none focus:outline-none data-disabled:text-black/25 dark:data-disabled:text-white/25 data-disabled:pointer-events-none data-highlighted:text-neutral-950 dark:data-highlighted:text-white data-[state=checked]:text-neutral-950 dark:data-[state=checked]:text-white data-highlighted:bg-black/10 dark:data-highlighted:bg-white/10 active:opacity-75 duration-75 data-highlighted:duration-0 cursor-pointer focus-visible:outline-hidden"
 				onClick={props.action}
 			>
 				{props.children}
@@ -637,6 +646,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 															rel="noopener noreferrer"
 														>
 															<ContextMenuItem>
+																<ExternalLink />
 																{t("Content.Artworks.ContextMenu.Artwork.openInNewTab")}
 															</ContextMenuItem>
 														</Link>
@@ -651,6 +661,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 														)
 													}
 												>
+													<Copy />
 													{t("Content.Artworks.ContextMenu.Artwork.copyImageUrl")}
 												</ContextMenuItem>
 												<ContextMenuItem
@@ -665,6 +676,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 														)
 													}
 												>
+													<FloppyDisk />
 													{t("Content.Artworks.ContextMenu.Artwork.saveImage")}
 												</ContextMenuItem>
 												{(() => {
@@ -672,6 +684,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 													if (outfit != null && typeof outfit !== "string") {
 														return (
 															<ContextMenuItem action={() => selectOutfit(outfit.slug)}>
+																<Filter />
 																{t(
 																	"Content.Artworks.ContextMenu.Artwork.showAllWithOutfit"
 																)}
@@ -694,6 +707,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 														)
 													}
 												>
+													<Filter />
 													{t("Content.Artworks.ContextMenu.Artist.showAllByArtist", {
 														artist:
 															(typeof artwork.artist === "object" &&
@@ -710,19 +724,29 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 															rel="noopener noreferrer"
 														>
 															<ContextMenuItem>
+																{link.service === "Bluesky" ?
+																	<Bluesky />
+																	: link.service === "YouTube" ?
+																		<YouTube />
+																		: link.service === "Twitter" ?
+																			<Twitter />
+																			: link.service === "Instagram" ?
+																				<Instagram />
+																				: <Globe />
+																}
 																{link.service === "Website"
 																	? t(
 																			"Content.Artworks.ContextMenu.Artist.visitWebsite",
 																			{
 																				site: new URL(link.url).hostname,
 																			}
-																	  )
+																		)
 																	: t(
 																			"Content.Artworks.ContextMenu.Artist.visitProfile",
 																			{
 																				site: link.service,
 																			}
-																	  )}
+																		)}
 															</ContextMenuItem>
 														</Link>
 													))}
