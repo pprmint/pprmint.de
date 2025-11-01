@@ -112,7 +112,7 @@ export default function Main() {
 						toast(
 							t(
 								Icons[props.categoryIndex].icons[props.iconIndex].names.includes("Twitter but worse")
-									? "COMMON.yikes"
+									? "COMMON.ew"
 									: "COMMON.copied"
 							),
 							{
@@ -195,7 +195,7 @@ export default function Main() {
 													toast(
 														t(
 															icon.names.includes("Twitter but worse")
-																? "COMMON.yikes"
+																? "COMMON.ew"
 																: "COMMON.copied"
 														),
 														{

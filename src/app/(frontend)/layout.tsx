@@ -15,7 +15,7 @@ import "/public/fonts/InstrumentSerif/instrumentserif.css";
 import "/public/fonts/DINish/DINish.css";
 import "/public/fonts/Mintbit/mintbit.css";
 import "/public/fonts/MintTriangles/minttriangles.css";
-// yikes
+// ew
 import "/public/fonts/MintSans/mintsans.css";
 import { NavbarProvider } from "@/components/layout/navigation/NavBarContext";
 import { TooltipProvider } from "@radix-ui/react-tooltip";

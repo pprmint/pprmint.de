@@ -98,7 +98,7 @@ module.exports = {
 				mintbit: "Mintbit, 'Roboto Mono', monospace",
 				minttriangles: "'Mint Triangles', monospace",
 				lcd: "'LCD 14', 'Roboto Mono', monospace",
-				// yikes
+				// ew.
 				mintsans: "MintSans, sans-serif",
 			},
 			keyframes: {
