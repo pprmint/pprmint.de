@@ -218,8 +218,8 @@ export default function NavBar() {
 								<div className="w-full h-px bg-neutral-950/5 dark:bg-white/5" />
 							</div>
 							<ul>
-								{Pages.map((Page) => (
-									<NavLink string={`General.${Page.strings}`} href={Page.link} />
+								{Pages.map((Page, index) => (
+									<NavLink key={index} string={`General.${Page.strings}`} href={Page.link} />
 								))}
 							</ul>
 						</m.div>
@@ -242,8 +242,8 @@ export default function NavBar() {
 							<ul className="md:grid grid-cols-2">
 								<NavLink string="Work.Graphics" href="/graphics" />
 								<NavLink string="Work.Photos" href="/photos" />
-								{Projects.map((Project) => (
-									<NavLink string={`Work.Projects.${Project.strings}`} href={Project.link} />
+								{Projects.map((Project, index) => (
+									<NavLink key={index} string={`Work.Projects.${Project.strings}`} href={Project.link} />
 								))}
 								<NavLink string="Work.Projects.More" href="/projects" noDescription />
 							</ul>
