@@ -12,6 +12,7 @@ const HiddenItems = [
 	"payload-locked-documents",
 	"payload-preferences",
 	"payload-migrations",
+	"payload-kv",
 ];
 
 interface NavItem {
