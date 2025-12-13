@@ -63,6 +63,7 @@ export default async function Page() {
 						src={Letter}
 						alt="A letter."
 						className="absolute right-[3%] bottom-[-10%] rotate-6 w-1/2 h-auto"
+						hideSpinner
 					/>
 					<div className="absolute inset-0 backdrop-blur-xs bg-linear-to-t from-neutral-950/25" />
 					<FadingImage
