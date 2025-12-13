@@ -10,6 +10,7 @@ import PixelMina from "/public/assets/mina64.gif";
 import { AnimatePresence } from "motion/react";
 import { Link } from "next-transition-router";
 import { submitForm } from "./submitForm";
+import { toast } from "sonner";
 
 export default function Form() {
 	const t = useTranslations("CONTACT.Content.Email");
@@ -47,8 +48,20 @@ export default function Form() {
 			await submitForm(formData);
 			setSubmitted(true);
 		} catch (error: any) {
+			setSending(false);
 			setFailed(true);
-			console.log(`Failed to send email: ${error.message}`);
+			toast(t("Error.title"), {
+				description: t("Error.description", { code: error.digest }),
+				icon: <WarningTriangle className="size-[30px] fill-yellow" />,
+				duration: 30000,
+				action: {
+					label: t("Error.copyCode"),
+					onClick: () => {
+						navigator.clipboard.writeText(error.digest);
+					},
+				},
+			});
+			console.log(`Failed to send email: ${error.digest}`);
 		}
 	}
 
@@ -173,20 +186,19 @@ export default function Form() {
 					exit={{ opacity: 0, transition: { ease: "linear", duration: 0.2 } }}
 					className="min-h-[349px] sm:min-h-[293px] flex flex-col gap-3 items-center justify-center text-center"
 				>
-					<h1 className="pb-0">
+					<h1 className="pb-0 font-sans font-stretch-75%">
 						<span>
 							{t("Form.sent")}
-							<span className="text-green">.</span>{" "}
 						</span>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 24 24"
 							fill="none"
 							stroke="currentColor"
-							strokeWidth="1.25"
+							strokeWidth="1.5"
 							strokeLinecap="butt"
 							strokeLinejoin="miter"
-							className="size-[1em] inline stroke-neutral-950 dark:stroke-white"
+							className="ml-3 size-[1em] inline stroke-green"
 						>
 							<m.path
 								d="M 4 12 L 9 17 L 20 6"

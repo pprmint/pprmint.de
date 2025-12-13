@@ -50,9 +50,6 @@ export async function submitForm(formData: { name: string; email: string; subjec
     auth: {
       user: process.env.SMTP_USERNAME,
       pass: process.env.SMTP_PASSWORD,
-    },
-    tls: {
-      ciphers: "SSLv3"
     }
   });
 

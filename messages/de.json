@@ -300,6 +300,11 @@
 				"Message": {
 					"body": "Indem du mit Absicht den Betreff und Inhalt dieser Email mit Werbung, Sponsorenangeboten oder Ähnlichem ersetzt, bist du damit einverstanden, dass ich deine Email-Adresse in meinen Spam-Filter einpflege, sodass deine Emails künftig auf dem kürzesten Weg in den Papierkorb wandern.",
 					"subject": "Das hier ist absolut keine Abzocke oder so. Zwinker zwinker."
+				},
+				"Error": {
+					"title": "Fehler beim Senden der Email.",
+					"description": "Etwas ist schiefgelaufen. Versuch es später erneut, oder schick mir den folgenden Fehlercode: {code}",
+					"copyCode": "Fehlercode kopieren"
 				}
 			}
 		}
@@ -322,14 +327,16 @@
 		"Mina": {
 			"lovePats": "hehe, ich liebe streicheln ♥",
 			"forgive": "Ich verzeihe dir, wenn du mich weiter streichelst.",
-			"tooMany1": "Du musst aber auch nicht übertreiben und meine Haare ruinieren.",
-			"tooMany2": "HÖR AUF",
-			"tooMany3": "AAAAAAAAAAAAAAAAAAAAAA",
-			"tooMany4": "Okay, hier ist ein Zähler. Nach 9 Billiarden ist aber Schicht im Schacht.",
+			"tooMany1": "...aber du musst nicht gleich übertreiben.",
+			"tooMany2": "Okay, langsam reicht es...",
+			"tooMany3": "Hör auf, mich zu streicheln!",
+			"tooMany4": "Na gut, dann mach weiter. Aber nach 9 Billiarden ist Schicht im Schacht.",
 			"tooMany5": "...warum bist du so?",
 			"tooMany6": "Deine Mama ist bestimmt ganz stolz.",
-			"tooMany7": "Na gut, wir sehen uns nach 9 Billiarden.",
-			"tooMany8": "du bist wahnsinnig.",
+			"tooMany7": "Bist du sicher, dass du nicht süchtig bist?",
+			"tooMany8": "Das kann nicht gesund sein.",
+			"tooMany9": "Okay, wir sehen uns am Ende des Universums wieder.",
+			"tooMany10": "...",
 			"humanityIsDead": "Du hast offiziell 9.007.199.254.740.992 Klicks hinter dir. Herzlichen Glückwunsch..."
 		}
 	},

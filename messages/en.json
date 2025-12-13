@@ -300,6 +300,11 @@
 				"Message": {
 					"body": "By deliberately replacing the subject and body text of this email with advertising, sponsorship offers or the like, you agree that I may put your email address into my spam filter to have future emails from you take the shortest route straight to the trash.",
 					"subject": "This is absolutely not an ad or a scam. Wink wink."
+				},
+				"Error": {
+					"title": "Error sending email.",
+					"description": "Something went wrong. Please try again later, or send me the following error code: {code}",
+					"copyCode": "Copy error code"
 				}
 			}
 		}
@@ -322,15 +327,17 @@
 		"Mina": {
 			"lovePats": "hehe, i love pats ♥",
 			"forgive": "I'll forgive you, if you pat me more.",
-			"tooMany1": "You don't have to go all out and mess up my hair though.",
-			"tooMany2": "STOP",
-			"tooMany3": "AAAAAAAAAAAAAAAAAAAAAA",
-			"tooMany4": "Alright, here's a counter. After 9 quadrillion, it's game over though.",
+			"tooMany1": "...but you don't have to overdo it.",
+			"tooMany2": "Okay, that's quite enough, no...?",
+			"tooMany3": "Stop patting me!",
+			"tooMany4": "Alright, go on then. But after 9 quintillion pats, it's over",
 			"tooMany5": "...why are you like this?",
-			"tooMany6": "Your mom must be very proud of you.",
-			"tooMany7": "Alright, see you after 9 quadrillion.",
-			"tooMany8": "insanity.",
-			"humanityIsDead": "You've officially surpassed 9.007.199.254.740.992 clicks. Congratulations..."
+			"tooMany6": "Your mom must be really proud.",
+			"tooMany7": "Are you sure you're not getting addicted here?",
+			"tooMany8": "This seems really unhealthy.",
+			"tooMany9": "Okay, see you at the end of the universe.",
+			"tooMany10": "...",
+			"humanityIsDead": "You've officially reached 9.007.199.254.740.992 clicks. Congratulations..."
 		}
 	},
 	"GRAPHICS": {
@@ -538,7 +545,7 @@
 						"openInNewTab": "Open image in new tab",
 						"copyImageUrl": "Copy image URL",
 						"saveImage": "Save image",
-            "showAllWithOutfit": "Show all artworks with same outfit"
+						"showAllWithOutfit": "Show all artworks with same outfit"
 					},
 					"Artist": {
 						"label": "Artist",
