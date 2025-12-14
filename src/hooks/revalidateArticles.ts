@@ -29,5 +29,5 @@ export const revalidateArticles: GlobalAfterChangeHook = async () => {
 
 	// Revalidate the sitemap for articles and galleries.
 	console.info("Revalidating sitemap for articles.");
-	revalidateTag("articles-sitemap");
+	revalidateTag("articles-sitemap", "max");
 };
