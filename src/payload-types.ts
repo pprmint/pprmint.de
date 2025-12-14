@@ -128,10 +128,12 @@ export interface Config {
   globals: {
     fontLicenses: FontLicense;
     privacyPolicy: PrivacyPolicy;
+    minaPats: MinaPat;
   };
   globalsSelect: {
     fontLicenses: FontLicensesSelect<false> | FontLicensesSelect<true>;
     privacyPolicy: PrivacyPolicySelect<false> | PrivacyPolicySelect<true>;
+    minaPats: MinaPatsSelect<false> | MinaPatsSelect<true>;
   };
   locale: 'en' | 'de';
   user: User & {
@@ -1277,6 +1279,16 @@ export interface PrivacyPolicy {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "minaPats".
+ */
+export interface MinaPat {
+  id: string;
+  pats: number;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "fontLicenses_select".
  */
 export interface FontLicensesSelect<T extends boolean = true> {
@@ -1293,6 +1305,16 @@ export interface FontLicensesSelect<T extends boolean = true> {
 export interface PrivacyPolicySelect<T extends boolean = true> {
   tldr?: T;
   main?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "minaPats_select".
+ */
+export interface MinaPatsSelect<T extends boolean = true> {
+  pats?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

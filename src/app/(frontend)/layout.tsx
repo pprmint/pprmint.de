@@ -6,7 +6,7 @@ import { LazyMotion, domAnimation } from "motion/react";
 import Toast from "@/components/ui/Toast";
 
 import NavBar from "@/components/layout/navigation/NavBar";
-import Footer from "@/components/layout/Footer";
+import Footer from "@/components/layout/footer/Footer";
 import WarningTriangle from "@/icons/WarningTriangle";
 
 import "@/styles.css";

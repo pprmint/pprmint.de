@@ -34,6 +34,7 @@ import { getServerSideURL } from "./utilities/getURL";
 import { Graphics } from "./collections/Graphics/Graphics";
 import { FontLicenses } from "./globals/FontLicenses/FontLicenses";
 import { PrivacyPolicy } from "./globals/PrivacyPolicy/PrivacyPolicy";
+import { MinaPats } from "./globals/MinaPats/MinaPats";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -66,7 +67,7 @@ export default buildConfig({
 		Downloads,
 		Users,
 	],
-	globals: [FontLicenses, PrivacyPolicy],
+	globals: [FontLicenses, PrivacyPolicy, MinaPats],
 	localization: {
 		locales: [
 			{
