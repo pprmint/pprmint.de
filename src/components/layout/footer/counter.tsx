@@ -17,14 +17,14 @@ export default function AnimatedCounter({ target, offset = 0 }: { target: number
 	useEffect(() => spring.on("change", (v) => setDisplay(Math.ceil(v).toString())), [spring]);
 
 	return (
-		<div className="relative font-mono">
-			<div className="text-7xl font-thin">{display}</div>
+		<div className="relative">
+			<div className="text-7xl font-light font-stretch-75">{display}</div>
 			<m.div
 				animate={{ y: [0, -20], opacity: [0, 1, 0] }}
 				transition={{ duration: 0.75, delay: 0.95, type: "spring", bounce: 0 }}
-				className="absolute top-1/2 left-1/2 -translate-1/2 font-bold text-4xl shadow-2xl"
+				className="absolute top-1/2 left-1/2 -translate-1/2 font-bold text-green font-stretch-150 text-4xl text-shadow-xl/20"
 			>
-				+{offset}
+				+200
 			</m.div>
 		</div>
 	);
