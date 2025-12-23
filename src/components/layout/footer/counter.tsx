@@ -24,7 +24,7 @@ export default function AnimatedCounter({ target, offset = 0 }: { target: number
 				transition={{ duration: 0.75, delay: 0.95, type: "spring", bounce: 0 }}
 				className="absolute top-1/2 left-1/2 -translate-1/2 font-bold text-green font-stretch-150 text-4xl text-shadow-xl/20"
 			>
-				+200
+				+{offset}
 			</m.div>
 		</div>
 	);
