@@ -18,7 +18,6 @@ import { setUserLocale } from "@/i18n/locale";
 import Heart from "@/icons/Heart";
 import HotCup from "@/icons/HotCup";
 import Bluesky from "@/icons/Bluesky";
-import Twitter from "@/icons/Twitter";
 import YouTube from "@/icons/YouTube";
 import GitHub from "@/icons/GitHub";
 import Kofi from "@/icons/Kofi";
@@ -244,14 +243,6 @@ export default function Footer() {
 						className="size-9 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5 duration-100 active:duration-75 active:opacity-75"
 					>
 						<Bluesky />
-					</Link>
-					<Link
-						href="https://twitter.com/npprmint"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="size-9 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5 duration-100 active:duration-75 active:opacity-75"
-					>
-						<Twitter />
 					</Link>
 					<Link
 						href="https://youtube.com/@pprmint"
