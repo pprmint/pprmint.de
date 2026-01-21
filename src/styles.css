@@ -1,6 +1,621 @@
 @import "tailwindcss";
 
-@config '../tailwind.config.js';
+@theme {
+	--color-neutral: #aaa;
+	--color-neutral-50: #eee;
+	--color-neutral-100: #ddd;
+	--color-neutral-200: #ccc;
+	--color-neutral-300: #bbb;
+	--color-neutral-400: #999;
+	--color-neutral-500: #777;
+	--color-neutral-600: #555;
+	--color-neutral-700: #444;
+	--color-neutral-800: #333;
+	--color-neutral-900: #222;
+	--color-neutral-950: #111;
+
+	--color-red: #f57;
+	--color-red-50: #ffeff0;
+	--color-red-100: #ffd2d4;
+	--color-red-200: #ffb4ba;
+	--color-red-300: #ff96a1;
+	--color-red-400: #ff7688;
+	--color-red-500: #f57;
+	--color-red-600: #d8465b;
+	--color-red-700: #9c3744;
+	--color-red-800: #6b2b32;
+	--color-red-900: #3e1d21;
+	--color-red-950: #1b1212;
+
+	--color-yellow: #fa5;
+	--color-yellow-50: #fff7ef;
+	--color-yellow-100: #ffe5cc;
+	--color-yellow-200: #ffd4ac;
+	--color-yellow-300: #ffc590;
+	--color-yellow-400: #ffb472;
+	--color-yellow-500: #fa5;
+	--color-yellow-600: #c68247;
+	--color-yellow-700: #8f5f37;
+	--color-yellow-800: #5f4228;
+	--color-yellow-900: #3c2b1d;
+	--color-yellow-950: #1a1510;
+
+	--color-green: #0b7;
+	--color-green-50: #edfaf2;
+	--color-green-100: #c6eed7;
+	--color-green-200: #a0e1bd;
+	--color-green-300: #7ad5a5;
+	--color-green-400: #50c88e;
+	--color-green-500: #0b7;
+	--color-green-600: #17925f;
+	--color-green-700: #1b6b47;
+	--color-green-800: #1a4b34;
+	--color-green-900: #162e22;
+	--color-green-950: #0f1713;
+
+	--color-blue: #0bd;
+	--color-blue-50: #edf9fc;
+	--color-blue-100: #caecf6;
+	--color-blue-200: #a6e0ef;
+	--color-blue-300: #82d4ea;
+	--color-blue-400: #55c7e3;
+	--color-blue-500: #0bd;
+	--color-blue-600: #1991aa;
+	--color-blue-700: #1d6c7e;
+	--color-blue-800: #1c4b56;
+	--color-blue-900: #182d32;
+	--color-blue-950: #101617;
+
+	--color-violet: #b8f;
+	--color-violet-50: #f9f3ff;
+	--color-violet-100: #eeddff;
+	--color-violet-200: #e2c7ff;
+	--color-violet-300: #d8b2ff;
+	--color-violet-400: #c99cff;
+	--color-violet-500: #b8f;
+	--color-violet-600: #916bc4;
+	--color-violet-700: #6c5190;
+	--color-violet-800: #4a395f;
+	--color-violet-900: #2e2538;
+	--color-violet-950: #161318;
+
+	--font-sans: DINish, Bahnschrift, D-DIN, Inter, Roboto, Helvetica, Arial, sans-serif;
+	--font-mono: "Iosevka Mint Web", "JetBrains Mono", monospace;
+	--font-serif: "Instrument Serif", "New York", "Roboto Slab", "Linux Libertine", Georgia, Times, serif;
+	--font-mintbit: Mintbit, "Roboto Mono", monospace;
+	--font-minttriangles: "Mint Triangles", monospace;
+	--font-lcd: "LCD 14", "Roboto Mono", monospace;
+	--font-mintsans: MintSans, sans-serif;
+
+	--animate-accordion-slide-down: accordionSlideDown 0.4s cubic-bezier(0.5, 0, 0.1, 1);
+	@keyframes accordionSlideDown {
+		from {
+			height: 0;
+			opacity: 0;
+		}
+		to {
+			height: var(--radix-accordion-content-height);
+			opacity: 1;
+		}
+	}
+
+	--animate-accordion-slide-up: accordionSlideUp 0.4s cubic-bezier(0.5, 0, 0.1, 1);
+	@keyframes accordionSlideUp {
+		from {
+			height: var(--radix-accordion-content-height);
+			opacity: 1;
+		}
+		to {
+			height: 0;
+			opacity: 0;
+		}
+	}
+
+	--animate-collapsible-horizontal-open: collapsibleHorizontalOpen 0.3s cubic-bezier(0.5, 0, 0.17, 1);
+	@keyframes collapsibleHorizontalOpen {
+		from {
+			width: 0;
+		}
+		to {
+			width: var(--radix-collapsible-content-width);
+		}
+	}
+
+	--animate-collapsible-horizontal-close: collapsibleHorizontalClose 0.3s cubic-bezier(0.3, 0, 0.2, 1);
+	@keyframes collapsibleHorizontalClose {
+		from {
+			width: var(--radix-collapsible-content-width);
+		}
+		to {
+			width: 0;
+		}
+	}
+
+	--animate-collapsible-vertical-open: collapsibleVerticalOpen 0.3s cubic-bezier(0.5, 0, 0.17, 1);
+	@keyframes collapsibleVerticalOpen {
+		from {
+			height: 0;
+		}
+		to {
+			height: var(--radix-collapsible-content-height);
+		}
+	}
+
+	--animate-collapsible-vertical-close: collapsibleVerticalClose 0.3s cubic-bezier(0.3, 0, 0.2, 1);
+	@keyframes collapsibleVerticalClose {
+		from {
+			height: var(--radix-collapsible-content-height);
+		}
+		to {
+			height: 0;
+		}
+	}
+
+	--animate-select-open: selectOpen 0.2s;
+	@keyframes selectOpen {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	--animate-select-close: selectClose 0.2s;
+	@keyframes selectClose {
+		from {
+			opacity: 1;
+		}
+		to {
+			opacity: 0;
+		}
+	}
+
+	--animate-scale-up: scaleUp 0.2s cubic-bezier(0, 0, 0.2, 1);
+	@keyframes scaleUp {
+		from {
+			scale: 95%;
+			opacity: 0;
+		}
+		to {
+			scale: 100%;
+			opacity: 1;
+		}
+	}
+
+	--animate-scale-down: scaleDown 0.2s cubic-bezier(0, 0, 0.2, 1);
+	@keyframes scaleDown {
+		from {
+			scale: 100%;
+			opacity: 1;
+		}
+		to {
+			scale: 95%;
+			opacity: 0;
+		}
+	}
+
+	--animate-title-fade-in: titleFadeIn 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+	@keyframes titleFadeIn {
+		from {
+			opacity: 0;
+			filter: blur(5px);
+		}
+		to {
+			opacity: 1;
+			filter: blur(0px);
+		}
+	}
+
+	--animate-fade-in: fadeIn 0.25s cubic-bezier(0, 0, 0.2, 1);
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	--animate-fade-out: fadeOut 0.3s cubic-bezier(0, 0, 0.2, 1);
+	@keyframes fadeOut {
+		from {
+			opacity: 1;
+		}
+		to {
+			opacity: 0;
+		}
+	}
+
+	--animate-fade-out-scale-down: fadeOutScaleDown 0.2s cubic-bezier(0, 0, 0.2, 1);
+	@keyframes fadeOutScaleDown {
+		from {
+			opacity: 1;
+			transform: scale(1);
+		}
+		to {
+			opacity: 0;
+			transform: scale(0.9);
+		}
+	}
+
+	--animate-arrow-fade-down: arrowFadeDown 1.5s cubic-bezier(0.2, 0.2, 0.2, 1) 2s infinite;
+	@keyframes arrowFadeDown {
+		0% {
+			opacity: 0;
+			transform: translateY(-30px);
+			clip-path: polygon(55% 65%, 100% 0, 100% 100%, 0 100%, 0 0, 45% 65%);
+		}
+		50% {
+			opacity: 1;
+			clip-path: polygon(55% 0, 100% 0, 100% 100%, 0 100%, 0 0, 45% 0);
+		}
+		70% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+			transform: translateY(0);
+		}
+	}
+
+	--animate-tooltip-enter-top: tooltipEnterTop 0.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	@keyframes tooltipEnterTop {
+		from {
+			opacity: 0;
+			transform: translateY(-4px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	--animate-tooltip-exit-top: tooltipExitTop 0.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	@keyframes tooltipExitTop {
+		from {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateY(-4px);
+		}
+	}
+
+	--animate-tooltip-enter-bottom: tooltipEnterBottom 0.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	@keyframes tooltipEnterBottom {
+		from {
+			opacity: 0;
+			transform: translateY(4px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	--animate-tooltip-exit-bottom: tooltipExitBottom 0.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	@keyframes tooltipExitBottom {
+		from {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateY(4px);
+		}
+	}
+
+	--animate-tooltip-enter-left: tooltipEnterLeft 0.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	@keyframes tooltipEnterLeft {
+		from {
+			opacity: 0;
+			transform: translateX(4px);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	--animate-tooltip-exit-left: tooltipExitLeft 0.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	@keyframes tooltipExitLeft {
+		from {
+			opacity: 1;
+			transform: translateX(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateX(4px);
+		}
+	}
+
+	--animate-tooltip-enter-right: tooltipEnterRight 0.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	@keyframes tooltipEnterRight {
+		from {
+			opacity: 0;
+			transform: translateX(-4px);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	--animate-tooltip-exit-right: tooltipExitRight 0.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	@keyframes tooltipExitRight {
+		from {
+			opacity: 1;
+			transform: translateX(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateX(-4px);
+		}
+	}
+
+	--animate-svg-check-draw-in: svgCheckDrawIn 0.25s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	@keyframes svgCheckDrawIn {
+		from {
+			stroke-dashoffset: 24;
+		}
+		to {
+			stroke-dashoffset: 48;
+		}
+	}
+
+	--animate-float: float 4s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite;
+	@keyframes float {
+		0%,
+		100% {
+			transform: translateY(10px);
+		}
+		50% {
+			transform: translateY(-10px);
+		}
+	}
+
+	--animate-float-rotate-l: floatRotateL 6s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite;
+	@keyframes floatRotateL {
+		0% {
+			transform: translateY(10px) rotate(3deg);
+		}
+		50% {
+			transform: translateY(-10px) rotate(1deg);
+		}
+		100% {
+			transform: translateY(10px) rotate(-3deg);
+		}
+	}
+
+	--animate-float-rotate-r: floatRotateR 6s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite;
+	@keyframes floatRotateR {
+		0% {
+			transform: translateY(10px) rotate(-3deg);
+		}
+		50% {
+			transform: translateY(-10px) rotate(-1deg);
+		}
+		100% {
+			transform: translateY(10px) rotate(3deg);
+		}
+	}
+
+	--animate-dialog-enter: dialogEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s normal backwards;
+	@keyframes dialogEnter {
+		from {
+			transform: translateY(30px) scale(0.98);
+			box-shadow: 0 0 10px -12px rgb(0 0 0 / 0.25);
+			opacity: 0;
+		}
+		to {
+			transform: translateY(0) scale(1);
+			box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+			opacity: 1;
+		}
+	}
+
+	--animate-dialog-exit: dialogExit 0.2s;
+	@keyframes dialogExit {
+		from {
+			transform: translateY(0) scale(1);
+			opacity: 1;
+		}
+		to {
+			transform: translateY(10px) scale(0.98);
+			opacity: 0;
+		}
+	}
+
+	--animate-graph-enter-left: graphEnterLeft 0.6s cubic-bezier(0.4, 0, 0, 1);
+	@keyframes graphEnterLeft {
+		from {
+			clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
+		}
+		to {
+			clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+		}
+	}
+
+	--animate-graph-enter-bottom: graphEnterBottom 0.6s cubic-bezier(0.4, 0, 0, 1);
+	@keyframes graphEnterBottom {
+		from {
+			clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+		}
+		to {
+			clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 100%);
+		}
+	}
+
+	--duration-25: 25ms;
+	--duration-50: 50ms;
+	--duration-250: 250ms;
+	--duration-400: 400ms;
+
+	--ease-in-sine: cubic-bezier(0.12, 0, 0.39, 0);
+	--ease-in-quad: cubic-bezier(0.11, 0, 0.5, 0);
+	--ease-in-cubic: cubic-bezier(0.32, 0, 0.67, 0);
+	--ease-in-quart: cubic-bezier(0.5, 0, 0.75, 0);
+	--ease-in-quint: cubic-bezier(0.64, 0, 0.78, 0);
+	--ease-in-expo: cubic-bezier(0.7, 0, 0.84, 0);
+	--ease-in-circ: cubic-bezier(0.55, 0, 1, 0.45);
+	--ease-in-back: cubic-bezier(0.36, 0, 0.66, -0.56);
+
+	--ease-out-sine: cubic-bezier(0.61, 1, 0.88, 1);
+	--ease-out-quad: cubic-bezier(0.5, 1, 0.89, 1);
+	--ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+	--ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+	--ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+	--ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+	--ease-out-circ: cubic-bezier(0, 0.55, 0.45, 1);
+	--ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+	--ease-in-out-sine: cubic-bezier(0.37, 0, 0.63, 1);
+	--ease-in-out-quad: cubic-bezier(0.45, 0, 0.55, 1);
+	--ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+	--ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+	--ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+	--ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+	--ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
+	--ease-in-out-back: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+	--ease-in-out-custom: cubic-bezier(0.5, 0, 0.1, 1);
+
+	--width-1\/2-screen: 50vw;
+	--width-1\/3-screen: 33.333333vw;
+	--width-2\/3-screen: 66.666667vw;
+	--width-1\/4-screen: 25vw;
+	--width-2\/4-screen: 50vw;
+	--width-3\/4-screen: 75vw;
+	--width-1\/5-screen: 20vw;
+	--width-2\/5-screen: 40vw;
+	--width-3\/5-screen: 60vw;
+	--width-4\/5-screen: 80vw;
+	--width-1\/6-screen: 16.666667vw;
+	--width-2\/6-screen: 33.333333vw;
+	--width-3\/6-screen: 50vw;
+	--width-4\/6-screen: 66.666667vw;
+	--width-5\/6-screen: 83.333333vw;
+	--width-1\/12-screen: 8.333333vw;
+	--width-2\/12-screen: 16.666667vw;
+	--width-3\/12-screen: 25vw;
+	--width-4\/12-screen: 33.333333vw;
+	--width-5\/12-screen: 41.666667vw;
+	--width-6\/12-screen: 50vw;
+	--width-7\/12-screen: 58.333333vw;
+	--width-8\/12-screen: 66.666667vw;
+	--width-9\/12-screen: 75vw;
+	--width-10\/12-screen: 83.333333vw;
+	--width-11\/12-screen: 91.666667vw;
+
+	--min-width-8xl: 120rem;
+	--min-width-1\/2-screen: 50vw;
+	--min-width-1\/3-screen: 33.333333vw;
+	--min-width-2\/3-screen: 66.666667vw;
+	--min-width-1\/4-screen: 25vw;
+	--min-width-2\/4-screen: 50vw;
+	--min-width-3\/4-screen: 75vw;
+	--min-width-1\/5-screen: 20vw;
+	--min-width-2\/5-screen: 40vw;
+	--min-width-3\/5-screen: 60vw;
+	--min-width-4\/5-screen: 80vw;
+	--min-width-1\/6-screen: 16.666667vw;
+	--min-width-2\/6-screen: 33.333333vw;
+	--min-width-3\/6-screen: 50vw;
+	--min-width-4\/6-screen: 66.666667vw;
+	--min-width-5\/6-screen: 83.333333vw;
+	--min-width-1\/12-screen: 8.333333vw;
+	--min-width-2\/12-screen: 16.666667vw;
+	--min-width-3\/12-screen: 25vw;
+	--min-width-4\/12-screen: 33.333333vw;
+	--min-width-5\/12-screen: 41.666667vw;
+	--min-width-6\/12-screen: 50vw;
+	--min-width-7\/12-screen: 58.333333vw;
+	--min-width-8\/12-screen: 66.666667vw;
+	--min-width-9\/12-screen: 75vw;
+	--min-width-10\/12-screen: 83.333333vw;
+	--min-width-11\/12-screen: 91.666667vw;
+
+	--max-width-8xl: 120rem;
+	--max-width-1\/2-screen: 50vw;
+	--max-width-1\/3-screen: 33.333333vw;
+	--max-width-2\/3-screen: 66.666667vw;
+	--max-width-1\/4-screen: 25vw;
+	--max-width-2\/4-screen: 50vw;
+	--max-width-3\/4-screen: 75vw;
+	--max-width-1\/5-screen: 20vw;
+	--max-width-2\/5-screen: 40vw;
+	--max-width-3\/5-screen: 60vw;
+	--max-width-4\/5-screen: 80vw;
+	--max-width-1\/6-screen: 16.666667vw;
+	--max-width-2\/6-screen: 33.333333vw;
+	--max-width-3\/6-screen: 50vw;
+	--max-width-4\/6-screen: 66.666667vw;
+	--max-width-5\/6-screen: 83.333333vw;
+	--max-width-1\/12-screen: 8.333333vw;
+	--max-width-2\/12-screen: 16.666667vw;
+	--max-width-3\/12-screen: 25vw;
+	--max-width-4\/12-screen: 33.333333vw;
+	--max-width-5\/12-screen: 41.666667vw;
+	--max-width-6\/12-screen: 50vw;
+	--max-width-7\/12-screen: 58.333333vw;
+	--max-width-8\/12-screen: 66.666667vw;
+	--max-width-9\/12-screen: 75vw;
+	--max-width-10\/12-screen: 83.333333vw;
+	--max-width-11\/12-screen: 91.666667vw;
+
+	--height-1\/2-screen: 50vh;
+	--height-1\/3-screen: 33.333333vh;
+	--height-2\/3-screen: 66.666667vh;
+	--height-1\/4-screen: 25vh;
+	--height-2\/4-screen: 50vh;
+	--height-3\/4-screen: 75vh;
+	--height-1\/5-screen: 20vh;
+	--height-2\/5-screen: 40vh;
+	--height-3\/5-screen: 60vh;
+	--height-4\/5-screen: 80vh;
+	--height-1\/6-screen: 16.666667vh;
+	--height-2\/6-screen: 33.333333vh;
+	--height-3\/6-screen: 50vh;
+	--height-4\/6-screen: 66.666667vh;
+	--height-5\/6-screen: 83.333333vh;
+
+	--min-height-1\/2-screen: 50vh;
+	--min-height-1\/3-screen: 33.333333vh;
+	--min-height-2\/3-screen: 66.666667vh;
+	--min-height-1\/4-screen: 25vh;
+	--min-height-2\/4-screen: 50vh;
+	--min-height-3\/4-screen: 75vh;
+	--min-height-1\/5-screen: 20vh;
+	--min-height-2\/5-screen: 40vh;
+	--min-height-3\/5-screen: 60vh;
+	--min-height-4\/5-screen: 80vh;
+	--min-height-1\/6-screen: 16.666667vh;
+	--min-height-2\/6-screen: 33.333333vh;
+	--min-height-3\/6-screen: 50vh;
+	--min-height-4\/6-screen: 66.666667vh;
+	--min-height-5\/6-screen: 83.333333vh;
+
+	--max-height-1\/2-screen: 50vh;
+	--max-height-1\/3-screen: 33.333333vh;
+	--max-height-2\/3-screen: 66.666667vh;
+	--max-height-1\/4-screen: 25vh;
+	--max-height-2\/4-screen: 50vh;
+	--max-height-3\/4-screen: 75vh;
+	--max-height-1\/5-screen: 20vh;
+	--max-height-2\/5-screen: 40vh;
+	--max-height-3\/5-screen: 60vh;
+	--max-height-4\/5-screen: 80vh;
+	--max-height-1\/6-screen: 16.666667vh;
+	--max-height-2\/6-screen: 33.333333vh;
+	--max-height-3\/6-screen: 50vh;
+	--max-height-4\/6-screen: 66.666667vh;
+	--max-height-5\/6-screen: 83.333333vh;
+
+	--breakpoint-3xl: 120rem;
+
+	--shadow-inner: inset 0 2px 3px rgba(0, 0, 0, 0.2);
+}
 
 @layer base {
 	button:not(:disabled),
@@ -45,10 +660,6 @@
 	h6 {
 		@apply text-neutral-950 dark:text-white font-serif md:text-lg lg:text-xl pb-1;
 	}
-}
-
-@theme {
-	--breakpoint-3xl: 120rem;
 }
 
 li.nestedListItem ul.list-bullet {

@@ -256,10 +256,10 @@ export default function Main() {
 				</div>
 			</section>
 			<div
-				className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 border-r border-black/5 dark:border-white/5 divide-x divide-black/5 dark:divide-white/5`}
+				className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 border-l border-black/5 dark:border-white/5 divide-x divide-black/5 dark:divide-white/5`}
 			>
 				{Icons.map((category, catIndex) => (
-					<div key={catIndex} className="first:border-l border-b border-black/5 dark:border-white/5">
+					<div key={catIndex} className="last:border-r border-b border-black/5 dark:border-white/5">
 						<p className="font-stretch-condensed text-2xl md:text-3xl px-4 pt-3 pb-2 text-neutral-950 dark:text-white">
 							{t(`ICONS.Content.Category.${category.category}`)}
 						</p>
