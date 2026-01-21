@@ -3,7 +3,7 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import WarningCircle from "@/icons/WarningCircle";
 import RotateCw from "@/icons/RotateCw";
-import MinaOuch from "/public/assets/mina_ouch.webp";
+import MinaOuch from "@public/assets/mina_ouch.webp";
 
 export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
 	return (

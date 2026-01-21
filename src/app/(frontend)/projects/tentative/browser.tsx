@@ -8,9 +8,9 @@ import Jiggy from "@/icons/Jiggy";
 import Menu from "@/icons/Menu";
 import Bookmark from "@/icons/Bookmark";
 
-import OldWebsite1 from "/public/assets/tentative/website1.png";
-import OldWebsite2 from "/public/assets/tentative/website2.png";
-import OldWebsite3 from "/public/assets/tentative/website3.png";
+import OldWebsite1 from "@public/assets/tentative/website1.png";
+import OldWebsite2 from "@public/assets/tentative/website2.png";
+import OldWebsite3 from "@public/assets/tentative/website3.png";
 import Add from "@/icons/Add";
 import FadingImage from "@/components/ui/FadingImage";
 

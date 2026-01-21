@@ -6,11 +6,11 @@ import FadingImage from "@/components/ui/FadingImage";
 
 import Ref from "./ref";
 
-import Stickers from "/public/assets/mina/stickers.svg";
-import StickerSeyana from "/public/assets/mina/sticker_seyana.webp";
-import StickerStare from "/public/assets/mina/sticker_stare.webp";
-import StickerWhat from "/public/assets/mina/sticker_what.webp";
-import StickerCool from "/public/assets/mina/sticker_cool.png";
+import Stickers from "@public/assets/mina/stickers.svg";
+import StickerSeyana from "@public/assets/mina/sticker_seyana.webp";
+import StickerStare from "@public/assets/mina/sticker_stare.webp";
+import StickerWhat from "@public/assets/mina/sticker_what.webp";
+import StickerCool from "@public/assets/mina/sticker_cool.png";
 
 import Link from "next/link";
 import Button from "@/components/ui/Button";

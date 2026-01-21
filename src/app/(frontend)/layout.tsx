@@ -10,13 +10,13 @@ import Footer from "@/components/layout/footer/Footer";
 import WarningTriangle from "@/icons/WarningTriangle";
 
 import "@/styles.css";
-import "/public/fonts/IosevkaMint/IosevkaMint.css";
-import "/public/fonts/InstrumentSerif/instrumentserif.css";
-import "/public/fonts/DINish/DINish.css";
-import "/public/fonts/Mintbit/mintbit.css";
-import "/public/fonts/MintTriangles/minttriangles.css";
+import "@public/fonts/IosevkaMint/IosevkaMint.css";
+import "@public/fonts/InstrumentSerif/instrumentserif.css";
+import "@public/fonts/DINish/DINish.css";
+import "@public/fonts/Mintbit/mintbit.css";
+import "@public/fonts/MintTriangles/minttriangles.css";
 // ew
-import "/public/fonts/MintSans/mintsans.css";
+import "@public/fonts/MintSans/mintsans.css";
 import { NavbarProvider } from "@/components/layout/navigation/NavBarContext";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import TransitionProvider from "./transitionProvider";

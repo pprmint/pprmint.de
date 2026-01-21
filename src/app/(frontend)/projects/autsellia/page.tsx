@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import Title from "@/components/layout/Title";
 import FadingImage from "@/components/ui/FadingImage";
 
-import HomePageScreenshot from "/public/assets/autsellia/homepage.webp";
+import HomePageScreenshot from "@public/assets/autsellia/homepage.webp";
 
 export async function generateMetadata() {
     const t = await getTranslations("AUTSELLIA");

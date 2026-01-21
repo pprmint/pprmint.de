@@ -4,11 +4,11 @@ import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
 import Title from "@/components/layout/Title";
-import Hero from "/public/assets/ytdg/hero.png";
+import Hero from "@public/assets/ytdg/hero.png";
 import FadingImage from "@/components/ui/FadingImage";
 import Button from "@/components/ui/Button";
 
-import IsometricScreenshot from "/public/assets/ytdg/screenshot_dark_iso.webp";
+import IsometricScreenshot from "@public/assets/ytdg/screenshot_dark_iso.webp";
 import Check from "@/icons/Check";
 import ExternalLink from "@/icons/ExternalLink";
 

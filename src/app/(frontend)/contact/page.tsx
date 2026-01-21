@@ -3,8 +3,8 @@ import { getLocale, getTranslations } from "next-intl/server";
 import Title from "@/components/layout/Title";
 import FadingImage from "@/components/ui/FadingImage";
 
-import Letter from "/public/assets/contact/letter_en.webp";
-import LetterSilhouette from "/public/assets/contact/letter_silhouette.svg";
+import Letter from "@public/assets/contact/letter_en.webp";
+import LetterSilhouette from "@public/assets/contact/letter_silhouette.svg";
 
 import Chatbox from "./chatbox";
 import Form from "./form";

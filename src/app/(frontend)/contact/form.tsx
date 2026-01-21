@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import FadingImage from "@/components/ui/FadingImage";
 import * as m from "motion/react-m";
 
-import PixelMina from "/public/assets/mina64.gif";
+import PixelMina from "@public/assets/mina64.gif";
 import { AnimatePresence } from "motion/react";
 import { Link } from "next-transition-router";
 import { submitForm } from "./submitForm";

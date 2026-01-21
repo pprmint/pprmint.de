@@ -11,7 +11,7 @@ import { AnimatePresence } from "motion/react";
 
 import { Icon, Icons } from "./icons";
 
-import JiggyGif from "/public/assets/icons/Jiggy.gif";
+import JiggyGif from "@public/assets/icons/Jiggy.gif";
 import Button from "@/components/ui/Button";
 import Search from "@/icons/Search";
 import X from "@/icons/X";

@@ -4,7 +4,7 @@ import VideoPlayer from "@/components/ui/VideoPlayer";
 import AudioPlayer from "@/components/ui/AudioPlayer";
 import Image from "next/image";
 
-import Seyana from "/public/assets/mina/sticker_seyana.webp";
+import Seyana from "@public/assets/mina/sticker_seyana.webp";
 import LoadingSpinner from "@/components/loading/LoadingSpinner";
 import GlowingSpinner from "@/components/loading/GlowingSpinner";
 

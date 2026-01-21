@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import * as Dialog from "@radix-ui/react-dialog";
 
-import Mina from "/public/assets/mina/nekomimi_smol.webp";
+import Mina from "@public/assets/mina/nekomimi_smol.webp";
 import Link from "next/link";
 import * as m from "motion/react-m";
 import dynamic from "next/dynamic";

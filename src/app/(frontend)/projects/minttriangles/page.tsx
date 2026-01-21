@@ -7,8 +7,8 @@ import FadingImage from "@/components/ui/FadingImage";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 
-import TitleBg from "/public/assets/triangles/triangles.svg";
-import Monitor from "/public/assets/triangles/Monitor.svg";
+import TitleBg from "@public/assets/triangles/triangles.svg";
+import Monitor from "@public/assets/triangles/Monitor.svg";
 import CountUp from "./countUp";
 import Time from "./time";
 import Download from "@/icons/Download";

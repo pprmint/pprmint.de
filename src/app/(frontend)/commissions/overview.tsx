@@ -5,10 +5,10 @@ import FadingImage from "@/components/ui/FadingImage";
 
 // An identifier or keyword cannot immediately follow a numeric literal.ts(1351)
 // Fine then, lemme give it a shitty name, see if I care.
-import TwoDeeCardImage from "/public/assets/commissions/2D.svg";
-import AnimCardImage from "/public/assets/commissions/Anim.svg";
-import ThreeDeeCardImage from "/public/assets/commissions/3D.svg";
-import WebsiteCardImage from "/public/assets/commissions/Hell.svg";
+import TwoDeeCardImage from "@public/assets/commissions/2D.svg";
+import AnimCardImage from "@public/assets/commissions/Anim.svg";
+import ThreeDeeCardImage from "@public/assets/commissions/3D.svg";
+import WebsiteCardImage from "@public/assets/commissions/Hell.svg";
 import Commission from "@/types/commission";
 import Add from "@/icons/Add";
 import Check from "@/icons/Check";

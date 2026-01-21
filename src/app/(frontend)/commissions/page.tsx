@@ -3,9 +3,9 @@ import { getTranslations } from "next-intl/server";
 
 import Title from "@/components/layout/Title";
 
-import RedLight from "/public/assets/commissions/red.webp";
-import YellowLight from "/public/assets/commissions/yellow.webp";
-import GreenLight from "/public/assets/commissions/green.webp";
+import RedLight from "@public/assets/commissions/red.webp";
+import YellowLight from "@public/assets/commissions/yellow.webp";
+import GreenLight from "@public/assets/commissions/green.webp";
 import Services from "./overview";
 import Commission from "@/types/commission";
 import InfoCircle from "@/icons/InfoCircle";

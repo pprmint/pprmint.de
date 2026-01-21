@@ -4,14 +4,14 @@ import Link from "next/link";
 import Title from "@/components/layout/Title";
 import FadingImage from "@/components/ui/FadingImage";
 
-import NamesImage from "/public/assets/tentative/names.svg";
-import WebsiteMembers from "/public/assets/tentative/websiteMembers.png";
-import WebsiteProfile from "/public/assets/tentative/websiteProfile.png";
-import WebsiteLocales from "/public/assets/tentative/websiteLocales.png";
-import IconWxz from "/public/assets/tentative/icons/wxz.svg";
-import IconAutsellia from "/public/assets/tentative/icons/autsellia.svg";
-import IconPprmint from "/public/assets/tentative/icons/leafperson.svg";
-import BrandingRev0 from "/public/assets/tentative/branding_rev0.png";
+import NamesImage from "@public/assets/tentative/names.svg";
+import WebsiteMembers from "@public/assets/tentative/websiteMembers.png";
+import WebsiteProfile from "@public/assets/tentative/websiteProfile.png";
+import WebsiteLocales from "@public/assets/tentative/websiteLocales.png";
+import IconWxz from "@public/assets/tentative/icons/wxz.svg";
+import IconAutsellia from "@public/assets/tentative/icons/autsellia.svg";
+import IconPprmint from "@public/assets/tentative/icons/leafperson.svg";
+import BrandingRev0 from "@public/assets/tentative/branding_rev0.png";
 
 import BrowserWindow from "./browser";
 

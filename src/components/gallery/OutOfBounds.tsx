@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
-import MinaWhat from "/public/assets/mina/minawhat.png";
+import MinaWhat from "@public/assets/mina/minawhat.png";
 
 export default async function OutOfBounds() {
 	const t = await getTranslations("MINA");

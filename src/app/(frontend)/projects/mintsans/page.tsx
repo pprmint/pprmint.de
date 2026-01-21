@@ -8,13 +8,13 @@ import Title from "@/components/layout/Title";
 import FadingImage from "@/components/ui/FadingImage";
 import Button from "@/components/ui/Button";
 
-import TitleImage from "/public/assets/mintsans/V2.png";
-import Slide1 from "/public/assets/mintsans/slide1.svg";
-import Slide2 from "/public/assets/mintsans/slide2.svg";
-import Slide3 from "/public/assets/mintsans/slide3.svg";
-import Slide4 from "/public/assets/mintsans/slide4.svg";
-import Slide5 from "/public/assets/mintsans/slide5.svg";
-import Slide6 from "/public/assets/mintsans/slide6.svg";
+import TitleImage from "@public/assets/mintsans/V2.png";
+import Slide1 from "@public/assets/mintsans/slide1.svg";
+import Slide2 from "@public/assets/mintsans/slide2.svg";
+import Slide3 from "@public/assets/mintsans/slide3.svg";
+import Slide4 from "@public/assets/mintsans/slide4.svg";
+import Slide5 from "@public/assets/mintsans/slide5.svg";
+import Slide6 from "@public/assets/mintsans/slide6.svg";
 
 export async function generateMetadata() {
 	const t = await getTranslations("MINTSANS");

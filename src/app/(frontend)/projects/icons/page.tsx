@@ -1,7 +1,7 @@
 import Title from "@/components/layout/Title";
 import Main from "./main";
 
-import HeroImage from "/public/assets/icons/title.webp";
+import HeroImage from "@public/assets/icons/title.webp";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";

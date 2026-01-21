@@ -5,7 +5,7 @@ import Glyphs from "./glyphs";
 import Tester from "./tester";
 
 import Title from "@/components/layout/Title";
-import TitleBackground from "/public/assets/mintbit/title.svg";
+import TitleBackground from "@public/assets/mintbit/title.svg";
 import FadingImage from "@/components/ui/FadingImage";
 import Button from "@/components/ui/Button";
 import Download from "@/icons/Download";

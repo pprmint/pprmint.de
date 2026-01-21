@@ -5,7 +5,7 @@ import Selector from "./icons";
 import Title from "@/components/layout/Title";
 import FadingImage from "@/components/ui/FadingImage";
 
-import TitleBackground from "/public/assets/appicons/title.svg";
+import TitleBackground from "@public/assets/appicons/title.svg";
 
 export async function generateMetadata() {
 	const t = await getTranslations("APPICONS");

@@ -6,10 +6,10 @@ import * as Dialog from "@radix-ui/react-dialog";
 import FadingImage from "@/components/ui/FadingImage";
 import * as m from "motion/react-m";
 
-import ReferenceFront from "/public/assets/mina/ref/front.webp";
-import ReferenceBack from "/public/assets/mina/ref/back.webp";
-import ReferenceHand from "/public/assets/mina/ref/hand.webp";
-import ReferenceShoes from "/public/assets/mina/ref/shoes.webp";
+import ReferenceFront from "@public/assets/mina/ref/front.webp";
+import ReferenceBack from "@public/assets/mina/ref/back.webp";
+import ReferenceHand from "@public/assets/mina/ref/hand.webp";
+import ReferenceShoes from "@public/assets/mina/ref/shoes.webp";
 import Error from "@/icons/Error";
 import { AnimatePresence } from "motion/react";
 import { toast } from "sonner";
