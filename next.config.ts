@@ -43,10 +43,6 @@ module.exports = withPayload(
 					hostname: "pprmint.de",
 					protocol: "https",
 				},
-				{
-					hostname: "*.github.dev",
-					protocol: "https",
-				},
 				...[NEXT_PUBLIC_SERVER_URL /* 'https://example.com' */].map((item) => {
 					const url = new URL(item);
 					return {
@@ -54,6 +50,11 @@ module.exports = withPayload(
 						protocol: url.protocol.replace(":", ""),
 					};
 				}),
+			],
+			localPatterns: [
+				{
+					pathname: "/api/**",
+				},
 			],
 		},
 		async redirects() {
@@ -203,11 +204,10 @@ module.exports = withPayload(
 		async headers() {
 			return [
 				{
-					// Apply these headers to all routes in your application.
 					source: "/:path*",
 					headers: securityHeaders,
 				},
 			];
 		},
-	})
+	}),
 );

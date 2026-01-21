@@ -40,7 +40,8 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 
 		const cacheTag = updatedAt;
 		if (imageUrl) {
-			src = `${getClientSideURL()}${imageUrl}?${cacheTag}`;
+			// Used to include getClientSideURL() but since Next.js is now pissy about private IP resolution I can't be bothered to come up with a better fix.
+			src = `${imageUrl}?${cacheTag}`;
 		}
 	}
 
