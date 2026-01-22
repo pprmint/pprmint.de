@@ -80,12 +80,6 @@
 		"tailwindcss": "^4.1.18"
 	},
 	"pnpm": {
-		"overrides": {
-			"esbuild": "^0.25.0",
-			"nodemailer": "^7.0.11",
-			"@types/react": "19.2.7",
-			"@types/react-dom": "19.2.3"
-		},
 		"onlyBuiltDependencies": [
 			"@tailwindcss/oxide",
 			"esbuild",
