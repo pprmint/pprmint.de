@@ -1,0 +1,15 @@
+@font-face {
+	font-family: "MN Celesta";
+	src: url("MNCelesta-Regular.woff2") format("woff2"), url("MNCelesta-Regular.woff") format("woff");
+	font-weight: 400;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "MN Celesta";
+	src: url("MNCelesta-Italic.woff2") format("woff2"), url("MNCelesta-Italic.woff") format("woff");
+	font-weight: 400;
+	font-display: swap;
+	font-style: italic;
+}

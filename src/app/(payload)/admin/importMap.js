@@ -27,6 +27,7 @@ import { default as default_fe03cf72bd0e99b114595c84b35aa026 } from '@/collectio
 import { default as default_6df7a046138a2b702edc97d85962fbec } from '@/collections/Mina/ArtworkThumbnailCell'
 import { default as default_29cb8920591e7d49b0f645b8e217d5f7 } from '@/views/admin/Nav'
 import { S3ClientUploadHandler as S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24 } from '@payloadcms/storage-s3/client'
+import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 
 export const importMap = {
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
@@ -57,5 +58,6 @@ export const importMap = {
   "@/collections/Mina/ThumbnailCell#default": default_fe03cf72bd0e99b114595c84b35aa026,
   "@/collections/Mina/ArtworkThumbnailCell#default": default_6df7a046138a2b702edc97d85962fbec,
   "@/views/admin/Nav#default": default_29cb8920591e7d49b0f645b8e217d5f7,
-  "@payloadcms/storage-s3/client#S3ClientUploadHandler": S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24
+  "@payloadcms/storage-s3/client#S3ClientUploadHandler": S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24,
+  "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1
 }

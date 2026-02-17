@@ -11,7 +11,7 @@ import WarningTriangle from "@/icons/WarningTriangle";
 
 import "@/styles.css";
 import "@public/fonts/IosevkaMint/IosevkaMint.css";
-import "@public/fonts/InstrumentSerif/instrumentserif.css";
+import "@public/fonts/MNCelesta/mncelesta.css";
 import "@public/fonts/DINish/DINish.css";
 import "@public/fonts/Mintbit/mintbit.css";
 import "@public/fonts/MintTriangles/minttriangles.css";
@@ -48,7 +48,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 	const messages = await getMessages();
 	return (
 		<html lang={locale} suppressHydrationWarning>
-			<body className="bg-white dark:bg-neutral-950 max-w-screen overflow-x-hidden selection:bg-green/50 text-neutral-950/75 dark:text-white/75 focus-visible:outline-hidden focus-visible:ring-2">
+			<body
+				className="bg-white dark:bg-neutral-950 max-w-screen overflow-x-hidden selection:bg-green/50 text-neutral-950/75 dark:text-white/75 focus-visible:outline-hidden focus-visible:ring-2"
+			>
 				<LazyMotion features={domAnimation}>
 					<ThemeProvider defaultTheme="system" themes={["light", "dark", "system"]} attribute="class">
 						<noscript>
