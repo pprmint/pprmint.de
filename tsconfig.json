@@ -33,7 +33,7 @@
 		"src/middleware.ts.old",
 		"next.config.ts",
 		"tailwind.config.js",
-		"postcss.config.cjs",
+		"postcss.config.mjs",
 		".next/dev/types/**/*.ts"
 	],
 	"exclude": ["node_modules"]
