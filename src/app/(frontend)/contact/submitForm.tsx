@@ -46,7 +46,7 @@ export async function submitForm(formData: { name: string; email: string; subjec
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: Number(process.env.SMTP_PORT),
-    secure: true,
+    secure: process.env.SMTP_STARTTLS !== "true",
     auth: {
       user: process.env.SMTP_USERNAME,
       pass: process.env.SMTP_PASSWORD,
