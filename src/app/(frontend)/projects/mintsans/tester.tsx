@@ -81,7 +81,7 @@ export default function Tester() {
 						onValueChange={(textAlignment) => {
 							if (textAlignment) setTextAlignment(textAlignment);
 						}}
-						aria-label={t("FONTTESTER.alignment")}
+						aria-label={t("FONTTESTER.Alignment.label")}
 						className="w-max md:border-r border-b border-black/5 dark:border-white/5"
 					>
 						{[

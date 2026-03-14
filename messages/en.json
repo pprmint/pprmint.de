@@ -577,7 +577,56 @@
 			"title": "MN Varia"
 		},
 		"Content": {
-			"deal": "Fancy a deal?"
+			"Download": {
+				"heading": "Fetch it",
+				"text": "Download an early version of the variable font and static weights."
+			},
+			"Tester": {
+				"heading": "Play around",
+				"pangram": "The five boxing wizards jump quickly.",
+				"Features": {
+					"label": "Features",
+					"tnum": "Tabular numbers",
+					"liga": "Ligatures"
+				},
+				"StylisticSets": {
+					"label": "Stylistic sets",
+					"ss01": "f and t with full cross bar",
+					"ss02": "Open numbers",
+					"ss03": "Conventional",
+					"ss04": "Moderno",
+					"ss05": "Aikoson"
+				},
+				"CharacterVariants": {
+					"label": "Character variants",
+					"cv01": "1 with alternative top",
+					"cv02": "2 with straight diagonal stroke",
+					"cv03": "3 with flat top",
+					"cv04": "Open 4",
+					"cv05": "f with full cross bar",
+					"cv06": "Open 6",
+					"cv07": "7 with straight diagonal stroke",
+					"cv08": "t with full cross bar",
+					"cv09": "Open 9",
+					"cv10": "Slashed 0",
+					"cv11": "Double-storey a",
+					"cv12": "Simplified m",
+					"cv13": "Simplified n",
+					"cv14": "Simplified r",
+					"cv15": "Simplified u",
+					"cv16": "l without tail",
+					"cv17": "G with sharp corner and spur",
+					"cv18": "G with rounded corner and spur",
+					"cv19": "I with slabs",
+					"cv20": "Q with diagonal stroke through body",
+					"cv21": "Q with wavy line",
+					"cv22": "Q with wavy line inside",
+					"cv23": "Q with hook",
+					"cv24": "R with curved leg",
+					"cv25": "g with flat bowel",
+					"cv26": "M with middle section on baseline"
+				}
+			}
 		}
 	},
 	"MINTBIT": {

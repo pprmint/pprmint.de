@@ -6,6 +6,10 @@ import FadingImage from "@/components/ui/FadingImage";
 
 import Link from "next/link";
 import ArrowRight from "@/icons/ArrowRight";
+import Tester from "./tester";
+import Button from "@/components/ui/Button";
+import Download from "@/icons/Download";
+import GitHub from "@/icons/GitHub";
 
 export async function generateMetadata() {
 	const t = await getTranslations("VARIA");
@@ -16,10 +20,10 @@ export async function generateMetadata() {
 }
 
 export default function Page() {
-	const t = useTranslations("VARIA");
+	const t = useTranslations();
 	return (
 		<>
-			<Title title={t("Head.title")} description={t("Head.description")}>
+			<Title title={t("VARIA.Head.title")} description={t("VARIA.Head.description")}>
 				<div className="absolute inset-0 bg-neutral-950">
 					<FadingImage
 						src="/api/assets/file/3D_a_edit2.webp"
@@ -37,41 +41,104 @@ export default function Page() {
 			<main>
 				<section>
 					<div className="relative w-full aspect-video">
-						<FadingImage src="/api/assets/file/Varia_Cover.png" width={3840} height={2160} unoptimized alt="Slide 2" className="w-full" />
+						<FadingImage
+							src="/api/assets/file/Varia_Cover.png"
+							width={3840}
+							height={2160}
+							unoptimized
+							alt="Slide 2"
+							className="w-full"
+						/>
 					</div>
 					<div className="relative w-full aspect-video">
-						<FadingImage src="/api/assets/file/Varia_Alphabet.png" width={3840} height={2160} alt="Slide 1" className="w-full" />
+						<FadingImage
+							src="/api/assets/file/Varia_Alphabet.png"
+							width={3840}
+							height={2160}
+							alt="Slide 1"
+							className="w-full"
+						/>
 					</div>
 					<div className="relative w-full aspect-video">
-						<FadingImage src="/api/assets/file/Varia_CharacterVariants.png" width={3840} height={2160} alt="Slide 4" className="w-full" />
+						<FadingImage
+							src="/api/assets/file/Varia_CharacterVariants.png"
+							width={3840}
+							height={2160}
+							alt="Slide 4"
+							className="w-full"
+						/>
 					</div>
 					<div className="relative w-full aspect-video">
-						<FadingImage src="/api/assets/file/Varia_StVO.png" width={3840} height={2160} alt="Slide 3" className="w-full" />
+						<FadingImage
+							src="/api/assets/file/Varia_StVO.png"
+							width={3840}
+							height={2160}
+							alt="Slide 3"
+							className="w-full"
+						/>
 					</div>
 					<div className="relative w-full aspect-video">
-						<FadingImage src="/api/assets/file/Varia_Time.png" width={3840} height={2160} alt="Slide 5" className="w-full" />
+						<FadingImage
+							src="/api/assets/file/Varia_Time.png"
+							width={3840}
+							height={2160}
+							alt="Slide 5"
+							className="w-full"
+						/>
 					</div>
 					<div className="relative w-full aspect-video">
-						<FadingImage src="/api/assets/file/Varia_Faktor.png" width={3840} height={2160} alt="Slide 6" className="w-full" />
+						<FadingImage
+							src="/api/assets/file/Varia_Faktor.png"
+							width={3840}
+							height={2160}
+							alt="Slide 6"
+							className="w-full"
+						/>
 					</div>
 					<div className="relative w-full aspect-video">
-						<FadingImage src="/api/assets/file/Varia_ReleaseDate.png" width={3840} height={2160} alt="Slide 6" className="w-full" />
+						<FadingImage
+							src="/api/assets/file/Varia_Testimony.png"
+							width={3840}
+							height={2160}
+							alt="Slide 6"
+							className="w-full"
+						/>
 					</div>
 					<div className="relative w-full aspect-video">
-						<FadingImage src="/api/assets/file/MinaSans_Mina.png" width={3840} height={2160} alt="Slide 4" className="w-full" />
+						<FadingImage
+							src="/api/assets/file/Varia_ReleaseDate.png"
+							width={3840}
+							height={2160}
+							alt="Slide 6"
+							className="w-full"
+						/>
 					</div>
 				</section>
-				<section className="max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20">
-					<div className="pt-20 md:pt-32 xl:pt-40 border-x border-black/5 dark:border-white/5">
-						<h2 className="text-center">
-							<Link href="/tradeoffer" className="group inline-flex items-center gap-3">
-								{t("Content.deal")}
-								<div className="relative overflow-clip size-[30px]">
-									<ArrowRight className="size-[30px] stroke-1 stroke-green absolute group-hover:translate-x-full group-hover:duration-400 ease-out-expo" />
-									<ArrowRight className="size-[30px] stroke-1 stroke-green absolute -translate-x-full group-hover:translate-x-0 group-hover:duration-400 ease-out-expo" />
-								</div>
-							</Link>
+				<section className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
+					<div className="py-20 md:py-32 xl:py-40 text-center border-x border-black/5 dark:border-white/5">
+						<h2 className="mb-6">
+							{t("VARIA.Content.Tester.heading")}
+							<span className="text-green">.</span>
 						</h2>
+						<Tester />
+					</div>
+				</section>
+				<section className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
+					<div className="text-center border-x border-black/5 dark:border-white/5">
+						<h2>
+							{t("VARIA.Content.Download.heading")}
+							<span className="text-green">.</span>
+						</h2>
+						<p>{t("VARIA.Content.Download.text")}</p>
+						<br />
+						<div className="flex border-y border-black/5 dark:border-white/5 justify-center">
+							<Link href="/api/download/file/MNVaria_0.017.zip" download target="_blank">
+								<Button design="transparent" color="green" tabIndex={-1} size="large" noInitialPadding>
+									<Download />
+									{t("COMMON.download")}
+								</Button>
+							</Link>
+						</div>
 					</div>
 				</section>
 			</main>

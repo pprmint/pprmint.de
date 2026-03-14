@@ -12,6 +12,7 @@ import WarningTriangle from "@/icons/WarningTriangle";
 import "@/styles.css";
 import "@public/fonts/IosevkaMint/IosevkaMint.css";
 import "@public/fonts/MNCelesta/mncelesta.css";
+import "@public/fonts/MNVaria/MNVaria.css";
 import "@public/fonts/DINish/DINish.css";
 import "@public/fonts/Mintbit/mintbit.css";
 import "@public/fonts/MintTriangles/minttriangles.css";

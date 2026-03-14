@@ -47,38 +47,6 @@ export default async function Page() {
 				<div className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20 h-20 md:h-32 xl:h-40">
 					<div className="size-full border-x border-black/5 dark:border-white/5" />
 				</div>
-				<section className="dark relative bg-neutral-950 overflow-hidden">
-					<div className="relative z-10 max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
-						<div className="py-20 md:py-32 xl:py-40 border-x border-white/5">
-							<p className="text-white text-xl lg:text-2xl xl:text-3xl font-stretch-condensed">
-								{t("Content.Featured.Varia.tagline")}
-							</p>
-							<h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-								MN Varia<span className="text-green">.</span>
-							</h2>
-							<p className="text-white/75 xl:text-xl 2xl:text-2xl mb-6 max-w-[75%] text-balance">
-								{t("Content.Featured.Varia.text")}
-							</p>
-							<Link href="/projects/varia" className="inline-flex w-fit">
-								<Button design="semi-transparent">
-									{t("Content.Featured.Varia.button")}
-								</Button>
-							</Link>
-						</div>
-					</div>
-					<FadingImage
-						src="/api/assets/file/3D_a_edit2.webp"
-						fill
-						alt=""
-						className="w-full max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20 object-cover mix-blend-screen opacity-75"
-						style={{
-							maskImage:
-								"linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0))",
-							maskRepeat: "space",
-							backgroundRepeat: "repeat",
-						}}
-					/>
-				</section>
 				{mina.docs && (
 					<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 						<div className="w-full border-x border-black/5 dark:border-white/5 pt-9 lg:pt-16 xl:pt-48">

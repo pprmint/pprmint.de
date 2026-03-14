@@ -1,0 +1,10 @@
+@font-face {
+	font-family: "MN Varia WIP 0.017";
+	font-weight: 100 900;
+	font-display: swap;
+	font-style: normal;
+	src:
+		url("MNVariaWIP-VariableVF.woff2") format("woff2"),
+		url("MNVariaWIP-VariableVF.woff") format("woff"),
+		url("MNVariaWIP-VariableVF.ttf") format("truetype");
+}
