@@ -35,6 +35,7 @@ import { Graphics } from "./collections/Graphics/Graphics";
 import { FontLicenses } from "./globals/FontLicenses/FontLicenses";
 import { PrivacyPolicy } from "./globals/PrivacyPolicy/PrivacyPolicy";
 import { MinaPats } from "./globals/MinaPats/MinaPats";
+import { Buttons } from "./collections/Buttons/Buttons";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -64,6 +65,7 @@ export default buildConfig({
 		Cameras,
 		Lenses,
 		Assets,
+		Buttons,
 		Downloads,
 		Users,
 	],
@@ -112,6 +114,7 @@ export default buildConfig({
 				assets: true,
 				photos: true,
 				download: true,
+				buttons: true,
 			},
 			bucket: process.env.S3_BUCKET || "",
 			config: {

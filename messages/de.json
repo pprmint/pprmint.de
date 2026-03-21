@@ -1,970 +1,978 @@
 {
-	"404": {
-		"Content": {
-			"title": "Sie hat überall gesucht",
-			"info": "Hier gibt es keine Seite. Vielleicht wurde sie verschoben oder es gab sie nie. So ist das manchmal.",
-			"returnHome": "Zur Startseite",
-			"credit": "Detektiv-Mina wurde von <Link>Layer (@TenHeavenly)</Link> gezeichnet."
-		},
-		"Head": {
-			"title": "Seite nicht gefunden"
-		}
-	},
-	"AI": {
-		"Content": {
-			"Intro": {
-				"heading": "Ich erstelle gerne Zeug",
-				"text1": "Der Welt meine Arbeiten zu zeigen und zu sehen, dass anderen Leuten irgendwo auf dieser Welt meine Arbeit gefällt, bereitet mir viel Freude und motiviert mich, weiter an meinen Werken zu arbeiten und mich zu verbessern.",
-				"text2": "Die meisten meiner Kreationen wurden nur aus Spaß sowie unter Vorbehalt aller Rechte erstellt. Eine besondere Ausnahme gilt für die Verwendung von 3D-Rendern als Hintergrundbilder für Desktops oder Telefone im persönlichen Gebrauch.",
-				"text3": "Manche glauben jedoch, sowie etwas im Internet veröffentlicht wird, steht es jedermann automatisch zur freien Verfügung und man kann damit tun, was man will.",
-				"text4": "Und damit habe ich ein Problem."
-			},
-			"Copyright": {
-				"heading": "Ich mag mein Urheberrecht",
-				"text1": "Wie schon in der <gallery>Galerie-Seite</gallery> und im FAQ auf der <contact>Kontakt-Seite</contact> beschrieben bin ich eher restriktiv, was die Nutzung meiner Werke von Anderen angeht. Generell kann man sagen: Wenn es keinen Download-Knopf unten auf der Seite hat, wie z.B. viele meiner Schriftarten, darfst du es ohne mein Einverständnis nicht wiederverwenden, verkaufen oder weiterverteilen, egal ob für private oder kommerzielle Zwecke.",
-				"text2": "Bisher dachte ich, es wäre selbstverständlich, dass du die Werke Anderer nicht ohne deren Zustimmung wiederverwenden darfst. Für diese ganzen KI-Unternehmen und Data-Scrapern ist hier nochmal meine explizite Erklärung, was die Verwendung meiner Werke angeht:"
-			},
-			"Disallow": {
-				"heading": "Hiermit untersage ich jegliche Form von Data-Mining, Scraping sowie sonstige Reproduktion meiner Werke",
-				"text": "Sofern in besonderen Lizenzbedingungen nicht anders beschrieben, dürfen meine Werke (einschließlich, jedoch nicht beschränkt auf geschriebenen Text, 2D- und 3D-Grafiken, Animationen und Motion-Graphics, sowie andere herunterladbare Inhalte auf dieser Website, sowie Websites Dritter, auf welchen ich meine Inhalte bereitstelle) nicht ohne meine vorherige schriftliche Zustimmung für persönliche oder kommerzielle Zwecke verwendet werden. Dies beinhaltet außerdem Zwecke im Zusammenhang mit dem Training oder der Entwicklung von künstlicher Intelligenz (KI oder AI) jeglicher Art, soweit dies nach geltendem Recht zulässig ist."
-			},
-			"Ask": {
-				"heading": "Frag einfach",
-				"text": "Falls der obige Text nicht eindeutig genug war, kannst du mir eine Nachricht schreiben und in dieser nach genaueren Erläuterungen sowie nach Erlaubnis zur Verwendung bestimmter Werke fragen. Sicher ist sicher."
-			}
-		},
-		"Head": {
-			"description": "TL;DR: Nein.",
-			"title": "Erklärung bzgl. KI-Training"
-		}
-	},
-	"ARTICLES": {
-		"Head": {
-			"title": "Artikel",
-			"description": "Einige Worte zu Projekten, an denen ich gearbeitet habe, sowie anderes Zeug."
-		},
-		"Content": {
-			"Tags": {
-				"font": "Schriftart",
-				"design": "Design-Ding",
-				"website": "Website",
-				"software": "Software",
-				"ramblings": "Geschwafel"
-			},
-			"moreTagged": "Weitere Artikel mit dem <b>{tag}</b>-Tag."
-		}
-	},
-	"AUTSELLIA": {
-		"Head": {
-			"title": "Website für Autsellia",
-			"description": "Eine Künstler-Freundin und angeblich Fuchsmädchen."
-		}
-	},
-	"APPICONS": {
-		"Content": {
-			"Intro": {
-				"title": "Über diese Symbole",
-				"text1": "Viele Anwendungen verfolgen ihre eigene Design-Sprache vom Design der Anwendung an sich bis hin zu den App-Symbolen. Für Letzteres möchte ich nun einen einheitlicheren Look schaffen (und dafür sorgen, dass nicht mehr jedes Schnittprogramm von Adobe wie Media Encoder aussieht). Das von einem Windows-Benutzer zu hören ist sehr widersprüchlich, ich weiß. <i>Einheitliches Design? In Windows? Sehr witzig.</i>",
-				"text2": "Die Symbole sind grob nach den <a>Richtlinien für Windows App-Symbole</a> erstellt worden. Klicke auf einige Icons, um sie auszuwählen und lade sie unten herunter.",
-				"text3": "Neue Symbole werden im Laufe der Zeit hinzugefügt, wenn mir danach ist."
-			},
-			"search": "Icons nach App-Namen suchen",
-			"noResults": "Keine Ergebnisse",
-			"Panel": {
-				"iconsSelected": "<em>{count}</em> {count, plural, =1 {Icon} other {Icons}} ausgewählt.",
-				"downloadAll": "Alle herunterladen",
-				"downloadSelected": "Ausgewählte herunterladen",
-				"deselectAll": "Auswahl zurücksetzen"
-			}
-		},
-		"Head": {
-			"description": "App-Symbole im Windows-11-Stil.",
-			"title": "App-Symbole"
-		}
-	},
-	"CHAT": {
-		"button": "Frag Mina!",
-		"back": "Zurück",
-		"title": "Stell mir eine Frage.",
-		"titleAngy": "Geh weg.",
-		"Messages": {
-			"Hello": {
-				"answer": "Heya. Wie kann ich helfen?"
-			},
-			"NoTalky": {
-				"answer": "Ich bin doch eh nutzlos, also zisch ab."
-			},
-			"WhoYou": {
-				"message": "Wer bist du?",
-				"answer": "Ich bin Mina, quasi das Maskottchen von pprmint. Der Typ, dem diese Website gehört, heißt eigentlich Nicklas, wird aber auch gerne nur Nick genannt."
-			},
-			"WhyPprmint": {
-				"message": "Warum der Name \"pprmint.\"?",
-				"answer": "Er mag Dinge mit Pfefferminzgeschmack und das Wort \"peppermint\" sah in seinen Augen cool aus, wenn man alle Vokale außer dem i entfernt. Der Punkt am Ende ist Teil des Namens, da er Satzzeichen fast so sehr wie Pfefferminze mag."
-			},
-			"WhoWebsite": {
-				"message": "Wie diese Website entstanden?",
-				"answer": "Die Seite wurde im August 2022 von Grund auf neugeschrieben und seither stetig weiterentwickelt. Klick mal im Navigationsmenü unter \"Weiteres\" auf die kleine Tasse, um zu sehen, welche weiteren Bibliotheken verwendet werden."
-			},
-			"UseSelf": {
-				"message": "Darf ich die Grafiken und Animationen in meinen eigenen Projekten verwenden?",
-				"answer": "Nein, (fast) alles was du auf der <gallery>Galerie-Seite</gallery> siehst ist nur zum Ansehen  gedacht. Wenn du willst, darfst du z.B. 3D-Render als Desktophintergrund verwenden, aber mehr nicht."
-			},
-			"ProjectTerms": {
-				"message": "Unter welchen Bedingungen dürfen Projekte wie Schriftarten und Icons verwendet werden?",
-				"answer": "Schriftarten sind unter der <sil>SIL Open Font License</sil> lizenziert. Diese kannst du frei verwenden, auch für kommerzielle Zwecke. Die Lizenz ist in der ZIP-Datei mit dabei. App-Symbole darfst du kostenlos verwenden und an deine Bedürfnisse anpassen. Du darfst sie jedoch nicht verkaufen oder anderweitig verbreiten. Verlinke zum Teilen bitte die entsprechende Projektseite. Mintcraft ist under Creative Commons CC-BY-NC-SA lizenziert."
-			},
-			"WhatSoftware": {
-				"message": "Welche Programme werden hier meist verwendet?",
-				"answer": "Alles mit weniger als 3 Dimensionen wird in Affinity Designer erstellt. Für Motion Graphics werden Kompositionen in Affinity Designer vorbereitet und anschließend in After Effects mit Hilfe von Mt. Mograph's Motion-Erweiterung animiert. Schriftarten werden mit FontForge erstellt."
-			},
-			"OfferCommissions": {
-				"message": "Kann ich Projekte in Auftrag geben?",
-				"answer": "Aktuell noch nicht, aber es ist geplant."
-			},
-			"OwnQuestion": {
-				"message": "Kann ich meine eigene Frage stellen?",
-				"answer": "Nö."
-			},
-			"Ending": {
-				"message": "Danke, das ist alles.",
-				"answer": "War ich ein guter Chatbot?"
-			},
-			"EndingYes": {
-				"message": "Ja, sehr hilfreich.",
-				"answer": "yayy~"
-			},
-			"EndingNo": {
-				"message": "Nein, du bist nutzlos.",
-				"answer": "Arsch."
-			}
-		}
-	},
-	"COMMISSIONS": {
-		"Head": {
-			"description": "Finde heraus, ob und unter welchen Bedingungen ich für Auftragsarbeiten zu haben bin.",
-			"title": "Auftragsarbeit"
-		},
-		"Content": {
-			"Status": {
-				"heading": "Status",
-				"closed": "Derzeit akzeptiere ich keine Auftragsarbeiten, aber lies gerne weiter.",
-				"limited": "Ich akzeptiere Auftragsarbeiten, jedoch nur begrenzt.",
-				"open": "Ich akzeptiere Auftragsarbeiten. Scroll runter für mehr Infos."
-			},
-			"Offers": {
-				"heading": "Verfügbare Arbeiten",
-				"priceInfo": "Die hier gezeigten Preise sind Schätzungen. Sie können vom Endbetrag durch Faktoren wie der Komplexität des Projektes abweichen.",
-				"slotsAvailable": "{count, plural, =0 {Keine Slots} =1 {Ein Slot} other {# Slots}} verfügbar",
-				"need": "Was ich brauche",
-				"get": "Was du kriegst",
-				"2D": {
-					"heading": "Design oder 2D-Grafik",
-					"description": "Logo-Design, Assets für Social-Media-Profile",
-					"Need": {
-						"ideas": "Sammlung/Beschreibung von Ideen, vorzugsweise Skizzen",
-						"license": "Lizenz zur Verwendung eigener Schriftarten"
-					},
-					"Get": {
-						"revisions": "Bis zu 2 Revisionen",
-						"assets": "Assets in verschiedenen Formaten und Größen, wie gewünscht",
-						"exports": "Exporte als PNG-, SVG- und/oder EPS-Dateien",
-						"projectFiles": "Projekt-Dateien für Affinity Designer"
-					}
-				},
-				"Anim": {
-					"heading": "Vektor-Animation",
-					"description": "Kurze Logo-Animation, Motion Graphics",
-					"Need": {
-						"ideas": "Sammlung/Beschreibung von Ideen, vorzugsweise Skizzen",
-						"license": "Lizenz zur Verwendung eigener Schriftarten",
-						"assets": "Besondere, zu animierende Assets"
-					},
-					"Get": {
-						"revisions": "Bis zu 2 Revisionen",
-						"projectFiles": "Projekt-Dateien für Adobe After Effects",
-						"exports": "Exporte als MP4, AVI, WEBM, GIF, PNG-Sequenz, oder JSON für Lottie"
-					}
-				},
-				"3D": {
-					"heading": "3D-Grafik",
-					"description": "Abstrakte, gerenderte 3D-Szene",
-					"Need": {
-						"ideas": "Sammlung/Beschreibung von Ideen, vorzugsweise Skizzen"
-					},
-					"Get": {
-						"revisions": "Eine Revision",
-						"projectFiles": "Projekt-Dateien für Blender",
-						"exports": "Unkomprimierte Render als PNG oder TIFF"
-					}
-				},
-				"Web": {
-					"heading": "Website",
-					"description": "Einfache HTML/CSS oder komplexe Next.js website",
-					"Need": {
-						"ideas": "Sammlung/Beschreibung von Ideen, vorzugsweise Skizzen",
-						"license": "Lizenz zur Verwendung eigener Schriftarten",
-						"pages": "Liste der gewünschten Unterseiten",
-						"assets": "Benötigte Assets (z.B. Logo, Bilder, Videos, etc.)",
-						"hosting": "Hosting-Möglichkeiten, die dir zur Verfügung stehen",
-						"integrations": "Details zu Integrationen mit APIs Dritter"
-					},
-					"Get": {
-						"sourceCode": "Vollständiger Quellcode",
-						"documentation": "Dokumentation über den Quellcode",
-						"frameworks": "Ggf. Liste über verwendete Frameworks und/oder Pakete"
-					}
-				}
-			},
-			"Terms": {
-				"heading": "Auftragsbedingungen",
-				"Disclaimer": {
-					"heading": "Disclaimer",
-					"termsAgree": "Du musst den folgenden Bedingunen zustimmen, bevor du mir eine Anfrage senden darfst.",
-					"acknowledgement": "Mit dem Absenden einer Anfrage stimmst du zu, dass du diese Bedingunen gelesen hast und sie akzeptierst.",
-					"rightToWithdraw": "Ich behalte mir das Recht vor, jederzeit und aus beliegigem Grund abzulehnen oder davon zurückzutreten.",
-					"noRefund": "Rückerstattungen werden nur unter bestimmten Bedingungen gewährt, nicht jedoch nach Beginn der Arbeit. Weitere Details dazu findest du weiter unten."
-				},
-				"ClientRights": {
-					"heading": "Deine Rechte als Klient",
-					"allowPublicDisplay": "You may display my work "
-				},
-				"ArtistRights": {
-					"heading": "Meine Rechte als Künstler",
-					"allowPublicDisplay": "You may display my work "
-				},
-				"Payment": {
-					"heading": "Zahlung",
-					"preferredMethod": "Die bevorzugte Zahlungsmethode ist PayPal. Beträge müssen in Euro gesendet werden. Etwaige Transaktionskosten werden von mir übernommen."
-				},
-				"Refunds": {
-					"heading": "Rückerstattungen",
-					"preamble": "Uns beiden ist es gestattet, von einem Kommissionsauftrag jederzeit zurückzutreten. Erstattungen werden jedoch nur unter bestimmten Bedingunen gewährt.",
-					"notStarted": "Wird der Auftrag storniert, noch bevor ich mit der Arbeit am Projekt begonnen habe, und die erste Zahlung bereits eingegangen ist, überweise ich die erste Zahlung in voller Höhe zurück.",
-					"anotStarted": "Es werden keine Rückerstattungen gewährt, wenn die Arbeit an einem Projekt bereits begonnen hat. Auf Wunsch werde ich die ",
-					"hasStarted": "Es gibt keine Rückerstattung, wenn die Arbeit an einem Auftrag bereits begonnen hat. Bei Bedarf stelle ich die (evtl. unfertigen) Dateien, wie ich sie bis dahin bearbeitet habe, gegen eine Gebühr im Verhältnis zum Gesamtpreis zur Verfügung."
-				}
-			}
-		}
-	},
-	"COMMON": {
-		"learnMore": "Weitere Infos",
-		"download": "Herunterladen",
-		"downloading": "Wird heruntergeladen",
-		"downloadAll": "Alle herunterladen",
-		"downloadSelected": "Ausgewählte herunterladen",
-		"deselectAll": "Auswahl zurücksetzen",
-		"settings": "Einstellungen",
-		"visitPage": "Seite besuchen",
-		"visitWebsite": "Website besuchen",
-		"visitProfile": "Profil besuchen",
-		"viewOriginal": "Original ansehen",
-		"copied": "In Zwischenablage kopiert.",
-		"search": "Suchen",
-		"searchEnglish": "Suchen (nur auf Englisch)",
-		"noResults": "Keine Ergebnisse.",
-		"ew": "Igitt.",
-		"artDrawnBy": "Zeichnung von ",
-		"VideoPlayer": {
-			"loop": "Wiederholen",
-			"copyVideoUrl": "Video-URL kopieren",
-			"playbackSpeed": "Geschwindigkeit"
-		}
-	},
-	"CONTACT": {
-		"Head": {
-			"description": "Stelle eine Frage, erhalte (irgendwann) eine Antwort.",
-			"title": "Kontakt"
-		},
-		"Content": {
-			"Mina": {
-				"heading": "Lies ein FAQ, aber in cool",
-				"text": "Spar dir (und vor allem mir) etwas Zeit und:"
-			},
-			"Email": {
-				"title": "Oder schreib 'ne Email",
-				"text": "Schick Spam und du fliegst raus.",
-				"preferMailto": "Möchtest du lieber deinen eigenen Email-Client verwenden? Sende deine Email an <Link>mail@pprmint.de</Link>.",
-				"Form": {
-					"name": "Name",
-					"emailAddress": "Email-Adresse",
-					"message": "Nachricht",
-					"subject": "Betreff",
-					"send": "Absenden",
-					"sending": "Wird gesendet...",
-					"sent": "Gesendet",
-					"sentText": "Irgendwann kommt vielleicht sogar eine Antwort.",
-					"retry": "Erneut versuchen",
-					"noCommissions": "Sorry, derzeit akzeptiere ich keine Auftragsarbeiten."
-				},
-				"Message": {
-					"body": "Indem du mit Absicht den Betreff und Inhalt dieser Email mit Werbung, Sponsorenangeboten oder Ähnlichem ersetzt, bist du damit einverstanden, dass ich deine Email-Adresse in meinen Spam-Filter einpflege, sodass deine Emails künftig auf dem kürzesten Weg in den Papierkorb wandern.",
-					"subject": "Das hier ist absolut keine Abzocke oder so. Zwinker zwinker."
-				},
-				"Error": {
-					"title": "Fehler beim Senden der Email.",
-					"description": "Etwas ist schiefgelaufen. Versuch es später erneut, oder schick mir den folgenden Fehlercode: {code}",
-					"copyCode": "Fehlercode kopieren"
-				}
-			}
-		}
-	},
-	"FONTTESTER": {
-		"Weight": {
-			"label": "Gewicht",
-			"extralight": "Extraleicht",
-			"regular": "Normal",
-			"bold": "Breit"
-		},
-		"reset": "Zurücksetzen",
-		"size": "Schriftgröße",
-		"Alignment": {
-			"label": "Ausrichtung",
-			"left": "Linksbündig",
-			"center": "Zentriert",
-			"right": "Rechtsbündig"
-		},
-		"tracking": "Zeichenabstand"
-	},
-	"FOOTER": {
-		"madeWith": "Gemacht mit ",
-		"and": " und ",
-		"Mina": {
-			"lovePats": "hehe, ich liebe streicheln ♥",
-			"forgive": "Ich verzeihe dir, wenn du mich weiter streichelst.",
-			"tooMany1": "...aber du musst nicht gleich übertreiben.",
-			"tooMany2": "Okay, langsam reicht es...",
-			"tooMany3": "Hör auf, mich zu streicheln!",
-			"tooMany4": "Na gut, dann mach weiter. Aber nach 9 Billiarden ist Schicht im Schacht.",
-			"tooMany5": "...warum bist du so?",
-			"tooMany6": "Deine Mama ist bestimmt ganz stolz.",
-			"tooMany7": "Bist du sicher, dass du nicht süchtig bist?",
-			"tooMany8": "Das kann nicht gesund sein.",
-			"tooMany9": "Okay, wir sehen uns am Ende des Universums wieder.",
-			"tooMany10": "...",
-			"humanityIsDead": "Du hast offiziell 9.007.199.254.740.992 Klicks hinter dir. Herzlichen Glückwunsch..."
-		}
-	},
-	"GRAPHICS": {
-		"Head": {
-			"description": "Stimuliere deine visuellen Sinne, wie es kein Kaugummi kann.",
-			"title": "Grafiken"
-		},
-		"Content": {
-			"Filters": {
-				"button": "Filter",
-				"year": "Jahr",
-				"dimension": "Dimension",
-				"Type": {
-					"label": "Art",
-					"static": "Statisch",
-					"animated": "Animiert"
-				}
-			},
-			"showingWorks_one": "{count} Werk wird gezeigt.",
-			"showingWorks_other": "{count} Werke werden gezeigt.",
-			"Disclaimer": {
-				"heading": "Alle Reche vorbehalten, sofern nicht anders angegeben",
-				"text1": "Die Verwendung von Grafiken auf dieser Seite als Desktop- oder Handy-Hintergrundbilder ist auf deinen persönlichen Geräten erlaubt.",
-				"text2": "Davon abgesehen ist jegliche Wiederverwendung, ganz gleich ob für kommerzielle oder persönliche Zwecke, ohne meine schriftliche Erlaubnis <b>untersagt</b>.",
-				"text3": "<Link>Schreibe mir eine Nachricht</Link>, wenn du Fragen dazu hast."
-			},
-			"noHasOwn": "Der Text oben wurde eigentlich in Markdown geschrieben. Wenn du das hier lesen kannst, solltest du mal deinen Browser aktualisieren, da sonst Formatierungen und Links für dich hier nicht funktionieren werden.",
-			"return": "Zurück zur Galerie"
-		},
-		"Error": {
-			"title": "Kein Ergebnis",
-			"description": "Kehre zur Galerie zurück."
-		}
-	},
-	"HOME": {
-		"Head": {
-			"title": "Guten Heute und Willkommen auf pprmint.de.",
-			"description": "Ich bin Pixelschubser und Tastenhauer, oder mit anderen Worten, ich erstelle Grafiken und Logodesigns, schreibe Websites und, wenn noch Zeit ist, atme."
-		},
-		"Content": {
-			"Hero": {
-				"title": "Guten Heute",
-				"description": "Ich bin Pixelschubser und Tastenhauer.",
-				"graphics": "Grafiken",
-				"photos": "Fotos",
-				"projects": "Projekte",
-				"contact": "Kontakt"
-			},
-			"News": {
-				"heading": "Aktuelles"
-			},
-			"OtherNews": {
-				"heading": "Und sonst noch:"
-			},
-			"Featured": {
-				"Varia": {
-					"tagline": "Mina Sans heißt nun",
-					"text": "In der Entwicklung — erscheint eher später als früher auf deinem Computer.",
-					"button": "Zeig mir mehr"
-				}
-			},
-			"Mina": {
-				"heading1": "Doch lieber",
-				"heading2": "Anime-Mädchen?",
-				"text1": "Die offizielle pprmint.de Website versorgt dich auch damit. Lang lebe das Internet.",
-				"text2": "Hier ist das neueste* Artwork von Mina, meinem OC, gezeichnet von <link>{artist}</link>.",
-				"button": "Ich liebe sie."
-			},
-			"Contact": {
-				"questions": "Fragen?",
-				"answers": "Ich hab Antworten",
-				"pronunciation": "Bevor du fragst: Es wird \"peppermint\" ausgesprochen, also wie Pfefferminze auf Englisch. Das erschließt sich nicht jedem, aber jetzt bist du schlauer als die."
-			}
-		}
-	},
-	"ICONS": {
-		"Head": {
-			"description": "Aus einem 15x15-Raster für deine Nutzeroberfläche. Ja, genau deine.",
-			"title": "Icons"
-		},
-		"Content": {
-			"largeIcons": "Große Icons",
-			"Category": {
-				"arrows": "Pfeile",
-				"actions": "Aktionen",
-				"symbolic": "Symbolisch",
-				"technology": "Technologie",
-				"objects": "Objekte",
-				"media": "Medien",
-				"logos": "Logos",
-				"text": "Text"
-			},
-			"Download": {
-				"svgs": "SVGs herunterladen",
-				"font": "Icon-Schriftart herunterladen"
-			},
-			"Disclaimer": {
-				"heading": "Koffeinsucht",
-				"text1": "Du darfst diese Icons frei verwenden, sowohl für kommerzielle als auch private Projekte. Es ist jedoch untersagt, die Icons selbst zum Verkauf anzubieten, egal ob einzeln oder in Sammlungen, modifiziert oder nicht.",
-				"text2": "Eine Menge Zeit floss in dieses Projekt hinein und ich habe noch ein paar weitere Dinge vor. Wenn du mich dabei unterstützen kannst und möchtest, wäre ich dir für einen Kaffee sehr dankbar.",
-				"button": "Zu meinem Ko-fi-Profil"
-			}
-		}
-	},
-	"KOFI": {
-		"dataInfo": "Wenn du dieses Widget aktivierst, werden möglicherweise Daten von Ko-fi und deren Partnern erfasst.",
-		"showWidget": "Widget anzeigen",
-		"alternative": "Sollte das Widget nicht funktionieren, <Link>besuche mein Profil</Link>.",
-		"privacyPolicy": "Datenschutzerklärung von Ko-fi"
-	},
-	"MINA": {
-		"Head": {
-			"description": "Mein Maskottchen.",
-			"title": "Mina"
-		},
-		"Content": {
-			"drinkResponsibly": "Trink in Maßen, nicht in Massen.",
-			"About": {
-				"heading": "Über Mina",
-				"text1": "Mit grünem Haar und blauen Augen wurde sie am 11. Juni 2004 geboren. Mina ist ca. 160 cm groß und ist ein eher ruhiges Mädchen, das zufrieden ist mit dem, was sie hat. Sie zog vor langer Zeit von Japan nach Deutschland, spricht jedoch nur Deutsch und Englisch fließend. Durch ihren langen Aufenthalt in Deutschland hatte außerdem viel Zeit, sich ein paar schöne deutsche Beleidigungen anzueignen. Sparsam eingesetzt sorgen sie dafür, dass manche Leute freiwillig nicht mehr mit ihr reden.",
-				"text2": "Sie mag Leckereien mit Minzgeschmack, besonders Schokoladen-Minz-Eiscreme. Ebenso hat sie immer eine Packung Kaugummis parat, ihre Kaugummiblasen sind jedoch nur selten größer als ein Zentimeter. Fleischgerichte regen auch ihren Appetit an.",
-				"text3": "Mina ist fasziniert von Architektur und Innenraumgestaltung und hat Freude daran, moderne Wohnräume zu konzipieren. Sie hat schon Pläne, wie jeder Raum in ihrem Traumhaus auszusehen hat, von der Gestaltung des Hauses an sich ganz zu schweigen.",
-				"text4": "Trotzdem hat sie Probleme, sich auf Dinge zu fokussieren und ist leicht abzulenken. Auch mag sie an manchen Tagen etwas vorhaben, macht schlussendlich jedoch alles außer das.",
-				"text5": "Außerdem liebt sie Streicheleinheiten.",
-				"text6": "Das Design stammt von <Link>@wxsonz</Link>. Schau dir gerne sein Twitter-Profil für weitere seiner Werke an."
-			},
-			"Reference": {
-				"Outfit": {
-					"heading": "Standard-Outfit",
-					"text1": "Minas Kleidung ist mit einer Kombination aus dunklem Grau, Weiß und Grün in der Regel eher dunkel.",
-					"text2": "Ihr normales Outfit besteht aus einer bequemen Jacke mit Kapuze und grauem Flausch auf der Innenseite. Grüne Linien verzieren dabei den Rand der Kapuze, sowie unteren Rand ihrer Jacke und ihres Rocks. Die Ärmel der Jacke sind ebenfalls grün.",
-					"text3": "Passend dazu sind ihre Strümpfe mit vertikalen Linien bedruckt, welche knapp über dem Knie von meinem Blatt-Logo unterbrochen werden.",
-					"text4": "Sie trägt fast immer mindestens einen Ring, deren Designs sehr unterschiedlich sein können. Zusammen mit ihrem normalen Outfit trägt sie meist einen rechteckigen, silbernen Ring, welcher im Ring- und Mittelfinger getragen wird.",
-					"text5": "Obwohl spätestens die Jacke jegliche Professionalität vermissen lässt, trägt sie dennoch gerne eine schicke Krawatte. Erhöht den FancyScore™ um 20 Punkte."
-				},
-				"Rings": {
-					"heading": "Ringe",
-					"text1": "Ihr normaler Ring ist rechteckig und eher simpel, und wird auf dem Ring- und Mittelfinger getragen.",
-					"text2": "Wenn du für etwaige Zeichnungen ein bestimmtes Thema oder Outfit im Sinn hast, darfst du das Design gerne anpassen. Ob und wie viele Ringe sie an welchen Fingern trägt, ist dir überlassen.",
-					"text3": "Obwohl du den Ring auch weglassen darfst, ist mindestens ein Ring bevorzugt."
-				},
-				"Hairbow": {
-					"heading": "Haarschleife und Pferdeschwanz",
-					"text1": "Ihre Haarschleife ist (irgendwie) so gebunden, dass oben eine Blattform heraussticht. Der Pferdeschwanz ist zudem (von hinten betrachtet) etwas weiter nach links gebunden, sodass er rechts hinter ihrem Kopf gesehen werden kann, wenn man sie von vorne anschaut.",
-					"text2": "Der Mittelpunkt des Knotens ist rot markiert."
-				},
-				"Shoes": {
-					"heading": "Schuhe",
-					"text1": "Anstelle einer nutzlosen Schlaufe haben diese Schuhe ein kleines Blatt an der Rückseite angebracht, zusammen mit einigen anderen grünen Akzenten.",
-					"text2": "Wie auch ein paar andere Aspekte ihres Outfits, darfst du auch dieses Design nach deinen Wünschen anpassen."
-				},
-				"Color": {
-					"text": "Es gibt da noch eine <Link>Palette-Seite</Link>, solltest du etwas ausführlicheres wollen."
-				},
-				"outdated": "Diese Referenzen müssen noch überarbeitet werden, um Mina's Design korrekt darzustellen. Verwende bis dahin lieber die Kunstwerke in der Galerie, die als \"Gute Referenz\" gekennzeichnet sind.",
-				"credit": "Referenzzeichnungen von <Link>nekomimi</Link>.",
-				"Download": {
-					"text": "Möchtest du diese Übersicht mit allen Infos als einzelnes Bild haben? Bitte schön:",
-					"button": "Referenzblatt herunterladen"
-				}
-			},
-			"Outfits": {
-				"heading": "Outfits",
-				"designedBy": "Entworfen von <Link>{designer}</Link>",
-				"showArtworksFeaturingOutfit": "Kunstwerke mit diesem Outfit anzeigen",
-				"front": "Vorderseite",
-				"back": "Rückseite"
-			},
-			"Fanart": {
-				"heading": "Fanart-Regeln",
-				"text1": "Für SFW-Fanart habe ich grundsätzlich keine wirklichen Regeln für dich. Tob dich aus.",
-				"text2": "Du darfst auch Dinge mit Mina zeichnen, die lieber nicht am Arbeitsplatz gesehen werden sollen. Lass es jedoch liebenswert und geschmackvoll sein, und erstelle nichts, was als fetischistisch oder anderweitig sensibel empfunden werden kann, oder was manche Leute verstören oder verärgern könnte.",
-				"text3": "Wenn du's genauer haben willst, stelle bitte keines der folgenden Dinge dar:",
-				"text4": "Vergewaltigung, physischer oder psychischer Missbrauch, Drogenkonsum, Erpressung, Postitution, Gewalt, Gore, Blut, Scat, NTR/Fremdgehen, Loli und Shota.",
-				"text5": "Die obige Aufzählung ist nicht allumfassend. Da draußen gibt's sicherlich noch ekligeres Zeugs, von dem ich noch nichts weiß. Dabei kann es gerne bleiben, also verschone mich damit.",
-				"text6": "Verzichte bitte auch auf religiöse oder politische Symbole und Anspielungen."
-			},
-			"Artworks": {
-				"Filters": {
-					"button": "Filter",
-					"nsfw": "NSFW-Werke zeigen",
-					"artist": "Künstler",
-					"outfit": "Outfit",
-					"reference": "Gute Referenzen zeigen",
-					"year": "Jahr"
-				},
-				"Statistics": {
-					"title": "Statistiken",
-					"total": "Gesamtzahl",
-					"commissioned": "Auftragswerke",
-					"averagePrice": "Durchschnittspreis",
-					"artworkCount": "Anzahl Kunstwerke",
-					"numberArtworks": "{count, plural, =0 {Keine Kunstwerke} =1 {Ein Kunstwerk} other {# Kunstwerke}}"
-				},
-				"drawnBy": "Von ",
-				"featuring": "mit ",
-				"showingArtworks": "{shown} von {total, plural, =1 {# Werk} other {# Werken}} gezeigt.",
-				"OutOfBounds": {
-					"title": "Willkommen im Nichts",
-					"text": "Deaktiviere einige Filter und navigiere zur ersten Seite zurück."
-				},
-				"ContextMenu": {
-					"Artwork": {
-						"label": "Kunstwerk",
-						"openInNewTab": "Bild in neuem Tab öffnen",
-						"copyImageUrl": "Bildadresse kopieren",
-						"saveImage": "Bild speichern",
-						"showAllWithOutfit": "Zeige alle Werke mit diesem Outfit"
-					},
-					"Artist": {
-						"label": "Künstler",
-						"showAllByArtist": "Zeige alle Werke von {artist}",
-						"visitProfile": "Profil auf {site} ansehen",
-						"visitWebsite": "Website unter {site} ansehen"
-					}
-				}
-			},
-			"NSFW": {
-				"title": "Nicht so schnell",
-				"subtitle": "Ja, auch <i>solche</i> Werke von Mina gibt es. Willkommen im Internet.",
-				"text1": "Durch das Ankreuzen dieses Kästchens werden Kunstwerke angezeigt, die anzüglich oder sexuell explizit sein können.",
-				"text2": "Indem du fortfährst, bestätigst du, mindestens 18 Jahre alt zu sein, oder das Alter der Volljährigkeit in deiner Gerichtbarkeit erreicht zu haben.",
-				"text3": "Solltest du unter 18 Jahre alt sein, schließe dieses Pop-up. Das Zeug ist nix für dich.",
-				"admitSins": "Lass mich rein!",
-				"nevermind": "Nein, danke."
-			},
-			"Discord": {
-				"heading": "Mach deine Nachrichten etwas grüner",
-				"text": "Hast du Discord Nitro? Dann tritt dem Emote-Server bei und verwende Mina-Sticker und -Emojis, wo immer du möchtest.",
-				"button": "Server beitreten"
-			}
-		}
-	},
-	"MINTBIT": {
-		"Content": {
-			"AllGlyphs": {
-				"showAll": "Alle Zeichen anzeigen"
-			},
-			"Download": {
-				"heading": "Lass das Modem schrillen,",
-				"text": "und deine Festplatte klicken."
-			},
-			"Tester": {
-				"heading": "Probier es aus",
-				"pangram": "Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich."
-			}
-		},
-		"Head": {
-			"description": "Eine Pixelschriftart.",
-			"title": "Mintbit"
-		}
-	},
-	"MINTCRAFT": {
-		"Head": {
-			"description": "Ein dunkles und modernes Minecraft-UI-Ressourcenpaket.",
-			"title": "Mintcraft"
-		},
-		"Content": {
-			"About": {
-				"heading": "Über dieses Pack",
-				"text1": "Die hellgrauen Hintergründe in Kombination mit den unregelmäßigen, abgerundeten Ecken der Container, haben mich nie wirklich angesprochen.",
-				"text2": "Also hab ich das behoben.",
-				"text3": "Mintcraft ist ein Ressourcenpaket, welches ich hauptsächlich für meine eigenen Bedürfnisse und meinen Geschmack erstellt habe, aber es hat sich gezeigt, dass es noch von mindestens 3 anderen menschlichen Wesen in dieser Galaxie gemocht wird.",
-				"text4": "Inspiration wurde dabei häuptsächlich von dem fetten SPIELEN-Knopf im offiziellen Launcher genommen. Mit Mintcraft möchte ich der Minecraft-Oberfläche einen einheitlichen Dark-Mode und etwas moderneren Look verschaffen.",
-				"text5": "Die Betonung liegt dabei auf Oberfläche: Das Paket fokussiert sich hauptsächlich auf die Hintergründe der Options-, Einzelspieler- und Mehrspieler-Menüs, sowie diverse Buttons und Container im Spiel. Wenn du möchtest, kannst du außerdem meine Version von Minecraft Seven, <Link>Mintbit</Link>.",
-				"text6": "Brauchst du Screenshots? Scroll hoch."
-			},
-			"Credits": {
-				"heading": "Besonderes Danke",
-				"blizzy": "Für seine Musik im Sounds-Add-on. Weitere Titel werden (hoffentlich) folgen.",
-				"vanillaTweaks": "Für die Korrektur von Textfarben auf dunklen Hintergründen."
-			},
-			"MayContainMistakes": {
-				"heading": "Kann Spuren von Fehlern und dummen Entscheidungen enthalten",
-				"text": "Wenn du Feedback geben möchtest oder etwas gefunden hast, was wie ein Fehler aussieht, kannst du mir gerne <Link>eine Nachricht schicken</Link>."
-			},
-			"Download": {
-				"heading": "Willste?",
-				"text": "Lade dir Mintcraft entweder von Modrinth oder den GitHub-Releases herunter."
-			}
-		}
-	},
-	"VARIA": {
-		"Head": {
-			"description": "Eine vielseitige, variable Schriftart. In Arbeit.",
-			"title": "MN Varia"
-		},
-		"Content": {
-			"Download": {
-				"heading": "Hol's dir",
-				"text": "Lade dir eine Vorabversion der variablen Schriftart sowie einzelner Schnitte herunter."
-			},
-			"Tester": {
-				"heading": "Spiel damit",
-				"pangram": "Falsches Üben von Xylophonmusik quält jeden größeren Zwerg.",
-				"Features": {
-					"label": "Features",
-					"tnum": "Tabellenziffern",
-					"liga": "Ligaturen"
-				},
-				"StylisticSets": {
-					"label": "Stilsets",
-					"ss01": "f und t mit durchgezogenem Querstrich",
-					"ss02": "Offene Ziffern",
-					"ss03": "Konventionell",
-					"ss04": "Moderno",
-					"ss05": "Aikoson"
-				},
-				"CharacterVariants": {
-					"label": "Zeichenvarianten",
-					"cv01": "1 mit alternativem Kopf",
-					"cv02": "2 mit gerader Diagonale",
-					"cv03": "3 mit flachem Kopf",
-					"cv04": "Offene 4",
-					"cv05": "f mit durchgezogenem Querstrich",
-					"cv06": "Offene 6",
-					"cv07": "7 gerader Diagonale",
-					"cv08": "t mit durchgezogenem Querstrich",
-					"cv09": "Offene 9",
-					"cv10": "Durchgestrichene 0",
-					"cv11": "Zweistöckiges a",
-					"cv12": "Vereinfachtes m",
-					"cv13": "Vereinfachtes n",
-					"cv14": "Vereinfachtes r",
-					"cv15": "Vereinfachtes u",
-					"cv16": "l ohne Schwanz",
-					"cv17": "G mit scharfer Ecke und Sporn",
-					"cv18": "G mit abgerundeter Ecke und Sporn",
-					"cv19": "I mit Serifen",
-					"cv20": "Q mit Diagonale durch Körper",
-					"cv21": "Q mit gewellter Linie",
-					"cv22": "Q mit gewellter Linie innen",
-					"cv23": "Q mit Haken",
-					"cv24": "R mit kurvigem Bein",
-					"cv25": "g mit flachem Bauch",
-					"cv26": "M mit dem Mittelteil auf der Grundlinie"
-				}
-			}
-		}
-	},
-	"MINTSANS": {
-		"Content": {
-			"Download": {
-				"heading": "Lass dein Laufwerk schreien,",
-				"text": "und deine Augen bluten."
-			},
-			"Tester": {
-				"heading": "Probier es aus, oder noch besser: Lass es",
-				"pangram": "Franz jagt im komplett verwahrlosten Taxi quer durch Bayern."
-			}
-		},
-		"Head": {
-			"description": "Eine serifenlose Schriftart.",
-			"title": "Mintsans"
-		}
-	},
-	"MINTTRIANGLES": {
-		"Content": {
-			"Intro": {
-				"heading": "Dies ist eine sehr spezielle Schriftart",
-				"text1": "Mir gefällt das Design von osu!lazer, besonders die <Link>Score-Anzeige</Link>. Folglich habe ich eine Schriftart erstellt, die ich für meinen Sperrbildschirm verwenden kann.",
-				"text2": "Das ist der Grund.",
-				"text3": "Da diese Schriftart nur einem simplen Zweck dient, ist der Zeichensatz sehr beschränkt. Vielleicht ist sie ja trotzdem für deine Zwecke hilfreich."
-			},
-			"Wireframe": {
-				"heading": "Drahtgitter",
-				"text": "Hinter der <key>*</key>-Taste verbirgt sich eine Drahtgitter-Glyphe, die hinter den eigentlichen Ziffern platziert werden kann. Die Linien sind etwas dünner als die Ziffern selbst. Wenn du ein Drahtgitter mit identischer Strichbreite brauchst, verwende stattdessen die <key>#</key>-Taste."
-			},
-			"Punctuation": {
-				"heading": "Interpunktion",
-				"text": "Du könntest die Zeit oder Brüche anzeigen, oder... etwas, das ein Semikolon erfordert. Mir fällt zwar kein Beispiel ein, aber es ist da, falls du's brauchst. Semikolons sind cool."
-			},
-			"Special": {
-				"heading": "Sonderzeichen",
-				"text": "Sollten Zahlen allein mal nicht reichen, habe ich einige Rechenoperatoren und Schrägstriche hinzugefügt. Die könntest du für Differenzen oder Multiplikatoren verwenden."
-			},
-			"Download": {
-				"heading": "Ab in den Zahlentraum",
-				"text": "Nichts ist schöner.",
-				"button": "Abfahrt"
-			}
-		},
-		"Head": {
-			"description": "Ziffern inspiriert von der Score-Anzeige in osu!lazer.",
-			"title": "Mint Triangles"
-		}
-	},
-	"NAVIGATION": {
-		"Path": {
-			"General": {
-				"title": "Allgemein",
-				"Home": {
-					"description": "Hier fing alles an.",
-					"title": "Startseite"
-				},
-				"Articles": {
-					"title": "Artikel",
-					"description": "Worte über einige meiner Projekte, oder sonstwas."
-				},
-				"Mina": {
-					"description": "Keine Seite ist grüner als diese.",
-					"title": "Mina"
-				},
-				"Contact": {
-					"description": "Für Antworten auf deine Fragen hier entlang.",
-					"title": "Kontakt"
-				}
-			},
-			"Work": {
-				"title": "Werke",
-				"Graphics": {
-					"description": "2D/3D Render und Animationen.",
-					"title": "Grafiken"
-				},
-				"Photos": {
-					"description": "Einige Schnappschüsse.",
-					"title": "Fotos"
-				},
-				"Projects": {
-					"Triangles": {
-						"description": "Die Ziffern von osu!lazer. Fast.",
-						"title": "Mint Triangles"
-					},
-					"Icons": {
-						"description": "15x15 Icons für UIs.",
-						"title": "Icons"
-					},
-					"YtDlpGui": {
-						"description": "Ein GUI für yt-dlg unter Windows.",
-						"title": "yt-dlp GUI"
-					},
-					"Mintcraft": {
-						"description": "Ein Minecraft-Ressourcenpaket.",
-						"title": "Mintcraft"
-					},
-					"Mintsans": {
-						"description": "Eine serifenlose Schriftart.",
-						"title": "Mintsans"
-					},
-					"Mintbit": {
-						"description": "Eine Pixelschriftart.",
-						"title": "Mintbit"
-					},
-					"AppIcons": {
-						"description": "App-Symbole im Windows-11-Stil.",
-						"title": "App-Symbole"
-					},
-					"More": {
-						"title": "Weitere Projekte ansehen..."
-					}
-				}
-			},
-			"Other": {
-				"title": "Weiteres",
-				"Privacy": {
-					"description": "Spoiler: Ich speichere nix besonderes.",
-					"title": "Datenschutzerklärung"
-				},
-				"AI": {
-					"description": "Mein Standpankt zur Verwendung meiner Werke für KI-Training.",
-					"title": "Erklärung bzgl. KI-Training"
-				},
-				"SwitchLocale": {
-					"description": "What you're reading doesn't make a lick of sense to you? Click here.",
-					"title": "English, please!"
-				},
-				"Potato": {
-					"description": "Besuche eine weniger aufwendige Version dieser Website.",
-					"title": "Kartoffel"
-				}
-			}
-		}
-	},
-	"PALETTE": {
-		"Head": {
-			"title": "Palette",
-			"description": "Meine Farb-Palette."
-		},
-		"Content": {
-			"Current": {
-				"heading": "Verwendung",
-				"text1": "Klicke einfach auf eines der unteren Felder, um den HEX-Code in die Zwischenablage zu kopieren.",
-				"text2": "Vielleicht findest du das hier auch nützlich:",
-				"tailwind": "Tailwind-Konfig ansehen"
-			},
-			"Old": {
-				"heading": "Alte Palette",
-				"text1": "Selbes Prinzip, nur mit meiner vorherigen Farbpalette.",
-				"text2": "Falls du es noch brauchst:",
-				"affinity": "Alte Farbfelder für Affinity herunterladen"
-			}
-		}
-	},
-	"PHOTOS": {
-		"Head": {
-			"description": "Urlaubsfotos und andere Schnappschüsse.",
-			"title": "Fotos"
-		},
-		"Content": {
-			"Disclaimer": {
-				"heading": "Alle Reche vorbehalten, sofern nicht anders angegeben",
-				"text1": "Die Verwendung von Fotos auf dieser Seite als Desktop- oder Handy-Hintergrundbilder ist auf deinen persönlichen Geräten erlaubt.",
-				"text2": "Davon abgesehen ist jegliche Wiederverwendung, ganz gleich ob für kommerzielle oder persönliche Zwecke, ohne meine schriftliche Erlaubnis <b>untersagt</b>.",
-				"text3": "<Link>Schreibe mir eine Nachricht</Link>, wenn du Fragen dazu hast."
-			},
-			"Camera": {
-				"iso": "ISO",
-				"aperture": "Blende",
-				"shutterSpeed": "Belichtungszeit",
-				"focalLength": "Brennweite <small>(35 mm äquivalent)</small>"
-			}
-		}
-	},
-	"POMIFURI": {
-		"Head": {
-			"title": "Website und Logo für Pomifuri",
-			"description": "Eine Streamerin und Künstlerin."
-		}
-	},
-	"PRIVACY": {
-		"Head": {
-			"description": "Erfahre, welche Daten bei deinem Besuch verarbeitet werden.",
-			"title": "Datenschutzerklärung"
-		},
-		"Content": {
-			"lastUpdated": "Zuletzt aktualisiert: {revisionDate, date, ::yyyyMMMMd}"
-		}
-	},
-	"PROJECTS": {
-		"Head": {
-			"description": "Krams von mir den du verwenden kannst.",
-			"title": "Projekte"
-		},
-		"Tag": {
-			"font": "Schriftart",
-			"design": "Design-Ding",
-			"website": "Website",
-			"software": "Software",
-			"customization": "Personalisierung"
-		}
-	},
-	"SETTINGS": {
-		"title": "Einstellungen",
-		"description": "Ändere die Sprache und das Design, welches verwendet werden soll.",
-		"Language": {
-			"title": "Sprache",
-			"en": "English",
-			"de": "Deutsch"
-		},
-		"Theme": {
-			"title": "Design",
-			"dark": "Dunkel",
-			"light": "Hell",
-			"lightInfo": "Das helle Design dient der Barrierefreiheit. Verwende es, wenn du Schwierigkeiten hast, hellen Text auf dunklem Hintergrund zu lesen."
-		}
-	},
-	"TENTATIVE": {
-		"Head": {
-			"title": "Website und Branding für Tentative",
-			"description": "Eine Gruppe von unschlüssigen Kreativen, einschließlich meiner Wenigkeit."
-		}
-	},
-	"TRADEOFFER": {
-		"Head": {
-			"title": "Handelsangebot",
-			"description": "Ich erhalte eine Ko-fi-Spende, du erhältst Vorabversionen von MN Varia sowie die gesamte Familie, sobald sie fertig ist."
-		},
-		"Content": {
-			"Intro": {
-				"tradeOffer": "⚠️HANDELSANGEBOT⚠️",
-				"iReceive": "ich erhalte:",
-				"iReceiveSub": "15 € auf Ko-fi",
-				"youReceive": "du erhältst:",
-				"youReceiveSub1": "vorabversionen von mn varia",
-				"youReceiveSub2": "die gesamte schriftfamilie, sobald sie fertig ist"
-			},
-			"License": {
-				"heading": "Lizenz",
-				"text": "Du erhältst Desktop- und Web-Lizenzen mit den jeweils folgenden Bedingungen (nur auf Englisch verfügbar):",
-				"Desktop": {
-					"heading": "Desktop-Lizenz",
-					"tldr": "Persönliche und kommerzielle Projekte, kein Teilen oder Weiterverkauf, keine Konvertierung in andere Formate."
-				},
-				"Web": {
-					"heading": "Web-Lizenz",
-					"tldr": "Eine Website, unendliche Page-Views, keine zusätzlichen Websites unter Subdomains oder Unterordnern, keine Konvertierung in andere Formate."
-				}
-			}
-		}
-	},
-	"WORKS": {
-		"Head": {
-			"description": "Schau dir (fast) alle meiner Kreationen an.",
-			"title": "Werke"
-		}
-	},
-	"YTDG": {
-		"Content": {
-			"About": {
-				"heading": "Terminals bereiten dir Angst?",
-				"text1": "Mir nicht (Arch btw). Dafür hasse ich jedoch Windows, was die Vorstellung, an einem Projekt wie diesem zu arbeiten, fast unheilig erscheinen lässt.",
-				"text2": "Wie auch immer, eines Tages fragte mich jemand nach einem guten Video-Downloader. Meine Empfehlung war <Link>yt-dlp</Link>, welches ein Fork von einem Fork von youtube-dl ist. Einziger \"Nachteil\": Es ist eine Kommandozeilen-Anwendung.",
-				"text3": "Nach einem knappen Jahrzehnt seit meinem letzten Kontakt mit C# kommt hier mein yt-dlp-Frontend, welches so einfach wie möglich zu bedienen sein soll.",
-				"text4": "Ja, ich bin mir der Existenz anderer GUIs bewusst. Ruhig jetzt."
-			},
-			"Roadmap": {
-				"heading": "Künftige Pläne",
-				"savingSettings": "Merken der letzten Einstellungen für den Download-Typ, Formate und Ausgabe-Pfad.",
-				"tempFolder": "Dateien während eines Downloads in ein temporäres Verzeichnes speichern, bevor sie in den Ausgabe-Pfad verschoben werden.",
-				"autoUpdater": "Neue Releases auf GitHub erkennen und über sie informieren, diese dann entweder manuell installieren, oder mit ein bis zwei Klicks.",
-				"translations": "Übersetzung ins Deutsche mit Spracherkennung über das Betriebssystem.",
-				"fullSupport": "Vollständige Unterstützung von Downloads oder Konvertierung in alle Formate und Auflösungen, die yt-dlp unterstützt, ggf. mit FFmpeg.",
-				"youTellMe": "Sag du's mir. Ich bin für Vorschläge offen."
-			},
-			"Download": {
-				"heading": "Download von GitHub",
-				"text": "Den neuesten Installer findest du immer auf der Releases-Seite des Repositories."
-			}
-		},
-		"Head": {
-			"description": "Nutze yt-dlp, ohne ein Terminal anzufassen.",
-			"title": "yt-dlp GUI"
-		}
-	}
+  "404": {
+    "Content": {
+      "title": "Sie hat überall gesucht",
+      "info": "Hier gibt es keine Seite. Vielleicht wurde sie verschoben oder es gab sie nie. So ist das manchmal.",
+      "returnHome": "Zur Startseite",
+      "credit": "Detektiv-Mina wurde von <Link>Layer (@TenHeavenly)</Link> gezeichnet."
+    },
+    "Head": {
+      "title": "Seite nicht gefunden"
+    }
+  },
+  "AI": {
+    "Content": {
+      "Intro": {
+        "heading": "Ich erstelle gerne Zeug",
+        "text1": "Der Welt meine Arbeiten zu zeigen und zu sehen, dass anderen Leuten irgendwo auf dieser Welt meine Arbeit gefällt, bereitet mir viel Freude und motiviert mich, weiter an meinen Werken zu arbeiten und mich zu verbessern.",
+        "text2": "Die meisten meiner Kreationen wurden nur aus Spaß sowie unter Vorbehalt aller Rechte erstellt. Eine besondere Ausnahme gilt für die Verwendung von 3D-Rendern als Hintergrundbilder für Desktops oder Telefone im persönlichen Gebrauch.",
+        "text3": "Manche glauben jedoch, sowie etwas im Internet veröffentlicht wird, steht es jedermann automatisch zur freien Verfügung und man kann damit tun, was man will.",
+        "text4": "Und damit habe ich ein Problem."
+      },
+      "Copyright": {
+        "heading": "Ich mag mein Urheberrecht",
+        "text1": "Wie schon in der <gallery>Galerie-Seite</gallery> und im FAQ auf der <contact>Kontakt-Seite</contact> beschrieben bin ich eher restriktiv, was die Nutzung meiner Werke von Anderen angeht. Generell kann man sagen: Wenn es keinen Download-Knopf unten auf der Seite hat, wie z.B. viele meiner Schriftarten, darfst du es ohne mein Einverständnis nicht wiederverwenden, verkaufen oder weiterverteilen, egal ob für private oder kommerzielle Zwecke.",
+        "text2": "Bisher dachte ich, es wäre selbstverständlich, dass du die Werke Anderer nicht ohne deren Zustimmung wiederverwenden darfst. Für diese ganzen KI-Unternehmen und Data-Scrapern ist hier nochmal meine explizite Erklärung, was die Verwendung meiner Werke angeht:"
+      },
+      "Disallow": {
+        "heading": "Hiermit untersage ich jegliche Form von Data-Mining, Scraping sowie sonstige Reproduktion meiner Werke",
+        "text": "Sofern in besonderen Lizenzbedingungen nicht anders beschrieben, dürfen meine Werke (einschließlich, jedoch nicht beschränkt auf geschriebenen Text, 2D- und 3D-Grafiken, Animationen und Motion-Graphics, sowie andere herunterladbare Inhalte auf dieser Website, sowie Websites Dritter, auf welchen ich meine Inhalte bereitstelle) nicht ohne meine vorherige schriftliche Zustimmung für persönliche oder kommerzielle Zwecke verwendet werden. Dies beinhaltet außerdem Zwecke im Zusammenhang mit dem Training oder der Entwicklung von künstlicher Intelligenz (KI oder AI) jeglicher Art, soweit dies nach geltendem Recht zulässig ist."
+      },
+      "Ask": {
+        "heading": "Frag einfach",
+        "text": "Falls der obige Text nicht eindeutig genug war, kannst du mir eine Nachricht schreiben und in dieser nach genaueren Erläuterungen sowie nach Erlaubnis zur Verwendung bestimmter Werke fragen. Sicher ist sicher."
+      }
+    },
+    "Head": {
+      "description": "TL;DR: Nein.",
+      "title": "Erklärung bzgl. KI-Training"
+    }
+  },
+  "ARTICLES": {
+    "Head": {
+      "title": "Artikel",
+      "description": "Einige Worte zu Projekten, an denen ich gearbeitet habe, sowie anderes Zeug."
+    },
+    "Content": {
+      "Tags": {
+        "font": "Schriftart",
+        "design": "Design-Ding",
+        "website": "Website",
+        "software": "Software",
+        "ramblings": "Geschwafel"
+      },
+      "moreTagged": "Weitere Artikel mit dem <b>{tag}</b>-Tag."
+    }
+  },
+  "AUTSELLIA": {
+    "Head": {
+      "title": "Website für Autsellia",
+      "description": "Eine Künstler-Freundin und angeblich Fuchsmädchen."
+    }
+  },
+  "APPICONS": {
+    "Content": {
+      "Intro": {
+        "title": "Über diese Symbole",
+        "text1": "Viele Anwendungen verfolgen ihre eigene Design-Sprache vom Design der Anwendung an sich bis hin zu den App-Symbolen. Für Letzteres möchte ich nun einen einheitlicheren Look schaffen (und dafür sorgen, dass nicht mehr jedes Schnittprogramm von Adobe wie Media Encoder aussieht). Das von einem Windows-Benutzer zu hören ist sehr widersprüchlich, ich weiß. <i>Einheitliches Design? In Windows? Sehr witzig.</i>",
+        "text2": "Die Symbole sind grob nach den <a>Richtlinien für Windows App-Symbole</a> erstellt worden. Klicke auf einige Icons, um sie auszuwählen und lade sie unten herunter.",
+        "text3": "Neue Symbole werden im Laufe der Zeit hinzugefügt, wenn mir danach ist."
+      },
+      "search": "Icons nach App-Namen suchen",
+      "noResults": "Keine Ergebnisse",
+      "Panel": {
+        "iconsSelected": "<em>{count}</em> {count, plural, =1 {Icon} other {Icons}} ausgewählt.",
+        "downloadAll": "Alle herunterladen",
+        "downloadSelected": "Ausgewählte herunterladen",
+        "deselectAll": "Auswahl zurücksetzen"
+      }
+    },
+    "Head": {
+      "description": "App-Symbole im Windows-11-Stil.",
+      "title": "App-Symbole"
+    }
+  },
+  "CHAT": {
+    "button": "Frag Mina!",
+    "back": "Zurück",
+    "title": "Stell mir eine Frage.",
+    "titleAngy": "Geh weg.",
+    "Messages": {
+      "Hello": {
+        "answer": "Heya. Wie kann ich helfen?"
+      },
+      "NoTalky": {
+        "answer": "Ich bin doch eh nutzlos, also zisch ab."
+      },
+      "WhoYou": {
+        "message": "Wer bist du?",
+        "answer": "Ich bin Mina, quasi das Maskottchen von pprmint. Der Typ, dem diese Website gehört, heißt eigentlich Nicklas, wird aber auch gerne nur Nick genannt."
+      },
+      "WhyPprmint": {
+        "message": "Warum der Name \"pprmint.\"?",
+        "answer": "Er mag Dinge mit Pfefferminzgeschmack und das Wort \"peppermint\" sah in seinen Augen cool aus, wenn man alle Vokale außer dem i entfernt. Der Punkt am Ende ist Teil des Namens, da er Satzzeichen fast so sehr wie Pfefferminze mag."
+      },
+      "WhoWebsite": {
+        "message": "Wie diese Website entstanden?",
+        "answer": "Die Seite wurde im August 2022 von Grund auf neugeschrieben und seither stetig weiterentwickelt. Klick mal im Navigationsmenü unter \"Weiteres\" auf die kleine Tasse, um zu sehen, welche weiteren Bibliotheken verwendet werden."
+      },
+      "UseSelf": {
+        "message": "Darf ich die Grafiken und Animationen in meinen eigenen Projekten verwenden?",
+        "answer": "Nein, (fast) alles was du auf der <gallery>Galerie-Seite</gallery> siehst ist nur zum Ansehen  gedacht. Wenn du willst, darfst du z.B. 3D-Render als Desktophintergrund verwenden, aber mehr nicht."
+      },
+      "ProjectTerms": {
+        "message": "Unter welchen Bedingungen dürfen Projekte wie Schriftarten und Icons verwendet werden?",
+        "answer": "Schriftarten sind unter der <sil>SIL Open Font License</sil> lizenziert. Diese kannst du frei verwenden, auch für kommerzielle Zwecke. Die Lizenz ist in der ZIP-Datei mit dabei. App-Symbole darfst du kostenlos verwenden und an deine Bedürfnisse anpassen. Du darfst sie jedoch nicht verkaufen oder anderweitig verbreiten. Verlinke zum Teilen bitte die entsprechende Projektseite. Mintcraft ist under Creative Commons CC-BY-NC-SA lizenziert."
+      },
+      "WhatSoftware": {
+        "message": "Welche Programme werden hier meist verwendet?",
+        "answer": "Alles mit weniger als 3 Dimensionen wird in Affinity Designer erstellt. Für Motion Graphics werden Kompositionen in Affinity Designer vorbereitet und anschließend in After Effects mit Hilfe von Mt. Mograph's Motion-Erweiterung animiert. Schriftarten werden mit FontForge erstellt."
+      },
+      "OfferCommissions": {
+        "message": "Kann ich Projekte in Auftrag geben?",
+        "answer": "Aktuell noch nicht, aber es ist geplant."
+      },
+      "OwnQuestion": {
+        "message": "Kann ich meine eigene Frage stellen?",
+        "answer": "Nö."
+      },
+      "Ending": {
+        "message": "Danke, das ist alles.",
+        "answer": "War ich ein guter Chatbot?"
+      },
+      "EndingYes": {
+        "message": "Ja, sehr hilfreich.",
+        "answer": "yayy~"
+      },
+      "EndingNo": {
+        "message": "Nein, du bist nutzlos.",
+        "answer": "Arsch."
+      }
+    }
+  },
+  "COMMISSIONS": {
+    "Head": {
+      "description": "Finde heraus, ob und unter welchen Bedingungen ich für Auftragsarbeiten zu haben bin.",
+      "title": "Auftragsarbeit"
+    },
+    "Content": {
+      "Status": {
+        "heading": "Status",
+        "closed": "Derzeit akzeptiere ich keine Auftragsarbeiten, aber lies gerne weiter.",
+        "limited": "Ich akzeptiere Auftragsarbeiten, jedoch nur begrenzt.",
+        "open": "Ich akzeptiere Auftragsarbeiten. Scroll runter für mehr Infos."
+      },
+      "Offers": {
+        "heading": "Verfügbare Arbeiten",
+        "priceInfo": "Die hier gezeigten Preise sind Schätzungen. Sie können vom Endbetrag durch Faktoren wie der Komplexität des Projektes abweichen.",
+        "slotsAvailable": "{count, plural, =0 {Keine Slots} =1 {Ein Slot} other {# Slots}} verfügbar",
+        "need": "Was ich brauche",
+        "get": "Was du kriegst",
+        "2D": {
+          "heading": "Design oder 2D-Grafik",
+          "description": "Logo-Design, Assets für Social-Media-Profile",
+          "Need": {
+            "ideas": "Sammlung/Beschreibung von Ideen, vorzugsweise Skizzen",
+            "license": "Lizenz zur Verwendung eigener Schriftarten"
+          },
+          "Get": {
+            "revisions": "Bis zu 2 Revisionen",
+            "assets": "Assets in verschiedenen Formaten und Größen, wie gewünscht",
+            "exports": "Exporte als PNG-, SVG- und/oder EPS-Dateien",
+            "projectFiles": "Projekt-Dateien für Affinity Designer"
+          }
+        },
+        "Anim": {
+          "heading": "Vektor-Animation",
+          "description": "Kurze Logo-Animation, Motion Graphics",
+          "Need": {
+            "ideas": "Sammlung/Beschreibung von Ideen, vorzugsweise Skizzen",
+            "license": "Lizenz zur Verwendung eigener Schriftarten",
+            "assets": "Besondere, zu animierende Assets"
+          },
+          "Get": {
+            "revisions": "Bis zu 2 Revisionen",
+            "projectFiles": "Projekt-Dateien für Adobe After Effects",
+            "exports": "Exporte als MP4, AVI, WEBM, GIF, PNG-Sequenz, oder JSON für Lottie"
+          }
+        },
+        "3D": {
+          "heading": "3D-Grafik",
+          "description": "Abstrakte, gerenderte 3D-Szene",
+          "Need": {
+            "ideas": "Sammlung/Beschreibung von Ideen, vorzugsweise Skizzen"
+          },
+          "Get": {
+            "revisions": "Eine Revision",
+            "projectFiles": "Projekt-Dateien für Blender",
+            "exports": "Unkomprimierte Render als PNG oder TIFF"
+          }
+        },
+        "Web": {
+          "heading": "Website",
+          "description": "Einfache HTML/CSS oder komplexe Next.js website",
+          "Need": {
+            "ideas": "Sammlung/Beschreibung von Ideen, vorzugsweise Skizzen",
+            "license": "Lizenz zur Verwendung eigener Schriftarten",
+            "pages": "Liste der gewünschten Unterseiten",
+            "assets": "Benötigte Assets (z.B. Logo, Bilder, Videos, etc.)",
+            "hosting": "Hosting-Möglichkeiten, die dir zur Verfügung stehen",
+            "integrations": "Details zu Integrationen mit APIs Dritter"
+          },
+          "Get": {
+            "sourceCode": "Vollständiger Quellcode",
+            "documentation": "Dokumentation über den Quellcode",
+            "frameworks": "Ggf. Liste über verwendete Frameworks und/oder Pakete"
+          }
+        }
+      },
+      "Terms": {
+        "heading": "Auftragsbedingungen",
+        "Disclaimer": {
+          "heading": "Disclaimer",
+          "termsAgree": "Du musst den folgenden Bedingunen zustimmen, bevor du mir eine Anfrage senden darfst.",
+          "acknowledgement": "Mit dem Absenden einer Anfrage stimmst du zu, dass du diese Bedingunen gelesen hast und sie akzeptierst.",
+          "rightToWithdraw": "Ich behalte mir das Recht vor, jederzeit und aus beliegigem Grund abzulehnen oder davon zurückzutreten.",
+          "noRefund": "Rückerstattungen werden nur unter bestimmten Bedingungen gewährt, nicht jedoch nach Beginn der Arbeit. Weitere Details dazu findest du weiter unten."
+        },
+        "ClientRights": {
+          "heading": "Deine Rechte als Klient",
+          "allowPublicDisplay": "You may display my work "
+        },
+        "ArtistRights": {
+          "heading": "Meine Rechte als Künstler",
+          "allowPublicDisplay": "You may display my work "
+        },
+        "Payment": {
+          "heading": "Zahlung",
+          "preferredMethod": "Die bevorzugte Zahlungsmethode ist PayPal. Beträge müssen in Euro gesendet werden. Etwaige Transaktionskosten werden von mir übernommen."
+        },
+        "Refunds": {
+          "heading": "Rückerstattungen",
+          "preamble": "Uns beiden ist es gestattet, von einem Kommissionsauftrag jederzeit zurückzutreten. Erstattungen werden jedoch nur unter bestimmten Bedingunen gewährt.",
+          "notStarted": "Wird der Auftrag storniert, noch bevor ich mit der Arbeit am Projekt begonnen habe, und die erste Zahlung bereits eingegangen ist, überweise ich die erste Zahlung in voller Höhe zurück.",
+          "anotStarted": "Es werden keine Rückerstattungen gewährt, wenn die Arbeit an einem Projekt bereits begonnen hat. Auf Wunsch werde ich die ",
+          "hasStarted": "Es gibt keine Rückerstattung, wenn die Arbeit an einem Auftrag bereits begonnen hat. Bei Bedarf stelle ich die (evtl. unfertigen) Dateien, wie ich sie bis dahin bearbeitet habe, gegen eine Gebühr im Verhältnis zum Gesamtpreis zur Verfügung."
+        }
+      }
+    }
+  },
+  "COMMON": {
+    "learnMore": "Weitere Infos",
+    "download": "Herunterladen",
+    "downloading": "Wird heruntergeladen",
+    "downloadAll": "Alle herunterladen",
+    "downloadSelected": "Ausgewählte herunterladen",
+    "deselectAll": "Auswahl zurücksetzen",
+    "settings": "Einstellungen",
+    "visitPage": "Seite besuchen",
+    "visitWebsite": "Website besuchen",
+    "visitProfile": "Profil besuchen",
+    "viewOriginal": "Original ansehen",
+    "copied": "In Zwischenablage kopiert.",
+    "search": "Suchen",
+    "searchEnglish": "Suchen (nur auf Englisch)",
+    "noResults": "Keine Ergebnisse.",
+    "ew": "Igitt.",
+    "artDrawnBy": "Zeichnung von ",
+    "VideoPlayer": {
+      "loop": "Wiederholen",
+      "copyVideoUrl": "Video-URL kopieren",
+      "playbackSpeed": "Geschwindigkeit"
+    }
+  },
+  "CONTACT": {
+    "Head": {
+      "description": "Stelle eine Frage, erhalte (irgendwann) eine Antwort.",
+      "title": "Kontakt"
+    },
+    "Content": {
+      "Mina": {
+        "heading": "Lies ein FAQ, aber in cool",
+        "text": "Spar dir (und vor allem mir) etwas Zeit und:"
+      },
+      "Email": {
+        "title": "Oder schreib 'ne Email",
+        "text": "Schick Spam und du fliegst raus.",
+        "preferMailto": "Möchtest du lieber deinen eigenen Email-Client verwenden? Sende deine Email an <Link>mail@pprmint.de</Link>.",
+        "Form": {
+          "name": "Name",
+          "emailAddress": "Email-Adresse",
+          "message": "Nachricht",
+          "subject": "Betreff",
+          "send": "Absenden",
+          "sending": "Wird gesendet...",
+          "sent": "Gesendet",
+          "sentText": "Irgendwann kommt vielleicht sogar eine Antwort.",
+          "retry": "Erneut versuchen",
+          "noCommissions": "Sorry, derzeit akzeptiere ich keine Auftragsarbeiten."
+        },
+        "Message": {
+          "body": "Indem du mit Absicht den Betreff und Inhalt dieser Email mit Werbung, Sponsorenangeboten oder Ähnlichem ersetzt, bist du damit einverstanden, dass ich deine Email-Adresse in meinen Spam-Filter einpflege, sodass deine Emails künftig auf dem kürzesten Weg in den Papierkorb wandern.",
+          "subject": "Das hier ist absolut keine Abzocke oder so. Zwinker zwinker."
+        },
+        "Error": {
+          "title": "Fehler beim Senden der Email.",
+          "description": "Etwas ist schiefgelaufen. Versuch es später erneut, oder schick mir den folgenden Fehlercode: {code}",
+          "copyCode": "Fehlercode kopieren"
+        }
+      }
+    }
+  },
+  "FONTTESTER": {
+    "Weight": {
+      "label": "Gewicht",
+      "extralight": "Extraleicht",
+      "regular": "Normal",
+      "bold": "Breit"
+    },
+    "reset": "Zurücksetzen",
+    "size": "Schriftgröße",
+    "Alignment": {
+      "label": "Ausrichtung",
+      "left": "Linksbündig",
+      "center": "Zentriert",
+      "right": "Rechtsbündig"
+    },
+    "tracking": "Zeichenabstand"
+  },
+  "FOOTER": {
+    "madeWith": "Gemacht mit ",
+    "and": " und ",
+    "Mina": {
+      "lovePats": "hehe, ich liebe streicheln ♥",
+      "forgive": "Ich verzeihe dir, wenn du mich weiter streichelst.",
+      "tooMany1": "...aber du musst nicht gleich übertreiben.",
+      "tooMany2": "Okay, langsam reicht es...",
+      "tooMany3": "Hör auf, mich zu streicheln!",
+      "tooMany4": "Na gut, dann mach weiter. Aber nach 9 Billiarden ist Schicht im Schacht.",
+      "tooMany5": "...warum bist du so?",
+      "tooMany6": "Deine Mama ist bestimmt ganz stolz.",
+      "tooMany7": "Bist du sicher, dass du nicht süchtig bist?",
+      "tooMany8": "Das kann nicht gesund sein.",
+      "tooMany9": "Okay, wir sehen uns am Ende des Universums wieder.",
+      "tooMany10": "...",
+      "humanityIsDead": "Du hast offiziell 9.007.199.254.740.992 Klicks hinter dir. Herzlichen Glückwunsch..."
+    },
+    "Button": {
+      "title": "Mein 88x31-Button",
+      "description": "Das hier sind meine Buttons in der klassischen Auflösung von 88x31 Pixeln. Du darfst sie bei Bedarf gerne herunterladen.",
+      "codeSnippet": "Verwende den folgenden Code-Schnipsel, um diesen Button auf deiner Website einzubetten:",
+      "alsoAsGif": "Statt der Endung .PNG kann auch .GIF verwendet werden.",
+      "copy": "Code kopieren",
+      "close": "Schließen"
+    }
+  },
+  "GRAPHICS": {
+    "Head": {
+      "description": "Stimuliere deine visuellen Sinne, wie es kein Kaugummi kann.",
+      "title": "Grafiken"
+    },
+    "Content": {
+      "Filters": {
+        "button": "Filter",
+        "year": "Jahr",
+        "dimension": "Dimension",
+        "Type": {
+          "label": "Art",
+          "static": "Statisch",
+          "animated": "Animiert"
+        }
+      },
+      "showingWorks_one": "{count} Werk wird gezeigt.",
+      "showingWorks_other": "{count} Werke werden gezeigt.",
+      "Disclaimer": {
+        "heading": "Alle Reche vorbehalten, sofern nicht anders angegeben",
+        "text1": "Die Verwendung von Grafiken auf dieser Seite als Desktop- oder Handy-Hintergrundbilder ist auf deinen persönlichen Geräten erlaubt.",
+        "text2": "Davon abgesehen ist jegliche Wiederverwendung, ganz gleich ob für kommerzielle oder persönliche Zwecke, ohne meine schriftliche Erlaubnis <b>untersagt</b>.",
+        "text3": "<Link>Schreibe mir eine Nachricht</Link>, wenn du Fragen dazu hast."
+      },
+      "noHasOwn": "Der Text oben wurde eigentlich in Markdown geschrieben. Wenn du das hier lesen kannst, solltest du mal deinen Browser aktualisieren, da sonst Formatierungen und Links für dich hier nicht funktionieren werden.",
+      "return": "Zurück zur Galerie"
+    },
+    "Error": {
+      "title": "Kein Ergebnis",
+      "description": "Kehre zur Galerie zurück."
+    }
+  },
+  "HOME": {
+    "Head": {
+      "title": "Guten Heute und Willkommen auf pprmint.de.",
+      "description": "Ich bin Pixelschubser und Tastenhauer, oder mit anderen Worten, ich erstelle Grafiken und Logodesigns, schreibe Websites und, wenn noch Zeit ist, atme."
+    },
+    "Content": {
+      "Hero": {
+        "title": "Guten Heute",
+        "description": "Ich bin Pixelschubser und Tastenhauer.",
+        "graphics": "Grafiken",
+        "photos": "Fotos",
+        "projects": "Projekte",
+        "contact": "Kontakt"
+      },
+      "News": {
+        "heading": "Aktuelles"
+      },
+      "OtherNews": {
+        "heading": "Und sonst noch:"
+      },
+      "Featured": {
+        "Varia": {
+          "tagline": "Mina Sans heißt nun",
+          "text": "In der Entwicklung — erscheint eher später als früher auf deinem Computer.",
+          "button": "Zeig mir mehr"
+        }
+      },
+      "Mina": {
+        "heading1": "Doch lieber",
+        "heading2": "Anime-Mädchen?",
+        "text1": "Die offizielle pprmint.de Website versorgt dich auch damit. Lang lebe das Internet.",
+        "text2": "Hier ist das neueste* Artwork von Mina, meinem OC, gezeichnet von <link>{artist}</link>.",
+        "button": "Ich liebe sie."
+      },
+      "Contact": {
+        "questions": "Fragen?",
+        "answers": "Ich hab Antworten",
+        "pronunciation": "Bevor du fragst: Es wird \"peppermint\" ausgesprochen, also wie Pfefferminze auf Englisch. Das erschließt sich nicht jedem, aber jetzt bist du schlauer als die."
+      }
+    }
+  },
+  "ICONS": {
+    "Head": {
+      "description": "Aus einem 15x15-Raster für deine Nutzeroberfläche. Ja, genau deine.",
+      "title": "Icons"
+    },
+    "Content": {
+      "largeIcons": "Große Icons",
+      "Category": {
+        "arrows": "Pfeile",
+        "actions": "Aktionen",
+        "symbolic": "Symbolisch",
+        "technology": "Technologie",
+        "objects": "Objekte",
+        "media": "Medien",
+        "logos": "Logos",
+        "text": "Text"
+      },
+      "Download": {
+        "svgs": "SVGs herunterladen",
+        "font": "Icon-Schriftart herunterladen"
+      },
+      "Disclaimer": {
+        "heading": "Koffeinsucht",
+        "text1": "Du darfst diese Icons frei verwenden, sowohl für kommerzielle als auch private Projekte. Es ist jedoch untersagt, die Icons selbst zum Verkauf anzubieten, egal ob einzeln oder in Sammlungen, modifiziert oder nicht.",
+        "text2": "Eine Menge Zeit floss in dieses Projekt hinein und ich habe noch ein paar weitere Dinge vor. Wenn du mich dabei unterstützen kannst und möchtest, wäre ich dir für einen Kaffee sehr dankbar.",
+        "button": "Zu meinem Ko-fi-Profil"
+      }
+    }
+  },
+  "KOFI": {
+    "dataInfo": "Wenn du dieses Widget aktivierst, werden möglicherweise Daten von Ko-fi und deren Partnern erfasst.",
+    "showWidget": "Widget anzeigen",
+    "alternative": "Sollte das Widget nicht funktionieren, <Link>besuche mein Profil</Link>.",
+    "privacyPolicy": "Datenschutzerklärung von Ko-fi"
+  },
+  "MINA": {
+    "Head": {
+      "description": "Mein Maskottchen.",
+      "title": "Mina"
+    },
+    "Content": {
+      "drinkResponsibly": "Trink in Maßen, nicht in Massen.",
+      "About": {
+        "heading": "Über Mina",
+        "text1": "Mit grünem Haar und blauen Augen wurde sie am 11. Juni 2004 geboren. Mina ist ca. 160 cm groß und ist ein eher ruhiges Mädchen, das zufrieden ist mit dem, was sie hat. Sie zog vor langer Zeit von Japan nach Deutschland, spricht jedoch nur Deutsch und Englisch fließend. Durch ihren langen Aufenthalt in Deutschland hatte außerdem viel Zeit, sich ein paar schöne deutsche Beleidigungen anzueignen. Sparsam eingesetzt sorgen sie dafür, dass manche Leute freiwillig nicht mehr mit ihr reden.",
+        "text2": "Sie mag Leckereien mit Minzgeschmack, besonders Schokoladen-Minz-Eiscreme. Ebenso hat sie immer eine Packung Kaugummis parat, ihre Kaugummiblasen sind jedoch nur selten größer als ein Zentimeter. Fleischgerichte regen auch ihren Appetit an.",
+        "text3": "Mina ist fasziniert von Architektur und Innenraumgestaltung und hat Freude daran, moderne Wohnräume zu konzipieren. Sie hat schon Pläne, wie jeder Raum in ihrem Traumhaus auszusehen hat, von der Gestaltung des Hauses an sich ganz zu schweigen.",
+        "text4": "Trotzdem hat sie Probleme, sich auf Dinge zu fokussieren und ist leicht abzulenken. Auch mag sie an manchen Tagen etwas vorhaben, macht schlussendlich jedoch alles außer das.",
+        "text5": "Außerdem liebt sie Streicheleinheiten.",
+        "text6": "Das Design stammt von <Link>@wxsonz</Link>. Schau dir gerne sein Twitter-Profil für weitere seiner Werke an."
+      },
+      "Reference": {
+        "Outfit": {
+          "heading": "Standard-Outfit",
+          "text1": "Minas Kleidung ist mit einer Kombination aus dunklem Grau, Weiß und Grün in der Regel eher dunkel.",
+          "text2": "Ihr normales Outfit besteht aus einer bequemen Jacke mit Kapuze und grauem Flausch auf der Innenseite. Grüne Linien verzieren dabei den Rand der Kapuze, sowie unteren Rand ihrer Jacke und ihres Rocks. Die Ärmel der Jacke sind ebenfalls grün.",
+          "text3": "Passend dazu sind ihre Strümpfe mit vertikalen Linien bedruckt, welche knapp über dem Knie von meinem Blatt-Logo unterbrochen werden.",
+          "text4": "Sie trägt fast immer mindestens einen Ring, deren Designs sehr unterschiedlich sein können. Zusammen mit ihrem normalen Outfit trägt sie meist einen rechteckigen, silbernen Ring, welcher im Ring- und Mittelfinger getragen wird.",
+          "text5": "Obwohl spätestens die Jacke jegliche Professionalität vermissen lässt, trägt sie dennoch gerne eine schicke Krawatte. Erhöht den FancyScore™ um 20 Punkte."
+        },
+        "Rings": {
+          "heading": "Ringe",
+          "text1": "Ihr normaler Ring ist rechteckig und eher simpel, und wird auf dem Ring- und Mittelfinger getragen.",
+          "text2": "Wenn du für etwaige Zeichnungen ein bestimmtes Thema oder Outfit im Sinn hast, darfst du das Design gerne anpassen. Ob und wie viele Ringe sie an welchen Fingern trägt, ist dir überlassen.",
+          "text3": "Obwohl du den Ring auch weglassen darfst, ist mindestens ein Ring bevorzugt."
+        },
+        "Hairbow": {
+          "heading": "Haarschleife und Pferdeschwanz",
+          "text1": "Ihre Haarschleife ist (irgendwie) so gebunden, dass oben eine Blattform heraussticht. Der Pferdeschwanz ist zudem (von hinten betrachtet) etwas weiter nach links gebunden, sodass er rechts hinter ihrem Kopf gesehen werden kann, wenn man sie von vorne anschaut.",
+          "text2": "Der Mittelpunkt des Knotens ist rot markiert."
+        },
+        "Shoes": {
+          "heading": "Schuhe",
+          "text1": "Anstelle einer nutzlosen Schlaufe haben diese Schuhe ein kleines Blatt an der Rückseite angebracht, zusammen mit einigen anderen grünen Akzenten.",
+          "text2": "Wie auch ein paar andere Aspekte ihres Outfits, darfst du auch dieses Design nach deinen Wünschen anpassen."
+        },
+        "Color": {
+          "text": "Es gibt da noch eine <Link>Palette-Seite</Link>, solltest du etwas ausführlicheres wollen."
+        },
+        "outdated": "Diese Referenzen müssen noch überarbeitet werden, um Mina's Design korrekt darzustellen. Verwende bis dahin lieber die Kunstwerke in der Galerie, die als \"Gute Referenz\" gekennzeichnet sind.",
+        "credit": "Referenzzeichnungen von <Link>nekomimi</Link>.",
+        "Download": {
+          "text": "Möchtest du diese Übersicht mit allen Infos als einzelnes Bild haben? Bitte schön:",
+          "button": "Referenzblatt herunterladen"
+        }
+      },
+      "Outfits": {
+        "heading": "Outfits",
+        "designedBy": "Entworfen von <Link>{designer}</Link>",
+        "showArtworksFeaturingOutfit": "Kunstwerke mit diesem Outfit anzeigen",
+        "front": "Vorderseite",
+        "back": "Rückseite"
+      },
+      "Fanart": {
+        "heading": "Fanart-Regeln",
+        "text1": "Für SFW-Fanart habe ich grundsätzlich keine wirklichen Regeln für dich. Tob dich aus.",
+        "text2": "Du darfst auch Dinge mit Mina zeichnen, die lieber nicht am Arbeitsplatz gesehen werden sollen. Lass es jedoch liebenswert und geschmackvoll sein, und erstelle nichts, was als fetischistisch oder anderweitig sensibel empfunden werden kann, oder was manche Leute verstören oder verärgern könnte.",
+        "text3": "Wenn du's genauer haben willst, stelle bitte keines der folgenden Dinge dar:",
+        "text4": "Vergewaltigung, physischer oder psychischer Missbrauch, Drogenkonsum, Erpressung, Postitution, Gewalt, Gore, Blut, Scat, NTR/Fremdgehen, Loli und Shota.",
+        "text5": "Die obige Aufzählung ist nicht allumfassend. Da draußen gibt's sicherlich noch ekligeres Zeugs, von dem ich noch nichts weiß. Dabei kann es gerne bleiben, also verschone mich damit.",
+        "text6": "Verzichte bitte auch auf religiöse oder politische Symbole und Anspielungen."
+      },
+      "Artworks": {
+        "Filters": {
+          "button": "Filter",
+          "nsfw": "NSFW-Werke zeigen",
+          "artist": "Künstler",
+          "outfit": "Outfit",
+          "reference": "Gute Referenzen zeigen",
+          "year": "Jahr"
+        },
+        "Statistics": {
+          "title": "Statistiken",
+          "total": "Gesamtzahl",
+          "commissioned": "Auftragswerke",
+          "averagePrice": "Durchschnittspreis",
+          "artworkCount": "Anzahl Kunstwerke",
+          "numberArtworks": "{count, plural, =0 {Keine Kunstwerke} =1 {Ein Kunstwerk} other {# Kunstwerke}}"
+        },
+        "drawnBy": "Von ",
+        "featuring": "mit ",
+        "showingArtworks": "{shown} von {total, plural, =1 {# Werk} other {# Werken}} gezeigt.",
+        "OutOfBounds": {
+          "title": "Willkommen im Nichts",
+          "text": "Deaktiviere einige Filter und navigiere zur ersten Seite zurück."
+        },
+        "ContextMenu": {
+          "Artwork": {
+            "label": "Kunstwerk",
+            "openInNewTab": "Bild in neuem Tab öffnen",
+            "copyImageUrl": "Bildadresse kopieren",
+            "saveImage": "Bild speichern",
+            "showAllWithOutfit": "Zeige alle Werke mit diesem Outfit"
+          },
+          "Artist": {
+            "label": "Künstler",
+            "showAllByArtist": "Zeige alle Werke von {artist}",
+            "visitProfile": "Profil auf {site} ansehen",
+            "visitWebsite": "Website unter {site} ansehen"
+          }
+        }
+      },
+      "NSFW": {
+        "title": "Nicht so schnell",
+        "subtitle": "Ja, auch <i>solche</i> Werke von Mina gibt es. Willkommen im Internet.",
+        "text1": "Durch das Ankreuzen dieses Kästchens werden Kunstwerke angezeigt, die anzüglich oder sexuell explizit sein können.",
+        "text2": "Indem du fortfährst, bestätigst du, mindestens 18 Jahre alt zu sein, oder das Alter der Volljährigkeit in deiner Gerichtbarkeit erreicht zu haben.",
+        "text3": "Solltest du unter 18 Jahre alt sein, schließe dieses Pop-up. Das Zeug ist nix für dich.",
+        "admitSins": "Lass mich rein!",
+        "nevermind": "Nein, danke."
+      },
+      "Discord": {
+        "heading": "Mach deine Nachrichten etwas grüner",
+        "text": "Hast du Discord Nitro? Dann tritt dem Emote-Server bei und verwende Mina-Sticker und -Emojis, wo immer du möchtest.",
+        "button": "Server beitreten"
+      }
+    }
+  },
+  "MINTBIT": {
+    "Content": {
+      "AllGlyphs": {
+        "showAll": "Alle Zeichen anzeigen"
+      },
+      "Download": {
+        "heading": "Lass das Modem schrillen,",
+        "text": "und deine Festplatte klicken."
+      },
+      "Tester": {
+        "heading": "Probier es aus",
+        "pangram": "Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich."
+      }
+    },
+    "Head": {
+      "description": "Eine Pixelschriftart.",
+      "title": "Mintbit"
+    }
+  },
+  "MINTCRAFT": {
+    "Head": {
+      "description": "Ein dunkles und modernes Minecraft-UI-Ressourcenpaket.",
+      "title": "Mintcraft"
+    },
+    "Content": {
+      "About": {
+        "heading": "Über dieses Pack",
+        "text1": "Die hellgrauen Hintergründe in Kombination mit den unregelmäßigen, abgerundeten Ecken der Container, haben mich nie wirklich angesprochen.",
+        "text2": "Also hab ich das behoben.",
+        "text3": "Mintcraft ist ein Ressourcenpaket, welches ich hauptsächlich für meine eigenen Bedürfnisse und meinen Geschmack erstellt habe, aber es hat sich gezeigt, dass es noch von mindestens 3 anderen menschlichen Wesen in dieser Galaxie gemocht wird.",
+        "text4": "Inspiration wurde dabei häuptsächlich von dem fetten SPIELEN-Knopf im offiziellen Launcher genommen. Mit Mintcraft möchte ich der Minecraft-Oberfläche einen einheitlichen Dark-Mode und etwas moderneren Look verschaffen.",
+        "text5": "Die Betonung liegt dabei auf Oberfläche: Das Paket fokussiert sich hauptsächlich auf die Hintergründe der Options-, Einzelspieler- und Mehrspieler-Menüs, sowie diverse Buttons und Container im Spiel. Wenn du möchtest, kannst du außerdem meine Version von Minecraft Seven, <Link>Mintbit</Link>.",
+        "text6": "Brauchst du Screenshots? Scroll hoch."
+      },
+      "Credits": {
+        "heading": "Besonderes Danke",
+        "blizzy": "Für seine Musik im Sounds-Add-on. Weitere Titel werden (hoffentlich) folgen.",
+        "vanillaTweaks": "Für die Korrektur von Textfarben auf dunklen Hintergründen."
+      },
+      "MayContainMistakes": {
+        "heading": "Kann Spuren von Fehlern und dummen Entscheidungen enthalten",
+        "text": "Wenn du Feedback geben möchtest oder etwas gefunden hast, was wie ein Fehler aussieht, kannst du mir gerne <Link>eine Nachricht schicken</Link>."
+      },
+      "Download": {
+        "heading": "Willste?",
+        "text": "Lade dir Mintcraft entweder von Modrinth oder den GitHub-Releases herunter."
+      }
+    }
+  },
+  "VARIA": {
+    "Head": {
+      "description": "Eine vielseitige, variable Schriftart. In Arbeit.",
+      "title": "MN Varia"
+    },
+    "Content": {
+      "Download": {
+        "heading": "Hol's dir",
+        "text": "Lade dir eine Vorabversion der variablen Schriftart sowie einzelner Schnitte herunter."
+      },
+      "Tester": {
+        "heading": "Spiel damit",
+        "pangram": "Falsches Üben von Xylophonmusik quält jeden größeren Zwerg.",
+        "Features": {
+          "label": "Features",
+          "tnum": "Tabellenziffern",
+          "liga": "Ligaturen"
+        },
+        "StylisticSets": {
+          "label": "Stilsets",
+          "ss01": "f und t mit durchgezogenem Querstrich",
+          "ss02": "Offene Ziffern",
+          "ss03": "Konventionell",
+          "ss04": "Moderno",
+          "ss05": "Aikoson"
+        },
+        "CharacterVariants": {
+          "label": "Zeichenvarianten",
+          "cv01": "1 mit alternativem Kopf",
+          "cv02": "2 mit gerader Diagonale",
+          "cv03": "3 mit flachem Kopf",
+          "cv04": "Offene 4",
+          "cv05": "f mit durchgezogenem Querstrich",
+          "cv06": "Offene 6",
+          "cv07": "7 gerader Diagonale",
+          "cv08": "t mit durchgezogenem Querstrich",
+          "cv09": "Offene 9",
+          "cv10": "Durchgestrichene 0",
+          "cv11": "Zweistöckiges a",
+          "cv12": "Vereinfachtes m",
+          "cv13": "Vereinfachtes n",
+          "cv14": "Vereinfachtes r",
+          "cv15": "Vereinfachtes u",
+          "cv16": "l ohne Schwanz",
+          "cv17": "G mit scharfer Ecke und Sporn",
+          "cv18": "G mit abgerundeter Ecke und Sporn",
+          "cv19": "I mit Serifen",
+          "cv20": "Q mit Diagonale durch Körper",
+          "cv21": "Q mit gewellter Linie",
+          "cv22": "Q mit gewellter Linie innen",
+          "cv23": "Q mit Haken",
+          "cv24": "R mit kurvigem Bein",
+          "cv25": "g mit flachem Bauch",
+          "cv26": "M mit dem Mittelteil auf der Grundlinie"
+        }
+      }
+    }
+  },
+  "MINTSANS": {
+    "Content": {
+      "Download": {
+        "heading": "Lass dein Laufwerk schreien,",
+        "text": "und deine Augen bluten."
+      },
+      "Tester": {
+        "heading": "Probier es aus, oder noch besser: Lass es",
+        "pangram": "Franz jagt im komplett verwahrlosten Taxi quer durch Bayern."
+      }
+    },
+    "Head": {
+      "description": "Eine serifenlose Schriftart.",
+      "title": "Mintsans"
+    }
+  },
+  "MINTTRIANGLES": {
+    "Content": {
+      "Intro": {
+        "heading": "Dies ist eine sehr spezielle Schriftart",
+        "text1": "Mir gefällt das Design von osu!lazer, besonders die <Link>Score-Anzeige</Link>. Folglich habe ich eine Schriftart erstellt, die ich für meinen Sperrbildschirm verwenden kann.",
+        "text2": "Das ist der Grund.",
+        "text3": "Da diese Schriftart nur einem simplen Zweck dient, ist der Zeichensatz sehr beschränkt. Vielleicht ist sie ja trotzdem für deine Zwecke hilfreich."
+      },
+      "Wireframe": {
+        "heading": "Drahtgitter",
+        "text": "Hinter der <key>*</key>-Taste verbirgt sich eine Drahtgitter-Glyphe, die hinter den eigentlichen Ziffern platziert werden kann. Die Linien sind etwas dünner als die Ziffern selbst. Wenn du ein Drahtgitter mit identischer Strichbreite brauchst, verwende stattdessen die <key>#</key>-Taste."
+      },
+      "Punctuation": {
+        "heading": "Interpunktion",
+        "text": "Du könntest die Zeit oder Brüche anzeigen, oder... etwas, das ein Semikolon erfordert. Mir fällt zwar kein Beispiel ein, aber es ist da, falls du's brauchst. Semikolons sind cool."
+      },
+      "Special": {
+        "heading": "Sonderzeichen",
+        "text": "Sollten Zahlen allein mal nicht reichen, habe ich einige Rechenoperatoren und Schrägstriche hinzugefügt. Die könntest du für Differenzen oder Multiplikatoren verwenden."
+      },
+      "Download": {
+        "heading": "Ab in den Zahlentraum",
+        "text": "Nichts ist schöner.",
+        "button": "Abfahrt"
+      }
+    },
+    "Head": {
+      "description": "Ziffern inspiriert von der Score-Anzeige in osu!lazer.",
+      "title": "Mint Triangles"
+    }
+  },
+  "NAVIGATION": {
+    "Path": {
+      "General": {
+        "title": "Allgemein",
+        "Home": {
+          "description": "Hier fing alles an.",
+          "title": "Startseite"
+        },
+        "Articles": {
+          "title": "Artikel",
+          "description": "Worte über einige meiner Projekte, oder sonstwas."
+        },
+        "Mina": {
+          "description": "Keine Seite ist grüner als diese.",
+          "title": "Mina"
+        },
+        "Contact": {
+          "description": "Für Antworten auf deine Fragen hier entlang.",
+          "title": "Kontakt"
+        }
+      },
+      "Work": {
+        "title": "Werke",
+        "Graphics": {
+          "description": "2D/3D Render und Animationen.",
+          "title": "Grafiken"
+        },
+        "Photos": {
+          "description": "Einige Schnappschüsse.",
+          "title": "Fotos"
+        },
+        "Projects": {
+          "Triangles": {
+            "description": "Die Ziffern von osu!lazer. Fast.",
+            "title": "Mint Triangles"
+          },
+          "Icons": {
+            "description": "15x15 Icons für UIs.",
+            "title": "Icons"
+          },
+          "YtDlpGui": {
+            "description": "Ein GUI für yt-dlg unter Windows.",
+            "title": "yt-dlp GUI"
+          },
+          "Mintcraft": {
+            "description": "Ein Minecraft-Ressourcenpaket.",
+            "title": "Mintcraft"
+          },
+          "Mintsans": {
+            "description": "Eine serifenlose Schriftart.",
+            "title": "Mintsans"
+          },
+          "Mintbit": {
+            "description": "Eine Pixelschriftart.",
+            "title": "Mintbit"
+          },
+          "AppIcons": {
+            "description": "App-Symbole im Windows-11-Stil.",
+            "title": "App-Symbole"
+          },
+          "More": {
+            "title": "Weitere Projekte ansehen..."
+          }
+        }
+      },
+      "Other": {
+        "title": "Weiteres",
+        "Privacy": {
+          "description": "Spoiler: Ich speichere nix besonderes.",
+          "title": "Datenschutzerklärung"
+        },
+        "AI": {
+          "description": "Mein Standpankt zur Verwendung meiner Werke für KI-Training.",
+          "title": "Erklärung bzgl. KI-Training"
+        },
+        "SwitchLocale": {
+          "description": "What you're reading doesn't make a lick of sense to you? Click here.",
+          "title": "English, please!"
+        },
+        "Potato": {
+          "description": "Besuche eine weniger aufwendige Version dieser Website.",
+          "title": "Kartoffel"
+        }
+      }
+    }
+  },
+  "PALETTE": {
+    "Head": {
+      "title": "Palette",
+      "description": "Meine Farb-Palette."
+    },
+    "Content": {
+      "Current": {
+        "heading": "Verwendung",
+        "text1": "Klicke einfach auf eines der unteren Felder, um den HEX-Code in die Zwischenablage zu kopieren.",
+        "text2": "Vielleicht findest du das hier auch nützlich:",
+        "tailwind": "Tailwind-Konfig ansehen"
+      },
+      "Old": {
+        "heading": "Alte Palette",
+        "text1": "Selbes Prinzip, nur mit meiner vorherigen Farbpalette.",
+        "text2": "Falls du es noch brauchst:",
+        "affinity": "Alte Farbfelder für Affinity herunterladen"
+      }
+    }
+  },
+  "PHOTOS": {
+    "Head": {
+      "description": "Urlaubsfotos und andere Schnappschüsse.",
+      "title": "Fotos"
+    },
+    "Content": {
+      "Disclaimer": {
+        "heading": "Alle Reche vorbehalten, sofern nicht anders angegeben",
+        "text1": "Die Verwendung von Fotos auf dieser Seite als Desktop- oder Handy-Hintergrundbilder ist auf deinen persönlichen Geräten erlaubt.",
+        "text2": "Davon abgesehen ist jegliche Wiederverwendung, ganz gleich ob für kommerzielle oder persönliche Zwecke, ohne meine schriftliche Erlaubnis <b>untersagt</b>.",
+        "text3": "<Link>Schreibe mir eine Nachricht</Link>, wenn du Fragen dazu hast."
+      },
+      "Camera": {
+        "iso": "ISO",
+        "aperture": "Blende",
+        "shutterSpeed": "Belichtungszeit",
+        "focalLength": "Brennweite <small>(35 mm äquivalent)</small>"
+      }
+    }
+  },
+  "POMIFURI": {
+    "Head": {
+      "title": "Website und Logo für Pomifuri",
+      "description": "Eine Streamerin und Künstlerin."
+    }
+  },
+  "PRIVACY": {
+    "Head": {
+      "description": "Erfahre, welche Daten bei deinem Besuch verarbeitet werden.",
+      "title": "Datenschutzerklärung"
+    },
+    "Content": {
+      "lastUpdated": "Zuletzt aktualisiert: {revisionDate, date, ::yyyyMMMMd}"
+    }
+  },
+  "PROJECTS": {
+    "Head": {
+      "description": "Krams von mir den du verwenden kannst.",
+      "title": "Projekte"
+    },
+    "Tag": {
+      "font": "Schriftart",
+      "design": "Design-Ding",
+      "website": "Website",
+      "software": "Software",
+      "customization": "Personalisierung"
+    }
+  },
+  "SETTINGS": {
+    "title": "Einstellungen",
+    "description": "Ändere die Sprache und das Design, welches verwendet werden soll.",
+    "Language": {
+      "title": "Sprache",
+      "en": "English",
+      "de": "Deutsch"
+    },
+    "Theme": {
+      "title": "Design",
+      "dark": "Dunkel",
+      "light": "Hell",
+      "lightInfo": "Das helle Design dient der Barrierefreiheit. Verwende es, wenn du Schwierigkeiten hast, hellen Text auf dunklem Hintergrund zu lesen."
+    }
+  },
+  "TENTATIVE": {
+    "Head": {
+      "title": "Website und Branding für Tentative",
+      "description": "Eine Gruppe von unschlüssigen Kreativen, einschließlich meiner Wenigkeit."
+    }
+  },
+  "TRADEOFFER": {
+    "Head": {
+      "title": "Handelsangebot",
+      "description": "Ich erhalte eine Ko-fi-Spende, du erhältst Vorabversionen von MN Varia sowie die gesamte Familie, sobald sie fertig ist."
+    },
+    "Content": {
+      "Intro": {
+        "tradeOffer": "⚠️HANDELSANGEBOT⚠️",
+        "iReceive": "ich erhalte:",
+        "iReceiveSub": "15 € auf Ko-fi",
+        "youReceive": "du erhältst:",
+        "youReceiveSub1": "vorabversionen von mn varia",
+        "youReceiveSub2": "die gesamte schriftfamilie, sobald sie fertig ist"
+      },
+      "License": {
+        "heading": "Lizenz",
+        "text": "Du erhältst Desktop- und Web-Lizenzen mit den jeweils folgenden Bedingungen (nur auf Englisch verfügbar):",
+        "Desktop": {
+          "heading": "Desktop-Lizenz",
+          "tldr": "Persönliche und kommerzielle Projekte, kein Teilen oder Weiterverkauf, keine Konvertierung in andere Formate."
+        },
+        "Web": {
+          "heading": "Web-Lizenz",
+          "tldr": "Eine Website, unendliche Page-Views, keine zusätzlichen Websites unter Subdomains oder Unterordnern, keine Konvertierung in andere Formate."
+        }
+      }
+    }
+  },
+  "WORKS": {
+    "Head": {
+      "description": "Schau dir (fast) alle meiner Kreationen an.",
+      "title": "Werke"
+    }
+  },
+  "YTDG": {
+    "Content": {
+      "About": {
+        "heading": "Terminals bereiten dir Angst?",
+        "text1": "Mir nicht (Arch btw). Dafür hasse ich jedoch Windows, was die Vorstellung, an einem Projekt wie diesem zu arbeiten, fast unheilig erscheinen lässt.",
+        "text2": "Wie auch immer, eines Tages fragte mich jemand nach einem guten Video-Downloader. Meine Empfehlung war <Link>yt-dlp</Link>, welches ein Fork von einem Fork von youtube-dl ist. Einziger \"Nachteil\": Es ist eine Kommandozeilen-Anwendung.",
+        "text3": "Nach einem knappen Jahrzehnt seit meinem letzten Kontakt mit C# kommt hier mein yt-dlp-Frontend, welches so einfach wie möglich zu bedienen sein soll.",
+        "text4": "Ja, ich bin mir der Existenz anderer GUIs bewusst. Ruhig jetzt."
+      },
+      "Roadmap": {
+        "heading": "Künftige Pläne",
+        "savingSettings": "Merken der letzten Einstellungen für den Download-Typ, Formate und Ausgabe-Pfad.",
+        "tempFolder": "Dateien während eines Downloads in ein temporäres Verzeichnes speichern, bevor sie in den Ausgabe-Pfad verschoben werden.",
+        "autoUpdater": "Neue Releases auf GitHub erkennen und über sie informieren, diese dann entweder manuell installieren, oder mit ein bis zwei Klicks.",
+        "translations": "Übersetzung ins Deutsche mit Spracherkennung über das Betriebssystem.",
+        "fullSupport": "Vollständige Unterstützung von Downloads oder Konvertierung in alle Formate und Auflösungen, die yt-dlp unterstützt, ggf. mit FFmpeg.",
+        "youTellMe": "Sag du's mir. Ich bin für Vorschläge offen."
+      },
+      "Download": {
+        "heading": "Download von GitHub",
+        "text": "Den neuesten Installer findest du immer auf der Releases-Seite des Repositories."
+      }
+    },
+    "Head": {
+      "description": "Nutze yt-dlp, ohne ein Terminal anzufassen.",
+      "title": "yt-dlp GUI"
+    }
+  }
 }
