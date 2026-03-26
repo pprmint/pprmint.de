@@ -26,7 +26,7 @@ export default function Buttons({
         <Dialog.Trigger>
           <Image
             unoptimized
-            src="88x31.png"
+            src="/88x31.png"
             width={88}
             height={31}
             alt="pprmint.de button"
@@ -48,7 +48,7 @@ export default function Buttons({
                   <div>
                     <Image
                       unoptimized
-                      src="88x31.png"
+                      src="/88x31.png"
                       width={88}
                       height={31}
                       alt="pprmint.de button"
@@ -58,7 +58,7 @@ export default function Buttons({
                   <div>
                     <Image
                       unoptimized
-                      src="88x31.gif"
+                      src="/88x31.gif"
                       width={88}
                       height={31}
                       alt="pprmint.de button"
