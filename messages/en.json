@@ -344,8 +344,7 @@
       "description": "These are my buttons in the classic 88x31 pixel resolution. You may right-click and save them if you'd like.",
       "codeSnippet": "Use the following code snippet to embed the button on your own website:",
       "alsoAsGif": ".GIF can be used instead of .PNG as well.",
-      "copy": "Copy code",
-      "close": "Close"
+      "copy": "Copy code"
     }
   },
   "GRAPHICS": {
@@ -512,7 +511,8 @@
         "designedBy": "Designed by <Link>{designer}</Link>",
         "showArtworksFeaturingOutfit": "Show artworks featuring this outfit",
         "front": "Front",
-        "back": "Back"
+        "back": "Back",
+        "credit": "References were drawn by <Link>Layer (@TenHeavenly)</Link>."
       },
       "Fanart": {
         "heading": "Fanart rules",

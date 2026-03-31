@@ -377,8 +377,14 @@ export interface Outfit {
   name: string;
   designer: string | Artist;
   description: string;
-  referenceFront?: (string | null) | Artwork;
-  referenceBack?: (string | null) | Artwork;
+  references?:
+    | {
+        label: string;
+        referenceFront: string | Artwork;
+        referenceBack: string | Artwork;
+        id?: string | null;
+      }[]
+    | null;
   artworks?: {
     docs?: (string | Mina)[];
     hasNextPage?: boolean;
@@ -957,8 +963,14 @@ export interface OutfitsSelect<T extends boolean = true> {
   name?: T;
   designer?: T;
   description?: T;
-  referenceFront?: T;
-  referenceBack?: T;
+  references?:
+    | T
+    | {
+        label?: T;
+        referenceFront?: T;
+        referenceBack?: T;
+        id?: T;
+      };
   artworks?: T;
   slug?: T;
   slugLock?: T;

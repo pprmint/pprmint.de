@@ -11,8 +11,7 @@ export default async function OutfitRowSuspense() {
 	const outfits = await payload.find({
 		collection: "outfits",
 		where: {
-			referenceFront: { exists: true },
-			referenceBack: { exists: true },
+			references: { exists: true },
 		},
 		pagination: false,
 		limit: undefined,

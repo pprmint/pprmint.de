@@ -349,8 +349,7 @@
       "description": "Das hier sind meine Buttons in der klassischen Auflösung von 88x31 Pixeln. Du darfst sie bei Bedarf gerne herunterladen.",
       "codeSnippet": "Verwende den folgenden Code-Schnipsel, um diesen Button auf deiner Website einzubetten:",
       "alsoAsGif": "Statt der Endung .PNG kann auch .GIF verwendet werden.",
-      "copy": "Code kopieren",
-      "close": "Schließen"
+      "copy": "Code kopieren"
     }
   },
   "GRAPHICS": {
@@ -517,7 +516,8 @@
         "designedBy": "Entworfen von <Link>{designer}</Link>",
         "showArtworksFeaturingOutfit": "Kunstwerke mit diesem Outfit anzeigen",
         "front": "Vorderseite",
-        "back": "Rückseite"
+        "back": "Rückseite",
+        "credit": "Referenzen wurden von <Link>Layer (@TenHeavenly)</Link> gezeichnet."
       },
       "Fanart": {
         "heading": "Fanart-Regeln",

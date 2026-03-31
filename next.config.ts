@@ -34,6 +34,7 @@ module.exports = withPayload(
 	withNextIntl({
 		reactStrictMode: false,
 		images: {
+			qualities: [75, 90, 100],
 			remotePatterns: [
 				{
 					hostname: "*.pprmint.de",
