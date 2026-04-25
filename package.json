@@ -76,7 +76,7 @@
 	"devDependencies": {
 		"@tailwindcss/postcss": "^4.2.2",
 		"@tailwindcss/typography": "^0.5.19",
-		"postcss": "^8.5.9",
+		"postcss": "^8.5.10",
 		"tailwindcss": "^4.2.2"
 	},
 	"pnpm": {
