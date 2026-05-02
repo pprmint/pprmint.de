@@ -749,14 +749,14 @@
         },
         "Articles": {
           "title": "Articles",
-          "description": "Words about some of my projects, or anything else."
+          "description": "Words about projects or anything else."
         },
         "Mina": {
           "description": "The greenest page on this entire website.",
           "title": "Mina"
         },
         "Contact": {
-          "description": "Answers to (almost) all your questions this way.",
+          "description": "Get answers to (almost) all of your questions.",
           "title": "Contact"
         }
       },
