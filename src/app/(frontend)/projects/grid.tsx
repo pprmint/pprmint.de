@@ -9,6 +9,7 @@ import ArrowRight from "@/icons/ArrowRight";
 import Globe from "@/icons/Globe";
 import Link from "next/link";
 
+import NucleoImage from "./nucleo/twitter-image.png";
 import PomifuriImage from "./pomifuri/twitter-image.png";
 import AutselliaImage from "./autsellia/twitter-image.png";
 import AppiconsImage from "./appicons/twitter-image.png";
@@ -23,6 +24,11 @@ import YtdgImage from "./ytdg/twitter-image.png";
 import { useState } from "react";
 
 const ProjectsList = [
+	{
+		name: "nucleo",
+		tags: ["font"],
+		image: NucleoImage,
+	},
 	{
 		name: "pomifuri",
 		tags: ["website"],
