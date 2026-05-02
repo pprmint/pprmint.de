@@ -29,11 +29,6 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ p
 		locale: locale,
 		pagination: true,
 		page: parseInt(p),
-		where: {
-			tags: {
-				contains: tag,
-			},
-		},
 		select: {
 			title: true,
 			description: true,
