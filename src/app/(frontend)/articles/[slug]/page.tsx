@@ -103,12 +103,12 @@ export default async function Page({ params: paramsPromise }: Args) {
 				</header>
 				<div className="relative max-w-6xl mx-auto px-6 md:px-9 lg:px-12">
 					<RichText
-						className="border-x border-black/5 dark:border-white/5 lg:text-lg py-20 md:py-32 xl:py-40 md:col-span-2 xl:prose-h1:text-7xl"
+						className="border-x border-black/5 dark:border-white/5 lg:text-lg pb-20 md:pb-32 xl:pb-40 pt-12 md:col-span-2 xl:prose-h1:text-7xl"
 						data={article.content}
 					/>
 					<div
 						aria-hidden
-						className="absolute bottom-[0.25em] right-12 lg:right-16 font-serif text-neutral-950 dark:text-white text-6xl xl:text-7xl"
+						className="italic absolute bottom-[0.25em] right-12 lg:right-16 font-serif text-neutral-950 dark:text-white text-6xl xl:text-7xl"
 					>
 						fin<span className="text-green">.</span>
 					</div>

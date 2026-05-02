@@ -51,11 +51,12 @@ export default function RichText(props: Props) {
 			converters={jsxConverters}
 			className={cn(
 				"prose-em:italic",
-				"prose-ul:list-disc prose-ul:list-inside prose-ul:ml-[0.5em] prose-ul:mb-3",
+				"prose-ul:list-disc prose-ul:list-inside prose-li:ml-3 prose-ul:mb-3 prose-li:mb-1",
 				"prose-h2:pt-9 prose-h3:pt-9 prose-h4:pt-9 prose-h5:pt-9",
+				"prose-h2:pb-3 prose-h3:pb-3 prose-h4:pb-3 prose-h5:pb-3",
 				"prose-blockquote:font-serif prose-blockquote:text-lg prose-blockquote:text-black dark:prose-blockquote:text-white prose-blockquote:bg-black/5 dark:prose-blockquote:bg-white/5 prose-blockquote:px-3 prose-blockquote:py-2 prose-blockquote:mb-3",
 				"prose-hr:border-black/5 dark:prose-hr:border-white/5 prose-hr:pt-9 prose-a:text-link",
-				"prose-code:bg-black/5 dark:prose-code:bg-white/5 prose-code:leading-3 prose-code:font-mono prose-code:text-[0.95em] prose-code:px-1 prose-code:py-0.5 prose-code:text-neutral-950 dark:prose-code:text-white",
+				"prose-code:bg-black/5 dark:prose-code:bg-white/5 prose-code:leading-3 prose-code:font-mono prose-code:text-[0.95em] prose-code:px-1.5 prose-code:py-0.75 prose-code:text-neutral-950 dark:prose-code:text-white",
 				className
 			)}
 			{...rest}
