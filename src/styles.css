@@ -633,7 +633,7 @@
 }
 
 @utility text-link-external {
-	@apply font-medium text-blue underline decoration-1 decoration-dotted hover:decoration-solid decoration-blue/50 hover:decoration-blue duration-100 underline-offset-2;
+	@apply font-medium text-blue-600 dark:text-blue underline decoration-1 decoration-dotted hover:decoration-solid decoration-blue/50 hover:decoration-blue duration-100 underline-offset-2;
 }
 
 @utility italic {

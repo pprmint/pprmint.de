@@ -824,6 +824,19 @@
       }
     }
   },
+  	"NUCLEO": {
+		"Head": {
+			"description": "Sieht aus wie Marathon. Ist's nicht.",
+			"title": "MN Nucleo"
+		},
+		"Content": {
+			"About": {
+				"heading": "Das ist so Marathon",
+				"text1": "Diese Schriftart ist inspiriert vom Logo von <link>NuCaloric</link>, einem fiktiven Lebensmittelhersteller aus dem Spiel Marathon. Mehr weiß ich auch nicht.",
+				"text2": "Sie wurde exklusiv für meinen Freund <link>Funz</link> erstellt und ist daher nicht zum Download verfügbar."
+			}
+		}
+	},
   "PALETTE": {
     "Head": {
       "title": "Palette",
