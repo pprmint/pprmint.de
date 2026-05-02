@@ -34,7 +34,7 @@ export default function NotFound() {
 	const slnt = useTransform(x, [0, 1], [0, -12]);
 
 	return (
-		<main className="relative w-screen xl:h-screen overflow-clip">
+		<main className="relative w-screen xl:h-screen overflow-clip border-b border-black/5 dark:border-white/5">
 			<div className="absolute inset-0 bottom-[10vh] -z-10">
 				<m.div
 					aria-hidden
