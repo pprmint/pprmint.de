@@ -80,8 +80,8 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 					direction < 0
 						? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
 						: direction > 0
-						? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
-						: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+							? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
+							: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
 			};
 		},
 		center: {
@@ -92,9 +92,7 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 			return {
 				x: direction < 0 ? 120 + xOffset : -120 + xOffset,
 				clipPath:
-					direction < 0
-						? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
-						: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+					direction < 0 ? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)" : "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
 				opacity: 0,
 			};
 		},
@@ -163,6 +161,7 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 											<TransformWrapper
 												disablePadding
 												onTransformed={(e) => setScale(e.state.scale)}
+												doubleClick={{ mode: "toggle" }}
 											>
 												<TransformComponent>
 													<div className="flex items-center justify-center w-screen h-screen max-h-svh">
@@ -186,10 +185,7 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 																dragElastic={1}
 																onDragEnd={(e, { offset, velocity }) => {
 																	const swipeConfidenceThreshold = 10000;
-																	const swipePower = (
-																		offset: number,
-																		velocity: number
-																	) => {
+																	const swipePower = (offset: number, velocity: number) => {
 																		return Math.abs(offset) * velocity;
 																	};
 																	setXOffset(offset.x);
@@ -246,130 +242,81 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 																className="flex md:items-center grow flex-col md:flex-row gap-3 md:gap-6"
 															>
 																<div className="flex items-center gap-3">
-																	{typeof photos.docs[selectedPhoto].camera ===
-																		"object" &&
+																	{typeof photos.docs[selectedPhoto].camera === "object" &&
 																	photos.docs[selectedPhoto].camera.svgLogo ? (
 																		<div
 																			className="h-4 *:h-4 md:h-6 md:*:h-6 w-auto *:w-auto"
 																			dangerouslySetInnerHTML={{
-																				__html: photos.docs[selectedPhoto]
-																					.camera.svgLogo,
+																				__html: photos.docs[selectedPhoto].camera.svgLogo,
 																			}}
 																		/>
 																	) : (
 																		<div className="font-medium text-lg">
-																			{typeof photos.docs[selectedPhoto]
-																				.camera === "object" &&
+																			{typeof photos.docs[selectedPhoto].camera === "object" &&
 																				photos.docs[selectedPhoto].camera.name}
 																		</div>
 																	)}
 																	<div>
 																		<Dialog.Title asChild>
-																			<div
-																				className="text-sm"
-																				style={{ lineHeight: 1 }}
-																			>
-																				{format.dateTime(
-																					new Date(
-																						photos.docs[selectedPhoto].date
-																					),
-																					{
-																						day: "numeric",
-																						month: "long",
-																						year: "numeric",
-																					}
-																				)}
+																			<div className="text-sm" style={{ lineHeight: 1 }}>
+																				{format.dateTime(new Date(photos.docs[selectedPhoto].date), {
+																					day: "numeric",
+																					month: "long",
+																					year: "numeric",
+																				})}
 																				,{" "}
-																				{format.dateTime(
-																					new Date(
-																						photos.docs[selectedPhoto].date
-																					),
-																					{
-																						hour: "numeric",
-																						minute: "2-digit",
-																					}
-																				)}
+																				{format.dateTime(new Date(photos.docs[selectedPhoto].date), {
+																					hour: "numeric",
+																					minute: "2-digit",
+																				})}
 																			</div>
 																		</Dialog.Title>
 																		{photos.docs[selectedPhoto].lens && (
-																			<div
-																				className="text-xs text-white/70 mt-0.5"
-																				style={{ lineHeight: 1 }}
-																			>
-																				{typeof photos.docs[selectedPhoto]
-																					.lens === "object" &&
-																					photos.docs[selectedPhoto].lens
-																						.name}
+																			<div className="text-xs text-white/70 mt-0.5" style={{ lineHeight: 1 }}>
+																				{typeof photos.docs[selectedPhoto].lens === "object" &&
+																					photos.docs[selectedPhoto].lens.name}
 																			</div>
 																		)}
 																	</div>
 																</div>
 																<div className="dark flex gap-3 md:gap-6 select-none text-white/70">
 																	{photos.docs[selectedPhoto].iso && (
-																		<Tooltip
-																			text={t("Content.Camera.iso")}
-																			side="top"
-																		>
+																		<Tooltip text={t("Content.Camera.iso")} side="top">
 																			<div className="flex gap-1 items-center">
 																				<CameraIso />
-																				<span className="text-sm">
-																					{photos.docs[selectedPhoto].iso}
-																				</span>
+																				<span className="text-sm">{photos.docs[selectedPhoto].iso}</span>
 																			</div>
 																		</Tooltip>
 																	)}
 																	{photos.docs[selectedPhoto].aperture && (
-																		<Tooltip
-																			text={t("Content.Camera.aperture")}
-																			side="top"
-																		>
+																		<Tooltip text={t("Content.Camera.aperture")} side="top">
 																			<div className="flex gap-1 items-center">
 																				<CameraAperture />
 																				<span className="text-sm">
-																					<i>f</i>/
-																					{
-																						photos.docs[selectedPhoto]
-																							.aperture
-																					}
+																					<i>f</i>/{photos.docs[selectedPhoto].aperture}
 																				</span>
 																			</div>
 																		</Tooltip>
 																	)}
 																	{photos.docs[selectedPhoto].shutterSpeed && (
-																		<Tooltip
-																			text={t("Content.Camera.shutterSpeed")}
-																			side="top"
-																		>
+																		<Tooltip text={t("Content.Camera.shutterSpeed")} side="top">
 																			<div className="flex gap-1 items-center">
 																				<CameraShutterSpeed />
-																				<span className="text-sm">
-																					{
-																						photos.docs[selectedPhoto]
-																							.shutterSpeed
-																					}
-																					s
-																				</span>
+																				<span className="text-sm">{photos.docs[selectedPhoto].shutterSpeed}s</span>
 																			</div>
 																		</Tooltip>
 																	)}
 																	{photos.docs[selectedPhoto].focalLength && (
 																		<Tooltip
 																			text={t.rich("Content.Camera.focalLength", {
-																				small: (chunks) => (
-																					<span className="text-xs">
-																						{chunks}
-																					</span>
-																				),
+																				small: (chunks) => <span className="text-xs">{chunks}</span>,
 																			})}
 																			side="top"
 																		>
 																			<div className="flex gap-1 items-center">
 																				<CameraFocalLength />
 																				<span className="text-sm">
-																					{
-																						photos.docs[selectedPhoto]
-																							.focalLength
-																					}
+																					{photos.docs[selectedPhoto].focalLength}
 																					mm
 																				</span>
 																			</div>
@@ -434,21 +381,9 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 																	} duration-300 ease-out-quart overflow-clip`}
 																>
 																	<Image
-																		src={
-																			photo.sizes?.thumbnail?.url ||
-																			photo.url ||
-																			""
-																		}
-																		width={
-																			photo.sizes?.thumbnail?.width ||
-																			photo.width ||
-																			0
-																		}
-																		height={
-																			photo.sizes?.thumbnail?.height ||
-																			photo.height ||
-																			0
-																		}
+																		src={photo.sizes?.thumbnail?.url || photo.url || ""}
+																		width={photo.sizes?.thumbnail?.width || photo.width || 0}
+																		height={photo.sizes?.thumbnail?.height || photo.height || 0}
 																		alt={photo.alt || ""}
 																		className="absolute top-0 inset-x-0 h-full object-cover"
 																	/>

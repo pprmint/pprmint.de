@@ -102,8 +102,8 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 					direction < 0
 						? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
 						: direction > 0
-						? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
-						: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+							? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
+							: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
 			};
 		},
 		center: {
@@ -114,9 +114,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 			return {
 				x: direction < 0 ? 120 + xOffset : -120 + xOffset,
 				clipPath:
-					direction < 0
-						? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
-						: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+					direction < 0 ? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)" : "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
 				opacity: 0,
 			};
 		},
@@ -238,6 +236,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 												<TransformWrapper
 													disablePadding
 													onTransformed={(e) => setScale(e.state.scale)}
+													doubleClick={{ mode: "toggle" }}
 												>
 													<TransformComponent>
 														<div className="flex items-center justify-center w-screen h-screen max-h-svh">
@@ -261,18 +260,12 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																	dragElastic={1}
 																	onDragEnd={(_, { offset, velocity }) => {
 																		const swipeConfidenceThreshold = 10000;
-																		const swipePower = (
-																			offset: number,
-																			velocity: number
-																		) => {
+																		const swipePower = (offset: number, velocity: number) => {
 																			return Math.abs(offset) * velocity;
 																		};
 																		const swipe = swipePower(offset.x, velocity.x);
 																		if (swipe < -swipeConfidenceThreshold) {
-																			if (
-																				selectedArtwork <
-																				artworks.docs.length - 1
-																			) {
+																			if (selectedArtwork < artworks.docs.length - 1) {
 																				handleSelectArtwork({
 																					id: selectedArtwork + 1,
 																					offset: offset.x,
@@ -288,33 +281,14 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																		}
 																	}}
 																>
-																	{typeof artworks.docs[selectedArtwork].images[
-																		selectedVariant
-																	].image === "object" && (
+																	{typeof artworks.docs[selectedArtwork].images[selectedVariant].image === "object" && (
 																		<FadingImage
-																			src={
-																				artworks.docs[selectedArtwork].images[
-																					selectedVariant
-																				].image.url || ""
-																			}
-																			width={
-																				artworks.docs[selectedArtwork].images[
-																					selectedVariant
-																				].image.width || 0
-																			}
-																			height={
-																				artworks.docs[selectedArtwork].images[
-																					selectedVariant
-																				].image.height || 0
-																			}
-																			alt={
-																				artworks.docs[selectedArtwork].images[
-																					selectedVariant
-																				].image.alt || ""
-																			}
+																			src={artworks.docs[selectedArtwork].images[selectedVariant].image.url || ""}
+																			width={artworks.docs[selectedArtwork].images[selectedVariant].image.width || 0}
+																			height={artworks.docs[selectedArtwork].images[selectedVariant].image.height || 0}
+																			alt={artworks.docs[selectedArtwork].images[selectedVariant].image.alt || ""}
 																			className={`max-h-svh w-auto mx-auto py-16 ${
-																				artworks.docs[selectedArtwork]
-																					.unoptimized && "pixelated"
+																				artworks.docs[selectedArtwork].unoptimized && "pixelated"
 																			}`}
 																			unoptimized
 																			priority
@@ -343,13 +317,9 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 														>
 															<div className="h-16 inline-flex flex-col justify-center">
 																<AnimatePresence mode="wait">
-																	{typeof artworks.docs[selectedArtwork].artist ===
-																		"object" && (
+																	{typeof artworks.docs[selectedArtwork].artist === "object" && (
 																		<m.div
-																			key={
-																				artworks.docs[selectedArtwork].artist
-																					.name
-																			}
+																			key={artworks.docs[selectedArtwork].artist.name}
 																			initial={{ opacity: 0 }}
 																			animate={{
 																				opacity: 1,
@@ -362,41 +332,22 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																		>
 																			<Dialog.Title asChild>
 																				<span className="text-xl">
-																					<span>
-																						{t("Content.Artworks.drawnBy")}
-																					</span>
-																					{artworks.docs[selectedArtwork]
-																						.artist.creditLinks &&
-																					artworks.docs[selectedArtwork]
-																						.artist.creditLinks.length >
-																						0 ? (
+																					<span>{t("Content.Artworks.drawnBy")}</span>
+																					{artworks.docs[selectedArtwork].artist.creditLinks &&
+																					artworks.docs[selectedArtwork].artist.creditLinks.length > 0 ? (
 																						<Link
-																							href={
-																								artworks.docs[
-																									selectedArtwork
-																								].artist.creditLinks[0]
-																									.url
-																							}
+																							href={artworks.docs[selectedArtwork].artist.creditLinks[0].url}
 																							target="_blank"
 																							rel="noopener noreferrer"
 																							className="text-link text-white decoration-white/50"
 																						>
-																							{
-																								artworks.docs[
-																									selectedArtwork
-																								].artist.name
-																							}
+																							{artworks.docs[selectedArtwork].artist.name}
 																						</Link>
 																					) : (
-																						artworks.docs[selectedArtwork]
-																							.artist.name
+																						artworks.docs[selectedArtwork].artist.name
 																					)}
-																					{artworks.docs[selectedArtwork]
-																						.wholesome && (
-																						<span className="text-red">
-																							{" "}
-																							♥
-																						</span>
+																					{artworks.docs[selectedArtwork].wholesome && (
+																						<span className="text-red"> ♥</span>
 																					)}
 																				</span>
 																			</Dialog.Title>
@@ -435,61 +386,26 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																					}}
 																				>
 																					{t("Content.Artworks.featuring")}{" "}
-																					{artworks.docs[
-																						selectedArtwork
-																					].featuring
-																						.filter(
-																							(character) =>
-																								typeof character ===
-																								"object"
-																						)
-																						.map(
-																							(
-																								character,
-																								index,
-																								array
-																							) => (
-																								<Fragment
-																									key={character.id}
-																								>
-																									{character.link ? (
-																										<Link
-																											href={
-																												character.link
-																											}
-																											target="_blank"
-																											rel="noopener norefererrer"
-																											className="text-white"
-																										>
-																											{
-																												character.name
-																											}
-																										</Link>
-																									) : (
-																										<span>
-																											{
-																												character.name
-																											}
-																										</span>
-																									)}
-																									{index !==
-																										array.length -
-																											1 &&
-																										(index <
-																										array.length -
-																											2 ? (
-																											<span>
-																												,{" "}
-																											</span>
-																										) : (
-																											<span>
-																												{" "}
-																												&{" "}
-																											</span>
-																										))}
-																								</Fragment>
-																							)
-																						)}
+																					{artworks.docs[selectedArtwork].featuring
+																						.filter((character) => typeof character === "object")
+																						.map((character, index, array) => (
+																							<Fragment key={character.id}>
+																								{character.link ? (
+																									<Link
+																										href={character.link}
+																										target="_blank"
+																										rel="noopener norefererrer"
+																										className="text-white"
+																									>
+																										{character.name}
+																									</Link>
+																								) : (
+																									<span>{character.name}</span>
+																								)}
+																								{index !== array.length - 1 &&
+																									(index < array.length - 2 ? <span>, </span> : <span> & </span>)}
+																							</Fragment>
+																						))}
 																				</m.p>
 																			</AnimatePresence>
 																		</m.div>
@@ -506,30 +422,23 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																		className="absolute top-3.5 right-16 sm:right-1/2 sm:translate-x-1/2"
 																	>
 																		<div className="flex flex-row items-center justify-center h-9">
-																			{artworks.docs[selectedArtwork].images.map(
-																				(_, index) => (
-																					<button
-																						key={index}
-																						className={`group h-full ${
+																			{artworks.docs[selectedArtwork].images.map((_, index) => (
+																				<button
+																					key={index}
+																					className={`group h-full ${
+																						index === selectedVariant ? "w-12" : "w-6"
+																					} px-1.5 duration-200 ease-out-quint`}
+																					onClick={() => setSelectedVariant(index)}
+																				>
+																					<div
+																						className={`${
 																							index === selectedVariant
-																								? "w-12"
-																								: "w-6"
-																						} px-1.5 duration-200 ease-out-quint`}
-																						onClick={() =>
-																							setSelectedVariant(index)
-																						}
-																					>
-																						<div
-																							className={`${
-																								index ===
-																								selectedVariant
-																									? "bg-white h-[3px] duration-200"
-																									: "bg-white/20 group-hover:bg-white/50 h-[3px]"
-																							} ease-out-quint`}
-																						/>
-																					</button>
-																				)
-																			)}
+																								? "bg-white h-[3px] duration-200"
+																								: "bg-white/20 group-hover:bg-white/50 h-[3px]"
+																						} ease-out-quint`}
+																					/>
+																				</button>
+																			))}
 																		</div>
 																	</m.div>
 																)}
@@ -586,37 +495,25 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																{artworks.docs.map((artwork, index) => (
 																	<button
 																		key={index}
-																		onClick={() =>
-																			handleSelectArtwork({ id: index })
-																		}
+																		onClick={() => handleSelectArtwork({ id: index })}
 																		className={`relative ${
 																			selectedArtwork === index
 																				? "h-12 w-16"
 																				: "h-10 w-10 saturate-0 hover:saturate-100 opacity-50 hover:opacity-100"
 																		} duration-300 ease-out-quart overflow-clip`}
 																	>
-																		{typeof artwork.images[0].image ===
-																			"object" && (
+																		{typeof artwork.images[0].image === "object" && (
 																			<Image
 																				src={
-																					artwork.images[0].image.sizes
-																						?.thumbnail?.url ||
+																					artwork.images[0].image.sizes?.thumbnail?.url ||
 																					artwork.images[0].image.url ||
 																					""
 																				}
-																				width={
-																					artwork.images[0].image.sizes
-																						?.thumbnail?.width || 0
-																				}
-																				height={
-																					artwork.images[0].image.sizes
-																						?.thumbnail?.height || 0
-																				}
+																				width={artwork.images[0].image.sizes?.thumbnail?.width || 0}
+																				height={artwork.images[0].image.sizes?.thumbnail?.height || 0}
 																				alt={artwork.images[0].image.alt || ""}
 																				className={`absolute top-0 inset-x-0 h-full object-cover ${
-																					artwork.nsfw &&
-																					selectedArtwork !== index &&
-																					"blur-[2px] hover:blur-none"
+																					artwork.nsfw && selectedArtwork !== index && "blur-[2px] hover:blur-none"
 																				}`}
 																				style={{
 																					objectPosition: `${artwork.images[0].image.focalX}% ${artwork.images[0].image.focalY}%`,
@@ -638,26 +535,20 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 												<ContextMenu.Label className="text-xs text-neutral-950/50 dark:text-white/50 ml-2 mt-1.5">
 													{t("Content.Artworks.ContextMenu.Artwork.label")}
 												</ContextMenu.Label>
-												{typeof artwork.images[0].image === "object" &&
-													artwork.images[0].image.url && (
-														<Link
-															href={artwork.images[0].image.url}
-															target="_blank"
-															rel="noopener noreferrer"
-														>
-															<ContextMenuItem>
-																<ExternalLink />
-																{t("Content.Artworks.ContextMenu.Artwork.openInNewTab")}
-															</ContextMenuItem>
-														</Link>
-													)}
+												{typeof artwork.images[0].image === "object" && artwork.images[0].image.url && (
+													<Link href={artwork.images[0].image.url} target="_blank" rel="noopener noreferrer">
+														<ContextMenuItem>
+															<ExternalLink />
+															{t("Content.Artworks.ContextMenu.Artwork.openInNewTab")}
+														</ContextMenuItem>
+													</Link>
+												)}
 												<ContextMenuItem
 													action={() =>
 														navigator.clipboard.writeText(
 															`${process.env.NEXT_PUBLIC_SERVER_URL}${
-																typeof artwork.images[0].image === "object" &&
-																artwork.images[0].image.url
-															}`
+																typeof artwork.images[0].image === "object" && artwork.images[0].image.url
+															}`,
 														)
 													}
 												>
@@ -667,12 +558,8 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 												<ContextMenuItem
 													action={() =>
 														saveAs(
-															(typeof artwork.images[0].image === "object" &&
-																artwork.images[0].image.url) ||
-																"",
-															(typeof artwork.images[0].image === "object" &&
-																artwork.images[0].image.filename) ||
-																""
+															(typeof artwork.images[0].image === "object" && artwork.images[0].image.url) || "",
+															(typeof artwork.images[0].image === "object" && artwork.images[0].image.filename) || "",
 														)
 													}
 												>
@@ -685,9 +572,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 														return (
 															<ContextMenuItem action={() => selectOutfit(outfit.slug)}>
 																<Filter />
-																{t(
-																	"Content.Artworks.ContextMenu.Artwork.showAllWithOutfit"
-																)}
+																{t("Content.Artworks.ContextMenu.Artwork.showAllWithOutfit")}
 															</ContextMenuItem>
 														);
 													}
@@ -699,54 +584,35 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 													{t("Content.Artworks.ContextMenu.Artist.label")}
 												</ContextMenu.Label>
 												<ContextMenuItem
-													action={() =>
-														selectArtist(
-															(typeof artwork.artist === "object" &&
-																artwork.artist.slug) ||
-																""
-														)
-													}
+													action={() => selectArtist((typeof artwork.artist === "object" && artwork.artist.slug) || "")}
 												>
 													<Filter />
 													{t("Content.Artworks.ContextMenu.Artist.showAllByArtist", {
-														artist:
-															(typeof artwork.artist === "object" &&
-																artwork.artist.name) ||
-															"",
+														artist: (typeof artwork.artist === "object" && artwork.artist.name) || "",
 													})}
 												</ContextMenuItem>
 												{typeof artwork.artist === "object" &&
 													artwork.artist.creditLinks?.map((link) => (
-														<Link
-															key={link.id}
-															href={link.url}
-															target="_blank"
-															rel="noopener noreferrer"
-														>
+														<Link key={link.id} href={link.url} target="_blank" rel="noopener noreferrer">
 															<ContextMenuItem>
-																{link.service === "Bluesky" ?
+																{link.service === "Bluesky" ? (
 																	<Bluesky />
-																	: link.service === "YouTube" ?
-																		<YouTube />
-																		: link.service === "Twitter" ?
-																			<Twitter />
-																			: link.service === "Instagram" ?
-																				<Instagram />
-																				: <Globe />
-																}
+																) : link.service === "YouTube" ? (
+																	<YouTube />
+																) : link.service === "Twitter" ? (
+																	<Twitter />
+																) : link.service === "Instagram" ? (
+																	<Instagram />
+																) : (
+																	<Globe />
+																)}
 																{link.service === "Website"
-																	? t(
-																			"Content.Artworks.ContextMenu.Artist.visitWebsite",
-																			{
-																				site: new URL(link.url).hostname,
-																			}
-																		)
-																	: t(
-																			"Content.Artworks.ContextMenu.Artist.visitProfile",
-																			{
-																				site: link.service,
-																			}
-																		)}
+																	? t("Content.Artworks.ContextMenu.Artist.visitWebsite", {
+																			site: new URL(link.url).hostname,
+																		})
+																	: t("Content.Artworks.ContextMenu.Artist.visitProfile", {
+																			site: link.service,
+																		})}
 															</ContextMenuItem>
 														</Link>
 													))}
