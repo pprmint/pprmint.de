@@ -160,7 +160,7 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 											</Dialog.Description>
 											<TransformWrapper
 												disablePadding
-												onZoom={(e) => setScale(e.state.scale)}
+												onTransformed={(e) => setScale(e.state.scale)}
 												doubleClick={{ mode: "toggle" }}
 											>
 												<TransformComponent>
@@ -243,7 +243,7 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 															>
 																<div className="flex items-center gap-3">
 																	{typeof photos.docs[selectedPhoto].camera === "object" &&
-																		photos.docs[selectedPhoto].camera.svgLogo ? (
+																	photos.docs[selectedPhoto].camera.svgLogo ? (
 																		<div
 																			className="h-4 *:h-4 md:h-6 md:*:h-6 w-auto *:w-auto"
 																			dangerouslySetInnerHTML={{
@@ -363,8 +363,9 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 														}}
 													>
 														<div
-															className={`absolute inset-0 flex w-max items-center gap-2 ${direction !== 0 && "duration-500"
-																} ease-out-quart`}
+															className={`absolute inset-0 flex w-max items-center gap-2 ${
+																direction !== 0 && "duration-500"
+															} ease-out-quart`}
 															style={{
 																left: `calc(50% - ${selectedPhoto * 48}px - 32px`,
 															}}
@@ -373,10 +374,11 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 																<button
 																	key={index}
 																	onClick={() => handleSelectPhoto({ id: index })}
-																	className={`relative ${selectedPhoto === index
+																	className={`relative ${
+																		selectedPhoto === index
 																			? "h-12 w-16"
 																			: "h-10 w-10 saturate-0 hover:saturate-100 opacity-50 hover:opacity-100"
-																		} duration-300 ease-out-quart overflow-clip`}
+																	} duration-300 ease-out-quart overflow-clip`}
 																>
 																	<Image
 																		src={photo.sizes?.thumbnail?.url || photo.url || ""}
