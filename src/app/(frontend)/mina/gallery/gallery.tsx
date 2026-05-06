@@ -235,7 +235,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 												</Dialog.Description>
 												<TransformWrapper
 													disablePadding
-													onTransformed={(e) => setScale(e.state.scale)}
+													onZoom={(e) => setScale(e.state.scale)}
 													doubleClick={{ mode: "toggle" }}
 												>
 													<TransformComponent>
