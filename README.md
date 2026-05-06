@@ -4,7 +4,7 @@ My personal website, built with [Next.js](https://nextjs.org/), [Tailwind](https
 
 ## Getting started.
 
-`pnpm i` to get a fuckton of packages.
+`pnpm i` to get a bunch of packages.
 
 `pnpm dev` to look at the site on [localhost:3000](http://localhost:3000).
 
