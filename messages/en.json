@@ -318,7 +318,12 @@
 		},
 		"reset": "Reset",
 		"size": "Size",
-		"alignment": "Alignment",
+		"Alignment": {
+			"label": "Alignment",
+			"left": "Left",
+			"center": "Center",
+			"right": "Right"
+		},
 		"tracking": "Tracking"
 	},
 	"FOOTER": {
