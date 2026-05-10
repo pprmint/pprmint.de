@@ -4,9 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  nodemailer: 8.0.5
-
 importers:
 
   .:
@@ -4216,6 +4213,10 @@ packages:
   node-releases@2.0.37:
     resolution: {integrity: sha512-1h5gKZCF+pO/o3Iqt5Jp7wc9rH3eJJ0+nh/CIoiRwjRxde/hAHyLPXYN4V3CqKAbiZPSeJFSWHmJsbkicta0Eg==}
 
+  nodemailer@7.0.12:
+    resolution: {integrity: sha512-H+rnK5bX2Pi/6ms3sN4/jRQvYSMltV6vqup/0SFOrxYYY/qoNvhXPlYq3e+Pm9RFJRwrMGbMIwi81M4dxpomhA==}
+    engines: {node: '>=6.0.0'}
+
   nodemailer@8.0.5:
     resolution: {integrity: sha512-0PF8Yb1yZuQfQbq+5/pZJrtF6WQcjTd5/S4JOHs9PGFxuTqoB/icwuB44pOdURHJbRKX1PPoJZtY7R4VUoCC8w==}
     engines: {node: '>=6.0.0'}
@@ -6618,7 +6619,7 @@ snapshots:
 
   '@payloadcms/email-nodemailer@3.82.0(payload@3.82.0(graphql@16.13.2)(typescript@5.8.3))':
     dependencies:
-      nodemailer: 8.0.5
+      nodemailer: 7.0.12
       payload: 3.82.0(graphql@16.13.2)(typescript@5.8.3)
 
   '@payloadcms/graphql@3.82.0(graphql@16.13.2)(payload@3.82.0(graphql@16.13.2)(typescript@5.8.3))(typescript@5.8.3)':
@@ -6669,7 +6670,7 @@ snapshots:
       '@aws-sdk/lib-storage': 3.1027.0(@aws-sdk/client-s3@3.1027.0)
       '@payloadcms/email-nodemailer': 3.82.0(payload@3.82.0(graphql@16.13.2)(typescript@5.8.3))
       amazon-cognito-identity-js: 6.3.16
-      nodemailer: 8.0.5
+      nodemailer: 7.0.12
       payload: 3.82.0(graphql@16.13.2)(typescript@5.8.3)
     transitivePeerDependencies:
       - aws-crt
@@ -10103,6 +10104,8 @@ snapshots:
       whatwg-url: 5.0.0
 
   node-releases@2.0.37: {}
+
+  nodemailer@7.0.12: {}
 
   nodemailer@8.0.5: {}
 
