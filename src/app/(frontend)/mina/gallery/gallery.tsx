@@ -207,11 +207,11 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 											>
 												<div className="scale-[1.025] sm:group-hover/button:scale-100 group-active/button:scale-100 sm:group-active/button:scale-[1.05] size-full relative duration-250 group-active/button:duration-75 ease-out-quart">
 													<Media
-														resource={artwork.images[0].image}
+														resource={artwork.poster ? artwork.poster : artwork.images[0].image}
 														size="sd"
 														className="relative size-full"
 														imgClassName="size-full object-cover"
-														unoptimized={artwork.unoptimized}
+														unoptimized={!artwork.poster && artwork.unoptimized}
 													/>
 												</div>
 												{artwork.nsfw && (
@@ -492,36 +492,45 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																	left: `calc(50% - ${selectedArtwork * 48}px - 32px`,
 																}}
 															>
-																{artworks.docs.map((artwork, index) => (
-																	<button
-																		key={index}
-																		onClick={() => handleSelectArtwork({ id: index })}
-																		className={`relative ${
-																			selectedArtwork === index
-																				? "h-12 w-16"
-																				: "h-10 w-10 saturate-0 hover:saturate-100 opacity-50 hover:opacity-100"
-																		} duration-300 ease-out-quart overflow-clip`}
-																	>
-																		{typeof artwork.images[0].image === "object" && (
-																			<Image
-																				src={
-																					artwork.images[0].image.sizes?.thumbnail?.url ||
-																					artwork.images[0].image.url ||
-																					""
-																				}
-																				width={artwork.images[0].image.sizes?.thumbnail?.width || 0}
-																				height={artwork.images[0].image.sizes?.thumbnail?.height || 0}
-																				alt={artwork.images[0].image.alt || ""}
-																				className={`absolute top-0 inset-x-0 h-full object-cover ${
-																					artwork.nsfw && selectedArtwork !== index && "blur-[2px] hover:blur-none"
-																				}`}
-																				style={{
-																					objectPosition: `${artwork.images[0].image.focalX}% ${artwork.images[0].image.focalY}%`,
-																				}}
-																			/>
-																		)}
-																	</button>
-																))}
+																{artworks.docs.map((artwork, index) => {
+																	const image =
+																		typeof artwork.poster === "object"
+																			? artwork.poster
+																			: typeof artwork.images[0]?.image === "object"
+																				? artwork.images[0].image
+																				: null;
+
+																	const thumbnail = image?.sizes?.thumbnail;
+
+																	return (
+																		<button
+																			key={index}
+																			onClick={() => handleSelectArtwork({ id: index })}
+																			className={`relative ${
+																				selectedArtwork === index
+																					? "h-12 w-16"
+																					: "h-10 w-10 saturate-0 hover:saturate-100 opacity-50 hover:opacity-100"
+																			} duration-300 ease-out-quart overflow-clip`}
+																		>
+																			{image && (
+																				<Image
+																					src={thumbnail?.url || image.url || ""}
+																					width={thumbnail?.width || 0}
+																					height={thumbnail?.height || 0}
+																					alt={image.alt || ""}
+																					className={`absolute top-0 inset-x-0 h-full object-cover ${
+																						artwork.nsfw && selectedArtwork !== index
+																							? "blur-[2px] hover:blur-none"
+																							: ""
+																					}`}
+																					style={{
+																						objectPosition: `${image.focalX}% ${image.focalY}%`,
+																					}}
+																				/>
+																			)}
+																		</button>
+																	);
+																})}
 															</div>
 														</m.div>
 													)}

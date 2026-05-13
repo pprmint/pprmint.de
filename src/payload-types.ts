@@ -320,6 +320,10 @@ export interface Mina {
     image: string | Artwork;
     id?: string | null;
   }[];
+  /**
+   * Static image to show in the grid instead of the first art piece.
+   */
+  poster?: (string | null) | Artwork;
   medium: 'digital' | 'physical';
   style: 'drawing' | 'pixelart' | 'model';
   detail: 'rendered' | 'flat' | 'sketch';
@@ -860,6 +864,7 @@ export interface MinaSelect<T extends boolean = true> {
         image?: T;
         id?: T;
       };
+  poster?: T;
   medium?: T;
   style?: T;
   detail?: T;

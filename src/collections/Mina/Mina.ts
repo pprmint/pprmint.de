@@ -110,6 +110,16 @@ export const Mina: CollectionConfig = {
 			],
 		},
 		{
+			name: "poster",
+			type: "upload",
+			relationTo: "artwork",
+			required: false,
+			admin: {
+				position: "sidebar",
+				description: "Static image to show in the grid instead of the first art piece."
+			},
+		},
+		{
 			type: "row",
 			fields: [
 				{
