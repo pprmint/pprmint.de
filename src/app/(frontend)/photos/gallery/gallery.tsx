@@ -250,17 +250,18 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 															transition: { duration: 0.4, type: "spring", bounce: 0 },
 														}}
 														exit={{ y: -48, opacity: 0 }}
-														className="absolute flex justify-between items-start top-0 pl-6 pr-4 pt-4 min-h-16 inset-x-0"
+														className="absolute top-0 pl-5 pr-16 pt-4 inset-x-0 w-full"
 													>
-														<AnimatePresence mode="wait">
+														<div className="relative h-12 flex justify-between items-start w-full">
+														<AnimatePresence>
 															<m.div
 																key={photos.docs[selectedPhoto].id}
 																initial={{ opacity: 0 }}
 																animate={{ opacity: 1, transition: { duration: 0.2 } }}
 																exit={{ opacity: 0, transition: { duration: 0.2 } }}
-																className="flex md:items-center grow flex-col md:flex-row gap-3 md:gap-6"
+																className="absolute left-0 flex md:items-center grow flex-col md:flex-row gap-3 md:gap-6"
 															>
-																<div className="flex items-center gap-3">
+																<div className="flex items-center gap-3 h-7">
 																	{typeof photos.docs[selectedPhoto].camera === "object" &&
 																	photos.docs[selectedPhoto].camera.svgLogo ? (
 																		<div
@@ -344,6 +345,7 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 																</div>
 															</m.div>
 														</AnimatePresence>
+														</div>
 														<Dialog.Close asChild>
 															<button className="absolute top-2.5 right-3 p-3 rounded-full hover:bg-white/5 duration-100">
 																<svg

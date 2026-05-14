@@ -184,7 +184,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 			document.removeEventListener("keydown", handleKeyDown);
 		};
 	}, [selectedArtwork, scale]);
-	
+
 	return (
 		<>
 			<m.div
@@ -309,8 +309,8 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																			width={artworks.docs[selectedArtwork].images[selectedVariant].image.width || 0}
 																			height={artworks.docs[selectedArtwork].images[selectedVariant].image.height || 0}
 																			alt={artworks.docs[selectedArtwork].images[selectedVariant].image.alt || ""}
-																			className={`max-h-svh w-auto mx-auto py-16 ${
-																				artworks.docs[selectedArtwork].unoptimized && "pixelated"
+																			className={`max-h-svh w-auto mx-auto pt-16 ${artworks.docs[selectedArtwork].images.length > 1 ? "pb-22" : "pb-16"} ${
+																				artworks.docs[selectedArtwork].style === "pixelart" && "pixelated"
 																			}`}
 																			unoptimized
 																		/>
@@ -334,10 +334,10 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																},
 															}}
 															exit={{ y: -48, opacity: 0 }}
-															className="absolute top-0 pl-6 pr-4 inset-x-0"
+															className="absolute top-0 pl-5 pr-16 inset-x-0"
 														>
-															<div className="h-16 inline-flex flex-col justify-center">
-																<AnimatePresence mode="wait">
+															<div className="relative h-14 inline-flex flex-col justify-center w-full">
+																<AnimatePresence>
 																	{artists && (
 																		<m.div
 																			key={artists.map((artist) => artist.name).join(",")}
@@ -350,6 +350,8 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																				opacity: 0,
 																				transition: { duration: 0.2 },
 																			}}
+																			className={`absolute left-0 ${artworks.docs[selectedArtwork].featuring ? "top-2" : "top-4"} w-full`}
+																			style={{ transition: "top 0.2s" }}
 																		>
 																			<Dialog.Title asChild>
 																				<span className="text-xl">
@@ -382,95 +384,45 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																		</m.div>
 																	)}
 																</AnimatePresence>
-																<AnimatePresence mode="wait">
+																<AnimatePresence>
 																	{featuring && (
-																		<m.div
-																			initial={{ height: 0 }}
+																		<m.p
+																			initial={{ opacity: 0 }}
 																			animate={{
-																				height: 16,
-																				transition: { duration: 0.15 },
+																				opacity: 1,
+																				transition: { duration: 0.2 },
 																			}}
 																			exit={{
-																				height: 0,
 																				opacity: 0,
-																				transition: { duration: 0.15 },
+																				transition: { duration: 0.2 },
 																			}}
+																			className="text-xs absolute left-0 top-9 w-full"
 																		>
-																			<AnimatePresence mode="wait">
-																				<m.p
-																					key={selectedArtwork}
-																					className="text-xs"
-																					initial={{ opacity: 0 }}
-																					animate={{
-																						opacity: 1,
-																						transition: {
-																							duration: 0.2,
-																							delay: 0.2,
-																						},
-																					}}
-																					exit={{
-																						opacity: 0,
-																						transition: { duration: 0.1 },
-																					}}
-																				>
-																					{t("Content.Artworks.featuring")}{" "}
-																					{featuring
-																						.filter((character) => typeof character === "object")
-																						.map((character, index, array) => (
-																							<Fragment key={character.id}>
-																								{character.link ? (
-																									<Link
-																										href={character.link}
-																										target="_blank"
-																										rel="noopener norefererrer"
-																										className="text-white"
-																									>
-																										{character.name}
-																									</Link>
-																								) : (
-																									<span>{character.name}</span>
-																								)}
-																								{index !== array.length - 1 &&
-																									(index < array.length - 2 ? <span>, </span> : <span> & </span>)}
-																							</Fragment>
-																						))}
-																				</m.p>
-																			</AnimatePresence>
-																		</m.div>
+																			{t("Content.Artworks.featuring")}{" "}
+																			{featuring
+																				.filter((character) => typeof character === "object")
+																				.map((character, index, array) => (
+																					<Fragment key={character.id}>
+																						{character.link ? (
+																							<Link
+																								href={character.link}
+																								target="_blank"
+																								rel="noopener norefererrer"
+																								className="text-white"
+																							>
+																								{character.name}
+																							</Link>
+																						) : (
+																							<span>{character.name}</span>
+																						)}
+																						{index !== array.length - 1 &&
+																							(index < array.length - 2 ? <span>, </span> : <span> & </span>)}
+																					</Fragment>
+																				))}
+																		</m.p>
 																	)}
 																</AnimatePresence>
 															</div>
-															<AnimatePresence mode="wait">
-																{artworks.docs[selectedArtwork].images.length >= 2 && (
-																	<m.div
-																		key={artworks.docs[selectedArtwork].id}
-																		initial={{ opacity: 0 }}
-																		animate={{ opacity: 1 }}
-																		exit={{ opacity: 0 }}
-																		className="absolute top-3.5 right-16 sm:right-1/2 sm:translate-x-1/2"
-																	>
-																		<div className="flex flex-row items-center justify-center h-9">
-																			{artworks.docs[selectedArtwork].images.map((_, index) => (
-																				<button
-																					key={index}
-																					className={`group h-full ${
-																						index === selectedVariant ? "w-12" : "w-6"
-																					} px-1.5 duration-200 ease-out-quint`}
-																					onClick={() => setSelectedVariant(index)}
-																				>
-																					<div
-																						className={`${
-																							index === selectedVariant
-																								? "bg-white h-[3px] duration-200"
-																								: "bg-white/20 group-hover:bg-white/50 h-[3px]"
-																						} ease-out-quint`}
-																					/>
-																				</button>
-																			))}
-																		</div>
-																	</m.div>
-																)}
-															</AnimatePresence>
 															<Dialog.Close asChild>
 																<button className="absolute top-2.5 right-3 p-3 rounded-full hover:bg-white/5 duration-100">
 																	<svg
@@ -506,59 +458,92 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 															}}
 															exit={{ y: 48, opacity: 0 }}
 															className="absolute bottom-2 inset-x-0 h-12"
-															style={{
-																maskImage:
-																	"linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)",
-																maskRepeat: "space",
-															}}
 														>
+															<AnimatePresence mode="popLayout">
+																{artworks.docs[selectedArtwork].images.length >= 2 && (
+																	<m.div
+																		key={artworks.docs[selectedArtwork].id}
+																		initial={{ opacity: 0 }}
+																		animate={{ opacity: 1 }}
+																		exit={{ opacity: 0 }}
+																		className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-row items-center justify-center h-8"
+																	>
+																		{artworks.docs[selectedArtwork].images.map((_, index) => (
+																			<button
+																				key={index}
+																				className={`group h-full ${
+																					index === selectedVariant ? "w-13" : "w-6"
+																				} px-1.5 duration-200 ease-out-quint`}
+																				onClick={() => setSelectedVariant(index)}
+																			>
+																				<div
+																					className={`${
+																						index === selectedVariant
+																							? "bg-white h-[3px] duration-200"
+																							: "bg-white/20 group-hover:bg-white/50 h-[3px]"
+																					} ease-out-quint`}
+																				/>
+																			</button>
+																		))}
+																	</m.div>
+																)}
+															</AnimatePresence>
 															<div
-																className={`absolute inset-0 flex w-max items-center gap-2 ${
-																	direction !== 0 && "duration-500"
-																} ease-out-quart`}
+																className="relative h-12"
 																style={{
-																	left: `calc(50% - ${selectedArtwork * 48}px - 32px`,
+																	maskImage:
+																		"linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)",
+																	maskRepeat: "space",
 																}}
 															>
-																{artworks.docs.map((artwork, index) => {
-																	const image =
-																		typeof artwork.poster === "object"
-																			? artwork.poster
-																			: typeof artwork.images[0]?.image === "object"
-																				? artwork.images[0].image
-																				: null;
+																<div
+																	className={`absolute inset-0 flex w-max items-center gap-2 ${
+																		direction !== 0 && "duration-500"
+																	} ease-out-quart`}
+																	style={{
+																		left: `calc(50% - ${selectedArtwork * 48}px - 32px`,
+																	}}
+																>
+																	{artworks.docs.map((artwork, index) => {
+																		const image =
+																			typeof artwork.poster === "object"
+																				? artwork.poster
+																				: typeof artwork.images[0]?.image === "object"
+																					? artwork.images[0].image
+																					: null;
 
-																	const thumbnail = image?.sizes?.thumbnail;
+																		const thumbnail = image?.sizes?.thumbnail;
 
-																	return (
-																		<button
-																			key={index}
-																			onClick={() => handleSelectArtwork({ id: index })}
-																			className={`relative ${
-																				selectedArtwork === index
-																					? "h-12 w-16"
-																					: "h-10 w-10 saturate-0 hover:saturate-100 opacity-50 hover:opacity-100"
-																			} duration-300 ease-out-quart overflow-clip`}
-																		>
-																			{image && (
-																				<Image
-																					src={thumbnail?.url || image.url || ""}
-																					width={thumbnail?.width || 0}
-																					height={thumbnail?.height || 0}
-																					alt={image.alt || ""}
-																					className={`absolute top-0 inset-x-0 h-full object-cover ${
-																						artwork.nsfw && selectedArtwork !== index
-																							? "blur-[2px] hover:blur-none"
-																							: ""
-																					}`}
-																					style={{
-																						objectPosition: `${image.focalX}% ${image.focalY}%`,
-																					}}
-																				/>
-																			)}
-																		</button>
-																	);
-																})}
+																		return (
+																			<button
+																				key={index}
+																				onClick={() => handleSelectArtwork({ id: index })}
+																				className={`relative ${
+																					selectedArtwork === index
+																						? "h-12 w-16"
+																						: "h-10 w-10 saturate-0 hover:saturate-100 opacity-50 hover:opacity-100"
+																				} duration-300 ease-out-quart overflow-clip`}
+																			>
+																				{image && (
+																					<Image
+																						src={thumbnail?.url || image.url || ""}
+																						width={thumbnail?.width || 0}
+																						height={thumbnail?.height || 0}
+																						alt={image.alt || ""}
+																						className={`absolute top-0 inset-x-0 h-full object-cover ${
+																							artwork.nsfw && selectedArtwork !== index
+																								? "blur-[2px] hover:blur-none"
+																								: ""
+																						}`}
+																						style={{
+																							objectPosition: `${image.focalX}% ${image.focalY}%`,
+																						}}
+																					/>
+																				)}
+																			</button>
+																		);
+																	})}
+																</div>
 															</div>
 														</m.div>
 													)}
@@ -620,7 +605,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 												{artwork.artists.map(
 													(artist, i) =>
 														typeof artist === "object" && (
-															<Fragment>
+															<Fragment key={artist.id}>
 																<ContextMenu.Label className="text-xs text-neutral-950/50 dark:text-white/50 ml-2 mt-1.5 mb-0.5">
 																	{artist.name}
 																</ContextMenu.Label>
