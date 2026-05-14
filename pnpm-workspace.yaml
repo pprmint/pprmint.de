@@ -7,4 +7,4 @@ allowBuilds:
 packages:
   - 'packages/*'
 overrides:
-	"nodemailer": "8.0.5"
+  "nodemailer": "8.0.5"
