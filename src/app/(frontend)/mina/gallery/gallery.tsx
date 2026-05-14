@@ -162,6 +162,29 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 		}
 	}
 
+	// Sick of typing this over and over.
+	const artists = artworks.docs[selectedArtwork].artists.filter((artist) => typeof artist === "object");
+	const featuring = artworks.docs[selectedArtwork].featuring?.filter((character) => typeof character === "object");
+
+	// Arrow keys for cycling through images.
+	useEffect(() => {
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (scale === 1) {
+				if (event.key === "ArrowLeft") {
+					handleSelectArtwork({ id: (selectedArtwork - 1 + artworks.docs.length) % artworks.docs.length });
+				} else if (event.key === "ArrowRight") {
+					handleSelectArtwork({ id: (selectedArtwork + 1) % artworks.docs.length });
+				}
+			}
+		};
+
+		document.addEventListener("keydown", handleKeyDown);
+
+		return () => {
+			document.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [selectedArtwork, scale]);
+	
 	return (
 		<>
 			<m.div
@@ -230,8 +253,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 											>
 												<Dialog.Description className="sr-only">
 													{t("Content.Artworks.drawnBy")}
-													{typeof artworks.docs[selectedArtwork].artist === "object" &&
-														artworks.docs[selectedArtwork].artist.name}
+													{typeof artwork.artists[0] === "object" && artwork.artists[0].name}
 												</Dialog.Description>
 												<TransformWrapper
 													disablePadding
@@ -291,7 +313,6 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																				artworks.docs[selectedArtwork].unoptimized && "pixelated"
 																			}`}
 																			unoptimized
-																			priority
 																		/>
 																	)}
 																</m.div>
@@ -317,9 +338,9 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 														>
 															<div className="h-16 inline-flex flex-col justify-center">
 																<AnimatePresence mode="wait">
-																	{typeof artworks.docs[selectedArtwork].artist === "object" && (
+																	{artists && (
 																		<m.div
-																			key={artworks.docs[selectedArtwork].artist.name}
+																			key={artists.map((artist) => artist.name).join(",")}
 																			initial={{ opacity: 0 }}
 																			animate={{
 																				opacity: 1,
@@ -332,20 +353,27 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																		>
 																			<Dialog.Title asChild>
 																				<span className="text-xl">
-																					<span>{t("Content.Artworks.drawnBy")}</span>
-																					{artworks.docs[selectedArtwork].artist.creditLinks &&
-																					artworks.docs[selectedArtwork].artist.creditLinks.length > 0 ? (
-																						<Link
-																							href={artworks.docs[selectedArtwork].artist.creditLinks[0].url}
-																							target="_blank"
-																							rel="noopener noreferrer"
-																							className="text-link text-white decoration-white/50"
-																						>
-																							{artworks.docs[selectedArtwork].artist.name}
-																						</Link>
-																					) : (
-																						artworks.docs[selectedArtwork].artist.name
-																					)}
+																					<span>{t("Content.Artworks.drawnBy")} </span>
+																					{artists.map((artist, index) => (
+																						<Fragment key={artist.id}>
+																							{artist.creditLinks?.[0] ? (
+																								<Link
+																									href={artist.creditLinks[0].url}
+																									target="_blank"
+																									rel="noopener noreferrer"
+																									className="text-link text-white decoration-white/50"
+																								>
+																									{artist.name}
+																								</Link>
+																							) : (
+																								<span>{artist.name}</span>
+																							)}
+
+																							{index !== artists.length - 1 &&
+																								(index < artists.length - 2 ? ", " : " & ")}
+																						</Fragment>
+																					))}
+
 																					{artworks.docs[selectedArtwork].wholesome && (
 																						<span className="text-red"> ♥</span>
 																					)}
@@ -355,7 +383,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																	)}
 																</AnimatePresence>
 																<AnimatePresence mode="wait">
-																	{artworks.docs[selectedArtwork].featuring && (
+																	{featuring && (
 																		<m.div
 																			initial={{ height: 0 }}
 																			animate={{
@@ -386,7 +414,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																					}}
 																				>
 																					{t("Content.Artworks.featuring")}{" "}
-																					{artworks.docs[selectedArtwork].featuring
+																					{featuring
 																						.filter((character) => typeof character === "object")
 																						.map((character, index, array) => (
 																							<Fragment key={character.id}>
@@ -541,7 +569,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 									<ContextMenu.Portal>
 										<ContextMenu.Content className="p-1 min-w-64 z-99999 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-sm ring-1 ring-black/5 dark:ring-white/5 shadow-xl data-[state=open]:animate-scale-up data-[state=closed]:animate-scale-down origin-[var(--radix-context-menu-content-transform-origin)]">
 											<ContextMenu.Group>
-												<ContextMenu.Label className="text-xs text-neutral-950/50 dark:text-white/50 ml-2 mt-1.5">
+												<ContextMenu.Label className="text-xs text-neutral-950/50 dark:text-white/50 ml-2 mt-1 mb-0.5">
 													{t("Content.Artworks.ContextMenu.Artwork.label")}
 												</ContextMenu.Label>
 												{typeof artwork.images[0].image === "object" && artwork.images[0].image.url && (
@@ -577,7 +605,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 												</ContextMenuItem>
 												{(() => {
 													const outfit = artwork.outfit; // I hate you, TypeScript.
-													if (outfit != null && typeof outfit !== "string") {
+													if (outfit && typeof outfit !== "string") {
 														return (
 															<ContextMenuItem action={() => selectOutfit(outfit.slug)}>
 																<Filter />
@@ -589,42 +617,49 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 												})()}
 											</ContextMenu.Group>
 											<ContextMenu.Group>
-												<ContextMenu.Label className="text-xs text-neutral-950/50 dark:text-white/50 ml-2 mt-1.5">
-													{t("Content.Artworks.ContextMenu.Artist.label")}
-												</ContextMenu.Label>
-												<ContextMenuItem
-													action={() => selectArtist((typeof artwork.artist === "object" && artwork.artist.slug) || "")}
-												>
-													<Filter />
-													{t("Content.Artworks.ContextMenu.Artist.showAllByArtist", {
-														artist: (typeof artwork.artist === "object" && artwork.artist.name) || "",
-													})}
-												</ContextMenuItem>
-												{typeof artwork.artist === "object" &&
-													artwork.artist.creditLinks?.map((link) => (
-														<Link key={link.id} href={link.url} target="_blank" rel="noopener noreferrer">
-															<ContextMenuItem>
-																{link.service === "Bluesky" ? (
-																	<Bluesky />
-																) : link.service === "YouTube" ? (
-																	<YouTube />
-																) : link.service === "Twitter" ? (
-																	<Twitter />
-																) : link.service === "Instagram" ? (
-																	<Instagram />
-																) : (
-																	<Globe />
-																)}
-																{link.service === "Website"
-																	? t("Content.Artworks.ContextMenu.Artist.visitWebsite", {
-																			site: new URL(link.url).hostname,
-																		})
-																	: t("Content.Artworks.ContextMenu.Artist.visitProfile", {
-																			site: link.service,
-																		})}
-															</ContextMenuItem>
-														</Link>
-													))}
+												{artwork.artists.map(
+													(artist, i) =>
+														typeof artist === "object" && (
+															<Fragment>
+																<ContextMenu.Label className="text-xs text-neutral-950/50 dark:text-white/50 ml-2 mt-1.5 mb-0.5">
+																	{artist.name}
+																</ContextMenu.Label>
+																<ContextMenuItem
+																	key={i}
+																	action={() => selectArtist((typeof artist === "object" && artist.slug) || "")}
+																>
+																	<Filter />
+																	{t("Content.Artworks.ContextMenu.Artist.showAllByArtist", {
+																		artist: (typeof artist === "object" && artist.name) || "",
+																	})}
+																</ContextMenuItem>
+																{artist.creditLinks?.map((link) => (
+																	<Link key={link.id} href={link.url} target="_blank" rel="noopener noreferrer">
+																		<ContextMenuItem>
+																			{link.service === "Bluesky" ? (
+																				<Bluesky />
+																			) : link.service === "YouTube" ? (
+																				<YouTube />
+																			) : link.service === "Twitter" ? (
+																				<Twitter />
+																			) : link.service === "Instagram" ? (
+																				<Instagram />
+																			) : (
+																				<Globe />
+																			)}
+																			{link.service === "Website"
+																				? t("Content.Artworks.ContextMenu.Artist.visitWebsite", {
+																						site: new URL(link.url).hostname,
+																					})
+																				: t("Content.Artworks.ContextMenu.Artist.visitProfile", {
+																						site: link.service,
+																					})}
+																		</ContextMenuItem>
+																	</Link>
+																))}
+															</Fragment>
+														),
+												)}
 											</ContextMenu.Group>
 										</ContextMenu.Content>
 									</ContextMenu.Portal>

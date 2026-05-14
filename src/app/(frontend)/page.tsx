@@ -129,34 +129,35 @@ export default async function Page() {
 								</m.div>
 							</div>
 							<div className="flex flex-col grow mt-12">
-								<h2 className="sr-only">
-									{t("Content.Mina.heading1") +
-										" " +
-										t("Content.Mina.heading2")}
-								</h2>
+								<h2 className="sr-only">{t("Content.Mina.heading1") + " " + t("Content.Mina.heading2")}</h2>
 								<div className="flex flex-col w-full text-center">
-									<p className="xl:text-xl 2xl:text-2xl">
-										{t("Content.Mina.text1")}
-									</p>
+									<p className="xl:text-xl 2xl:text-2xl">{t("Content.Mina.text1")}</p>
 									<p className="mb-6 xl:text-xl 2xl:text-2xl">
-										{typeof mina.docs[0].artist === "object" &&
-											t.rich("Content.Mina.text2", {
-												artist: mina.docs[0].artist.name,
-												link: (chunks) =>
-													typeof mina.docs[0].artist === "object" &&
-													mina.docs[0].artist.creditLinks && mina.docs[0].artist.creditLinks.length > 0 ? (
-														<Link
-															href={mina.docs[0].artist.creditLinks[0].url}
-															className="text-link-external"
-														>
-															{chunks}
-														</Link>
-													) : (
-														<span className="font-medium font-neutal-50">
-															{chunks}
-														</span>
-													),
-											})}
+										{t.rich("Content.Mina.text2", {
+											a: "",
+											link: () =>
+												mina.docs[0].artists.map(
+													(artist, i) =>
+														typeof artist === "object" && (
+															<React.Fragment key={artist.id}>
+																{artist.creditLinks && artist.creditLinks.length > 0 ? (
+																	<Link
+																		href={artist.creditLinks[0].url}
+																		className="text-link-external"
+																		target="_blank"
+																		rel="noopener noreferrer"
+																	>
+																		{artist.name}
+																	</Link>
+																) : (
+																	<span className="font-medium font-neutal-50">{artist.name}</span>
+																)}
+																{i !== mina.docs[0].artists.length - 1 &&
+																	(i < mina.docs[0].artists.length - 2 ? ", " : " & ")}
+															</React.Fragment>
+														),
+												),
+										})}
 									</p>
 									<div className="w-full border-y border-black/5 dark:border-white/5">
 										<div className="flex justify-center">

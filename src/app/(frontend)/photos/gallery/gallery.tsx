@@ -98,6 +98,25 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 		},
 	};
 
+	// Arrow keys for cycling through images.
+	useEffect(() => {
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (scale === 1) {
+				if (event.key === "ArrowLeft") {
+					handleSelectPhoto({ id: (selectedPhoto - 1 + photos.docs.length) % photos.docs.length });
+				} else if (event.key === "ArrowRight") {
+					handleSelectPhoto({ id: (selectedPhoto + 1) % photos.docs.length });
+				}
+			}
+		};
+
+		document.addEventListener("keydown", handleKeyDown);
+
+		return () => {
+			document.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [selectedPhoto, scale]);
+
 	return (
 		<>
 			<m.div

@@ -415,7 +415,7 @@
 				"heading1": "More into",
 				"heading2": "anime girls?",
 				"text1": "The official pprmint.de website's got you covered. Long live the Internet.",
-				"text2": "Here's the latest* artwork of Mina, my OC, drawn by <link>{artist}</link>.",
+				"text2": "Here's the latest* artwork of Mina, my OC, drawn by <link>{a}</link>.",
 				"button": "I love her."
 			},
 			"Contact": {
@@ -561,9 +561,8 @@
 						"showAllWithOutfit": "Show all artworks with same outfit"
 					},
 					"Artist": {
-						"label": "Artist",
 						"showAllByArtist": "Show all artworks by {artist}",
-						"visitProfile": "Visit profile on {site}",
+						"visitProfile": "Visit {site} profile",
 						"visitWebsite": "Visit website {site}"
 					}
 				}
@@ -574,7 +573,7 @@
 				"text1": "Ticking this box will reveal artwork that may be suggestive, lewd or sexually explicit. Not safe for work, if you will.",
 				"text2": "By proceeding, you confirm that you are at least 18 years old, or have reached the age of majority in your jurisdiction.",
 				"text3": "If you're under the age of 18, close this pop-up. That stuff ain't for you.",
-				"admitSins": "Let me in!",
+				"admitSins": "Works for me.",
 				"nevermind": "Nah, I'm good."
 			},
 			"Discord": {

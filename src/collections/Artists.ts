@@ -63,7 +63,7 @@ export const Artists: CollectionConfig = {
 			name: "artworks",
 			type: "join",
 			collection: "mina",
-			on: "artist",
+			on: "artists",
 		},
 	],
 };

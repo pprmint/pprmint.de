@@ -73,7 +73,7 @@ export default async function GallerySuspense({
 
 	if (artist !== "undefined") {
 		filters.push({
-			"artist.slug": {
+			"artists.slug": {
 				equals: artist,
 			},
 		});

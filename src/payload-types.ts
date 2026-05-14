@@ -311,7 +311,7 @@ export interface Asset {
  */
 export interface Mina {
   id: string;
-  artist: string | Artist;
+  artists: (string | Artist)[];
   date: string;
   commissionPrice?: number | null;
   outfit?: (string | null) | Outfit;
@@ -853,7 +853,7 @@ export interface ArticlesSelect<T extends boolean = true> {
  * via the `definition` "mina_select".
  */
 export interface MinaSelect<T extends boolean = true> {
-  artist?: T;
+  artists?: T;
   date?: T;
   commissionPrice?: T;
   outfit?: T;

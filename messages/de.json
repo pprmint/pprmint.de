@@ -415,7 +415,7 @@
         "heading1": "Doch lieber",
         "heading2": "Anime-Mädchen?",
         "text1": "Die offizielle pprmint.de Website versorgt dich auch damit. Lang lebe das Internet.",
-        "text2": "Hier ist das neueste* Artwork von Mina, meinem OC, gezeichnet von <link>{artist}</link>.",
+        "text2": "Hier ist das neueste* Artwork von Mina, meinem OC, gezeichnet von <link>{a}</link>.",
         "button": "Ich liebe sie."
       },
       "Contact": {
@@ -561,9 +561,8 @@
             "showAllWithOutfit": "Zeige alle Werke mit diesem Outfit"
           },
           "Artist": {
-            "label": "Künstler",
             "showAllByArtist": "Zeige alle Werke von {artist}",
-            "visitProfile": "Profil auf {site} ansehen",
+            "visitProfile": "{site}-Profil ansehen",
             "visitWebsite": "Website unter {site} ansehen"
           }
         }
@@ -574,7 +573,7 @@
         "text1": "Durch das Ankreuzen dieses Kästchens werden Kunstwerke angezeigt, die anzüglich oder sexuell explizit sein können.",
         "text2": "Indem du fortfährst, bestätigst du, mindestens 18 Jahre alt zu sein, oder das Alter der Volljährigkeit in deiner Gerichtbarkeit erreicht zu haben.",
         "text3": "Solltest du unter 18 Jahre alt sein, schließe dieses Pop-up. Das Zeug ist nix für dich.",
-        "admitSins": "Lass mich rein!",
+        "admitSins": "Klingt gut.",
         "nevermind": "Nein, danke."
       },
       "Discord": {
