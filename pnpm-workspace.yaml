@@ -6,3 +6,5 @@ allowBuilds:
   unrs-resolver: true
 packages:
   - 'packages/*'
+overrides:
+	"nodemailer": "8.0.5"

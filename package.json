@@ -85,9 +85,6 @@
 			"esbuild",
 			"sharp",
 			"unrs-resolver"
-		],
-		"overrides": {
-			"nodemailer": "8.0.5"
-		}
+		]
 	}
 }
