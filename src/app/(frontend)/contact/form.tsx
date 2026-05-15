@@ -195,7 +195,7 @@ export default function Form() {
 							viewBox="0 0 24 24"
 							fill="none"
 							stroke="currentColor"
-							strokeWidth="1.5"
+							strokeWidth="2"
 							strokeLinecap="butt"
 							strokeLinejoin="miter"
 							className="ml-3 size-[1em] inline stroke-green"

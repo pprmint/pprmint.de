@@ -103,7 +103,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 				</header>
 				<div className="relative max-w-6xl mx-auto px-6 md:px-9 lg:px-12">
 					<RichText
-						className="border-x border-black/5 dark:border-white/5 lg:text-lg pb-20 md:pb-32 xl:pb-40 pt-12 md:col-span-2 xl:prose-h1:text-7xl"
+						className="border-x border-black/5 dark:border-white/5 pb-20 md:pb-32 xl:pb-40 pt-12 md:col-span-2 xl:prose-h1:text-7xl"
 						data={article.content}
 					/>
 					<div

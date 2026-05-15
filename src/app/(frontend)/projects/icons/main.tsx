@@ -260,7 +260,7 @@ export default function Main() {
 			>
 				{Icons.map((category, catIndex) => (
 					<div key={catIndex} className="last:border-r border-b border-black/5 dark:border-white/5">
-						<p className="font-stretch-condensed text-2xl md:text-3xl px-4 pt-3 pb-2 text-neutral-950 dark:text-white">
+						<p className="font-stretch-condensed text-xl md:text-2xl px-4.5 py-3.5 text-neutral-950 dark:text-white">
 							{t(`ICONS.Content.Category.${category.category}`)}
 						</p>
 						<div className="grid grid-cols-8">

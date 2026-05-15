@@ -129,6 +129,7 @@ export default function Page() {
 					<Button color="green">Button</Button>
 					<Button color="blue">Button</Button>
 					<Button color="violet">Button</Button>
+					<Button disabled>Button</Button>
 				</div>
 				<h3>Semi-transparent</h3>
 				<div className="flex gap-3 flex-wrap">

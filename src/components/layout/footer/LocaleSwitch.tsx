@@ -15,7 +15,7 @@ export default function LocaleSwitch() {
       {locales.map((locale) => (
         <div
           key={locale}
-          className={`inline-flex items-center justify-center text-sm w-9 h-[27px] ${
+          className={`inline-flex items-center justify-center text-sm w-9 h-6.75 ${
             currentLocale === locale
               ? "text-neutral-950 dark:text-white bg-neutral-950/5 dark:bg-neutral-50/5"
               : "hover:bg-neutral-950/5 dark:hover:bg-neutral-50/5"
