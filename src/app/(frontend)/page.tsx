@@ -65,12 +65,12 @@ export default async function Page() {
 										},
 									}}
 									viewport={{ once: true }}
-									className="absolute -z-10 italic pb-[0.1em] text-5xl md:text-8xl lg:text-9xl xl:text-[9rem] tracking-tight font-stretch-condensed bg-black/5 dark:bg-white/5 text-neutral-950 dark:text-white overflow-clip"
+									className="absolute -z-10 italic pt-[0.1em] text-5xl md:text-8xl lg:text-9xl xl:text-[9rem] font-narrow leading-none tracking-tight bg-black/5 dark:bg-white/5 text-neutral-950 dark:text-white overflow-clip"
 								>
 									<m.div
-										initial={{ padding: "0 0" }}
+										initial={{ padding: "0 0 0 0" }}
 										whileInView={{
-											padding: "0 .3em",
+											padding: "0 .35em 0 .25em",
 											transition: {
 												type: "spring",
 												bounce: 0,
@@ -108,7 +108,7 @@ export default async function Page() {
 									}}
 									viewport={{ once: true }}
 									aria-hidden
-									className="absolute bottom-0 right-0 text-right italic text-5xl md:text-8xl lg:text-9xl xl:text-[10rem] font-serif bg-white/50 dark:bg-neutral-950/50 backdrop-blur-md text-neutral-950 dark:text-white"
+									className="absolute bottom-0 right-0 text-right italic text-5xl md:text-8xl lg:text-9xl xl:text-[10rem] font-serif leading-tight tracking-tight bg-white/50 dark:bg-neutral-950/50 backdrop-blur-md text-neutral-950 dark:text-white"
 								>
 									<m.div
 										initial={{ padding: "0 0" }}
@@ -122,7 +122,7 @@ export default async function Page() {
 											},
 										}}
 										viewport={{ once: true }}
-										className="bg-black/5 dark:bg-white/5 leading-tight tracking-tight font-[350]"
+										className="bg-black/5 dark:bg-white/5"
 									>
 										{t("Content.Mina.heading2")}
 									</m.div>

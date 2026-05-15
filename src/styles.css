@@ -3,6 +3,12 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme inline {
+	--font-sans: var(--font-basier);
+	--font-mono: var(--font-basier-mono);
+	--font-narrow: var(--font-basier-narrow);
+}
+
 @theme {
 	--color-neutral: #aaa;
 	--color-neutral-50: #eee;
@@ -82,13 +88,11 @@
 	--color-violet-900: #2e2538;
 	--color-violet-950: #161318;
 
-	--font-sans: DINish, Bahnschrift, D-DIN, Inter, Roboto, Helvetica, Arial, sans-serif;
+	--font-din: DINish, Bahnschrift, D-DIN, Inter, Roboto, Helvetica, Arial, sans-serif;
 	--font-varia: "MN Varia WIP 0.017", "Avenir Next", Avenir, Helvetica, Arial, sans-serif;
-	--font-mono: "Iosevka Mint Web", "JetBrains Mono", monospace;
 	--font-serif: "MN Celesta", "New York", "Roboto Slab", "Linux Libertine", Georgia, Times, serif;
 	--font-mintbit: Mintbit, "Roboto Mono", monospace;
 	--font-minttriangles: "Mint Triangles", monospace;
-	--font-lcd: "LCD 14", "Roboto Mono", monospace;
 	--font-mintsans: MintSans, sans-serif;
 
 	--animate-accordion-slide-down: accordionSlideDown 0.4s cubic-bezier(0.5, 0, 0.1, 1);
@@ -681,7 +685,7 @@ img {
 
 body {
 	font-variant-ligatures: normal;
-	font-feature-settings: "tnum", "liga";
+	font-feature-settings: "liga";
 }
 
 p:not(:last-of-type) {

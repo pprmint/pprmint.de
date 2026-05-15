@@ -38,7 +38,7 @@ export default function NotFound() {
 			<div className="absolute inset-0 bottom-[10vh] -z-10">
 				<m.div
 					aria-hidden
-					className="absolute flex items-center justify-center size-full font-stretch-expanded text-[52vw] text-transparent bg-clip-text opacity-[0.075]"
+					className="absolute flex items-center justify-center size-full font-din font-stretch-expanded text-[52vw] text-transparent bg-clip-text opacity-[0.075]"
 					style={{
 						fontVariationSettings: useMotionTemplate`'slnt' ${slnt}, 'wght' ${weight}`,
 					}}

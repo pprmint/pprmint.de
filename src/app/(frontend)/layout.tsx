@@ -9,15 +9,17 @@ import NavBar from "@/components/layout/navigation/NavBar";
 import Footer from "@/components/layout/footer/Footer";
 import WarningTriangle from "@/icons/WarningTriangle";
 
+import { BasierSquare } from "@public/fonts/BasierSquare/BasierSquare";
+import { BasierSquareNarrow } from "@public/fonts/BasierSquare/Narrow/BasierSquareNarrow";
+import { BasierSquareMono } from "@public/fonts/BasierSquare/Mono/BasierSquareMono";
 import "@/styles.css";
-import "@public/fonts/IosevkaMint/IosevkaMint.css";
 import "@public/fonts/MNCelesta/mncelesta.css";
 import "@public/fonts/MNVaria/MNVaria.css";
 import "@public/fonts/DINish/DINish.css";
 import "@public/fonts/Mintbit/mintbit.css";
 import "@public/fonts/MintTriangles/minttriangles.css";
-// ew
-import "@public/fonts/MintSans/mintsans.css";
+
+import "@public/fonts/MintSans/mintsans.css"; // ew
 import { NavbarProvider } from "@/components/layout/navigation/NavBarContext";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import TransitionProvider from "./transitionProvider";
@@ -50,7 +52,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<body
-				className="bg-white dark:bg-neutral-950 max-w-screen overflow-x-hidden selection:bg-green/50 text-neutral-950/75 dark:text-white/75 focus-visible:outline-hidden focus-visible:ring-2"
+				className={`${BasierSquare.variable} ${BasierSquareNarrow.variable} ${BasierSquareMono.variable} font-sans bg-white dark:bg-neutral-950 max-w-screen overflow-x-hidden selection:bg-green/50 text-neutral-950/75 dark:text-white/75 focus-visible:outline-hidden focus-visible:ring-2`}
 			>
 				<LazyMotion features={domAnimation}>
 					<ThemeProvider defaultTheme="system" themes={["light", "dark", "system"]} attribute="class">
@@ -58,11 +60,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 							<div className="px-2 py-1 bg-red text-black fixed z-100 top-0 left-1/2 -translate-x-1/2 rounded-b-md w-full max-w-max">
 								<p className="text-sm">
 									<WarningTriangle className="inline mb-1 mr-2" />
-									<span className="font-bold">No JavaScript detected.</span> Parts of the site won't
-									work properly.{" "}
-									<span className="hidden md:inline-block">
-										Please enable JavaScript or use a more recent browser.
-									</span>
+									<span className="font-bold">No JavaScript detected.</span> Parts of the site won't work properly.{" "}
+									<span className="hidden md:inline-block">Please enable JavaScript or use a more recent browser.</span>
 								</p>
 							</div>
 						</noscript>
