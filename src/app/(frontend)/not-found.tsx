@@ -31,7 +31,7 @@ export default function NotFound() {
 	}, [x, y]);
 
 	const weight = useTransform(y, [0, 1], [400, 800]);
-	const slnt = useTransform(x, [0, 1], [0, -12]);
+	const wdth = useTransform(x, [0, 1], [75, 125]);
 
 	return (
 		<main className="relative w-screen xl:h-screen overflow-clip border-b border-black/5 dark:border-white/5">
@@ -40,7 +40,7 @@ export default function NotFound() {
 					aria-hidden
 					className="absolute flex items-center justify-center size-full font-din font-stretch-expanded text-[52vw] text-transparent bg-clip-text opacity-[0.075]"
 					style={{
-						fontVariationSettings: useMotionTemplate`'slnt' ${slnt}, 'wght' ${weight}`,
+						fontVariationSettings: useMotionTemplate`'wdth' ${wdth}, 'wght' ${weight}`,
 					}}
 				>
 					<m.div
