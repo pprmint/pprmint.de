@@ -395,6 +395,7 @@
         "description": "Ich bin Pixelschubser und Tastenhauer.",
         "graphics": "Grafiken",
         "photos": "Fotos",
+        "fonts": "Schriftarten",
         "projects": "Projekte",
         "contact": "Kontakt"
       },
@@ -568,13 +569,12 @@
         }
       },
       "NSFW": {
-        "title": "Nicht so schnell",
-        "subtitle": "Ja, auch <i>solche</i> Werke von Mina gibt es. Willkommen im Internet.",
+        "title": "Bist du sicher?",
         "text1": "Durch das Ankreuzen dieses Kästchens werden Kunstwerke angezeigt, die anzüglich oder sexuell explizit sein können.",
-        "text2": "Indem du fortfährst, bestätigst du, mindestens 18 Jahre alt zu sein, oder das Alter der Volljährigkeit in deiner Gerichtbarkeit erreicht zu haben.",
-        "text3": "Solltest du unter 18 Jahre alt sein, schließe dieses Pop-up. Das Zeug ist nix für dich.",
-        "admitSins": "Klingt gut.",
-        "nevermind": "Nein, danke."
+        "text2": "Indem du fortfährst bestätigst du, dass du mindestens 18 Jahre alt bist oder das Alter der Volljährigkeit in deiner Gerichtsbarkeit erreicht hast.",
+        "text3": "Solltest du unter 18 Jahre alt sein, schließe bitte dieses Pop-up.",
+        "accept": "Ich bestätige.",
+        "cancel": "Lieber nicht."
       },
       "Discord": {
         "heading": "Mach deine Nachrichten etwas grüner",
