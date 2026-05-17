@@ -309,6 +309,41 @@
       }
     }
   },
+  "FONTS": {
+		"Head": {
+			"title": "Schriftarten",
+			"description": "Vektorpfade, die lesbar sein sollen."
+		},
+		"Content": {
+			"FontSection": {
+				"Type": {
+					"variable": "Variabel",
+					"static": "Statisch"
+				},
+				"Axis": {
+					"wght": "Gewicht",
+					"wdth": "Breite",
+					"slnt": "Neigung"
+				},
+				"Style": {
+					"normal": "Normal",
+					"italic": "Italic"
+				},
+				"Weight": {
+					"100": "Dünn",
+					"200": "Extraleicht",
+					"300": "Leicht",
+					"400": "Normal",
+					"500": "Medium",
+					"600": "Halbfett",
+					"700": "Fett",
+					"800": "Extrafett",
+					"900": "Schwarz"
+				},
+				"variants": "{count} {count, plural, =1 {Variante} other {Varianten}}"
+			}
+		}
+	},
   "FONTTESTER": {
     "Weight": {
       "label": "Gewicht",
@@ -768,30 +803,14 @@
           "description": "Einige Schnappschüsse.",
           "title": "Fotos"
         },
+        "Fonts": {
+          "description": "Für deine wertvollsten Schriftstücke.",
+          "title": "Schriftarten"
+        },
         "Projects": {
-          "Triangles": {
-            "description": "Die Ziffern von osu!lazer. Fast.",
-            "title": "Mint Triangles"
-          },
           "Icons": {
             "description": "15x15 Icons für UIs.",
             "title": "Icons"
-          },
-          "YtDlpGui": {
-            "description": "Ein GUI für yt-dlg unter Windows.",
-            "title": "yt-dlp GUI"
-          },
-          "Mintcraft": {
-            "description": "Ein Minecraft-Ressourcenpaket.",
-            "title": "Mintcraft"
-          },
-          "Mintsans": {
-            "description": "Eine serifenlose Schriftart.",
-            "title": "Mintsans"
-          },
-          "Mintbit": {
-            "description": "Eine Pixelschriftart.",
-            "title": "Mintbit"
           },
           "AppIcons": {
             "description": "App-Symbole im Windows-11-Stil.",
@@ -823,7 +842,7 @@
       }
     }
   },
-  	"NUCLEO": {
+  "NUCLEO": {
 		"Head": {
 			"description": "Sieht aus wie Marathon. Ist's nicht.",
 			"title": "MN Nucleo"

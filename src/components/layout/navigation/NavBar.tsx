@@ -242,6 +242,7 @@ export default function NavBar() {
 							<ul className="md:grid grid-cols-2">
 								<NavLink string="Work.Graphics" href="/graphics" />
 								<NavLink string="Work.Photos" href="/photos" />
+								<NavLink string="Work.Fonts" href="/fonts" />
 								{Projects.map((Project, index) => (
 									<NavLink key={index} string={`Work.Projects.${Project.strings}`} href={Project.link} />
 								))}

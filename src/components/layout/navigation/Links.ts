@@ -19,23 +19,11 @@ export const Pages = [
 ];
 export const Projects = [
 	{
-		link: "/projects/minttriangles",
-		strings: "Triangles",
-	},
-	{
 		link: "/projects/icons",
 		strings: "Icons",
 	},
 	{
-		link: "/projects/mintbit",
-		strings: "Mintbit",
-	},
-	{
-		link: "/projects/mintsans",
-		strings: "Mintsans",
-	},
-	{
-		link: "/projects/appicons",
+		link: "/fonts/appicons",
 		strings: "AppIcons",
 	},
 ];

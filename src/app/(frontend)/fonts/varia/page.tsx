@@ -29,9 +29,9 @@ export default function Page() {
 						src="/api/assets/file/3D_a_edit2.webp"
 						alt=""
 						fill
-						className="w-full max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20 object-cover mix-blend-screen opacity-75"
+						className="w-full max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20 object-cover mix-blend-screen"
 						style={{
-							maskImage: "linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0))",
+							maskImage: "linear-gradient(to left, rgba(0,0,0,0.75), rgba(0,0,0,0))",
 							maskRepeat: "space",
 							backgroundRepeat: "repeat",
 						}}

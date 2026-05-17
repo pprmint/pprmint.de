@@ -60,6 +60,7 @@ module.exports = withPayload(
 		},
 		async redirects() {
 			return [
+				// Locale redirects.
 				{
 					source: "/en/:slug*",
 					destination: "/:slug*",
@@ -70,6 +71,7 @@ module.exports = withPayload(
 					destination: "/:slug*",
 					permanent: true,
 				},
+				// Indecisiveness.
 				{
 					source: "/works",
 					destination: "/graphics",
@@ -95,24 +97,10 @@ module.exports = withPayload(
 					destination: "/photos",
 					permanent: false,
 				},
+				// Miscellaneous projects.
 				{
 					source: "/project/:slug*",
 					destination: "/projects/:slug*",
-					permanent: false,
-				},
-				{
-					source: "/minasans",
-					destination: "/projects/varia",
-					permanent: false,
-				},
-				{
-					source: "/projects/minasans",
-					destination: "/projects/varia",
-					permanent: false,
-				},
-				{
-					source: "/varia",
-					destination: "/projects/varia",
 					permanent: false,
 				},
 				{
@@ -123,16 +111,6 @@ module.exports = withPayload(
 				{
 					source: "/appicons",
 					destination: "/projects/appicons",
-					permanent: false,
-				},
-				{
-					source: "/mintsans",
-					destination: "/projects/mintsans",
-					permanent: false,
-				},
-				{
-					source: "/mintbit",
-					destination: "/projects/mintbit",
 					permanent: false,
 				},
 				{
@@ -153,21 +131,6 @@ module.exports = withPayload(
 				{
 					source: "/icons",
 					destination: "/projects/icons",
-					permanent: false,
-				},
-				{
-					source: "/minttriangles",
-					destination: "/projects/minttriangles",
-					permanent: false,
-				},
-				{
-					source: "/triangles",
-					destination: "/projects/minttriangles",
-					permanent: false,
-				},
-				{
-					source: "/727",
-					destination: "/projects/minttriangles",
 					permanent: false,
 				},
 				{
@@ -198,6 +161,71 @@ module.exports = withPayload(
 				{
 					source: "/projects/tentative",
 					destination: "https://tentative.name",
+					permanent: false,
+				},
+				// Fonts...
+				// Varia.
+				{
+					source: "/varia",
+					destination: "/fonts/varia",
+					permanent: false,
+				},
+				{
+					source: "/projects/varia",
+					destination: "/fonts/varia",
+					permanent: false,
+				},
+				{
+					source: "/minasans",
+					destination: "/fonts/varia",
+					permanent: false,
+				},
+				{
+					source: "/projects/minasans",
+					destination: "/fonts/varia",
+					permanent: false,
+				},
+				// MintSans.
+				{
+					source: "/mintsans",
+					destination: "/fonts/mintsans",
+					permanent: false,
+				},
+				{
+					source: "/projects/mintsans",
+					destination: "/fonts/mintsans",
+					permanent: false,
+				},
+				// MintBit.
+				{
+					source: "/mintbit",
+					destination: "/fonts/mintbit",
+					permanent: false,
+				},
+				{
+					source: "/mintbit",
+					destination: "/projects/mintbit",
+					permanent: false,
+				},
+				// MintTriangles.
+				{
+					source: "/minttriangles",
+					destination: "/fonts/minttriangles",
+					permanent: false,
+				},
+				{
+					source: "/projects/minttriangles",
+					destination: "/fonts/minttriangles",
+					permanent: false,
+				},
+				{
+					source: "/triangles",
+					destination: "/fonts/minttriangles",
+					permanent: false,
+				},
+				{
+					source: "/727",
+					destination: "/fonts/minttriangles",
 					permanent: false,
 				},
 			];
