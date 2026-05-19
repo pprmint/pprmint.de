@@ -309,40 +309,48 @@
 			}
 		}
 	},
+	"FONT": {
+		"Type": {
+			"variable": "Variable",
+			"static": "Static"
+		},
+		"Axis": {
+			"wght": "Weight",
+			"wdth": "Width",
+			"slnt": "Slant"
+		},
+		"Style": {
+			"normal": "Normal",
+			"italic": "Italic"
+		},
+		"Weight": {
+			"100": "Thin",
+			"200": "Extra-light",
+			"300": "Light",
+			"400": "Regular",
+			"500": "Medium",
+			"600": "Semi-bold",
+			"700": "Bold",
+			"800": "Extra-bold",
+			"900": "Black"
+		},
+		"styles": "{count} {count, plural, =1 {styles} other {styles}}",
+		"size": "Size",
+		"Alignment": {
+			"label": "Alignment",
+			"left": "Left",
+			"center": "Center",
+			"right": "Right"
+		},
+		"lineBreak": "Line break",
+		"tracking": "Tracking"
+	},
 	"FONTS": {
 		"Head": {
 			"title": "Fonts",
 			"description": "Vector paths shaped to be legible."
 		},
-		"Content": {
-			"FontSection": {
-				"Type": {
-					"variable": "Variable",
-					"static": "Static"
-				},
-				"Axis": {
-					"wght": "Weight",
-					"wdth": "Width",
-					"slnt": "Slant"
-				},
-				"Style": {
-					"normal": "Normal",
-					"italic": "Italic"
-				},
-				"Weight": {
-					"100": "Thin",
-					"200": "Extra-light",
-					"300": "Light",
-					"400": "Regular",
-					"500": "Medium",
-					"600": "Semi-bold",
-					"700": "Bold",
-					"800": "Extra-bold",
-					"900": "Black"
-				},
-				"variants": "{count} {count, plural, =1 {variant} other {variants}}"
-			}
-		}
+		"Content": {}
 	},
 	"FONTTESTER": {
 		"Weight": {
