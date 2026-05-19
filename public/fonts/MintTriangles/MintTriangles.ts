@@ -7,4 +7,5 @@ export const MintTriangles = localFont({
   display: "swap",
   fallback: ["monospace"],
   variable: "--font-triangles",
+  preload: false,
 });

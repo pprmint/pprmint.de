@@ -5,4 +5,5 @@ export const DINish = localFont({
   display: "swap",
   fallback: ["-apple-system", "BlinkMacSystemFont", "Inter", "Roboto", "Helvetica", "Arial", "sans-serif"],
   variable: "--font-din",
+  preload: false,
 });

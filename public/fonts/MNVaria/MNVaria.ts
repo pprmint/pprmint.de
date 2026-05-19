@@ -5,4 +5,5 @@ export const MNVaria = localFont({
 	display: "swap",
 	fallback: ["Avenir Next", "Avenir", "-apple-system", "BlinkMacSystemFont", "Inter", "Roboto", "Helvetica", "Arial", "sans-serif"],
 	variable: "--font-varia",
+	preload: false,
 });

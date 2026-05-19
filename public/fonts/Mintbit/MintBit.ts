@@ -7,4 +7,5 @@ export const MintBit = localFont({
   display: "swap",
   fallback: ["New York", "Roboto Slab", "Linux Libertine", "Georgia", "Times", "serif"],
   variable: "--font-mintbit",
+  preload: false,
 });

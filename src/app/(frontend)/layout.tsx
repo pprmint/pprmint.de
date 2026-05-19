@@ -12,14 +12,9 @@ import WarningTriangle from "@/icons/WarningTriangle";
 import { BasierSquare } from "@public/fonts/BasierSquare/BasierSquare";
 import { BasierSquareNarrow } from "@public/fonts/BasierSquare/Narrow/BasierSquareNarrow";
 import { BasierSquareMono } from "@public/fonts/BasierSquare/Mono/BasierSquareMono";
+import { MNCelesta } from "@public/fonts/MNCelesta/MNCelesta";
 import "@/styles.css";
-import "@public/fonts/MNCelesta/mncelesta.css";
-import "@public/fonts/MNVaria/MNVaria.css";
-import "@public/fonts/DINish/DINish.css";
-import "@public/fonts/Mintbit/mintbit.css";
-import "@public/fonts/MintTriangles/minttriangles.css";
 
-import "@public/fonts/MintSans/mintsans.css"; // ew
 import { NavbarProvider } from "@/components/layout/navigation/NavBarContext";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import TransitionProvider from "./transitionProvider";
@@ -52,7 +47,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<body
-				className={`${BasierSquare.variable} ${BasierSquareNarrow.variable} ${BasierSquareMono.variable} font-sans bg-white dark:bg-neutral-950 max-w-screen overflow-x-hidden selection:bg-green/50 text-neutral-950/75 dark:text-white/75 focus-visible:outline-hidden focus-visible:ring-2`}
+				className={`${BasierSquare.variable} ${BasierSquareNarrow.variable} ${BasierSquareMono.variable} ${MNCelesta.variable} font-sans bg-white dark:bg-neutral-950 max-w-screen overflow-x-hidden selection:bg-green/50 text-neutral-950/75 dark:text-white/75 focus-visible:outline-hidden focus-visible:ring-2`}
 			>
 				<LazyMotion features={domAnimation}>
 					<ThemeProvider defaultTheme="system" themes={["light", "dark", "system"]} attribute="class">

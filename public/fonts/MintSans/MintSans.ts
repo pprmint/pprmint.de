@@ -19,4 +19,5 @@ export const MintSans = localFont({
 		"sans-serif",
 	],
 	variable: "--font-mintsans",
+	preload: false,
 });

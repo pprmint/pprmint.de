@@ -13,4 +13,5 @@ export const BasierSquareMono = localFont({
 	],
 	fallback: ["Basier Square Mono", "JetBrains Mono", "monospace"],
 	variable: "--font-basier-mono",
+	preload: false,
 });

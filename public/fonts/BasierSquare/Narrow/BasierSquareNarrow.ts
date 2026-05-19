@@ -57,4 +57,5 @@ export const BasierSquareNarrow = localFont({
 		"sans-serif",
 	],
 	variable: "--font-basier-narrow",
+	preload: false,
 });
