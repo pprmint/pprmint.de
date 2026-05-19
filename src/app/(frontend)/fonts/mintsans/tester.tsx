@@ -12,6 +12,7 @@ import TextAlignCenter from "@/icons/TextAlignCenter";
 import TextAlignRight from "@/icons/TextAlignRight";
 import RotateCcw from "@/icons/RotateCcw";
 import Button from "@/components/ui/Button";
+import { MintSans } from "@public/fonts/MintSans/MintSans";
 
 export default function Tester() {
 	// For dropdowns.
@@ -161,6 +162,7 @@ export default function Tester() {
 				className={`flex w-full p-3 md:p-6 font-mintsans text-neutral-950 dark:text-white placeholder:text-neutral-950 dark:placeholder:text-white focus:placeholder:text-black/10 dark:focus:placeholder:text-white/10 bg-transparent focus:outline-hidden focus-visible:outline-hidden min-h-[200px] h-1/2-screen border-b border-black/5 dark:border-white/5 ${textAlignment}`}
 				placeholder={t("MINTSANS.Content.Tester.pangram")}
 				style={{
+					fontFamily: MintSans.style.fontFamily,
 					fontWeight: weight,
 					fontSize: `${fontSize as unknown as number}em`,
 					letterSpacing: `${tracking as unknown as number}em`,
