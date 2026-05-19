@@ -28,15 +28,15 @@ export default function Page() {
 			link: string;
 			font: NextFontWithVariable;
 			type: "static" | "variable";
-			axes?: [
-				{
-					tag: string;
-					range: number[];
-				},
-			];
-			weights: number[];
+			axes?: {
+				tag: string;
+				range: number[];
+			}[],
+			staticStyles: {
+				tag: string;
+				steps: number[];
+			}[],
 			hasItalic?: boolean;
-			initialWeight?: number;
 		}>,
 	) {
 		return (
@@ -53,11 +53,10 @@ export default function Page() {
 				</div>
 				<div className="relative">
 					<div
-						className={`${props.font.className} px-6 md:px-9 mb-3 text-4xl md:text-6xl lg:text-8xl text-black dark:text-white outline-0 leading-tight whitespace-nowrap overflow-auto`}
+						className={`${props.font.className} px-6 md:px-9 mb-3 text-4xl md:text-6xl lg:text-8xl text-black dark:text-white outline-0 leading-tight whitespace-nowrap overflow-x-auto overflow-y-hidden`}
 						contentEditable
 						suppressContentEditableWarning
 						spellCheck={false}
-						style={{ fontWeight: props.initialWeight }}
 					>
 						{props.children}
 					</div>
@@ -77,7 +76,9 @@ export default function Page() {
 					)}
 					<div>
 						{t("Content.FontSection.variants", {
-							count: props.weights ? props.weights?.length * (props.hasItalic ? 2 : 1) : 1,
+							count: props.staticStyles.reduce((total, axis) => {
+								return total * axis.steps.length;
+							}, 1) * (props.hasItalic ? 2 : 1),
 						})}
 					</div>
 				</div>
@@ -95,8 +96,12 @@ export default function Page() {
 					link="/fonts/varia"
 					type="variable"
 					axes={[{ tag: "wght", range: [100, 900] }]}
-					weights={[100, 200, 300, 400, 500, 600, 700, 800, 900]}
-					initialWeight={600}
+					staticStyles={[
+						{
+							tag: "wght",
+							steps: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+						}
+					]}
 				>
 					Entzückt durch ihre vielen Zeichenvarianten.
 				</FontSection>
@@ -105,12 +110,22 @@ export default function Page() {
 					font={MNCelesta}
 					link="https://github.com/pprmint/MN-Celesta"
 					type="static"
-					weights={[400]}
+					staticStyles={[
+						{
+							tag: "wght",
+							steps: [400],
+						}
+					]}
 					hasItalic
 				>
 					A fork of the brilliant Instrument Serif.
 				</FontSection>
-				<FontSection name="MintBit" font={MintBit} link="/fonts/mintbit" type="static" weights={[400]}>
+				<FontSection name="MintBit" font={MintBit} link="/fonts/mintbit" type="static" staticStyles={[
+					{
+						tag: "wght",
+						steps: [400],
+					}
+				]}>
 					Pixelated goodness.
 				</FontSection>
 				<FontSection
@@ -118,11 +133,21 @@ export default function Page() {
 					font={MintTriangles}
 					link="/fonts/minttriangles"
 					type="static"
-					weights={[400]}
+					staticStyles={[
+						{
+							tag: "wght",
+							steps: [400],
+						}
+					]}
 				>
 					12:34:56
 				</FontSection>
-				<FontSection name="MintSans" font={MintSans} link="/fonts/mintsans" type="static" weights={[100, 400, 700]}>
+				<FontSection name="MintSans" font={MintSans} link="/fonts/mintsans" type="static" staticStyles={[
+					{
+						tag: "wght",
+						steps: [100, 400, 700],
+					}
+				]}>
 					Used to be "Butterknife", belongs in the scrapyard.
 				</FontSection>
 			</main>
