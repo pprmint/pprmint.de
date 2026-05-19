@@ -31,7 +31,7 @@ export default async function Page() {
 						{
 							tag: "wght",
 							steps: [100, 200, 300, 400, 500, 600, 700, 800, 900],
-							initial: 400
+							initial: 400,
 						},
 					]}
 				>
@@ -85,6 +85,7 @@ export default async function Page() {
 						{
 							tag: "wght",
 							steps: [100, 400, 700],
+							initial: 400,
 						},
 					]}
 				>

@@ -334,7 +334,18 @@
 			"800": "Extra-bold",
 			"900": "Black"
 		},
-		"styles": "{count} {count, plural, =1 {styles} other {styles}}",
+		"Width": {
+			"50": "Ultra-condensed",
+			"62,5": "Extra-condensed",
+			"75": "Condensed",
+			"87,5": "Semi-condensed",
+			"100": "Normal",
+			"112,5": "Semi-expanded",
+			"125": "Expanded",
+			"150": "Extra-expanded",
+			"200": "Ultra-expanded"
+		},
+		"styles": "{count} {count, plural, =1 {style} other {styles}}",
 		"size": "Size",
 		"Alignment": {
 			"label": "Alignment",

@@ -334,6 +334,17 @@
 			"800": "Extrafett",
 			"900": "Schwarz"
 		},
+		"Width": {
+			"ultraCondensed": "Ultraschmal",
+			"extraCondensed": "Extraschmal",
+			"condensed": "Schmal",
+			"semiCondensed": "Halbschmal",
+			"normal": "Normal",
+			"semiExpanded": "Halbbreit",
+			"expanded": "Breit",
+			"extraExpanded": "Extrabreit",
+			"ultraExpanded": "Ultrabreit"
+		},
 		"styles": "{count} {count, plural, =1 {Stil} other {Stile}}",
 		"size": "Größe",
 		"Alignment": {
