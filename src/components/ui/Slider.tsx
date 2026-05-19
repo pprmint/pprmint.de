@@ -1,5 +1,4 @@
 import * as RadixSlider from "@radix-ui/react-slider";
-import { PropsWithChildren, ReactNode } from "react";
 
 interface SliderProps {
 	label: string;
@@ -11,7 +10,7 @@ interface SliderProps {
 	step: number;
 }
 
-export default function Slider({ label, value, unit, onValueChange, min, max, step }: PropsWithChildren<SliderProps>) {
+export default function Slider({ label, value, unit, onValueChange, min, max, step }: SliderProps) {
 	return (
 		<RadixSlider.Root
 			className="group/slider relative flex items-center select-none touch-none w-full h-9"
