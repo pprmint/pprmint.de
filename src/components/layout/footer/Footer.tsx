@@ -36,7 +36,7 @@ export default async function Footer() {
               <Heart className="inline fill-red mx-0.5" />
               {t("and")}
               <Link
-                href="https://github.com/pprmint/pprmint.de/blob/main/package.json"
+                href="https://www.roestfein.de/produkte/rondo"
                 target="_blank"
                 rel="noopener noreferrer"
               >
