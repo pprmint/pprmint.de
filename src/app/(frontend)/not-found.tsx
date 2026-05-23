@@ -5,10 +5,11 @@ import { useTranslations } from "next-intl";
 import * as m from "motion/react-m";
 
 import DetectiveMina from "@public/assets/404/mina_chibi.webp";
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import ArrowRight from "@/icons/ArrowRight";
 import Button from "@/components/ui/Button";
 import { useMotionTemplate, useSpring, useTransform } from "motion/react";
+import { DINish } from "@public/fonts/DINish/DINish";
 
 export default function NotFound() {
 	const t = useTranslations("404");
@@ -41,6 +42,7 @@ export default function NotFound() {
 					className="absolute flex items-center justify-center size-full font-din font-stretch-expanded text-[52vw] text-transparent bg-clip-text opacity-[0.075]"
 					style={{
 						fontVariationSettings: useMotionTemplate`'wdth' ${wdth}, 'wght' ${weight}`,
+						fontFamily: DINish.style.fontFamily,
 					}}
 				>
 					<m.div
