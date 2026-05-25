@@ -1,9 +1,10 @@
 "use client";
+import { MintTriangles } from "@public/fonts/MintTriangles/MintTriangles";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
 function Time() {
-	const [time, setTime] = useState(["0", "0", "0"]);
+	const [time, setTime] = useState(["12", "34", "56"]);
 
 	function getTime() {
 		const hour = new Date().getHours().toString().padStart(2, "0");
@@ -21,7 +22,7 @@ function Time() {
 	}, []);
 
 	return (
-		<span className="font-minttriangles absolute top-[6%] left-0 text-white">
+		<span style={{ fontFamily: MintTriangles.style.fontFamily }} className="absolute top-[6%] left-0 text-white">
 			{time[0]}
 			<span className="text-green">:</span>
 			{time[1]}

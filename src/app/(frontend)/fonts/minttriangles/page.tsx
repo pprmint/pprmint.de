@@ -12,6 +12,7 @@ import Monitor from "@public/assets/triangles/Monitor.svg";
 import CountUp from "./countUp";
 import Time from "./time";
 import Download from "@/icons/Download";
+import { MintTriangles } from "@public/fonts/MintTriangles/MintTriangles";
 
 export async function generateMetadata() {
 	const t = await getTranslations("MINTTRIANGLES");
@@ -59,7 +60,7 @@ export default async function Page() {
 					<div className="relative mb-12 max-w-7xl mx-auto">
 						<FadingImage src={Monitor} alt="" />
 						<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-							<span className="font-minttriangles text-white/10" aria-hidden>
+							<span style={{ fontFamily: MintTriangles.style.fontFamily }} className="text-white/10" aria-hidden>
 								**:**:**
 							</span>
 							<Time />
@@ -118,12 +119,19 @@ export default async function Page() {
 						<span className="text-violet">.</span>
 					</h2>
 					<p className="pb-6">{t("Content.Download.text")}</p>
-					<Link className="flex w-max mx-auto" href="/api/download/file/mint_triangles_1.0.zip" download target="_blank">
-						<Button color="violet" tabIndex={-1} design="filled">
-							<Download />
-							{t("Content.Download.button")}
-						</Button>
-					</Link>
+					<div className="flex border-y border-black/5 dark:border-white/5 justify-center">
+						<Link
+							className="flex w-max mx-auto"
+							href="/api/download/file/mint_triangles_1.0.zip"
+							download
+							target="_blank"
+						>
+							<Button color="violet" tabIndex={-1} design="transparent" size="large" noInitialPadding>
+								<Download />
+								{t("Content.Download.button")}
+							</Button>
+						</Link>
+					</div>
 				</section>
 			</main>
 		</>

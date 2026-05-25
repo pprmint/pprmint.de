@@ -309,6 +309,21 @@
 			}
 		}
 	},
+	"COVERT": {
+		"Head": {
+			"description": "Another Marathon-inspired font.",
+			"title": "MN Covert"
+		},
+		"Content": {
+			"Download": {
+				"heading": "Look, there's a download button this time",
+				"text": "Download an early version of the variable font along with static widths."
+			},
+			"Tester": {
+				"heading": "Wide or condensed, the choice is yours"
+			}
+		}
+	},
 	"FONT": {
 		"Type": {
 			"variable": "Variable",
@@ -346,6 +361,13 @@
 			"200": "Ultra-expanded"
 		},
 		"styles": "{count} {count, plural, =1 {style} other {styles}}",
+		"Features": {
+			"label": "Features",
+			"tnum": "Tabular numbers",
+			"liga": "Ligatures"
+		},
+		"stylisticSets": "Stylistic sets",
+		"characterVariants": "Character variants",
 		"size": "Size",
 		"Alignment": {
 			"label": "Alignment",
@@ -648,50 +670,7 @@
 				"text": "Download an early version of the variable font and static weights."
 			},
 			"Tester": {
-				"heading": "Play around",
-				"pangram": "The five boxing wizards jump quickly.",
-				"Features": {
-					"label": "Features",
-					"tnum": "Tabular numbers",
-					"liga": "Ligatures"
-				},
-				"StylisticSets": {
-					"label": "Stylistic sets",
-					"ss01": "f and t with full cross bar",
-					"ss02": "Open numbers",
-					"ss03": "Conventional",
-					"ss04": "Moderno",
-					"ss05": "Aikoson"
-				},
-				"CharacterVariants": {
-					"label": "Character variants",
-					"cv01": "1 with alternative top",
-					"cv02": "2 with straight diagonal stroke",
-					"cv03": "3 with flat top",
-					"cv04": "Open 4",
-					"cv05": "f with full cross bar",
-					"cv06": "Open 6",
-					"cv07": "7 with straight diagonal stroke",
-					"cv08": "t with full cross bar",
-					"cv09": "Open 9",
-					"cv10": "Slashed 0",
-					"cv11": "Double-storey a",
-					"cv12": "Simplified m",
-					"cv13": "Simplified n",
-					"cv14": "Simplified r",
-					"cv15": "Simplified u",
-					"cv16": "l without tail",
-					"cv17": "G with sharp corner and spur",
-					"cv18": "G with rounded corner and spur",
-					"cv19": "I with slabs",
-					"cv20": "Q with diagonal stroke through body",
-					"cv21": "Q with wavy line",
-					"cv22": "Q with wavy line inside",
-					"cv23": "Q with hook",
-					"cv24": "R with curved leg",
-					"cv25": "g with flat bowel",
-					"cv26": "M with middle section on baseline"
-				}
+				"heading": "Play around"
 			}
 		}
 	},
@@ -701,7 +680,7 @@
 				"showAll": "Show all characters"
 			},
 			"Download": {
-				"heading": "Make your modem screech,",
+				"heading": "Make your modem screech",
 				"text": "and your hard drive click."
 			},
 			"Tester": {
@@ -747,8 +726,8 @@
 	"MINTSANS": {
 		"Content": {
 			"Download": {
-				"heading": "Make your disk cry,",
-				"text": "and your eyes bleed."
+				"heading": "Make your disk scream",
+				"text": "and your eyes cry."
 			},
 			"Tester": {
 				"Weight": {
@@ -757,8 +736,7 @@
 					"regular": "Regular",
 					"bold": "Bold"
 				},
-				"heading": "Try it out, or better yet: Don't",
-				"pangram": "The quick brown fox jumps over the lazy dog."
+				"heading": "Try it out, or better yet: Don't"
 			}
 		},
 		"Head": {
@@ -789,7 +767,7 @@
 			"Download": {
 				"heading": "When you see it",
 				"text": "I've been told that's a reference. Anyway, here's the download button.",
-				"button": "Come and get it"
+				"button": "Click the rectangle"
 			}
 		},
 		"Head": {
@@ -977,7 +955,6 @@
 				"youReceiveSub1": "early versions of mn varia",
 				"youReceiveSub2": "the full family once it's ready"
 			},
-
 			"License": {
 				"heading": "License",
 				"text": "You'll receive Desktop and Web licenses with the following respective terms:",

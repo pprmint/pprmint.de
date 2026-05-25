@@ -1,7 +1,7 @@
 "use client";
+import Button from "@/components/ui/Button";
 import Select from "@/components/ui/Select";
 import Slider from "@/components/ui/Slider";
-import Tooltip from "@/components/ui/Tooltip";
 import TextItalic from "@/icons/TextItalic";
 import TextItalicGerman from "@/icons/TextItalicGerman";
 import { useLocale, useTranslations } from "next-intl";
@@ -45,47 +45,47 @@ export default function FontSection(
 				>
 					{props.name}
 				</Link>
-				<div className="flex h-max opacity-0 group-hover:opacity-100 duration-75 border-b border-black/5 dark:border-white/5">
+				<div className="flex h-max opacity-0 group-hover:opacity-100 duration-100 border-b border-black/5 dark:border-white/5">
 					<div className="hidden md:flex">
 						{props.variable
 							? props.styles.map((style, i) => (
-								<div
-									className="w-48 lg:w-72 xl:w-84 2xl:w-100 border-l border-black/5 dark:border-white/5"
-									key={style.tag}
-								>
-									<Slider
-										label={t(`Axis.${style.tag}`)}
-										value={[values[i]]}
-										onValueChange={([sliderIndex]) => {
-											updateStyle(i, sliderIndex);
-										}}
-										step={1}
-										min={style.steps[0]}
-										max={style.steps[style.steps.length - 1]}
-									/>
-								</div>
-							))
+									<div
+										className="w-48 lg:w-72 xl:w-84 2xl:w-100 border-l border-black/5 dark:border-white/5"
+										key={style.tag}
+									>
+										<Slider
+											label={t(`Axis.${style.tag}`)}
+											value={[values[i]]}
+											onValueChange={([sliderIndex]) => {
+												updateStyle(i, sliderIndex);
+											}}
+											step={1}
+											min={style.steps[0]}
+											max={style.steps[style.steps.length - 1]}
+										/>
+									</div>
+								))
 							: props.styles.reduce((total, style) => {
-								return total * style.steps.length;
-							}, 1) > 1 &&
-							props.styles.map((style, i) => (
-								<div key={style.tag} className="w-42 lg:w-58 border-l border-black/5 dark:border-white/5">
-									<Select
-										label={t(`Axis.${style.tag}`)}
-										selected={{
-											value: String(values[props.styles.findIndex((i) => i.tag === style.tag)]),
-											label: t(`Weight.${values[props.styles.findIndex((i) => i.tag === style.tag)]}`),
-										}}
-										options={style.steps.map((step) => ({
-											value: String(step),
-											label: t(`Weight.${step}`),
-										}))}
-										onValueChange={(value) => {
-											updateStyle(i, parseInt(value));
-										}}
-									/>
-								</div>
-							))}
+									return total * style.steps.length;
+								}, 1) > 1 &&
+								props.styles.map((style, i) => (
+									<div key={style.tag} className="w-42 lg:w-58 border-l border-black/5 dark:border-white/5">
+										<Select
+											label={t(`Axis.${style.tag}`)}
+											selected={{
+												value: String(values[props.styles.findIndex((i) => i.tag === style.tag)]),
+												label: t(`Weight.${values[props.styles.findIndex((i) => i.tag === style.tag)]}`),
+											}}
+											options={style.steps.map((step) => ({
+												value: String(step),
+												label: t(`Weight.${step}`),
+											}))}
+											onValueChange={(value) => {
+												updateStyle(i, parseInt(value));
+											}}
+										/>
+									</div>
+								))}
 						<div className="w-48 lg:w-72 xl:w-84 2xl:w-100 border-l border-black/5 dark:border-white/5">
 							<Slider
 								label={t("size")}
@@ -99,14 +99,12 @@ export default function FontSection(
 						</div>
 					</div>
 					{props.hasItalic && (
-						<Tooltip text={t("Style.italic")}>
-							<button
-								className={`size-9 ${italic ? "bg-neutral-950 hover:bg-neutral-900 dark:bg-white dark:hover:bg-neutral-100 text-white dark:text-neutral-950" : "hover:bg-black/5 dark:hover:bg-white/5 text-neutral-950 dark:text-white"} duration-75 cursor-pointer`}
-								onClick={() => setItalic(!italic)}
-							>
+						<div className="border-l border-black/5 dark:border-white/5">
+							<Button design={italic ? "filled" : "transparent"} onClick={() => setItalic(!italic)}>
 								{locale === "de" ? <TextItalicGerman className="mx-auto" /> : <TextItalic className="mx-auto" />}
-							</button>
-						</Tooltip>
+								{t("Style.italic")}
+							</Button>
+						</div>
 					)}
 				</div>
 			</div>
@@ -119,15 +117,15 @@ export default function FontSection(
 					style={
 						props.variable
 							? {
-								fontStyle: italic ? "italic" : "normal",
-								fontVariationSettings: props.styles.map((style, i) => `'${style.tag}' ${values[i]}`).join(", "),
-								fontSize: `${size}rem`,
-							}
+									fontStyle: italic ? "italic" : "normal",
+									fontVariationSettings: props.styles.map((style, i) => `'${style.tag}' ${values[i]}`).join(", "),
+									fontSize: `${size}rem`,
+								}
 							: {
-								fontStyle: italic ? "italic" : "normal",
-								fontSize: `${size}rem`,
-								fontWeight: `${values[props.styles.findIndex((i) => i.tag === "wght")]}`,
-							}
+									fontStyle: italic ? "italic" : "normal",
+									fontSize: `${size}rem`,
+									fontWeight: `${values[props.styles.findIndex((i) => i.tag === "wght")]}`,
+								}
 					}
 				>
 					{props.children}

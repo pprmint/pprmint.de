@@ -159,6 +159,16 @@
 		}
 	}
 
+	--animate-collapsible-stub: stub 0.3s;
+	@keyframes stub {
+		from {
+			visibiliy: visible;
+		}
+		to {
+			visibiliy: visible;
+		}
+	}
+
 	--animate-select-open: selectOpen 0.2s;
 	@keyframes selectOpen {
 		from {

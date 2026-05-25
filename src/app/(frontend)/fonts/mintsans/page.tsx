@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
-import Tester from "./tester";
 import Download from "@/icons/Download";
 
 import Title from "@/components/layout/Title";
@@ -15,6 +14,8 @@ import Slide3 from "@public/assets/mintsans/slide3.svg";
 import Slide4 from "@public/assets/mintsans/slide4.svg";
 import Slide5 from "@public/assets/mintsans/slide5.svg";
 import Slide6 from "@public/assets/mintsans/slide6.svg";
+import FontTester from "../FontTester";
+import { MintSans } from "@public/fonts/MintSans/MintSans";
 
 export async function generateMetadata() {
 	const t = await getTranslations("MINTSANS");
@@ -60,7 +61,20 @@ export default function Page() {
 							{t("MINTSANS.Content.Tester.heading")}
 							<span className="text-green">.</span>
 						</h2>
-						<Tester />
+						<FontTester
+							font={MintSans}
+							styles={[
+								{
+									tag: "wght",
+									steps: [100, 400, 700],
+									initial: 400,
+								},
+							]}
+							pangram={{
+								en: "The quick brown fox jumps over the lazy dog.",
+								de: "Franz jagt im komplett verwahrlosten Taxi quer durch Bayern.",
+							}}
+						/>
 					</div>
 				</section>
 				<section className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
@@ -68,12 +82,14 @@ export default function Page() {
 						<h2>{t("MINTSANS.Content.Download.heading")}</h2>
 						<p>{t("MINTSANS.Content.Download.text")}</p>
 						<br />
-						<Link className="flex w-max mx-auto" href="/api/download/file/mintsans_2.0.zip" download target="_blank">
-							<Button design="filled" color="green" tabIndex={-1}>
-								<Download />
-								{t("COMMON.download")}
-							</Button>
-						</Link>
+						<div className="flex border-y border-black/5 dark:border-white/5 justify-center">
+							<Link className="flex w-max mx-auto" href="/api/download/file/mintsans_2.0.zip" download target="_blank">
+								<Button design="transparent" color="green" tabIndex={-1} size={"large"} noInitialPadding>
+									<Download />
+									{t("COMMON.download")}
+								</Button>
+							</Link>
+						</div>
 					</div>
 				</section>
 			</main>

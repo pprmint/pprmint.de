@@ -309,6 +309,21 @@
 			}
 		}
 	},
+	"COVERT": {
+		"Head": {
+			"description": "Noch eine von Marathon inspirierte Display-Schrift.",
+			"title": "MN Covert"
+		},
+		"Content": {
+			"Download": {
+				"heading": "Gucki, diesmal gibt's einen Download-Knopf",
+				"text": "Lade eine frühe Version der variablen Schriftart sowie fixer Schriftbreiten herunter."
+			},
+			"Tester": {
+				"heading": "Breit oder dünn, du hast die Wahl"
+			}
+		}
+	},
 	"FONT": {
 		"Type": {
 			"variable": "Variabel",
@@ -346,6 +361,13 @@
 			"ultraExpanded": "Ultrabreit"
 		},
 		"styles": "{count} {count, plural, =1 {Stil} other {Stile}}",
+		"Features": {
+			"label": "Features",
+			"tnum": "Tabular numbers",
+			"liga": "Ligatures"
+		},
+		"stylisticSets": "Stilsets",
+		"characterVariants": "Zeichenvarianten",
 		"size": "Größe",
 		"Alignment": {
 			"label": "Ausrichtung",
@@ -643,7 +665,7 @@
 				"showAll": "Alle Zeichen anzeigen"
 			},
 			"Download": {
-				"heading": "Lass das Modem schrillen,",
+				"heading": "Lass das Modem schrillen",
 				"text": "und deine Festplatte klicken."
 			},
 			"Tester": {
@@ -697,62 +719,18 @@
 				"text": "Lade dir eine Vorabversion der variablen Schriftart sowie einzelner Schnitte herunter."
 			},
 			"Tester": {
-				"heading": "Spiel damit",
-				"pangram": "Falsches Üben von Xylophonmusik quält jeden größeren Zwerg.",
-				"Features": {
-					"label": "Features",
-					"tnum": "Tabellenziffern",
-					"liga": "Ligaturen"
-				},
-				"StylisticSets": {
-					"label": "Stilsets",
-					"ss01": "f und t mit durchgezogenem Querstrich",
-					"ss02": "Offene Ziffern",
-					"ss03": "Konventionell",
-					"ss04": "Moderno",
-					"ss05": "Aikoson"
-				},
-				"CharacterVariants": {
-					"label": "Zeichenvarianten",
-					"cv01": "1 mit alternativem Kopf",
-					"cv02": "2 mit gerader Diagonale",
-					"cv03": "3 mit flachem Kopf",
-					"cv04": "Offene 4",
-					"cv05": "f mit durchgezogenem Querstrich",
-					"cv06": "Offene 6",
-					"cv07": "7 gerader Diagonale",
-					"cv08": "t mit durchgezogenem Querstrich",
-					"cv09": "Offene 9",
-					"cv10": "Durchgestrichene 0",
-					"cv11": "Zweistöckiges a",
-					"cv12": "Vereinfachtes m",
-					"cv13": "Vereinfachtes n",
-					"cv14": "Vereinfachtes r",
-					"cv15": "Vereinfachtes u",
-					"cv16": "l ohne Schwanz",
-					"cv17": "G mit scharfer Ecke und Sporn",
-					"cv18": "G mit abgerundeter Ecke und Sporn",
-					"cv19": "I mit Serifen",
-					"cv20": "Q mit Diagonale durch Körper",
-					"cv21": "Q mit gewellter Linie",
-					"cv22": "Q mit gewellter Linie innen",
-					"cv23": "Q mit Haken",
-					"cv24": "R mit kurvigem Bein",
-					"cv25": "g mit flachem Bauch",
-					"cv26": "M mit dem Mittelteil auf der Grundlinie"
-				}
+				"heading": "Spiel damit"
 			}
 		}
 	},
 	"MINTSANS": {
 		"Content": {
 			"Download": {
-				"heading": "Lass dein Laufwerk schreien,",
-				"text": "und deine Augen bluten."
+				"heading": "Lass dein Laufwerk schreien",
+				"text": "und deine Augen weinen."
 			},
 			"Tester": {
-				"heading": "Probier es aus, oder noch besser: Lass es",
-				"pangram": "Franz jagt im komplett verwahrlosten Taxi quer durch Bayern."
+				"heading": "Probier es aus, oder noch besser: Lass es"
 			}
 		},
 		"Head": {
@@ -781,9 +759,9 @@
 				"text": "Sollten Zahlen allein mal nicht reichen, habe ich einige Rechenoperatoren und Schrägstriche hinzugefügt. Die könntest du für Differenzen oder Multiplikatoren verwenden."
 			},
 			"Download": {
-				"heading": "Ab in den Zahlentraum",
-				"text": "Nichts ist schöner.",
-				"button": "Abfahrt"
+				"heading": "When you see it",
+				"text": "Man sagte mir, dies sei eine Anspielung. Egal, hier ist der Download-Knopf.",
+				"button": "Klick das Rechteck"
 			}
 		},
 		"Head": {
