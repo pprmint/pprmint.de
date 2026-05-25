@@ -203,8 +203,8 @@ module.exports = withPayload(
 					permanent: false,
 				},
 				{
-					source: "/mintbit",
-					destination: "/projects/mintbit",
+					source: "/projects/mintbit",
+					destination: "/fonts/mintbit",
 					permanent: false,
 				},
 				// MintTriangles.
