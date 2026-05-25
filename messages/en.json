@@ -915,7 +915,7 @@
 	},
 	"PROJECTS": {
 		"Head": {
-			"description": "Stuff I made that you can use.",
+			"description": "Miscellaneous stuff that doesn't fit into other categories.",
 			"title": "Projects"
 		},
 		"Tag": {
@@ -924,6 +924,11 @@
 			"website": "Website",
 			"software": "Software",
 			"customization": "Customization"
+		},
+		"Fonts": {
+			"heading": "The fonts have moved",
+			"text": "My fonts now have their own home. Nicer presentation and easier to try out.",
+			"button": "This way, please."
 		}
 	},
 	"SETTINGS": {

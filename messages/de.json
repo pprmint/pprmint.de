@@ -909,7 +909,7 @@
 	},
 	"PROJECTS": {
 		"Head": {
-			"description": "Krams von mir den du verwenden kannst.",
+			"description": "Weiterer Krams, der nicht in andere Kategorien passt.",
 			"title": "Projekte"
 		},
 		"Tag": {
@@ -918,6 +918,11 @@
 			"website": "Website",
 			"software": "Software",
 			"customization": "Personalisierung"
+		},
+		"Fonts": {
+			"heading": "Die Schriftarten sind umgezogen",
+			"text": "Meine Schriftarten haben nun ihr eigenes Zuhause. Schicker präsentiert und leichter auszuprobieren.",
+			"button": "Hier entlang, bitte."
 		}
 	},
 	"SETTINGS": {

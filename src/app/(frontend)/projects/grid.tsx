@@ -1,7 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
 import FadingImage from "@/components/ui/FadingImage";
-import Text from "@/icons/Text";
 import Palette from "@/icons/Palette";
 import Computer from "@/icons/Computer";
 import Cursor from "@/icons/Cursor";
@@ -9,26 +8,17 @@ import ArrowRight from "@/icons/ArrowRight";
 import Globe from "@/icons/Globe";
 import Link from "next/link";
 
-import NucleoImage from "../fonts/nucleo/twitter-image.png";
 import PomifuriImage from "./pomifuri/twitter-image.png";
 import AutselliaImage from "./autsellia/twitter-image.png";
 import AppiconsImage from "./appicons/twitter-image.png";
 import IconsImage from "./icons/twitter-image.png";
-import MintbitImage from "../fonts/mintbit/twitter-image.png";
 import MintcraftImage from "./mintcraft/twitter-image.png";
-import MintsansImage from "../fonts/mintsans/twitter-image.png";
-import MinttrianglesImage from "../fonts/minttriangles/twitter-image.png";
-import VariaImage from "../fonts/varia/twitter-image.png";
 import TentativeImage from "./tentative/twitter-image.png";
 import YtdgImage from "./ytdg/twitter-image.png";
 import { useState } from "react";
+import Button from "@/components/ui/Button";
 
 const ProjectsList = [
-	{
-		name: "nucleo",
-		tags: ["font"],
-		image: NucleoImage,
-	},
 	{
 		name: "pomifuri",
 		tags: ["website"],
@@ -36,20 +26,10 @@ const ProjectsList = [
 		link: "https://pomi.moe",
 	},
 	{
-		name: "varia",
-		tags: ["font"],
-		image: VariaImage,
-	},
-	{
 		name: "autsellia",
 		tags: ["website"],
 		image: AutselliaImage,
 		link: "https://autsellia.com",
-	},
-	{
-		name: "minttriangles",
-		tags: ["font"],
-		image: MinttrianglesImage,
 	},
 	{
 		name: "icons",
@@ -61,11 +41,6 @@ const ProjectsList = [
 		tags: ["design", "website"],
 		image: TentativeImage,
 		link: "https://tentative.name",
-	},
-	{
-		name: "mintbit",
-		tags: ["font"],
-		image: MintbitImage,
 	},
 	{
 		name: "ytdg",
@@ -82,18 +57,9 @@ const ProjectsList = [
 		tags: ["customization"],
 		image: AppiconsImage,
 	},
-	{
-		name: "mintsans",
-		tags: ["font"],
-		image: MintsansImage,
-	},
 ];
 
 const Tags = [
-	{
-		name: "font",
-		icon: <Text />,
-	},
 	{
 		name: "design",
 		icon: <Cursor />,
@@ -118,20 +84,18 @@ export default function Grid() {
 	return (
 		<section>
 			<div className="border border-black/5 dark:border-white/5">
-				<div className="grid grid-cols-2 sm:grid-cols-3 md:flex flex-row lg:w-max md:border-r border-black/5 dark:border-white/5">
+				<div className="grid grid-cols-2 xl:grid-cols-4 lg:w-200 md:border-r border-black/5 dark:border-white/5">
 					{Tags.map((tag) => (
-						<button
+						<Button
 							key={tag.name}
 							onClick={() => setFilter(filter == tag.name ? "" : tag.name)}
-							className={`flex gap-3 items-center justify-center w-full md:w-40 h-9 ${
-								filter == tag.name
-									? "font-semibold text-white dark:text-neutral-950 bg-neutral-950 dark:bg-white hover:bg-neutral-900 dark:hover:bg-neutral-50 active:bg-neutral-800 dark:active:bg-neutral-100"
-									: "hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white"
-							} duration-100`}
+							design={filter == tag.name ? "filled" : "transparent"}
+							size="grow"
+							align="center"
 						>
 							{tag.icon}
 							{t(`PROJECTS.Tag.${tag.name}`)}
-						</button>
+						</Button>
 					))}
 				</div>
 			</div>
