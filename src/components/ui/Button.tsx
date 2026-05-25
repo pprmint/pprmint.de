@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes } from "react";
 import React from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-	size?: "regular" | "large" | "full";
+	size?: "regular" | "large" | "full" | "grow";
 	color?: "red" | "yellow" | "green" | "blue" | "violet" | "neutral";
 	design?: "filled" | "semi-transparent" | "transparent" | "outlined";
 	noInitialPadding?: boolean;
@@ -19,7 +19,13 @@ export default function Button({
 	...rest
 }: React.PropsWithChildren<ButtonProps>) {
 	const buttonSize =
-		size === "full" ? "size-full text-lg" : size === "large" ? "h-11 w-max text-lg" : "h-9 w-max";
+		size === "full"
+			? "size-full text-lg"
+			: size === "large"
+				? "h-11 w-max text-lg"
+				: size === "grow"
+					? "h-9 w-full"
+					: "h-9 w-max";
 	const padding =
 		size === "large" ? (noInitialPadding ? "hover:px-5" : "px-5") : noInitialPadding ? "hover:px-4" : "px-4";
 	const styles = rest.disabled
@@ -42,7 +48,7 @@ export default function Button({
 							: color === "violet"
 								? "bg-violet text-violet-950 hover:bg-violet-400 active:bg-violet-600"
 								: color === "neutral" &&
-								"bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 hover:bg-neutral-800 dark:hover:bg-neutral-50 active:bg-neutral-800 dark:active:bg-neutral-100"
+									"bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 hover:bg-neutral-800 dark:hover:bg-neutral-50 active:bg-neutral-800 dark:active:bg-neutral-100"
 			: design === "semi-transparent"
 				? color === "red"
 					? "bg-red/10 text-red-600 dark:text-red hover:bg-red hover:text-red-950 active:bg-red-600"
@@ -55,7 +61,7 @@ export default function Button({
 								: color === "violet"
 									? "bg-violet/10 text-violet-600 dark:text-violet hover:bg-violet hover:text-violet-950 active:bg-violet-600"
 									: color === "neutral" &&
-									"text-neutral-950 dark:text-white hover:text-white dark:hover:text-neutral-950 bg-black/5 dark:bg-white/5 hover:bg-neutral-950 dark:hover:bg-white active:bg-neutral-800 dark:active:bg-neutral-100"
+										"text-neutral-950 dark:text-white hover:text-white dark:hover:text-neutral-950 bg-black/5 dark:bg-white/5 hover:bg-neutral-950 dark:hover:bg-white active:bg-neutral-800 dark:active:bg-neutral-100"
 				: design === "outlined"
 					? color === "red"
 						? "ring-1 ring-inset ring-red/10 hover:ring-red text-red-600 dark:text-red hover:bg-red/10 active:bg-red/20 active:ring-4 active:ring-transparent"
@@ -68,38 +74,41 @@ export default function Button({
 									: color === "violet"
 										? "ring-1 ring-inset ring-violet/10 hover:ring-violet text-violet-600 dark:text-violet hover:bg-violet/10 active:bg-violet/20 active:ring-4 active:ring-transparent"
 										: color === "neutral" &&
-										"ring-1 ring-inset ring-black/5 dark:ring-white/5 hover:ring-neutral-950 dark:hover:ring-white text-neutral-950 dark:text-white hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 active:ring-4 active:ring-transparent dark:active:ring-transparent"
-					: design === "transparent" && size === "regular" ? color === "red"
-						? "text-red-600 dark:text-red hover:bg-red/10 active:bg-red/20"
-						: color === "yellow"
-							? "text-yellow-600 dark:text-yellow hover:bg-yellow/10 active:bg-yellow/20"
-							: color === "green"
-								? "text-green-600 dark:text-green hover:bg-green/10 active:bg-green/20"
-								: color === "blue"
-									? "text-blue-600 dark:text-blue hover:bg-blue/10 active:bg-blue/20"
-									: color === "violet"
-										? "text-violet-600 dark:text-violet hover:bg-violet/10 active:bg-violet/20"
-										: color === "neutral" &&
-										"text-neutral-950 dark:text-white hover:bg-neutral-950/5 dark:hover:bg-white/5 active:bg-neutral-950/20 dark:active:bg-white/20" : color === "red"
-						? "text-red-600 dark:text-red hover:text-red-950 hover:bg-red active:bg-red-600"
-						: color === "yellow"
-							? "text-yellow-600 dark:text-yellow hover:text-yellow-950 hover:bg-yellow active:bg-yellow-600"
-							: color === "green"
-								? "text-green-600 dark:text-green hover:text-green-950 hover:bg-green active:bg-green-600"
-								: color === "blue"
-									? "text-blue-600 dark:text-blue hover:text-blue-950 hover:bg-blue active:bg-blue-600"
-									: color === "violet"
-										? "text-violet-600 dark:text-violet hover:text-violet-950 hover:bg-violet active:bg-violet-600"
-										: color === "neutral" &&
-										"text-neutral-950 dark:text-white hover:text-white dark:hover:text-neutral-950 hover:bg-neutral-950 dark:hover:bg-white active:bg-neutral-800 dark:active:bg-neutral-200"
-		;
-
+											"ring-1 ring-inset ring-black/5 dark:ring-white/5 hover:ring-neutral-950 dark:hover:ring-white text-neutral-950 dark:text-white hover:bg-black/5 dark:hover:bg-white/5 active:bg-black/10 dark:active:bg-white/10 active:ring-4 active:ring-transparent dark:active:ring-transparent"
+					: design === "transparent" && (size === "regular" || size === "grow")
+						? color === "red"
+							? "text-red-600 dark:text-red hover:bg-red/10 active:bg-red/20"
+							: color === "yellow"
+								? "text-yellow-600 dark:text-yellow hover:bg-yellow/10 active:bg-yellow/20"
+								: color === "green"
+									? "text-green-600 dark:text-green hover:bg-green/10 active:bg-green/20"
+									: color === "blue"
+										? "text-blue-600 dark:text-blue hover:bg-blue/10 active:bg-blue/20"
+										: color === "violet"
+											? "text-violet-600 dark:text-violet hover:bg-violet/10 active:bg-violet/20"
+											: color === "neutral" &&
+												"text-neutral-950 dark:text-white hover:bg-neutral-950/5 dark:hover:bg-white/5 active:bg-neutral-950/20 dark:active:bg-white/20"
+						: color === "red"
+							? "text-red-600 dark:text-red hover:text-red-950 hover:bg-red active:bg-red-600"
+							: color === "yellow"
+								? "text-yellow-600 dark:text-yellow hover:text-yellow-950 hover:bg-yellow active:bg-yellow-600"
+								: color === "green"
+									? "text-green-600 dark:text-green hover:text-green-950 hover:bg-green active:bg-green-600"
+									: color === "blue"
+										? "text-blue-600 dark:text-blue hover:text-blue-950 hover:bg-blue active:bg-blue-600"
+										: color === "violet"
+											? "text-violet-600 dark:text-violet hover:text-violet-950 hover:bg-violet active:bg-violet-600"
+											: color === "neutral" &&
+												"text-neutral-950 dark:text-white hover:text-white dark:hover:text-neutral-950 hover:bg-neutral-950 dark:hover:bg-white active:bg-neutral-800 dark:active:bg-neutral-200";
 	return (
 		<button
-			className={`group relative flex gap-3 items-center ${align === "center" ? "justify-center" : align === "right" ? "justify-end" : ""
-				} ${size === "regular" ? "duration-100" : "duration-200 font-medium"} ease-out ${padding} ${!rest.disabled && "hover:cursor-pointer"
-				} ${!rest.disabled && design !== "transparent" && "hover:shadow-xs"} ${rest.disabled && "pointer-events-none"
-				} select-none active:duration-50 ${buttonSize} ${styles} overflow-hidden`}
+			className={`group relative flex gap-3 items-center ${
+				align === "center" ? "justify-center" : align === "right" ? "justify-end" : ""
+			} ${size === "regular" || size === "grow" ? "duration-100" : "duration-200 font-medium"} ease-out ${padding} ${
+				!rest.disabled && "hover:cursor-pointer"
+			} ${!rest.disabled && design !== "transparent" && "hover:shadow-xs"} ${
+				rest.disabled && "pointer-events-none"
+			} select-none active:duration-50 ${buttonSize} ${styles} overflow-hidden`}
 			{...rest}
 		>
 			{children}
