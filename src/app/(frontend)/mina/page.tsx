@@ -78,7 +78,7 @@ export default async function Page({
 							<p>
 								{t.rich("Content.About.text6", {
 									Link: (chunks) => (
-										<Link href="https://twitter.com/wxsonz" className="text-link-external">
+										<Link href="https://www.instagram.com/mattzurix/" className="text-link-external" target="_blank" rel="noopener noreferrer">
 											{chunks}
 										</Link>
 									),
