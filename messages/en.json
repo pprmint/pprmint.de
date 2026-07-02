@@ -616,9 +616,9 @@
 				},
 				"Statistics": {
 					"title": "Statistics",
-					"total": "Grand total",
-					"commissioned": "Commissioned",
-					"averagePrice": "Average comm price",
+					"total": "artworks in total",
+					"commissioned": "paid commissions",
+					"totalSpent": "spent on comms in total",
 					"artworkCount": "Artwork count",
 					"numberArtworks": "{count, plural, =0 {No artwork} =1 {One artwork} other {# artworks}}"
 				},

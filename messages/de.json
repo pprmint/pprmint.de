@@ -616,9 +616,9 @@
 				},
 				"Statistics": {
 					"title": "Statistiken",
-					"total": "Gesamtzahl",
-					"commissioned": "Auftragswerke",
-					"averagePrice": "Durchschnittspreis",
+					"total": "Kunstwerke insgesamt",
+					"commissioned": "bezahlte Commissions",
+					"totalSpent": "für Commissions ausgegeben",
 					"artworkCount": "Anzahl Kunstwerke",
 					"numberArtworks": "{count, plural, =0 {Keine Kunstwerke} =1 {Ein Kunstwerk} other {# Kunstwerke}}"
 				},
