@@ -2,8 +2,8 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
 interface NavbarContextType {
-	inverted: boolean;
-	setInverted: (value: boolean) => void;
+	defaultColor: "white" | "black" | undefined;
+	setDefaultColor: (value?: "white" | "black") => void;
 	noAccents: boolean;
 	setNoAccents: (value: boolean) => void;
 }
@@ -11,10 +11,14 @@ interface NavbarContextType {
 const NavbarContext = createContext<NavbarContextType | undefined>(undefined);
 
 export const NavbarProvider = ({ children }: { children: ReactNode }) => {
-	const [inverted, setInverted] = useState(false);
+	const [defaultColor, setDefaultColor] = useState<"white" | "black" | undefined>();
 	const [noAccents, setNoAccents] = useState(false);
 
-	return <NavbarContext.Provider value={{ inverted, setInverted, noAccents, setNoAccents }}>{children}</NavbarContext.Provider>;
+	return (
+		<NavbarContext.Provider value={{ defaultColor, setDefaultColor, noAccents, setNoAccents }}>
+			{children}
+		</NavbarContext.Provider>
+	);
 };
 
 export const useNavbar = () => {

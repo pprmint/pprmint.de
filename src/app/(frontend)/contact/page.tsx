@@ -25,8 +25,7 @@ export default async function Page() {
 			<Title
 				title={t("Head.title")}
 				description={t("Head.description")}
-				creditName="@neko__draws"
-				creditLink="https://twitter.com/neko__draws"
+				credits={[{ name: "nekomimi", link: "https://twitter.com/neko__draws" }]}
 			>
 				<div className="relative size-full bg-neutral-950">
 					<Image

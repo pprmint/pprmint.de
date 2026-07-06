@@ -21,6 +21,7 @@ import Discord from "@/icons/Discord";
 import WarningCircle from "@/icons/WarningCircle";
 import OutfitRowSuspense from "./outfitRow/outfitRowSuspense";
 import OutfitRowSkeleton from "./outfitRow/outfitRowSkeleton";
+import MinaTitle from "./minaTitle";
 
 export async function generateMetadata() {
 	const t = await getTranslations("MINA");
@@ -39,27 +40,7 @@ export default async function Page({
 	const { p = "1", nsfw, refs, artist = "undefined", outfit = "undefined" } = await searchParams;
 	return (
 		<>
-			<Title
-				title={t("Head.title")}
-				description={t("Head.description")}
-				creditName="Ventusilly"
-				creditLink="https://vgen.co/ventusilly"
-			>
-				<div className="size-full bg-gray-900">
-					<div className="relative size-full max-w-8xl mx-auto">
-						<FadingImage
-							src="/api/artwork/file/ventus_88d79ff2a4_no_text.webp"
-							alt=""
-							fill
-							className="absolute object-cover"
-							quality={100}
-						/>
-						<div className="max-[1921px]:hidden absolute right-0 w-8xl h-full bg-gradient-to-r from-gray-900 via-transparent" />
-						<div className="max-[1921px]:hidden absolute right-0 w-8xl h-full bg-gradient-to-l from-gray-900 via-15% via-transparent" />
-						<p className="text-xs absolute bottom-1 lg:bottom-2 right-7 md:right-12 lg:right-16 xl:right-24 text-right text-white/50 drop-shadow-sm">{t("Content.drinkResponsibly")}</p>
-					</div>
-				</div>
-			</Title>
+			<MinaTitle />
 			<main>
 				<section id="lore" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<div className="w-full md:grid grid-cols-2 border-x border-black/5 dark:border-white/5">
@@ -78,7 +59,12 @@ export default async function Page({
 							<p>
 								{t.rich("Content.About.text6", {
 									Link: (chunks) => (
-										<Link href="https://www.instagram.com/mattzurix/" className="text-link-external" target="_blank" rel="noopener noreferrer">
+										<Link
+											href="https://www.instagram.com/mattzurix/"
+											className="text-link-external"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
 											{chunks}
 										</Link>
 									),
@@ -109,9 +95,7 @@ export default async function Page({
 						<div className="px-1 py-0.5 max-w-max bg-black/5 dark:bg-white/5 hover:bg-red-50 dark:hover:bg-red-950 text-transparent hover:text-red-800 dark:hover:text-red-200 duration-100 select-none hover:select-text">
 							{t("Content.Fanart.text4")}
 						</div>
-						<p className="text-xs text-neutral-950/25 dark:text-white/25 pt-1">
-							{t("Content.Fanart.text5")}
-						</p>
+						<p className="text-xs text-neutral-950/25 dark:text-white/25 pt-1">{t("Content.Fanart.text5")}</p>
 					</div>
 				</section>
 				<section id="design" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
@@ -136,12 +120,7 @@ export default async function Page({
 						</p>
 						<div className="flex flex-col lg:items-end">
 							<p className="mb-3">{t("Content.Reference.Download.text")}</p>
-							<Link
-								href="/api/download/file/mina_ref_sheet_by_nekomimi.png"
-								target="_blank"
-								download
-								className="w-fit"
-							>
+							<Link href="/api/download/file/mina_ref_sheet_by_nekomimi.png" target="_blank" download className="w-fit">
 								<Button tabIndex={-1} design="semi-transparent">
 									{t("Content.Reference.Download.button")}
 									<Download />

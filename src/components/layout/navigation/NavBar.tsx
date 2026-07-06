@@ -11,7 +11,7 @@ import { AnimatePresence } from "motion/react";
 export default function NavBar() {
 	const t = useTranslations("NAVIGATION");
 	const pathname = usePathname();
-	const { inverted, noAccents } = useNavbar();
+	const { defaultColor, noAccents } = useNavbar();
 	const [solid, setSolid] = useState(false);
 	// Show "solid" background when scrolling.
 	useEffect(() => {
@@ -87,9 +87,7 @@ export default function NavBar() {
 				<li>
 					<div className="flex flex-col">
 						<span>{t(`Path.${string}.title`)}</span>
-						{!noDescription && (
-							<span className="text-xs opacity-75">{t(`Path.${string}.description`)}</span>
-						)}
+						{!noDescription && <span className="text-xs opacity-75">{t(`Path.${string}.description`)}</span>}
 					</div>
 				</li>
 			</Link>
@@ -102,11 +100,13 @@ export default function NavBar() {
 			className={`z-90 fixed top-0 inset-x-0 ${
 				navOpen ? "h-full md:h-96 xl:h-72 shadow-xl shadow-neutral-950/5 dark:shadow-neutral-950/25" : "h-16"
 			} flex justify-between duration-300 overflow-auto border-b ${
-				!inverted
-					? "text-neutral-950 dark:text-white"
-					: solid
-					? "text-neutral-950 dark:text-white"
-					: "text-white "
+				!solid
+					? defaultColor === "white"
+						? "text-white"
+						: defaultColor === "black"
+							? "text-neutral-950"
+							: "text-neutral-950 dark:text-white"
+					: "text-neutral-950 dark:text-white"
 			}
 				${
 					solid || navOpen
@@ -174,8 +174,8 @@ export default function NavBar() {
 							gradientTransform="matrix(0 -13 13 0 151.75 23.86)"
 							gradientUnits="userSpaceOnUse"
 						>
-							<stop offset="0" style={{ stopColor: "#fff", stopOpacity: 1 }} />
-							<stop offset="1" style={{ stopColor: "#fff", stopOpacity: 0.66 }} />
+							<stop offset="0" style={{ stopColor: "currentColor", stopOpacity: 1 }} />
+							<stop offset="1" style={{ stopColor: "currentColor", stopOpacity: 0.66 }} />
 						</linearGradient>
 						<linearGradient
 							id="pprmint.d"
@@ -186,8 +186,8 @@ export default function NavBar() {
 							gradientTransform="matrix(0 -13 13 0 138.5 23.86)"
 							gradientUnits="userSpaceOnUse"
 						>
-							<stop offset="0" style={{ stopColor: "#fff", stopOpacity: 1 }} />
-							<stop offset="1" style={{ stopColor: "#fff", stopOpacity: 1 }} />
+							<stop offset="0" style={{ stopColor: "currentColor", stopOpacity: 1 }} />
+							<stop offset="1" style={{ stopColor: "currentColor", stopOpacity: 1 }} />
 						</linearGradient>
 					</defs>
 				</svg>
@@ -212,9 +212,7 @@ export default function NavBar() {
 							className="w-full h-max pt-20 xl:pt-5"
 						>
 							<div className="flex items-baseline gap-3">
-								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif">
-									{t("Path.General.title")}
-								</p>
+								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif">{t("Path.General.title")}</p>
 								<div className="w-full h-px bg-neutral-950/5 dark:bg-white/5" />
 							</div>
 							<ul>
@@ -234,9 +232,7 @@ export default function NavBar() {
 							className="w-full h-max col-span-2 pt-9 md:pt-20 xl:pt-5"
 						>
 							<div className="flex items-baseline gap-3">
-								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif">
-									{t("Path.Work.title")}
-								</p>
+								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif">{t("Path.Work.title")}</p>
 								<div className="w-full h-px bg-neutral-950/5 dark:bg-white/5" />
 							</div>
 							<ul className="md:grid grid-cols-2">
@@ -260,9 +256,7 @@ export default function NavBar() {
 							className="w-full h-max pt-9 md:pt-20 xl:pt-5"
 						>
 							<div className="flex items-baseline gap-3">
-								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif">
-									{t("Path.Other.title")}
-								</p>
+								<p className="pl-3 text-neutral-950 dark:text-white text-2xl font-serif">{t("Path.Other.title")}</p>
 								<div className="w-full h-px bg-neutral-950/5 dark:bg-white/5" />
 							</div>
 							<ul>
@@ -305,7 +299,7 @@ function MenuIcon({
 						? `M${yPadding},${yPadding} ${size / 2},${size / 2} ${size - yPadding},${yPadding}`
 						: `M${xPadding},${yPadding + (size % 2 ? 0.5 : 0)} ${size / 2},${
 								yPadding + (size % 2 ? 0.5 : 0)
-						  } ${size - xPadding},${yPadding + (size % 2 ? 0.5 : 0)}`
+							} ${size - xPadding},${yPadding + (size % 2 ? 0.5 : 0)}`
 				}
 				className="duration-400 ease-out-quint"
 			/>
@@ -320,12 +314,10 @@ function MenuIcon({
 			<path
 				d={
 					close
-						? `M${yPadding},${size - yPadding} ${size / 2},${size / 2} ${size - yPadding},${
-								size - yPadding
-						  }`
+						? `M${yPadding},${size - yPadding} ${size / 2},${size / 2} ${size - yPadding},${size - yPadding}`
 						: `M${xPadding},${size - yPadding - (size % 2 ? 0.5 : 0)} ${size / 2},${
 								size - yPadding - (size % 2 ? 0.5 : 0)
-						  } ${size - xPadding},${size - yPadding - (size % 2 ? 0.5 : 0)}`
+							} ${size - xPadding},${size - yPadding - (size % 2 ? 0.5 : 0)}`
 				}
 				className="duration-400 ease-out-quint"
 			/>

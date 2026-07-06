@@ -38,9 +38,9 @@ const Links = [
 export default function HomeTitle() {
 	const t = useTranslations("HOME");
 	const [hovered, setHovered] = useState(-1);
-	const { setNoAccents, setInverted } = useNavbar();
+	const { setNoAccents, setDefaultColor } = useNavbar();
 	useEffect(() => {
-		setInverted(false);
+		setDefaultColor();
 		setNoAccents(false);
 	});
 	return (
