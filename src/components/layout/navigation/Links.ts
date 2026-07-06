@@ -23,7 +23,7 @@ export const Projects = [
 		strings: "Icons",
 	},
 	{
-		link: "/fonts/appicons",
+		link: "/projects/appicons",
 		strings: "AppIcons",
 	},
 ];
