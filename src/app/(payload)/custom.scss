@@ -26,41 +26,58 @@
 
 // #cursed
 @font-face {
-	font-family: "DINish";
-	font-weight: 300 900;
-	font-stretch: 75% 125%;
-	font-display: swap;
+	font-family: "Basier Square";
+	src: url("/fonts/BasierSquare/basiersquare-regular-webfont.woff2") format("woff2");
+	font-weight: 400;
 	font-style: normal;
-	font-variation-settings: "slnt" 0deg;
-	src: url("/fonts/DINish/DINish[slnt,wdth,wght].woff2") format("woff2");
 }
 @font-face {
-	font-family: "DINish";
-	font-weight: 300 900;
-	font-stretch: 75% 125%;
-	font-display: swap;
+	font-family: "Basier Square";
+	src: url("/fonts/BasierSquare/basiersquare-regularitalic-webfont.woff2") format("woff2");
+	font-weight: 400;
 	font-style: italic;
-	font-variation-settings: "slnt" -12deg;
-	src: url("/fonts/DINish/DINish[slnt,wdth,wght].woff2") format("woff2");
 }
+@font-face {
+	font-family: "Basier Square";
+	src: url("/fonts/BasierSquare/basiersquare-bold-webfont.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Basier Square";
+	src: url("/fonts/BasierSquare/basiersquare-bolditalic-webfont.woff2") format("woff2");
+	font-weight: 700;
+	font-style: italic;
+}
+@font-face {
+	font-family: "Basier Square Mono";
+	src: url("/fonts/BasierSquare/Mono/basiersquaremono-regular-webfont.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+}
+
 @font-face {
 	font-family: "MN Celesta";
-	src: url("/fonts/MNCelesta/MNCelesta-Regular.woff2") format("woff2"), url("/fonts/MNCelesta/MNCelesta-Regular.woff") format("woff");
+	src:
+		url("/fonts/MNCelesta/MNCelesta-Regular.woff2") format("woff2"),
+		url("/fonts/MNCelesta/MNCelesta-Regular.woff") format("woff");
 	font-weight: 400;
 	font-display: swap;
 	font-style: normal;
 }
 @font-face {
 	font-family: "MN Celesta";
-	src: url("/fonts/MNCelesta/MNCelesta-Italic.woff2") format("woff2"), url("/fonts/MNCelesta/MNCelesta-Italic.woff") format("woff");
+	src:
+		url("/fonts/MNCelesta/MNCelesta-Italic.woff2") format("woff2"),
+		url("/fonts/MNCelesta/MNCelesta-Italic.woff") format("woff");
 	font-weight: 400;
 	font-display: swap;
 	font-style: italic;
 }
 
 :root {
-	--font-body: "DINish", system-ui;
-	--font-mono: "Iosevka Mint Expanded", "Cascadia Code", monospace;
+	--font-body: "Basier Square", system-ui;
+	--font-mono: "Basier Square Mono", "Cascadia Code", monospace;
 	--font-serif: "MN Celesta", serif;
 	--base-body-size: 16;
 }
@@ -86,7 +103,7 @@ h4,
 h5,
 h6 {
 	font-family: var(--font-serif);
-	font-stretch: ultra-condensed;
+	font-weight: normal;
 }
 
 .card__title {
@@ -164,8 +181,8 @@ h6 {
 	height: 10px;
 }
 
-.LexicalEditorTheme__textItalic {
-	font-variation-settings: "slnt" -12;
+.LexicalEditorTheme__textCode {
+	font-family: var(--font-mono);
 }
 
 @layer payload-default {
@@ -220,6 +237,7 @@ h6 {
 			overflow: auto;
 			tr {
 				display: inline-flex;
+				position: relative;
 				width: 100%;
 				th {
 					display: inline-block;
@@ -273,6 +291,7 @@ h6 {
 				border: 1px solid var(--theme-elevation-150);
 				transition: all 0.1s;
 				box-shadow: 0 2px 2px -1px #0000001a;
+				overflow: hidden;
 				&:hover {
 					border: 1px solid var(--theme-elevation-250);
 					td.cell-_select {
@@ -284,9 +303,9 @@ h6 {
 				}
 				&:has(.checkbox-input--checked) {
 					.file__thumbnail,
-					a.mina-artwork-thumbnail {
+					.mina-artwork-thumbnail {
 						background-color: var(--theme-elevation-100) !important;
-						padding: 10px;
+						padding: 10px !important;
 					}
 				}
 				&:nth-child(2n + 1) {
@@ -362,8 +381,36 @@ h6 {
 	.collection-list--assets table .file__thumbnail {
 		aspect-ratio: 16 / 9;
 	}
-	.collection-list--artwork table .file__thumbnail {
-		aspect-ratio: 1 / 1;
+	.collection-list--artwork table {
+		// Hacky workaround to make the images clickable both for
+		// opening the file page in Payload as well as selecting it
+		// for a relationship field.
+		.cell-id {
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			aspect-ratio: 1/1;
+			z-index: 2;
+			opacity: 0;
+			> button,
+			> a {
+				position: absolute;
+				inset: 0;
+				aspect-ratio: 1/1;
+			}
+		}
+		tr:hover {
+			.nsfw-overlay {
+				opacity: 0;
+			}
+			.mina-artwork-thumbnail {
+				border-color: var(--theme-elevation-250) !important;
+			}
+		}
+		.file__thumbnail {
+			aspect-ratio: 1 / 1;
+		}
 	}
 	.collection-list--photos table .file__thumbnail {
 		aspect-ratio: 3 / 2;

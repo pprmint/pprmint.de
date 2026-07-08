@@ -2,7 +2,6 @@ import BrokenImage from "@/icons/BrokenImage";
 import EyeDisabled from "@/icons/EyeDisabled";
 import type { Artwork } from "@/payload-types";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function ArtworkThumbnailCell({
 	rowData,
@@ -20,9 +19,8 @@ export default function ArtworkThumbnailCell({
 	if (rowData) {
 		return rowData.thumbnailURL ? (
 			<div className="twp leading-none">
-				<Link
-					href={`/admin/collections/artwork/${rowData.id}`}
-					className="mina-artwork-thumbnail block group relative w-fullzz aspect-square overflow-clip border-0 border-solid border-b border-(--theme-elevation-150) hover:border-(--theme-elevation-250) rounded-t-sm mb-2 duration-100"
+				<div
+					className="mina-artwork-thumbnail block group relative w-full aspect-square overflow-clip border-0 border-solid border-b border-(--theme-elevation-150) rounded-t-sm mb-2 duration-100"
 					style={{
 						backgroundImage:
 							"url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%202%202%22%3E%3Cpath%20d%3D%22M2%202V1H0V0h1v2z%22%20fill%3D%22%238881%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E')",
@@ -36,27 +34,24 @@ export default function ArtworkThumbnailCell({
 						alt="Thumbnail"
 						width={rowData.sizes?.thumbnail?.width || 0}
 						height={rowData.sizes?.thumbnail?.height || 0}
-						className={`w-full aspect-square object-contain ${nsfw && "opacity-50 group-hover:opacity-100 duration-100"}`}
+						className="w-full aspect-square object-contain"
 					/>
 					{nsfw && (
 						<div
-							className="absolute inset-0 flex size-full items-center justify-center group-hover:opacity-0 text-(--theme-text) duration-100"
-							style={{ backdropFilter: "blur(6px)" }}
+							className="nsfw-overlay absolute inset-0 flex size-full items-center justify-center group-hover:opacity-0 text-(--theme-text) duration-100 backdrop-blur-md bg-(--theme-elevation-0)/50"
 						>
 							<EyeDisabled width={30} height={30} className="opacity-50" />
 						</div>
 					)}
-				</Link>
-				<Link
-					href={`/admin/collections/artwork/${rowData.id}`}
+				</div>
+				<div
 					className="block underline decoration-(--theme-elevation-400) text-(--theme-elevation-800) text-[13px] w-full text-ellipsis overflow-hidden"
 				>
 					{filename}
-				</Link>
+				</div>
 			</div>
 		) : (
-			<Link
-				href={`/admin/collections/artwork/${rowData.id}`}
+			<div
 				style={{
 					width: 64,
 					height: 64,
@@ -68,7 +63,7 @@ export default function ArtworkThumbnailCell({
 				}}
 			>
 				<BrokenImage width={30} height={30} />
-			</Link>
+			</div>
 		);
 	} else {
 		return null;
