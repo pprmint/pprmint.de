@@ -21,7 +21,14 @@ export default function Buttons({ buttons }: { buttons: PaginatedDocs<ButtonType
 		<div className="flex justify-center">
 			<Dialog.Root>
 				<Dialog.Trigger>
-					<Image unoptimized src="/88x31.png" width={88} height={31} alt="pprmint.de button" />
+					<Image
+						unoptimized
+						src="/88x31.png"
+						width={88}
+						height={31}
+						alt="pprmint.de button"
+						style={{ imageRendering: "pixelated" }}
+					/>
 				</Dialog.Trigger>
 				<Dialog.Portal>
 					<Dialog.Overlay className="bg-white/90 dark:bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-100" />
@@ -45,11 +52,25 @@ export default function Buttons({ buttons }: { buttons: PaginatedDocs<ButtonType
 								<p>{t("FOOTER.Button.description")}</p>
 								<div className="flex justify-center gap-3 mb-[7px]">
 									<div>
-										<Image unoptimized src="/88x31.png" width={88} height={31} alt="pprmint.de button" />
+										<Image
+											unoptimized
+											src="/88x31.png"
+											width={88}
+											height={31}
+											alt="pprmint.de button"
+											style={{ imageRendering: "pixelated" }}
+										/>
 										<span className="text-xs">PNG</span>
 									</div>
 									<div>
-										<Image unoptimized src="/88x31.gif" width={88} height={31} alt="pprmint.de button" />
+										<Image
+											unoptimized
+											src="/88x31.gif"
+											width={88}
+											height={31}
+											alt="pprmint.de button"
+											style={{ imageRendering: "pixelated" }}
+										/>
 										<span className="text-xs">GIF</span>
 									</div>
 								</div>
@@ -88,6 +109,7 @@ export default function Buttons({ buttons }: { buttons: PaginatedDocs<ButtonType
 							width={88}
 							height={31}
 							alt={button.alt}
+							style={{ imageRendering: "pixelated" }}
 						/>
 					</Link>
 				))}
