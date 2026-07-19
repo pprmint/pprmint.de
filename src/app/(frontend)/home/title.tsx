@@ -6,6 +6,7 @@ import FadingImage from "@/components/ui/FadingImage";
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "motion/react";
 import { useNavbar } from "@/components/layout/navigation/NavBarContext";
+import dynamic from "next/dynamic";
 
 const Links = [
 	{
@@ -35,7 +36,7 @@ const Links = [
 	},
 ];
 
-export default function HomeTitle() {
+function HomeTitle() {
 	const t = useTranslations("HOME");
 	const [hovered, setHovered] = useState(-1);
 	const { setNoAccents, setDefaultColor } = useNavbar();
@@ -43,8 +44,15 @@ export default function HomeTitle() {
 		setDefaultColor();
 		setNoAccents(false);
 	});
+	const baseDelay = localStorage.getItem("welcome") ? 0 : 1.5;
+
+	useEffect(() => {
+		if (!localStorage.getItem("welcome")) {
+			localStorage.setItem("welcome", "hiya");
+		}
+	}, []);
 	return (
-		<section className="relative w-full h-screen overflow-clip border-b border-black/5 dark:border-white/5">
+		<>
 			<div className="absolute -z-10 inset-0 bg-white dark:bg-neutral-500 saturate-0">
 				<AnimatePresence>
 					{Links[hovered] && (
@@ -74,23 +82,34 @@ export default function HomeTitle() {
 					initial={{ opacity: 1 }}
 					animate={{
 						opacity: 0,
-						transition: { duration: 1, delay: 1.75, ease: "linear" },
+						transition: { duration: 1, delay: baseDelay + 0.25, ease: "linear" },
 					}}
 					className="absolute inset-0 bg-white dark:bg-neutral-950"
 				/>
 			</div>
 			<div className="w-full h-screen max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-				<div className="relative size-full border-x border-black/5 dark:border-white/5">
+				<m.div
+					className="relative size-full border-x border-black/5 dark:border-white/5"
+					initial={{ clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" }}
+					animate={{
+						clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+						transition: {
+							type: "spring",
+							bounce: 0,
+							duration: 1,
+						},
+					}}
+				>
 					<m.div
 						className="absolute py-28 md:py-28 lg:py-32 xl:py-40"
-						initial={{ top: "50%", translateY: "-50%" }}
+						initial={localStorage.getItem("welcome") ? {} : { top: "50%", translateY: "-50%" }}
 						animate={{
 							top: "0%",
 							translateY: "0%",
 							transition: {
 								type: "spring",
 								bounce: 0,
-								delay: 1.75,
+								delay: baseDelay + 0.25,
 								duration: 1.5,
 							},
 						}}
@@ -158,7 +177,7 @@ export default function HomeTitle() {
 											type: "spring",
 											bounce: 0,
 											duration: 1,
-											delay: 2 + (index + 1) / 10,
+											delay: baseDelay + 0.5 + (index + 1) / 10,
 										},
 									}}
 									className="relative w-full h-16 md:h-20 border-black/5 dark:border-white/5 sm:border-r group-last:border-r-0 border-t"
@@ -191,8 +210,12 @@ export default function HomeTitle() {
 							</Link>
 						))}
 					</div>
-				</div>
+				</m.div>
 			</div>
-		</section>
+		</>
 	);
 }
+
+export default dynamic(() => Promise.resolve(HomeTitle), {
+	ssr: false,
+});

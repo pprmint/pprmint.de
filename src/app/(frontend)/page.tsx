@@ -41,7 +41,9 @@ export default async function Page() {
 	});
 	return (
 		<>
-			<HomeTitle />
+			<section className="relative w-full h-screen overflow-clip border-b border-black/5 dark:border-white/5">
+				<HomeTitle />
+			</section>
 			<main>
 				<Announcements data={announcements} />
 				<div className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20 h-20 md:h-32 xl:h-40">
