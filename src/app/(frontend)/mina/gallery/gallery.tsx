@@ -506,7 +506,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 																>
 																	{artworks.docs.map((artwork, index) => {
 																		const image =
-																			typeof artwork.poster === "object"
+																			typeof artwork.poster === "object" && artwork.poster
 																				? artwork.poster
 																				: typeof artwork.images[0]?.image === "object"
 																					? artwork.images[0].image
