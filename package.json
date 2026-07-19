@@ -78,6 +78,10 @@
 			"esbuild",
 			"sharp",
 			"unrs-resolver"
-		]
+		],
+		"overrides": {
+			"dompurify": "3.4.11",
+			"postcss": "8.5.15"
+		}
 	}
 }
