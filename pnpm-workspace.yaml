@@ -8,6 +8,8 @@ packages:
   - packages/*
 overrides:
   dompurify: 3.4.12
+  postcss: 8.5.23
+  sharp: 0.35.3
   '@types/react': 19.2.17
   '@types/react-dom': 19.2.3
 minimumReleaseAgeExclude:
