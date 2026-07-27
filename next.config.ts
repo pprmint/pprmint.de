@@ -33,6 +33,9 @@ const securityHeaders = [
 module.exports = withPayload(
 	withNextIntl({
 		reactStrictMode: false,
+		experimental: {
+			useTypeScriptCli: true,
+		},
 		images: {
 			qualities: [75, 90, 100],
 			remotePatterns: [

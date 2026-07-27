@@ -7,9 +7,7 @@ allowBuilds:
 packages:
   - packages/*
 overrides:
-  dompurify: 3.4.12,
-  postcss: 8.5.20,
-  sharp: 0.35."
+  dompurify: 3.4.12
   '@types/react': 19.2.17
   '@types/react-dom': 19.2.3
 minimumReleaseAgeExclude:

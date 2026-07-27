@@ -179,7 +179,7 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 											</Dialog.Description>
 											<TransformWrapper
 												disablePadding
-												onTransformed={(e) => setScale(e.state.scale)}
+												onTransform={(e) => setScale(e.state.scale)}
 												doubleClick={{ mode: "toggle" }}
 											>
 												<TransformComponent>
