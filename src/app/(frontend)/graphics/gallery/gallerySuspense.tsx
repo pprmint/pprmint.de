@@ -46,6 +46,7 @@ export default async function GallerySuspense({
 		pagination: true,
 		page: p,
 		where: filters.length > 0 ? { and: filters } : undefined,
+		sort: "-publishedAt",
 		select: {
 			id: true,
 			slug: true,
