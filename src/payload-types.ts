@@ -493,7 +493,7 @@ export interface Graphic {
   description: string;
   dimension: '2d' | '3d';
   type: ('static' | 'animated')[];
-  publishedAt: string;
+  creationDate: string;
   thumbnail: string | Asset;
   content: {
     root: {
@@ -1007,7 +1007,7 @@ export interface GraphicsSelect<T extends boolean = true> {
   description?: T;
   dimension?: T;
   type?: T;
-  publishedAt?: T;
+  creationDate?: T;
   thumbnail?: T;
   content?: T;
   updatedAt?: T;

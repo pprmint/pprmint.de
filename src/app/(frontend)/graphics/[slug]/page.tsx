@@ -84,7 +84,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 								},
 							}}
 						>
-							{format.dateTime(new Date(graphic.publishedAt), {
+							{format.dateTime(new Date(graphic.creationDate), {
 								day: "numeric",
 								month: "long",
 								year: "numeric",

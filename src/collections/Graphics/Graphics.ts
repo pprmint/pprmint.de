@@ -97,8 +97,8 @@ export const Graphics: CollectionConfig = {
 			],
 		},
 		{
-			name: "publishedAt",
-			label: "Publishing date",
+			name: "creationDate",
+			label: "Creation date",
 			type: "date",
 			required: true,
 			admin: {
