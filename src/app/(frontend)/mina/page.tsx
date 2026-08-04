@@ -1,16 +1,9 @@
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 
-import Title from "@/components/layout/Title";
 import FadingImage from "@/components/ui/FadingImage";
 
 import Ref from "./ref";
-
-import Stickers from "@public/assets/mina/stickers.svg";
-import StickerSeyana from "@public/assets/mina/sticker_seyana.webp";
-import StickerStare from "@public/assets/mina/sticker_stare.webp";
-import StickerWhat from "@public/assets/mina/sticker_what.webp";
-import StickerCool from "@public/assets/mina/sticker_cool.png";
 
 import Link from "next/link";
 import Button from "@/components/ui/Button";
@@ -22,6 +15,7 @@ import WarningCircle from "@/icons/WarningCircle";
 import OutfitRowSuspense from "./outfitRow/outfitRowSuspense";
 import OutfitRowSkeleton from "./outfitRow/outfitRowSkeleton";
 import MinaTitle from "./minaTitle";
+import Marquee from "react-fast-marquee";
 
 export async function generateMetadata() {
 	const t = await getTranslations("MINA");
@@ -34,15 +28,30 @@ export async function generateMetadata() {
 export default async function Page({
 	searchParams,
 }: {
-	searchParams: Promise<{ p: string; nsfw: string; refs: string; artist: string; outfit: string }>;
+	searchParams: Promise<{
+		p: string;
+		nsfw: string;
+		refs: string;
+		artist: string;
+		outfit: string;
+	}>;
 }) {
 	const t = await getTranslations("MINA");
-	const { p = "1", nsfw, refs, artist = "undefined", outfit = "undefined" } = await searchParams;
+	const {
+		p = "1",
+		nsfw,
+		refs,
+		artist = "undefined",
+		outfit = "undefined",
+	} = await searchParams;
 	return (
 		<>
 			<MinaTitle />
 			<main>
-				<section id="lore" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+				<section
+					id="lore"
+					className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto"
+				>
 					<div className="w-full md:grid grid-cols-2 border-x border-black/5 dark:border-white/5">
 						<div className="md:border-r border-black/5 dark:border-white/5 py-20 lg:py-32 xl:py-40 md:pr-12">
 							<h2>
@@ -73,17 +82,32 @@ export default async function Page({
 						</div>
 					</div>
 				</section>
-				<section id="gallery" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+				<section
+					id="gallery"
+					className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto"
+				>
 					<Suspense fallback={<GallerySkeleton />}>
-						<GallerySuspense p={parseInt(p)} artist={artist} outfit={outfit} nsfw={nsfw} refs={refs} />
+						<GallerySuspense
+							p={parseInt(p)}
+							artist={artist}
+							outfit={outfit}
+							nsfw={nsfw}
+							refs={refs}
+						/>
 					</Suspense>
 				</section>
-				<section id="outfits" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+				<section
+					id="outfits"
+					className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto"
+				>
 					<Suspense fallback={<OutfitRowSkeleton />}>
 						<OutfitRowSuspense />
 					</Suspense>
 				</section>
-				<section id="rules" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+				<section
+					id="rules"
+					className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto"
+				>
 					<div className="w-full border-x border-black/5 dark:border-white/5 py-20 lg:py-32 xl:py-40">
 						<h2>
 							{t("Content.Fanart.heading")}
@@ -95,16 +119,23 @@ export default async function Page({
 						<div className="px-1 py-0.5 max-w-max bg-black/5 dark:bg-white/5 hover:bg-red-50 dark:hover:bg-red-950 text-transparent hover:text-red-800 dark:hover:text-red-200 duration-100 select-none hover:select-text">
 							{t("Content.Fanart.text4")}
 						</div>
-						<p className="text-xs text-neutral-950/25 dark:text-white/25 pt-1">{t("Content.Fanart.text5")}</p>
+						<p className="text-xs text-neutral-950/25 dark:text-white/25 pt-1">
+							{t("Content.Fanart.text5")}
+						</p>
 					</div>
 				</section>
-				<section id="design" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+				<section
+					id="design"
+					className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto"
+				>
 					<div className="w-full md:flex items-center gap-3 px-3 py-2.5 border-x bg-yellow-50 dark:bg-yellow-950 border-yellow-100 dark:border-yellow-900 text-neutral-950 dark:text-white">
 						<div className="my-1 text-yellow">
 							<WarningCircle />
 						</div>
 						<div>
-							<p className="text-sm md:text-base">{t("Content.Reference.outdated")}</p>
+							<p className="text-sm md:text-base">
+								{t("Content.Reference.outdated")}
+							</p>
 						</div>
 					</div>
 					<Ref />
@@ -112,7 +143,10 @@ export default async function Page({
 						<p>
 							{t.rich("Content.Reference.credit", {
 								Link: (chunks) => (
-									<Link href="https://twitter.com/neko__draws" className="text-link-external">
+									<Link
+										href="https://twitter.com/neko__draws"
+										className="text-link-external"
+									>
 										{chunks}
 									</Link>
 								),
@@ -120,7 +154,12 @@ export default async function Page({
 						</p>
 						<div className="flex flex-col lg:items-end">
 							<p className="mb-3">{t("Content.Reference.Download.text")}</p>
-							<Link href="/api/download/file/mina_ref_sheet_by_nekomimi.png" target="_blank" download className="w-fit">
+							<Link
+								href="/api/download/file/mina_ref_sheet_by_nekomimi.png"
+								target="_blank"
+								download
+								className="w-fit"
+							>
 								<Button tabIndex={-1} design="semi-transparent">
 									{t("Content.Reference.Download.button")}
 									<Download />
@@ -130,64 +169,108 @@ export default async function Page({
 					</div>
 				</section>
 				<section className="relative flex items-end justify-center max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20 min-h-[400px] overflow-clip">
-					<div className="absolute inset-0 mt-10">
-						<FadingImage
-							hideSpinner
-							src={Stickers}
-							alt="Discord sticker menu, showing a few Mina stickers."
-							className="absolute w-5/6 sm:w-2/3 md:w-7/12 lg:w-1/2 max-w-2xl h-auto top-0 left-1/2 -translate-x-1/2"
-						/>
-						<FadingImage
-							hideSpinner
-							src={StickerSeyana}
-							alt=""
-							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[30%] left-[-4%] md:left-[4%] xl:left-[10%] animate-float-rotate-l drop-shadow-2xl dark:drop-shadow-[0px_4px_20px_#111]"
-							style={{ animationDelay: "0s" }}
-						/>
-						<FadingImage
-							hideSpinner
-							src={StickerCool}
-							alt=""
-							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[6%] lg:top-0 left-[15%] md:left-[12%] xl:left-[20%] animate-float-rotate-r drop-shadow-2xl dark:drop-shadow-[0px_4px_20px_#111]"
-							style={{ animationDelay: "0.4s" }}
-						/>
-						<FadingImage
-							hideSpinner
-							src={StickerStare}
-							alt=""
-							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[8%] lg:top-0 right-[15%] md:right-[12%] xl:right-[20%] animate-float-rotate-l drop-shadow-2xl dark:drop-shadow-[0px_4px_20px_#111]"
-							style={{ animationDelay: "0.8s" }}
-						/>
-						<FadingImage
-							hideSpinner
-							src={StickerWhat}
-							alt=""
-							className="absolute w-1/4 md:w-1/5 lg:w-2/12 max-w-72 h-auto top-[25%] right-[-4%] md:right-[4%] xl:right-[10%] animate-float-rotate-r drop-shadow-2xl dark:drop-shadow-[0px_4px_20px_#111]"
-							style={{ animationDelay: "1.2s" }}
-						/>
-						<div
-							style={{
-								maskImage:
-									"linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 80%, rgba(0,0,0,1) 100%)",
-								maskRepeat: "space",
-								backgroundRepeat: "repeat",
-							}}
-							className="absolute inset-0 bottom-0 h-full backdrop-blur-md pointer-events-none"
-						/>
-						<div className="absolute inset-0 bg-linear-to-t from-white dark:from-neutral-950" />
-					</div>
-					<div className="relative z-10 border-x border-black/5 dark:border-white/5 w-full max-w-8xl mx-auto flex items-center flex-col pt-96 pb-12 text-center text-balance dark:drop-shadow-[0px_2px_8px_#111]">
+					<div className="relative z-10 border-x border-black/5 dark:border-white/5 w-full max-w-8xl mx-auto pb-12 text-center text-balance dark:drop-shadow-[0px_2px_8px_#111]">
 						<h2>
 							{t("Content.Discord.heading")}
 							<span className="text-green">.</span>
 						</h2>
-						<p className="pb-6">{t("Content.Discord.text")}</p>
-						<Link href="https://discord.gg/nTbPhkvrXp" target="_blank" rel="noopener noreferrer">
-							<Button color="green" design="filled">
-								<Discord />
-								{t("Content.Discord.button")}
-							</Button>
-						</Link>
+						<p className="xl:text-xl 2xl:text-2xl">
+							{t("Content.Discord.text")}
+						</p>
+						<div className="relative">
+							<Marquee
+								style={{
+									width: "100%",
+									height: "192px",
+								}}
+								speed={50}
+								gradient={false}
+							>
+								{[
+									{
+										src: "/api/artwork/file/layer_7357caa912.webp",
+										width: 450,
+										height: 450,
+									},
+									{
+										src: "/api/artwork/file/kozu_ac03f294d7.webp",
+										width: 860,
+										height: 860,
+									},
+									{
+										src: "/api/artwork/file/layer_59e6aeea93.webp",
+										width: 2665,
+										height: 2667,
+									},
+									{
+										src: "/api/artwork/file/kozu_44b2ad049f.webp",
+										width: 1149,
+										height: 1153,
+									},
+									{
+										src: "/api/artwork/file/layer_f77e8aee0a.webp",
+										width: 517,
+										height: 495,
+									},
+									{
+										src: "/api/artwork/file/kozu_7a45be345b.png",
+										width: 500,
+										height: 500,
+									},
+									{
+										src: "/api/artwork/file/kozu_462be95092.webp",
+										width: 878,
+										height: 878,
+									},
+									{
+										src: "/api/artwork/file/layer_0f92700373.webp",
+										width: 475,
+										height: 510,
+									},
+									{
+										src: "/api/artwork/file/kozu_4e6dbeb579.webp",
+										width: 353,
+										height: 353,
+									},
+									{
+										src: "/api/artwork/file/layer_aadda267e1.webp",
+										width: 681,
+										height: 611,
+									},
+									{
+										src: "/api/artwork/file/mofu_a349bda49e.png",
+										width: 1032,
+										height: 1160,
+									},
+									{
+										src: "/api/artwork/file/kozu_5a422adf3c.webp",
+										width: 926,
+										height: 926,
+									},
+								].map((sticker) => (
+									<FadingImage
+										key={sticker.src}
+										hideSpinner
+										src={sticker.src}
+										width={sticker.width}
+										height={sticker.height}
+										alt=""
+										className="h-38 w-auto mx-3"
+									/>
+								))}
+							</Marquee>
+							<div className="absolute z-10 inset-0 bg-linear-to-r from-white dark:from-neutral-950 via-transparent to-white dark:to-neutral-950" />
+						</div>
+						<div className="w-full border-y border-black/5 dark:border-white/5">
+							<div className="flex justify-center">
+								<Link href="/mina">
+									<Button noInitialPadding size="large" color="green">
+										<Discord />
+										{t("Content.Discord.button")}
+									</Button>
+								</Link>
+							</div>
+						</div>
 					</div>
 				</section>
 			</main>
