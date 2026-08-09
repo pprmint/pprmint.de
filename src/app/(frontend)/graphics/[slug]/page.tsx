@@ -39,8 +39,8 @@ export default async function Page({ params: paramsPromise }: Args) {
 				<article className="relative md:grid md:grid-cols-3 md:col-span-2 border-x border-b border-black/5 dark:border-white/5">
 					<div className="md:sticky h-max pt-28 md:pt-32 xl:pt-40 top-0">
 						<m.h1
-							className="relative pb-1 md:pb-2 lg:pb-3 font-serif text-balance md:pr-9 xl:text-6xl"
-							initial={{ opacity: 0, filter: "blur(5px)", y: 20 }}
+							className="relative pb-1 md:pb-2 lg:pb-3 font-light text-balance md:pr-9 xl:text-6xl"
+							initial={{ opacity: 0, filter: "blur(5px)", y: 10 }}
 							animate={{
 								opacity: 1,
 								filter: "blur(0px)",
@@ -56,7 +56,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 							<span className="text-green">.</span>
 						</m.h1>
 						<m.p
-							initial={{ opacity: 0, y: 40 }}
+							initial={{ opacity: 0, y: 20 }}
 							animate={{
 								opacity: 1,
 								y: 0,
@@ -113,7 +113,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 						</m.p>
 					</div>
 					<RichText
-						className="lg:text-lg py-20 md:py-32 xl:py-40 md:col-span-2 xl:prose-h1:text-7xl md:border-l border-black/5 dark:border-white/5"
+						className="lg:text-lg py-20 md:py-32 xl:py-40 md:col-span-2 xl:prose-h1:text-7xl md:border-l border-black/5 dark:border-white/5 *:first:pt-0"
 						data={graphic.content}
 					/>
 				</article>

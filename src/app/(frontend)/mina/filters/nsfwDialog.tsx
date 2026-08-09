@@ -4,9 +4,6 @@ import * as Dialog from "@radix-ui/react-dialog";
 
 import Button from "@/components/ui/Button";
 
-import FadingImage from "@/components/ui/FadingImage";
-import Error from "@/icons/Error";
-
 export default function NsfwDialog({ onAccept }: { onAccept: () => void }) {
 	const t = useTranslations("MINA");
 	return (

@@ -13,9 +13,9 @@ export default function TransitionProvider({ children }: { children: React.React
 					wrapperRef.current,
 					{
 						opacity: [1, 0],
-						y: [0, -10],
+						y: [0, -7],
 					},
-					{ duration: 0.15, ease: [0.5, 0.1, 1, 1], onComplete: next }
+					{ duration: 0.125, ease: [0.5, 0.1, 1, 1], onComplete: next }
 				);
 			}}
 			enter={(next) => {
@@ -23,9 +23,9 @@ export default function TransitionProvider({ children }: { children: React.React
 					wrapperRef.current,
 					{
 						opacity: [0, 1],
-						y: [30, 0],
+						y: [10, 0],
 					},
-					{ duration: 0.5, ease: [0.3, 1, 0.7, 1], onComplete: next }
+					{ duration: 0.3, ease: [0.3, 1, 0.7, 1], onComplete: next }
 				);
 			}}
 		>

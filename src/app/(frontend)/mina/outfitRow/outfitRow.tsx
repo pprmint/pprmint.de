@@ -174,16 +174,6 @@ export default function OutfitRow({ outfits }: { outfits: PaginatedDocs<Outfit> 
 		params.set("outfit", outfit);
 		params.delete("p"); // Otherwise you may end up on a page with no results.
 		replace(`${pathname}?${params.toString()}`, { scroll: false });
-
-		setTimeout(() => {
-			const gallerySection = document.getElementById("gallery");
-			if (gallerySection) {
-				scrollTo({
-					top: gallerySection.getBoundingClientRect().top + scrollY - 140,
-					behavior: "smooth",
-				});
-			}
-		}, 150);
 	}
 
 	function InfoDialog({ data }: { data: Outfit }) {

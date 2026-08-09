@@ -52,7 +52,7 @@ export default function NotFound() {
 						animate={{
 							y: 0,
 							opacity: 1,
-							transition: { type: "spring", bounce: 0.5, duration: 2, delay: 1.0 },
+							transition: { type: "spring", bounce: 0.5, duration: 2, delay: 1.3 },
 						}}
 					>
 						4
@@ -64,7 +64,7 @@ export default function NotFound() {
 						animate={{
 							y: 0,
 							opacity: 1,
-							transition: { type: "spring", bounce: 0.5, duration: 2, delay: 1.1 },
+							transition: { type: "spring", bounce: 0.5, duration: 2, delay: 1.4 },
 						}}
 					>
 						0
@@ -76,7 +76,7 @@ export default function NotFound() {
 						animate={{
 							y: 0,
 							opacity: 1,
-							transition: { type: "spring", bounce: 0.5, duration: 2, delay: 1.2 },
+							transition: { type: "spring", bounce: 0.5, duration: 2, delay: 1.5 },
 						}}
 					>
 						4
@@ -85,9 +85,9 @@ export default function NotFound() {
 			</div>
 			<div className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 				<div className="h-screen w-full grid xl:grid-cols-2 border-x border-black/5 dark:border-white/5">
-					<div className="order-2 xl:order-1 relative size-full flex flex-col xl:justify-center border-t xl:border-t-0 xl:border-r border-black/5 dark:border-white/5 bg-white/50 dark:bg-neutral-950/50">
+					<div className="order-2 xl:order-1 relative size-full text-center flex flex-col xl:justify-center border-t xl:border-t-0 xl:border-r border-black/5 dark:border-white/5 bg-white/50 dark:bg-neutral-950/50">
 						<div className="grow xl:grow-0 py-6 xl:py-0">
-							<h1 className="relative pb-1 md:pb-3 font-serif">
+							<h1 className="relative pb-1 md:pb-3 font-extralight xl:text-7xl">
 								<m.div
 									initial={{ opacity: 0, filter: "blur(5px)", y: 20 }}
 									animate={{
@@ -97,7 +97,7 @@ export default function NotFound() {
 										transition: {
 											type: "spring",
 											bounce: 0,
-											duration: 1,
+											duration: 0.75,
 											delay: 0.25,
 										},
 									}}
@@ -114,8 +114,8 @@ export default function NotFound() {
 									transition: {
 										type: "spring",
 										bounce: 0,
-										delay: 1,
-										duration: 1,
+										delay: 1.3,
+										duration: 0.75,
 									},
 								}}
 								className="text-xl md:text-2xl xl:text-3xl lg:text-balance"
@@ -130,14 +130,14 @@ export default function NotFound() {
 									transition: {
 										type: "spring",
 										bounce: 0,
-										delay: 1.2,
-										duration: 1,
+										delay: 1.4,
+										duration: 0.75,
 									},
 								}}
 								className="mt-6 h-12 border-y border-black/5 dark:border-white/5"
 							>
-								<Link href="/">
-									<Button size="full" noInitialPadding>
+								<Link href="/" className="block w-fit mx-auto">
+									<Button size="large" noInitialPadding>
 										<span>{t("Content.returnHome")}</span>
 										<div className="relative size-5 overflow-clip duration-0">
 											<ArrowRight
@@ -157,8 +157,8 @@ export default function NotFound() {
 						</div>
 						<m.p
 							initial={{ opacity: 0 }}
-							animate={{ opacity: 1, transition: { delay: 1, duration: 1 } }}
-							className="md:absolute py-6 bottom-0 left-0 right-0 text-xs text-center"
+							animate={{ opacity: 1, transition: { delay: 1.3, duration: 1 } }}
+							className="md:absolute py-6 bottom-0 left-0 right-0 text-xs"
 						>
 							{t.rich("Content.credit", {
 								Link: (chunks) => (
@@ -181,7 +181,7 @@ export default function NotFound() {
 							transition: {
 								type: "spring",
 								bounce: 0,
-								duration: 1,
+								duration: 0.75,
 								delay: 0.25,
 							},
 						}}

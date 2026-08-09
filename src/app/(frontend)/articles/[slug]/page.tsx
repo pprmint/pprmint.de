@@ -1,7 +1,8 @@
 import configPromise from "@payload-config";
 import { getPayload } from "payload";
 import { draftMode } from "next/headers";
-import React, { cache, Fragment } from "react";
+import { cache, Fragment, ViewTransition } from "react";
+import { MNCelesta } from "@public/fonts/MNCelesta/MNCelesta";
 
 import type { Article as ArticleType } from "@/payload-types";
 
@@ -38,11 +39,17 @@ export default async function Page({ params: paramsPromise }: Args) {
 		<main>
 			<article className="relative border-b border-black/5 dark:border-white/5">
 				<header className="relative flex justify-center px-6 md:px-9 lg:px-12 pb-9 items-end border-b border-black/5 dark:border-white/5 h-2/3-screen min-h-96">
-					<Media resource={article.thumbnail} fill imgClassName="object-cover" />
+					<div className="absolute inset-0 overflow-clip -z-10">
+						<Media
+							resource={article.thumbnail}
+							fill
+							imgClassName="object-cover"
+						/>
+					</div>
 					<div className="absolute inset-0 bg-linear-to-t from-white dark:from-neutral-950" />
 					<div className="relative md:text-center">
 						<m.h1
-							className="pb-1 md:pb-2 lg:pb-3 font-serif text-balance"
+							className={`pb-1 md:pb-2 lg:pb-3 ${MNCelesta.className} text-balance`}
 							initial={{ opacity: 0, filter: "blur(5px)", y: 20 }}
 							animate={{
 								opacity: 1,
@@ -69,7 +76,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 									delay: 0.05,
 								},
 							}}
-							className="text-xl md:text-2xl xl:text-3xl md:pr-9"
+							className="text-xl md:text-2xl xl:text-3xl"
 						>
 							{article.description}
 						</m.p>
@@ -94,8 +101,12 @@ export default async function Page({ params: paramsPromise }: Args) {
 							•{" "}
 							{article.tags.map((tag, index) => (
 								<Fragment key={tag}>
-									<Link href={`/articles?tag=${tag}`}>{t(`Content.Tags.${tag}`)}</Link>
-									{article.tags.length > 1 && index < article.tags.length - 1 && ", "}
+									<Link href={`/articles?tag=${tag}`}>
+										{t(`Content.Tags.${tag}`)}
+									</Link>
+									{article.tags.length > 1 &&
+										index < article.tags.length - 1 &&
+										", "}
 								</Fragment>
 							))}
 						</m.p>
@@ -103,12 +114,12 @@ export default async function Page({ params: paramsPromise }: Args) {
 				</header>
 				<div className="relative max-w-6xl mx-auto px-6 md:px-9 lg:px-12">
 					<RichText
-						className="border-x border-black/5 dark:border-white/5 pb-20 md:pb-32 xl:pb-40 pt-12 md:col-span-2 xl:prose-h1:text-7xl"
+						className={`${MNCelesta.variable} border-x border-black/5 dark:border-white/5 pb-20 md:pb-32 xl:pb-40 pt-12 md:col-span-2 xl:prose-h1:text-7xl prose-headings:font-serif`}
 						data={article.content}
 					/>
 					<div
 						aria-hidden
-						className="italic absolute bottom-[0.25em] right-12 lg:right-16 font-serif text-neutral-950 dark:text-white text-6xl xl:text-7xl"
+						className={`${MNCelesta.className} italic absolute bottom-[0.25em] right-12 lg:right-16 text-neutral-950 dark:text-white text-6xl xl:text-7xl tracking-tight`}
 					>
 						fin<span className="text-green">.</span>
 					</div>
@@ -136,7 +147,8 @@ export async function generateMetadata({ params: paramsPromise }: Args) {
 		description: article.description,
 		twitter: {
 			images:
-				(typeof article.thumbnail === "object" && article.thumbnail.sizes?.hd?.url) ||
+				(typeof article.thumbnail === "object" &&
+					article.thumbnail.sizes?.hd?.url) ||
 				(typeof article.thumbnail === "object" && article.thumbnail.url),
 		},
 	};

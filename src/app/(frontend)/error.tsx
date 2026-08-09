@@ -18,7 +18,7 @@ export default function Error({
         <div className="grow h-px bg-linear-to-r from-black/5 dark:from-white/5 to-red" />
         <div className="relative flex flex-col p-6 md:p-9 w-full md:max-w-3xl mx-auto border border-red bg-white dark:bg-neutral-950">
           <div className="mb-6">
-            <h1 className="text-3xl font-serif">
+            <h1 className="text-3xl">
               <WarningCircle className="fill-red size-7.5 inline mb-[0.275rem] mr-3" />
               {error.name}
             </h1>

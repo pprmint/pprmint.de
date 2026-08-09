@@ -17,7 +17,13 @@ import * as m from "motion/react-client";
 import { AnimatePresence } from "motion/react";
 import { Media } from "@/components/Media";
 
-export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>; page: number }) {
+export default function Gallery({
+	photos,
+	page,
+}: {
+	photos: PaginatedDocs<Photo>;
+	page: number;
+}) {
 	const t = useTranslations("PHOTOS");
 	const format = useFormatter();
 	const [direction, setDirection] = useState(0);
@@ -66,7 +72,10 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 	const initRef = useRef(false);
 	useEffect(() => {
 		if (initRef.current && galleryRef.current) {
-			scrollTo({ top: galleryRef.current?.getBoundingClientRect().top + scrollY - 105, behavior: "smooth" });
+			scrollTo({
+				top: galleryRef.current?.getBoundingClientRect().top + scrollY - 105,
+				// behavior: "smooth",
+			});
 		} else {
 			initRef.current = true;
 		}
@@ -92,7 +101,9 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 			return {
 				x: direction < 0 ? 120 + xOffset : -120 + xOffset,
 				clipPath:
-					direction < 0 ? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)" : "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+					direction < 0
+						? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
+						: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
 				opacity: 0,
 			};
 		},
@@ -103,7 +114,9 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 		const handleKeyDown = (event: KeyboardEvent) => {
 			if (scale === 1) {
 				if (event.key === "ArrowLeft") {
-					handleSelectPhoto({ id: (selectedPhoto - 1 + photos.docs.length) % photos.docs.length });
+					handleSelectPhoto({
+						id: (selectedPhoto - 1 + photos.docs.length) % photos.docs.length,
+					});
 				} else if (event.key === "ArrowRight") {
 					handleSelectPhoto({ id: (selectedPhoto + 1) % photos.docs.length });
 				}
@@ -137,7 +150,12 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 							animate={{
 								opacity: 1,
 								y: 0,
-								transition: { delay: 0.25 + index / 100, type: "spring", bounce: 0, duration: 0.4 },
+								transition: {
+									delay: 0.25 + index / 100,
+									type: "spring",
+									bounce: 0,
+									duration: 0.4,
+								},
 							}}
 							exit={{
 								opacity: 0,
@@ -175,7 +193,8 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 											className={`text-white fixed inset-0 z-100 h-screen max-h-svh w-screen data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out focus-visible:outline-hidden`}
 										>
 											<Dialog.Description className="sr-only">
-												{photos.docs[selectedPhoto].alt || photos.docs[selectedPhoto].date}
+												{photos.docs[selectedPhoto].alt ||
+													photos.docs[selectedPhoto].date}
 											</Dialog.Description>
 											<TransformWrapper
 												disablePadding
@@ -204,14 +223,23 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 																dragElastic={1}
 																onDragEnd={(e, { offset, velocity }) => {
 																	const swipeConfidenceThreshold = 10000;
-																	const swipePower = (offset: number, velocity: number) => {
+																	const swipePower = (
+																		offset: number,
+																		velocity: number,
+																	) => {
 																		return Math.abs(offset) * velocity;
 																	};
 																	setXOffset(offset.x);
 
-																	const swipe = swipePower(offset.x, velocity.x);
+																	const swipe = swipePower(
+																		offset.x,
+																		velocity.x,
+																	);
 																	if (swipe < -swipeConfidenceThreshold) {
-																		if (selectedPhoto < photos.docs.length - 1) {
+																		if (
+																			selectedPhoto <
+																			photos.docs.length - 1
+																		) {
 																			handleSelectPhoto({
 																				id: selectedPhoto + 1,
 																				offset: offset.x,
@@ -230,7 +258,9 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 																<FadingImage
 																	src={photos.docs[selectedPhoto].url || ""}
 																	width={photos.docs[selectedPhoto].width || 0}
-																	height={photos.docs[selectedPhoto].height || 0}
+																	height={
+																		photos.docs[selectedPhoto].height || 0
+																	}
 																	alt={photos.docs[selectedPhoto].alt || ""}
 																	className="max-h-svh w-auto mx-auto py-16"
 																	unoptimized
@@ -247,104 +277,170 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 														animate={{
 															y: 0,
 															opacity: 1,
-															transition: { duration: 0.4, type: "spring", bounce: 0 },
+															transition: {
+																duration: 0.4,
+																type: "spring",
+																bounce: 0,
+															},
 														}}
 														exit={{ y: -48, opacity: 0 }}
 														className="absolute top-0 pl-5 pr-16 pt-4 inset-x-0 w-full"
 													>
 														<div className="relative h-12 flex justify-between items-start w-full">
-														<AnimatePresence>
-															<m.div
-																key={photos.docs[selectedPhoto].id}
-																initial={{ opacity: 0 }}
-																animate={{ opacity: 1, transition: { duration: 0.2 } }}
-																exit={{ opacity: 0, transition: { duration: 0.2 } }}
-																className="absolute left-0 flex md:items-center grow flex-col md:flex-row gap-3 md:gap-6"
-															>
-																<div className="flex items-center gap-3 h-7">
-																	{typeof photos.docs[selectedPhoto].camera === "object" &&
-																	photos.docs[selectedPhoto].camera.svgLogo ? (
-																		<div
-																			className="h-4 *:h-4 md:h-6 md:*:h-6 w-auto *:w-auto"
-																			dangerouslySetInnerHTML={{
-																				__html: photos.docs[selectedPhoto].camera.svgLogo,
-																			}}
-																		/>
-																	) : (
-																		<div className="font-medium text-lg">
-																			{typeof photos.docs[selectedPhoto].camera === "object" &&
-																				photos.docs[selectedPhoto].camera.name}
-																		</div>
-																	)}
-																	<div>
-																		<Dialog.Title asChild>
-																			<div className="text-sm" style={{ lineHeight: 1 }}>
-																				{format.dateTime(new Date(photos.docs[selectedPhoto].date), {
-																					day: "numeric",
-																					month: "long",
-																					year: "numeric",
-																				})}
-																				,{" "}
-																				{format.dateTime(new Date(photos.docs[selectedPhoto].date), {
-																					hour: "numeric",
-																					minute: "2-digit",
-																				})}
-																			</div>
-																		</Dialog.Title>
-																		{photos.docs[selectedPhoto].lens && (
-																			<div className="text-xs text-white/70 mt-0.5" style={{ lineHeight: 1 }}>
-																				{typeof photos.docs[selectedPhoto].lens === "object" &&
-																					photos.docs[selectedPhoto].lens.name}
+															<AnimatePresence>
+																<m.div
+																	key={photos.docs[selectedPhoto].id}
+																	initial={{ opacity: 0 }}
+																	animate={{
+																		opacity: 1,
+																		transition: { duration: 0.2 },
+																	}}
+																	exit={{
+																		opacity: 0,
+																		transition: { duration: 0.2 },
+																	}}
+																	className="absolute left-0 flex md:items-center grow flex-col md:flex-row gap-3 md:gap-6"
+																>
+																	<div className="flex items-center gap-3 h-7">
+																		{typeof photos.docs[selectedPhoto]
+																			.camera === "object" &&
+																		photos.docs[selectedPhoto].camera
+																			.svgLogo ? (
+																			<div
+																				className="h-4 *:h-4 md:h-6 md:*:h-6 w-auto *:w-auto"
+																				dangerouslySetInnerHTML={{
+																					__html:
+																						photos.docs[selectedPhoto].camera
+																							.svgLogo,
+																				}}
+																			/>
+																		) : (
+																			<div className="font-medium text-lg">
+																				{typeof photos.docs[selectedPhoto]
+																					.camera === "object" &&
+																					photos.docs[selectedPhoto].camera
+																						.name}
 																			</div>
 																		)}
+																		<div>
+																			<Dialog.Title asChild>
+																				<div
+																					className="text-sm"
+																					style={{ lineHeight: 1 }}
+																				>
+																					{format.dateTime(
+																						new Date(
+																							photos.docs[selectedPhoto].date,
+																						),
+																						{
+																							day: "numeric",
+																							month: "long",
+																							year: "numeric",
+																						},
+																					)}
+																					,{" "}
+																					{format.dateTime(
+																						new Date(
+																							photos.docs[selectedPhoto].date,
+																						),
+																						{
+																							hour: "numeric",
+																							minute: "2-digit",
+																						},
+																					)}
+																				</div>
+																			</Dialog.Title>
+																			{photos.docs[selectedPhoto].lens && (
+																				<div
+																					className="text-xs text-white/70 mt-0.5"
+																					style={{ lineHeight: 1 }}
+																				>
+																					{typeof photos.docs[selectedPhoto]
+																						.lens === "object" &&
+																						photos.docs[selectedPhoto].lens
+																							.name}
+																				</div>
+																			)}
+																		</div>
 																	</div>
-																</div>
-																<div className="dark flex gap-3 md:gap-6 select-none text-white/70">
-																	{photos.docs[selectedPhoto].iso && (
-																		<Tooltip text={t("Content.Camera.iso")} side="top">
-																			<div className="flex gap-1 items-center">
-																				<CameraIso />
-																				<span className="text-sm">{photos.docs[selectedPhoto].iso}</span>
-																			</div>
-																		</Tooltip>
-																	)}
-																	{photos.docs[selectedPhoto].aperture && (
-																		<Tooltip text={t("Content.Camera.aperture")} side="top">
-																			<div className="flex gap-1 items-center">
-																				<CameraAperture />
-																				<span className="text-sm">
-																					<i>f</i>/{photos.docs[selectedPhoto].aperture}
-																				</span>
-																			</div>
-																		</Tooltip>
-																	)}
-																	{photos.docs[selectedPhoto].shutterSpeed && (
-																		<Tooltip text={t("Content.Camera.shutterSpeed")} side="top">
-																			<div className="flex gap-1 items-center">
-																				<CameraShutterSpeed />
-																				<span className="text-sm">{photos.docs[selectedPhoto].shutterSpeed}s</span>
-																			</div>
-																		</Tooltip>
-																	)}
-																	{photos.docs[selectedPhoto].focalLength && (
-																		<Tooltip
-																			text={t.rich("Content.Camera.focalLength", {
-																				small: (chunks) => <span className="text-xs">{chunks}</span>,
-																			})}
-																			side="top"
-																		>
-																			<div className="flex gap-1 items-center">
-																				<CameraFocalLength />
-																				<span className="text-sm">
-																					{photos.docs[selectedPhoto].focalLength}
-																					mm
-																				</span>
-																			</div>
-																		</Tooltip>
-																	)}
-																</div>
-															</m.div>
-														</AnimatePresence>
+																	<div className="dark flex gap-3 md:gap-6 select-none text-white/70">
+																		{photos.docs[selectedPhoto].iso && (
+																			<Tooltip
+																				text={t("Content.Camera.iso")}
+																				side="top"
+																			>
+																				<div className="flex gap-1 items-center">
+																					<CameraIso />
+																					<span className="text-sm">
+																						{photos.docs[selectedPhoto].iso}
+																					</span>
+																				</div>
+																			</Tooltip>
+																		)}
+																		{photos.docs[selectedPhoto].aperture && (
+																			<Tooltip
+																				text={t("Content.Camera.aperture")}
+																				side="top"
+																			>
+																				<div className="flex gap-1 items-center">
+																					<CameraAperture />
+																					<span className="text-sm">
+																						<i>f</i>/
+																						{
+																							photos.docs[selectedPhoto]
+																								.aperture
+																						}
+																					</span>
+																				</div>
+																			</Tooltip>
+																		)}
+																		{photos.docs[selectedPhoto]
+																			.shutterSpeed && (
+																			<Tooltip
+																				text={t("Content.Camera.shutterSpeed")}
+																				side="top"
+																			>
+																				<div className="flex gap-1 items-center">
+																					<CameraShutterSpeed />
+																					<span className="text-sm">
+																						{
+																							photos.docs[selectedPhoto]
+																								.shutterSpeed
+																						}
+																						s
+																					</span>
+																				</div>
+																			</Tooltip>
+																		)}
+																		{photos.docs[selectedPhoto].focalLength && (
+																			<Tooltip
+																				text={t.rich(
+																					"Content.Camera.focalLength",
+																					{
+																						small: (chunks) => (
+																							<span className="text-xs">
+																								{chunks}
+																							</span>
+																						),
+																					},
+																				)}
+																				side="top"
+																			>
+																				<div className="flex gap-1 items-center">
+																					<CameraFocalLength />
+																					<span className="text-sm">
+																						{
+																							photos.docs[selectedPhoto]
+																								.focalLength
+																						}
+																						mm
+																					</span>
+																				</div>
+																			</Tooltip>
+																		)}
+																	</div>
+																</m.div>
+															</AnimatePresence>
 														</div>
 														<Dialog.Close asChild>
 															<button className="absolute top-2.5 right-3 p-3 rounded-full hover:bg-white/5 duration-100">
@@ -373,7 +469,11 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 														animate={{
 															y: 0,
 															opacity: 1,
-															transition: { duration: 0.4, type: "spring", bounce: 0 },
+															transition: {
+																duration: 0.4,
+																type: "spring",
+																bounce: 0,
+															},
 														}}
 														exit={{ y: 48, opacity: 0 }}
 														className="absolute bottom-2 inset-x-0 h-12"
@@ -394,7 +494,9 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 															{photos.docs.map((photo, index) => (
 																<button
 																	key={index}
-																	onClick={() => handleSelectPhoto({ id: index })}
+																	onClick={() =>
+																		handleSelectPhoto({ id: index })
+																	}
 																	className={`relative ${
 																		selectedPhoto === index
 																			? "h-12 w-16"
@@ -402,9 +504,21 @@ export default function Gallery({ photos, page }: { photos: PaginatedDocs<Photo>
 																	} duration-300 ease-out-quart overflow-clip`}
 																>
 																	<Image
-																		src={photo.sizes?.thumbnail?.url || photo.url || ""}
-																		width={photo.sizes?.thumbnail?.width || photo.width || 0}
-																		height={photo.sizes?.thumbnail?.height || photo.height || 0}
+																		src={
+																			photo.sizes?.thumbnail?.url ||
+																			photo.url ||
+																			""
+																		}
+																		width={
+																			photo.sizes?.thumbnail?.width ||
+																			photo.width ||
+																			0
+																		}
+																		height={
+																			photo.sizes?.thumbnail?.height ||
+																			photo.height ||
+																			0
+																		}
 																		alt={photo.alt || ""}
 																		className="absolute top-0 inset-x-0 h-full object-cover"
 																	/>

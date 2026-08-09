@@ -5,11 +5,13 @@ import { useMediaQuery } from "react-responsive";
 import ChevronLeft from "@/icons/ChevronLeft";
 import ChevronRight from "@/icons/ChevronRight";
 import { usePathname, useRouter } from "next/navigation";
+import { useGalleryTransition } from "@/app/(frontend)/mina/gallery/GalleryTransitionContext";
 
 function Pagination({ page, pageCount }: { page: number; pageCount: number }) {
 	const searchParams = useSearchParams();
 	const pathname = usePathname();
 	const { replace } = useRouter();
+	const { startTransition, pending } = useGalleryTransition();
 
 	const buttonRange = useMediaQuery({ minWidth: 768 }) ? 6 : 4;
 	const buttonOffset = useMediaQuery({ minWidth: 768 }) ? 3 : 2;
@@ -23,11 +25,13 @@ function Pagination({ page, pageCount }: { page: number; pageCount: number }) {
 		} else {
 			params.delete("p");
 		}
-		replace(`${pathname}?${params}`, { scroll: false });
+		startTransition(() => {
+			replace(`${pathname}?${params}`, { scroll: false });
+		});
 	}
 
 	return (
-		<div className="flex justify-center border-b border-black/5 dark:border-white/5">
+		<div className={`flex justify-center border-b border-black/5 dark:border-white/5 ${pending && "opacity-75 pointer-events-none"}`}>
 			<button
 				className={`group inline-flex items-center justify-center size-9 hover:text-neutral-950 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 active:bg-neutral-100 dark:active:bg-neutral-800 disabled:bg-transparent disabled:text-neutral-200 dark:disabled:text-neutral-800 duration-100 disabled:pointer-events-none`}
 				disabled={page === 1}

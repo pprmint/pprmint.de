@@ -16,6 +16,7 @@ import OutfitRowSuspense from "./outfitRow/outfitRowSuspense";
 import OutfitRowSkeleton from "./outfitRow/outfitRowSkeleton";
 import MinaTitle from "./minaTitle";
 import Marquee from "react-fast-marquee";
+import { GalleryTransitionProvider } from "./gallery/GalleryTransitionContext";
 
 export async function generateMetadata() {
 	const t = await getTranslations("MINA");
@@ -37,21 +38,12 @@ export default async function Page({
 	}>;
 }) {
 	const t = await getTranslations("MINA");
-	const {
-		p = "1",
-		nsfw,
-		refs,
-		artist = "undefined",
-		outfit = "undefined",
-	} = await searchParams;
+	const { p = "1", nsfw, refs, artist = "undefined", outfit = "undefined" } = await searchParams;
 	return (
 		<>
 			<MinaTitle />
 			<main>
-				<section
-					id="lore"
-					className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto"
-				>
+				<section id="lore" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<div className="w-full md:grid grid-cols-2 border-x border-black/5 dark:border-white/5">
 						<div className="md:border-r border-black/5 dark:border-white/5 py-20 lg:py-32 xl:py-40 md:pr-12">
 							<h2>
@@ -82,32 +74,19 @@ export default async function Page({
 						</div>
 					</div>
 				</section>
-				<section
-					id="gallery"
-					className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto"
-				>
-					<Suspense fallback={<GallerySkeleton />}>
-						<GallerySuspense
-							p={parseInt(p)}
-							artist={artist}
-							outfit={outfit}
-							nsfw={nsfw}
-							refs={refs}
-						/>
-					</Suspense>
-				</section>
-				<section
-					id="outfits"
-					className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto"
-				>
+				<GalleryTransitionProvider>
+					<section id="gallery" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+						<Suspense fallback={<GallerySkeleton />}>
+							<GallerySuspense p={parseInt(p)} artist={artist} outfit={outfit} nsfw={nsfw} refs={refs} />
+						</Suspense>
+					</section>
+				</GalleryTransitionProvider>
+				<section id="outfits" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<Suspense fallback={<OutfitRowSkeleton />}>
 						<OutfitRowSuspense />
 					</Suspense>
 				</section>
-				<section
-					id="rules"
-					className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto"
-				>
+				<section id="rules" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<div className="w-full border-x border-black/5 dark:border-white/5 py-20 lg:py-32 xl:py-40">
 						<h2>
 							{t("Content.Fanart.heading")}
@@ -119,23 +98,16 @@ export default async function Page({
 						<div className="px-1 py-0.5 max-w-max bg-black/5 dark:bg-white/5 hover:bg-red-50 dark:hover:bg-red-950 text-transparent hover:text-red-800 dark:hover:text-red-200 duration-100 select-none hover:select-text">
 							{t("Content.Fanart.text4")}
 						</div>
-						<p className="text-xs text-neutral-950/25 dark:text-white/25 pt-1">
-							{t("Content.Fanart.text5")}
-						</p>
+						<p className="text-xs text-neutral-950/25 dark:text-white/25 pt-1">{t("Content.Fanart.text5")}</p>
 					</div>
 				</section>
-				<section
-					id="design"
-					className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto"
-				>
+				<section id="design" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<div className="w-full md:flex items-center gap-3 px-3 py-2.5 border-x bg-yellow-50 dark:bg-yellow-950 border-yellow-100 dark:border-yellow-900 text-neutral-950 dark:text-white">
 						<div className="my-1 text-yellow">
 							<WarningCircle />
 						</div>
 						<div>
-							<p className="text-sm md:text-base">
-								{t("Content.Reference.outdated")}
-							</p>
+							<p className="text-sm md:text-base">{t("Content.Reference.outdated")}</p>
 						</div>
 					</div>
 					<Ref />
@@ -143,10 +115,7 @@ export default async function Page({
 						<p>
 							{t.rich("Content.Reference.credit", {
 								Link: (chunks) => (
-									<Link
-										href="https://twitter.com/neko__draws"
-										className="text-link-external"
-									>
+									<Link href="https://twitter.com/neko__draws" className="text-link-external">
 										{chunks}
 									</Link>
 								),
@@ -154,12 +123,7 @@ export default async function Page({
 						</p>
 						<div className="flex flex-col lg:items-end">
 							<p className="mb-3">{t("Content.Reference.Download.text")}</p>
-							<Link
-								href="/api/download/file/mina_ref_sheet_by_nekomimi.png"
-								target="_blank"
-								download
-								className="w-fit"
-							>
+							<Link href="/api/download/file/mina_ref_sheet_by_nekomimi.png" target="_blank" download className="w-fit">
 								<Button tabIndex={-1} design="semi-transparent">
 									{t("Content.Reference.Download.button")}
 									<Download />
@@ -174,9 +138,7 @@ export default async function Page({
 							{t("Content.Discord.heading")}
 							<span className="text-green">.</span>
 						</h2>
-						<p className="xl:text-xl 2xl:text-2xl">
-							{t("Content.Discord.text")}
-						</p>
+						<p className="xl:text-xl 2xl:text-2xl">{t("Content.Discord.text")}</p>
 						<div className="relative">
 							<Marquee
 								style={{

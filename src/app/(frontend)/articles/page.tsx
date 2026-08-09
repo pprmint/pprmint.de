@@ -6,6 +6,7 @@ import Link from "next/link";
 import Pagination from "@/components/gallery/Pagination";
 import FadingImage from "@/components/ui/FadingImage";
 import { Fragment } from "react";
+import { MNCelesta } from "@public/fonts/MNCelesta/MNCelesta";
 
 export async function generateMetadata() {
 	const t = await getTranslations("ARTICLES");
@@ -15,7 +16,11 @@ export async function generateMetadata() {
 	};
 }
 
-export default async function Page({ searchParams }: { searchParams: Promise<{ p?: string; tag?: string }> }) {
+export default async function Page({
+	searchParams,
+}: {
+	searchParams: Promise<{ p?: string; tag?: string }>;
+}) {
 	const { p = "1", tag = "" } = await searchParams;
 	const locale = (await getLocale()) as "en" | "de" | "all" | undefined;
 	const format = await getFormatter();
@@ -62,7 +67,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ p
 											)}
 										</div>
 										<div className="pt-2 pb-9 lg:pb-3 pr-6">
-											<div className="text-xs my-1.5">
+											<div className="text-xs my-2">
 												{format.dateTime(new Date(article.publishedAt), {
 													day: "numeric",
 													month: "long",
@@ -78,7 +83,9 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ p
 													</Fragment>
 												))}
 											</div>
-											<h2 className="pb-1.5">{article.title}</h2>
+											<h2 className={`${MNCelesta.className} pb-1.5`}>
+												{article.title}
+											</h2>
 											<div>{article.description}</div>
 										</div>
 									</div>

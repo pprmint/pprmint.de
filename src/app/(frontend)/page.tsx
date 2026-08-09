@@ -6,10 +6,11 @@ import Link from "next/link";
 
 import FadingImage from "@/components/ui/FadingImage";
 import HeartFilled from "@/icons/HeartFilled";
-import HomeTitle from "./home/title";
 import Announcements from "./home/announcements";
+import HomeTitle from "./home/title";
 import * as m from "motion/react-m";
 import Button from "@/components/ui/Button";
+import { MNCelesta } from "@public/fonts/MNCelesta/MNCelesta";
 
 export async function generateMetadata() {
 	const t = await getTranslations("HOME");
@@ -41,9 +42,7 @@ export default async function Page() {
 	});
 	return (
 		<>
-			<section className="relative w-full h-screen overflow-clip border-b border-black/5 dark:border-white/5">
-				<HomeTitle />
-			</section>
+			<HomeTitle />
 			<main>
 				<Announcements data={announcements} />
 				<div className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20 h-20 md:h-32 xl:h-40">
@@ -67,7 +66,7 @@ export default async function Page() {
 										},
 									}}
 									viewport={{ once: true }}
-									className="absolute -z-10 italic pt-[0.1em] text-5xl md:text-8xl lg:text-9xl xl:text-[9rem] font-narrow leading-none tracking-tight bg-black/5 dark:bg-white/5 text-neutral-950 dark:text-white overflow-clip"
+									className="absolute top-0 left-0 text-left -z-10 italic pt-[0.1em] text-5xl md:text-8xl lg:text-9xl xl:text-[9rem] font-narrow leading-none tracking-tight bg-black/5 dark:bg-white/5 text-neutral-950 dark:text-white"
 								>
 									<m.div
 										initial={{ padding: "0 0 0 0" }}
@@ -110,7 +109,7 @@ export default async function Page() {
 									}}
 									viewport={{ once: true }}
 									aria-hidden
-									className="absolute bottom-0 right-0 text-right italic text-5xl md:text-8xl lg:text-9xl xl:text-[10rem] font-serif leading-tight tracking-tight bg-white/50 dark:bg-neutral-950/50 backdrop-blur-md text-neutral-950 dark:text-white"
+									className={`absolute bottom-0 right-0 text-right ${MNCelesta.className} italic text-5xl md:text-8xl lg:text-9xl xl:text-[10rem] leading-tight tracking-tight bg-white/50 dark:bg-neutral-950/50 backdrop-blur-md text-neutral-950 dark:text-white`}
 								>
 									<m.div
 										initial={{ padding: "0 0" }}
@@ -131,9 +130,15 @@ export default async function Page() {
 								</m.div>
 							</div>
 							<div className="flex flex-col grow mt-12">
-								<h2 className="sr-only">{t("Content.Mina.heading1") + " " + t("Content.Mina.heading2")}</h2>
+								<h2 className="sr-only">
+									{t("Content.Mina.heading1") +
+										" " +
+										t("Content.Mina.heading2")}
+								</h2>
 								<div className="flex flex-col w-full text-center">
-									<p className="xl:text-xl 2xl:text-2xl">{t("Content.Mina.text1")}</p>
+									<p className="xl:text-xl 2xl:text-2xl">
+										{t("Content.Mina.text1")}
+									</p>
 									<p className="mb-6 xl:text-xl 2xl:text-2xl">
 										{t.rich("Content.Mina.text2", {
 											a: "",
@@ -142,7 +147,8 @@ export default async function Page() {
 													(artist, i) =>
 														typeof artist === "object" && (
 															<React.Fragment key={artist.id}>
-																{artist.creditLinks && artist.creditLinks.length > 0 ? (
+																{artist.creditLinks &&
+																artist.creditLinks.length > 0 ? (
 																	<Link
 																		href={artist.creditLinks[0].url}
 																		className="text-link-external"
@@ -152,10 +158,14 @@ export default async function Page() {
 																		{artist.name}
 																	</Link>
 																) : (
-																	<span className="font-medium font-neutal-50">{artist.name}</span>
+																	<span className="font-medium font-neutal-50">
+																		{artist.name}
+																	</span>
 																)}
 																{i !== mina.docs[0].artists.length - 1 &&
-																	(i < mina.docs[0].artists.length - 2 ? ", " : " & ")}
+																	(i < mina.docs[0].artists.length - 2
+																		? ", "
+																		: " & ")}
 															</React.Fragment>
 														),
 												),

@@ -11,6 +11,7 @@ import { useTranslations } from "next-intl";
 import type { Artist, Outfit } from "@/payload-types";
 
 import { PaginatedDocs } from "payload";
+import { useGalleryTransition } from "../gallery/GalleryTransitionContext";
 
 function Filters(props: {
 	nsfw?: string;
@@ -24,6 +25,7 @@ function Filters(props: {
 	const searchParams = useSearchParams();
 	const pathname = usePathname();
 	const { replace } = useRouter();
+	const { startTransition, pending } = useGalleryTransition();
 
 	// How lewd.
 	const nsfw = props.nsfw === "show";
@@ -35,7 +37,9 @@ function Filters(props: {
 		localStorage.setItem("confirmedNsfwDialog", "interestingly, yes");
 		params.set("nsfw", "show");
 		setDialogOpen(false);
-		replace(`${pathname}?${params.toString()}`, { scroll: false });
+		startTransition(() => {
+			replace(`${pathname}?${params.toString()}`, { scroll: false });
+		});
 	}
 
 	function handleNsfw() {
@@ -50,7 +54,9 @@ function Filters(props: {
 				setDialogOpen(false);
 			}
 		}
-		replace(`${pathname}?${params.toString()}`, { scroll: false });
+		startTransition(() => {
+			replace(`${pathname}?${params.toString()}`, { scroll: false });
+		});
 	}
 
 	// How referencing.
@@ -63,7 +69,9 @@ function Filters(props: {
 			params.delete("p"); // Otherwise you may end up on a page with no results.
 			params.set("refs", "show");
 		}
-		replace(`${pathname}?${params.toString()}`, { scroll: false });
+		startTransition(() => {
+			replace(`${pathname}?${params.toString()}`, { scroll: false });
+		});
 	}
 
 	// Dropdown for artist filter.
@@ -71,12 +79,16 @@ function Filters(props: {
 		const params = new URLSearchParams(searchParams);
 		params.set("artist", artist);
 		params.delete("p"); // Otherwise you may end up on a page with no results.
-		replace(`${pathname}?${params.toString()}`, { scroll: false });
+		startTransition(() => {
+			replace(`${pathname}?${params.toString()}`, { scroll: false });
+		});
 	}
 	function handleClearArtist() {
 		const params = new URLSearchParams(searchParams);
 		params.delete("artist");
-		replace(`${pathname}?${params.toString()}`, { scroll: false });
+		startTransition(() => {
+			replace(`${pathname}?${params.toString()}`, { scroll: false });
+		});
 	}
 	const artistFilterActive = Boolean(props.artist && props.artists.docs.some((a) => a.slug === props.artist));
 
@@ -85,18 +97,22 @@ function Filters(props: {
 		const params = new URLSearchParams(searchParams);
 		params.set("outfit", outfit);
 		params.delete("p"); // Otherwise you may end up on a page with no results.
-		replace(`${pathname}?${params.toString()}`, { scroll: false });
+		startTransition(() => {
+			replace(`${pathname}?${params.toString()}`, { scroll: false });
+		});
 	}
 	function handleClearOutfit() {
 		const params = new URLSearchParams(searchParams);
 		params.delete("outfit");
-		replace(`${pathname}?${params.toString()}`, { scroll: false });
+		startTransition(() => {
+			replace(`${pathname}?${params.toString()}`, { scroll: false });
+		});
 	}
 	const outfitFilterActive = Boolean(props.outfit && props.outfits.docs.some((a) => a.slug === props.outfit));
 
 	return (
 		<>
-			<div className="sm:grid sm:grid-cols-2 lg:grid-cols-4 xl:flex items-center grow">
+			<div className={`sm:grid sm:grid-cols-2 lg:grid-cols-4 xl:flex items-center grow ${pending && "opacity-75 pointer-events-none"}`}>
 				<div className="flex w-full xl:w-64 sm:border-r border-black/5 dark:border-white/5">
 					<Select
 						label={t("Content.Artworks.Filters.artist")}

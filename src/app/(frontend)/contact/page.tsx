@@ -1,10 +1,8 @@
-import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 import Title from "@/components/layout/Title";
 import FadingImage from "@/components/ui/FadingImage";
 
 import Letter from "@public/assets/contact/letter_en.webp";
-import LetterSilhouette from "@public/assets/contact/letter_silhouette.svg";
 
 import Chatbox from "./chatbox";
 import Form from "./form";
@@ -27,50 +25,20 @@ export default async function Page() {
 				description={t("Head.description")}
 				credits={[{ name: "nekomimi", link: "https://twitter.com/neko__draws" }]}
 			>
-				<div className="relative size-full bg-neutral-950">
-					<Image
-						src={LetterSilhouette}
-						alt=""
-						className="absolute w-1/3 h-auto"
-						style={{ left: "-10%", top: "-5%", transform: "rotate(6deg)" }}
-					/>
-					<Image
-						src={LetterSilhouette}
-						alt=""
-						className="absolute w-1/3 h-auto"
-						style={{ left: "20%", top: "30%", transform: "rotate(3deg)" }}
-					/>
-					<Image
-						src={LetterSilhouette}
-						alt=""
-						className="absolute w-1/3 h-auto"
-						style={{ left: "7%", top: "60%", transform: "rotate(-3deg)" }}
-					/>
-					<Image
-						src={LetterSilhouette}
-						alt=""
-						className="absolute w-1/3 h-auto"
-						style={{ left: "40%", top: "50%", transform: "rotate(-6deg)" }}
-					/>
-					<Image
-						src={LetterSilhouette}
-						alt=""
-						className="absolute w-1/3 h-auto"
-						style={{ left: "30%", top: "10%", transform: "rotate(-9deg)" }}
-					/>
+				<div className="relative size-full max-w-8xl mx-auto px-12 bg-neutral-950">
 					<FadingImage
 						src={Letter}
-						alt="A letter."
-						className="absolute right-[3%] bottom-[-10%] rotate-6 w-1/2 h-auto"
+						alt=""
+						className="absolute right-12 lg:right-1/10 bottom-0 translate-y-1/4 rotate-6 w-2/5 max-w-2xl h-auto blur-sm"
 						hideSpinner
 					/>
-					<div className="absolute inset-0 backdrop-blur-xs bg-linear-to-t from-neutral-950/25" />
 					<FadingImage
 						src="/api/artwork/file/nekomimi_68cdbdf7a0.webp"
 						width={1158}
 						height={3238}
-						alt="Postwoman Mina."
-						className="absolute right-[5%] bottom-0 sm:bottom-auto md:right-[10%] h-full pt-9 w-auto md:w-1/3 max-w-xl md:h-auto drop-shadow-2xl"
+						alt=""
+						hideSpinner
+						className="absolute right-1/8 bottom-0 sm:bottom-auto h-full pt-6 w-auto md:w-1/3 max-w-lg md:h-auto drop-shadow-2xl drop-shadow-neutral-950/75"
 					/>
 				</div>
 			</Title>

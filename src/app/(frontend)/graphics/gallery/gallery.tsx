@@ -1,46 +1,37 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { PaginatedDocs } from "payload";
 import { Graphic } from "@/payload-types";
 import { Media } from "@/components/Media";
 import { AnimatePresence } from "motion/react";
 import * as m from "motion/react-client";
+import { useSearchParams } from "next/navigation";
 
-export default function GalleryGrid({ graphics, page }: { graphics: PaginatedDocs<Graphic>; page: number }) {
+export default function GalleryGrid({
+	graphics,
+}: {
+	graphics: PaginatedDocs<Graphic>;
+}) {
 	const galleryRef = useRef<HTMLDivElement>(null);
 	const initRef = useRef(false);
-
-	// Stuff for gallery height transitions.
-	const galleryHeightRef = useRef<HTMLDivElement>(null);
-	const [galleryHeight, setGalleryHeight] = useState<number | "auto">("auto");
-	useEffect(() => {
-		const handleResize = () => {
-			if (galleryHeightRef.current) {
-				setGalleryHeight(galleryHeightRef.current.scrollHeight);
-			}
-		};
-		handleResize();
-		window.addEventListener("resize", handleResize);
-		return () => {
-			window.removeEventListener("resize", handleResize);
-		};
-	}, [graphics.docs.length]);
+	const searchParams = useSearchParams();
 
 	useEffect(() => {
 		if (initRef.current && galleryRef.current) {
-			scrollTo({ top: galleryRef.current?.getBoundingClientRect().top + scrollY - 168, behavior: "smooth" });
+			scrollTo({
+				top: galleryRef.current?.getBoundingClientRect().top + scrollY - 168,
+				// behavior: "smooth",
+			});
 		} else {
 			initRef.current = true;
 		}
-	}, [page]);
+	}, [searchParams]);
 
 	return (
 		<>
-			<m.div
+			<div
 				ref={galleryRef}
-				animate={{ height: galleryHeight }}
-				transition={{ type: "spring", bounce: 0, duration: 0.3 }}
 				className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-1 md:p-2 border-y border-black/5 dark:border-white/5 gap-1 md:gap-2"
 			>
 				<AnimatePresence mode="popLayout">
@@ -55,7 +46,12 @@ export default function GalleryGrid({ graphics, page }: { graphics: PaginatedDoc
 							animate={{
 								opacity: 1,
 								y: 0,
-								transition: { delay: 0.25 + index / 100, type: "spring", bounce: 0, duration: 0.4 },
+								transition: {
+									delay: 0.25 + index / 100,
+									type: "spring",
+									bounce: 0,
+									duration: 0.4,
+								},
 							}}
 							exit={{
 								opacity: 0,
@@ -89,19 +85,6 @@ export default function GalleryGrid({ graphics, page }: { graphics: PaginatedDoc
 						</m.div>
 					))}
 				</AnimatePresence>
-			</m.div>
-			<div
-				id="galleryHeightRef"
-				className="fixed w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 -top-[200%] -left-[200%] pointer-events-none opacity-0"
-			>
-				<div
-					ref={galleryHeightRef}
-					className="w-full group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-1 sm:p-2 gap-1 sm:gap-2"
-				>
-					{[...Array(graphics.docs.length)].map((_, index) => (
-						<div key={index} className="w-full aspect-video" />
-					))}
-				</div>
 			</div>
 		</>
 	);
