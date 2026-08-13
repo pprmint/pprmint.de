@@ -42,20 +42,19 @@ export default function HomeTitle() {
 	});
 	return (
 		<div className="relative w-full overflow-hidden text-balance">
-			<div className="absolute -z-10 inset-0 bg-white dark:bg-neutral-950">
+			<div className="absolute -z-10 inset-0 bg-green-300 dark:bg-neutral-950">
 				<video
-					src="/api/assets/file/swirl.mp4"
-					className="absolute inset-0 object-cover w-full h-full dark:invert dark:contrast-81"
+					src="/api/assets/file/home_waves.mp4"
+					className="absolute inset-0 object-bottom object-cover w-full h-full contrast-105 dark:contrast-90 invert dark:invert-0 mix-blend-luminosity dark:mix-blend-lighten bg-black"
 					autoPlay
 					muted
 					playsInline
+					loop
 				/>
-				<div className="absolute inset-0 bg-linear-to-r from-white dark:from-neutral-950" />
-				<div className="absolute bottom-0 inset-x-0 h-px bg-current/5" />
 			</div>
 			<div className="w-full h-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 				<div className="size-full border-x border-black/5 dark:border-white/5">
-					<div className="relative py-28 md:py-28 lg:py-32 xl:py-40">
+					<div className="relative py-28 md:py-32 lg:py-36 xl:py-44 px-6 xl:px-9">
 						<m.h1
 							className="relative pb-1 md:pb-3 font-extralight"
 							initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}

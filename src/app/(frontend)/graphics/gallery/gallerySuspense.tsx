@@ -58,7 +58,7 @@ export default async function GallerySuspense({
 	return (
 		<>
 			<Filters type={type} dimension={dimension} />
-			{graphics.docs.length == 0 ? <OutOfBounds /> : <Gallery graphics={graphics} page={p} />}
+			{graphics.docs.length == 0 ? <OutOfBounds /> : <Gallery graphics={graphics} />}
 			<Pagination page={p} pageCount={graphics.totalPages} />
 		</>
 	);

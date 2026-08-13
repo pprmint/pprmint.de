@@ -111,7 +111,7 @@ export default function NavBar() {
 			ref={navRef}
 			className={`z-90 fixed top-0 inset-x-0 ${
 				navOpen
-					? "h-full md:h-96 xl:h-72 shadow-xl shadow-neutral-950/5 dark:shadow-neutral-950/25"
+					? "h-full md:h-96 xl:h-84 2xl:h-72 shadow-xl shadow-neutral-950/5 dark:shadow-neutral-950/25"
 					: "h-16"
 			} flex justify-between duration-300 ease-out-quint overflow-auto border-b ${
 				!solid
@@ -272,9 +272,9 @@ export default function NavBar() {
 							y: -10,
 							transition: { duration: 0.1, ease: "linear" },
 						}}
-						className="grid grid-cols-1 md:grid-cols-4 md:gap-3 xl:gap-9 px-3 pb-9 w-full 3xl:max-w-7xl md:mx-3 xl:mx-52 3xl:mx-auto overflow-auto md:overflow-hidden z-80"
+						className="md:grid md:grid-cols-4 md:gap-3 xl:gap-9 px-3 pb-9 w-full 3xl:max-w-7xl md:mx-3 xl:mx-52 3xl:mx-auto overflow-auto md:overflow-hidden z-80"
 					>
-						<div className="w-full h-max pt-20 xl:pt-5">
+						<div className="w-full h-max pt-20 xl:pt-4.5">
 							<div className="flex items-baseline gap-3">
 								<p className="pl-3 text-neutral-950 dark:text-white text-lg font-varia font-semibold">
 									{t("Path.General.title")}
@@ -291,7 +291,7 @@ export default function NavBar() {
 								))}
 							</ul>
 						</div>
-						<div className="w-full h-max col-span-2 pt-9 md:pt-20 xl:pt-5">
+						<div className="w-full h-max col-span-2 pt-8 md:pt-20 xl:pt-4.5">
 							<div className="flex items-baseline gap-3">
 								<p className="pl-3 text-neutral-950 dark:text-white text-lg font-varia font-semibold">
 									{t("Path.Work.title")}
@@ -316,7 +316,7 @@ export default function NavBar() {
 								/>
 							</ul>
 						</div>
-						<div className="w-full h-max pt-9 md:pt-20 xl:pt-5">
+						<div className="w-full h-max pt-8 md:pt-20 xl:pt-4.5">
 							<div className="flex items-baseline gap-3">
 								<p className="pl-3 text-neutral-950 dark:text-white text-lg font-varia font-semibold">
 									{t("Path.Other.title")}

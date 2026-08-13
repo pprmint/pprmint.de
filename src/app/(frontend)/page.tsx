@@ -48,58 +48,30 @@ export default async function Page() {
 				<div className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20 h-20 md:h-32 xl:h-40">
 					<div className="size-full border-x border-black/5 dark:border-white/5" />
 				</div>
-				{mina.docs && (
-					<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-						<div className="w-full border-x border-black/5 dark:border-white/5 pt-9 lg:pt-16 xl:pt-48">
-							<div className="relative">
+
+				<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+					<div className="w-full border-x border-black/5 dark:border-white/5 pt-9 lg:pt-16 xl:pt-48">
+						<div className="relative">
+							<m.div
+								initial={{
+									clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+								}}
+								whileInView={{
+									clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+									transition: {
+										type: "spring",
+										bounce: 0,
+										duration: 0.75,
+										delay: 0.2,
+									},
+								}}
+								viewport={{ once: true }}
+								className="absolute top-0 left-0 text-left -z-10 italic pt-[0.1em] text-5xl md:text-8xl lg:text-9xl xl:text-[9rem] font-narrow leading-none tracking-tight bg-black/5 dark:bg-white/5 text-neutral-950 dark:text-white"
+							>
 								<m.div
-									initial={{
-										clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
-									}}
+									initial={{ padding: "0 0 0 0" }}
 									whileInView={{
-										clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-										transition: {
-											type: "spring",
-											bounce: 0,
-											duration: 0.75,
-											delay: 0.2,
-										},
-									}}
-									viewport={{ once: true }}
-									className="absolute top-0 left-0 text-left -z-10 italic pt-[0.1em] text-5xl md:text-8xl lg:text-9xl xl:text-[9rem] font-narrow leading-none tracking-tight bg-black/5 dark:bg-white/5 text-neutral-950 dark:text-white"
-								>
-									<m.div
-										initial={{ padding: "0 0 0 0" }}
-										whileInView={{
-											padding: "0 .35em 0 .25em",
-											transition: {
-												type: "spring",
-												bounce: 0,
-												duration: 0.75,
-												delay: 0.2,
-											},
-										}}
-										viewport={{ once: true }}
-										aria-hidden
-									>
-										{t("Content.Mina.heading1")}
-									</m.div>
-								</m.div>
-								{typeof mina.docs[0].images[0].image === "object" && (
-									<FadingImage
-										src={mina.docs[0].images[0].image.url || ""}
-										alt={mina.docs[0].images[0].image.alt || ""}
-										width={mina.docs[0].images[0].image.width || 0}
-										height={mina.docs[0].images[0].image.height || 0}
-										className="w-auto h-auto max-h-screen mx-auto pt-12 sm:pt-14 md:pt-20 lg:pt-24 xl:pt-28 pb-14 sm:pb-16 md:pb-20 lg:pb-24 xl:pb-32"
-									/>
-								)}
-								<m.div
-									initial={{
-										clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
-									}}
-									whileInView={{
-										clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+										padding: "0 .35em 0 .25em",
 										transition: {
 											type: "spring",
 											bounce: 0,
@@ -109,83 +81,99 @@ export default async function Page() {
 									}}
 									viewport={{ once: true }}
 									aria-hidden
-									className={`absolute bottom-0 right-0 text-right ${MNCelesta.className} italic text-5xl md:text-8xl lg:text-9xl xl:text-[10rem] leading-tight tracking-tight bg-white/50 dark:bg-neutral-950/50 backdrop-blur-md text-neutral-950 dark:text-white`}
 								>
-									<m.div
-										initial={{ padding: "0 0" }}
-										whileInView={{
-											padding: "0 .3em",
-											transition: {
-												type: "spring",
-												bounce: 0,
-												duration: 0.75,
-												delay: 0.2,
-											},
-										}}
-										viewport={{ once: true }}
-										className="bg-black/5 dark:bg-white/5"
-									>
-										{t("Content.Mina.heading2")}
-									</m.div>
+									{t("Content.Mina.heading1")}
 								</m.div>
-							</div>
-							<div className="flex flex-col grow mt-12">
-								<h2 className="sr-only">
-									{t("Content.Mina.heading1") +
-										" " +
-										t("Content.Mina.heading2")}
-								</h2>
-								<div className="flex flex-col w-full text-center">
-									<p className="xl:text-xl 2xl:text-2xl">
-										{t("Content.Mina.text1")}
-									</p>
-									<p className="mb-6 xl:text-xl 2xl:text-2xl">
-										{t.rich("Content.Mina.text2", {
-											a: "",
-											link: () =>
-												mina.docs[0].artists.map(
-													(artist, i) =>
-														typeof artist === "object" && (
-															<React.Fragment key={artist.id}>
-																{artist.creditLinks &&
-																artist.creditLinks.length > 0 ? (
-																	<Link
-																		href={artist.creditLinks[0].url}
-																		className="text-link-external"
-																		target="_blank"
-																		rel="noopener noreferrer"
-																	>
-																		{artist.name}
-																	</Link>
-																) : (
-																	<span className="font-medium font-neutal-50">
-																		{artist.name}
-																	</span>
-																)}
-																{i !== mina.docs[0].artists.length - 1 &&
-																	(i < mina.docs[0].artists.length - 2
-																		? ", "
-																		: " & ")}
-															</React.Fragment>
-														),
-												),
-										})}
-									</p>
-									<div className="w-full border-y border-black/5 dark:border-white/5">
-										<div className="flex justify-center">
-											<Link href="/mina">
-												<Button noInitialPadding size="large">
-													{t("Content.Mina.button")}
-													<HeartFilled />
-												</Button>
-											</Link>
-										</div>
+							</m.div>
+							{typeof mina.docs[0].images[0].image === "object" && (
+								<FadingImage
+									src={mina.docs[0].images[0].image.url || ""}
+									alt={mina.docs[0].images[0].image.alt || ""}
+									width={mina.docs[0].images[0].image.width || 0}
+									height={mina.docs[0].images[0].image.height || 0}
+									className="w-auto h-auto max-h-screen mx-auto pt-12 sm:pt-14 md:pt-20 lg:pt-24 xl:pt-28 pb-14 sm:pb-16 md:pb-20 lg:pb-24 xl:pb-32"
+								/>
+							)}
+							<m.div
+								initial={{
+									clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
+								}}
+								whileInView={{
+									clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+									transition: {
+										type: "spring",
+										bounce: 0,
+										duration: 0.75,
+										delay: 0.2,
+									},
+								}}
+								viewport={{ once: true }}
+								aria-hidden
+								className={`absolute bottom-0 right-0 text-right ${MNCelesta.className} italic text-5xl md:text-8xl lg:text-9xl xl:text-[10rem] leading-tight tracking-tight bg-white/50 dark:bg-neutral-950/50 backdrop-blur-md text-neutral-950 dark:text-white`}
+							>
+								<m.div
+									initial={{ padding: "0 0" }}
+									whileInView={{
+										padding: "0 .3em",
+										transition: {
+											type: "spring",
+											bounce: 0,
+											duration: 0.75,
+											delay: 0.2,
+										},
+									}}
+									viewport={{ once: true }}
+									className="bg-black/5 dark:bg-white/5"
+								>
+									{t("Content.Mina.heading2")}
+								</m.div>
+							</m.div>
+						</div>
+						<div className="flex flex-col grow mt-12">
+							<h2 className="sr-only">{t("Content.Mina.heading1") + " " + t("Content.Mina.heading2")}</h2>
+							<div className="flex flex-col w-full text-center">
+								<p className="xl:text-xl 2xl:text-2xl">{t("Content.Mina.text1")}</p>
+								<p className="mb-6 xl:text-xl 2xl:text-2xl">
+									{t.rich("Content.Mina.text2", {
+										a: "",
+										link: () =>
+											mina.docs[0].artists.map(
+												(artist, i) =>
+													typeof artist === "object" && (
+														<React.Fragment key={artist.id}>
+															{artist.creditLinks && artist.creditLinks.length > 0 ? (
+																<Link
+																	href={artist.creditLinks[0].url}
+																	className="text-link-external"
+																	target="_blank"
+																	rel="noopener noreferrer"
+																>
+																	{artist.name}
+																</Link>
+															) : (
+																<span className="font-medium font-neutal-50">{artist.name}</span>
+															)}
+															{i !== mina.docs[0].artists.length - 1 &&
+																(i < mina.docs[0].artists.length - 2 ? ", " : " & ")}
+														</React.Fragment>
+													),
+											),
+									})}
+								</p>
+								<div className="w-full border-y border-black/5 dark:border-white/5">
+									<div className="flex justify-center">
+										<Link href="/mina">
+											<Button noInitialPadding size="large">
+												{t("Content.Mina.button")}
+												<HeartFilled />
+											</Button>
+										</Link>
 									</div>
 								</div>
 							</div>
 						</div>
-					</section>
-				)}
+					</div>
+				</section>
 			</main>
 		</>
 	);

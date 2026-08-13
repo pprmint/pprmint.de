@@ -10,12 +10,13 @@ import { PaginatedDocs } from "payload";
 import type { Announcement } from "@/payload-types";
 import * as m from "motion/react-m";
 import { AnimatePresence } from "motion/react";
-import { useTranslations } from "next-intl";
+import { useFormatter, useTranslations } from "next-intl";
 import Button from "@/components/ui/Button";
 import RichText from "@/components/richText";
 
 export default function Announcements({ data }: { data: PaginatedDocs<Announcement> }) {
 	const t = useTranslations("HOME");
+	const format = useFormatter();
 	const [current, setCurrent] = useState(0);
 	const [direction, setDirection] = useState(1);
 
@@ -50,29 +51,31 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 
 	return (
 		<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto overflow-x-clip">
-			<h2 className="absolute top-12 lg:top-auto lg:-bottom-16 left-0 text-[10rem] lg:text-[20rem] text-black/5 dark:text-white/5 -z-10 font-serif italic tracking-tight">
-				{t("Content.News.heading")}
-			</h2>
 			<div className="grid grid-cols-2 border-x border-black/5 dark:border-white/5 items-center pt-20 lg:pt-0">
-				<div className="order-2 lg:order-1 flex col-span-2 lg:col-span-1 flex-col justify-center lg:border-r border-black/5 dark:border-white/5 h-full w-full lg:pt-40 lg:backdrop-blur-xs bg-white/25 dark:bg-neutral-950/25">
-					<m.div className="md:grow" animate={{ height: descriptionHeight }}>
+				<div className="order-2 lg:order-1 flex col-span-2 lg:col-span-1 flex-col justify-center lg:border-r border-black/5 dark:border-white/5 h-full w-full lg:backdrop-blur-xs bg-white/25 dark:bg-neutral-950/25">
+					<div className="md:grow p-6 xl:p-9 pb-0 lg:border-t border-black/5 dark:border-white/5">
 						<AnimatePresence mode="wait">
 							<m.div
 								layout
 								key={data.docs[current].id}
-								className="pt-3 lg:border-t border-black/5 dark:border-white/5"
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1, transition: { duration: 0.3 } }}
+								exit={{
+									opacity: 0,
+									transition: { duration: 0.1, ease: "linear" },
+								}}
 							>
-								<m.h3
-									initial={{ opacity: 0 }}
-									animate={{ opacity: 1, transition: { duration: 0.3 } }}
-									exit={{
-										opacity: 0,
-										transition: { duration: 0.1, ease: "linear" },
-									}}
-									className="text-3xl md:text-4xl lg:text-5xl"
-								>
-									{data.docs[current].title}
-								</m.h3>
+								<h2>{data.docs[current].title}</h2>
+								<div className="flex gap-6 items-center">
+									<p className="text-sm">
+										{format.dateTime(new Date(data.docs[current].createdAt), {
+											day: "numeric",
+											month: "long",
+											year: "numeric",
+										})}
+									</p>
+									<div className="grow h-px bg-black/5 dark:bg-white/5" />
+								</div>
 							</m.div>
 						</AnimatePresence>
 						<AnimatePresence mode="wait">
@@ -80,45 +83,22 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 								layout
 								key={data.docs[current].id}
 								initial={{ opacity: 0 }}
-								animate={{ opacity: 1, transition: { duration: 0.3, delay: 0.1 } }}
+								animate={{ opacity: 1, transition: { duration: 0.3, delay: 0.05 } }}
 								exit={{
 									opacity: 0,
 									transition: { duration: 0.1, ease: "linear" },
 								}}
 							>
-								<RichText
-									className="lg:pr-3 mt-3 pb-3 grow xl:text-xl 2xl:text-2xl"
-									data={data.docs[current].text}
-								/>
+								<RichText className="mt-4 pb-3 grow xl:text-xl 2xl:text-2xl" data={data.docs[current].text} />
 							</m.div>
 						</AnimatePresence>
-					</m.div>
-					<div
-						id="descriptionHeightRef"
-						aria-hidden
-						className="fixed -top-[200%] -left-[200%] w-full max-w-8xl px-6 md:px-9 lg:px-0 border-x pointer-events-none opacity-0"
-					>
-						<div ref={descriptionHeightRef}>
-							<div className="pt-3 lg:border-t border-black/5 dark:border-white/5">
-								<h3 aria-hidden className="text-3xl md:text-4xl lg:text-5xl">
-									{data.docs[current].title}
-								</h3>
-							</div>
-							<div>
-								<RichText
-									aria-hidden
-									className="lg:pr-3 mt-3 pb-3 grow xl:text-xl 2xl:text-2xl"
-									data={data.docs[current].text}
-								/>
-							</div>
-						</div>
 					</div>
 					<div className="flex h-12 border-y border-black/5 dark:border-white/5">
 						<AnimatePresence mode="wait">
 							<m.div
 								key={data.docs[current].id}
 								initial={{ opacity: 0 }}
-								animate={{ opacity: 1, transition: { duration: 0.3, delay: 0.2 } }}
+								animate={{ opacity: 1, transition: { duration: 0.3, delay: 0.1 } }}
 								exit={{
 									opacity: 0,
 									transition: { duration: 0.1, ease: "linear" },
@@ -132,15 +112,11 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 										rel="noopener noreferrer"
 										className="w-full"
 									>
-										<Button size="full" noInitialPadding>
+										<Button size="full">
 											<span>{data.docs[current].linkText}</span>
 											{data.docs[current].link.startsWith("/") ? (
 												<div className="relative size-5 overflow-clip duration-0">
-													<ArrowRight
-														width={20}
-														height={20}
-														className="absolute group-hover:translate-x-full"
-													/>
+													<ArrowRight width={20} height={20} className="absolute group-hover:translate-x-full" />
 													<ArrowRight
 														width={20}
 														height={20}
@@ -231,17 +207,14 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 									left:
 										direction < 0
 											? `${((current + 1) % data.docs.length) * (100 / data.docs.length)}%`
-											: `${
-													((current - 1 + data.docs.length) % data.docs.length) *
-													(100 / data.docs.length)
-											  }%`,
+											: `${((current - 1 + data.docs.length) % data.docs.length) * (100 / data.docs.length)}%`,
 									transition: { type: "spring", duration: 0.2, bounce: 0 },
 								}}
 							/>
 						</div>
 					</div>
 				</div>
-				<div className="order-1 lg:order-2 col-span-2 lg:col-span-1 relative lg:h-full lg:pt-40 backdrop-blur-xs bg-neutral-950/25 lg:backdrop-blur-none lg:bg-transparent">
+				<div className="order-1 lg:order-2 col-span-2 lg:col-span-1 relative lg:h-full backdrop-blur-xs bg-neutral-950/25 lg:backdrop-blur-none lg:bg-transparent">
 					<div className="aspect-video border-y border-black/5 dark:border-white/5 overflow-clip">
 						<AnimatePresence>
 							<m.div

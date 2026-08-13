@@ -43,7 +43,7 @@ export default function Title(
 				<div
 					className={`h-full w-full border-x ${props.blackText ? "text-neutral-950" : "text-white"} ${props.children ? "border-current/5" : "border-black/5 dark:border-white/5"}`}
 				>
-					<div className="relative size-full flex flex-col gap-6 xl:justify-center col-span-2 md:col-span-1 pt-18 pb-32 md:py-28 lg:py-32 xl:py-40">
+					<div className="relative size-full flex flex-col gap-6 xl:justify-center col-span-2 md:col-span-1 py-28 md:py-32 lg:py-36 xl:py-44 px-6 xl:px-9">
 						<div
 							className={
 								props.children && !props.blackText ? "drop-shadow-md" : ""
