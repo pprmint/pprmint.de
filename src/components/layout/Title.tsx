@@ -46,11 +46,11 @@ export default function Title(
 					<div className="relative size-full flex flex-col gap-6 xl:justify-center col-span-2 md:col-span-1 py-28 md:py-32 lg:py-36 xl:py-44 px-6 xl:px-9">
 						<div
 							className={
-								props.children && !props.blackText ? "drop-shadow-md" : ""
+								props.children ? !props.blackText ? "drop-shadow-md" : "" : "xl:text-center"
 							}
 						>
 							<m.h1
-								className={`relative pb-1 md:pb-2 lg:pb-3 ${MNVaria.className} font-extralight ${props.children ? "text-inherit" : ""}`}
+								className={`relative pb-1 md:pb-2 lg:pb-3 ${MNVaria.className} font-light ${props.children ? "text-inherit" : ""}`}
 								initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
 								animate={{
 									opacity: 1,
@@ -84,7 +84,7 @@ export default function Title(
 										delay: 0.05,
 									},
 								}}
-								className={`text-xl md:text-2xl xl:text-3xl ${props.blackText ? "text-neutral-950/75" : "text-neutral-950/75 dark:text-white/75 "} ${props.children ? "max-w-60" : ""} sm:max-w-none`}
+								className={`text-xl md:text-2xl xl:text-3xl ${props.children ? props.blackText ? "text-neutral-950/75" : "text-white/75" : "text-neutral-950/75 dark:text-white/75 "} ${props.children ? "max-w-60" : ""} sm:max-w-none`}
 							>
 								{props.description}
 							</m.p>

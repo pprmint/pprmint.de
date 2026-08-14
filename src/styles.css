@@ -720,7 +720,7 @@ img {
 
 body {
 	font-variant-ligatures: normal;
-	font-feature-settings: "liga";
+	font-feature-settings: "liga", "cv04", "ss02", "cv16";
 }
 
 p:not(:last-of-type) {

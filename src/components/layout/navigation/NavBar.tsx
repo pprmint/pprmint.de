@@ -272,7 +272,7 @@ export default function NavBar() {
 							y: -10,
 							transition: { duration: 0.1, ease: "linear" },
 						}}
-						className="md:grid md:grid-cols-4 md:gap-3 xl:gap-9 px-3 pb-9 w-full 3xl:max-w-7xl md:mx-3 xl:mx-52 3xl:mx-auto overflow-auto md:overflow-hidden z-80"
+						className="md:grid md:grid-cols-4 md:gap-3 xl:gap-9 px-3 xl:px-6 pb-9 w-full 2xl:max-w-7xl md:mx-3 xl:mx-52 3xl:mx-auto overflow-auto md:overflow-hidden z-80"
 					>
 						<div className="w-full h-max pt-20 xl:pt-4.5">
 							<div className="flex items-baseline gap-3">

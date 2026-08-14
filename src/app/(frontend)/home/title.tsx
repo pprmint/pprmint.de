@@ -56,7 +56,7 @@ export default function HomeTitle() {
 				<div className="size-full border-x border-black/5 dark:border-white/5">
 					<div className="relative py-28 md:py-32 lg:py-36 xl:py-44 px-6 xl:px-9">
 						<m.h1
-							className="relative pb-1 md:pb-3 font-extralight"
+							className="relative pb-1 md:pb-3 font-light"
 							initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
 							animate={{
 								opacity: 1,

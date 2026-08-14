@@ -32,7 +32,7 @@ export default async function Page() {
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
-				<div className="w-screen h-full bg-neutral-50 dark:bg-neutral-950">
+				<div className="w-screen h-full bg-neutral-950">
 					<FadingImage src={TitleBg} alt="" fill className="object-cover object-center opacity-50" />
 					<CountUp />
 				</div>
@@ -57,7 +57,7 @@ export default async function Page() {
 							),
 						})}
 					</p>
-					<div className="relative mb-12 max-w-7xl mx-auto">
+					<div className="relative mb-12 max-w-7xl mx-auto px-6 xl:px-9">
 						<FadingImage src={Monitor} alt="" />
 						<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
 							<span style={{ fontFamily: MintTriangles.style.fontFamily }} className="text-white/10" aria-hidden>
@@ -70,7 +70,7 @@ export default async function Page() {
 					<p>{t("Content.Intro.text3")}</p>
 				</section>
 				<section className="lg:grid grid-cols-2 items-center border-x border-black/5 dark:border-white/5">
-					<div className="md:order-1 pt-20 pb-6 lg:py-0 lg:pl-20 lg:text-right">
+					<div className="md:order-1 pt-20 pb-6 lg:py-0 lg:pl-20 lg:text-right p-6 xl:p-9 md:text-balance">
 						<h2>
 							{t("Content.Wireframe.heading")}
 							<span className="text-violet">.</span>
@@ -94,7 +94,7 @@ export default async function Page() {
 					/>
 				</section>
 				<section className="lg:grid grid-cols-2 items-center border-x border-black/5 dark:border-white/5">
-					<div className="pt-20 pb-6 lg:py-0 lg:pr-20">
+					<div className="pt-20 pb-6 lg:py-0 lg:pr-20 p-6 xl:p-9 md:text-balance">
 						<h2>
 							{t("Content.Punctuation.heading")}
 							<span className="text-violet">.</span>
@@ -104,7 +104,7 @@ export default async function Page() {
 					<video autoPlay muted playsInline loop src="/assets/triangles/Special1.mp4" />
 				</section>
 				<section className="lg:grid grid-cols-2 items-center border-x border-black/5 dark:border-white/5">
-					<div className="md:order-1 pt-20 pb-6 lg:py-0 lg:pl-20 lg:text-right">
+					<div className="md:order-1 pt-20 pb-6 lg:py-0 lg:pl-20 lg:text-right p-6 xl:p-9 md:text-balance">
 						<h2>
 							{t("Content.Special.heading")}
 							<span className="text-violet">.</span>

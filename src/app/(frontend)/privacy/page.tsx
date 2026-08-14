@@ -26,19 +26,25 @@ export default async function Page() {
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} />
-			<main className="max-w-8xl mx-auto px-6 md:px-9 xl:px-20">
-				<section className="pb-20 md:pb-32 border-x border-black/5 dark:border-white/5">
-					<div className="bg-black/5 dark:bg-white/5 px-6 md:px-9 py-6 md:py-9">
+			<div className="w-full h-px bg-black/5 dark:bg-white/5" />
+			<main className="max-w-7xl mx-auto px-6 md:px-9 xl:px-0">
+				<section className="border-x border-black/5 dark:border-white/5">
+					<div className="bg-black/5 dark:bg-white/5 p-6 xl:p-9">
 						<RichText data={privacyPolicy.tldr} className="prose-h2:pt-0" />
 					</div>
 				</section>
-				<section className="border-x border-black/5 dark:border-white/5">
+				<section className="px-6 xl:px-9 border-x border-black/5 dark:border-white/5">
 					<RichText data={privacyPolicy.main} />
 				</section>
-				<section className="border-x border-black/5 dark:border-white/5 pt-10 text-center text-xs">
-					<p>{t("Content.lastUpdated", { revisionDate: new Date(privacyPolicy.updatedAt!) })}</p>
+				<section className="border-x border-black/5 dark:border-white/5 py-9 text-center text-xs">
+					<p>
+						{t("Content.lastUpdated", {
+							revisionDate: new Date(privacyPolicy.updatedAt!),
+						})}
+					</p>
 				</section>
 			</main>
+			<div className="w-full h-px bg-black/5 dark:bg-white/5" />
 		</>
 	);
 }

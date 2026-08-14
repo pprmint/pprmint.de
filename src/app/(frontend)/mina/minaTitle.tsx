@@ -90,7 +90,7 @@ export default function MinaTitle() {
 					</m.div>
 					<m.div
 						style={{ x: x2 }}
-						className="relative flex items-end w-full max-w-52 sm:max-w-none sm:w-auto sm:h-full xl:w-3/4 xl:h-auto 2xl:h-full"
+						className="relative flex items-end w-full max-w-52 sm:max-w-none sm:w-auto sm:h-full xl:w-3/4 xl:h-full"
 					>
 						<FadingImage
 							hideSpinner

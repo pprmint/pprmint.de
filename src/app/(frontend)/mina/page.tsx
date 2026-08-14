@@ -45,7 +45,7 @@ export default async function Page({
 			<main>
 				<section id="lore" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<div className="w-full md:grid grid-cols-2 border-x border-black/5 dark:border-white/5">
-						<div className="md:border-r border-black/5 dark:border-white/5 py-20 lg:py-32 xl:py-40 md:pr-12">
+						<div className="md:border-r border-black/5 dark:border-white/5 py-20 lg:py-32 xl:py-40 px-6 lg:px-9">
 							<h2>
 								{t("Content.About.heading")}
 								<span className="text-green">.</span>
@@ -53,7 +53,7 @@ export default async function Page({
 							<p>{t("Content.About.text1")}</p>
 							<p>{t("Content.About.text2")}</p>
 						</div>
-						<div className="pt-3 md:pt-25 lg:pt-35 xl:pt-55 pb-20 lg:pb-32 xl:pb-40 md:pr-12">
+						<div className="pt-3 md:pt-25 lg:pt-35 xl:pt-55 pb-20 lg:pb-32 xl:pb-40 px-6 lg:px-9">
 							<p>{t("Content.About.text3")}</p>
 							<p>{t("Content.About.text4")}</p>
 							<p>{t("Content.About.text5")}</p>
@@ -87,7 +87,7 @@ export default async function Page({
 					</Suspense>
 				</section>
 				<section id="rules" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-					<div className="w-full border-x border-black/5 dark:border-white/5 py-20 lg:py-32 xl:py-40">
+					<div className="w-full border-x border-black/5 dark:border-white/5 py-20 lg:py-32 xl:py-40 px-6 xl:px-9">
 						<h2>
 							{t("Content.Fanart.heading")}
 							<span className="text-green">.</span>
