@@ -87,7 +87,7 @@ export default async function Page({
 					</Suspense>
 				</section>
 				<section id="rules" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-					<div className="w-full border-x border-black/5 dark:border-white/5 py-20 lg:py-32 xl:py-40 px-6 xl:px-9">
+					<div className="w-full border-x border-black/5 dark:border-white/5 py-20 lg:py-32 xl:py-40 px-6 xl:px-9 xl:text-center xl:text-balance">
 						<h2>
 							{t("Content.Fanart.heading")}
 							<span className="text-green">.</span>
@@ -95,7 +95,7 @@ export default async function Page({
 						<p>{t("Content.Fanart.text1")}</p>
 						<p>{t("Content.Fanart.text2")}</p>
 						<p>{t("Content.Fanart.text3")}</p>
-						<div className="px-1 py-0.5 max-w-max bg-black/5 dark:bg-white/5 hover:bg-red-50 dark:hover:bg-red-950 text-transparent hover:text-red-800 dark:hover:text-red-200 duration-100 select-none hover:select-text">
+						<div className="px-1 py-0.5 max-w-max xl:mx-auto bg-black/5 dark:bg-white/5 hover:bg-red-50 dark:hover:bg-red-950 text-transparent hover:text-red-800 dark:hover:text-red-200 duration-100 select-none hover:select-text">
 							{t("Content.Fanart.text4")}
 						</div>
 						<p className="text-xs text-neutral-950/25 dark:text-white/25 pt-1">{t("Content.Fanart.text5")}</p>
