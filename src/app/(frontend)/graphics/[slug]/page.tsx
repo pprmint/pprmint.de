@@ -10,6 +10,7 @@ import RichText from "@/components/richText";
 import * as m from "motion/react-m";
 import { getLocale, getFormatter, getTranslations } from "next-intl/server";
 import Link from "next/link";
+import Title from "@/components/layout/Title";
 
 type Args = {
 	params: Promise<{
@@ -35,85 +36,11 @@ export default async function Page({ params: paramsPromise }: Args) {
 
 	return (
 		<>
-			<main className="max-w-8xl mx-auto px-6 md:px-9 xl:px-20">
-				<article className="relative md:grid md:grid-cols-3 md:col-span-2 border-x border-b border-black/5 dark:border-white/5">
-					<div className="md:sticky h-max pt-28 md:pt-32 xl:pt-40 top-0">
-						<m.h1
-							className="relative pb-1 md:pb-2 lg:pb-3 font-light text-balance md:pr-9 xl:text-6xl"
-							initial={{ opacity: 0, filter: "blur(5px)", y: 10 }}
-							animate={{
-								opacity: 1,
-								filter: "blur(0px)",
-								y: 0,
-								transition: {
-									type: "spring",
-									bounce: 0,
-									duration: 0.75,
-								},
-							}}
-						>
-							{graphic.title}
-							<span className="text-green">.</span>
-						</m.h1>
-						<m.p
-							initial={{ opacity: 0, y: 20 }}
-							animate={{
-								opacity: 1,
-								y: 0,
-								transition: {
-									type: "spring",
-									bounce: 0,
-									duration: 0.75,
-									delay: 0.05,
-								},
-							}}
-							className="text-xl md:text-2xl xl:text-3xl md:pr-9"
-						>
-							{graphic.description}
-						</m.p>
-						<m.p
-							initial={{ opacity: 0, y: 40 }}
-							animate={{
-								opacity: 1,
-								y: 0,
-								transition: {
-									type: "spring",
-									bounce: 0,
-									duration: 0.75,
-									delay: 0.1,
-								},
-							}}
-						>
-							{format.dateTime(new Date(graphic.creationDate), {
-								day: "numeric",
-								month: "long",
-								year: "numeric",
-							})}{" "}
-							•{" "}
-							<Link href={`/graphics?dimension=${graphic.dimension}`}>
-								{graphic.dimension.toUpperCase()}
-							</Link>
-							,{" "}
-							{graphic.type.length === 0 ? (
-								<Link href={`/graphics?type=${graphic.type}`}>
-									{t(`Content.Filters.Type.${graphic.type}`)}
-								</Link>
-							) : (
-								graphic.type.map((type, index) => (
-									<Fragment key={index}>
-										{index > 0 && " & "}
-										<Link href={`/graphics?type=${type}`}>
-											{index > 0
-												? t(`Content.Filters.Type.${type}`).toLowerCase()
-												: t(`Content.Filters.Type.${type}`)}
-										</Link>
-									</Fragment>
-								))
-							)}
-						</m.p>
-					</div>
+			<Title title={graphic.title} description={graphic.description} />
+			<main className="border-y border-black/5 dark:border-white/5">
+				<article className="relative max-w-7xl mx-auto p-6 xl:p-9 border-x border-black/5 dark:border-white/5">
 					<RichText
-						className="lg:text-lg py-20 md:py-32 xl:py-40 md:col-span-2 xl:prose-h1:text-7xl md:border-l border-black/5 dark:border-white/5 *:first:pt-0"
+						className="lg:text-lg xl:prose-h1:text-7xl *:first:pt-0"
 						data={graphic.content}
 					/>
 				</article>
@@ -139,8 +66,10 @@ export async function generateMetadata({ params: paramsPromise }: Args) {
 		title: graphic.title,
 		description: graphic.description,
 		twitter: {
-			images: typeof graphic.thumbnail === "object" && graphic.thumbnail.sizes?.hd?.url || typeof graphic.thumbnail === "object" && graphic.thumbnail.url
-		}
+			images:
+				(typeof graphic.thumbnail === "object" && graphic.thumbnail.sizes?.hd?.url) ||
+				(typeof graphic.thumbnail === "object" && graphic.thumbnail.url),
+		},
 	};
 }
 
