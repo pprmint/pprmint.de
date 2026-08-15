@@ -5,7 +5,7 @@ import { ReactNode, useEffect } from "react";
 export default function Layout({ children }: { children: ReactNode }) {
 	const { setDefaultColor } = useNavbar();
 	useEffect(() => {
-		setDefaultColor();
+		setDefaultColor("white");
 	}, [setDefaultColor]);
 
 	return children;
