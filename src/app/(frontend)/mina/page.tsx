@@ -132,14 +132,21 @@ export default async function Page({
 						</div>
 					</div>
 				</section>
-				<section className="relative flex items-end justify-center max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20 min-h-[400px] overflow-clip">
-					<div className="relative z-10 border-x border-black/5 dark:border-white/5 w-full max-w-8xl mx-auto pb-12 text-center text-balance dark:drop-shadow-[0px_2px_8px_#111]">
+				<section className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
+					<div className="relative z-10 border-x border-black/5 dark:border-white/5 w-full max-w-8xl mx-auto pb-12 text-center text-balance">
 						<h2>
 							{t("Content.Discord.heading")}
 							<span className="text-green">.</span>
 						</h2>
 						<p className="xl:text-xl 2xl:text-2xl">{t("Content.Discord.text")}</p>
-						<div className="relative">
+						<div
+							className="relative"
+							style={{
+								maskImage:
+									"linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)",
+								maskRepeat: "space",
+							}}
+						>
 							<Marquee
 								style={{
 									width: "100%",
@@ -221,7 +228,6 @@ export default async function Page({
 									/>
 								))}
 							</Marquee>
-							<div className="absolute z-10 inset-0 bg-linear-to-r from-white dark:from-neutral-950 via-transparent to-white dark:to-neutral-950" />
 						</div>
 						<div className="w-full border-y border-black/5 dark:border-white/5">
 							<div className="flex justify-center">
