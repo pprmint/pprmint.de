@@ -52,8 +52,8 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 	return (
 		<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto overflow-x-clip">
 			<div className="grid grid-cols-2 border-x border-black/5 dark:border-white/5 items-center pt-20 lg:pt-0">
-				<div className="order-2 lg:order-1 flex col-span-2 lg:col-span-1 flex-col justify-center lg:border-r border-black/5 dark:border-white/5 h-full w-full lg:backdrop-blur-xs bg-white/25 dark:bg-neutral-950/25">
-					<div className="md:grow p-6 xl:p-9 pb-0 lg:border-t border-black/5 dark:border-white/5">
+				<div className="order-2 lg:order-1 flex col-span-2 lg:col-span-1 flex-col justify-center lg:border-r border-black/5 dark:border-white/5 h-full w-full lg:aspect-video bg-white/25 dark:bg-neutral-950/25">
+					<div className="relative h-full overflow-auto p-6 xl:p-9 pb-0 lg:border-t border-black/5 dark:border-white/5">
 						<AnimatePresence mode="wait">
 							<m.div
 								layout
@@ -65,7 +65,7 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 									transition: { duration: 0.1, ease: "linear" },
 								}}
 							>
-								<h2>{data.docs[current].title}</h2>
+								<h2 className="text-3xl lg:text-4xl 2xl:text-5xl">{data.docs[current].title}</h2>
 								<div className="flex gap-6 items-center">
 									<p className="text-sm">
 										{format.dateTime(new Date(data.docs[current].createdAt), {
@@ -89,128 +89,132 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 									transition: { duration: 0.1, ease: "linear" },
 								}}
 							>
-								<RichText className="mt-4 pb-3 grow xl:text-xl 2xl:text-2xl" data={data.docs[current].text} />
+								<RichText className="mt-4 pb-3 xl:text-xl 2xl:text-2xl" data={data.docs[current].text} />
 							</m.div>
 						</AnimatePresence>
 					</div>
-					<div className="flex h-12 border-y border-black/5 dark:border-white/5">
-						<AnimatePresence mode="wait">
-							<m.div
-								key={data.docs[current].id}
-								initial={{ opacity: 0 }}
-								animate={{ opacity: 1, transition: { duration: 0.3, delay: 0.1 } }}
-								exit={{
-									opacity: 0,
-									transition: { duration: 0.1, ease: "linear" },
-								}}
-								className="flex grow"
-							>
-								{data.docs[current].link && (
-									<Link
-										href={data.docs[current].link}
-										target={data.docs[current].link.startsWith("/") ? "_self" : "_blank"}
-										rel="noopener noreferrer"
-										className="w-full"
-									>
-										<Button size="full">
-											<span>{data.docs[current].linkText}</span>
-											{data.docs[current].link.startsWith("/") ? (
-												<div className="relative size-5 overflow-clip duration-0">
-													<ArrowRight width={20} height={20} className="absolute group-hover:translate-x-full" />
-													<ArrowRight
-														width={20}
-														height={20}
-														className="text-white dark:text-neutral-950 stroke-current stroke-[1.5px] absolute -translate-x-full group-hover:translate-x-0 group-hover:duration-300 ease-out-quint"
-													/>
-												</div>
-											) : (
-												<div className="relative size-5 overflow-clip duration-0">
-													<ArrowUpRight
-														width={20}
-														height={20}
-														className="absolute group-hover:translate-x-full group-hover:-translate-y-full"
-													/>
-													<ArrowUpRight
-														width={20}
-														height={20}
-														className="text-white dark:text-neutral-950 stroke-current stroke-[1.5px] absolute -translate-x-full translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 group-hover:duration-300 ease-out-quint"
-													/>
-												</div>
-											)}
-										</Button>
-									</Link>
-								)}
-							</m.div>
-						</AnimatePresence>
-						<div className="relative flex w-24 ml-auto border-l border-black/5 dark:border-white/5 divide-x divide-neutral-50/5">
-							<Button size="full" onClick={handleNext}>
-								<AnimatePresence mode="wait">
-									<m.div key={data.docs[current].id}>
-										<m.div
-											initial={{ x: "100%" }}
-											exit={{
-												x: direction > 0 ? "0%" : "100%",
-												transition: { ease: "easeOut", duration: 0.2 },
-											}}
-											className="absolute top-0 inset-0 flex items-center justify-center"
+					<div className="hidden lg:block lg:absolute top-px w-full h-6 xl:h-9 bg-linear-to-b from-white dark:from-neutral-950" />
+					<div className="hidden lg:block lg:absolute bottom-12 w-full h-6 xl:h-9 bg-linear-to-t from-white dark:from-neutral-950" />
+					<div className="h-12 border-y border-black/5 dark:border-white/5">
+						<div className="flex h-12">
+							<AnimatePresence mode="wait">
+								<m.div
+									key={data.docs[current].id}
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1, transition: { duration: 0.3, delay: 0.1 } }}
+									exit={{
+										opacity: 0,
+										transition: { duration: 0.1, ease: "linear" },
+									}}
+									className="flex grow"
+								>
+									{data.docs[current].link && (
+										<Link
+											href={data.docs[current].link}
+											target={data.docs[current].link.startsWith("/") ? "_self" : "_blank"}
+											rel="noopener noreferrer"
+											className="w-full"
 										>
-											<ChevronLeft className="group-hover:stroke-current group-hover:stroke-[1.8]" />
+											<Button size="full">
+												<span>{data.docs[current].linkText}</span>
+												{data.docs[current].link.startsWith("/") ? (
+													<div className="relative size-5 overflow-clip duration-0">
+														<ArrowRight width={20} height={20} className="absolute group-hover:translate-x-full" />
+														<ArrowRight
+															width={20}
+															height={20}
+															className="text-white dark:text-neutral-950 stroke-current stroke-[1.5px] absolute -translate-x-full group-hover:translate-x-0 group-hover:duration-300 ease-out-quint"
+														/>
+													</div>
+												) : (
+													<div className="relative size-5 overflow-clip duration-0">
+														<ArrowUpRight
+															width={20}
+															height={20}
+															className="absolute group-hover:translate-x-full group-hover:-translate-y-full"
+														/>
+														<ArrowUpRight
+															width={20}
+															height={20}
+															className="text-white dark:text-neutral-950 stroke-current stroke-[1.5px] absolute -translate-x-full translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 group-hover:duration-300 ease-out-quint"
+														/>
+													</div>
+												)}
+											</Button>
+										</Link>
+									)}
+								</m.div>
+							</AnimatePresence>
+							<div className="relative flex w-24 ml-auto border-l border-black/5 dark:border-white/5 divide-x divide-neutral-50/5">
+								<Button size="full" onClick={handleNext}>
+									<AnimatePresence mode="wait">
+										<m.div key={data.docs[current].id}>
+											<m.div
+												initial={{ x: "100%" }}
+												exit={{
+													x: direction > 0 ? "0%" : "100%",
+													transition: { ease: "easeOut", duration: 0.2 },
+												}}
+												className="absolute top-0 inset-0 flex items-center justify-center"
+											>
+												<ChevronLeft className="group-hover:stroke-current group-hover:stroke-[1.8]" />
+											</m.div>
+											<m.div
+												exit={{
+													x: direction > 0 ? "-100%" : "0%",
+													transition: { ease: "easeOut", duration: 0.2 },
+												}}
+												className="absolute top-0 inset-0 flex items-center justify-center"
+											>
+												<ChevronLeft className="group-hover:stroke-current group-hover:stroke-[1.8]" />
+											</m.div>
 										</m.div>
-										<m.div
-											exit={{
-												x: direction > 0 ? "-100%" : "0%",
-												transition: { ease: "easeOut", duration: 0.2 },
-											}}
-											className="absolute top-0 inset-0 flex items-center justify-center"
-										>
-											<ChevronLeft className="group-hover:stroke-current group-hover:stroke-[1.8]" />
+									</AnimatePresence>
+								</Button>
+								<Button size="full" onClick={handlePrevious}>
+									<AnimatePresence mode="wait">
+										<m.div key={data.docs[current].id}>
+											<m.div
+												initial={{ x: "-100%" }}
+												exit={{
+													x: direction < 0 ? "0%" : "-100%",
+													transition: { ease: "easeOut", duration: 0.2 },
+												}}
+												className="absolute top-0 inset-0 flex items-center justify-center"
+											>
+												<ChevronRight className="group-hover:stroke-current group-hover:stroke-[1.8]" />
+											</m.div>
+											<m.div
+												exit={{
+													x: direction < 0 ? "100%" : "0%",
+													transition: { ease: "easeOut", duration: 0.2 },
+												}}
+												className="absolute top-0 inset-0 flex items-center justify-center"
+											>
+												<ChevronRight className="group-hover:stroke-current group-hover:stroke-[1.8]" />
+											</m.div>
 										</m.div>
-									</m.div>
-								</AnimatePresence>
-							</Button>
-							<Button size="full" onClick={handlePrevious}>
-								<AnimatePresence mode="wait">
-									<m.div key={data.docs[current].id}>
-										<m.div
-											initial={{ x: "-100%" }}
-											exit={{
-												x: direction < 0 ? "0%" : "-100%",
-												transition: { ease: "easeOut", duration: 0.2 },
-											}}
-											className="absolute top-0 inset-0 flex items-center justify-center"
-										>
-											<ChevronRight className="group-hover:stroke-current group-hover:stroke-[1.8]" />
-										</m.div>
-										<m.div
-											exit={{
-												x: direction < 0 ? "100%" : "0%",
-												transition: { ease: "easeOut", duration: 0.2 },
-											}}
-											className="absolute top-0 inset-0 flex items-center justify-center"
-										>
-											<ChevronRight className="group-hover:stroke-current group-hover:stroke-[1.8]" />
-										</m.div>
-									</m.div>
-								</AnimatePresence>
-							</Button>
-							<m.div
-								className="absolute -bottom-px bg-neutral-950 dark:bg-white h-px"
-								style={{
-									width: `${100 / data.docs.length}%`,
-									left: `${current * (100 / data.docs.length)}%`,
-								}}
-								animate={{
-									left: `${current * (100 / data.docs.length)}%`,
-									transition: { type: "spring", duration: 0.2, bounce: 0 },
-								}}
-								exit={{
-									left:
-										direction < 0
-											? `${((current + 1) % data.docs.length) * (100 / data.docs.length)}%`
-											: `${((current - 1 + data.docs.length) % data.docs.length) * (100 / data.docs.length)}%`,
-									transition: { type: "spring", duration: 0.2, bounce: 0 },
-								}}
-							/>
+									</AnimatePresence>
+								</Button>
+								<m.div
+									className="absolute -bottom-px bg-neutral-950 dark:bg-white h-px"
+									style={{
+										width: `${100 / data.docs.length}%`,
+										left: `${current * (100 / data.docs.length)}%`,
+									}}
+									animate={{
+										left: `${current * (100 / data.docs.length)}%`,
+										transition: { type: "spring", duration: 0.2, bounce: 0 },
+									}}
+									exit={{
+										left:
+											direction < 0
+												? `${((current + 1) % data.docs.length) * (100 / data.docs.length)}%`
+												: `${((current - 1 + data.docs.length) % data.docs.length) * (100 / data.docs.length)}%`,
+										transition: { type: "spring", duration: 0.2, bounce: 0 },
+									}}
+								/>
+							</div>
 						</div>
 					</div>
 				</div>
