@@ -21,14 +21,7 @@ export default async function OutfitRowSuspense() {
 
 	return (
 		<div className="relative border-x border-black/5 dark:border-white/5 pt-30 lg:pt-42 xl:pt-50">
-			{outfits !== null && (
-				<>
-					<h2 className="absolute top-[0.52em] lg:top-[0.05em] xl:top-[0.17em] left-1/2 -translate-x-1/2 text-[10rem] lg:text-[20rem] text-black/5 dark:text-white/5 -z-10 font-thin">
-						{t("Content.Outfits.heading")}
-					</h2>
-					<OutfitRow outfits={outfits} />
-				</>
-			)}
+			<OutfitRow outfits={outfits} />
 		</div>
 	);
 }

@@ -248,16 +248,37 @@ export default function OutfitRow({ outfits }: { outfits: PaginatedDocs<Outfit> 
 						<Dialog.Trigger asChild>
 							<button
 								id={outfit.name}
-								className="group relative h-100 md:h-150 aspect-3/5 duration-200 active:duration-75 active:p-2"
+								className="group relative h-110 md:h-160 aspect-3/5 duration-200 active:duration-75 active:p-2 border-r border-black/5 dark:border-white/5 overflow-clip"
 							>
-								<div className="size-full flex items-center justify-center group-hover:bg-black/5 dark:group-hover:bg-white/5 duration-200 group-active:duration-75 p-3 group-active:p-1">
+								<div className="size-full flex items-center justify-center group-hover:bg-black/5 dark:group-hover:bg-white/5 duration-200 group-hover:duration-0 group-active:duration-75 p-3 group-active:p-1" />
+								<div
+									className="absolute top-6 left-6 bottom-6 whitespace-normal text-right uppercase font-narrow leading-[0.9em] text-5xl xl:text-7xl text-black/5 dark:text-white/5"
+									style={{ writingMode: "sideways-lr" }}
+								>
+									{outfit.name}
+								</div>
+								<div className="absolute w-full left-1/7 bottom-0 -skew-x-45 h-1/6 bg-linear-to-t from-black/5 dark:from-white/5" />
+								<div
+								className="absolute inset-0 opacity-20 dark:opacity-75"
+									style={{
+										maskImage:
+											"linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 30%",
+										maskRepeat: "space",
+									}}
+								>
 									<Media
 										resource={outfit.references![0].referenceFront}
 										size="hd"
-										className="relative size-full"
-										imgClassName="size-full object-contain group-focus-visible/button:animate-pulse"
+										className="absolute inset-5 scale-y-50 -skew-x-30 origin-bottom brightness-0 contrast-81 blur"
+										imgClassName="size-full object-contain object-right group-focus-visible/button:animate-pulse"
 									/>
 								</div>
+								<Media
+									resource={outfit.references![0].referenceFront}
+									size="hd"
+									className="absolute inset-3"
+									imgClassName="size-full object-contain object-right group-focus-visible/button:animate-pulse"
+								/>
 							</button>
 						</Dialog.Trigger>
 						<InfoDialog data={outfit} />
