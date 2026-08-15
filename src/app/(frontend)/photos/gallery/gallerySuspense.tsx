@@ -13,6 +13,7 @@ export default async function GallerySuspense({ p }: { p: number }) {
 		page: p,
 		locale: locale,
     limit: 20,
+		sort: "-date"
 	});
 
 	return (
