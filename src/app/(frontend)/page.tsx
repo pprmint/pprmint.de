@@ -11,6 +11,7 @@ import HomeTitle from "./home/title";
 import * as m from "motion/react-m";
 import Button from "@/components/ui/Button";
 import { MNCelesta } from "@public/fonts/MNCelesta/MNCelesta";
+import Things from "./home/things";
 
 export async function generateMetadata() {
 	const t = await getTranslations("HOME");
@@ -44,13 +45,10 @@ export default async function Page() {
 		<>
 			<HomeTitle />
 			<main>
+				<Things />
 				<Announcements data={announcements} />
-				<div className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20 h-20 md:h-32 xl:h-40">
-					<div className="size-full border-x border-black/5 dark:border-white/5" />
-				</div>
-
 				<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-					<div className="w-full border-x border-black/5 dark:border-white/5 pt-9 lg:pt-16 xl:pt-48">
+					<div className="w-full border-x border-black/5 dark:border-white/5 pt-20 xl:pt-48">
 						<div className="relative">
 							<m.div
 								initial={{
@@ -66,12 +64,13 @@ export default async function Page() {
 									},
 								}}
 								viewport={{ once: true }}
-								className="absolute top-0 left-0 text-left -z-10 italic pt-[0.1em] text-5xl md:text-8xl lg:text-9xl xl:text-[9rem] font-narrow leading-none tracking-tight bg-black/5 dark:bg-white/5 text-neutral-950 dark:text-white"
+								aria-hidden
+								className={`absolute top-0 left-0 font-narrow italic text-5xl md:text-8xl lg:text-9xl xl:text-[9rem] leading-none tracking-tight bg-black/5 dark:bg-white/5 text-neutral-950 dark:text-white`}
 							>
 								<m.div
-									initial={{ padding: "0 0 0 0" }}
+									initial={{ padding: ".15em 0 .075em 0" }}
 									whileInView={{
-										padding: "0 .35em 0 .25em",
+										padding: ".15em .4em .075em 0.25em",
 										transition: {
 											type: "spring",
 											bounce: 0,
@@ -80,7 +79,6 @@ export default async function Page() {
 										},
 									}}
 									viewport={{ once: true }}
-									aria-hidden
 								>
 									{t("Content.Mina.heading1")}
 								</m.div>
@@ -131,7 +129,7 @@ export default async function Page() {
 						</div>
 						<div className="flex flex-col grow mt-12">
 							<h2 className="sr-only">{t("Content.Mina.heading1") + " " + t("Content.Mina.heading2")}</h2>
-							<div className="flex flex-col w-full text-center">
+							<div className="flex flex-col w-full text-center text-balance px-6 xl:px-9">
 								<p className="xl:text-xl 2xl:text-2xl">{t("Content.Mina.text1")}</p>
 								<p className="mb-6 xl:text-xl 2xl:text-2xl">
 									{t.rich("Content.Mina.text2", {
@@ -160,6 +158,7 @@ export default async function Page() {
 											),
 									})}
 								</p>
+							</div>
 								<div className="w-full border-y border-black/5 dark:border-white/5">
 									<div className="flex justify-center">
 										<Link href="/mina">
@@ -170,7 +169,6 @@ export default async function Page() {
 										</Link>
 									</div>
 								</div>
-							</div>
 						</div>
 					</div>
 				</section>

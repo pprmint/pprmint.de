@@ -1,40 +1,12 @@
 "use client";
 import { useTranslations } from "next-intl";
 import * as m from "motion/react-m";
-import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavbar } from "@/components/layout/navigation/NavBarContext";
-
-const Links = [
-	{
-		link: "/graphics",
-		text: "Content.Hero.graphics",
-		image: "/api/assets/file/ribbon_dark_4fb33611b4-1920x1080.webp",
-	},
-	{
-		link: "/photos",
-		text: "Content.Hero.photos",
-		image: "/api/photos/file/DSC01818-1620x1080.webp",
-	},
-	{
-		link: "/fonts",
-		text: "Content.Hero.fonts",
-		image: "/api/assets/file/MinaSans_title-1643x1080.webp",
-	},
-	{
-		link: "/projects",
-		text: "Content.Hero.projects",
-		image: "/api/assets/file/keyboard_6e2f9e1d1a-1620x1080.webp",
-	},
-	{
-		link: "/contact",
-		text: "Content.Hero.contact",
-		image: "/api/assets/file/MINT_Night_2_cd895e32a4.png",
-	},
-];
 
 export default function HomeTitle() {
 	const t = useTranslations("HOME");
+	const [canPlay, setCanPlay] = useState(false);
 	const { setNoAccents, setDefaultColor } = useNavbar();
 	useEffect(() => {
 		setDefaultColor();
@@ -50,6 +22,10 @@ export default function HomeTitle() {
 					muted
 					playsInline
 					loop
+					onCanPlay={() => setCanPlay(true)}
+				/>
+				<div
+					className={`absolute w-[150%] left-0 ${canPlay ? "-translate-x-full" : "translate-x-0"} inset-y-0 bg-linear-to-r from-white dark:from-neutral-950 via-white dark:via-neutral-950 via-75% duration-2500 delay-300 ease-out-cubic`}
 				/>
 			</div>
 			<div className="w-full h-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">

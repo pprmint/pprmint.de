@@ -468,25 +468,28 @@
 		"Content": {
 			"Hero": {
 				"title": "Good today",
-				"description": "Name's Nick. Staring at pixels is my favorite pasttime.",
-				"graphics": "Graphics",
-				"photos": "Photos",
-				"fonts": "Fonts",
-				"projects": "Projects",
-				"contact": "Contact"
+				"description": "Name's Nick. Staring at pixels is my favorite pasttime."
+			},
+			"Things": {
+				"Graphics": {
+					"heading": "Graphics",
+					"description": "2D/3D renders and animations."
+				},
+				"Photos": {
+					"heading": "Photos",
+					"description": "Vacation photos and other snapshots."
+				},
+				"Fonts": {
+					"heading": "Fonts",
+					"description": "Vector paths shaped to be legible."
+				},
+				"Projects": {
+					"heading": "Projects",
+					"description": "Things that didn't really fit anywhere else."
+				}
 			},
 			"News": {
-				"heading": "News"
-			},
-			"OtherNews": {
-				"heading": "In other news:"
-			},
-			"Featured": {
-				"Varia": {
-					"tagline": "Mina Sans is now called",
-					"text": "Work in progress — coming later rather than sooner to your computer.",
-					"button": "Show me more"
-				}
+				"heading": "What else was there..."
 			},
 			"Mina": {
 				"heading1": "More into",

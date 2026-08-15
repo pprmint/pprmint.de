@@ -468,25 +468,28 @@
 		"Content": {
 			"Hero": {
 				"title": "Guten Heute",
-				"description": "Ich heiße Nicklas. Pixel anzustarren ist mein liebster Zeitvertreib.",
-				"graphics": "Grafiken",
-				"photos": "Fotos",
-				"fonts": "Schriftarten",
-				"projects": "Projekte",
-				"contact": "Kontakt"
+				"description": "Ich heiße Nicklas. Pixel anzustarren ist mein liebster Zeitvertreib."
+			},
+			"Things": {
+				"Graphics": {
+					"heading": "Grafiken",
+					"description": "2D/3D Render und Animationen."
+				},
+				"Photos": {
+					"heading": "Fotos",
+					"description": "Urlaubsfotos und andere Schnappschüsse."
+				},
+				"Fonts": {
+					"heading": "Schriftarten",
+					"description": "Vektorpfade, die lesbar sein sollen."
+				},
+				"Projects": {
+					"heading": "Projekte",
+					"description": "Kram, der sonst nirgends hineinpasste."
+				}
 			},
 			"News": {
-				"heading": "Aktuelles"
-			},
-			"OtherNews": {
-				"heading": "Und sonst noch:"
-			},
-			"Featured": {
-				"Varia": {
-					"tagline": "Mina Sans heißt nun",
-					"text": "In der Entwicklung — erscheint eher später als früher auf deinem Computer.",
-					"button": "Zeig mir mehr"
-				}
+				"heading": "Was sonst noch war..."
 			},
 			"Mina": {
 				"heading1": "Doch lieber",
@@ -494,11 +497,6 @@
 				"text1": "Die offizielle pprmint.de Website versorgt dich auch damit. Lang lebe das Internet.",
 				"text2": "Hier ist das neueste* Artwork von Mina, meinem OC, gezeichnet von <link>{a}</link>.",
 				"button": "Ich liebe sie."
-			},
-			"Contact": {
-				"questions": "Fragen?",
-				"answers": "Ich hab Antworten",
-				"pronunciation": "Bevor du fragst: Es wird \"peppermint\" ausgesprochen, also wie Pfefferminze auf Englisch. Das erschließt sich nicht jedem, aber jetzt bist du schlauer als die."
 			}
 		}
 	},

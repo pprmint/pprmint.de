@@ -50,9 +50,10 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 	};
 
 	return (
-		<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto overflow-x-clip">
-			<div className="grid grid-cols-2 border-x border-black/5 dark:border-white/5 items-center pt-20 lg:pt-0">
-				<div className="order-2 lg:order-1 flex col-span-2 lg:col-span-1 flex-col justify-center lg:border-r border-black/5 dark:border-white/5 h-full w-full lg:aspect-video bg-white/25 dark:bg-neutral-950/25">
+		<section className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto overflow-x-clip">
+			<div className="text-center border-x border-black/5 dark:border-white/5 pt-12 pb-3"><h2>{t("Content.News.heading")}</h2></div>
+			<div className="grid grid-cols-2 border-x border-black/5 dark:border-white/5 items-center">
+				<div className="relative order-2 lg:order-1 flex col-span-2 lg:col-span-1 flex-col justify-center lg:border-r border-black/5 dark:border-white/5 h-full w-full lg:aspect-video bg-white/25 dark:bg-neutral-950/25">
 					<div className="relative h-full overflow-auto p-6 xl:p-9 pb-0 lg:border-t border-black/5 dark:border-white/5">
 						<AnimatePresence mode="wait">
 							<m.div
@@ -65,7 +66,7 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 									transition: { duration: 0.1, ease: "linear" },
 								}}
 							>
-								<h2 className="text-3xl lg:text-4xl 2xl:text-5xl">{data.docs[current].title}</h2>
+								<h3 className="text-3xl lg:text-4xl 2xl:text-5xl mb-2">{data.docs[current].title}</h3>
 								<div className="flex gap-6 items-center">
 									<p className="text-sm">
 										{format.dateTime(new Date(data.docs[current].createdAt), {
