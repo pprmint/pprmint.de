@@ -17,8 +17,8 @@ export default function Page() {
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} />
 			<div className="w-full h-px bg-black/5 dark:bg-white/5" />
-			<main className="max-w-7xl mx-auto md:px-9 lg:px-12 xl:px-20">
-				<section className="max-w-7xl mx-auto p-6 xl:p-9 md:border-x border-black/5 dark:border-white/5">
+			<main className="max-w-7xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">
+				<section className="max-w-7xl mx-auto p-6 xl:p-9 sm:border-x border-black/5 dark:border-white/5">
 					<h2>
 						{t("Content.Intro.heading")}
 						<span className="text-red">.</span>
