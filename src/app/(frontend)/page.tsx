@@ -49,7 +49,7 @@ export default async function Page() {
 				<Announcements data={announcements} />
 				<section className="relative w-full max-w-8xl sm:px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<div className="w-full sm:border-x border-black/5 dark:border-white/5 pt-20 xl:pt-48">
-						<div className="relative">
+						<div className="relative py-15 md:py-20 lg:py-24 xl:py-28">
 							<m.div
 								initial={{
 									clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
@@ -89,7 +89,7 @@ export default async function Page() {
 									alt={mina.docs[0].images[0].image.alt || ""}
 									width={mina.docs[0].images[0].image.width || 0}
 									height={mina.docs[0].images[0].image.height || 0}
-									className="w-auto h-auto max-h-screen mx-auto pt-12 sm:pt-14 md:pt-20 lg:pt-24 xl:pt-28 pb-14 sm:pb-16 md:pb-20 lg:pb-24 xl:pb-32"
+									className="relative w-auto h-auto max-h-[75vh] mx-auto shadow-xl"
 								/>
 							)}
 							<m.div
