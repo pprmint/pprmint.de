@@ -117,8 +117,8 @@ export default function Mina() {
   const currentSeptemberLine = September[septemberLineIndex];
 
   return (
-    <div className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-      <div className="w-full border-x border-black/5 dark:border-white/5 pt-10 lg:pt-20 xl:pt-40">
+    <div className="relative w-full max-w-8xl sm:px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+      <div className="w-full sm:border-x border-black/5 dark:border-white/5 pt-10 lg:pt-20 xl:pt-40">
         <div className="relative h-36 overflow-clip">
           <AnimatePresence mode="popLayout">
             {phase === "animating" ? (
@@ -208,7 +208,7 @@ export default function Mina() {
       ) : (
         phase === "idle" &&
         clicks > 2 && (
-          <p className="absolute bottom-44 inset-x-0 text-center transition-opacity text-xs duration-300 select-none">
+          <p className="absolute bottom-36 lg:bottom-44 inset-x-0 text-center transition-opacity text-xs duration-300 select-none">
             {t(translationKey)}
           </p>
         )

@@ -33,8 +33,8 @@ export default function Page() {
 					<div className="absolute inset-0 bg-linear-to-r from-neutral-950/75 via-transparent"/>
 				</div>
 			</Title>
-			<main className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
-				<section className="py-20 md:py-32 xl:py-40 border-x border-black/5 dark:border-white/5">
+			<main className="max-w-8xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">
+				<section className="py-20 md:py-32 xl:py-40 px-6 xl:px-9 sm:border-x border-black/5 dark:border-white/5">
 					<h2>
 						{t("Content.Current.heading")}
 						<span className="text-green">.</span>
@@ -55,7 +55,7 @@ export default function Page() {
 					</div>
 				</section>
 				<Palette />
-				<section className="py-20 md:py-32 xl:py-40 border-x border-black/5 dark:border-white/5">
+				<section className="py-20 md:py-32 xl:py-40 sm:border-x px-6 xl:px-9 border-black/5 dark:border-white/5">
 					<h2>
 						{t("Content.Old.heading")}
 						<span className="text-green">.</span>

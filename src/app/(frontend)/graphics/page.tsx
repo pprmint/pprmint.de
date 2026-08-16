@@ -29,8 +29,8 @@ export default async function Page({
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} />
-			<main className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-				<section className="pb-20 md:pb-32 xl:pb-40 border-x border-black/5 dark:border-white/5">
+			<main className="w-full max-w-8xl sm:px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+				<section className="pb-20 md:pb-32 xl:pb-40 sm:border-x border-black/5 dark:border-white/5">
 					<GalleryTransitionProvider>
 						<Suspense fallback={<GallerySkeleton />}>
 							<GallerySuspense locale={locale} p={parseInt(p)} type={type} dimension={dimension} />

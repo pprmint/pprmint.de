@@ -70,10 +70,10 @@ export default function MinaTitle() {
 			blackText
 		>
 			<div className="size-full bg-white" ref={ref}>
-				<div className="relative size-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto flex items-end justify-end 2xl:justify-center">
+				<div className="relative size-full max-w-8xl sm:px-6 md:px-9 lg:px-12 xl:px-20 mx-auto flex items-end justify-end 2xl:justify-center">
 					<m.div
 						style={{ x: x1, y: y1 }}
-						className="absolute -bottom-1/4 right-0 w-1/2 sm:right-1/8 sm:bottom-1/2 sm:translate-y-1/2 2xl:right-1/2 2xl:translate-x-1/2 2xl:w-2/3"
+						className="absolute -bottom-1/6 right-0 w-1/2 sm:right-1/8 sm:bottom-1/2 sm:translate-y-1/2 2xl:right-1/2 2xl:translate-x-1/2 2xl:w-2/3"
 					>
 						<FadingImage hideSpinner src="/api/assets/file/minaverse.svg" alt="Minaverse" width={2376} height={3304} />
 					</m.div>
@@ -88,19 +88,18 @@ export default function MinaTitle() {
 							className="size-full object-contain"
 						/>
 					</m.div>
-					<m.div
-						style={{ x: x2 }}
-						className="relative flex items-end w-full max-w-52 sm:max-w-none sm:w-auto sm:h-full xl:w-3/4 xl:h-full"
-					>
+					<m.div style={{ x: x2 }} className="relative flex items-end translate-x-1/2 sm:translate-0 w-auto h-full xl:w-3/4 xl:h-full">
 						<FadingImage
 							hideSpinner
+							focalX={1}
+							focalY={50}
 							src="/api/assets/file/nekomimi_mi_main.webp"
 							loading="eager"
 							alt=""
 							width={3385}
 							height={2138}
 							quality={100}
-							className="size-full object-contain"
+							className="size-full object-cover sm:object-contain"
 						/>
 					</m.div>
 					<m.div style={{ x: x4, y: y4 }} className="absolute w-full h-fit">

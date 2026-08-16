@@ -56,8 +56,8 @@ export default function Page() {
 						/>
 					</div>
 				</section>
-				<section className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
-					<div className="py-20 md:py-32 xl:py-40 text-center border-x border-black/5 dark:border-white/5">
+				<section className="max-w-8xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">
+					<div className="py-20 md:py-32 xl:py-40 px-6 xl:px-9 text-center sm:border-x border-black/5 dark:border-white/5">
 						<h2 className="mb-6">
 							{t("NUCLEO.Content.About.heading")}
 							<span className="text-red">.</span>

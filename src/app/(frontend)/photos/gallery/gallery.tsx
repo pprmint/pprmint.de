@@ -132,10 +132,8 @@ export default function Gallery({
 
 	return (
 		<>
-			<m.div
+			<div
 				ref={galleryRef}
-				animate={{ height: galleryHeight }}
-				transition={{ type: "spring", bounce: 0, duration: 0.3 }}
 				className="group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-1 sm:p-2 border-y border-black/5 dark:border-white/5 gap-1 sm:gap-2"
 			>
 				<AnimatePresence mode="popLayout">
@@ -535,19 +533,6 @@ export default function Gallery({
 						</m.div>
 					))}
 				</AnimatePresence>
-			</m.div>
-			<div
-				id="galleryHeightRef"
-				className="fixed w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 -top-[200%] -left-[200%] pointer-events-none opacity-0"
-			>
-				<div
-					ref={galleryHeightRef}
-					className="w-full group grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-1 sm:p-2 gap-1 sm:gap-2"
-				>
-					{[...Array(photos.docs.length)].map((_, index) => (
-						<div key={index} className="w-full aspect-3/2" />
-					))}
-				</div>
 			</div>
 		</>
 	);

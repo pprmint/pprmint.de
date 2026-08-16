@@ -7,9 +7,11 @@ import TextItalicGerman from "@/icons/TextItalicGerman";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "next-transition-router";
 import { NextFontWithVariable } from "next/dist/compiled/@next/font";
+import dynamic from "next/dynamic";
 import { PropsWithChildren, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
-export default function FontSection(
+function FontSection(
 	props: PropsWithChildren<{
 		name: string;
 		link: string;
@@ -27,7 +29,8 @@ export default function FontSection(
 	const locale = useLocale() as "en" | "de" | "all" | undefined;
 
 	const [italic, setItalic] = useState(false);
-	const [size, setSize] = useState([6]);
+	const initialSize = useMediaQuery({ minWidth: 768 }) ? 6 : 3;
+	const [size, setSize] = useState([initialSize]);
 
 	const [values, setValues] = useState(props.styles.map((style) => style.initial ?? style.steps[0]));
 	function updateStyle(index: number, value: number) {
@@ -35,7 +38,7 @@ export default function FontSection(
 	}
 
 	return (
-		<section className="group border-x border-b first:border-t border-black/5 dark:border-white/5 pb-6 md:pb-9">
+		<section className="group sm:border-x border-b first:border-t border-black/5 dark:border-white/5 pb-6 md:pb-9">
 			<div className="flex w-full justify-between pl-6 md:pl-9 mb-3">
 				<Link
 					href={props.link}
@@ -150,3 +153,7 @@ export default function FontSection(
 		</section>
 	);
 }
+
+export default dynamic(() => Promise.resolve(FontSection), {
+	ssr: false,
+});

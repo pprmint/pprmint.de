@@ -19,8 +19,8 @@ export default async function Things() {
 		);
 	}
 	return (
-		<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-			<div className="grid grid-cols-2 xl:grid-cols-3 xl:grid-rows-2 border border-black/5 dark:border-white/5 w-full">
+		<section className="relative w-full max-w-8xl sm:px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+			<div className="grid grid-cols-2 xl:grid-cols-3 xl:grid-rows-2 border-y sm:border-x border-black/5 dark:border-white/5 w-full">
 				<Link
 					href="/fonts"
 					className="group flex items-center xl:flex-col xl:items-start justify-between col-span-2 xl:col-span-1 xl:order-3 p-6 xl:p-9 hover:bg-black/5 dark:hover:bg-white/5 duration-200 hover:duration-0"
@@ -45,7 +45,7 @@ export default async function Things() {
 				</Link>
 			</div>
 			<div className="h-9 lg:h-20 w-full border-x border-black/5 dark:border-white/5" />
-			<div className="grid grid-cols-2 xl:grid-cols-3 xl:grid-rows-2 border border-black/5 dark:border-white/5 w-full">
+			<div className="grid grid-cols-2 xl:grid-cols-3 xl:grid-rows-2 border-y sm:border-x border-black/5 dark:border-white/5 w-full">
 				<Link
 					href="/photos"
 					className="group flex items-center xl:flex-col xl:items-start justify-between col-span-2 xl:col-span-1 p-6 xl:p-9 hover:bg-black/5 dark:hover:bg-white/5 duration-200 hover:duration-0"
@@ -70,7 +70,7 @@ export default async function Things() {
 				</Link>
 			</div>
 			<div className="h-9 lg:h-20 w-full border-x border-black/5 dark:border-white/5" />
-			<div className="grid grid-cols-2 xl:grid-cols-3 xl:grid-rows-2 border border-black/5 dark:border-white/5 w-full">
+			<div className="grid grid-cols-2 xl:grid-cols-3 xl:grid-rows-2 border-y sm:border-x border-black/5 dark:border-white/5 w-full">
 				<Link
 					href="/graphics"
 					className="group flex items-center xl:flex-col xl:items-start justify-between col-span-2 xl:col-span-1 xl:order-1 p-6 xl:p-9 hover:bg-black/5 dark:hover:bg-white/5 duration-200 hover:duration-0"

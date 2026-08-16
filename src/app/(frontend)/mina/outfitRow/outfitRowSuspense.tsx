@@ -20,7 +20,7 @@ export default async function OutfitRowSuspense() {
 	});
 
 	return (
-		<div className="relative border-x border-black/5 dark:border-white/5 pt-30 lg:pt-42 xl:pt-50">
+		<div className="relative sm:border-x border-black/5 dark:border-white/5 pt-30 lg:pt-42 xl:pt-50">
 			<OutfitRow outfits={outfits} />
 		</div>
 	);

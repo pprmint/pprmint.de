@@ -22,7 +22,7 @@ export default async function Page() {
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} />
-			<main className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
+			<main className="max-w-8xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">
 				<FontSection
 					name="MN Covert"
 					font={MNCovert}

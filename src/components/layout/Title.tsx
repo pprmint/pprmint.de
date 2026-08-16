@@ -39,9 +39,9 @@ export default function Title(
 			{props.children && (
 				<div className="absolute bottom-0 inset-x-0 h-px bg-current/5" />
 			)}
-			<div className="w-full h-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+			<div className="w-full h-full max-w-8xl sm:px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 				<div
-					className={`h-full w-full border-x ${props.blackText ? "text-neutral-950" : "text-white"} ${props.children ? "border-current/5" : "border-black/5 dark:border-white/5"}`}
+					className={`h-full w-full sm:border-x ${props.blackText ? "text-neutral-950" : "text-white"} ${props.children ? "border-current/5" : "border-black/5 dark:border-white/5"}`}
 				>
 					<div className="relative size-full flex flex-col gap-6 xl:justify-center col-span-2 md:col-span-1 py-28 md:py-32 lg:py-36 xl:py-44 px-6 xl:px-9">
 						<div
@@ -90,7 +90,7 @@ export default function Title(
 							</m.p>
 						</div>
 						{props.children && props.credits && (
-							<div className="bg-current/5 backdrop-blur-sm absolute bottom-0 left-0 text-xs px-2 py-1">
+							<div className="bg-current/5 backdrop-blur-sm absolute bottom-0 left-6 sm:left-0 text-xs px-2 py-1">
 								{t("artDrawnBy")}
 								{props.credits.map((artist, index) => (
 									<Fragment key={index}>

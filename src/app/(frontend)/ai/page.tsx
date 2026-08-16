@@ -16,8 +16,9 @@ export default function Page() {
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} />
-			<main className="border-y border-black/5 dark:border-white/5">
-				<section className="max-w-7xl mx-auto p-6 xl:p-9 border-x border-black/5 dark:border-white/5">
+			<div className="w-full h-px bg-black/5 dark:bg-white/5" />
+			<main className="max-w-7xl mx-auto md:px-9 lg:px-12 xl:px-20">
+				<section className="max-w-7xl mx-auto p-6 xl:p-9 md:border-x border-black/5 dark:border-white/5">
 					<h2>
 						{t("Content.Intro.heading")}
 						<span className="text-red">.</span>
@@ -27,7 +28,7 @@ export default function Page() {
 					<p>{t("Content.Intro.text3")}</p>
 					<p className="font-bold">{t("Content.Intro.text4")}</p>
 				</section>
-				<section className="max-w-7xl mx-auto p-6 xl:p-9 pt-0 xl:pt-0 border-x border-black/5 dark:border-white/5">
+				<section className="max-w-7xl mx-auto p-6 xl:p-9 pt-0 xl:pt-0 md:border-x border-black/5 dark:border-white/5">
 					<h2>
 						{t("Content.Copyright.heading")}
 						<span className="text-red">.</span>
@@ -48,7 +49,7 @@ export default function Page() {
 					</p>
 					<p>{t("Content.Copyright.text2")}</p>
 				</section>
-				<section className="max-w-7xl mx-auto p-6 xl:p-9 border-x border-red border-black/5 dark:border-white/5 bg-red-50 dark:bg-red-950">
+				<section className="max-w-7xl mx-auto p-6 xl:p-9 md:border-x border-y md:border-y-0 border-red bg-red-50 dark:bg-red-950">
 					<h2>
 						{t("Content.Disallow.heading")}
 						<span className="text-red">.</span>
@@ -57,7 +58,7 @@ export default function Page() {
 						{t("Content.Disallow.text")}
 					</p>
 				</section>
-				<section className="max-w-7xl mx-auto p-6 xl:p-9 border-x border-black/5 dark:border-white/5">
+				<section className="max-w-7xl mx-auto p-6 xl:p-9 md:border-x border-black/5 dark:border-white/5">
 					<h2>
 						{t("Content.Ask.heading")}
 						<span className="text-red">.</span>

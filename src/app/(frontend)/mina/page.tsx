@@ -43,9 +43,9 @@ export default async function Page({
 		<>
 			<MinaTitle />
 			<main>
-				<section id="lore" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-					<div className="w-full md:grid grid-cols-2 border-x border-black/5 dark:border-white/5">
-						<div className="md:border-r border-black/5 dark:border-white/5 py-20 lg:py-32 xl:py-40 px-6 lg:px-9">
+				<section id="lore" className="w-full max-w-8xl sm:px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+					<div className="w-full lg:grid grid-cols-2 sm:sm:border-x border-black/5 dark:border-white/5">
+						<div className="md:border-r border-black/5 dark:border-white/5 pt-9 md:pt-20 xl:py-40 px-6 lg:px-9">
 							<h2>
 								{t("Content.About.heading")}
 								<span className="text-green">.</span>
@@ -53,7 +53,7 @@ export default async function Page({
 							<p>{t("Content.About.text1")}</p>
 							<p>{t("Content.About.text2")}</p>
 						</div>
-						<div className="pt-3 md:pt-25 lg:pt-35 xl:pt-55 pb-20 lg:pb-32 xl:pb-40 px-6 lg:px-9">
+						<div className="pt-3 lg:pt-35 xl:pt-55 pb-20 lg:pb-32 xl:pb-40 px-6 lg:px-9">
 							<p>{t("Content.About.text3")}</p>
 							<p>{t("Content.About.text4")}</p>
 							<p>{t("Content.About.text5")}</p>
@@ -75,19 +75,19 @@ export default async function Page({
 					</div>
 				</section>
 				<GalleryTransitionProvider>
-					<section id="gallery" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+					<section id="gallery" className="w-full max-w-8xl sm:px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 						<Suspense fallback={<GallerySkeleton />}>
 							<GallerySuspense p={parseInt(p)} artist={artist} outfit={outfit} nsfw={nsfw} refs={refs} />
 						</Suspense>
 					</section>
 				</GalleryTransitionProvider>
-				<section id="outfits" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+				<section id="outfits" className="w-full max-w-8xl sm:px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<Suspense fallback={<OutfitRowSkeleton />}>
 						<OutfitRowSuspense />
 					</Suspense>
 				</section>
-				<section id="rules" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-					<div className="w-full border-x border-black/5 dark:border-white/5 py-20 lg:py-32 xl:py-40 px-6 xl:px-9 xl:text-center xl:text-balance">
+				<section id="rules" className="w-full max-w-8xl sm:px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+					<div className="w-full sm:border-x border-black/5 dark:border-white/5 py-20 lg:py-32 xl:py-40 px-6 xl:px-9 xl:text-center xl:text-balance">
 						<h2>
 							{t("Content.Fanart.heading")}
 							<span className="text-green">.</span>
@@ -101,7 +101,7 @@ export default async function Page({
 						<p className="text-xs text-neutral-950/25 dark:text-white/25 pt-1">{t("Content.Fanart.text5")}</p>
 					</div>
 				</section>
-				<section id="design" className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+				<section id="design" className="w-full max-w-8xl sm:px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 					<div className="w-full md:flex items-center gap-3 px-3 py-2.5 border-x bg-yellow-50 dark:bg-yellow-950 border-yellow-100 dark:border-yellow-900 text-neutral-950 dark:text-white">
 						<div className="my-1 text-yellow">
 							<WarningCircle />
@@ -111,7 +111,7 @@ export default async function Page({
 						</div>
 					</div>
 					<Ref />
-					<div className="w-full border-x border-black/5 dark:border-white/5 flex flex-col lg:flex-row lg:justify-between gap-6 pt-6 pb-32">
+					<div className="w-full sm:border-x border-black/5 dark:border-white/5 flex flex-col lg:flex-row lg:justify-between gap-6 p-6 pb-32">
 						<p>
 							{t.rich("Content.Reference.credit", {
 								Link: (chunks) => (
@@ -132,8 +132,8 @@ export default async function Page({
 						</div>
 					</div>
 				</section>
-				<section className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
-					<div className="relative z-10 border-x border-black/5 dark:border-white/5 w-full max-w-8xl mx-auto pb-12 text-center text-balance">
+				<section className="max-w-8xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">
+					<div className="relative z-10 sm:border-x border-black/5 dark:border-white/5 w-full max-w-8xl mx-auto pb-12 text-center text-balance">
 						<h2>
 							{t("Content.Discord.heading")}
 							<span className="text-green">.</span>

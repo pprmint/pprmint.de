@@ -28,8 +28,8 @@ export default function HomeTitle() {
 					className={`absolute w-[150%] left-0 ${canPlay ? "-translate-x-full" : "translate-x-0"} inset-y-0 bg-linear-to-r from-white dark:from-neutral-950 via-white dark:via-neutral-950 via-75% duration-2500 delay-300 ease-out-cubic`}
 				/>
 			</div>
-			<div className="w-full h-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-				<div className="size-full border-x border-black/5 dark:border-white/5">
+			<div className="w-full h-full max-w-8xl sm:px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+				<div className="size-full sm:border-x border-black/5 dark:border-white/5">
 					<div className="relative py-28 md:py-32 lg:py-36 xl:py-44 px-6 xl:px-9">
 						<m.h1
 							className="relative pb-1 md:pb-3 font-light"

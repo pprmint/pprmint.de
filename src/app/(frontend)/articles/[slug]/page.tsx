@@ -38,12 +38,12 @@ export default async function Page({ params: paramsPromise }: Args) {
 	return (
 		<main>
 			<article className="relative border-b border-black/5 dark:border-white/5">
-				<header className="relative flex justify-center px-6 md:px-9 lg:px-12 pb-9 items-end border-b border-black/5 dark:border-white/5 aspect-2/1 lg:aspect-3/1">
+				<header className="relative flex justify-center px-6 md:px-9 lg:px-12 pb-9 items-end border-b border-black/5 dark:border-white/5 aspect-square sm:aspect-2/1 lg:aspect-3/1 xl:aspect-auto xl:h-110">
 					<div className="absolute inset-0 overflow-clip -z-10">
 						<Media resource={article.thumbnail} fill imgClassName="object-cover" />
 					</div>
 					<div className="absolute inset-0 bg-linear-to-t from-neutral-950" />
-					<div className="relative md:text-center">
+					<div className="relative text-center">
 						<m.h1
 							className={`pb-1 md:pb-2 lg:pb-3 ${MNCelesta.className} text-balance text-white`}
 							initial={{ opacity: 0, filter: "blur(5px)", y: 10 }}
@@ -106,16 +106,18 @@ export default async function Page({ params: paramsPromise }: Args) {
 						</m.p>
 					</div>
 				</header>
-				<div className="relative max-w-7xl mx-auto px-6 xl:px-9 border-x border-black/5 dark:border-white/5">
-					<RichText
-						className={`${MNCelesta.variable} pt-9 md:col-span-2 xl:prose-h1:text-7xl prose-headings:font-serif`}
-						data={article.content}
-					/>
-					<div
-						aria-hidden
-						className={`${MNCelesta.className} py-9 italic text-center text-neutral-950 dark:text-white text-6xl xl:text-7xl tracking-tight`}
-					>
-						fin<span className="text-green">.</span>
+				<div className="relative max-w-7xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">
+					<div className="sm:border-x border-black/5 dark:border-white/5 p-6 xl:p-9">
+						<RichText
+							className={`${MNCelesta.variable} xl:prose-h1:text-7xl prose-headings:font-serif`}
+							data={article.content}
+						/>
+						<div
+							aria-hidden
+							className={`${MNCelesta.className} py-9 italic text-center text-neutral-950 dark:text-white text-6xl xl:text-7xl tracking-tight`}
+						>
+							fin<span className="text-green">.</span>
+						</div>
 					</div>
 				</div>
 			</article>

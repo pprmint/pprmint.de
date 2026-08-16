@@ -101,7 +101,7 @@ export default async function GallerySuspense({
 	});
 
 	return (
-		<div className="border-x border-black/5 dark:border-white/5">
+		<div className="sm:border-x border-black/5 dark:border-white/5">
 			{artworks !== null && (
 				<>
 					<div className="xl:flex w-full border-t border-black/5 dark:border-white/5">

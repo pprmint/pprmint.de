@@ -27,7 +27,7 @@ export default async function Page() {
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} />
 			<div className="w-full h-px bg-black/5 dark:bg-white/5" />
-			<main className="max-w-7xl mx-auto px-6 md:px-9 xl:px-0">
+			<main className="max-w-7xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">
 				<section className="border-x border-black/5 dark:border-white/5">
 					<div className="bg-black/5 dark:bg-white/5 p-6 xl:p-9">
 						<RichText data={privacyPolicy.tldr} className="prose-h2:pt-0" />

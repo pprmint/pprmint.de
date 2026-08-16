@@ -43,7 +43,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ p
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} />
-			<main className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
+			<main className="max-w-8xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">
 				<GalleryTransitionProvider>
 					<section className="border-l border-t border-black/5 dark:border-white/5">
 						<div className="sm:grid sm:grid-cols-2 lg:grid-cols-1 3xl:grid-cols-2">
@@ -53,7 +53,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ p
 										href={`/articles/${article.slug}`}
 										className="flex border-b border-r border-black/5 dark:border-white/5"
 									>
-										<div className="flex grow md:gap-3 lg:gap-6 flex-col lg:flex-row lg:items-center hover:bg-black/5 dark:hover:bg-white/5 duration-100">
+										<div className="flex grow flex-col lg:flex-row lg:items-center hover:bg-black/5 dark:hover:bg-white/5 duration-100">
 											<div className="lg:h-44 2xl:h-48 relative aspect-video overflow-clip">
 												{typeof article.thumbnail === "object" && (
 													<FadingImage
@@ -64,8 +64,8 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ p
 													/>
 												)}
 											</div>
-											<div className="pt-2 pb-9 lg:pb-3 pr-6">
-												<div className="text-xs my-2">
+											<div className="p-6 xl:p-9">
+												<div className="text-xs my-1.5">
 													{format.dateTime(new Date(article.publishedAt), {
 														day: "numeric",
 														month: "long",
@@ -91,7 +91,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ p
 							))}
 						</div>
 					</section>
-					<div className="border-x border-black/5 dark:border-white/5">
+					<div className="sm:border-x border-black/5 dark:border-white/5">
 						<Pagination page={parseInt(p)} pageCount={articles.totalPages} />
 					</div>
 				</GalleryTransitionProvider>

@@ -155,7 +155,7 @@ export default function Main() {
 
 	return (
 		<>
-			<section className="pt-12 md:pt-20 xl:pt-40 border-x border-black/5 dark:border-white/5">
+			<section className="pt-12 md:pt-20 xl:pt-40 sm:border-x border-black/5 dark:border-white/5">
 				<div className="lg:flex items-center">
 					<div className="relative w-full border-y md:border-r border-black/5 dark:border-white/5">
 						<div
@@ -178,7 +178,7 @@ export default function Main() {
 							className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent dark:hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
 						/>
 						{search !== "" ? (
-							<div className="absolute top-[36px] z-10 p-1 max-h-80 -left-px -right-px bg-white dark:bg-neutral-950 border border-black/5 dark:border-white/5 shadow-xl shadow-neutral-950/5 dark:shadow-neutral-950 overflow-auto">
+							<div className="absolute top-[36px] z-10 p-1 max-h-80 -left-px -right-px bg-white dark:bg-neutral-950 border-y sm:border-x border-black/5 dark:border-white/5 shadow-xl shadow-neutral-950/5 dark:shadow-neutral-950 overflow-auto">
 								{filteredIcons.length > 0 ? (
 									<div className="grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
 										{filteredIcons.map((icon, index) => (
@@ -256,10 +256,10 @@ export default function Main() {
 				</div>
 			</section>
 			<div
-				className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 border-l border-black/5 dark:border-white/5 divide-x divide-black/5 dark:divide-white/5`}
+				className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 sm:border-l border-black/5 dark:border-white/5 sm:divide-x divide-black/5 dark:divide-white/5`}
 			>
 				{Icons.map((category, catIndex) => (
-					<div key={catIndex} className="last:border-r border-b border-black/5 dark:border-white/5">
+					<div key={catIndex} className="sm:last:border-r border-b border-black/5 dark:border-white/5">
 						<p className="font-stretch-condensed text-xl md:text-2xl px-4.5 py-3.5 text-neutral-950 dark:text-white">
 							{t(`ICONS.Content.Category.${category.category}`)}
 						</p>

@@ -13,8 +13,8 @@ function Pagination({ page, pageCount }: { page: number; pageCount: number }) {
 	const { replace } = useRouter();
 	const { startTransition, pending } = useGalleryTransition();
 
-	const buttonRange = useMediaQuery({ minWidth: 768 }) ? 6 : 4;
-	const buttonOffset = useMediaQuery({ minWidth: 768 }) ? 3 : 2;
+	const buttonRange = useMediaQuery({ minWidth: 768 }) ? 8 : 6;
+	const buttonOffset = useMediaQuery({ minWidth: 768 }) ? 4 : 3;
 	const buttonStart = Math.max(1, Math.min(pageCount - buttonRange, page - (buttonRange - buttonOffset)));
 	const buttonEnd = Math.min(pageCount - 1, buttonStart + buttonRange - 1);
 

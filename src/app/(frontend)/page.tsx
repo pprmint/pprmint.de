@@ -47,8 +47,8 @@ export default async function Page() {
 			<main>
 				<Things />
 				<Announcements data={announcements} />
-				<section className="relative w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-					<div className="w-full border-x border-black/5 dark:border-white/5 pt-20 xl:pt-48">
+				<section className="relative w-full max-w-8xl sm:px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+					<div className="w-full sm:border-x border-black/5 dark:border-white/5 pt-20 xl:pt-48">
 						<div className="relative">
 							<m.div
 								initial={{

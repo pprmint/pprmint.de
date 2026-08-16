@@ -19,15 +19,17 @@ export default function Page() {
 	return (
 		<>
 			<Title title={t("PROJECTS.Head.title")} description={t("PROJECTS.Head.description")} />
-			<main className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
+			<main className="max-w-8xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">
 				<Grid />
-				<section className="text-center border-x border-black/5 dark:border-white/5 pt-9 lg:pt-16 xl:pt-48">
-					<h2>
-						{t("PROJECTS.Fonts.heading")}
-						<span className="text-green">.</span>
-					</h2>
-					<p>{t("PROJECTS.Fonts.text")}</p>
-					<br />
+				<section className="text-center sm:border-x border-black/5 dark:border-white/5 pt-9 lg:pt-16 xl:pt-48">
+					<div className="px-6 xl:px-9">
+						<h2>
+							{t("PROJECTS.Fonts.heading")}
+							<span className="text-green">.</span>
+						</h2>
+						<p>{t("PROJECTS.Fonts.text")}</p>
+						<br />
+					</div>
 					<div className="flex border-y border-black/5 dark:border-white/5 justify-center">
 						<Link className="flex w-max mx-auto" href="/fonts">
 							<Button design="transparent" color="green" tabIndex={-1} size={"large"} noInitialPadding>

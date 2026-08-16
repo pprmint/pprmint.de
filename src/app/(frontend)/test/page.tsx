@@ -17,15 +17,15 @@ export async function generateMetadata() {
 
 export default function Page() {
 	return (
-		<main className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
-			<section className="py-40 w-full border-x border-black/5 dark:border-white/5">
+		<main className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20 border-b border-black/5 dark:border-white/5">
+			<section className="py-40 w-full">
 				<h2>Loading things</h2>
 				<div className="flex p-6 gap-12 flex-wrap">
 					<LoadingSpinner />
 					<GlowingSpinner />
 				</div>
 			</section>
-			<section className="pb-40 w-full border-x border-black/5 dark:border-white/5">
+			<section className="pb-40 w-full">
 				<h2>Audio player</h2>
 				<div className="flex flex-wrap justify-between">
 					<AudioPlayer src="/sounds/intro.wav" title="New intro sound" artist="pomifuri">
@@ -34,11 +34,11 @@ export default function Page() {
 					<AudioPlayer src="/sounds/Intro_old.wav" title="Old intro sound" artist="pprmint." />
 				</div>
 			</section>
-			<section className="pb-40 w-full border-x border-black/5 dark:border-white/5">
+			<section className="pb-40 w-full">
 				<h2>Video player</h2>
 				<VideoPlayer src="/api/download/file/Takashi.mp4" />
 			</section>
-			<section id="texts" className="pb-40 w-full border-x border-black/5 dark:border-white/5">
+			<section id="texts" className="pb-40 w-full">
 				<h1>The quick brown fox jumps over the lazy dog. 1234567890</h1>
 				<h2>The quick brown fox jumps over the lazy dog. 1234567890</h2>
 				<h3>The quick brown fox jumps over the lazy dog. 1234567890</h3>
@@ -49,7 +49,7 @@ export default function Page() {
 				<p className="text-link">Internal link</p>
 				<p className="text-link-external">External link</p>
 			</section>
-			<section id="colors" className="w-full border-x border-black/5 dark:border-white/5 flex pb-40">
+			<section id="colors" className="w-full flex pb-40">
 				<div className="grid grid-rows-11 w-full">
 					<div className="w-full h-12 bg-red-50" />
 					<div className="w-full h-12 bg-red-100" />
@@ -118,7 +118,7 @@ export default function Page() {
 			</section>
 			<section
 				id="buttons"
-				className="w-full border-x border-black/5 dark:border-white/5 flex flex-col gap-6 pb-40 flex-wrap"
+				className="w-full flex flex-col gap-6 pb-40 flex-wrap"
 			>
 				<h2>Buttons</h2>
 				<h3>Regular (transparent)</h3>
@@ -198,7 +198,7 @@ export default function Page() {
 					</Button>
 				</div>
 			</section>
-			<section className="w-full border-x border-black/5 dark:border-white/5 flex flex-col gap-6 pb-40">
+			<section className="w-full flex flex-col gap-6 pb-40">
 				<h2>Checkboxes</h2>
 				<div className="flex gap-3">
 					<Checkbox />

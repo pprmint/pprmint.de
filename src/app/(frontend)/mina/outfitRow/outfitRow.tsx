@@ -248,7 +248,7 @@ export default function OutfitRow({ outfits }: { outfits: PaginatedDocs<Outfit> 
 						<Dialog.Trigger asChild>
 							<button
 								id={outfit.name}
-								className="group relative h-110 md:h-160 aspect-3/5 duration-200 active:duration-75 active:p-2 border-r border-black/5 dark:border-white/5 overflow-clip"
+								className="group relative h-110 md:h-160 aspect-3/5 duration-200 active:duration-75 active:p-2 border-r last-of-type:border-r-0 border-black/5 dark:border-white/5 overflow-clip"
 							>
 								<div className="size-full flex items-center justify-center group-hover:bg-black/5 dark:group-hover:bg-white/5 duration-200 group-hover:duration-0 group-active:duration-75 p-3 group-active:p-1" />
 								<div

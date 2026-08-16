@@ -21,7 +21,7 @@ export default function Page() {
 			<Title title={t("Head.title")} description={t("Head.description")}>
 				<Image src={HeroImage} alt="" fill className="object-cover object-bottom-right" />
 			</Title>
-			<main className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
+			<main className="max-w-8xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">
 				<Main />
 			</main>
 		</>

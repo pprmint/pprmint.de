@@ -70,9 +70,9 @@ export default function Page() {
 						/>
 					</div>
 				</section>
-				<section className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
-					<div className="py-20 md:py-32 xl:py-40 text-center border-x border-black/5 dark:border-white/5">
-						<h2 className="mb-6">
+				<section className="max-w-8xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">
+					<div className="py-20 md:py-32 xl:py-40 text-center sm:border-x border-black/5 dark:border-white/5">
+						<h2 className="mb-6 px-6 xl:px-9">
 							{t("COVERT.Content.Tester.heading")}
 							<span className="text-red">.</span>
 						</h2>
@@ -94,13 +94,15 @@ export default function Page() {
 						/>
 					</div>
 				</section>
-				<section className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
-					<div className="text-center border-x border-black/5 dark:border-white/5">
-						<h2>
-							{t("COVERT.Content.Download.heading")}
-							<span className="text-red">.</span>
-						</h2>
-						<p>{t("COVERT.Content.Download.text")}</p>
+				<section className="max-w-8xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">
+					<div className="text-center sm:border-x border-black/5 dark:border-white/5">
+						<div className="px-6 xl:px-9">
+							<h2>
+								{t("COVERT.Content.Download.heading")}
+								<span className="text-red">.</span>
+							</h2>
+							<p>{t("COVERT.Content.Download.text")}</p>
+						</div>
 						<br />
 						<div className="flex border-y border-black/5 dark:border-white/5 justify-center">
 							<Link href="/api/download/file/MNC0.3.zip" download target="_blank">

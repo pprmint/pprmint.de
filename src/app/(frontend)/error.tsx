@@ -13,8 +13,8 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <div className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
-      <div className="flex items-center justify-center min-h-[calc(100vh-96px)] border-x border-x-black/5 dark:border-x-white/5 ">
+    <div className="max-w-8xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">
+      <div className="flex items-center justify-center min-h-[calc(100vh-96px)] sm:border-x border-x-black/5 dark:border-x-white/5 ">
         <div className="grow h-px bg-linear-to-r from-black/5 dark:from-white/5 to-red" />
         <div className="relative flex flex-col p-6 md:p-9 w-full md:max-w-3xl mx-auto border border-red bg-white dark:bg-neutral-950">
           <div className="mb-6">

@@ -83,45 +83,47 @@ export default function NotFound() {
 					</m.div>
 				</m.div>
 			</div>
-			<div className="w-full max-w-8xl px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-				<div className="h-screen w-full grid xl:grid-cols-2 border-x border-black/5 dark:border-white/5">
+			<div className="w-full max-w-8xl sm:px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
+				<div className="h-screen w-full grid xl:grid-cols-2 sm:border-x border-black/5 dark:border-white/5">
 					<div className="order-2 xl:order-1 relative size-full text-center flex flex-col xl:justify-center border-t xl:border-t-0 xl:border-r border-black/5 dark:border-white/5 bg-white/50 dark:bg-neutral-950/50">
 						<div className="grow xl:grow-0 py-6 xl:py-0">
-							<h1 className="relative pb-1 md:pb-3 font-extralight xl:text-7xl">
-								<m.div
-									initial={{ opacity: 0, filter: "blur(5px)", y: 20 }}
+							<div className="px-6 xl:px-9">
+								<h1 className="relative pb-1 md:pb-3 font-extralight xl:text-7xl">
+									<m.div
+										initial={{ opacity: 0, filter: "blur(5px)", y: 20 }}
+										animate={{
+											opacity: 1,
+											filter: "blur(0px)",
+											y: 0,
+											transition: {
+												type: "spring",
+												bounce: 0,
+												duration: 0.75,
+												delay: 0.25,
+											},
+										}}
+									>
+										{t("Content.title")}
+										<span className="text-green">.</span>
+									</m.div>
+								</h1>
+								<m.p
+									initial={{ opacity: 0, y: 40 }}
 									animate={{
 										opacity: 1,
-										filter: "blur(0px)",
 										y: 0,
 										transition: {
 											type: "spring",
 											bounce: 0,
+											delay: 1.3,
 											duration: 0.75,
-											delay: 0.25,
 										},
 									}}
+									className="text-xl md:text-2xl xl:text-3xl lg:text-balance"
 								>
-									{t("Content.title")}
-									<span className="text-green">.</span>
-								</m.div>
-							</h1>
-							<m.p
-								initial={{ opacity: 0, y: 40 }}
-								animate={{
-									opacity: 1,
-									y: 0,
-									transition: {
-										type: "spring",
-										bounce: 0,
-										delay: 1.3,
-										duration: 0.75,
-									},
-								}}
-								className="text-xl md:text-2xl xl:text-3xl lg:text-balance"
-							>
-								{t("Content.info")}
-							</m.p>
+									{t("Content.info")}
+								</m.p>
+							</div>
 							<m.div
 								initial={{ opacity: 0, y: 40 }}
 								animate={{
@@ -140,11 +142,7 @@ export default function NotFound() {
 									<Button size="large" noInitialPadding>
 										<span>{t("Content.returnHome")}</span>
 										<div className="relative size-5 overflow-clip duration-0">
-											<ArrowRight
-												width={20}
-												height={20}
-												className="absolute group-hover:translate-x-full"
-											/>
+											<ArrowRight width={20} height={20} className="absolute group-hover:translate-x-full" />
 											<ArrowRight
 												width={20}
 												height={20}
@@ -162,11 +160,7 @@ export default function NotFound() {
 						>
 							{t.rich("Content.credit", {
 								Link: (chunks) => (
-									<Link
-										href="https://twitter.com/TenHeavenly"
-										target="_blank"
-										className="text-link-external"
-									>
+									<Link href="https://twitter.com/TenHeavenly" target="_blank" className="text-link-external">
 										{chunks}
 									</Link>
 								),
