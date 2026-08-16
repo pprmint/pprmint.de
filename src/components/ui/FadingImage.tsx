@@ -22,7 +22,7 @@ export default function FadingImage({ className, hideSpinner, focalX, focalY, ..
 			{/* eslint jsx-a11y/alt-text:0 */}
 			<Image
 				onLoad={() => setLoaded(true)}
-				className={`${loaded ? "opacity-100" : "opacity-0"} ${className}`}
+				className={`${loaded ? "opacity-100" : "opacity-0"}${className ? ` ${className}` : ""}`}
 				style={{
 					transition: "opacity 0.5s",
 					objectPosition: focalX && focalY ? `${focalX}% ${focalY}%` : "50% 50%",
