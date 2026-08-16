@@ -75,12 +75,20 @@ export default function MinaTitle() {
 						style={{ x: x1, y: y1 }}
 						className="absolute -bottom-1/6 right-0 w-1/2 sm:right-1/8 sm:bottom-1/2 sm:translate-y-1/2 2xl:right-1/2 2xl:translate-x-1/2 2xl:w-2/3"
 					>
-						<FadingImage hideSpinner src="/api/assets/file/minaverse.svg" alt="Minaverse" width={2376} height={3304} />
+						<FadingImage
+							hideSpinner
+							src="/api/assets/file/minaverse.svg"
+							loading="eager"
+							alt="Minaverse"
+							width={2376}
+							height={3304}
+						/>
 					</m.div>
 					<m.div style={{ x: x3, y: y3 }} className="absolute w-full h-fit">
 						<FadingImage
 							hideSpinner
 							src="/api/assets/file/nekomimi_mi_splats_a.webp"
+							loading="eager"
 							alt=""
 							width={3385}
 							height={2138}
@@ -101,7 +109,6 @@ export default function MinaTitle() {
 							alt=""
 							width={3385}
 							height={2138}
-							quality={100}
 							className="size-full max-w-max object-cover sm:object-contain"
 						/>
 					</m.div>
@@ -109,6 +116,7 @@ export default function MinaTitle() {
 						<FadingImage
 							hideSpinner
 							src="/api/assets/file/nekomimi_mi_splats_b.webp"
+							loading="eager"
 							alt=""
 							width={3385}
 							height={2138}
