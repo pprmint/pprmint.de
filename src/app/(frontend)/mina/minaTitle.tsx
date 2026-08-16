@@ -88,7 +88,10 @@ export default function MinaTitle() {
 							className="size-full object-contain"
 						/>
 					</m.div>
-					<m.div style={{ x: x2 }} className="relative flex items-end translate-x-1/2 sm:translate-0 w-auto h-full xl:w-3/4 xl:h-full">
+					<m.div
+						style={{ x: x2 }}
+						className="relative flex justify-center items-end translate-x-1/2 sm:translate-0 w-auto h-full xl:w-3/4 xl:h-full"
+					>
 						<FadingImage
 							hideSpinner
 							focalX={1}
@@ -99,7 +102,7 @@ export default function MinaTitle() {
 							width={3385}
 							height={2138}
 							quality={100}
-							className="size-full object-cover sm:object-contain"
+							className="size-full max-w-max object-cover sm:object-contain"
 						/>
 					</m.div>
 					<m.div style={{ x: x4, y: y4 }} className="absolute w-full h-fit">
