@@ -7,7 +7,7 @@ import Pagination from "@/components/gallery/Pagination";
 import FadingImage from "@/components/ui/FadingImage";
 import { Fragment } from "react";
 import { MNCelesta } from "@public/fonts/MNCelesta/MNCelesta";
-import { GalleryTransitionProvider } from "../mina/gallery/GalleryTransitionContext";
+import { GalleryTransitionProvider } from "../../../components/gallery/GalleryTransitionContext";
 
 export async function generateMetadata() {
 	const t = await getTranslations("ARTICLES");

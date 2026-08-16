@@ -17,7 +17,7 @@ import Twitter from "@/icons/Twitter";
 import Globe from "@/icons/Globe";
 import Instagram from "@/icons/Instagram";
 import Link from "next/link";
-import { useGalleryTransition } from "./GalleryTransitionContext";
+import { useGalleryTransition } from "@/components/gallery/GalleryTransitionContext";
 
 export default function ContextMenuPortal({
 	artwork,

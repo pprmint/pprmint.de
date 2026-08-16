@@ -16,7 +16,7 @@ import OutfitRowSuspense from "./outfitRow/outfitRowSuspense";
 import OutfitRowSkeleton from "./outfitRow/outfitRowSkeleton";
 import MinaTitle from "./minaTitle";
 import Marquee from "react-fast-marquee";
-import { GalleryTransitionProvider } from "./gallery/GalleryTransitionContext";
+import { GalleryTransitionProvider } from "@/components/gallery/GalleryTransitionContext";
 
 export async function generateMetadata() {
 	const t = await getTranslations("MINA");

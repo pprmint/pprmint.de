@@ -15,7 +15,7 @@ import Link from "next/link";
 import { PaginatedDocs } from "payload";
 import { Media } from "@/components/Media";
 import ContextMenuPortal from "./contextMenuPortal";
-import { useGalleryTransition } from "./GalleryTransitionContext";
+import { useGalleryTransition } from "@/components/gallery/GalleryTransitionContext";
 
 export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mina>; page: number }) {
 	const t = useTranslations("MINA");
@@ -147,7 +147,7 @@ export default function Gallery({ artworks, page }: { artworks: PaginatedDocs<Mi
 										<button
 											id={`mina-${index.toString()}`}
 											onClick={() => setSelectedArtwork(index)}
-											className="group relative w-full aspect-square bg-white dark:bg-neutral-950 outline -outline-offset-1 outline-white/5 focus-visible:z-10 hover:bg-white dark:hover:bg-neutral-900 sm:hover:shadow-xl hover:z-10 active:shadow-none focus-visible:shadow-xl duration-150 ease-out-quart active:duration-50 cursor-pointer focus-visible:animate-pulse"
+											className="group relative w-full aspect-square bg-white dark:bg-neutral-950 outline -outline-offset-4 hover:outline-offset-0 outline-white/5 focus-visible:z-10 hover:bg-white dark:hover:bg-neutral-900 sm:hover:shadow-xl hover:z-10 active:shadow-none focus-visible:shadow-xl duration-150 ease-out-quart active:duration-50 cursor-pointer focus-visible:animate-pulse"
 										>
 											<div
 												className="absolute inset-1 group-hover:inset-0 group-active:inset-1 duration-150 ease-out-quart active:duration-50 overflow-clip"

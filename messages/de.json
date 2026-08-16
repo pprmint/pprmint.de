@@ -876,6 +876,9 @@
 			"title": "Fotos"
 		},
 		"Content": {
+			"Filters": {
+				"camera": "Kamera"
+			},
 			"Disclaimer": {
 				"heading": "Alle Reche vorbehalten, sofern nicht anders angegeben",
 				"text1": "Die Verwendung von Fotos auf dieser Seite als Desktop- oder Handy-Hintergrundbilder ist auf deinen persönlichen Geräten erlaubt.",

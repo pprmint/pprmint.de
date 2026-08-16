@@ -11,7 +11,7 @@ import { useTranslations } from "next-intl";
 import type { Artist, Outfit } from "@/payload-types";
 
 import { PaginatedDocs } from "payload";
-import { useGalleryTransition } from "../gallery/GalleryTransitionContext";
+import { useGalleryTransition } from "../../../../components/gallery/GalleryTransitionContext";
 
 function Filters(props: {
 	nsfw?: string;
@@ -112,7 +112,9 @@ function Filters(props: {
 
 	return (
 		<>
-			<div className={`sm:grid sm:grid-cols-2 lg:grid-cols-4 xl:flex items-center grow ${pending && "opacity-75 pointer-events-none"}`}>
+			<div
+				className={`sm:grid sm:grid-cols-2 lg:grid-cols-4 xl:flex items-center grow ${pending && "opacity-75 pointer-events-none"}`}
+			>
 				<div className="flex w-full xl:w-64 sm:border-r border-black/5 dark:border-white/5">
 					<Select
 						label={t("Content.Artworks.Filters.artist")}

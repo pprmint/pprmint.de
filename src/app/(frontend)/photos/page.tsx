@@ -8,7 +8,7 @@ import GallerySuspense from "./gallery/gallerySuspense";
 
 import Link from "next/link";
 import WarningOctagon from "@/icons/WarningOctagon";
-import { GalleryTransitionProvider } from "../mina/gallery/GalleryTransitionContext";
+import { GalleryTransitionProvider } from "@/components/gallery/GalleryTransitionContext";
 
 export async function generateMetadata() {
 	const t = await getTranslations("PHOTOS");
@@ -18,8 +18,8 @@ export async function generateMetadata() {
 	};
 }
 
-export default async function Page({ searchParams }: { searchParams: Promise<{ p?: string }> }) {
-	const { p = "1" } = await searchParams;
+export default async function Page({ searchParams }: { searchParams: Promise<{ p?: string; camera?: string }> }) {
+	const { p = "1", camera } = await searchParams;
 	const t = await getTranslations("PHOTOS");
 	return (
 		<>
@@ -28,7 +28,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ p
 				<section className="pb-20 md:pb-32 xl:pb-40 sm:border-x border-black/5 dark:border-white/5">
 					<GalleryTransitionProvider>
 						<Suspense fallback={<GallerySkeleton />}>
-							<GallerySuspense p={parseInt(p)} />
+							<GallerySuspense p={parseInt(p)} camera={camera} />
 						</Suspense>
 					</GalleryTransitionProvider>
 				</section>

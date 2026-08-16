@@ -101,6 +101,9 @@ export interface Config {
     characters: {
       artworks: 'mina';
     };
+    cameras: {
+      photos: 'photos';
+    };
   };
   collectionsSelect: {
     announcements: AnnouncementsSelect<false> | AnnouncementsSelect<true>;
@@ -581,7 +584,15 @@ export interface Photo {
 export interface Camera {
   id: string;
   name: string;
+  slug: string;
+  slugLock?: boolean | null;
   svgLogo?: string | null;
+  svgIcon?: string | null;
+  photos?: {
+    docs?: (string | Photo)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -1089,7 +1100,11 @@ export interface PhotosSelect<T extends boolean = true> {
  */
 export interface CamerasSelect<T extends boolean = true> {
   name?: T;
+  slug?: T;
+  slugLock?: T;
   svgLogo?: T;
+  svgIcon?: T;
+  photos?: T;
   updatedAt?: T;
   createdAt?: T;
 }

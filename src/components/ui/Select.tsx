@@ -7,22 +7,45 @@ import * as RadixSelect from "@radix-ui/react-select";
 interface SelectProps {
 	label: string;
 	selected?: { label: string; value: string };
+	icon?: React.ReactNode | string;
 	onValueChange: (value: string) => void;
 	options: {
 		label: string;
 		value: string;
+		icon?: string;
 	}[];
 	showClearButton?: boolean;
 	onClear?: () => void;
 }
 
-export default function Select({ label, selected, onValueChange, options, showClearButton, onClear }: SelectProps) {
+export default function Select({
+	label,
+	icon,
+	selected,
+	onValueChange,
+	options,
+	showClearButton,
+	onClear,
+}: SelectProps) {
 	return (
 		<RadixSelect.Root value={selected?.value} onValueChange={onValueChange}>
 			<RadixSelect.Trigger
-				className="group flex items-center justify-between px-3 h-9 w-full hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white duration-75 hover:duration-0"
+				className="group flex items-center justify-between gap-3 px-3 h-9 w-full hover:bg-black/5 dark:hover:bg-white/5 hover:text-neutral-950 dark:hover:text-white duration-75 hover:duration-0"
 				aria-label={label}
 			>
+				{icon && (
+					<RadixSelect.Icon className="size-3.75">
+						{typeof icon === "string" ? (
+							<div
+								dangerouslySetInnerHTML={{
+									__html: icon,
+								}}
+							/>
+						) : (
+							icon
+						)}
+					</RadixSelect.Icon>
+				)}
 				<RadixSelect.Value aria-label={selected?.label}>{selected ? selected.label : label}</RadixSelect.Value>
 				<RadixSelect.Icon className="ml-auto">
 					<ChevronDown />
@@ -49,6 +72,19 @@ export default function Select({ label, selected, onValueChange, options, showCl
 									value={option.value}
 									className="group relative flex items-center gap-3 pr-2 pl-2 h-7 leading-none select-none outline-none focus:outline-none data-disabled:text-black/25 dark:data-disabled:text-white/25 data-disabled:pointer-events-none data-highlighted:text-neutral-950 dark:data-highlighted:text-white data-[state=checked]:text-neutral-950 dark:data-[state=checked]:text-white data-highlighted:bg-black/10 dark:data-highlighted:bg-white/10 active:opacity-75 duration-75 data-highlighted:duration-0 cursor-pointer focus-visible:outline-hidden"
 								>
+									{option.icon && (
+										<RadixSelect.Icon className="size-3.75">
+											{typeof option.icon === "string" ? (
+												<div
+													dangerouslySetInnerHTML={{
+														__html: option.icon,
+													}}
+												/>
+											) : (
+												option.icon
+											)}
+										</RadixSelect.Icon>
+									)}
 									<RadixSelect.ItemText className="grow">{option.label}</RadixSelect.ItemText>
 									<RadixSelect.ItemIndicator className="ml-auto">
 										<Check />

@@ -8,7 +8,7 @@ import GallerySuspense from "./gallery/gallerySuspense";
 
 import Link from "next/link";
 import WarningOctagon from "@/icons/WarningOctagon";
-import { GalleryTransitionProvider } from "../mina/gallery/GalleryTransitionContext";
+import { GalleryTransitionProvider } from "@/components/gallery/GalleryTransitionContext";
 
 export async function generateMetadata() {
 	const t = await getTranslations("GRAPHICS");
