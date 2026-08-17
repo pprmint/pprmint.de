@@ -1,4 +1,4 @@
-# pprmint.de <a href="https://pprmint.de" target="_blank"><img align="right" height="40" src="/public/assets/logo_with_background.svg"></a>
+# pprmint.de <a href="https://pprmint.de" target="_blank"><img align="right" height="40" src="/pprmint/pprmint.de/raw/main/public/assets/logo_with_background.svg"></a>
 
 My personal website, built with [Next.js](https://nextjs.org/), [Tailwind](https://tailwindcss.com/) and [Payload](https://payloadcms.com/).
 
