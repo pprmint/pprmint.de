@@ -4,12 +4,12 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import * as m from "motion/react-m";
 
-import DetectiveMina from "@public/assets/404/mina_chibi.webp";
 import { useEffect } from "react";
 import ArrowRight from "@/icons/ArrowRight";
 import Button from "@/components/ui/Button";
 import { useMotionTemplate, useSpring, useTransform } from "motion/react";
 import { DINish } from "@public/fonts/DINish/DINish";
+import FadingImage from "@/components/ui/FadingImage";
 
 export default function NotFound() {
 	const t = useTranslations("404");
@@ -181,11 +181,13 @@ export default function NotFound() {
 						}}
 						className="order-1 xl:order-2 xl:h-screen inline-flex items-center justify-center"
 					>
-						<Image
-							src={DetectiveMina}
+						<FadingImage
+							src="/api/artwork/file/layer_c563967482.webp"
+							width={3000}
+							height={3329}
 							alt="Detective Mina chibi art, drawn by Layer."
-							className="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/2"
-							priority
+							className="w-2/3 md:w-1/2 lg:w-1/3 xl:w-2/3"
+							loading="eager"
 						/>
 					</m.div>
 				</div>

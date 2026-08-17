@@ -74,16 +74,26 @@
 	font-display: swap;
 	font-style: italic;
 }
+@font-face {
+	font-family: "MN Varia";
+	src: url("/fonts/MNVaria/MNVariaWIP-VariableVF.woff2") format("woff2");
+	font-weight: 100 900;
+	font-display: swap;
+	font-style: normal;
+}
 
 :root {
 	--font-body: "Basier Square", system-ui;
 	--font-mono: "Basier Square Mono", "Cascadia Code", monospace;
+	--font-display: "MN Varia", sans-serif;
 	--font-serif: "MN Celesta", serif;
 	--base-body-size: 16;
 }
 
 html {
 	font-size: 16px;
+	font-variant-ligatures: normal;
+	font-feature-settings: "liga", "cv04", "ss02", "cv16", "cv20";
 }
 
 html,
@@ -102,7 +112,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: var(--font-serif);
+	font-family: var(--font-display);
 	font-weight: normal;
 }
 

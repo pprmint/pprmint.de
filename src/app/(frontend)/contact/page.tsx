@@ -2,8 +2,6 @@ import { getLocale, getTranslations } from "next-intl/server";
 import Title from "@/components/layout/Title";
 import FadingImage from "@/components/ui/FadingImage";
 
-import Letter from "@public/assets/contact/letter_en.webp";
-
 import Chatbox from "./chatbox";
 import Form from "./form";
 
@@ -27,18 +25,21 @@ export default async function Page() {
 			>
 				<div className="relative size-full max-w-8xl mx-auto px-12 bg-neutral-950">
 					<FadingImage
-						src={Letter}
+						src={`/api/assets/file/letter_${locale}.webp`}
+						width={1438}
+						height={700}
 						alt=""
-						className="absolute right-12 lg:right-1/10 bottom-0 translate-y-1/4 rotate-6 w-2/5 max-w-2xl h-auto blur-sm"
+						className="absolute right-4 lg:right-1/8 translate-x-1/8 bottom-0 lg:top-1/4 rotate-6 w-3/5 max-w-3xl h-auto"
 						hideSpinner
 					/>
+					<div className="absolute inset-0 bg-linear-to-r from-neutral-950" />
 					<FadingImage
-						src="/api/artwork/file/nekomimi_68cdbdf7a0.webp"
+						src={`/api/assets/file/postmina_${locale}.webp`}
 						width={1158}
 						height={3238}
 						alt=""
 						hideSpinner
-						className="absolute right-1/8 bottom-0 sm:bottom-auto h-full pt-6 w-auto md:w-1/3 max-w-lg md:h-auto drop-shadow-2xl drop-shadow-neutral-950/75"
+						className="absolute right-1/8 bottom-0 sm:bottom-auto h-full pt-6 w-auto md:w-1/3 max-w-md md:h-auto drop-shadow-2xl drop-shadow-neutral-950/75"
 					/>
 				</div>
 			</Title>

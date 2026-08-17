@@ -3,7 +3,6 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import * as Dialog from "@radix-ui/react-dialog";
 
-import Mina from "@public/assets/mina/nekomimi_smol.webp";
 import Link from "next/link";
 import * as m from "motion/react-m";
 import dynamic from "next/dynamic";
@@ -192,7 +191,9 @@ function Chatbox() {
 						<div className="w-1/5 pr-2">
 							<Image
 								alt="Mina art by Nekomimi"
-								src={Mina}
+								src="/api/artwork/file/nekomimi_363a9bfd62-320x320.webp"
+								width={4000}
+								height={4000}
 								className="ml-auto size-10 rounded-full overflow-hidden self-end"
 							/>
 						</div>

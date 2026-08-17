@@ -5,8 +5,6 @@ import Selector from "./icons";
 import Title from "@/components/layout/Title";
 import FadingImage from "@/components/ui/FadingImage";
 
-import TitleBackground from "@public/assets/appicons/title.svg";
-
 export async function generateMetadata() {
 	const t = await getTranslations("APPICONS");
 	return {
@@ -22,7 +20,7 @@ export default async function Page() {
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
 				<div className="absolute inset-0 bg-neutral-950" />
-				<FadingImage src={TitleBackground} alt="" fill className="object-cover" />
+				<FadingImage src="/api/assets/file/w11_title_bg.svg" alt="" fill className="object-cover" loading="eager" />
 				<div className="absolute inset-0 bg-linear-to-r from-neutral-950/75 via-transparent" />
 			</Title>
 			<main className="max-w-8xl mx-auto px-6 md:px-9 xl:px-20">

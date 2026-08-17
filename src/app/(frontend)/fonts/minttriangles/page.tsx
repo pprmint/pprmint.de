@@ -7,8 +7,6 @@ import FadingImage from "@/components/ui/FadingImage";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 
-import TitleBg from "@public/assets/triangles/triangles.svg";
-import Monitor from "@public/assets/triangles/Monitor.svg";
 import CountUp from "./countUp";
 import Time from "./time";
 import Download from "@/icons/Download";
@@ -33,7 +31,7 @@ export default async function Page() {
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
 				<div className="w-screen h-full bg-neutral-950">
-					<FadingImage src={TitleBg} alt="" fill className="object-cover object-center opacity-50" />
+					<FadingImage src="/api/assets/file/MNT_hero_bg.svg" alt="" fill className="object-cover object-center opacity-50" />
 					<CountUp />
 				</div>
 			</Title>
@@ -58,7 +56,7 @@ export default async function Page() {
 						})}
 					</p>
 					<div className="relative mb-12 max-w-7xl mx-auto px-6 xl:px-9">
-						<FadingImage src={Monitor} alt="" />
+						<FadingImage src="/api/assets/file/MNT_Monitor.svg" width={1885} height={1130} alt="" />
 						<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
 							<span style={{ fontFamily: MintTriangles.style.fontFamily }} className="text-white/10" aria-hidden>
 								**:**:**
@@ -90,7 +88,7 @@ export default async function Page() {
 						muted
 						playsInline
 						loop
-						src={locale == "de" ? "/assets/triangles/KeysQWERTZ.mp4" : "/assets/triangles/KeysQWERTY.mp4"}
+						src={locale == "de" ? "/api/assets/file/MNT_KeysQWERTZ.mp4" : "/api/assets/file/MNT_KeysQWERTY.mp4"}
 					/>
 				</section>
 				<section className="lg:grid grid-cols-2 items-center border-x border-black/5 dark:border-white/5">
@@ -101,7 +99,7 @@ export default async function Page() {
 						</h2>
 						<p>{t("Content.Punctuation.text")}</p>
 					</div>
-					<video autoPlay muted playsInline loop src="/assets/triangles/Special1.mp4" />
+					<video autoPlay muted playsInline loop src="/api/assets/file/MNT_Special1.mp4" />
 				</section>
 				<section className="lg:grid grid-cols-2 items-center border-x border-black/5 dark:border-white/5">
 					<div className="md:order-1 pt-20 pb-6 lg:py-0 lg:pl-20 lg:text-right p-6 xl:p-9 md:text-balance">
@@ -111,9 +109,9 @@ export default async function Page() {
 						</h2>
 						<p>{t("Content.Special.text")}</p>
 					</div>
-					<video autoPlay muted playsInline loop src="/assets/triangles/Special2.mp4" />
+					<video autoPlay muted playsInline loop src="/api/assets/file/MNT_Special2.mp4" />
 				</section>
-				<section className="text-center xm:border-x border-t border-black/5 dark:border-white/5 pt-20 md:pt-32 xl:pt-40">
+				<section className="text-center sm:border-x border-t border-black/5 dark:border-white/5 pt-20 md:pt-32 xl:pt-40">
 					<div className="px-6 xl:px-9">
 						<h2>
 							{t("Content.Download.heading")}

@@ -112,18 +112,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 				},
 			},
 		},
-		// Still unfinished.
-    // {
-		// 	url: "https://pprmint.de/projects/tentative",
-		// 	lastModified: new Date(),
-		// 	changeFrequency: "yearly",
-		// 	alternates: {
-		// 		languages: {
-		// 			en: "https://pprmint.de/en/projects/tentative",
-		// 			de: "https://pprmint.de/projects/tentative",
-		// 		},
-		// 	},
-		// },
 		{
 			url: "https://pprmint.de/projects/icons",
 			lastModified: new Date(),
