@@ -91,7 +91,7 @@ export default async function Things() {
 					<FadingImage src="/api/assets/file/Solar_System_2_f133addf64.webp" width={1920} height={1080} alt="" />
 				</Link>
 				<Link
-					href="http://localhost:3000/graphics/opensuse-rebrand-concept"
+					href="/graphics/opensuse-rebrand-concept"
 					className="hover:brightness-110 hover:contrast-90 duration-200 hover:duration-0 relative w-full aspect-video xl:order-2 overflow-hidden"
 				>
 					<FadingImage src="/api/assets/file/openSUSE_overview_19d4d56646.png" width={1920} height={1080} alt="" />
