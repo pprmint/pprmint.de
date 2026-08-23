@@ -405,6 +405,11 @@
 	"FOOTER": {
 		"and": " and ",
 		"madeWith": "Made with ",
+		"Theme": {
+			"light": "Light theme",
+			"dark": "Dark theme",
+			"system": "System preference"
+		},
 		"Mina": {
 			"lovePats": "hehe, i love pats ♥",
 			"forgive": "I'll forgive you, if you pat me more.",
@@ -837,10 +842,6 @@
 					"description": "My stance on usage of my work for training AI.",
 					"title": "AI training declaration"
 				},
-				"SwitchLocale": {
-					"description": "Du verstehst nicht mal Bahnhof? Klick hier.",
-					"title": "Deutsch, bitte!"
-				},
 				"Potato": {
 					"description": "Visit a less intense version of this website.",
 					"title": "Potato"
@@ -935,21 +936,6 @@
 			"heading": "The fonts have moved",
 			"text": "My fonts now have their own home. Nicer presentation and easier to try out.",
 			"button": "This way, please."
-		}
-	},
-	"SETTINGS": {
-		"title": "Settings",
-		"description": "Change the language and color theme used throughout the site.",
-		"Language": {
-			"title": "Language",
-			"en": "English",
-			"de": "Deutsch"
-		},
-		"Theme": {
-			"title": "Theme",
-			"dark": "Dark",
-			"light": "Light",
-			"lightInfo": "The light theme is for accessibility. Use it if you have difficulty reading light text on a dark background."
 		}
 	},
 	"TRADEOFFER": {

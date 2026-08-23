@@ -1,29 +1,33 @@
 "use client";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { locales } from "@/i18n/config";
 import { setUserLocale } from "@/i18n/locale";
+import Tooltip from "@/components/ui/Tooltip";
 
 export default function LocaleSwitch() {
-  const currentLocale = useLocale();
-  const otherLocale = locales?.find((cur) => cur !== currentLocale);
+	const currentLocale = useLocale();
+	const otherLocale = locales?.find((cur) => cur !== currentLocale);
 
-  return (
-    <button
-      onClick={() => setUserLocale(otherLocale!)}
-      className="relative flex border border-black/5 dark:border-white/5"
-    >
-      {locales.map((locale) => (
-        <div
-          key={locale}
-          className={`inline-flex items-center justify-center text-sm w-9 h-6.75 ${
-            currentLocale === locale
-              ? "text-neutral-950 dark:text-white bg-neutral-950/5 dark:bg-neutral-50/5"
-              : "hover:bg-neutral-950/5 dark:hover:bg-neutral-50/5"
-          } duration-100 active:duration-75 active:opacity-75 uppercase`}
-        >
-          {locale}
-        </div>
-      ))}
-    </button>
-  );
+	return (
+		<Tooltip text={currentLocale === "en" ? "Sprache wechseln" : "Switch language"}>
+			<button
+				onClick={() => setUserLocale(otherLocale!)}
+				className="group relative flex border border-black/5 dark:border-white/5 active:duration-75 active:opacity-75 "
+			>
+				{locales.map((locale) => (
+					<div
+						key={locale}
+						className={`inline-flex justify-center text-sm w-9 h-6.75 leading-6.75 ${
+							currentLocale === locale ? "text-neutral-950 dark:text-white group-hover:text-inherit" : "group-hover:text-neutral-950 dark:group-hover:text-white"
+						} duration-100 uppercase`}
+					>
+						{locale}
+					</div>
+				))}
+				<div
+					className={`absolute inset-y-0 bg-black/5 dark:bg-white/5 ${currentLocale === "en" ? "left-0 right-1/2" : "left-1/2 right-0"} duration-100 ease-out`}
+				/>
+			</button>
+		</Tooltip>
+	);
 }

@@ -405,6 +405,11 @@
 	"FOOTER": {
 		"madeWith": "Gemacht mit ",
 		"and": " und ",
+		"Theme": {
+			"light": "Helles Design",
+			"dark": "Dunkles Design",
+			"system": "Systemvorgabe"
+		},
 		"Mina": {
 			"lovePats": "hehe, ich liebe streicheln ♥",
 			"forgive": "Ich verzeihe dir, wenn du mich weiter streichelst.",
@@ -826,10 +831,6 @@
 					"description": "Mein Standpankt zur Verwendung meiner Werke für KI-Training.",
 					"title": "Erklärung bzgl. KI-Training"
 				},
-				"SwitchLocale": {
-					"description": "What you're reading doesn't make a lick of sense to you? Click here.",
-					"title": "English, please!"
-				},
 				"Potato": {
 					"description": "Besuche eine weniger aufwendige Version dieser Website.",
 					"title": "Kartoffel"
@@ -924,21 +925,6 @@
 			"heading": "Die Schriftarten sind umgezogen",
 			"text": "Meine Schriftarten haben nun ihr eigenes Zuhause. Schicker präsentiert und leichter auszuprobieren.",
 			"button": "Hier entlang, bitte."
-		}
-	},
-	"SETTINGS": {
-		"title": "Einstellungen",
-		"description": "Ändere die Sprache und das Design, welches verwendet werden soll.",
-		"Language": {
-			"title": "Sprache",
-			"en": "English",
-			"de": "Deutsch"
-		},
-		"Theme": {
-			"title": "Design",
-			"dark": "Dunkel",
-			"light": "Hell",
-			"lightInfo": "Das helle Design dient der Barrierefreiheit. Verwende es, wenn du Schwierigkeiten hast, hellen Text auf dunklem Hintergrund zu lesen."
 		}
 	},
 	"TENTATIVE": {

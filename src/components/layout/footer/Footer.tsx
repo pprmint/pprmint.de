@@ -46,10 +46,10 @@ export default async function Footer() {
           </div>
           <p className="text-neutral-950 dark:text-white text-center sm:text-left">
             {"© "}
-            {new Date().getFullYear()} pprmint.
+            {new Date().getFullYear()} pprmint<span className="text-green">.</span>
           </p>
         </div>
-        <div className="sm:w-1/3 flex justify-center items-center">
+        <div className="sm:w-1/3 flex justify-center items-center gap-1">
           <Links />
         </div>
         <div className="sm:w-1/3 flex items-center justify-between sm:justify-end gap-6">
