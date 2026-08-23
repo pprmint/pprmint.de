@@ -1,5 +1,5 @@
 "use client";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import Moon from "@/icons/Moon";
 import Computer from "@/icons/Computer";
 import SmartphoneHomeButton from "@/icons/SmartphoneHomeButton";
@@ -11,18 +11,23 @@ import { useTranslations } from "next-intl";
 
 function ThemeSwitch() {
 	const { theme, setTheme } = useTheme();
-  const t = useTranslations("FOOTER.Theme")
+	const t = useTranslations("FOOTER.Theme");
 
 	return (
-		<div className="relative flex w-max border border-black/5 dark:border-white/5">
+		<div className="group relative flex w-max border border-black/5 dark:border-white/5">
+			<div
+				className={`absolute inset-y-0 bg-black/5 dark:bg-white/5 ${
+					theme === "light" ? "left-2/3 right-0" : theme === "dark" ? "left-0 right-2/3" : "left-1/3 right-1/3"
+				} duration-100 ease-out`}
+			/>
 			{[
 				{ name: "dark", icon: <Moon /> },
 				{
 					name: "system",
 					icon: (
 						<Fragment>
-							<Computer className="hidden lg:block" />
-							<SmartphoneHomeButton className="lg:hidden" />
+							<Computer className="hidden sm:block" />
+							<SmartphoneHomeButton className="sm:hidden" />
 						</Fragment>
 					),
 				},
@@ -31,10 +36,10 @@ function ThemeSwitch() {
 				<Tooltip key={item.name} text={t(item.name)}>
 					<button
 						onClick={() => setTheme(item.name)}
-						className={`p-1.5 ${
+						className={`relative p-1.5 ${
 							theme === item.name
-								? "text-neutral-950 dark:text-white bg-neutral-950/5 dark:bg-neutral-50/5"
-								: "hover:bg-neutral-950/5 dark:hover:bg-neutral-50/5"
+								? "text-neutral-950 dark:text-white group-hover:text-inherit hover:text-neutral-950 dark:hover:text-white"
+								: "hover:text-neutral-950 dark:hover:text-white"
 						} duration-100 active:duration-75 active:opacity-75`}
 					>
 						{item.icon}
