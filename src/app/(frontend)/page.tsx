@@ -90,6 +90,7 @@ export default async function Page() {
 									width={mina.docs[0].images[0].image.width || 0}
 									height={mina.docs[0].images[0].image.height || 0}
 									className="relative w-auto h-auto max-h-[75vh] mx-auto shadow-xl"
+									quality={100}
 								/>
 							)}
 							<m.div
