@@ -23,7 +23,7 @@ export default function Page() {
 	const t = useTranslations();
 	return (
 		<>
-			<Title title={t("MINTBIT.Head.title")} description={t("MINTBIT.Head.description")}>
+			<Title title={t("MINTBIT.Head.title")} titleFont={MintBit} description={t("MINTBIT.Head.description")}>
 				<FadingImage src={TitleBackground} alt="" fill className="object-cover" />
 			</Title>
 			<main>

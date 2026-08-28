@@ -364,7 +364,8 @@
 		"Features": {
 			"label": "Features",
 			"tnum": "Tabular numbers",
-			"liga": "Ligatures"
+			"liga": "Ligatures",
+			"calt": "Contextual alternates"
 		},
 		"stylisticSets": "Stylistic sets",
 		"characterVariants": "Character variants",
@@ -544,6 +545,23 @@
 		"showWidget": "Show widget",
 		"alternative": "If the widget doesn't work, try to <Link>visit my profile</Link> instead.",
 		"privacyPolicy": "Privacy policy of Ko-fi"
+	},
+	"MARKOW": {
+		"Head": {
+			"description": "Inspired by German train station signage. Work in progress.",
+			"title": "MN Markow"
+		},
+		"Content": {
+			"Download": {
+				"heading": "Version 0.001",
+				"text": "At some point there will be more weights and italics. For now you can at least download an early version.",
+				"codeberg": "Source on Codeberg"
+			},
+			"Tester": {
+				"heading": "This font is not yet finished",
+				"text": "Consequently, there are no preview images yet either. Make your own impression here:"
+			}
+		}
 	},
 	"MINA": {
 		"Head": {

@@ -29,7 +29,7 @@ export default function Page() {
 	const t = useTranslations();
 	return (
 		<>
-			<Title title={t("MINTSANS.Head.title")} description={t("MINTSANS.Head.description")}>
+			<Title title={t("MINTSANS.Head.title")} titleFont={MintSans} description={t("MINTSANS.Head.description")}>
 				<div className="absolute inset-0 bg-neutral-950">
 					<FadingImage src={TitleImage} alt="" fill className="object-contain object-center p-6" />
 				</div>

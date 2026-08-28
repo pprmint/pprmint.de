@@ -8,6 +8,7 @@ import { MintSans } from "@public/fonts/MintSans/MintSans";
 import { MintTriangles } from "@public/fonts/MintTriangles/MintTriangles";
 import FontSection from "./FontSection";
 import { MNCovert } from "@public/fonts/MNCovert/MNCovert";
+import { MNMarkow } from "@public/fonts/MNMarkow/MNMarkow";
 
 export async function generateMetadata() {
 	const t = await getTranslations("FONTS");
@@ -23,6 +24,19 @@ export default async function Page() {
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")} />
 			<main className="max-w-8xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">
+				<FontSection
+					name="MN Markow"
+					font={MNMarkow}
+					link="/fonts/markow"
+					styles={[
+						{
+							tag: "wght",
+							steps: [400],
+						},
+					]}
+				>
+					Lassen Sie Ihr Gepäck nicht unbeaufsichtigt.
+				</FontSection>
 				<FontSection
 					name="MN Covert"
 					font={MNCovert}

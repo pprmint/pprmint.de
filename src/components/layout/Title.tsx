@@ -5,10 +5,12 @@ import { useNavbar } from "./navigation/NavBarContext";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { MNVaria } from "@public/fonts/MNVaria/MNVaria";
+import { NextFontWithVariable } from "next/dist/compiled/@next/font";
 
 export default function Title(
 	props: PropsWithChildren<{
 		title: string;
+		titleFont?: NextFontWithVariable;
 		description: string | ReactNode;
 		credits?: {
 			name: string;
@@ -22,35 +24,22 @@ export default function Title(
 	const t = useTranslations("COMMON");
 	const { setDefaultColor, setNoAccents } = useNavbar();
 	useEffect(() => {
-		setDefaultColor(
-			props.blackText ? "black" : props.children ? "white" : undefined,
-		);
+		setDefaultColor(props.blackText ? "black" : props.children ? "white" : undefined);
 		setNoAccents(!!props.noAccents);
 		return () => setDefaultColor();
 	}, [props.children, props.noAccents, setDefaultColor, setNoAccents]);
 	return (
-		<div
-			ref={props.ref}
-			className="relative w-full overflow-hidden text-balance"
-		>
-			{props.children && (
-				<div className="absolute -z-10 inset-0">{props.children}</div>
-			)}
-			{props.children && (
-				<div className="absolute bottom-0 inset-x-0 h-px bg-current/5" />
-			)}
+		<div ref={props.ref} className="relative w-full overflow-hidden text-balance">
+			{props.children && <div className="absolute -z-10 inset-0">{props.children}</div>}
+			{props.children && <div className="absolute bottom-0 inset-x-0 h-px bg-current/5" />}
 			<div className="w-full h-full max-w-8xl sm:px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
 				<div
 					className={`h-full w-full sm:border-x ${props.blackText ? "text-neutral-950" : "text-white"} ${props.children ? "border-current/5" : "border-black/5 dark:border-white/5"}`}
 				>
 					<div className="relative size-full flex flex-col gap-6 xl:justify-center col-span-2 md:col-span-1 py-28 md:py-32 lg:py-36 xl:py-44 px-6 xl:px-9">
-						<div
-							className={
-								props.children ? !props.blackText ? "drop-shadow-md" : "" : "xl:text-center"
-							}
-						>
+						<div className={props.children ? (!props.blackText ? "drop-shadow-md" : "") : "xl:text-center"}>
 							<m.h1
-								className={`relative pb-1 md:pb-2 lg:pb-3 ${MNVaria.className} font-light ${props.children ? "text-inherit" : ""}`}
+								className={`relative pb-1 md:pb-2 lg:pb-3 ${props.titleFont ? props.titleFont.className : MNVaria.className} font-light ${props.children ? "text-inherit" : ""}`}
 								initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
 								animate={{
 									opacity: 1,
@@ -65,11 +54,7 @@ export default function Title(
 								}}
 							>
 								{props.title}
-								<span
-									className={props.noAccents ? "text-inherit" : "text-green"}
-								>
-									.
-								</span>
+								<span className={props.noAccents ? "text-inherit" : "text-green"}>.</span>
 							</m.h1>
 							<m.p
 								initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
@@ -84,7 +69,7 @@ export default function Title(
 										delay: 0.05,
 									},
 								}}
-								className={`text-xl md:text-2xl xl:text-3xl ${props.children ? props.blackText ? "text-neutral-950/75" : "text-white/75" : "text-neutral-950/75 dark:text-white/75 "} ${props.children ? "max-w-1/2" : ""} 2xl:max-w-none`}
+								className={`text-xl md:text-2xl xl:text-3xl ${props.children ? (props.blackText ? "text-neutral-950/75" : "text-white/75") : "text-neutral-950/75 dark:text-white/75 "} ${props.children ? "max-w-1/2" : ""} 2xl:max-w-none`}
 							>
 								{props.description}
 							</m.p>
@@ -106,8 +91,7 @@ export default function Title(
 										) : (
 											<span>{artist.name}</span>
 										)}
-										{index !== props.credits!.length - 1 &&
-											(index < props.credits!.length - 2 ? ", " : " & ")}
+										{index !== props.credits!.length - 1 && (index < props.credits!.length - 2 ? ", " : " & ")}
 									</Fragment>
 								))}
 							</div>

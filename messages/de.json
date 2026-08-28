@@ -363,8 +363,9 @@
 		"styles": "{count} {count, plural, =1 {Stil} other {Stile}}",
 		"Features": {
 			"label": "Features",
-			"tnum": "Tabular numbers",
-			"liga": "Ligatures"
+			"tnum": "Tabellenziffern",
+			"liga": "Ligaturen",
+			"calt": "Kontextuelle Varianten"
 		},
 		"stylisticSets": "Stilsets",
 		"characterVariants": "Zeichenvarianten",
@@ -539,6 +540,23 @@
 		"showWidget": "Widget anzeigen",
 		"alternative": "Sollte das Widget nicht funktionieren, <Link>besuche mein Profil</Link>.",
 		"privacyPolicy": "Datenschutzerklärung von Ko-fi"
+	},
+	"MARKOW": {
+		"Head": {
+			"description": "Inspiriert durch das Wegeleitsystem der Bahn. In Arbeit.",
+			"title": "MN Markow"
+		},
+		"Content": {
+			"Download": {
+				"heading": "Version 0.001",
+				"text": "Bald kommen weitere Gewichte inklusive kursiver Varianten dazu. Fürs Erste kannst du dir aber eine frühe Version herunterladen.",
+				"codeberg": "Quelle auf Codeberg"
+			},
+			"Tester": {
+				"heading": "Diese Schriftart ist noch nicht fertig",
+				"text": "Folgerichtig gibt's auch noch keine Vorschaubilder. Mach dir deshalb deinen eigenen Eindruck:"
+			}
+		}
 	},
 	"MINA": {
 		"Head": {

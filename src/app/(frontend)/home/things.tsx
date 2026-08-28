@@ -26,11 +26,11 @@ export default async function Things() {
 					className="group flex items-center xl:flex-col xl:items-start justify-between col-span-2 xl:col-span-1 xl:order-3 p-6 xl:p-9 hover:bg-black/5 dark:hover:bg-white/5 duration-200 hover:duration-0"
 				>
 					<div>
-					<h2 className="pb-0 xl:pb-3">
-						{t("Fonts.heading")}
-						<span className="text-green">.</span>
-					</h2>
-					<p className="xl:text-xl">{t("Fonts.description")}</p>
+						<h2 className="pb-0 xl:pb-3">
+							{t("Fonts.heading")}
+							<span className="text-green">.</span>
+						</h2>
+						<p className="xl:text-xl">{t("Fonts.description")}</p>
 					</div>
 					<Arrow />
 				</Link>
@@ -38,10 +38,13 @@ export default async function Things() {
 					href="/fonts/varia"
 					className="hover:brightness-110 hover:contrast-90 duration-200 hover:duration-0 xl:col-span-2 xl:row-span-2 relative w-full aspect-video overflow-hidden"
 				>
-					<FadingImage src="/api/assets/file/MNVaria_Thumbnail.png" width={1920} height={1080} alt="MN Varia" />
+					<FadingImage hideSpinner src="/api/assets/file/MNVaria_Thumbnail.png" width={1920} height={1080} alt="MN Varia" />
 				</Link>
-				<Link href="/fonts/covert" className="hover:brightness-110 hover:contrast-90 duration-200 hover:duration-0 relative w-full aspect-video overflow-hidden">
-					<FadingImage src="/api/assets/file/MNCovert_Thumbnail.webp" width={1920} height={1080} alt="MN Covert" />
+				<Link
+					href="/fonts/markow"
+					className="hover:brightness-110 hover:contrast-90 duration-200 hover:duration-0 relative w-full aspect-video overflow-hidden"
+				>
+					<FadingImage hideSpinner src="/api/assets/file/MNMarkow_Thumbnail.svg" width={1920} height={1080} alt="MN Covert" />
 				</Link>
 			</div>
 			<div className="h-9 lg:h-20 w-full border-x border-black/5 dark:border-white/5" />
@@ -51,11 +54,11 @@ export default async function Things() {
 					className="group flex items-center xl:flex-col xl:items-start justify-between col-span-2 xl:col-span-1 p-6 xl:p-9 hover:bg-black/5 dark:hover:bg-white/5 duration-200 hover:duration-0"
 				>
 					<div>
-					<h2 className="pb-0 xl:pb-3">
-						{t("Photos.heading")}
-						<span className="text-green">.</span>
-					</h2>
-					<p className="xl:text-xl">{t("Photos.description")}</p>
+						<h2 className="pb-0 xl:pb-3">
+							{t("Photos.heading")}
+							<span className="text-green">.</span>
+						</h2>
+						<p className="xl:text-xl">{t("Photos.description")}</p>
 					</div>
 					<Arrow />
 				</Link>
@@ -63,10 +66,13 @@ export default async function Things() {
 					href="/photos"
 					className="hover:brightness-110 hover:contrast-90 duration-200 hover:duration-0 xl:col-span-2 xl:row-span-2 relative w-full aspect-3/2 overflow-hidden"
 				>
-					<FadingImage src="/api/photos/file/DSC00275.webp" width={6192} height={4128} alt="" />
+					<FadingImage hideSpinner src="/api/photos/file/DSC00275.webp" width={6192} height={4128} alt="" />
 				</Link>
-				<Link href="/photos" className="hover:brightness-110 hover:contrast-90 duration-200 hover:duration-0 relative w-full aspect-3/2 overflow-hidden">
-					<FadingImage src="/api/photos/file/DSC01569.webp" width={6192} height={4128} alt="" />
+				<Link
+					href="/photos"
+					className="hover:brightness-110 hover:contrast-90 duration-200 hover:duration-0 relative w-full aspect-3/2 overflow-hidden"
+				>
+					<FadingImage hideSpinner src="/api/photos/file/DSC01569.webp" width={6192} height={4128} alt="" />
 				</Link>
 			</div>
 			<div className="h-9 lg:h-20 w-full border-x border-black/5 dark:border-white/5" />
@@ -76,11 +82,11 @@ export default async function Things() {
 					className="group flex items-center xl:flex-col xl:items-start justify-between col-span-2 xl:col-span-1 xl:order-1 p-6 xl:p-9 hover:bg-black/5 dark:hover:bg-white/5 duration-200 hover:duration-0"
 				>
 					<div>
-					<h2 className="pb-0 xl:pb-3">
-						{t("Graphics.heading")}
-						<span className="text-green">.</span>
-					</h2>
-					<p className="xl:text-xl">{t("Graphics.description")}</p>
+						<h2 className="pb-0 xl:pb-3">
+							{t("Graphics.heading")}
+							<span className="text-green">.</span>
+						</h2>
+						<p className="xl:text-xl">{t("Graphics.description")}</p>
 					</div>
 					<Arrow />
 				</Link>
@@ -88,13 +94,13 @@ export default async function Things() {
 					href="/graphics/solar-system-3"
 					className="hover:brightness-110 hover:contrast-90 duration-200 hover:duration-0 xl:col-span-2 xl:row-span-2 relative w-full aspect-video overflow-hidden"
 				>
-					<FadingImage src="/api/assets/file/Solar_System_2_f133addf64.webp" width={1920} height={1080} alt="" />
+					<FadingImage hideSpinner src="/api/assets/file/Solar_System_2_f133addf64.webp" width={1920} height={1080} alt="" />
 				</Link>
 				<Link
 					href="/graphics/opensuse-rebrand-concept"
 					className="hover:brightness-110 hover:contrast-90 duration-200 hover:duration-0 relative w-full aspect-video xl:order-2 overflow-hidden"
 				>
-					<FadingImage src="/api/assets/file/openSUSE_overview_19d4d56646.png" width={1920} height={1080} alt="" />
+					<FadingImage hideSpinner src="/api/assets/file/openSUSE_overview_19d4d56646.png" width={1920} height={1080} alt="" />
 				</Link>
 			</div>
 			<div className="h-9 lg:h-16 xl:h-48 w-full border-x border-black/5 dark:border-white/5" />

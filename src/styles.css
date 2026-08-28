@@ -718,7 +718,7 @@ img {
 	user-select: none;
 }
 
-body {
+.font-varia {
 	font-variant-ligatures: normal;
 	font-feature-settings: "liga", "cv04", "ss02", "cv16", "cv20";
 }

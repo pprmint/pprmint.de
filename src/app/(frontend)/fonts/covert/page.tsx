@@ -22,7 +22,7 @@ export default function Page() {
 	const t = useTranslations();
 	return (
 		<>
-			<Title title={t("COVERT.Head.title")} description={t("COVERT.Head.description")} noAccents>
+			<Title title={t("COVERT.Head.title")} titleFont={MNCovert} description={t("COVERT.Head.description")} noAccents>
 				<div className="absolute inset-0 bg-neutral-950">
 					<FadingImage src="/api/assets/file/Covert_Hero.webp" alt="" fill className="object-cover" quality={100} />
 				</div>
