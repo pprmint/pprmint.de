@@ -19,22 +19,7 @@ export default function Announcements({ data }: { data: PaginatedDocs<Announceme
 	const format = useFormatter();
 	const [current, setCurrent] = useState(0);
 	const [direction, setDirection] = useState(1);
-
-	const descriptionHeightRef = useRef<HTMLDivElement>(null);
-	const [descriptionHeight, setDescriptionHeight] = useState<number | "auto">("auto");
-	useEffect(() => {
-		const handleResize = () => {
-			if (descriptionHeightRef.current) {
-				setDescriptionHeight(descriptionHeightRef.current.scrollHeight);
-			}
-		};
-		handleResize();
-		window.addEventListener("resize", handleResize);
-		return () => {
-			window.removeEventListener("resize", handleResize);
-		};
-	}, [current]);
-
+	
 	const handleNext = () => {
 		setDirection(1);
 		requestAnimationFrame(() => {
