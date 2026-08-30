@@ -9,15 +9,15 @@ import { AnimatePresence, useInView } from "motion/react";
 
 function ThingCycle({
 	items,
+	sizes,
 	className,
 }: {
 	items: {
 		alt: string;
 		link: string;
 		src: string;
-		width: number;
-		height: number;
 	}[];
+	sizes: string;
 	className?: string;
 }) {
 	const ref = useRef<HTMLAnchorElement>(null);
@@ -59,7 +59,7 @@ function ThingCycle({
 		<Link
 			ref={ref}
 			href={items[current].link}
-			className={`group relative w-full bg-black/5 dark:bg-white/5 overflow-clip ${className}`}
+			className={`group relative w-full overflow-clip ${className}`}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 		>
@@ -80,6 +80,7 @@ function ThingCycle({
 						clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
 						transition: { type: "spring", duration: 0.8, bounce: 0 },
 					}}
+					className="size-full bg-black/5 dark:bg-white/5"
 				>
 					<m.div
 						initial={{
@@ -87,21 +88,22 @@ function ThingCycle({
 						}}
 						animate={{
 							y: "0%",
+							opacity: 1,
 							transition: { type: "spring", duration: 0.8, bounce: 0 },
 						}}
 						exit={{
 							y: "-50%",
+							opacity: 0,
 							transition: { type: "spring", duration: 0.8, bounce: 0 },
 						}}
+						className="relative size-full"
 					>
 						<FadingImage
 							hideSpinner
 							src={items[current].src}
 							alt={items[current].alt}
-							quality={90}
-							width={items[current].width}
-							height={items[current].height}
-							// loading="eager" i shouldn't.
+							fill
+							sizes={sizes}
 							className="group-hover:brightness-110 group-hover:contrast-90 duration-200 group-hover:duration-0"
 						/>
 					</m.div>
@@ -148,17 +150,14 @@ export default function Things() {
 							alt: "MN Varia",
 							link: "/fonts/varia",
 							src: "/api/assets/file/MNVaria_Thumbnail.png",
-							width: 1920,
-							height: 1080,
 						},
 						{
 							alt: "MN Covert",
 							link: "/fonts/covert",
 							src: "/api/assets/file/MNCovert_Thumbnail.webp",
-							width: 1920,
-							height: 1080,
 						},
 					]}
+					sizes="(max-width: 1280px) 50vw, 66vw"
 					className="xl:col-span-2 xl:row-span-2 aspect-video"
 				/>
 				<ThingCycle
@@ -167,17 +166,14 @@ export default function Things() {
 							alt: "MN Markow",
 							link: "/fonts/markow",
 							src: "/api/assets/file/MNMarkow_Thumbnail.svg",
-							width: 1920,
-							height: 1080,
 						},
 						{
 							alt: "MN Nucleo",
 							link: "/fonts/nucleo",
 							src: "/api/assets/file/Nucleo_Title.webp",
-							width: 3840,
-							height: 2160,
 						},
 					]}
+					sizes="(max-width: 1280px) 50vw, 33vw"
 					className="aspect-video"
 				/>
 			</div>
@@ -202,17 +198,14 @@ export default function Things() {
 							alt: "DSC00275",
 							link: "/photos",
 							src: "/api/photos/file/DSC00275.webp",
-							width: 6192,
-							height: 4128,
 						},
 						{
 							alt: "DSC01773",
 							link: "/photos",
 							src: "/api/photos/file/DSC01773.webp",
-							width: 6034,
-							height: 4022,
 						},
 					]}
+					sizes="(max-width: 1280px) 50vw, 66vw"
 					className="xl:col-span-2 xl:row-span-2 aspect-3/2"
 				/>
 				<ThingCycle
@@ -221,17 +214,14 @@ export default function Things() {
 							alt: "DSC01569",
 							link: "/photos",
 							src: "/api/photos/file/DSC01569.webp",
-							width: 6192,
-							height: 4128,
 						},
 						{
 							alt: "DSC01241",
 							link: "/photos",
 							src: "/api/photos/file/DSC01241.webp",
-							width: 5916,
-							height: 3944,
 						},
 					]}
+					sizes="(max-width: 1280px) 50vw, 33vw"
 					className="aspect-3/2"
 				/>
 			</div>
@@ -256,18 +246,15 @@ export default function Things() {
 							alt: "Solar System 2",
 							link: "/graphics/solar-system-3",
 							src: "/api/assets/file/Solar_System_2_f133addf64.webp",
-							width: 1920,
-							height: 1080,
 						},
 						{
 							alt: "Pimples",
 							link: "/graphics/pimples",
 							src: "/api/assets/file/Pimples_b41ae5d165.png",
-							width: 1920,
-							height: 1080,
 						},
 					]}
 					className="xl:col-span-2 xl:row-span-2 aspect-video"
+					sizes="(max-width: 1280px) 50vw, 66vw"
 				/>
 				<ThingCycle
 					items={[
@@ -275,18 +262,15 @@ export default function Things() {
 							alt: "OpenSUSE Rebrand Concept",
 							link: "/graphics/opensuse-rebrand-concept",
 							src: "/api/assets/file/openSUSE_overview_19d4d56646.png",
-							width: 1920,
-							height: 1080,
 						},
 						{
 							alt: "Pimples",
 							link: "/graphics/apotheke-redesign",
 							src: "/api/assets/file/Apotheke_a9cd2b26be.png",
-							width: 1920,
-							height: 1080,
 						},
 					]}
 					className="xl:order-2 aspect-video"
+					sizes="(max-width: 1280px) 50vw, 33vw"
 				/>
 			</div>
 			<div className="h-9 lg:h-16 xl:h-48 w-full border-x border-black/5 dark:border-white/5" />
