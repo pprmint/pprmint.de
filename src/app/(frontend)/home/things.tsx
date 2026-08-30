@@ -101,7 +101,7 @@ function ThingCycle({
 							quality={90}
 							width={items[current].width}
 							height={items[current].height}
-							loading="eager"
+							// loading="eager" i shouldn't.
 							className="group-hover:brightness-110 group-hover:contrast-90 duration-200 group-hover:duration-0"
 						/>
 					</m.div>
