@@ -152,14 +152,14 @@ export default function Things() {
 							src: "/api/assets/file/MNVaria_Thumbnail.png",
 						},
 						{
-							alt: "MN Covert",
-							link: "/fonts/covert",
-							src: "/api/assets/file/MNCovert_Thumbnail.webp",
+							alt: "MN Celesta",
+							link: "/fonts/celesta",
+							src: "/api/assets/file/MNCelesta_Thumbnail.svg",
 						},
 					]}
 					sizes="(max-width: 1280px) 50vw, 66vw"
 					className="xl:col-span-2 xl:row-span-2 aspect-video"
-				/>
+					/>
 				<ThingCycle
 					items={[
 						{
@@ -168,9 +168,9 @@ export default function Things() {
 							src: "/api/assets/file/MNMarkow_Thumbnail.svg",
 						},
 						{
-							alt: "MN Nucleo",
-							link: "/fonts/nucleo",
-							src: "/api/assets/file/Nucleo_Title.webp",
+							alt: "MN Covert",
+							link: "/fonts/covert",
+							src: "/api/assets/file/MNCovert_Thumbnail.webp",
 						},
 					]}
 					sizes="(max-width: 1280px) 50vw, 33vw"

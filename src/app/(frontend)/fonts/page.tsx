@@ -70,7 +70,7 @@ export default async function Page() {
 				<FontSection
 					name="MN Celesta"
 					font={MNCelesta}
-					link="https://github.com/pprmint/MN-Celesta"
+					link="/fonts/celesta"
 					styles={[
 						{
 							tag: "wght",

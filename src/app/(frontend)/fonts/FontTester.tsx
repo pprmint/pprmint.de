@@ -177,6 +177,7 @@ export default function FontTester(props: {
 					</div>
 				</Toolbar.Root>
 				<textarea
+					id="tester"
 					className={`flex w-full p-3 md:p-6 text-neutral-950 dark:text-white placeholder:text-neutral-950 dark:placeholder:text-white focus:placeholder:text-black/10 dark:focus:placeholder:text-white/10 bg-transparent focus:outline-hidden focus-visible:outline-hidden min-h-50 h-100 border-b border-black/5 dark:border-white/5 ${textAlignment}`}
 					placeholder={typeof props.pangram === "string" ? props.pangram : props.pangram[locale ?? "en"]}
 					style={{

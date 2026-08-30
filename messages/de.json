@@ -82,6 +82,23 @@
 			"title": "App-Symbole"
 		}
 	},
+	"CELESTA": {
+		"Head": {
+			"description": "Eine etwas schärfere Variante von Instrument Serif.",
+			"title": "MN Celesta"
+		},
+		"Content": {
+			"Download": {
+				"heading": "Eine Serifenschrift? Ganz ohne Preis?",
+				"text": "Zufriedenstellend.",
+				"github": "Quelle auf GitHub"
+			},
+			"Tester": {
+				"heading": "Bin faul",
+				"text": "Vorschaubilder gibt's noch keine. Dafür kannst du hier erstmal selbst was eingeben:"
+			}
+		}
+	},
 	"CHAT": {
 		"button": "Frag Mina!",
 		"back": "Zurück",
@@ -365,7 +382,8 @@
 			"label": "Features",
 			"tnum": "Tabellenziffern",
 			"liga": "Ligaturen",
-			"calt": "Kontextuelle Varianten"
+			"calt": "Kontextuelle Varianten",
+			"onum": "Minuskelziffern"
 		},
 		"stylisticSets": "Stilsets",
 		"characterVariants": "Zeichenvarianten",

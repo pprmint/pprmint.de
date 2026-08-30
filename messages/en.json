@@ -82,6 +82,23 @@
 			"title": "App icons"
 		}
 	},
+	"CELESTA": {
+		"Head": {
+			"description": "A slightly sharper Instrument Serif.",
+			"title": "MN Celesta"
+		},
+		"Content": {
+			"Download": {
+				"heading": "A serif font? For free?",
+				"text": "Satisfactory.",
+				"github": "Source on GitHub"
+			},
+			"Tester": {
+				"heading": "I'm lazy",
+				"text": "Haven't made preview graphics yet, so you gotta make do with your own text for now:"
+			}
+		}
+	},
 	"CHAT": {
 		"button": "Ask Mina!",
 		"back": "Back",
@@ -365,7 +382,8 @@
 			"label": "Features",
 			"tnum": "Tabular numbers",
 			"liga": "Ligatures",
-			"calt": "Contextual alternates"
+			"calt": "Contextual alternates",
+			"onum": "Old style numerals"
 		},
 		"stylisticSets": "Stylistic sets",
 		"characterVariants": "Character variants",
