@@ -1,10 +1,118 @@
+"use client";
 import FadingImage from "@/components/ui/FadingImage";
 import ArrowRight from "@/icons/ArrowRight";
-import { getTranslations } from "next-intl/server";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import * as m from "motion/react-m";
+import { useTranslations } from "next-intl";
+import { AnimatePresence, useInView } from "motion/react";
 
-export default async function Things() {
-	const t = await getTranslations("HOME.Content.Things");
+function ThingCycle({
+	items,
+	className,
+}: {
+	items: {
+		alt: string;
+		link: string;
+		src: string;
+		width: number;
+		height: number;
+	}[];
+	className?: string;
+}) {
+	const ref = useRef<HTMLAnchorElement>(null);
+	const isInView = useInView(ref, {
+		amount: 0.1,
+	});
+
+	const [current, setCurrent] = useState(0);
+	const [hovered, setHovered] = useState(false);
+	const [justLeft, setJustLeft] = useState(false);
+
+	// Cycles through items after 6 seconds. Current item stays on screen while the mouse if hovered over it.
+	// If the mouse just left, the next item shown after just one second.
+	useEffect(() => {
+		if (!isInView || hovered || items.length <= 1) return;
+
+		const timeout = setTimeout(
+			() => {
+				setCurrent((prev) => (prev + 1) % items.length);
+				setJustLeft(false);
+			},
+			justLeft ? 1000 : 6000,
+		);
+
+		return () => clearTimeout(timeout);
+	}, [isInView, hovered, justLeft, current, items.length]);
+
+	const handleMouseLeave = () => {
+		setJustLeft(true);
+		setHovered(false);
+	};
+
+	const handleMouseEnter = () => {
+		setHovered(true);
+		setJustLeft(false);
+	};
+
+	return (
+		<Link
+			ref={ref}
+			href={items[current].link}
+			className={`group relative w-full bg-black/5 dark:bg-white/5 overflow-clip ${className}`}
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
+		>
+			<AnimatePresence mode="popLayout">
+				<m.div
+					key={current}
+					initial={{
+						position: "relative",
+						clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
+					}}
+					animate={{
+						position: "relative",
+						clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+						transition: { type: "spring", duration: 0.8, bounce: 0 },
+					}}
+					exit={{
+						position: "absolute",
+						clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+						transition: { type: "spring", duration: 0.8, bounce: 0 },
+					}}
+				>
+					<m.div
+						initial={{
+							y: "50%",
+						}}
+						animate={{
+							y: "0%",
+							transition: { type: "spring", duration: 0.8, bounce: 0 },
+						}}
+						exit={{
+							y: "-50%",
+							transition: { type: "spring", duration: 0.8, bounce: 0 },
+						}}
+					>
+						<FadingImage
+							hideSpinner
+							src={items[current].src}
+							alt={items[current].alt}
+							quality={90}
+							width={items[current].width}
+							height={items[current].height}
+							loading="eager"
+							className="group-hover:brightness-110 group-hover:contrast-90 duration-200 group-hover:duration-0"
+						/>
+					</m.div>
+				</m.div>
+			</AnimatePresence>
+		</Link>
+	);
+}
+
+export default function Things() {
+	const t = useTranslations("HOME.Content.Things");
 
 	function Arrow() {
 		return (
@@ -34,18 +142,44 @@ export default async function Things() {
 					</div>
 					<Arrow />
 				</Link>
-				<Link
-					href="/fonts/varia"
-					className="hover:brightness-110 hover:contrast-90 duration-200 hover:duration-0 xl:col-span-2 xl:row-span-2 relative w-full aspect-video overflow-hidden"
-				>
-					<FadingImage hideSpinner src="/api/assets/file/MNVaria_Thumbnail.png" width={1920} height={1080} alt="MN Varia" />
-				</Link>
-				<Link
-					href="/fonts/markow"
-					className="hover:brightness-110 hover:contrast-90 duration-200 hover:duration-0 relative w-full aspect-video overflow-hidden"
-				>
-					<FadingImage hideSpinner src="/api/assets/file/MNMarkow_Thumbnail.svg" width={1920} height={1080} alt="MN Covert" />
-				</Link>
+				<ThingCycle
+					items={[
+						{
+							alt: "MN Varia",
+							link: "/fonts/varia",
+							src: "/api/assets/file/MNVaria_Thumbnail.png",
+							width: 1920,
+							height: 1080,
+						},
+						{
+							alt: "MN Covert",
+							link: "/fonts/covert",
+							src: "/api/assets/file/MNCovert_Thumbnail.webp",
+							width: 1920,
+							height: 1080,
+						},
+					]}
+					className="xl:col-span-2 xl:row-span-2 aspect-video"
+				/>
+				<ThingCycle
+					items={[
+						{
+							alt: "MN Markow",
+							link: "/fonts/markow",
+							src: "/api/assets/file/MNMarkow_Thumbnail.svg",
+							width: 1920,
+							height: 1080,
+						},
+						{
+							alt: "MN Nucleo",
+							link: "/fonts/nucleo",
+							src: "/api/assets/file/Nucleo_Title.webp",
+							width: 3840,
+							height: 2160,
+						},
+					]}
+					className="aspect-video"
+				/>
 			</div>
 			<div className="h-9 lg:h-20 w-full border-x border-black/5 dark:border-white/5" />
 			<div className="grid grid-cols-2 xl:grid-cols-3 xl:grid-rows-2 border-y sm:border-x border-black/5 dark:border-white/5 w-full">
@@ -62,18 +196,44 @@ export default async function Things() {
 					</div>
 					<Arrow />
 				</Link>
-				<Link
-					href="/photos"
-					className="hover:brightness-110 hover:contrast-90 duration-200 hover:duration-0 xl:col-span-2 xl:row-span-2 relative w-full aspect-3/2 overflow-hidden"
-				>
-					<FadingImage hideSpinner src="/api/photos/file/DSC00275.webp" width={6192} height={4128} alt="" />
-				</Link>
-				<Link
-					href="/photos"
-					className="hover:brightness-110 hover:contrast-90 duration-200 hover:duration-0 relative w-full aspect-3/2 overflow-hidden"
-				>
-					<FadingImage hideSpinner src="/api/photos/file/DSC01569.webp" width={6192} height={4128} alt="" />
-				</Link>
+				<ThingCycle
+					items={[
+						{
+							alt: "DSC00275",
+							link: "/photos",
+							src: "/api/photos/file/DSC00275.webp",
+							width: 6192,
+							height: 4128,
+						},
+						{
+							alt: "DSC01773",
+							link: "/photos",
+							src: "/api/photos/file/DSC01773.webp",
+							width: 6034,
+							height: 4022,
+						},
+					]}
+					className="xl:col-span-2 xl:row-span-2 aspect-3/2"
+				/>
+				<ThingCycle
+					items={[
+						{
+							alt: "DSC01569",
+							link: "/photos",
+							src: "/api/photos/file/DSC01569.webp",
+							width: 6192,
+							height: 4128,
+						},
+						{
+							alt: "DSC01241",
+							link: "/photos",
+							src: "/api/photos/file/DSC01241.webp",
+							width: 5916,
+							height: 3944,
+						},
+					]}
+					className="aspect-3/2"
+				/>
 			</div>
 			<div className="h-9 lg:h-20 w-full border-x border-black/5 dark:border-white/5" />
 			<div className="grid grid-cols-2 xl:grid-cols-3 xl:grid-rows-2 border-y sm:border-x border-black/5 dark:border-white/5 w-full">
@@ -90,18 +250,44 @@ export default async function Things() {
 					</div>
 					<Arrow />
 				</Link>
-				<Link
-					href="/graphics/solar-system-3"
-					className="hover:brightness-110 hover:contrast-90 duration-200 hover:duration-0 xl:col-span-2 xl:row-span-2 relative w-full aspect-video overflow-hidden"
-				>
-					<FadingImage hideSpinner src="/api/assets/file/Solar_System_2_f133addf64.webp" width={1920} height={1080} alt="" />
-				</Link>
-				<Link
-					href="/graphics/opensuse-rebrand-concept"
-					className="hover:brightness-110 hover:contrast-90 duration-200 hover:duration-0 relative w-full aspect-video xl:order-2 overflow-hidden"
-				>
-					<FadingImage hideSpinner src="/api/assets/file/openSUSE_overview_19d4d56646.png" width={1920} height={1080} alt="" />
-				</Link>
+				<ThingCycle
+					items={[
+						{
+							alt: "Solar System 2",
+							link: "/graphics/solar-system-3",
+							src: "/api/assets/file/Solar_System_2_f133addf64.webp",
+							width: 1920,
+							height: 1080,
+						},
+						{
+							alt: "Pimples",
+							link: "/graphics/pimples",
+							src: "/api/assets/file/Pimples_b41ae5d165.png",
+							width: 1920,
+							height: 1080,
+						},
+					]}
+					className="xl:col-span-2 xl:row-span-2 aspect-video"
+				/>
+				<ThingCycle
+					items={[
+						{
+							alt: "OpenSUSE Rebrand Concept",
+							link: "/graphics/opensuse-rebrand-concept",
+							src: "/api/assets/file/openSUSE_overview_19d4d56646.png",
+							width: 1920,
+							height: 1080,
+						},
+						{
+							alt: "Pimples",
+							link: "/graphics/apotheke-redesign",
+							src: "/api/assets/file/Apotheke_a9cd2b26be.png",
+							width: 1920,
+							height: 1080,
+						},
+					]}
+					className="xl:order-2 aspect-video"
+				/>
 			</div>
 			<div className="h-9 lg:h-16 xl:h-48 w-full border-x border-black/5 dark:border-white/5" />
 		</section>
