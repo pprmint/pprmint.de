@@ -684,6 +684,10 @@
 	image-rendering: pixelated;
 }
 
+@utility accent-punctuation {
+	@apply text-transparent bg-linear-to-t from-31% via-31% via-neutral-950 dark:via-white to-neutral-950 dark:to-white bg-clip-text;
+}
+
 @layer base {
 	h1 {
 		@apply text-neutral-950 dark:text-white font-varia text-4xl md:text-5xl lg:text-6xl xl:text-8xl pb-3;

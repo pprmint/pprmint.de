@@ -13,16 +13,16 @@ import Check from "@/icons/Check";
 import ExternalLink from "@/icons/ExternalLink";
 
 export async function generateMetadata() {
-    const t = await getTranslations("YTDG");
-    return {
+	const t = await getTranslations("YTDG");
+	return {
 		title: t("Head.title"),
 		description: t("Head.description"),
 	};
 }
 
 export default function Page() {
-    const t = useTranslations();
-    return (
+	const t = useTranslations();
+	return (
 		<>
 			<Title title={t("YTDG.Head.title")} description={t("YTDG.Head.description")}>
 				<FadingImage src={Hero} alt="" fill className="object-cover" quality={90} />
@@ -31,7 +31,9 @@ export default function Page() {
 				<section className="relative flex items-center pb-48 xl:pb-0 border-x border-black/5">
 					<div className="py-20 md:py-32 xl:py-40 w-full z-10">
 						<div className="w-full max-w-xl 2xl:max-w-3xl">
-							<h2>{t("YTDG.Content.About.heading")}</h2>
+							<h2>{t.rich("YTDG.Content.About.heading", {
+								accPunct: (mark) => <span className="accent-punctuation from-violet">{mark}</span>
+							})}</h2>
 							<p>{t("YTDG.Content.About.text1")}</p>
 							<p>
 								{t.rich("YTDG.Content.About.text2", {

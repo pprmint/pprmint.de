@@ -239,7 +239,9 @@ export default function Page() {
 					})}
 				</section>
 				<section className="pt-20 md:pt-32 xl:pt-40 px-6 xl:px-9 sm:border-x border-black/5 dark:border-white/5 text-center">
-					<h2>{t("Content.Download.heading")}</h2>
+					<h2>{t.rich("Content.Download.heading", {
+						accPunct: (mark) => <span className="accent-punctuation from-yellow">{mark}</span>
+					})}</h2>
 					{t("Content.Download.text")}
 					<div className="flex gap-3 pt-6 justify-center">
 						<Link

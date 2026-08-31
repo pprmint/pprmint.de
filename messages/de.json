@@ -89,7 +89,7 @@
 		},
 		"Content": {
 			"Download": {
-				"heading": "Eine Serifenschrift? Ganz ohne Preis?",
+				"heading": "Eine Serifenschrift? Ganz ohne Preis<accPunct>?</accPunct>",
 				"text": "Zufriedenstellend.",
 				"github": "Quelle auf GitHub"
 			},
@@ -422,7 +422,7 @@
 		"tracking": "Zeichenabstand"
 	},
 	"FOOTER": {
-		"madeWith": "Gemacht mit ",
+		"madeWithLoveAndCoffee": "Gemacht mit <heart></heart> und <coffee></coffee>",
 		"and": " und ",
 		"Theme": {
 			"light": "Helles Design",
@@ -742,7 +742,7 @@
 				"text": "Wenn du Feedback geben möchtest oder etwas gefunden hast, was wie ein Fehler aussieht, kannst du mir gerne <Link>eine Nachricht schicken</Link>."
 			},
 			"Download": {
-				"heading": "Willste?",
+				"heading": "Willste<accPunct>?</accPunct>",
 				"text": "Lade dir Mintcraft entweder von Modrinth oder den GitHub-Releases herunter."
 			}
 		}
@@ -1006,7 +1006,7 @@
 	"YTDG": {
 		"Content": {
 			"About": {
-				"heading": "Terminals bereiten dir Angst?",
+				"heading": "Terminals bereiten dir Angst<accPunct>?</accPunct>",
 				"text1": "Mir nicht (Arch btw). Dafür hasse ich jedoch Windows, was die Vorstellung, an einem Projekt wie diesem zu arbeiten, fast unheilig erscheinen lässt.",
 				"text2": "Wie auch immer, eines Tages fragte mich jemand nach einem guten Video-Downloader. Meine Empfehlung war <Link>yt-dlp</Link>, welches ein Fork von einem Fork von youtube-dl ist. Einziger \"Nachteil\": Es ist eine Kommandozeilen-Anwendung.",
 				"text3": "Nach einem knappen Jahrzehnt seit meinem letzten Kontakt mit C# kommt hier mein yt-dlp-Frontend, welches so einfach wie möglich zu bedienen sein soll.",

@@ -89,7 +89,7 @@
 		},
 		"Content": {
 			"Download": {
-				"heading": "A serif font? For free?",
+				"heading": "A serif font? For free<accPunct>?</accPunct>",
 				"text": "Satisfactory.",
 				"github": "Source on GitHub"
 			},
@@ -422,8 +422,7 @@
 		"tracking": "Tracking"
 	},
 	"FOOTER": {
-		"and": " and ",
-		"madeWith": "Made with ",
+		"madeWithLoveAndCoffee": "Made with <heart></heart> and <coffee></coffee>",
 		"Theme": {
 			"light": "Light theme",
 			"dark": "Dark theme",
@@ -758,7 +757,7 @@
 				"text": "If you have some feedback or found something that looks to be an error, feel free to <Link>send me a message</Link>."
 			},
 			"Download": {
-				"heading": "Want?",
+				"heading": "Want<accPunct>?</accPunct>",
 				"text": "Download Mintcraft either from Modrinth or the GitHub releases."
 			}
 		},
@@ -1017,7 +1016,7 @@
 	"YTDG": {
 		"Content": {
 			"About": {
-				"heading": "Terminals scare you?",
+				"heading": "Terminals scare you<accPunct>?</accPunct>",
 				"text1": "Not me (Arch btw). However, I do hate Windows, which makes the idea of me working on a project like this almost seem unholy.",
 				"text2": "Anyway, one day someone asked me to recommend a good video downloader. I recommended <Link>yt-dlp</Link>, which is a fork of a fork of the youtube-dl project. The \"downside\" is that it's a command line app.",
 				"text3": "After about a decade since my last contact with C#, I present to you my yt-dlp frontend, aiming to be as easy to use as possible.",

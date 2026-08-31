@@ -104,7 +104,9 @@ export default function Page() {
 				<section className="max-w-8xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">
 					<div className="text-center border-x border-black/5 dark:border-white/5">
 						<div className="px-6 xl:px-9">
-							<h2>{t("CELESTA.Content.Download.heading")}</h2>
+							<h2>{t.rich("CELESTA.Content.Download.heading", {
+								accPunct: (mark) => <span className="accent-punctuation from-green">{mark}</span>
+							})}</h2>
 							<p>{t("CELESTA.Content.Download.text")}</p>
 							<br />
 						</div>

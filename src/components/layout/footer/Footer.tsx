@@ -32,16 +32,16 @@ export default async function Footer() {
         <div className="sm:w-1/3">
           <div className="text-sm text-center sm:text-left">
             <p className="leading-4">
-              {t("madeWith")}
-              <Heart className="inline fill-red mx-0.5" />
-              {t("and")}
-              <Link
-                href="https://www.roestfein.de/produkte/rondo"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <HotCup className="inline fill-yellow mx-0.5" />
-              </Link>
+              {t.rich("madeWithLoveAndCoffee", {
+                heart: () => <Heart className="inline fill-red mx-0.5" />,
+                coffee: () => <Link
+                  href="https://www.roestfein.de/produkte/rondo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <HotCup className="inline fill-yellow mx-0.5" />
+                </Link>
+              })}
             </p>
           </div>
           <p className="text-neutral-950 dark:text-white text-center sm:text-left">
