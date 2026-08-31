@@ -78,7 +78,6 @@ export default function MinaTitle() {
 						<FadingImage
 							hideSpinner
 							src="/api/assets/file/minaverse.svg"
-							loading="eager"
 							alt="Minaverse"
 							width={2376}
 							height={3304}
@@ -88,7 +87,6 @@ export default function MinaTitle() {
 						<FadingImage
 							hideSpinner
 							src="/api/assets/file/nekomimi_mi_splats_a.webp"
-							loading="eager"
 							alt=""
 							width={3385}
 							height={2138}
@@ -116,7 +114,6 @@ export default function MinaTitle() {
 						<FadingImage
 							hideSpinner
 							src="/api/assets/file/nekomimi_mi_splats_b.webp"
-							loading="eager"
 							alt=""
 							width={3385}
 							height={2138}
