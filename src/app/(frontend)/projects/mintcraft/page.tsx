@@ -27,6 +27,10 @@ import TFurnaceEN from "@public/assets/mintcraft/en/furnace.png";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 
+// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
+// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
+export const instant = false;
+
 export async function generateMetadata() {
 	const t = await getTranslations("MINTCRAFT");
 	return {

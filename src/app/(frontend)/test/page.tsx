@@ -8,6 +8,10 @@ import Seyana from "@public/assets/mina/sticker_seyana.webp";
 import LoadingSpinner from "@/components/loading/LoadingSpinner";
 import GlowingSpinner from "@/components/loading/GlowingSpinner";
 
+// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
+// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
+export const instant = false;
+
 export async function generateMetadata() {
 	return {
 		title: "Test page",
