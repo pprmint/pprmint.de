@@ -72,19 +72,5 @@
     "postcss": "8.5.23",
     "tailwindcss": "^4.3.3"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@tailwindcss/oxide",
-      "esbuild",
-      "sharp",
-      "unrs-resolver"
-    ],
-    "overrides": {
-      "dompurify": "3.4.12",
-      "postcss": "8.5.23",
-      "sharp": "0.35.4",
-      "@types/react": "19.2.17",
-      "@types/react-dom": "19.2.3"
-    }
-  }
+  "packageManager": "pnpm@12.3.4"
 }
