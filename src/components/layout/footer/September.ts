@@ -1,3 +1,20 @@
+const day = new Date().getDate();
+
+function suffix(number: number) {
+	let t = number % 10,
+		h = number % 100;
+	if (t === 1 && h !== 11) {
+		return number + "st";
+	}
+	if (t === 2 && h !== 12) {
+		return number + "nd";
+	}
+	if (t === 3 && h !== 13) {
+		return number + "rd";
+	}
+	return number + "th";
+}
+
 export const September = [
 	{
 		lyric: "",
@@ -12,7 +29,7 @@ export const September = [
 		beats: 6,
 	},
 	{
-		lyric: "the 21st night of September?",
+		lyric: `the ${(day !== 21 && "<s>21st</s>") || ""} ${suffix(day)} night of September?`,
 		beats: 7,
 	},
 	{
