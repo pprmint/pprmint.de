@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import * as m from "motion/react-m";
 
@@ -84,7 +83,7 @@ export default function NotFound() {
 				</m.div>
 			</div>
 			<div className="w-full max-w-8xl sm:px-6 md:px-9 lg:px-12 xl:px-20 mx-auto">
-				<div className="h-screen w-full grid xl:grid-cols-2 sm:border-x border-black/5 dark:border-white/5">
+				<div className="h-screen w-full grid xl:grid-cols-2 sm:border-x border-black/5 dark:border-white/5 items-center">
 					<div className="order-2 xl:order-1 relative size-full text-center flex flex-col xl:justify-center border-t xl:border-t-0 xl:border-r border-black/5 dark:border-white/5 bg-white/50 dark:bg-neutral-950/50">
 						<div className="grow xl:grow-0 py-6 xl:py-0">
 							<div className="px-6 xl:px-9">
@@ -179,15 +178,17 @@ export default function NotFound() {
 								delay: 0.25,
 							},
 						}}
-						className="order-1 xl:order-2 xl:h-screen inline-flex items-center justify-center"
+						className="relative order-1 xl:order-2 h-1/3-screen xl:h-screen w-full lg:w-1/3 xl:w-2/3 mx-auto"
 					>
 						<FadingImage
 							src="/api/artwork/file/layer_c563967482.webp"
-							width={3000}
-							height={3329}
+							fill
+							sizes="(max-width: 1280px) 50vw, 33vw"
 							alt="Detective Mina chibi art, drawn by Layer."
-							className="w-2/3 md:w-1/2 lg:w-1/3 xl:w-2/3"
+							className="w-full h-auto object-contain"
 							loading="eager"
+							quality={90}
+							hideSpinner
 						/>
 					</m.div>
 				</div>
