@@ -35,7 +35,7 @@ export default function Page() {
 		<>
 			<Title title={t("MINTSANS.Head.title")} titleFont={MintSans} description={t("MINTSANS.Head.description")}>
 				<div className="absolute inset-0 bg-neutral-950">
-					<FadingImage src={TitleImage} alt="" fill className="object-contain object-center p-6" />
+					<FadingImage src={TitleImage} alt="" fill className="object-contain object-center p-6" hideSpinner />
 				</div>
 			</Title>
 			<main>

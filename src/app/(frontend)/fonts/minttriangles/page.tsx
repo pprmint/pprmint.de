@@ -35,7 +35,7 @@ export default async function Page() {
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
 				<div className="w-screen h-full bg-neutral-950">
-					<FadingImage src="/api/assets/file/MNT_hero_bg.svg" alt="" fill className="object-cover object-center opacity-50" />
+					<FadingImage src="/api/assets/file/MNT_hero_bg.svg" alt="" fill className="object-cover object-center opacity-50" hideSpinner />
 					<CountUp />
 				</div>
 			</Title>

@@ -2,7 +2,7 @@ import Title from "@/components/layout/Title";
 import Main from "./main";
 
 import HeroImage from "@public/assets/icons/title.webp";
-import Image from "next/image";
+import FadingImage from "@/components/ui/FadingImage";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
@@ -23,7 +23,7 @@ export default function Page() {
 	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
-				<Image src={HeroImage} alt="" fill className="object-cover object-bottom-right" />
+				<FadingImage src={HeroImage} alt="" fill className="object-cover object-bottom-right" hideSpinner />
 			</Title>
 			<main className="max-w-8xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">
 				<Main />

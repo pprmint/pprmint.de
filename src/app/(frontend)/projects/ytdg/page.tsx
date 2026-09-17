@@ -29,7 +29,7 @@ export default function Page() {
 	return (
 		<>
 			<Title title={t("YTDG.Head.title")} description={t("YTDG.Head.description")}>
-				<FadingImage src={Hero} alt="" fill className="object-cover" quality={90} />
+				<FadingImage src={Hero} alt="" fill className="object-cover" quality={90} hideSpinner />
 			</Title>
 			<main className="max-w-8xl mx-auto px-6 md:px-9 lg:px-12 xl:px-20">
 				<section className="relative flex items-center pb-48 xl:pb-0 border-x border-black/5">

@@ -24,7 +24,7 @@ export default async function Page() {
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
 				<div className="absolute inset-0 bg-neutral-950" />
-				<FadingImage src="/api/assets/file/w11_title_bg.svg" alt="" fill className="object-cover" loading="eager" />
+				<FadingImage src="/api/assets/file/w11_title_bg.svg" alt="" fill className="object-cover" loading="eager" hideSpinner />
 				<div className="absolute inset-0 bg-linear-to-r from-neutral-950/75 via-transparent" />
 			</Title>
 			<main className="max-w-8xl mx-auto px-6 md:px-9 xl:px-20">

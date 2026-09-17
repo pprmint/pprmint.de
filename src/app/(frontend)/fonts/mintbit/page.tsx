@@ -28,7 +28,7 @@ export default function Page() {
 	return (
 		<>
 			<Title title={t("MINTBIT.Head.title")} titleFont={MintBit} description={t("MINTBIT.Head.description")}>
-				<FadingImage src={TitleBackground} alt="" fill className="object-cover" />
+				<FadingImage src={TitleBackground} alt="" fill className="object-cover" hideSpinner />
 			</Title>
 			<main>
 				<section className="max-w-8xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">
