@@ -193,6 +193,7 @@ export interface Announcement {
   };
   link?: string | null;
   linkText?: string | null;
+  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -262,6 +263,7 @@ export interface Article {
 export interface Asset {
   id: string;
   alt?: string | null;
+  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -419,6 +421,7 @@ export interface Artwork {
     hasNextPage?: boolean;
     totalDocs?: number;
   };
+  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -531,6 +534,7 @@ export interface Photo {
   aperture?: number | null;
   shutterSpeed?: string | null;
   focalLength?: number | null;
+  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -614,6 +618,7 @@ export interface Button {
   id: string;
   alt: string;
   link: string;
+  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -632,6 +637,7 @@ export interface Button {
  */
 export interface Download {
   id: string;
+  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -658,6 +664,7 @@ export interface User {
   resetPasswordExpiration?: string | null;
   salt?: string | null;
   hash?: string | null;
+  resetPasswordRequestedAt?: string | null;
   loginAttempts?: number | null;
   lockUntil?: string | null;
   sessions?:
@@ -806,6 +813,7 @@ export interface AnnouncementsSelect<T extends boolean = true> {
   text?: T;
   link?: T;
   linkText?: T;
+  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -896,6 +904,7 @@ export interface ArtworkSelect<T extends boolean = true> {
   alt?: T;
   entries?: T;
   smut?: T;
+  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -1038,6 +1047,7 @@ export interface PhotosSelect<T extends boolean = true> {
   aperture?: T;
   shutterSpeed?: T;
   focalLength?: T;
+  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -1123,6 +1133,7 @@ export interface LensesSelect<T extends boolean = true> {
  */
 export interface AssetsSelect<T extends boolean = true> {
   alt?: T;
+  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -1186,6 +1197,7 @@ export interface AssetsSelect<T extends boolean = true> {
 export interface ButtonsSelect<T extends boolean = true> {
   alt?: T;
   link?: T;
+  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -1203,6 +1215,7 @@ export interface ButtonsSelect<T extends boolean = true> {
  * via the `definition` "download_select".
  */
 export interface DownloadSelect<T extends boolean = true> {
+  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -1228,6 +1241,7 @@ export interface UsersSelect<T extends boolean = true> {
   resetPasswordExpiration?: T;
   salt?: T;
   hash?: T;
+  resetPasswordRequestedAt?: T;
   loginAttempts?: T;
   lockUntil?: T;
   sessions?:
