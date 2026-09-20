@@ -16,6 +16,7 @@ function ThingCycle({
 		alt: string;
 		link: string;
 		src: string;
+		bg?: string;
 	}[];
 	sizes: string;
 	className?: string;
@@ -80,7 +81,7 @@ function ThingCycle({
 						clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
 						transition: { type: "spring", duration: 0.8, bounce: 0 },
 					}}
-					className="size-full bg-black/5 dark:bg-white/5"
+					className={`size-full ${items[current].bg || "bg-black/5 dark:bg-white/5"}`}
 				>
 					<m.div
 						initial={{
@@ -150,27 +151,31 @@ export default function Things() {
 							alt: "MN Varia",
 							link: "/fonts/varia",
 							src: "/api/assets/file/MNVaria_Thumbnail.png",
+							bg: "bg-neutral-950",
 						},
 						{
 							alt: "MN Celesta",
 							link: "/fonts/celesta",
 							src: "/api/assets/file/MNCelesta_Thumbnail.svg",
+							bg: "bg-green-900",
 						},
 					]}
 					sizes="(max-width: 1280px) 50vw, 66vw"
 					className="xl:col-span-2 xl:row-span-2 aspect-video"
-					/>
+				/>
 				<ThingCycle
 					items={[
 						{
 							alt: "MN Markow",
 							link: "/fonts/markow",
 							src: "/api/assets/file/MNMarkow_Thumbnail.svg",
+							bg: "bg-[#282c58]",
 						},
 						{
 							alt: "MN Covert",
 							link: "/fonts/covert",
 							src: "/api/assets/file/MNCovert_Thumbnail.webp",
+							bg: "bg-white",
 						},
 					]}
 					sizes="(max-width: 1280px) 50vw, 33vw"
@@ -198,11 +203,13 @@ export default function Things() {
 							alt: "DSC00275",
 							link: "/photos",
 							src: "/api/photos/file/DSC00275.webp",
+							bg: "bg-lime-800",
 						},
 						{
 							alt: "DSC01773",
 							link: "/photos",
 							src: "/api/photos/file/DSC01773.webp",
+							bg: "bg-slate-400",
 						},
 					]}
 					sizes="(max-width: 1280px) 50vw, 66vw"
@@ -214,11 +221,13 @@ export default function Things() {
 							alt: "DSC01569",
 							link: "/photos",
 							src: "/api/photos/file/DSC01569.webp",
+							bg: "bg-sky-800"
 						},
 						{
 							alt: "DSC01241",
 							link: "/photos",
 							src: "/api/photos/file/DSC01241.webp",
+							bg: "bg-green-800",
 						},
 					]}
 					sizes="(max-width: 1280px) 50vw, 33vw"
@@ -246,11 +255,13 @@ export default function Things() {
 							alt: "Solar System 2",
 							link: "/graphics/solar-system-3",
 							src: "/api/assets/file/Solar_System_2_f133addf64.webp",
+							bg: "bg-olive-700"
 						},
 						{
 							alt: "Pimples",
 							link: "/graphics/pimples",
 							src: "/api/assets/file/Pimples_b41ae5d165.png",
+							bg: "bg-black"
 						},
 					]}
 					className="xl:col-span-2 xl:row-span-2 aspect-video"
