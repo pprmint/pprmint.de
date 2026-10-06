@@ -9,7 +9,6 @@ packages:
 overrides:
   dompurify: 3.4.12
   postcss: 8.5.23
-  sharp: 0.35.4
   '@types/react': 19.3.0
   '@types/react-dom': 19.3.0
 minimumReleaseAgeExclude:
@@ -24,3 +23,15 @@ minimumReleaseAgeExclude:
   - '@payloadcms/translations@3.90.1'
   - '@payloadcms/ui@3.90.1'
   - payload@3.90.1
+  - '@next/env@16.4.0'
+  - '@next/eslint-plugin-next@16.4.0'
+  - '@next/swc-darwin-arm64@16.4.0'
+  - '@next/swc-darwin-x64@16.4.0'
+  - '@next/swc-linux-arm64-gnu@16.4.0'
+  - '@next/swc-linux-arm64-musl@16.4.0'
+  - '@next/swc-linux-x64-gnu@16.4.0'
+  - '@next/swc-linux-x64-musl@16.4.0'
+  - '@next/swc-win32-arm64-msvc@16.4.0'
+  - '@next/swc-win32-x64-msvc@16.4.0'
+  - eslint-config-next@16.4.0
+  - next@16.4.0
