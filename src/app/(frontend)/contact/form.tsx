@@ -11,9 +11,13 @@ import { AnimatePresence } from "motion/react";
 import { Link } from "next-transition-router";
 import { submitForm } from "./submitForm";
 import { toast } from "sonner";
+import Chatbox from "./chatbox";
+import Bluesky from "@/icons/Bluesky";
 
 export default function Form() {
-	const t = useTranslations("CONTACT.Content.Email");
+	const [page, setPage] = useState<"faq" | "bluesky" | "email">("faq");
+	const t = useTranslations("CONTACT.Content");
+
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
@@ -66,158 +70,228 @@ export default function Form() {
 	}
 
 	return (
-		<AnimatePresence mode="wait">
-			{!submitted ? (
-				<m.div
-					key="form"
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1, transition: { ease: "linear", duration: 0.2 } }}
-					exit={{ opacity: 0, transition: { ease: "linear", duration: 0.2 } }}
-					className="relative"
+		<section className="relative w-full border-b sm:border-x border-t-0 border-black/5 dark:border-white/5">
+			<div className="grid grid-cols-3 border-b border-black/5 dark:border-white/5 divide-x divide-black/5 dark:divide-white/5">
+				<Button
+					size="grow"
+					align="center"
+					design={page === "faq" ? "filled" : "transparent"}
+					onClick={() => setPage("faq")}
 				>
-					<AnimatePresence>
-						{sending && (
-							<m.div
-								initial={{ opacity: 0 }}
-								animate={{ opacity: 1, transition: { ease: "linear", duration: 0.2 } }}
-								exit={{ opacity: 0, transition: { ease: "linear", duration: 0.2 } }}
-								className="absolute inset-0 z-20 bg-white/75 dark:bg-neutral-950/75 flex items-center justify-center"
-							>
-								<FadingImage
-									src={PixelMina}
-									alt=""
-									className="size-32"
-									style={{ imageRendering: "pixelated" }}
-								/>
-							</m.div>
-						)}
-					</AnimatePresence>
-					<form className="grid grid-cols-2">
-						<div className="col-span-2 sm:col-span-1 sm:border-r border-t sm:border-b border-black/5 dark:border-white/5">
-							<input
-								required
-								type="text"
-								placeholder={t("Form.name")}
-								name="name"
-								aria-label="name text field"
-								maxLength={30}
-								onChange={(e) => {
-									setFormData({ ...formData, name: e.target.value });
-								}}
-								className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
-							/>
-						</div>
-						<div className="col-span-2 sm:col-span-1 border-y border-black/5 dark:border-white/5">
-							<input
-								required
-								type="text"
-								placeholder={t("Form.emailAddress")}
-								name="email"
-								aria-label="email address text field"
-								maxLength={50}
-								onChange={(e) => {
-									setFormData({ ...formData, email: e.target.value });
-								}}
-								className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
-							/>
-						</div>
-						<div className="col-span-2 border-b border-black/5 dark:border-white/5">
-							<input
-								required
-								type="text"
-								placeholder={t("Form.subject")}
-								name="subject"
-								aria-label="subject text field"
-								maxLength={100}
-								onChange={(e) => {
-									setFormData({ ...formData, subject: e.target.value });
-								}}
-								className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
-							/>
-						</div>
-						<div className="col-span-2">
-							<textarea
-								required
-								name="message"
-								placeholder={t("Form.message")}
-								aria-label="message field"
-								maxLength={2000}
-								rows={7}
-								onChange={(e) => {
-									setFormData({ ...formData, message: e.target.value });
-								}}
-								className="size-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-1.5 duration-100 resize-none"
-							/>
-						</div>
-						<div className="col-span-2 flex flex-col sm:flex-row-reverse items-center justify-between">
-							<Button
-								onClick={(e) => {
-									handleSubmit(e);
-								}}
-								disabled={invalidInput}
-								design="filled"
-								color={failed ? "yellow" : "green"}
-							>
-								{failed && <WarningTriangle />}
-								{sending ? t("Form.sending") : failed ? t("Form.retry") : t("Form.send")}
-							</Button>
-							<p className="text-xs sm:ml-3 my-3 sm:my-0">
-								{t.rich("preferMailto", {
-									Link: (chunks) => (
-										<Link
-											href={`mailto:${chunks}?subject=${t("Message.subject")}&body=${t(
-												"Message.body"
-											)}`}
-											className="text-link"
-										>
-											{chunks}
-										</Link>
-									),
-								})}
-							</p>
-						</div>
-					</form>
-				</m.div>
-			) : (
-				<m.div
-					key="confirm"
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1, transition: { ease: "linear", duration: 0.2 } }}
-					exit={{ opacity: 0, transition: { ease: "linear", duration: 0.2 } }}
-					className="min-h-[349px] sm:min-h-[293px] flex flex-col gap-3 items-center justify-center text-center"
+					FAQ
+				</Button>
+				<Button
+					size="grow"
+					align="center"
+					design={page === "bluesky" ? "filled" : "transparent"}
+					onClick={() => setPage("bluesky")}
 				>
-					<h1 className="pb-0 font-sans font-stretch-75%">
-						<span>
-							{t("Form.sent")}
-						</span>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							strokeWidth="2"
-							strokeLinecap="butt"
-							strokeLinejoin="miter"
-							className="ml-3 size-[1em] inline stroke-green"
+					Bluesky
+				</Button>
+				<Button
+					size="grow"
+					align="center"
+					design={page === "email" ? "filled" : "transparent"}
+					onClick={() => setPage("email")}
+				>
+					Email
+				</Button>
+			</div>
+			<AnimatePresence mode="wait">
+				{page === "faq" ? (
+					<m.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1, transition: { ease: "linear", duration: 0.2 } }}
+						exit={{ opacity: 0, transition: { ease: "linear", duration: 0.1 } }}
+						key="faq"
+						className="w-full min-h-113 px-6 xl:px-9 py-9 flex flex-col justify-center text-center"
+					>
+						<h2>
+							{t("Mina.heading")}
+							<span className="text-green">.</span>
+						</h2>
+						<p className="pb-6">{t("Mina.text")}</p>
+						<div className="w-fit mx-auto">
+							<Chatbox />
+						</div>
+					</m.div>
+				) : page === "bluesky" ? (
+					<m.div
+						key="bluesky"
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1, transition: { ease: "linear", duration: 0.2 } }}
+						exit={{ opacity: 0, transition: { ease: "linear", duration: 0.1 } }}
+						className="w-full min-h-113 py-9 flex flex-col justify-center text-center"
+					>
+						<div className="px-6 xl:px-9">
+							<h2>
+								{t("Bluesky.heading")}
+								<span className="text-green">.</span>
+							</h2>
+							<p className="pb-9 text-balance">{t("Bluesky.text")}</p>
+						</div>
+						<div className="w-full border-y border-black/5 dark:border-white/5">
+							<div className="flex justify-center">
+								<Link href="https://bsky.app/profile/pprmint.de" target="_blank" rel="noopener noreferrer">
+									<Button noInitialPadding size="large" color="blue">
+										<Bluesky />
+										@pprmint.de
+									</Button>
+								</Link>
+							</div>
+						</div>
+					</m.div>
+				) : (
+					page === "email" &&
+					(!submitted ? (
+						<m.div
+							key="form"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1, transition: { ease: "linear", duration: 0.2 } }}
+							exit={{ opacity: 0, transition: { ease: "linear", duration: 0.1 } }}
+							className="relative min-h-113 text-center pt-9"
 						>
-							<m.path
-								d="M 4 12 L 9 17 L 20 6"
-								initial={{ pathLength: 0 }}
-								animate={{
-									pathLength: 1,
-									transition: {
-										delay: 0.3,
-										type: "spring",
-										duration: 0.5,
-										bounce: 0,
-									},
-								}}
-							/>
-						</svg>
-					</h1>
-					<p>{t("Form.sentText")}</p>
-				</m.div>
-			)}
-		</AnimatePresence>
+							<AnimatePresence>
+								{sending && (
+									<m.div
+										initial={{ opacity: 0 }}
+										animate={{ opacity: 1, transition: { ease: "linear", duration: 0.2 } }}
+										exit={{ opacity: 0, transition: { ease: "linear", duration: 0.1 } }}
+										className="absolute inset-0 z-20 bg-white/75 dark:bg-neutral-950/75 flex items-center justify-center"
+									>
+										<FadingImage src={PixelMina} alt="" className="size-32" style={{ imageRendering: "pixelated" }} />
+									</m.div>
+								)}
+							</AnimatePresence>
+							<h2 className="px-6">
+								{t("Email.heading")}
+								<span className="text-green">.</span>
+							</h2>
+							<p className="pb-8.75 text-balance px-6">{t("Email.text")}</p>
+							<form className="grid grid-cols-2">
+								<div className="col-span-2 sm:col-span-1 sm:border-r border-t sm:border-b border-black/5 dark:border-white/5">
+									<input
+										required
+										type="text"
+										placeholder={t("Email.Form.name")}
+										name="name"
+										aria-label="name text field"
+										maxLength={30}
+										onChange={(e) => {
+											setFormData({ ...formData, name: e.target.value });
+										}}
+										className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
+									/>
+								</div>
+								<div className="col-span-2 sm:col-span-1 border-y border-black/5 dark:border-white/5">
+									<input
+										required
+										type="text"
+										placeholder={t("Email.Form.emailAddress")}
+										name="email"
+										aria-label="email address text field"
+										maxLength={50}
+										onChange={(e) => {
+											setFormData({ ...formData, email: e.target.value });
+										}}
+										className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
+									/>
+								</div>
+								<div className="col-span-2 border-b border-black/5 dark:border-white/5">
+									<input
+										required
+										type="text"
+										placeholder={t("Email.Form.subject")}
+										name="subject"
+										aria-label="subject text field"
+										maxLength={100}
+										onChange={(e) => {
+											setFormData({ ...formData, subject: e.target.value });
+										}}
+										className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
+									/>
+								</div>
+								<div className="col-span-2">
+									<textarea
+										required
+										name="message"
+										placeholder={t("Email.Form.message")}
+										aria-label="message field"
+										maxLength={2000}
+										rows={7}
+										onChange={(e) => {
+											setFormData({ ...formData, message: e.target.value });
+										}}
+										className="size-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-1.5 duration-100 resize-none"
+									/>
+								</div>
+								<div className="col-span-2 flex flex-col sm:flex-row-reverse items-center justify-between">
+									<Button
+										onClick={(e) => {
+											handleSubmit(e);
+										}}
+										disabled={invalidInput}
+										design="filled"
+										color={failed ? "yellow" : "green"}
+									>
+										{failed && <WarningTriangle />}
+										{sending ? t("Email.Form.sending") : failed ? t("Email.Form.retry") : t("Email.Form.send")}
+									</Button>
+									<p className="text-xs sm:ml-3 my-3 sm:my-0">
+										{t.rich("Email.preferMailto", {
+											Link: (chunks) => (
+												<Link
+													href={`mailto:${chunks}?subject=${t("Email.Message.subject")}&body=${t("Email.Message.body")}`}
+													className="text-link"
+												>
+													{chunks}
+												</Link>
+											),
+										})}
+									</p>
+								</div>
+							</form>
+						</m.div>
+					) : (
+						<m.div
+							key="confirm"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1, transition: { ease: "linear", duration: 0.2 } }}
+							exit={{ opacity: 0, transition: { ease: "linear", duration: 0.1 } }}
+							className="min-h-113 flex flex-col gap-3 items-center justify-center text-center"
+						>
+							<h1 className="pb-0">
+								<span>{t("Email.Form.sent")}</span>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									strokeWidth="2"
+									strokeLinecap="butt"
+									strokeLinejoin="miter"
+									className="ml-3 size-[1em] inline stroke-green"
+								>
+									<m.path
+										d="M 4 12 L 9 17 L 20 6"
+										initial={{ pathLength: 0 }}
+										animate={{
+											pathLength: 1,
+											transition: {
+												delay: 0.3,
+												type: "spring",
+												duration: 0.5,
+												bounce: 0,
+											},
+										}}
+									/>
+								</svg>
+							</h1>
+							<p>{t("Email.Form.sentText")}</p>
+						</m.div>
+					))
+				)}
+			</AnimatePresence>
+		</section>
 	);
 }

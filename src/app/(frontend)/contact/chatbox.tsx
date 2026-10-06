@@ -38,9 +38,7 @@ function MessageBubble(props: { incoming?: boolean; id: string }) {
 				className={`w-fit max-w-[80%] px-4 py-2 rounded-3xl ${
 					props.incoming
 						? "rounded-bl-md bg-neutral-50 dark:bg-neutral-900 text-neutral-950 dark:text-white"
-						: `rounded-br-md ${
-								isAppleDevice ? "bg-blue-600" : "bg-green-600"
-						  } text-white selection:bg-neutral-950`
+						: `rounded-br-md ${isAppleDevice ? "bg-blue-600" : "bg-green-600"} text-white selection:bg-neutral-950`
 				}`}
 			>
 				{t.rich(`Messages.${props.id}.${props.incoming ? "answer" : "message"}`, {
@@ -133,8 +131,8 @@ function Chatbox() {
 			<Dialog.Trigger asChild>
 				<button className="group relative h-14">
 					<div
-						className="relative z-10 flex whitespace-nowrap items-end gap-3 text-5xl text-neutral-950 dark:text-white group-hover:drop-shadow-md duration-500 ease-out-expo"
-						style={{ lineHeight: "0.76em" }}
+						className="relative z-10 flex whitespace-nowrap items-end gap-3 text-5xl text-neutral-950 dark:text-white font-semibold font-narrow group-hover:drop-shadow-md duration-500 ease-out-expo"
+						style={{ lineHeight: "0.59em" }}
 					>
 						<div className="relative h-14 w-auto overflow-clip">
 							<svg
@@ -160,8 +158,7 @@ function Chatbox() {
 								className="absolute w-full aspect-square opacity-0 group-hover:opacity-100 rounded-full animate-spin group-hover:blur-xl duration-300"
 								style={{
 									animationDuration: "5s",
-									backgroundImage:
-										"conic-gradient(#f44, #f71, #fb0, #9c3, #4b5, #2cf, #29f, #a7e, #e6b, #f44)",
+									backgroundImage: "conic-gradient(#f44, #f71, #fb0, #9c3, #4b5, #2cf, #29f, #a7e, #e6b, #f44)",
 								}}
 							/>
 						</div>
@@ -184,9 +181,7 @@ function Chatbox() {
 							<Dialog.Title className="text-neutral-950 dark:text-white font-medium text-sm font-sans font-stretch-normal pb-0 leading-3">
 								Mina
 							</Dialog.Title>
-							<Dialog.Description className="text-sm">
-								{t(noTalky ? "titleAngy" : "title")}
-							</Dialog.Description>
+							<Dialog.Description className="text-sm">{t(noTalky ? "titleAngy" : "title")}</Dialog.Description>
 						</div>
 						<div className="w-1/5 pr-2">
 							<Image
@@ -214,9 +209,7 @@ function Chatbox() {
 										animate={{ opacity: 1, transition: { delay: 0.5 } }}
 										exit={{ opacity: 0, pointerEvents: "none" }}
 										className={`grid grid-rows-2 sm:grid-rows-1 sm:grid-cols-2 h-full items-center divide-x divide-black/5 dark:divide-white/5 ${
-											answering
-												? "opacity-50 saturate-0 pointer-events-none"
-												: "opacity-100 saturate-100"
+											answering ? "opacity-50 saturate-0 pointer-events-none" : "opacity-100 saturate-100"
 										}`}
 									>
 										<button

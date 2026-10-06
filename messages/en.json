@@ -295,11 +295,15 @@
 		},
 		"Content": {
 			"Mina": {
-				"heading": "Read an FAQ, but in a cool way",
+				"heading": "An FAQ, but in a cool way",
 				"text": "Save yourself (and most importantly me) some time and:"
 			},
+			"Bluesky": {
+				"heading": "Quick and easy",
+				"text": "A more direct way to get in touch with me, provided you have an account there as well."
+			},
 			"Email": {
-				"title": "Alternatively, write an email",
+				"heading": "The classic",
 				"text": "Sending me spam will be your undoing.",
 				"preferMailto": "Prefer to use your own email client? Send your email to <Link>mail@pprmint.de</Link>.",
 				"Form": {
