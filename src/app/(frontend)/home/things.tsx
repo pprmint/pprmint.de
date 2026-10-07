@@ -119,7 +119,7 @@ export default function Things() {
 
 	function Arrow() {
 		return (
-			<div className="xl:ml-auto relative size-7.5 sm:size-11.25 text-3xl sm:text-[2.8125rem] overflow-clip duration-0">
+			<div className="absolute bottom-1/2 translate-y-1/2 xl:translate-0 xl:bottom-6.5 right-6 xl:right-7 size-7.5 sm:size-11.25 text-3xl sm:text-[2.8125rem] overflow-clip duration-0">
 				<ArrowRight width="1em" height="1em" className="absolute group-hover:opacity-0 group-hover:duration-100" />
 				<ArrowRight
 					width="1em"
@@ -134,15 +134,13 @@ export default function Things() {
 			<div className="grid grid-cols-2 xl:grid-cols-3 xl:grid-rows-2 border-y sm:border-x border-black/5 dark:border-white/5 w-full">
 				<Link
 					href="/fonts"
-					className="group flex items-center xl:flex-col xl:items-start justify-between col-span-2 xl:col-span-1 xl:order-3 p-6 xl:p-9 hover:bg-black/5 dark:hover:bg-white/5 duration-200 hover:duration-0"
+					className="group relative col-span-2 xl:col-span-1 xl:order-3 p-6 xl:p-9 hover:bg-black/5 dark:hover:bg-white/5 duration-200 hover:duration-0"
 				>
-					<div>
-						<h2 className="pb-0 xl:pb-3">
-							{t("Fonts.heading")}
-							<span className="text-green">.</span>
-						</h2>
-						<p className="xl:text-xl">{t("Fonts.description")}</p>
-					</div>
+					<h2 className="pb-0 xl:pb-3">
+						{t("Fonts.heading")}
+						<span className="text-green">.</span>
+					</h2>
+					<p className="xl:text-xl mr-12 text-balance">{t("Fonts.description")}</p>
 					<Arrow />
 				</Link>
 				<ThingCycle
@@ -182,19 +180,17 @@ export default function Things() {
 					className="aspect-video"
 				/>
 			</div>
-			<div className="h-9 lg:h-20 w-full border-x border-black/5 dark:border-white/5" />
+			<div className="h-9 lg:h-20 w-full sm:border-x border-black/5 dark:border-white/5" />
 			<div className="grid grid-cols-2 xl:grid-cols-3 xl:grid-rows-2 border-y sm:border-x border-black/5 dark:border-white/5 w-full">
 				<Link
 					href="/photos"
-					className="group flex items-center xl:flex-col xl:items-start justify-between col-span-2 xl:col-span-1 p-6 xl:p-9 hover:bg-black/5 dark:hover:bg-white/5 duration-200 hover:duration-0"
+					className="group relative col-span-2 xl:col-span-1 p-6 xl:p-9 hover:bg-black/5 dark:hover:bg-white/5 duration-200 hover:duration-0"
 				>
-					<div>
-						<h2 className="pb-0 xl:pb-3">
-							{t("Photos.heading")}
-							<span className="text-green">.</span>
-						</h2>
-						<p className="xl:text-xl">{t("Photos.description")}</p>
-					</div>
+					<h2 className="pb-0 xl:pb-3">
+						{t("Photos.heading")}
+						<span className="text-green">.</span>
+					</h2>
+					<p className="xl:text-xl mr-12 text-balance">{t("Photos.description")}</p>
 					<Arrow />
 				</Link>
 				<ThingCycle
@@ -221,7 +217,7 @@ export default function Things() {
 							alt: "DSC01569",
 							link: "/photos",
 							src: "/api/photos/file/DSC01569.webp",
-							bg: "bg-sky-800"
+							bg: "bg-sky-800",
 						},
 						{
 							alt: "DSC01241",
@@ -234,19 +230,17 @@ export default function Things() {
 					className="aspect-3/2"
 				/>
 			</div>
-			<div className="h-9 lg:h-20 w-full border-x border-black/5 dark:border-white/5" />
+			<div className="h-9 lg:h-20 w-full sm:border-x border-black/5 dark:border-white/5" />
 			<div className="grid grid-cols-2 xl:grid-cols-3 xl:grid-rows-2 border-y sm:border-x border-black/5 dark:border-white/5 w-full">
 				<Link
 					href="/graphics"
-					className="group flex items-center xl:flex-col xl:items-start justify-between col-span-2 xl:col-span-1 xl:order-1 p-6 xl:p-9 hover:bg-black/5 dark:hover:bg-white/5 duration-200 hover:duration-0"
+					className="group relative col-span-2 xl:col-span-1 xl:order-1 p-6 xl:p-9 hover:bg-black/5 dark:hover:bg-white/5 duration-200 hover:duration-0"
 				>
-					<div>
-						<h2 className="pb-0 xl:pb-3">
-							{t("Graphics.heading")}
-							<span className="text-green">.</span>
-						</h2>
-						<p className="xl:text-xl">{t("Graphics.description")}</p>
-					</div>
+					<h2 className="pb-0 xl:pb-3">
+						{t("Graphics.heading")}
+						<span className="text-green">.</span>
+					</h2>
+					<p className="xl:text-xl mr-12 text-balance">{t("Graphics.description")}</p>
 					<Arrow />
 				</Link>
 				<ThingCycle
@@ -255,13 +249,13 @@ export default function Things() {
 							alt: "Solar System 2",
 							link: "/graphics/solar-system-3",
 							src: "/api/assets/file/Solar_System_2_f133addf64.webp",
-							bg: "bg-olive-700"
+							bg: "bg-olive-700",
 						},
 						{
 							alt: "Pimples",
 							link: "/graphics/pimples",
 							src: "/api/assets/file/Pimples_b41ae5d165.png",
-							bg: "bg-black"
+							bg: "bg-black",
 						},
 					]}
 					className="xl:col-span-2 xl:row-span-2 aspect-video"
