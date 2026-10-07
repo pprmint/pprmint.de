@@ -12,10 +12,6 @@ import { getLocale, getFormatter, getTranslations } from "next-intl/server";
 import Link from "next/link";
 import Title from "@/components/layout/Title";
 
-// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
-// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
-export const instant = false;
-
 type Args = {
 	params: Promise<{
 		slug?: string;
@@ -43,10 +39,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 			<Title title={graphic.title} description={graphic.description} />
 			<main className="border-y border-black/5 dark:border-white/5">
 				<article className="relative max-w-7xl mx-auto p-6 xl:p-9 border-x border-black/5 dark:border-white/5">
-					<RichText
-						className="lg:text-lg xl:prose-h1:text-7xl *:first:pt-0"
-						data={graphic.content}
-					/>
+					<RichText className="lg:text-lg xl:prose-h1:text-7xl *:first:pt-0" data={graphic.content} />
 				</article>
 			</main>
 		</>

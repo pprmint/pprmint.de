@@ -9,21 +9,17 @@ import Link from "next/link";
 import SwatchBook from "@/icons/SwatchBook";
 import ExternalLink from "@/icons/ExternalLink";
 
-// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
-// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
-export const instant = false;
-
 export async function generateMetadata() {
-    const t = await getTranslations("PALETTE");
-    return {
+	const t = await getTranslations("PALETTE");
+	return {
 		title: t("Head.title"),
 		description: t("Head.description"),
 	};
 }
 
 export default function Page() {
-    const t = useTranslations("PALETTE");
-    return (
+	const t = useTranslations("PALETTE");
+	return (
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
 				<div className="relative w-full h-full overflow-clip bg-neutral-950">
@@ -34,7 +30,7 @@ export default function Page() {
 						<div className="w-full h-1/6-screen -skew-y-12 border-y-2 border-violet" />
 						<div className="w-full h-1/6-screen skew-y-12 border-y-2 border-blue" />
 					</div>
-					<div className="absolute inset-0 bg-linear-to-r from-neutral-950/75 via-transparent"/>
+					<div className="absolute inset-0 bg-linear-to-r from-neutral-950/75 via-transparent" />
 				</div>
 			</Title>
 			<main className="max-w-8xl mx-auto sm:px-6 md:px-9 lg:px-12 xl:px-20">

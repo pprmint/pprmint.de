@@ -13,10 +13,6 @@ import Button from "@/components/ui/Button";
 import { MNCelesta } from "@public/fonts/MNCelesta/MNCelesta";
 import Things from "./home/things";
 
-// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
-// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
-export const instant = false;
-
 export async function generateMetadata() {
 	const t = await getTranslations("HOME");
 	return {
@@ -164,16 +160,16 @@ export default async function Page() {
 									})}
 								</p>
 							</div>
-								<div className="w-full border-y border-black/5 dark:border-white/5">
-									<div className="flex justify-center">
-										<Link href="/mina">
-											<Button noInitialPadding size="large">
-												{t("Content.Mina.button")}
-												<HeartFilled />
-											</Button>
-										</Link>
-									</div>
+							<div className="w-full border-y border-black/5 dark:border-white/5">
+								<div className="flex justify-center">
+									<Link href="/mina">
+										<Button noInitialPadding size="large">
+											{t("Content.Mina.button")}
+											<HeartFilled />
+										</Button>
+									</Link>
 								</div>
+							</div>
 						</div>
 					</div>
 				</section>

@@ -12,10 +12,6 @@ import IsometricScreenshot from "@public/assets/ytdg/screenshot_dark_iso.webp";
 import Check from "@/icons/Check";
 import ExternalLink from "@/icons/ExternalLink";
 
-// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
-// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
-export const instant = false;
-
 export async function generateMetadata() {
 	const t = await getTranslations("YTDG");
 	return {
@@ -35,9 +31,11 @@ export default function Page() {
 				<section className="relative flex items-center pb-48 xl:pb-0 border-x border-black/5">
 					<div className="py-20 md:py-32 xl:py-40 w-full z-10">
 						<div className="w-full max-w-xl 2xl:max-w-3xl">
-							<h2>{t.rich("YTDG.Content.About.heading", {
-								accPunct: (mark) => <span className="accent-punctuation from-violet">{mark}</span>
-							})}</h2>
+							<h2>
+								{t.rich("YTDG.Content.About.heading", {
+									accPunct: (mark) => <span className="accent-punctuation from-violet">{mark}</span>,
+								})}
+							</h2>
 							<p>{t("YTDG.Content.About.text1")}</p>
 							<p>
 								{t.rich("YTDG.Content.About.text2", {
@@ -66,7 +64,10 @@ export default function Page() {
 					/>
 				</section>
 				<section className="border-x border-black/5 dark:border-white/5">
-					<h2>{t("YTDG.Content.Roadmap.heading")}<span className="text-violet">.</span></h2>
+					<h2>
+						{t("YTDG.Content.Roadmap.heading")}
+						<span className="text-violet">.</span>
+					</h2>
 					<div className="flex flex-col pl-3 md:pl-6">
 						<div className="flex gap-3 md:gap-6">
 							<div className="flex flex-col">
@@ -112,7 +113,10 @@ export default function Page() {
 					</div>
 				</section>
 				<section className="pt-20 md:pt-32 xl:pt-40 border-x border-black/5 dark:border-white/5 text-center">
-					<h2>{t("YTDG.Content.Download.heading")}<span className="text-violet">.</span></h2>
+					<h2>
+						{t("YTDG.Content.Download.heading")}
+						<span className="text-violet">.</span>
+					</h2>
 					<p>{t("YTDG.Content.Download.text")}</p>
 					<br />
 					<div className="flex justify-center">

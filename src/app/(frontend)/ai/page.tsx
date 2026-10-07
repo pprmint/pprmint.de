@@ -3,10 +3,6 @@ import { getTranslations } from "next-intl/server";
 import Title from "@/components/layout/Title";
 import Link from "next/link";
 
-// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
-// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
-export const instant = false;
-
 export async function generateMetadata() {
 	const t = await getTranslations("AI");
 	return {
@@ -58,9 +54,7 @@ export default function Page() {
 						{t("Content.Disallow.heading")}
 						<span className="text-red">.</span>
 					</h2>
-					<p className="text-red-700 dark:text-red-100">
-						{t("Content.Disallow.text")}
-					</p>
+					<p className="text-red-700 dark:text-red-100">{t("Content.Disallow.text")}</p>
 				</section>
 				<section className="max-w-7xl mx-auto p-6 xl:p-9 md:border-x border-black/5 dark:border-white/5">
 					<h2>

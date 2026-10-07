@@ -12,10 +12,6 @@ import Time from "./time";
 import Download from "@/icons/Download";
 import { MintTriangles } from "@public/fonts/MintTriangles/MintTriangles";
 
-// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
-// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
-export const instant = false;
-
 export async function generateMetadata() {
 	const t = await getTranslations("MINTTRIANGLES");
 	return {
@@ -35,7 +31,13 @@ export default async function Page() {
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
 				<div className="w-screen h-full bg-neutral-950">
-					<FadingImage src="/api/assets/file/MNT_hero_bg.svg" alt="" fill className="object-cover object-center opacity-50" hideSpinner />
+					<FadingImage
+						src="/api/assets/file/MNT_hero_bg.svg"
+						alt=""
+						fill
+						className="object-cover object-center opacity-50"
+						hideSpinner
+					/>
 					<CountUp />
 				</div>
 			</Title>

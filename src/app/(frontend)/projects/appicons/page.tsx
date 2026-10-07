@@ -5,10 +5,6 @@ import Selector from "./icons";
 import Title from "@/components/layout/Title";
 import FadingImage from "@/components/ui/FadingImage";
 
-// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
-// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
-export const instant = false;
-
 export async function generateMetadata() {
 	const t = await getTranslations("APPICONS");
 	return {
@@ -24,12 +20,22 @@ export default async function Page() {
 		<>
 			<Title title={t("Head.title")} description={t("Head.description")}>
 				<div className="absolute inset-0 bg-neutral-950" />
-				<FadingImage src="/api/assets/file/w11_title_bg.svg" alt="" fill className="object-cover" loading="eager" hideSpinner />
+				<FadingImage
+					src="/api/assets/file/w11_title_bg.svg"
+					alt=""
+					fill
+					className="object-cover"
+					loading="eager"
+					hideSpinner
+				/>
 				<div className="absolute inset-0 bg-linear-to-r from-neutral-950/75 via-transparent" />
 			</Title>
 			<main className="max-w-8xl mx-auto px-6 md:px-9 xl:px-20">
 				<section className="pt-20 md:pt-32 xl:pt-40 px-6 xl:px-9 xl:text-center xl:text-balance border-x border-black/5 dark:border-white/5">
-					<h2>{t("Content.Intro.title")}<span className="text-green">.</span></h2>
+					<h2>
+						{t("Content.Intro.title")}
+						<span className="text-green">.</span>
+					</h2>
 					<p>
 						{t.rich("Content.Intro.text1", {
 							i: (chunks) => <i>{chunks}</i>,

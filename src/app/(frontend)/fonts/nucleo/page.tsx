@@ -6,10 +6,6 @@ import FadingImage from "@/components/ui/FadingImage";
 
 import Link from "next/link";
 
-// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
-// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
-export const instant = false;
-
 export async function generateMetadata() {
 	const t = await getTranslations("NUCLEO");
 	return {
@@ -24,7 +20,14 @@ export default function Page() {
 		<>
 			<Title title={t("NUCLEO.Head.title")} description={t("NUCLEO.Head.description")} noAccents>
 				<div className="absolute inset-0 bg-neutral-950">
-					<FadingImage src="/api/assets/file/Nucleo_Hero.webp" alt="" fill className="object-cover" quality={100} hideSpinner />
+					<FadingImage
+						src="/api/assets/file/Nucleo_Hero.webp"
+						alt=""
+						fill
+						className="object-cover"
+						quality={100}
+						hideSpinner
+					/>
 				</div>
 			</Title>
 			<main>

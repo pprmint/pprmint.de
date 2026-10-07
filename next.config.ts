@@ -33,7 +33,6 @@ const securityHeaders = [
 module.exports = withPayload(
 	withNextIntl({
 		reactStrictMode: false,
-		cacheComponents: true,
 		experimental: {
 			useTypeScriptCli: true,
 		},

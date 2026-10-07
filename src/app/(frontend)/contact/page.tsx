@@ -4,10 +4,6 @@ import FadingImage from "@/components/ui/FadingImage";
 
 import Form from "./form";
 
-// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
-// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
-export const instant = false;
-
 export async function generateMetadata() {
 	const t = await getTranslations("CONTACT");
 	return {

@@ -8,10 +8,6 @@ import Seyana from "@public/assets/mina/sticker_seyana.webp";
 import LoadingSpinner from "@/components/loading/LoadingSpinner";
 import GlowingSpinner from "@/components/loading/GlowingSpinner";
 
-// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
-// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
-export const instant = false;
-
 export async function generateMetadata() {
 	return {
 		title: "Test page",
@@ -120,10 +116,7 @@ export default function Page() {
 					<div className="w-full h-12 bg-violet-950" />
 				</div>
 			</section>
-			<section
-				id="buttons"
-				className="w-full flex flex-col gap-6 pb-40 flex-wrap"
-			>
+			<section id="buttons" className="w-full flex flex-col gap-6 pb-40 flex-wrap">
 				<h2>Buttons</h2>
 				<h3>Regular (transparent)</h3>
 				<div className="flex gap-3 flex-wrap">

@@ -10,10 +10,6 @@ import Download from "@/icons/Download";
 import FontTester from "../FontTester";
 import { MNCovert } from "@public/fonts/MNCovert/MNCovert";
 
-// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
-// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
-export const instant = false;
-
 export async function generateMetadata() {
 	const t = await getTranslations("COVERT");
 	return {
@@ -28,7 +24,14 @@ export default function Page() {
 		<>
 			<Title title={t("COVERT.Head.title")} titleFont={MNCovert} description={t("COVERT.Head.description")} noAccents>
 				<div className="absolute inset-0 bg-neutral-950">
-					<FadingImage src="/api/assets/file/Covert_Hero.webp" alt="" fill className="object-cover" quality={100} hideSpinner />
+					<FadingImage
+						src="/api/assets/file/Covert_Hero.webp"
+						alt=""
+						fill
+						className="object-cover"
+						quality={100}
+						hideSpinner
+					/>
 				</div>
 			</Title>
 			<main>
