@@ -188,7 +188,7 @@ export default function OutfitRow({ outfits }: { outfits: PaginatedDocs<Outfit> 
 						<Dialog.Title asChild>
 							<h2>
 								{data.name}
-								<span className="text-green">.</span>
+								<span className="text-orange-500">.</span>
 							</h2>
 						</Dialog.Title>
 						{typeof data.designer === "object" && data.designer.creditLinks && data.designer.creditLinks.length > 0 ? (
@@ -259,10 +259,9 @@ export default function OutfitRow({ outfits }: { outfits: PaginatedDocs<Outfit> 
 								</div>
 								<div className="absolute w-full left-1/7 bottom-0 -skew-x-45 h-1/6 bg-linear-to-t from-black/5 dark:from-white/5" />
 								<div
-								className="absolute inset-0 opacity-20 dark:opacity-75"
+									className="absolute inset-0 opacity-20 dark:opacity-75"
 									style={{
-										maskImage:
-											"linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 30%",
+										maskImage: "linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 30%",
 										maskRepeat: "space",
 									}}
 								>

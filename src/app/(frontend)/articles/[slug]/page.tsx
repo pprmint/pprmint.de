@@ -116,7 +116,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 							aria-hidden
 							className={`${MNCelesta.className} py-9 italic text-center text-neutral-950 dark:text-white text-6xl xl:text-7xl tracking-tight`}
 						>
-							fin<span className="text-green">.</span>
+							fin<span className="text-orange-500">.</span>
 						</div>
 					</div>
 				</div>

@@ -49,6 +49,17 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 			<body
 				className={`${BasierSquare.variable} ${BasierSquareNarrow.variable} ${BasierSquareMono.variable} ${MNVaria.variable} font-sans bg-white dark:bg-neutral-950 max-w-screen overflow-x-hidden selection:bg-green/50 text-neutral-950/75 dark:text-white/75 focus-visible:outline-hidden focus-visible:ring-2`}
 			>
+				<div
+					style={{
+						backgroundImage: "url(/assets/noise.webp)",
+						backgroundSize: "150px",
+						position: "fixed",
+						inset: 0,
+						opacity: 0.025,
+						zIndex: 99999,
+						pointerEvents: "none",
+					}}
+				/>
 				<LazyMotion features={domAnimation}>
 					<ThemeProvider defaultTheme="system" themes={["light", "dark", "system"]} attribute="class">
 						<noscript>

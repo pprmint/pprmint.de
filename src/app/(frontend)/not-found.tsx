@@ -103,7 +103,7 @@ export default function NotFound() {
 										}}
 									>
 										{t("Content.title")}
-										<span className="text-green">.</span>
+										<span className="text-orange-500">.</span>
 									</m.div>
 								</h1>
 								<m.p

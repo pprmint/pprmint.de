@@ -427,6 +427,7 @@
 	},
 	"FOOTER": {
 		"madeWithLoveAndCoffee": "Made with <heart></heart> and <coffee></coffee>",
+		"empty": "empty...",
 		"Theme": {
 			"light": "Light theme",
 			"dark": "Dark theme",

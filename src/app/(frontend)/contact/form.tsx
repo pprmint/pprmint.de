@@ -108,7 +108,7 @@ export default function Form() {
 					>
 						<h2>
 							{t("Mina.heading")}
-							<span className="text-green">.</span>
+							<span className="text-orange-500">.</span>
 						</h2>
 						<p className="pb-6">{t("Mina.text")}</p>
 						<div className="w-fit mx-auto">
@@ -126,7 +126,7 @@ export default function Form() {
 						<div className="px-6 xl:px-9">
 							<h2>
 								{t("Bluesky.heading")}
-								<span className="text-green">.</span>
+								<span className="text-orange-500">.</span>
 							</h2>
 							<p className="pb-9 text-balance">{t("Bluesky.text")}</p>
 						</div>
@@ -165,7 +165,7 @@ export default function Form() {
 							</AnimatePresence>
 							<h2 className="px-6">
 								{t("Email.heading")}
-								<span className="text-green">.</span>
+								<span className="text-orange-500">.</span>
 							</h2>
 							<p className="pb-8.75 text-balance px-6">{t("Email.text")}</p>
 							<form className="grid grid-cols-2">

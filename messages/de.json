@@ -428,6 +428,7 @@
 	"FOOTER": {
 		"madeWithLoveAndCoffee": "Gemacht mit <heart></heart> und <coffee></coffee>",
 		"and": " und ",
+		"empty": "leer...",
 		"Theme": {
 			"light": "Helles Design",
 			"dark": "Dunkles Design",

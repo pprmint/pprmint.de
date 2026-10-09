@@ -30,7 +30,7 @@ export default function Page() {
 						<div className="px-6 xl:px-9 mb-6">
 							<h2>
 								{t("MARKOW.Content.Tester.heading")}
-								<span className="text-green">.</span>
+								<span className="text-orange-500">.</span>
 							</h2>
 							<p>{t("MARKOW.Content.Tester.text")}</p>
 						</div>
@@ -63,7 +63,7 @@ export default function Page() {
 						<div className="px-6 xl:px-9">
 							<h2>
 								{t("MARKOW.Content.Download.heading")}
-								<span className="text-green">.</span>
+								<span className="text-orange-500">.</span>
 							</h2>
 							<p>{t("MARKOW.Content.Download.text")}</p>
 							<br />

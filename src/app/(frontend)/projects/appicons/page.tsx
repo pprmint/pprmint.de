@@ -34,7 +34,7 @@ export default async function Page() {
 				<section className="pt-20 md:pt-32 xl:pt-40 px-6 xl:px-9 xl:text-center xl:text-balance border-x border-black/5 dark:border-white/5">
 					<h2>
 						{t("Content.Intro.title")}
-						<span className="text-green">.</span>
+						<span className="text-orange-500">.</span>
 					</h2>
 					<p>
 						{t.rich("Content.Intro.text1", {

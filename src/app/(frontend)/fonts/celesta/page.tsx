@@ -55,7 +55,7 @@ export default function Page() {
 						<div className="px-6 xl:px-9 mb-6">
 							<h2>
 								{t("CELESTA.Content.Tester.heading")}
-								<span className="text-green">.</span>
+								<span className="text-orange-500">.</span>
 							</h2>
 							<p>{t("CELESTA.Content.Tester.text")}</p>
 						</div>

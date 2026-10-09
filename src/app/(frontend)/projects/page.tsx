@@ -25,7 +25,7 @@ export default function Page() {
 					<div className="px-6 xl:px-9">
 						<h2>
 							{t("PROJECTS.Fonts.heading")}
-							<span className="text-green">.</span>
+							<span className="text-orange-500">.</span>
 						</h2>
 						<p>{t("PROJECTS.Fonts.text")}</p>
 						<br />

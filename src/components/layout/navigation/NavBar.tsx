@@ -180,11 +180,11 @@ export default function NavBar() {
 						>
 							<stop
 								offset="0"
-								style={{ stopColor: "#17925f", stopOpacity: 1 }}
+								style={{ stopColor: "var(--color-orange-500)", stopOpacity: 1 }}
 							/>
 							<stop
 								offset="1"
-								style={{ stopColor: "#1b6b47", stopOpacity: 1 }}
+								style={{ stopColor: "var(--color-orange-700)", stopOpacity: 1 }}
 							/>
 						</linearGradient>
 						<linearGradient
@@ -198,9 +198,9 @@ export default function NavBar() {
 						>
 							<stop
 								offset="0"
-								style={{ stopColor: "#17925f", stopOpacity: 1 }}
+								style={{ stopColor: "var(--color-orange-500)", stopOpacity: 1 }}
 							/>
-							<stop offset="1" style={{ stopColor: "#0b7", stopOpacity: 1 }} />
+							<stop offset="1" style={{ stopColor: "var(--color-orange-400)", stopOpacity: 1 }} />
 						</linearGradient>
 						<linearGradient
 							id="pprmint.c"

@@ -138,7 +138,7 @@ export default function Things() {
 				>
 					<h2 className="pb-0 xl:pb-3">
 						{t("Fonts.heading")}
-						<span className="text-green">.</span>
+						<span className="text-orange-500">.</span>
 					</h2>
 					<p className="xl:text-xl mr-12 text-balance">{t("Fonts.description")}</p>
 					<Arrow />
@@ -188,7 +188,7 @@ export default function Things() {
 				>
 					<h2 className="pb-0 xl:pb-3">
 						{t("Photos.heading")}
-						<span className="text-green">.</span>
+						<span className="text-orange-500">.</span>
 					</h2>
 					<p className="xl:text-xl mr-12 text-balance">{t("Photos.description")}</p>
 					<Arrow />
@@ -238,7 +238,7 @@ export default function Things() {
 				>
 					<h2 className="pb-0 xl:pb-3">
 						{t("Graphics.heading")}
-						<span className="text-green">.</span>
+						<span className="text-orange-500">.</span>
 					</h2>
 					<p className="xl:text-xl mr-12 text-balance">{t("Graphics.description")}</p>
 					<Arrow />

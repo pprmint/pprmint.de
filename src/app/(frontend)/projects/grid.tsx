@@ -116,11 +116,9 @@ export default function Grid() {
 							<div className="absolute inset-0 p-6 translate-y-6 opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-hover:translate-y-0 group-focus:translate-y-0 duration-200 group-hover:duration-400 group-focus:duration-400 ease-in-quad group-hover:ease-out-quint group-focus:ease-out-quint group-hover:delay-100 group-focus:delay-150">
 								<h3 className="text-white md:text-2xl xl:text-3xl">
 									{t(`${project.name.toUpperCase()}.Head.title`)}
-									<span className="text-green">.</span>
+									<span className="text-orange-500">.</span>
 								</h3>
-								<p className="pb-6 text-white/75">
-									{t(`${project.name.toUpperCase()}.Head.description`)}
-								</p>
+								<p className="pb-6 text-white/75">{t(`${project.name.toUpperCase()}.Head.description`)}</p>
 							</div>
 							<ArrowRight className="absolute bottom-6 right-12 opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-hover:right-6 group-focus:right-6 fill-green stroke-green stroke-1 size-7 duration-200 group-hover:duration-400 group-focus:duration-400 ease-in-quad group-hover:ease-out-quint group-focus:ease-out-quint group-hover:delay-100 group-focus:delay-150" />
 						</div>

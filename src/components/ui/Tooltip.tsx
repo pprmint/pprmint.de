@@ -10,7 +10,7 @@ export default function Tooltip({ text, side = "top", children }: PropsWithChild
 	return (
 		<RadixTooltip.Root delayDuration={300}>
 			<RadixTooltip.Trigger asChild>
-				<div className="flex items-center justify-center gap-1">{children}</div>
+				{children}
 			</RadixTooltip.Trigger>
 			<RadixTooltip.Content
 				className="

@@ -44,7 +44,7 @@ export default function Buttons({ buttons }: { buttons: PaginatedDocs<ButtonType
 						<Dialog.Title asChild>
 							<h2 className="px-6 md:px-9 mt-6 md:mt-9 md:text-center lg:text-balance">
 								{t("FOOTER.Button.title")}
-								<span className="text-green">.</span>
+								<span className="text-orange-500">.</span>
 							</h2>
 						</Dialog.Title>
 						<Dialog.Description asChild>

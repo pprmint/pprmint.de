@@ -14,10 +14,10 @@ export default function HomeTitle() {
 	});
 	return (
 		<div className="relative w-full overflow-hidden text-balance">
-			<div className="absolute -z-10 inset-0 bg-green-300 dark:bg-neutral-950">
+			<div className="absolute -z-10 inset-0 bg-orange-300 dark:bg-neutral-950">
 				<video
 					src="/api/assets/file/home_waves.mp4"
-					className="absolute inset-0 object-bottom object-cover w-full h-full contrast-105 dark:contrast-90 invert dark:invert-0 mix-blend-luminosity dark:mix-blend-lighten bg-black"
+					className="absolute inset-0 object-bottom object-cover w-full h-full contrast-105 dark:contrast-90 invert dark:invert-0 mix-blend-luminosity dark:mix-blend-lighten bg-black hue-rotate-270 saturate-150"
 					autoPlay
 					muted
 					playsInline
@@ -47,7 +47,7 @@ export default function HomeTitle() {
 							}}
 						>
 							{t("Content.Hero.title")}
-							<span className="text-green">.</span>
+							<span className="text-orange-500">.</span>
 						</m.h1>
 						<m.p
 							initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}

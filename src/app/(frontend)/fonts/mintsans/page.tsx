@@ -59,7 +59,7 @@ export default function Page() {
 					<div className="py-20 md:py-32 xl:py-40 text-center sm:border-x border-black/5 dark:border-white/5">
 						<h2 className="mb-6 px-6 xl:px-9">
 							{t("MINTSANS.Content.Tester.heading")}
-							<span className="text-green">.</span>
+							<span className="text-orange-500">.</span>
 						</h2>
 						<FontTester
 							font={MintSans}

@@ -34,7 +34,7 @@ export default function Page() {
 					<div className="pb-20 md:pb-32 xl:pb-40 text-center border-x border-black/5 dark:border-white/5">
 						<h2 className="mb-6 px-6 xl:px-9">
 							{t("MINTBIT.Content.Tester.heading")}
-							<span className="text-green">.</span>
+							<span className="text-orange-500">.</span>
 						</h2>
 						<FontTester
 							styles={[{ tag: "wght", steps: [400] }]}

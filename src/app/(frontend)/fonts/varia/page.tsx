@@ -155,7 +155,7 @@ export default function Page() {
 					<div className="py-20 md:py-32 xl:py-40 text-center sm:border-x border-black/5 dark:border-white/5">
 						<h2 className="mb-6 px-6 xl:px-9">
 							{t("VARIA.Content.Tester.heading")}
-							<span className="text-green">.</span>
+							<span className="text-orange-500">.</span>
 						</h2>
 						<FontTester
 							font={MNVaria}
@@ -182,7 +182,7 @@ export default function Page() {
 						<div className="px-6 xl:px-9">
 							<h2>
 								{t("VARIA.Content.Download.heading")}
-								<span className="text-green">.</span>
+								<span className="text-orange-500">.</span>
 							</h2>
 							<p>{t("VARIA.Content.Download.text")}</p>
 							<br />

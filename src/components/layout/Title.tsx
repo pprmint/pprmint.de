@@ -54,7 +54,7 @@ export default function Title(
 								}}
 							>
 								{props.title}
-								<span className={props.noAccents ? "text-inherit" : "text-green"}>.</span>
+								<span className={props.noAccents ? "text-inherit" : "text-orange-500"}>.</span>
 							</m.h1>
 							<m.p
 								initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}

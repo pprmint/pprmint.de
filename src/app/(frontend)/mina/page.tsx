@@ -48,7 +48,7 @@ export default async function Page({
 						<div className="md:border-r border-black/5 dark:border-white/5 pt-9 md:pt-20 xl:py-40 px-6 lg:px-9">
 							<h2>
 								{t("Content.About.heading")}
-								<span className="text-green">.</span>
+								<span className="text-orange-500">.</span>
 							</h2>
 							<p>{t("Content.About.text1")}</p>
 							<p>{t("Content.About.text2")}</p>
@@ -90,7 +90,7 @@ export default async function Page({
 					<div className="w-full sm:border-x border-black/5 dark:border-white/5 py-20 lg:py-32 xl:py-40 px-6 xl:px-9 xl:text-center xl:text-balance">
 						<h2>
 							{t("Content.Fanart.heading")}
-							<span className="text-green">.</span>
+							<span className="text-orange-500">.</span>
 						</h2>
 						<p>{t("Content.Fanart.text1")}</p>
 						<p>{t("Content.Fanart.text2")}</p>
@@ -136,7 +136,7 @@ export default async function Page({
 					<div className="relative z-10 sm:border-x border-black/5 dark:border-white/5 w-full max-w-8xl mx-auto pb-12 text-center text-balance">
 						<h2>
 							{t("Content.Discord.heading")}
-							<span className="text-green">.</span>
+							<span className="text-orange-500">.</span>
 						</h2>
 						<p className="xl:text-xl 2xl:text-2xl">{t("Content.Discord.text")}</p>
 						<div

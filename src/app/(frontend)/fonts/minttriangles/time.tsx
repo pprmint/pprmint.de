@@ -24,9 +24,9 @@ function Time() {
 	return (
 		<span style={{ fontFamily: MintTriangles.style.fontFamily }} className="absolute top-[6%] left-0 text-white">
 			{time[0]}
-			<span className="text-green">:</span>
+			<span className="text-orange-500">:</span>
 			{time[1]}
-			<span className="text-green">:</span>
+			<span className="text-orange-500">:</span>
 			{time[2]}
 		</span>
 	);

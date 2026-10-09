@@ -37,7 +37,7 @@ export default function Page() {
 				<section className="py-20 md:py-32 xl:py-40 px-6 xl:px-9 sm:border-x border-black/5 dark:border-white/5">
 					<h2>
 						{t("Content.Current.heading")}
-						<span className="text-green">.</span>
+						<span className="text-orange-500">.</span>
 					</h2>
 					<p>{t("Content.Current.text1")}</p>
 					<p>{t("Content.Current.text2")}</p>
@@ -58,7 +58,7 @@ export default function Page() {
 				<section className="py-20 md:py-32 xl:py-40 sm:border-x px-6 xl:px-9 border-black/5 dark:border-white/5">
 					<h2>
 						{t("Content.Old.heading")}
-						<span className="text-green">.</span>
+						<span className="text-orange-500">.</span>
 					</h2>
 					<p>{t("Content.Old.text1")}</p>
 					<p>{t("Content.Old.text2")}</p>
