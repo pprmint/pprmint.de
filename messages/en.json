@@ -305,7 +305,7 @@
 			"Email": {
 				"heading": "The classic",
 				"text": "Sending me spam will be your undoing.",
-				"preferMailto": "Prefer to use your own email client? Send your email to <Link>mail@pprmint.de</Link>.",
+				"preferMailto": "You can also send your message to <Link>mail@pprmint.de</Link> on your own.",
 				"Form": {
 					"name": "Name",
 					"emailAddress": "Email address",

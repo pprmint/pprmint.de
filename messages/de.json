@@ -305,7 +305,7 @@
 			"Email": {
 				"heading": "Der Klassiker",
 				"text": "Schick Spam und du fliegst raus.",
-				"preferMailto": "Möchtest du lieber deinen eigenen Email-Client verwenden? Sende deine Email an <Link>mail@pprmint.de</Link>.",
+				"preferMailto": "Du kannst deine Nachricht auch selbst an <Link>mail@pprmint.de</Link> senden.",
 				"Form": {
 					"name": "Name",
 					"emailAddress": "Email-Adresse",

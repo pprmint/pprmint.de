@@ -149,7 +149,7 @@ export default function Form() {
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1, transition: { ease: "linear", duration: 0.2 } }}
 							exit={{ opacity: 0, transition: { ease: "linear", duration: 0.1 } }}
-							className="relative min-h-113 text-center pt-9"
+							className="relative flex flex-col min-h-113 text-center"
 						>
 							<AnimatePresence>
 								{sending && (
@@ -163,100 +163,111 @@ export default function Form() {
 									</m.div>
 								)}
 							</AnimatePresence>
-							<h2 className="px-6">
-								{t("Email.heading")}
-								<span className="text-orange-500">.</span>
-							</h2>
-							<p className="pb-8.75 text-balance px-6">{t("Email.text")}</p>
-							<form className="grid grid-cols-2">
-								<div className="col-span-2 sm:col-span-1 sm:border-r border-t sm:border-b border-black/5 dark:border-white/5">
-									<input
-										required
-										type="text"
-										placeholder={t("Email.Form.name")}
-										name="name"
-										aria-label="name text field"
-										maxLength={30}
-										onChange={(e) => {
-											setFormData({ ...formData, name: e.target.value });
-										}}
-										className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
-									/>
-								</div>
-								<div className="col-span-2 sm:col-span-1 border-y border-black/5 dark:border-white/5">
-									<input
-										required
-										type="text"
-										placeholder={t("Email.Form.emailAddress")}
-										name="email"
-										aria-label="email address text field"
-										maxLength={50}
-										onChange={(e) => {
-											setFormData({ ...formData, email: e.target.value });
-										}}
-										className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
-									/>
-								</div>
-								<div className="col-span-2 border-b border-black/5 dark:border-white/5">
-									<input
-										required
-										type="text"
-										placeholder={t("Email.Form.subject")}
-										name="subject"
-										aria-label="subject text field"
-										maxLength={100}
-										onChange={(e) => {
-											setFormData({ ...formData, subject: e.target.value });
-										}}
-										className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
-									/>
-								</div>
-								<div className="col-span-2">
-									<textarea
-										required
-										name="message"
-										placeholder={t("Email.Form.message")}
-										aria-label="message field"
-										maxLength={2000}
-										rows={7}
-										onChange={(e) => {
-											setFormData({ ...formData, message: e.target.value });
-										}}
-										className="size-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-1.5 duration-100 resize-none"
-									/>
-								</div>
-								<div className="col-span-2 flex flex-col sm:flex-row-reverse items-center justify-between">
-									<Button
-										onClick={(e) => {
-											handleSubmit(e);
-										}}
-										disabled={invalidInput}
-										design="filled"
-										color={failed ? "yellow" : "green"}
-									>
-										{failed && <WarningTriangle />}
-										{sending ? t("Email.Form.sending") : failed ? t("Email.Form.retry") : t("Email.Form.send")}
-									</Button>
-									<p className="text-xs sm:ml-3 my-3 sm:my-0">
-										{t.rich("Email.preferMailto", {
-											Link: (chunks) => (
-												<Link
-													href={`mailto:${chunks}?subject=${t("Email.Message.subject")}&body=${t("Email.Message.body")}`}
-													className="text-link"
-												>
-													{chunks}
-												</Link>
-											),
-										})}
-									</p>
-								</div>
-							</form>
+							<div className="my-auto px-6">
+								<h2>
+									{t("Email.heading")}
+									<span className="text-orange-500">.</span>
+								</h2>
+								<p className="text-balance pb-0">{t("Email.text")}</p>
+							</div>
+							<div className="border-t border-black/5 dark:border-white/5">
+								<form className="grid grid-cols-2 md:max-w-2xl mx-auto md:border-x border-black/5 dark:border-white/5">
+									<div className="col-span-2 sm:col-span-1 sm:border-r border-b border-black/5 dark:border-white/5">
+										<input
+											required
+											type="text"
+											placeholder={t("Email.Form.name")}
+											name="name"
+											aria-label="name text field"
+											maxLength={30}
+											onChange={(e) => {
+												setFormData({ ...formData, name: e.target.value });
+											}}
+											className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
+										/>
+									</div>
+									<div className="col-span-2 sm:col-span-1 border-b border-black/5 dark:border-white/5">
+										<input
+											required
+											type="text"
+											placeholder={t("Email.Form.emailAddress")}
+											name="email"
+											aria-label="email address text field"
+											maxLength={50}
+											onChange={(e) => {
+												setFormData({ ...formData, email: e.target.value });
+											}}
+											className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
+										/>
+									</div>
+									<div className="col-span-2 border-b border-black/5 dark:border-white/5">
+										<input
+											required
+											type="text"
+											placeholder={t("Email.Form.subject")}
+											name="subject"
+											aria-label="subject text field"
+											maxLength={100}
+											onChange={(e) => {
+												setFormData({ ...formData, subject: e.target.value });
+											}}
+											className="w-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 h-9 duration-100"
+										/>
+									</div>
+									<div className="col-span-2">
+										<textarea
+											required
+											name="message"
+											placeholder={t("Email.Form.message")}
+											aria-label="message field"
+											maxLength={2000}
+											rows={5}
+											onChange={(e) => {
+												setFormData({ ...formData, message: e.target.value });
+											}}
+											className="size-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 hover:focus:bg-transparent outline-hidden focus:outline-hidden text-neutral-950 dark:text-white placeholder:text-neutral px-3 py-1.5 duration-100 resize-none"
+										/>
+									</div>
+									<div className="col-span-2 flex flex-col sm:flex-row-reverse items-center justify-between">
+										<Button
+											onClick={(e) => {
+												handleSubmit(e);
+											}}
+											disabled={invalidInput}
+											design="filled"
+											color={failed ? "yellow" : "green"}
+										>
+											{failed && <WarningTriangle />}
+											{sending ? t("Email.Form.sending") : failed ? t("Email.Form.retry") : t("Email.Form.send")}
+										</Button>
+										<p className="text-xs sm:ml-3 my-3 sm:my-0">
+											{t.rich("Email.preferMailto", {
+												Link: (chunks) => (
+													<Link
+														href={`mailto:${chunks}?subject=${formData.subject || t("Email.Message.subject")}&body=${formData.message || t("Email.Message.body")}`}
+														className="text-link"
+													>
+														{chunks}
+													</Link>
+												),
+											})}
+										</p>
+									</div>
+								</form>
+							</div>
 						</m.div>
 					) : (
 						<m.div
 							key="confirm"
-							initial={{ opacity: 0 }}
-							animate={{ opacity: 1, transition: { ease: "linear", duration: 0.2 } }}
+							initial={{ opacity: 0, y: 30 }}
+							animate={{
+								opacity: 1,
+								y: 0,
+								transition: {
+									opacity: { ease: "linear", duration: 0.2 },
+									y: { type: "spring", bounce: 0, duration: 0.5 },
+								},
+							}}
 							exit={{ opacity: 0, transition: { ease: "linear", duration: 0.1 } }}
 							className="min-h-113 flex flex-col gap-3 items-center justify-center text-center"
 						>
@@ -278,7 +289,6 @@ export default function Form() {
 										animate={{
 											pathLength: 1,
 											transition: {
-												delay: 0.3,
 												type: "spring",
 												duration: 0.5,
 												bounce: 0,
