@@ -104,7 +104,7 @@ export default async function GallerySuspense({
 		<div className="sm:border-x border-black/5 dark:border-white/5">
 			{artworks !== null && (
 				<>
-					<div className="xl:flex w-full border-t border-black/5 dark:border-white/5">
+					<div className="2xl:flex w-full border-t border-black/5 dark:border-white/5">
 						<Filters
 							nsfw={nsfw}
 							refs={refs}
@@ -113,7 +113,7 @@ export default async function GallerySuspense({
 							outfit={outfit}
 							outfits={outfits}
 						/>
-						<div className="flex items-center border-t xl:border-t-0 border-black/5 dark:border-white/5">
+						<div className="flex items-center border-t 2xl:border-t-0 border-black/5 dark:border-white/5">
 							<div className="text-sm grow px-3">
 								{t("Content.Artworks.showingArtworks", {
 									shown: artworks.totalDocs,

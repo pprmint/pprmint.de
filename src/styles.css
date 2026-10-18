@@ -88,19 +88,14 @@
 	--color-violet-900: #2e2538;
 	--color-violet-950: #161318;
 
-	--font-din:
-		DINish, Bahnschrift, D-DIN, Inter, Roboto, Helvetica, Arial, sans-serif;
-	--font-varia:
-		"MN Varia WIP 0.017", "Avenir Next", Avenir, Helvetica, Arial, sans-serif;
-	--font-serif:
-		"MN Celesta", "New York", "Roboto Slab", "Linux Libertine", Georgia, Times,
-		serif;
+	--font-din: DINish, Bahnschrift, D-DIN, Inter, Roboto, Helvetica, Arial, sans-serif;
+	--font-varia: "MN Varia WIP 0.017", "Avenir Next", Avenir, Helvetica, Arial, sans-serif;
+	--font-serif: "MN Celesta", "New York", "Roboto Slab", "Linux Libertine", Georgia, Times, serif;
 	--font-mintbit: Mintbit, "Roboto Mono", monospace;
 	--font-minttriangles: "Mint Triangles", monospace;
 	--font-mintsans: MintSans, sans-serif;
 
-	--animate-accordion-slide-down: accordionSlideDown 0.4s
-		cubic-bezier(0.5, 0, 0.1, 1);
+	--animate-accordion-slide-down: accordionSlideDown 0.4s cubic-bezier(0.5, 0, 0.1, 1);
 	@keyframes accordionSlideDown {
 		from {
 			height: 0;
@@ -112,8 +107,7 @@
 		}
 	}
 
-	--animate-accordion-slide-up: accordionSlideUp 0.4s
-		cubic-bezier(0.5, 0, 0.1, 1);
+	--animate-accordion-slide-up: accordionSlideUp 0.4s cubic-bezier(0.5, 0, 0.1, 1);
 	@keyframes accordionSlideUp {
 		from {
 			height: var(--radix-accordion-content-height);
@@ -125,8 +119,7 @@
 		}
 	}
 
-	--animate-collapsible-horizontal-open: collapsibleHorizontalOpen 0.3s
-		cubic-bezier(0.5, 0, 0.17, 1);
+	--animate-collapsible-horizontal-open: collapsibleHorizontalOpen 0.3s cubic-bezier(0.5, 0, 0.17, 1);
 	@keyframes collapsibleHorizontalOpen {
 		from {
 			width: 0;
@@ -136,8 +129,7 @@
 		}
 	}
 
-	--animate-collapsible-horizontal-close: collapsibleHorizontalClose 0.3s
-		cubic-bezier(0.3, 0, 0.2, 1);
+	--animate-collapsible-horizontal-close: collapsibleHorizontalClose 0.3s cubic-bezier(0.3, 0, 0.2, 1);
 	@keyframes collapsibleHorizontalClose {
 		from {
 			width: var(--radix-collapsible-content-width);
@@ -147,8 +139,7 @@
 		}
 	}
 
-	--animate-collapsible-vertical-open: collapsibleVerticalOpen 0.3s
-		cubic-bezier(0.5, 0, 0.17, 1);
+	--animate-collapsible-vertical-open: collapsibleVerticalOpen 0.3s cubic-bezier(0.5, 0, 0.17, 1);
 	@keyframes collapsibleVerticalOpen {
 		from {
 			height: 0;
@@ -158,8 +149,7 @@
 		}
 	}
 
-	--animate-collapsible-vertical-close: collapsibleVerticalClose 0.3s
-		cubic-bezier(0.3, 0, 0.2, 1);
+	--animate-collapsible-vertical-close: collapsibleVerticalClose 0.3s cubic-bezier(0.3, 0, 0.2, 1);
 	@keyframes collapsibleVerticalClose {
 		from {
 			height: var(--radix-collapsible-content-height);
@@ -199,7 +189,7 @@
 		}
 	}
 
-	--animate-scale-up: scaleUp 0.2s cubic-bezier(0, 0, 0.2, 1);
+	--animate-scale-up: scaleUp 0.15s cubic-bezier(0, 0, 0.2, 1);
 	@keyframes scaleUp {
 		from {
 			scale: 95%;
@@ -255,8 +245,31 @@
 		}
 	}
 
-	--animate-fade-out-scale-down: fadeOutScaleDown 0.2s
-		cubic-bezier(0, 0, 0.2, 1);
+	--animate-overlay-in: overlayIn 0.25s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+	@keyframes overlayIn {
+		from {
+			opacity: 0;
+			inset: 10%;
+		}
+		to {
+			opacity: 1;
+			inset: 0%;
+		}
+	}
+	
+	--animate-overlay-out: overlayOut 0.2s linear;
+	@keyframes overlayOut {
+		from {
+			opacity: 1;
+			inset: 0%;
+		}
+		to {
+			opacity: 0;
+			inset: 2%;
+		}
+	}
+
+	--animate-fade-out-scale-down: fadeOutScaleDown 0.2s cubic-bezier(0, 0, 0.2, 1);
 	@keyframes fadeOutScaleDown {
 		from {
 			opacity: 1;
@@ -264,12 +277,11 @@
 		}
 		to {
 			opacity: 0;
-			transform: scale(0.9);
+			transform: scale(0.95);
 		}
 	}
 
-	--animate-arrow-fade-down: arrowFadeDown 1.5s cubic-bezier(0.2, 0.2, 0.2, 1)
-		2s infinite;
+	--animate-arrow-fade-down: arrowFadeDown 1.5s cubic-bezier(0.2, 0.2, 0.2, 1) 2s infinite;
 	@keyframes arrowFadeDown {
 		0% {
 			opacity: 0;
@@ -289,8 +301,7 @@
 		}
 	}
 
-	--animate-tooltip-enter-top: tooltipEnterTop 0.2s
-		cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	--animate-tooltip-enter-top: tooltipEnterTop 0.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 	@keyframes tooltipEnterTop {
 		from {
 			opacity: 0;
@@ -302,8 +313,7 @@
 		}
 	}
 
-	--animate-tooltip-exit-top: tooltipExitTop 0.2s cubic-bezier(0.33, 1, 0.68, 1)
-		forwards;
+	--animate-tooltip-exit-top: tooltipExitTop 0.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 	@keyframes tooltipExitTop {
 		from {
 			opacity: 1;
@@ -315,8 +325,7 @@
 		}
 	}
 
-	--animate-tooltip-enter-bottom: tooltipEnterBottom 0.2s
-		cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	--animate-tooltip-enter-bottom: tooltipEnterBottom 0.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 	@keyframes tooltipEnterBottom {
 		from {
 			opacity: 0;
@@ -328,8 +337,7 @@
 		}
 	}
 
-	--animate-tooltip-exit-bottom: tooltipExitBottom 0.2s
-		cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	--animate-tooltip-exit-bottom: tooltipExitBottom 0.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 	@keyframes tooltipExitBottom {
 		from {
 			opacity: 1;
@@ -341,8 +349,7 @@
 		}
 	}
 
-	--animate-tooltip-enter-left: tooltipEnterLeft 0.2s
-		cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	--animate-tooltip-enter-left: tooltipEnterLeft 0.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 	@keyframes tooltipEnterLeft {
 		from {
 			opacity: 0;
@@ -354,8 +361,7 @@
 		}
 	}
 
-	--animate-tooltip-exit-left: tooltipExitLeft 0.2s
-		cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	--animate-tooltip-exit-left: tooltipExitLeft 0.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 	@keyframes tooltipExitLeft {
 		from {
 			opacity: 1;
@@ -367,8 +373,7 @@
 		}
 	}
 
-	--animate-tooltip-enter-right: tooltipEnterRight 0.2s
-		cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	--animate-tooltip-enter-right: tooltipEnterRight 0.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 	@keyframes tooltipEnterRight {
 		from {
 			opacity: 0;
@@ -380,8 +385,7 @@
 		}
 	}
 
-	--animate-tooltip-exit-right: tooltipExitRight 0.2s
-		cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	--animate-tooltip-exit-right: tooltipExitRight 0.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 	@keyframes tooltipExitRight {
 		from {
 			opacity: 1;
@@ -393,8 +397,7 @@
 		}
 	}
 
-	--animate-svg-check-draw-in: svgCheckDrawIn 0.25s
-		cubic-bezier(0.33, 1, 0.68, 1) forwards;
+	--animate-svg-check-draw-in: svgCheckDrawIn 0.25s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 	@keyframes svgCheckDrawIn {
 		from {
 			stroke-dashoffset: 24;
@@ -404,8 +407,7 @@
 		}
 	}
 
-	--animate-float: float 4s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse
-		infinite;
+	--animate-float: float 4s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite;
 	@keyframes float {
 		0%,
 		100% {
@@ -416,8 +418,7 @@
 		}
 	}
 
-	--animate-float-rotate-l: floatRotateL 6s cubic-bezier(0.5, 0, 0.5, 1)
-		alternate-reverse infinite;
+	--animate-float-rotate-l: floatRotateL 6s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite;
 	@keyframes floatRotateL {
 		0% {
 			transform: translateY(10px) rotate(3deg);
@@ -430,8 +431,7 @@
 		}
 	}
 
-	--animate-float-rotate-r: floatRotateR 6s cubic-bezier(0.5, 0, 0.5, 1)
-		alternate-reverse infinite;
+	--animate-float-rotate-r: floatRotateR 6s cubic-bezier(0.5, 0, 0.5, 1) alternate-reverse infinite;
 	@keyframes floatRotateR {
 		0% {
 			transform: translateY(10px) rotate(-3deg);
@@ -444,8 +444,7 @@
 		}
 	}
 
-	--animate-dialog-enter: dialogEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s
-		normal backwards;
+	--animate-dialog-enter: dialogEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s normal backwards;
 	@keyframes dialogEnter {
 		from {
 			transform: translateY(30px) scale(0.98);

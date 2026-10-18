@@ -15,7 +15,10 @@ export default function FadingImage({ className, hideSpinner, focalX, focalY, ..
 	return (
 		<Fragment>
 			{!hideSpinner && !loaded && (
-				<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+				<div
+					className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-fade-in"
+					style={{ animationDelay: "1s", animationFillMode: "backwards" }}
+				>
 					<LoadingSpinner />
 				</div>
 			)}
@@ -24,7 +27,7 @@ export default function FadingImage({ className, hideSpinner, focalX, focalY, ..
 				onLoad={() => setLoaded(true)}
 				className={`${loaded ? "opacity-100" : "opacity-0"}${className ? ` ${className}` : ""}`}
 				style={{
-					transition: "opacity 0.5s",
+					transition: "opacity 0.4s",
 					objectPosition: focalX && focalY ? `${focalX}% ${focalY}%` : "50% 50%",
 				}}
 				draggable={false}
