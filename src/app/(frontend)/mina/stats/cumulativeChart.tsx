@@ -37,6 +37,7 @@ export default function CumulativeChart({ allDocs }: { allDocs: PaginatedDocs<Mi
 	const margin = { top: 8, right: 36, bottom: 36, left: 36 };
 	const innerWidth = width - margin.left - margin.right;
 	const innerHeight = height - margin.top - margin.bottom;
+	const isSmall = width < 640 - margin.left - margin.right;
 
 	// Data scales.
 	const xScale = useMemo(
@@ -45,7 +46,7 @@ export default function CumulativeChart({ allDocs }: { allDocs: PaginatedDocs<Mi
 				range: [0, innerWidth],
 				domain: extent(data, (d) => new Date(d.date)) as [Date, Date],
 			}),
-		[data, innerWidth]
+		[data, innerWidth],
 	);
 	const yScale = useMemo(
 		() =>
@@ -53,7 +54,7 @@ export default function CumulativeChart({ allDocs }: { allDocs: PaginatedDocs<Mi
 				range: [innerHeight, 0],
 				domain: [0, max(data, (d) => d.count) ?? 0],
 			}),
-		[data, innerHeight]
+		[data, innerHeight],
 	);
 
 	// Tooltip configuration.
@@ -78,7 +79,7 @@ export default function CumulativeChart({ allDocs }: { allDocs: PaginatedDocs<Mi
 				tooltipTop: tooltipY,
 			});
 		},
-		[data, xScale, yScale, margin.left, showTooltip]
+		[data, xScale, yScale, margin.left, showTooltip],
 	);
 
 	// Grid lines.
@@ -91,6 +92,19 @@ export default function CumulativeChart({ allDocs }: { allDocs: PaginatedDocs<Mi
 		}
 		return ticks;
 	}
+	function getYearlyTicks(start: Date, end: Date): Date[] {
+		const ticks: Date[] = [];
+		for (let y = start.getFullYear(); y <= end.getFullYear(); y++) {
+			const tick = new Date(y, 0, 1);
+			if (tick >= start && tick <= end) ticks.push(tick);
+		}
+		return ticks;
+	}
+	// Format date scale.
+	const formatTick = (d: Date) => {
+		if (isSmall) return format.dateTime(d, { year: "numeric" });
+		return d.getMonth() === 0 ? format.dateTime(d, { year: "numeric" }) : format.dateTime(d, { month: "short" });
+	};
 
 	return (
 		<div ref={parentRef} className="relative size-full">
@@ -98,6 +112,7 @@ export default function CumulativeChart({ allDocs }: { allDocs: PaginatedDocs<Mi
 				<Group left={margin.left} top={margin.top}>
 					{getMonthlyTicks(xScale.domain()[0], xScale.domain()[1])
 						.slice(1)
+						.filter((tick) => !isSmall || tick.getMonth() % 2 === 0)
 						.map((tick, i) => (
 							<line
 								key={i}
@@ -106,7 +121,7 @@ export default function CumulativeChart({ allDocs }: { allDocs: PaginatedDocs<Mi
 								y1={0}
 								y2={innerHeight}
 								stroke="currentColor"
-								strokeDasharray={tick.getMonth() === 0 ? 0 : 4}
+								strokeDasharray={tick.getMonth() === 0 ? 0 : 3}
 								strokeWidth={1}
 								className="stroke-black/5 dark:stroke-white/5"
 							/>
@@ -158,6 +173,7 @@ export default function CumulativeChart({ allDocs }: { allDocs: PaginatedDocs<Mi
 					)}
 					<AxisLeft
 						scale={yScale}
+						numTicks={isSmall ? 4 : undefined}
 						axisLineClassName="stroke-current"
 						tickLineProps={{ stroke: "currentColor" }}
 						tickLabelProps={{ fill: "currentColor", fontFamily: "inherit" }}
@@ -165,9 +181,11 @@ export default function CumulativeChart({ allDocs }: { allDocs: PaginatedDocs<Mi
 					<AxisBottom
 						top={innerHeight}
 						scale={xScale}
+						tickValues={isSmall ? getYearlyTicks(xScale.domain()[0], xScale.domain()[1]) : undefined}
+						tickFormat={(d) => formatTick(d as Date)}
 						axisLineClassName="stroke-current"
 						tickLineProps={{ stroke: "currentColor" }}
-						tickLabelProps={{ fill: "currentColor", fontFamily: "inherit", textAnchor: "start" }}
+						tickLabelProps={{ fill: "currentColor", fontFamily: "inherit", textAnchor: "middle" }}
 					/>
 					<rect
 						width={innerWidth + margin.left}
