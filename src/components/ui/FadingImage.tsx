@@ -17,7 +17,7 @@ export default function FadingImage({ className, hideSpinner, focalX, focalY, ..
 			{!hideSpinner && !loaded && (
 				<div
 					className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-fade-in"
-					style={{ animationDelay: "1s", animationFillMode: "backwards" }}
+					style={{ animationDelay: "0.5s", animationFillMode: "backwards" }}
 				>
 					<LoadingSpinner />
 				</div>
