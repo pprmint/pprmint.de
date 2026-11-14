@@ -256,7 +256,7 @@
 			inset: 0%;
 		}
 	}
-	
+
 	--animate-overlay-out: overlayOut 0.2s linear;
 	@keyframes overlayOut {
 		from {
@@ -490,6 +490,32 @@
 		}
 	}
 
+	--animate-focus-outline:
+		focusOutline 0.5s cubic-bezier(0.16, 1, 0.36, 1) both,
+		focusOutlinePulse 1.5s ease-out 0.5s alternate infinite;
+	@keyframes focusOutline {
+		from {
+			box-shadow: 0 0 0 5px var(--color-green);
+		}
+		to {
+			box-shadow: 0 0 0 1px var(--color-green);
+		}
+	}
+	@keyframes focusOutlinePulse {
+		from {
+			box-shadow:
+				0 0 0 1px var(--color-green),
+				inset 0 0 0 var(--color-green),
+				0 0 0px var(--color-green);
+		}
+		to {
+			box-shadow:
+				0 0 0 1px var(--color-green),
+				inset 0 0 4px var(--color-green),
+				0 0 4px var(--color-green);
+		}
+	}
+
 	--duration-25: 25ms;
 	--duration-50: 50ms;
 	--duration-250: 250ms;
@@ -705,6 +731,9 @@
 	}
 	h6 {
 		@apply text-neutral-950 dark:text-white font-varia md:text-lg lg:text-xl pb-1;
+	}
+	*:focus-visible {
+		@apply animate-focus-outline z-10;
 	}
 }
 

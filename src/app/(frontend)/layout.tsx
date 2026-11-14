@@ -47,7 +47,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<body
-				className={`${BasierSquare.variable} ${BasierSquareNarrow.variable} ${BasierSquareMono.variable} ${MNVaria.variable} font-sans bg-white dark:bg-neutral-950 max-w-screen overflow-x-hidden selection:bg-green/50 text-neutral-950/75 dark:text-white/75 focus-visible:outline-hidden focus-visible:ring-2`}
+				className={`${BasierSquare.variable} ${BasierSquareNarrow.variable} ${BasierSquareMono.variable} ${MNVaria.variable} font-sans bg-white dark:bg-neutral-950 max-w-screen overflow-x-hidden selection:bg-green/50 text-neutral-950/75 dark:text-white/75 focus-visible:outline-hidden`}
 			>
 				<LazyMotion features={domAnimation}>
 					<ThemeProvider defaultTheme="system" themes={["light", "dark", "system"]} attribute="class">
