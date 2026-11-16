@@ -56,8 +56,8 @@ export default async function Stats() {
 			</Dialog.Trigger>
 			<Dialog.Portal>
 				<Dialog.Overlay className="bg-white/90 dark:bg-neutral-950/90 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out fixed inset-0 z-100" />
-				<Dialog.Content className="fixed z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-svh sm:max-h-4/5-screen overflow-y-auto overflow-x-hidden md:h-max w-screen sm:w-[93vw] max-w-8xl bg-white dark:bg-neutral-950 outline-solid outline-1 outline-black/5 dark:outline-white/5 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl">
-					<header className="sticky top-0 z-10 flex justify-between items-center pl-3 border-b border-black/5 dark:border-white/5 bg-white dark:bg-neutral-950">
+				<Dialog.Content className="fixed z-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-svh sm:max-h-5/6-screen overflow-hidden h-full w-screen sm:w-[93vw] max-w-8xl bg-white dark:bg-neutral-950 outline-solid outline-1 outline-black/5 dark:outline-white/5 data-[state=open]:animate-dialog-enter data-[state=closed]:animate-dialog-exit origin-center shadow-2xl">
+					<header className="flex justify-between items-center pl-3 border-b border-black/5 dark:border-white/5 bg-white dark:bg-neutral-950">
 						<Dialog.Title className="font-sans font-medium text-base pb-0">{t("Content.Artworks.Statistics.title")}</Dialog.Title>
 						<Dialog.Close asChild>
 							<button
@@ -68,7 +68,7 @@ export default async function Stats() {
 							</button>
 						</Dialog.Close>
 					</header>
-					<div className="xl:flex my-9">
+					<div className="xl:flex gap-7 h-[calc(100%-2.25rem)] py-9 overflow-y-auto">
 						<div className="grow">
 							<div className="grid grid-rows-3 sm:grid-rows-2 md:grid-rows-1 sm:grid-cols-2 md:grid-cols-3 w-full gap-y-6 mb-6 md:mb-12">
 								<div className="text-center">
@@ -107,7 +107,7 @@ export default async function Stats() {
 									</p>
 								</div>
 							</div>
-							<div className="w-full h-max aspect-video md:aspect-2.25/1 mb-6">
+							<div className="w-full h-max aspect-video md:aspect-2.5/1 mb-6">
 								<CumulativeChart allDocs={allDocs} />
 							</div>
 						</div>
