@@ -8,7 +8,7 @@ import Link from "next/link";
 import Button from "@/components/ui/Button";
 import Download from "@/icons/Download";
 import FontTester from "../FontTester";
-import { MNCovert } from "@public/fonts/MNCovert/MNCovert";
+import { MNCovert } from "@/fonts/MNCovert/MNCovert";
 
 export async function generateMetadata() {
 	const t = await getTranslations("COVERT");

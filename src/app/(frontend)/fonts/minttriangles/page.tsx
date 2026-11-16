@@ -10,7 +10,7 @@ import Button from "@/components/ui/Button";
 import CountUp from "./countUp";
 import Time from "./time";
 import Download from "@/icons/Download";
-import { MintTriangles } from "@public/fonts/MintTriangles/MintTriangles";
+import { MintTriangles } from "@/fonts/MintTriangles/MintTriangles";
 
 export async function generateMetadata() {
 	const t = await getTranslations("MINTTRIANGLES");

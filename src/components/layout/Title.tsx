@@ -4,7 +4,7 @@ import { Fragment, PropsWithChildren, ReactNode, Ref, useEffect } from "react";
 import { useNavbar } from "./navigation/NavBarContext";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { MNVaria } from "@public/fonts/MNVaria/MNVaria";
+import { MNVaria } from "@/fonts/MNVaria/MNVaria";
 import { NextFontWithVariable } from "next/dist/compiled/@next/font";
 
 export default function Title(

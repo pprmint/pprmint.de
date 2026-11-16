@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import ArrowRight from "@/icons/ArrowRight";
 import Button from "@/components/ui/Button";
 import { useMotionTemplate, useSpring, useTransform } from "motion/react";
-import { DINish } from "@public/fonts/DINish/DINish";
+import { DINish } from "@/fonts/DINish/DINish";
 import FadingImage from "@/components/ui/FadingImage";
 
 export default function NotFound() {

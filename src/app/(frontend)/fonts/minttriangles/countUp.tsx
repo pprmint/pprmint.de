@@ -1,5 +1,5 @@
 "use client";
-import { MintTriangles } from "@public/fonts/MintTriangles/MintTriangles";
+import { MintTriangles } from "@/fonts/MintTriangles/MintTriangles";
 import { useEffect, useState } from "react";
 
 export default function CountUp() {

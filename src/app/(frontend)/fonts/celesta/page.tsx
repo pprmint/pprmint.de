@@ -6,7 +6,7 @@ import Title from "@/components/layout/Title";
 import Button from "@/components/ui/Button";
 import Download from "@/icons/Download";
 import FontTester from "../FontTester";
-import { MNCelesta } from "@public/fonts/MNCelesta/MNCelesta";
+import { MNCelesta } from "@/fonts/MNCelesta/MNCelesta";
 import GitHub from "@/icons/GitHub";
 import Marquee from "react-fast-marquee";
 

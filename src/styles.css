@@ -733,7 +733,7 @@
 		@apply text-neutral-950 dark:text-white font-varia md:text-lg lg:text-xl pb-1;
 	}
 	*:focus-visible {
-		@apply animate-focus-outline z-10;
+		@apply animate-focus-outline z-10 outline-none;
 	}
 }
 

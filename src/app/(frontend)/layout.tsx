@@ -9,10 +9,10 @@ import NavBar from "@/components/layout/navigation/NavBar";
 import Footer from "@/components/layout/footer/Footer";
 import WarningTriangle from "@/icons/WarningTriangle";
 
-import { BasierSquare } from "@public/fonts/BasierSquare/BasierSquare";
-import { BasierSquareNarrow } from "@public/fonts/BasierSquare/Narrow/BasierSquareNarrow";
-import { BasierSquareMono } from "@public/fonts/BasierSquare/Mono/BasierSquareMono";
-import { MNVaria } from "@public/fonts/MNVaria/MNVaria";
+import { BasierSquare } from "@/fonts/BasierSquare/BasierSquare";
+import { BasierSquareNarrow } from "@/fonts/BasierSquare/Narrow/BasierSquareNarrow";
+import { BasierSquareMono } from "@/fonts/BasierSquare/Mono/BasierSquareMono";
+import { MNVaria } from "@/fonts/MNVaria/MNVaria";
 import "@/styles.css";
 
 import { NavbarProvider } from "@/components/layout/navigation/NavBarContext";
@@ -47,7 +47,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<body
-				className={`${BasierSquare.variable} ${BasierSquareNarrow.variable} ${BasierSquareMono.variable} ${MNVaria.variable} font-sans bg-white dark:bg-neutral-950 max-w-screen overflow-x-hidden selection:bg-green/50 text-neutral-950/75 dark:text-white/75 focus-visible:outline-hidden`}
+				className={`${BasierSquare.variable} ${BasierSquareNarrow.variable} ${BasierSquareMono.variable} ${MNVaria.variable} font-sans bg-white dark:bg-neutral-950 max-w-screen overflow-x-hidden selection:bg-green/50 text-neutral-950/75 dark:text-white/75 focus:outline-hidden`}
 			>
 				<LazyMotion features={domAnimation}>
 					<ThemeProvider defaultTheme="system" themes={["light", "dark", "system"]} attribute="class">

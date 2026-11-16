@@ -15,7 +15,7 @@ import Slide4 from "@public/assets/mintsans/slide4.svg";
 import Slide5 from "@public/assets/mintsans/slide5.svg";
 import Slide6 from "@public/assets/mintsans/slide6.svg";
 import FontTester from "../FontTester";
-import { MintSans } from "@public/fonts/MintSans/MintSans";
+import { MintSans } from "@/fonts/MintSans/MintSans";
 
 export async function generateMetadata() {
 	const t = await getTranslations("MINTSANS");

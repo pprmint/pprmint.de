@@ -10,7 +10,7 @@ import Announcements from "./home/announcements";
 import HomeTitle from "./home/title";
 import * as m from "motion/react-m";
 import Button from "@/components/ui/Button";
-import { MNCelesta } from "@public/fonts/MNCelesta/MNCelesta";
+import { MNCelesta } from "@/fonts/MNCelesta/MNCelesta";
 import Things from "./home/things";
 
 export async function generateMetadata() {

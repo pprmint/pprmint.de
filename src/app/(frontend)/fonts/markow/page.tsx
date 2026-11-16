@@ -6,7 +6,7 @@ import Title from "@/components/layout/Title";
 import Button from "@/components/ui/Button";
 import Download from "@/icons/Download";
 import FontTester from "../FontTester";
-import { MNMarkow } from "@public/fonts/MNMarkow/MNMarkow";
+import { MNMarkow } from "@/fonts/MNMarkow/MNMarkow";
 import Codeberg from "@/icons/Codeberg";
 
 export async function generateMetadata() {

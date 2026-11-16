@@ -9,7 +9,7 @@ import FadingImage from "@/components/ui/FadingImage";
 import Button from "@/components/ui/Button";
 import Download from "@/icons/Download";
 import FontTester from "../FontTester";
-import { MintBit } from "@public/fonts/Mintbit/MintBit";
+import { MintBit } from "@/fonts/Mintbit/MintBit";
 
 export async function generateMetadata() {
 	const t = await getTranslations("MINTBIT");

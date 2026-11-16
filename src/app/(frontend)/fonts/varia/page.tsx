@@ -10,7 +10,7 @@ import Button from "@/components/ui/Button";
 import Download from "@/icons/Download";
 import GitHub from "@/icons/GitHub";
 import FontTester from "../FontTester";
-import { MNVaria } from "@public/fonts/MNVaria/MNVaria";
+import { MNVaria } from "@/fonts/MNVaria/MNVaria";
 
 export async function generateMetadata() {
 	const t = await getTranslations("VARIA");

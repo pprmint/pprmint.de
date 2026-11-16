@@ -1,14 +1,14 @@
 import Title from "@/components/layout/Title";
 import { getTranslations } from "next-intl/server";
 
-import { MNVaria } from "@public/fonts/MNVaria/MNVaria";
-import { MNCelesta } from "@public/fonts/MNCelesta/MNCelesta";
-import { MintBit } from "@public/fonts/Mintbit/MintBit";
-import { MintSans } from "@public/fonts/MintSans/MintSans";
-import { MintTriangles } from "@public/fonts/MintTriangles/MintTriangles";
+import { MNVaria } from "@/fonts/MNVaria/MNVaria";
+import { MNCelesta } from "@/fonts/MNCelesta/MNCelesta";
+import { MintBit } from "@/fonts/Mintbit/MintBit";
+import { MintSans } from "@/fonts/MintSans/MintSans";
+import { MintTriangles } from "@/fonts/MintTriangles/MintTriangles";
 import FontSection from "./FontSection";
-import { MNCovert } from "@public/fonts/MNCovert/MNCovert";
-import { MNMarkow } from "@public/fonts/MNMarkow/MNMarkow";
+import { MNCovert } from "@/fonts/MNCovert/MNCovert";
+import { MNMarkow } from "@/fonts/MNMarkow/MNMarkow";
 
 export async function generateMetadata() {
 	const t = await getTranslations("FONTS");

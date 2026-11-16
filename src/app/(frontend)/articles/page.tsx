@@ -6,7 +6,7 @@ import Link from "next/link";
 import Pagination from "@/components/gallery/Pagination";
 import FadingImage from "@/components/ui/FadingImage";
 import { Fragment } from "react";
-import { MNCelesta } from "@public/fonts/MNCelesta/MNCelesta";
+import { MNCelesta } from "@/fonts/MNCelesta/MNCelesta";
 import { GalleryTransitionProvider } from "../../../components/gallery/GalleryTransitionContext";
 
 export async function generateMetadata() {

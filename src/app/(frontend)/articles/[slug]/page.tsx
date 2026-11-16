@@ -2,7 +2,7 @@ import configPromise from "@payload-config";
 import { getPayload } from "payload";
 import { draftMode } from "next/headers";
 import { cache, Fragment, ViewTransition } from "react";
-import { MNCelesta } from "@public/fonts/MNCelesta/MNCelesta";
+import { MNCelesta } from "@/fonts/MNCelesta/MNCelesta";
 
 import type { Article as ArticleType } from "@/payload-types";
 
