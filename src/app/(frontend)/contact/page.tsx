@@ -38,6 +38,7 @@ export default async function Page() {
 						height={3238}
 						alt=""
 						hideSpinner
+						loading="eager"
 						className="absolute right-1/8 bottom-0 sm:bottom-auto h-full pt-6 w-auto md:w-1/3 max-w-md md:h-auto drop-shadow-2xl drop-shadow-neutral-950/75"
 					/>
 				</div>

@@ -104,7 +104,7 @@ export default function Form() {
 						animate={{ opacity: 1, transition: { ease: "linear", duration: 0.2 } }}
 						exit={{ opacity: 0, transition: { ease: "linear", duration: 0.1 } }}
 						key="faq"
-						className="w-full min-h-113 px-6 xl:px-9 py-9 flex flex-col justify-center text-center"
+						className="w-full min-h-113 px-6 xl:px-9 py-9 flex flex-col justify-center text-center overflow-hidden"
 					>
 						<h2>
 							{t("Mina.heading")}
