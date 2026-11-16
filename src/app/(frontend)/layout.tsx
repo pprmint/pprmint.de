@@ -20,7 +20,7 @@ import { TooltipProvider } from "@radix-ui/react-tooltip";
 import TransitionProvider from "./transitionProvider";
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://pprmint.de"),
+	metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'),
 	title: {
 		template: `%s • pprmint.`,
 		default: `pprmint.`,
