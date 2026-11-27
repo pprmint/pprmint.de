@@ -24,76 +24,14 @@
 	@import "tailwindcss/utilities.css";
 }
 
-// #cursed
-@font-face {
-	font-family: "Basier Square";
-	src: url("/fonts/BasierSquare/basiersquare-regular-webfont.woff2") format("woff2");
-	font-weight: 400;
-	font-style: normal;
-}
-@font-face {
-	font-family: "Basier Square";
-	src: url("/fonts/BasierSquare/basiersquare-regularitalic-webfont.woff2") format("woff2");
-	font-weight: 400;
-	font-style: italic;
-}
-@font-face {
-	font-family: "Basier Square";
-	src: url("/fonts/BasierSquare/basiersquare-bold-webfont.woff2") format("woff2");
-	font-weight: 700;
-	font-style: normal;
-}
-@font-face {
-	font-family: "Basier Square";
-	src: url("/fonts/BasierSquare/basiersquare-bolditalic-webfont.woff2") format("woff2");
-	font-weight: 700;
-	font-style: italic;
-}
-@font-face {
-	font-family: "Basier Square Mono";
-	src: url("/fonts/BasierSquare/Mono/basiersquaremono-regular-webfont.woff2") format("woff2");
-	font-weight: 400;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: "MN Celesta";
-	src:
-		url("/fonts/MNCelesta/MNCelesta-Regular.woff2") format("woff2"),
-		url("/fonts/MNCelesta/MNCelesta-Regular.woff") format("woff");
-	font-weight: 400;
-	font-display: swap;
-	font-style: normal;
-}
-@font-face {
-	font-family: "MN Celesta";
-	src:
-		url("/fonts/MNCelesta/MNCelesta-Italic.woff2") format("woff2"),
-		url("/fonts/MNCelesta/MNCelesta-Italic.woff") format("woff");
-	font-weight: 400;
-	font-display: swap;
-	font-style: italic;
-}
-@font-face {
-	font-family: "MN Varia";
-	src: url("/fonts/MNVaria/MNVariaWIP-VariableVF.woff2") format("woff2");
-	font-weight: 100 900;
-	font-display: swap;
-	font-style: normal;
-}
-
 :root {
-	--font-body: "Basier Square", system-ui;
-	--font-mono: "Basier Square Mono", "Cascadia Code", monospace;
-	--font-display: "MN Varia", sans-serif;
-	--font-serif: "MN Celesta", serif;
+	--font-body: "Basier Square", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Helvetica, "Segoe UI Variable", "Segoe UI", system-ui;
+	--font-mono: "Basier Square Mono", "SF Mono", "JetBrains Mono", "Cascadia Code", monospace;
 	--base-body-size: 16;
 }
 
 html {
 	font-size: 16px;
-	font-variant-ligatures: normal;
-	font-feature-settings: "liga", "cv04", "ss02", "cv16", "cv20";
 }
 
 html,
@@ -114,6 +52,10 @@ h5,
 h6 {
 	font-family: var(--font-display);
 	font-weight: normal;
+}
+
+code {
+	font-family: var(--font-mono);
 }
 
 .card__title {
